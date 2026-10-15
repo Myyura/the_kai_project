@@ -27,7 +27,7 @@ The Kai Project は、日本の大学院入試の過去問・公開解答・受�
 
 <p align="center">
   <a href="https://runjp.com/docs/tokyo-university/mathematical_sciences/ms/2024/ms_202308_A_4#kai">
-    <img src="./static/img/solution-page.jpg" alt="The Kai Project の解答ページ" width="1200">
+    <img src="./.github/assets/solution-page.jpg" alt="The Kai Project の解答ページ" width="1200">
   </a>
 </p>
 

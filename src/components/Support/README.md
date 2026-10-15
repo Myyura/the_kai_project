@@ -1,7 +1,7 @@
 # Support assets
 
-Put partner logos and payment QR images in this directory, then enable their
-entries in `src/data/supportConfig.js`.
+Put partner logos and payment QR images in `static/img/support/`, then enable
+their entries in `src/data/supportConfig.js`.
 
 Current published assets:
 

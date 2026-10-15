@@ -36,5 +36,7 @@ yarn-error.log*
 .github/*
 !.github/workflows/
 !.github/workflows/*.yml
+!.github/assets/
+!.github/assets/solution-page.jpg
 /kai_study_app
 /.vscode

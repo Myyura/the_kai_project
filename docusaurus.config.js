@@ -72,7 +72,8 @@ function safeRspackJsMinifierPlugin() {
           format: {
             ecma: 5,
             comments: false,
-            ascii_only: true,
+            // Keep CJK text as UTF-8; SWC still escapes JavaScript separators.
+            ascii_only: false,
             quote_keys: true,
             keep_quoted_props: true,
           },

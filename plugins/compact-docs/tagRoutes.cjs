@@ -1,8 +1,6 @@
 const {
   buildPermalink,
   getSubsubjectShortId,
-  getTopicShortId,
-  kebabCase,
 } = require('../../scripts/generate-docusaurus-tags');
 
 function unique(values) {
@@ -24,21 +22,17 @@ function getVisibleDocIds(candidateIds, docsById) {
   return listedIds.length > 0 ? listedIds : ids;
 }
 
-function toBrowseDocument(doc, apiDocument) {
+function toBrowseDocument(doc, apiDocument, parentTopicIds) {
   return {
     id: doc.id,
     title: doc.title,
     sidebarLabel: apiDocument.sidebar_label || null,
     permalink: doc.permalink,
     universityId: apiDocument.university_id || null,
-    universityName: apiDocument.university_name || null,
-    departmentId: apiDocument.department_id || null,
     departmentName: apiDocument.department_name || null,
-    programId: apiDocument.program_id || null,
     programName: apiDocument.program_name || null,
     year: apiDocument.year || null,
-    topicIds: apiDocument.topic_ids || [],
-    subsubjectIds: apiDocument.subsubject_ids || [],
+    topicIds: (apiDocument.topic_ids || []).filter((id) => parentTopicIds.has(id)),
   };
 }
 
@@ -73,12 +67,15 @@ function buildVersionParentPages({version, apiDocuments, taxonomy}) {
     const subsubject = taxonomy.subsubjects[subsubjectId];
     const subjectId = subsubject.subject || 'General';
     const permalink = `${version.tagsPath}${buildPermalink('subsubject', subsubjectId, taxonomy)}`;
+    const parentTopicIds = new Set(Object.entries(taxonomy.topics)
+      .filter(([, topic]) => topic.subsubject === subsubjectId)
+      .map(([id]) => id));
     const documents = {};
 
     for (const docId of docIds) {
       const doc = docsById.get(docId);
       const apiDocument = apiById.get(docId);
-      if (doc && apiDocument) documents[docId] = toBrowseDocument(doc, apiDocument);
+      if (doc && apiDocument) documents[docId] = toBrowseDocument(doc, apiDocument, parentTopicIds);
     }
 
     const directDocIds = docIds.filter((docId) => (
@@ -87,20 +84,16 @@ function buildVersionParentPages({version, apiDocuments, taxonomy}) {
       ))
     ));
 
-    const topics = Object.entries(taxonomy.topics)
-      .filter(([, topic]) => topic.subsubject === subsubjectId)
-      .map(([topicId, topic]) => {
-        const topicDocIds = docIds.filter((docId) => (
-          (apiById.get(docId)?.topic_ids || []).includes(topicId)
-        ));
-        return {
-          id: topicId,
-          shortId: getTopicShortId(topicId, topic),
-          count: topicDocIds.length,
-          anchor: `topic-${kebabCase(getTopicShortId(topicId, topic))}`,
-          docIds: topicDocIds,
-        };
-      })
+    const topics = Array.from(parentTopicIds, (topicId) => {
+      const topicDocIds = docIds.filter((docId) => (
+        (apiById.get(docId)?.topic_ids || []).includes(topicId)
+      ));
+      return {
+        id: topicId,
+        count: topicDocIds.length,
+        docIds: topicDocIds,
+      };
+    })
       .filter((topic) => topic.count > 0)
       .sort((left, right) => right.count - left.count || left.id.localeCompare(right.id, 'en'));
 

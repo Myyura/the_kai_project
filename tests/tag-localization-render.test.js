@@ -7,6 +7,8 @@ const babel = require('@babel/core');
 const React = require('react');
 const {renderToStaticMarkup} = require('react-dom/server');
 const {parseFragment} = require('parse5');
+const {buildVersionParentPages} = require('../plugins/compact-docs/tagRoutes.cjs');
+const taxonomy = require('../src/data/tagTaxonomy');
 
 let language = 'zh';
 const cache = new Map();
@@ -87,14 +89,19 @@ test('aggregate topic sidebar and exam-row chips use the same localized labels a
   const subsubjectId = 'Mathematics.Linear-Algebra';
   const topicIds = ['Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors', 'Mathematics.Linear-Algebra.Matrix-Diagonalization'];
   const permalink = resolveTagBrowseTarget(subsubjectId).href;
-  const tag = {
-    label: subsubjectId, permalink, count: 1, allTagsPath: '/docs/tags',
-    browse: {
-      directDocIds: [], docIds: ['example'],
-      topics: topicIds.map((id) => ({id, shortId: id.split('.').pop(), count: 1, anchor: getTopicAnchorId(id), docIds: ['example']})),
-      documents: {example: {id: 'example', title: '2025年 線形代数', permalink: '/docs/example', universityId: 'tokyo-university', topicIds}},
+  const [{tag}] = buildVersionParentPages({
+    version: {
+      tagsPath: '/docs/tags',
+      docs: [{id: 'example', title: '2025年 線形代数', permalink: '/docs/example'}],
     },
-  };
+    taxonomy,
+    apiDocuments: [{
+      doc_id: 'example',
+      university_id: 'tokyo-university',
+      subsubject_ids: [subsubjectId],
+      topic_ids: topicIds,
+    }],
+  });
   for (language of ['zh', 'ja', 'en']) {
     const html = renderToStaticMarkup(React.createElement(DocTagPage, {tag}));
     for (const id of topicIds) {

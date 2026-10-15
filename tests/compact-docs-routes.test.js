@@ -100,6 +100,28 @@ test('source paths retain docs whose Docusaurus IDs lose a numeric prefix', () =
   assert.deepEqual(page.tag.browse.topics[0].docIds, [loadedDocument.id]);
 });
 
+test('multi-subject documents retain only the current parent page topics', () => {
+  const topicByParent = {
+    'Mathematics.Calculus': 'Mathematics.Calculus.Integration',
+    'Mathematics.Linear-Algebra': 'Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors',
+  };
+  const pages = buildVersionParentPages({
+    version: {tagsPath: '/docs/tags', docs: [doc('mixed', [])]},
+    taxonomy,
+    apiDocuments: [apiDoc('mixed', {
+      subsubjects: Object.keys(topicByParent),
+      topics: Object.values(topicByParent),
+    })],
+  });
+
+  assert.equal(pages.length, 2);
+  for (const page of pages) {
+    assert.deepEqual(page.tag.browse.documents.mixed.topicIds, [topicByParent[page.id]]);
+    assert.deepEqual(page.tag.browse.topics.map((topic) => topic.id), [topicByParent[page.id]]);
+    assert.deepEqual(page.tag.browse.topics[0].docIds, ['mixed']);
+  }
+});
+
 test('route rewrite removes separate topic and school pages and replaces all parent routes', () => {
   const parentPage = {
     path: '/docs/tags/subsubject/mathematics/calculus',
@@ -178,7 +200,6 @@ test('real content projects every active subsubject and topic onto parent pages'
         .map((document) => document.doc_id);
       assert.deepEqual(new Set(topic.docIds), new Set(expectedTopicDocIds));
       assert.equal(topic.count, expectedTopicDocIds.length);
-      assert.match(topic.anchor, /^topic-[a-z0-9-]+$/);
     }
   }
 });

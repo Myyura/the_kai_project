@@ -28,7 +28,7 @@ Project website: [Japanese graduate school entrance exam answers](https://runjp.
 
 <p align="center">
   <a href="https://runjp.com/docs/tokyo-university/mathematical_sciences/ms/2024/ms_202308_A_4#kai">
-    <img src="./static/img/solution-page.jpg" alt="A solution page in The Kai Project" width="1200">
+    <img src="./.github/assets/solution-page.jpg" alt="A solution page in The Kai Project" width="1200">
   </a>
 </p>
 

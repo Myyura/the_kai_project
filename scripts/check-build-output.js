@@ -5,10 +5,10 @@ const path = require('path');
 const zlib = require('zlib');
 const {recoveryAsset, mathStyleAsset} = require('./shared-browser-assets');
 const {PUBLISHED_CONTENT_SCHEMA_VERSION} = require('./api-data');
+const {assertPublishedContentBudget} = require('./published-content-budget');
 
 const BUILD_DIR = path.resolve(__dirname, '..', 'build');
 const MAIN_GZIP_BUDGET = 512 * 1024;
-const PUBLISHED_CONTENT_BUDGET = 14 * 1024 * 1024;
 // The snapshot embeds Markdown-referenced image-hosting assets as well as text.
 const CONTENT_EXPORT_GZIP_BUDGET = 64 * 1024 * 1024;
 const TOTAL_BUILD_BUDGET = 900 * 1024 * 1024;
@@ -199,9 +199,13 @@ for (const file of publishedContentFiles) {
 if (contentManifest.documentCount !== publishedContentFiles.length) {
   throw new Error(`Published document manifest lists ${contentManifest.documentCount}, found ${publishedContentFiles.length} files.`);
 }
-if (publishedContentBytes > PUBLISHED_CONTENT_BUDGET) {
-  throw new Error(`Published document content ${formatMiB(publishedContentBytes)} exceeds ${formatMiB(PUBLISHED_CONTENT_BUDGET)}.`);
+if (publishedContentFiles.length !== apiDocuments.length) {
+  throw new Error(`Expected ${apiDocuments.length} published documents from the source catalog, found ${publishedContentFiles.length} files.`);
 }
+const publishedContentBudget = assertPublishedContentBudget(
+  publishedContentBytes,
+  apiDocuments.length,
+);
 if (totalBuildBytes > TOTAL_BUILD_BUDGET) {
   throw new Error(`Total build output ${formatMiB(totalBuildBytes)} exceeds ${formatMiB(TOTAL_BUILD_BUDGET)}.`);
 }
@@ -297,7 +301,8 @@ if (mainGzip > MAIN_GZIP_BUDGET) {
 console.log(
   `Build budgets passed: ${htmlFiles.length} HTML files reference `
   + `${mainBundles.length} complete main bundles (largest ${formatMiB(mainGzip)}), `
-  + `published content ${formatMiB(publishedContentBytes)} across ${publishedContentFiles.length} files, `
+  + `published content ${formatMiB(publishedContentBytes)} across ${publishedContentFiles.length} files `
+  + `(budget ${formatMiB(publishedContentBudget)}), `
   + `Kai content export ${formatMiB(contentExportGzip)} across ${contentExport.documents.length} documents `
   + `and ${contentExport.assets.length} assets, tag routes ${subsubjectTagHtmlFiles.length} subsubjects `
   + `with no separate topic or school tag pages, total build ${formatMiB(totalBuildBytes)}.`,

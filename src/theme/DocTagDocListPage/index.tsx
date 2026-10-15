@@ -50,21 +50,15 @@ interface CompactBrowseDocument {
   sidebarLabel?: string | null;
   permalink: string;
   universityId?: string | null;
-  universityName?: string | null;
-  departmentId?: string | null;
   departmentName?: string | null;
-  programId?: string | null;
   programName?: string | null;
   year?: number | null;
   topicIds?: string[];
-  subsubjectIds?: string[];
 }
 
 interface CompactBrowseTopic {
   id: string;
-  shortId: string;
   count: number;
-  anchor: string;
   docIds: string[];
 }
 
