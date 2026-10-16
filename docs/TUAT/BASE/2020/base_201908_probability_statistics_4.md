@@ -23,7 +23,7 @@ tags:
 
 (4) 6回引いたとき、A が初めて原点に戻る確率を求めよ。
 
-![原点から始まる動点A](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/TUAT/BASE/2020/base_201908_probability_axis.png)
+![原点から始まる動点A](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/TUAT/BASE/2020/base_201908_probability_axis.png)
 
 #### 题目描述
 

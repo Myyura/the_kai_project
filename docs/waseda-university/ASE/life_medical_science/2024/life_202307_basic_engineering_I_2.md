@@ -21,7 +21,7 @@ tags:
 
 **2-2)** $T_1<T_2$ の二つの熱源と $n$ mol の理想気体による図のカルノーサイクルを考える。(a) A→B：$T_2$ で等温膨張、(b) B→C：断熱膨張、(c) C→D：$T_1$ で等温圧縮、(d) D→A：断熱圧縮。気体が外部にした仕事、気体が吸収した熱を正とし、断熱過程では $pV^\gamma$ が一定（$\gamma>1$）とする。
 
-![図1 圧力と体積の関係](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/waseda-university/ASE/life_medical_science/2024/life_202307_basic1_2_carnot.png)
+![図1 圧力と体積の関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/waseda-university/ASE/life_medical_science/2024/life_202307_basic1_2_carnot.png)
 
 2-2-1) 各過程の仕事と熱を求めよ。2-2-2) 吸収熱に対する正味仕事の比である熱効率 $\eta$ を $T_1,T_2$ で表せ。
 

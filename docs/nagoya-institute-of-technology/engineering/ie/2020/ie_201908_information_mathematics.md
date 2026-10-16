@@ -61,7 +61,7 @@ $$
 2. 任意の木 $T=(V,E)$ から任意の辺 $e$ を除いた $T-e=(V,E\setminus\{e\})$ が非連結となることを、背理法で証明せよ。
 3. 下図の重み付き無向グラフの最小全域木を $T_{\min}$ とする。$T_{\min}$ で頂点 D に接続する辺をすべて列挙せよ。辺は両端のラベルを要素とする集合で表せ。
 
-![重み付き無向グラフ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/nagoya-institute-of-technology/engineering/ie/2020/nitech_201908_info_28_graph.png)
+![重み付き無向グラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-institute-of-technology/engineering/ie/2020/nitech_201908_info_28_graph.png)
 
 #### 题目描述
 
@@ -172,7 +172,7 @@ $$
 
 最大次数の最大値は5で、星型の木 $K_{1,5}$ が実現する。最小値は2で、道 $P_6$ が実現する。最大次数が1以下のグラフは六頂点で連結になれない。
 
-![六頂点の星型の木と道](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/nagoya-institute-of-technology/engineering/ie/2020/nitech_201908_info_28_trees.svg)
+![六頂点の星型の木と道](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-institute-of-technology/engineering/ie/2020/nitech_201908_info_28_trees.svg)
 
 ### III (2)
 

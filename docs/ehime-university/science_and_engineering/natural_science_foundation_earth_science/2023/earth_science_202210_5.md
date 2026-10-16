@@ -19,7 +19,7 @@ tags:
 
 1番目と2番目の格子面で反射する X 線の経路差 $l_1+l_2$ は (ア) である。(ア) が $\lambda$ の整数倍なら、反射 X 線の合成波の振幅は最も (イ) くなる。1番目と $n$ 番目の格子面で反射する場合、経路差は (ア) の (ウ) 倍になる。この値が波長の整数倍でも合成波の振幅は最も (イ) くなる。これを一般化した式 (ア) $=$ (エ) は Bragg の式と呼ばれる。
 
-![結晶面におけるX線の反射](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/ehime-university/science_and_engineering/natural_science_foundation_earth_science/2023/earth_science_202210_5_fig1.png)
+![結晶面におけるX線の反射](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/ehime-university/science_and_engineering/natural_science_foundation_earth_science/2023/earth_science_202210_5_fig1.png)
 
 ### 問2
 
@@ -39,7 +39,7 @@ $$
 
 ④ ③の測定条件をどのように改良すれば $a,b,c$ をすべて決定できるか、一案を述べよ。
 
-![粉末セリア試料の二次元X線回折パターン撮影](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/ehime-university/science_and_engineering/natural_science_foundation_earth_science/2023/earth_science_202210_5_fig2.png)
+![粉末セリア試料の二次元X線回折パターン撮影](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/ehime-university/science_and_engineering/natural_science_foundation_earth_science/2023/earth_science_202210_5_fig2.png)
 
 #### 题目描述
 

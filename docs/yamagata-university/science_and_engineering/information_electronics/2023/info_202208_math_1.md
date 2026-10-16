@@ -68,7 +68,7 @@ $$
 
 $E=\{(u,v)\mid 0\le u\le a,\ 0\le v\le a\}$ であり、境界を含む一辺 $a$ の正方形である。
 
-![変換後の積分領域](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/yamagata-university/science_and_engineering/information_electronics/2023/info_202208_math_1_region.svg)
+![変換後の積分領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/yamagata-university/science_and_engineering/information_electronics/2023/info_202208_math_1_region.svg)
 
 #### (b)
 

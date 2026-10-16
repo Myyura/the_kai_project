@@ -15,7 +15,7 @@ tags:
 
 長さ $l_1$ の質量を無視できる棒の上端を固定し、下端に質量 $m_1$ の重りを付ける。そこに長さ $l_2$ の軽い棒を連結し、その下端に質量 $m_2$ の重りを付けた2自由度系を考える。重力加速度を $g$、一般化座標を図の $\theta_1,\theta_2$ とする。$x$ 軸は右向き、$y$ 軸は上向きで、角度は鉛直下向きから測る。
 
-![二重振り子と座標](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/utsunomiya-university/regional_development/mechanical_intelligence/2023/mech_202208_double_pendulum.png)
+![二重振り子と座標](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/utsunomiya-university/regional_development/mechanical_intelligence/2023/mech_202208_double_pendulum.png)
 
 (1) 重りの位置 $\boldsymbol p_1=(x_1,y_1),\boldsymbol p_2=(x_2,y_2)$ を一般化座標で表せ。
 

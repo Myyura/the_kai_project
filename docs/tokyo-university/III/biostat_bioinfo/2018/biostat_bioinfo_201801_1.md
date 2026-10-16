@@ -18,17 +18,17 @@ tags:
 
 ### 原問題
 
-![東京大学公式問題 第1問 原卷 2 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p1.png)
+![東京大学公式問題 第1問 原卷 2 ページ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p1.png)
 
-![東京大学公式問題 第1問 原卷 3 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p2.png)
+![東京大学公式問題 第1問 原卷 3 ページ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p2.png)
 
-![東京大学公式問題 第1問 原卷 4 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p3.png)
+![東京大学公式問題 第1問 原卷 4 ページ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p3.png)
 
-![東京大学公式問題 第1問 原卷 5 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p4.png)
+![東京大学公式問題 第1問 原卷 5 ページ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p4.png)
 
-![東京大学公式問題 第1問 原卷 6 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p5.png)
+![東京大学公式問題 第1問 原卷 6 ページ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p5.png)
 
-![東京大学公式問題 第1問 原卷 7 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p6.png)
+![東京大学公式問題 第1問 原卷 7 ページ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p6.png)
 
 ### 題意の要約
 

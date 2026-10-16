@@ -252,7 +252,7 @@ $$
 
 $x=0,L/2,L$ で零となり、$x=L/4,3L/4$ で最大値 $2/L$ をとる。井戸の外では零である。
 
-![n=2 の確率密度。横軸は x/L、縦軸は L|ψ₂(x)|²。](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/kyushu-university/science/phys/2018/phys_201708_III_A_density.svg)
+![n=2 の確率密度。横軸は x/L、縦軸は L|ψ₂(x)|²。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/science/phys/2018/phys_201708_III_A_density.svg)
 
 #### 問6
 
