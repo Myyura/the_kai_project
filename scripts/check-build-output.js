@@ -9,8 +9,8 @@ const {assertPublishedContentBudget} = require('./published-content-budget');
 
 const BUILD_DIR = path.resolve(__dirname, '..', 'build');
 const MAIN_GZIP_BUDGET = 512 * 1024;
-// The snapshot embeds Markdown-referenced image-hosting assets as well as text.
-const CONTENT_EXPORT_GZIP_BUDGET = 64 * 1024 * 1024;
+// The complete offline snapshot includes referenced images of varying sizes.
+// Count it toward the total build budget instead of imposing a fixed file cap.
 const TOTAL_BUILD_BUDGET = 900 * 1024 * 1024;
 const DOCS_TAGS_DIR = path.join(BUILD_DIR, 'docs', 'tags');
 
@@ -287,9 +287,6 @@ if (contentExport.counts?.assets !== contentExport.assets.length) {
 const exportedDocumentUuids = new Set(contentExport.documents.map((document) => document.documentUuid));
 if (exportedDocumentUuids.size !== contentExport.documents.length) {
   throw new Error('Kai content export contains duplicate document UUIDs.');
-}
-if (contentExportGzip > CONTENT_EXPORT_GZIP_BUDGET) {
-  throw new Error(`Kai content export ${formatMiB(contentExportGzip)} exceeds ${formatMiB(CONTENT_EXPORT_GZIP_BUDGET)}.`);
 }
 if (mainGzip > MAIN_GZIP_BUDGET) {
   throw new Error(

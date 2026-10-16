@@ -40,6 +40,13 @@ If any referenced image cannot be read or downloaded, the command fails and
 prints its source and the affected documents. It does not replace the previous
 export with a partial snapshot. A successful export is written atomically.
 
+The export has no separate fixed size ceiling: its size grows with the complete
+document and image collection. `yarn build:check` includes it in the 900 MiB total
+build budget and still validates its gzip encoding, schema, collection counts,
+and unique document UUIDs. The separate published-document JSON budget
+(`document count × 6 KiB`) covers text API artifacts, not this image-inclusive
+snapshot.
+
 ## Top-level format
 
 The gzip stream contains one UTF-8 JSON object:
