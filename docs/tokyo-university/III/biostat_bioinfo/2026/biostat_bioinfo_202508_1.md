@@ -24,8 +24,25 @@ tags:
 
 ## **Description**
 
-### 題意の要約
+### 原問題
 
+![東京大学公式問題 第1問 原卷 2 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2026/biostat_bioinfo_202508_1_p1.png)
+
+![東京大学公式問題 第1問 原卷 3 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2026/biostat_bioinfo_202508_1_p2.png)
+
+![東京大学公式問題 第1問 原卷 4 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2026/biostat_bioinfo_202508_1_p3.png)
+
+![東京大学公式問題 第1問 原卷 5 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2026/biostat_bioinfo_202508_1_p4.png)
+
+![東京大学公式問題 第1問 原卷 6 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2026/biostat_bioinfo_202508_1_p5.png)
+
+![東京大学公式問題 第1問 原卷 7 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2026/biostat_bioinfo_202508_1_p6.png)
+
+![東京大学公式問題 第1問 原卷 8 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2026/biostat_bioinfo_202508_1_p7.png)
+
+![東京大学公式問題 第1問 原卷 9 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2026/biostat_bioinfo_202508_1_p8.png)
+
+### 題意の要約
 
 次の15問について正しい選択肢を一つ選ぶ。
 
@@ -65,9 +82,25 @@ tags:
 14. 密度 $f(t)=\lambda\gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}$ のワイブル分布について $\Pr(T>t)$ を求める。
 15. 2群ランダム化試験の必要標本数計算で、ある設定値を半分にすると必要人数が4倍になった。その設定値を選ぶ。
 
-### 题目描述
+#### 题目描述
 
-本题含15道单选题，依次考查：均值、中位数和众数；由汇总统计量可计算的变异系数；样本均值的标准误；三点分布的方差；指数复合函数求导；随机变量缩放后的密度；离散条件概率；独立随机变量线性组合的矩；组合计数；协方差；正态分布下置信区间下限为正的概率；队列研究的比值比；两样本比例差检验的功效；Weibull 生存函数；效应量与样本量的平方反比关系。
+本题有15道单选题，选项及图表见上方原题图。
+
+1. 10名学生的得分为 $9,1,10,5,2,7,3,8,4,8$，求均值、中位数和众数。
+2. 已知考试的最低分、最高分、均值、标准差和人数，判断能否计算中位数、四分位距、变异系数、95百分位数或偏差值。
+3. 由独立样本 $x_1,\ldots,x_n$ 选择计算样本均值标准误的公式。
+4. $P(X=1)=p$、$P(X=2)=q$、$P(X=3)=1-p-q$，求 $X$ 的方差。
+5. 求 $\exp(1-x^3)$ 关于 $x$ 的一阶导数。
+6. 原题给出 $f_X(x)=\frac59(x^3-1)$（$-3\le x\le3$），令 $Y=X/3$，选择按变量变换得到的式子与取值范围。该给定函数是否满足概率密度条件，见答案中的说明。
+7. 壶内红球的编号1、2、3分别有2、3、1个，白球分别有1、0、3个。球的大小和手感相同，随机抽一个，判断编号、颜色的边缘概率、联合概率和条件概率叙述。
+8. 独立的 $X,Y$ 满足 $E[X]=\mu$、$V(X)=\sigma^2$、$E[Y]=3\mu$、$V(Y)=2\sigma^2$，求 $X-2Y$ 的期望和方差。
+9. 将编号1至10的10个球分到 A、B 两组，每组5个。求 A 组最大编号至少为8的分法数。
+10. $X,Y$ 的标准差分别为6、7，相关系数为0.5，求协方差。
+11. 统计量 $T$ 近似服从均值1.96、标准误1的正态分布，标准误已知。求由观测值构造的双侧95%置信区间下限超过0的概率。
+12. 前瞻研究中暴露组有45名发病者、3850名未发病者；未暴露组有15名发病者、2310名未发病者。以未暴露组为基准，求发病优势比。
+13. 两组事件发生比例期望为 $p_1,p_2$，样本量为 $n_1,n_2$。记 $z_\alpha$ 为标准正态分布上侧 $\alpha$ 分位点，$\Phi$ 为其分布函数。以单侧显著性水平 $\alpha$ 检验两组比例差大于0，选择功效函数 $\operatorname{power}(p_1,p_2)$。
+14. Weibull 分布的密度为 $f(t)=\lambda\gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}$，求生存概率 $P(T>t)$。
+15. 计划比较新治疗与安慰剂对症状评分较基线变化量的随机化试验。某项设定值减半时，所需人数变为4倍；从第一类错误概率、第二类错误概率、预期组间差、变化量的标准差和分配比中选择该项。
 
 ## **Kai**
 
@@ -148,7 +181,7 @@ $$
 
 となり、**形式的な変数代換**に対応する選択肢は $\boxed{\text{オ}}$ である。
 
-ただし、公式 PDF p.4 に印刷された $f_X$ 自体に問題がある。$f_X(0)=-5/9<0$ で、
+ただし、与えられた $f_X$ は確率密度の条件を満たさない。$f_X(0)=-5/9<0$ で、
 
 $$
 \int_{-3}^{3}\frac59(x^3-1)\,dx=-\frac{10}{3}\ne1.

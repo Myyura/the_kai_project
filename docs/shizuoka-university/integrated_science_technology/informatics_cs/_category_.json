@@ -1,0 +1,11 @@
+{
+  "label": "情報学専攻 情報科学コース",
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/shizuoka-university-integrated_science_technology-informatics_cs"
+  },
+  "key": "shizuoka-university-integrated_science_technology-informatics_cs",
+  "customProps": {
+    "catalogType": "program"
+  }
+}

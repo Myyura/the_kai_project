@@ -17,9 +17,25 @@ tags:
 
 ## **Description**
 
-### 題意の要約
+### 原問題
 
-[公式問題 PDF](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2020/05/33d0876fac7c7139408cdba66732a39b-1.pdf)
+![東京大学公式問題 第1問 原卷 2 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2020/biostat_bioinfo_201908_1_p1.png)
+
+![東京大学公式問題 第1問 原卷 3 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2020/biostat_bioinfo_201908_1_p2.png)
+
+![東京大学公式問題 第1問 原卷 4 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2020/biostat_bioinfo_201908_1_p3.png)
+
+![東京大学公式問題 第1問 原卷 5 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2020/biostat_bioinfo_201908_1_p4.png)
+
+![東京大学公式問題 第1問 原卷 6 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2020/biostat_bioinfo_201908_1_p5.png)
+
+![東京大学公式問題 第1問 原卷 7 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2020/biostat_bioinfo_201908_1_p6.png)
+
+![東京大学公式問題 第1問 原卷 8 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2020/biostat_bioinfo_201908_1_p7.png)
+
+![東京大学公式問題 第1問 原卷 9 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2020/biostat_bioinfo_201908_1_p8.png)
+
+### 題意の要約
 
 1. 得点 $33,45,47,52,53,54,54,55,55,55,57,58,61,62,62,63,65,65,65,73,76,77,82,88,94$ の中央値。
 2. VAS 変化量の箱ひげ図 A, B を比較する（PDF p.3）。外れ値も範囲に含める。
@@ -42,7 +58,30 @@ tags:
 19. $\widehat{\mathrm{OR}}=A_1B_0/(B_1A_0)$、$\operatorname{Var}(\log\widehat{\mathrm{OR}})\simeq1/A_1+1/B_1+1/A_0+1/B_0$ から95%信頼区間。
 20. 原図の五つの ROC 曲線から最良の検査を選ぶ（PDF p.9）。本文と軸ラベルの説明が逆転しているため、図の縦軸「感度」・横軸「1−特異度」に従う。
 
-### 题目描述
+#### 题目描述
+
+本题有20道选择题，选项及图表见上方原题图。
+
+1. 得分为 $33,45,47,52,53,54,54,55,55,55,57,58,61,62,62,63,65,65,65,73,76,77,82,88,94$，求中位数。
+2. 随机化两组试验用 VAS 测量治疗前后症状。比较图中 A、B 组变化量的偏态、第三四分位数、四分位距和极差，选择正确叙述；极差包括离群点。
+3. $E[X]=2$、$\operatorname{SD}(X)=4$，令 $Y=2X^2$，求 $E[Y]$。
+4. 身高 $X$ 服从均值160 cm、标准差10 cm的正态分布，求 $P(X\ge170)$。
+5. $\operatorname{Corr}(X_1,Y_1)=\rho$，求 $X_2=X_1/3$ 与 $Y_2=Y_1+5$ 的相关系数。
+6. 症状分数满足 $P(X=1)=0.2$、$P(X=2)=0.5$、$P(X=3)=0.3$。100名患者独立服从此分布，近似求平均分不超过2的概率。
+7. 4名患者以1:1概率独立随机分到两组，求两组人数不相等的概率。
+8. 每位对象独立回答问卷的概率为0.99，所有人均回答的概率为0.5，近似求总人数。可用 $\ln p\simeq p-1$（$p\simeq1$）、$\ln0.5\simeq-0.69$。
+9. 各地区游客人数的均值和标准差均为50万人。若每个地区的游客数都变为原来的2倍，变异系数变为多少倍？
+10. 二元随机变量的联合概率为 $P(X=x,Y=y)=p_{xy}$，其中 $x,y\in\{0,1\}$。判断给出的联合概率、边缘概率和条件概率关系。
+11. 两项相互独立、第一类错误概率均为0.05的检验，在原假设成立时至少一项显著的概率是多少？
+12. 基于正态近似的双侧置信区间，将置信水平由95%改为90%，区间宽度约变为原来的多少倍？
+13. 交叉试验比较同一受试者用实药和安慰剂时是否有症状。列联表按实药有/无症状分行、安慰剂有/无症状分列，依次为 $\left(\begin{smallmatrix}A_1&B_1\\A_0&B_0\end{smallmatrix}\right)$。行和为 $N_1,N_0$，列和为 $M_A,M_B$，总人数为 $N$。选择表示药物无效果的原假设。
+14. 5000名居民中40人患病，筛查的敏感度和特异度均为0.9，求预计阳性人数。
+15. 500名罕见肺病患者中20人合并肺癌；相同性别、年龄和吸烟史的一般人群肺癌比例为0.001。检验患者群发病比例更高时，选择检验统计量的正确分子与分母。
+16. 计划比较两种疗法发病比例的随机化试验。样本数、入组时长、显著性水平、一组发病比例及两组比例差中，哪一项不属于该比例检验功效计算的必要设定？
+17. 一年和两年的累计生存概率分别为0.60、0.36，求每年的死亡概率。
+18. Weibull 生存时间的分布函数为 $F(t)=1-e^{-(\lambda t)^\gamma}$，求概率密度。
+19. 暴露有/无分行、发病有/无分列的表为 $\left(\begin{smallmatrix}A_1&B_1\\A_0&B_0\end{smallmatrix}\right)$。对数优势比近似正态，且其方差为 $1/A_1+1/B_1+1/A_0+1/B_0$，求优势比 $A_1B_0/(B_1A_0)$ 的95%置信区间。
+20. 根据原图五条 ROC 曲线选择诊断性能最好的检验。原文的坐标轴说明与图上标签相反，按图中纵轴“敏感度”、横轴“1−特异度”理解。
 
 ## **Kai**
 ### (1-1)
@@ -173,3 +212,7 @@ $$
 ア. (a)
 
 なぜなら、感度と特異度がともに1に近いところを通っているから。
+
+## **Reference**
+
+- [東京大学大学院情報学環・学際情報学府 公式問題（PDF 2–9 ページ）](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2020/05/33d0876fac7c7139408cdba66732a39b-1.pdf)

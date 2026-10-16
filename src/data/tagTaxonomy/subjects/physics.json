@@ -1590,6 +1590,18 @@
       "labelZh": "多变过程",
       "labelJa": "ポリトロープ変化",
       "labelEn": "Polytropic Process"
+    },
+    "Physics.Mechanics.Newtonian-Gravitation": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "万有引力",
+      "labelJa": "万有引力",
+      "labelEn": "Newtonian Gravitation"
+    },
+    "Physics.Electromagnetism.Maxwell-Equations": {
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "麦克斯韦方程组",
+      "labelJa": "Maxwell方程式",
+      "labelEn": "Maxwell Equations"
     }
   }
 }

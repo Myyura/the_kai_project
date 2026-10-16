@@ -1,0 +1,11 @@
+{
+  "label": "統計科学専攻",
+  "position": 1,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "統計科学コース",
+      "统计科学"
+    ]
+  }
+}

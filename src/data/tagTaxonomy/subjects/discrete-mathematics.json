@@ -625,6 +625,12 @@
       "labelZh": "容斥原理",
       "labelJa": "包除原理",
       "labelEn": "Inclusion-Exclusion Principle"
+    },
+    "Discrete-Mathematics.Set-Theory.Equivalence-Relation": {
+      "subsubject": "Discrete-Mathematics.Set-Theory",
+      "labelZh": "等价关系",
+      "labelJa": "同値関係",
+      "labelEn": "Equivalence Relations"
     }
   }
 }

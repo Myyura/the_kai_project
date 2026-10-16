@@ -21,8 +21,25 @@ tags:
 
 ## **Description**
 
-### 題意の要約
+### 原問題
 
+![東京大学公式問題 第1問 原卷 2 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2025/biostat_bioinfo_202408_1_p1.png)
+
+![東京大学公式問題 第1問 原卷 3 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2025/biostat_bioinfo_202408_1_p2.png)
+
+![東京大学公式問題 第1問 原卷 4 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2025/biostat_bioinfo_202408_1_p3.png)
+
+![東京大学公式問題 第1問 原卷 5 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2025/biostat_bioinfo_202408_1_p4.png)
+
+![東京大学公式問題 第1問 原卷 6 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2025/biostat_bioinfo_202408_1_p5.png)
+
+![東京大学公式問題 第1問 原卷 7 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2025/biostat_bioinfo_202408_1_p6.png)
+
+![東京大学公式問題 第1問 原卷 8 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2025/biostat_bioinfo_202408_1_p7.png)
+
+![東京大学公式問題 第1問 原卷 9 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2025/biostat_bioinfo_202408_1_p8.png)
+
+### 題意の要約
 
 次の15問について正しい選択肢を一つ選ぶ。
 
@@ -81,9 +98,25 @@ tags:
 14. 2群比較の $t$ 検定で平均差5、両側 $p=0.05$ のとき、平均差の両側95%信頼区間を選ぶ。
 15. 仮説検定に関する記述から最も適切なものを選ぶ。
 
-### 题目描述
+#### 题目描述
 
-本题含15道单选题，依次考查：均值、中位数与偏态；偏差值与原始分数的换算；标准差和标准误；二点分布的方差；随机变量线性变换后的密度；求导；离散联合分布的条件概率；独立随机变量线性组合的期望与方差；组合计数；协方差；相关系数在线性缩放下的不变性；队列研究的发病率比；正态样本均值分布；双侧检验与95%置信区间；第一类错误概率与显著性水平等检验概念。
+本题有15道单选题，选项及图表见上方原题图。
+
+1. 5名学生身高为171、172、173、175、180 cm，判断均值、中位数及分布偏态。
+2. 考试分数的标准差为15，两人的偏差值相差4，求原始分数差。
+3. 判断标准差与标准误的含义、与方差的关系，以及能否由一次研究的数据估计，选择正确叙述的组合。
+4. $P(X=0)=1-p$、$P(X=0.5)=p$，求 $X$ 的方差。
+5. $X$ 的密度为 $\frac58(1-x^4)$（$-1\le x\le1$），求 $Y=2X$ 的密度及取值范围。
+6. 求 $\log(1+x^2)$ 关于 $x$ 的一阶导数。
+7. 联合概率表按 $X=1,2,3$ 分行、$Y=1,2,3$ 分列，各行为 $(1/10,3/20,3/20)$、$(1/10,0,1/5)$、$(0,1/5,1/10)$。求 $P(Y=3\mid X\ge2)$。
+8. 独立的 $X,Y$ 满足 $E[X]=\mu$、$V(X)=\sigma^2$、$E[Y]=2\mu$、$V(Y)=3\sigma^2$，求 $2X-3Y$ 的期望和方差。
+9. 10根不同编号的签中有3根中奖，将签分到 A、B 两组，每组5根。求两组中奖数至少相差1的分法数。
+10. 联合概率表按 $X=1,2,3$ 分行、$Y=1,2,3$ 分列，各行为 $(1/4,1/12,1/12)$、$(0,1/12,1/6)$、$(1/12,1/6,1/12)$。求 $X,Y$ 的协方差。
+11. $\operatorname{Corr}(X,Y)=\rho$，求 $\operatorname{Corr}(2X,2Y)$。
+12. 前瞻研究中暴露组2800人、45人发病、观察28014人年；未暴露组5600人、15人发病、观察13970人年。以未暴露组为基准，求发病率比。
+13. $X_1,\ldots,X_{10}$ 独立服从均值5、方差100的正态分布，求样本均值的分布。
+14. 两组随机化试验的均值差为5，双侧 $t$ 检验的 $p$ 值为0.05，选择均值差的双侧95%置信区间。
+15. 关于第一类错误概率、重复检验、名义显著性水平与样本数及 $p$ 值的关系，选择最恰当的叙述。
 
 ## **Kai**
 

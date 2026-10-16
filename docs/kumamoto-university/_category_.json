@@ -1,0 +1,14 @@
+{
+  "label": "熊本大学",
+  "position": 52,
+  "link": {
+    "type": "generated-index",
+    "slug": "/kumamoto-university"
+  },
+  "customProps": {
+    "aliases": [
+      "熊大",
+      "Kumamoto"
+    ]
+  }
+}

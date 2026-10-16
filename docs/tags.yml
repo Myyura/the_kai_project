@@ -112,6 +112,54 @@
   label: "Ryukyu-University"
   permalink: "/school/ryukyu-university"
   description: "University of the Ryukyus"
+"Okayama-University":
+  label: "Okayama-University"
+  permalink: "/school/okayama-university"
+  description: "Okayama University"
+"Kumamoto-University":
+  label: "Kumamoto-University"
+  permalink: "/school/kumamoto-university"
+  description: "Kumamoto University"
+"Nagasaki-University":
+  label: "Nagasaki-University"
+  permalink: "/school/nagasaki-university"
+  description: "Nagasaki University"
+"Tokyo-Metropolitan-University":
+  label: "Tokyo-Metropolitan-University"
+  permalink: "/school/tokyo-metropolitan-university"
+  description: "Tokyo Metropolitan University"
+"Yamagata-University":
+  label: "Yamagata-University"
+  permalink: "/school/yamagata-university"
+  description: "Yamagata University"
+"Yokohama-National-University":
+  label: "Yokohama-National-University"
+  permalink: "/school/yokohama-national-university"
+  description: "Yokohama National University"
+"Shizuoka-University":
+  label: "Shizuoka-University"
+  permalink: "/school/shizuoka-university"
+  description: "Shizuoka University"
+"Yamanashi-University":
+  label: "Yamanashi-University"
+  permalink: "/school/yamanashi-university"
+  description: "University of Yamanashi"
+"Utsunomiya-University":
+  label: "Utsunomiya-University"
+  permalink: "/school/utsunomiya-university"
+  description: "Utsunomiya University"
+"Chiba-University":
+  label: "Chiba-University"
+  permalink: "/school/chiba-university"
+  description: "Chiba University"
+"Kyoto-Institute-of-Technology":
+  label: "Kyoto-Institute-of-Technology"
+  permalink: "/school/kyoto-institute-of-technology"
+  description: "Kyoto Institute of Technology"
+"Graduate-University-for-Advanced-Studies":
+  label: "Graduate-University-for-Advanced-Studies"
+  permalink: "/school/graduate-university-for-advanced-studies"
+  description: "The Graduate University for Advanced Studies"
 "Mathematics.Calculus":
   label: "Mathematics.Calculus"
   permalink: "/subsubject/mathematics/calculus"
@@ -696,6 +744,10 @@
   label: "Chemistry.Physical-Chemistry.Wien-Displacement-Law"
   permalink: "/topic/chemistry/physical-chemistry/wien-displacement-law"
   description: "Chemistry / Physical-Chemistry / Wien-Displacement-Law"
+"Chemistry.Physical-Chemistry.X-Ray-Diffraction":
+  label: "Chemistry.Physical-Chemistry.X-Ray-Diffraction"
+  permalink: "/topic/chemistry/physical-chemistry/x-ray-diffraction"
+  description: "Chemistry / Physical-Chemistry / X-Ray-Diffraction"
 "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Attentional-Orienting":
   label: "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Attentional-Orienting"
   permalink: "/topic/cognitive-science-neuroscience/cognitive-neuroscience/attentional-orienting"
@@ -2416,6 +2468,10 @@
   label: "Discrete-Mathematics.Set-Theory.Composition-of-Injective-and-Surjective-Maps"
   permalink: "/topic/discrete-mathematics/set-theory/composition-of-injective-and-surjective-maps"
   description: "Discrete-Mathematics / Set-Theory / Composition-of-Injective-and-Surjective-Maps"
+"Discrete-Mathematics.Set-Theory.Equivalence-Relation":
+  label: "Discrete-Mathematics.Set-Theory.Equivalence-Relation"
+  permalink: "/topic/discrete-mathematics/set-theory/equivalence-relation"
+  description: "Discrete-Mathematics / Set-Theory / Equivalence-Relation"
 "Discrete-Mathematics.Set-Theory.Functions":
   label: "Discrete-Mathematics.Set-Theory.Functions"
   permalink: "/topic/discrete-mathematics/set-theory/functions"
@@ -3636,6 +3692,10 @@
   label: "Mathematics.Differential-Equations.Bounded-Solution-of-Forced-Ordinary-Differential-Equation"
   permalink: "/topic/mathematics/differential-equations/bounded-solution-of-forced-ordinary-differential-equation"
   description: "Mathematics / Differential-Equations / Bounded-Solution-of-Forced-Ordinary-Differential-Equation"
+"Mathematics.Differential-Equations.Burgers-Equation":
+  label: "Mathematics.Differential-Equations.Burgers-Equation"
+  permalink: "/topic/mathematics/differential-equations/burgers-equation"
+  description: "Mathematics / Differential-Equations / Burgers-Equation"
 "Mathematics.Differential-Equations.Cauchy-Euler-Equation":
   label: "Mathematics.Differential-Equations.Cauchy-Euler-Equation"
   permalink: "/topic/mathematics/differential-equations/cauchy-euler-equation"
@@ -4172,6 +4232,10 @@
   label: "Mathematics.Linear-Algebra.Matrix-Trace"
   permalink: "/topic/mathematics/linear-algebra/matrix-trace"
   description: "Mathematics / Linear-Algebra / Matrix-Trace"
+"Mathematics.Linear-Algebra.Minimal-Polynomial":
+  label: "Mathematics.Linear-Algebra.Minimal-Polynomial"
+  permalink: "/topic/mathematics/linear-algebra/minimal-polynomial"
+  description: "Mathematics / Linear-Algebra / Minimal-Polynomial"
 "Mathematics.Linear-Algebra.Moore-Penrose-Pseudoinverse":
   label: "Mathematics.Linear-Algebra.Moore-Penrose-Pseudoinverse"
   permalink: "/topic/mathematics/linear-algebra/moore-penrose-pseudoinverse"
@@ -4448,6 +4512,10 @@
   label: "Mathematics.Real-Analysis.Lebesgue-Dominated-and-Monotone-Convergence"
   permalink: "/topic/mathematics/real-analysis/lebesgue-dominated-and-monotone-convergence"
   description: "Mathematics / Real-Analysis / Lebesgue-Dominated-and-Monotone-Convergence"
+"Mathematics.Real-Analysis.Stirling-Formula":
+  label: "Mathematics.Real-Analysis.Stirling-Formula"
+  permalink: "/topic/mathematics/real-analysis/stirling-formula"
+  description: "Mathematics / Real-Analysis / Stirling-Formula"
 "Mathematics.Real-Analysis.Uniqueness-of-Measures-from-Laplace-Moments":
   label: "Mathematics.Real-Analysis.Uniqueness-of-Measures-from-Laplace-Moments"
   permalink: "/topic/mathematics/real-analysis/uniqueness-of-measures-from-laplace-moments"
@@ -4976,6 +5044,10 @@
   label: "Physics.Electromagnetism.Magnetization-and-Bound-Currents"
   permalink: "/topic/physics/electromagnetism/magnetization-and-bound-currents"
   description: "Physics / Electromagnetism / Magnetization-and-Bound-Currents"
+"Physics.Electromagnetism.Maxwell-Equations":
+  label: "Physics.Electromagnetism.Maxwell-Equations"
+  permalink: "/topic/physics/electromagnetism/maxwell-equations"
+  description: "Physics / Electromagnetism / Maxwell-Equations"
 "Physics.Electromagnetism.Method-of-Images":
   label: "Physics.Electromagnetism.Method-of-Images"
   permalink: "/topic/physics/electromagnetism/method-of-images"
@@ -5124,6 +5196,10 @@
   label: "Physics.Mechanics.Monatomic-and-Diatomic-Lattice-Vibrations"
   permalink: "/topic/physics/mechanics/monatomic-and-diatomic-lattice-vibrations"
   description: "Physics / Mechanics / Monatomic-and-Diatomic-Lattice-Vibrations"
+"Physics.Mechanics.Newtonian-Gravitation":
+  label: "Physics.Mechanics.Newtonian-Gravitation"
+  permalink: "/topic/physics/mechanics/newtonian-gravitation"
+  description: "Physics / Mechanics / Newtonian-Gravitation"
 "Physics.Mechanics.Newtons-Laws-of-Motion":
   label: "Physics.Mechanics.Newtons-Laws-of-Motion"
   permalink: "/topic/physics/mechanics/newtons-laws-of-motion"
@@ -5580,6 +5656,10 @@
   label: "Probability-Statistics.Descriptive-Statistics-and-Sampling.Mean-Median-and-Quartiles"
   permalink: "/topic/probability-statistics/descriptive-statistics-and-sampling/mean-median-and-quartiles"
   description: "Probability-Statistics / Descriptive-Statistics-and-Sampling / Mean-Median-and-Quartiles"
+"Probability-Statistics.Descriptive-Statistics-and-Sampling.Measurement-Error":
+  label: "Probability-Statistics.Descriptive-Statistics-and-Sampling.Measurement-Error"
+  permalink: "/topic/probability-statistics/descriptive-statistics-and-sampling/measurement-error"
+  description: "Probability-Statistics / Descriptive-Statistics-and-Sampling / Measurement-Error"
 "Probability-Statistics.Descriptive-Statistics-and-Sampling.Measurement-Scales-and-Summary-Statistics":
   label: "Probability-Statistics.Descriptive-Statistics-and-Sampling.Measurement-Scales-and-Summary-Statistics"
   permalink: "/topic/probability-statistics/descriptive-statistics-and-sampling/measurement-scales-and-summary-statistics"

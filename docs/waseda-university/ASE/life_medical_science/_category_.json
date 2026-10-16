@@ -1,0 +1,14 @@
+{
+  "label": "生命医科学専攻",
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/waseda-university-ase-life-medical-science"
+  },
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "生命医科学",
+      "Life Medical Science"
+    ]
+  }
+}

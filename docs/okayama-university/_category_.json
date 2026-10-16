@@ -1,0 +1,14 @@
+{
+  "label": "岡山大学",
+  "position": 53,
+  "link": {
+    "type": "generated-index",
+    "slug": "/okayama-university"
+  },
+  "customProps": {
+    "aliases": [
+      "冈山大学",
+      "岡大"
+    ]
+  }
+}

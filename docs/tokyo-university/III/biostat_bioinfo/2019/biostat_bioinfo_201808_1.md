@@ -19,9 +19,25 @@ tags:
 
 ## **Description**
 
-### 題意の要約
+### 原問題
 
-[公式問題 PDF](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2019/06/f774c2437f9325b07575786cce17f10a.pdf)
+![東京大学公式問題 第1問 原卷 2 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2019/biostat_bioinfo_201808_1_p1.png)
+
+![東京大学公式問題 第1問 原卷 3 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2019/biostat_bioinfo_201808_1_p2.png)
+
+![東京大学公式問題 第1問 原卷 4 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2019/biostat_bioinfo_201808_1_p3.png)
+
+![東京大学公式問題 第1問 原卷 5 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2019/biostat_bioinfo_201808_1_p4.png)
+
+![東京大学公式問題 第1問 原卷 6 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2019/biostat_bioinfo_201808_1_p5.png)
+
+![東京大学公式問題 第1問 原卷 7 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2019/biostat_bioinfo_201808_1_p6.png)
+
+![東京大学公式問題 第1問 原卷 8 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2019/biostat_bioinfo_201808_1_p7.png)
+
+![東京大学公式問題 第1問 原卷 9 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2019/biostat_bioinfo_201808_1_p8.png)
+
+### 題意の要約
 
 1. 転移個数を「0個・1個・2個以上」に分類した変数の尺度。
 2. 原図の右裾の長いヒストグラムで最頻値・中央値・平均を比較する（PDF p.2）。
@@ -44,12 +60,12 @@ tags:
 19. 相関0.82・$p=.002$ の Anscombe の四散布図から直線関係を判定する（PDF p.8）。
 20. 回帰 SBP~TV の $p=.0034$、調整済み $R^2=.0007579$ を解釈する。
 
-### 题目描述
+#### 题目描述
 
 各问选择适当选项。
 
 1. 将转移个数分为“0个、1个、2个以上”，判断该变量的测量尺度。
-2. 比较上方原题 PDF 第2页右尾较长直方图的众数、中位数与均值。
+2. 比较上方原题图中右尾较长直方图的众数、中位数与均值。
 3. $X\sim N(50,100)$，求 $P(X\le60)$。
 4. 求数据 $X=(-5,-3,-1,1,3,5)$、$Y=(13,-2,-11,-11,-2,13)$ 的相关系数。
 5. 随机给6人分配 A、B，各3人，求前3人全部分到 A 的概率。
@@ -66,7 +82,7 @@ tags:
 16. 显著性水平5%、检验功效80%，判断错误概率。
 17. 100人中30人成功，求总体比例的近似95%置信区间。
 18. 男性饮酒与不饮酒人数为132与88，女性为108与192，求男女优势比。
-19. 根据原题 PDF 第8页相关系数均为0.82、$p=.002$ 的四幅 Anscombe 散点图，判断线性关系。
+19. 根据上方原题图中相关系数均为0.82、$p=.002$ 的四幅 Anscombe 散点图，判断线性关系。
 20. 回归 SBP~TV 得到 $p=.0034$、调整后 $R^2=.0007579$，解释结果。
 
 ## **Kai**
@@ -249,3 +265,7 @@ $$
 
 ### (1-20)
 エ. Adjusted R-squared が 0.0007579 なので、TV により SBP の変動は十分説明されない。
+
+## **Reference**
+
+- [東京大学大学院情報学環・学際情報学府 公式問題（PDF 2–9 ページ）](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2019/06/f774c2437f9325b07575786cce17f10a.pdf)

@@ -302,6 +302,12 @@
           "NIH Shift in Arene Oxides"
         ]
       }
+    },
+    "Chemistry.Physical-Chemistry.X-Ray-Diffraction": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "labelZh": "X射线衍射",
+      "labelJa": "X線回折",
+      "labelEn": "X-Ray Diffraction"
     }
   }
 }

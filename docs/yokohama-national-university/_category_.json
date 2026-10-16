@@ -1,0 +1,15 @@
+{
+  "label": "横浜国立大学",
+  "position": 51,
+  "link": {
+    "type": "generated-index",
+    "slug": "/yokohama-national-university"
+  },
+  "customProps": {
+    "aliases": [
+      "横滨国立大学",
+      "横国",
+      "YNU"
+    ]
+  }
+}

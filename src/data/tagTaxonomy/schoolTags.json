@@ -310,5 +310,136 @@
     "labelZh": "琉球大学",
     "labelJa": "琉球大学",
     "labelEn": "University of the Ryukyus"
+  },
+  "Okayama-University": {
+    "universityId": "okayama-university",
+    "aliases": [
+      "okayama-university",
+      "岡山大学"
+    ],
+    "labelZh": "冈山大学",
+    "labelJa": "岡山大学",
+    "labelEn": "Okayama University"
+  },
+  "Kumamoto-University": {
+    "universityId": "kumamoto-university",
+    "aliases": [
+      "kumamoto-university",
+      "熊本大学"
+    ],
+    "labelZh": "熊本大学",
+    "labelJa": "熊本大学",
+    "labelEn": "Kumamoto University"
+  },
+  "Nagasaki-University": {
+    "universityId": "nagasaki-university",
+    "aliases": [
+      "nagasaki-university",
+      "長崎大学"
+    ],
+    "labelZh": "长崎大学",
+    "labelJa": "長崎大学",
+    "labelEn": "Nagasaki University"
+  },
+  "Tokyo-Metropolitan-University": {
+    "universityId": "tokyo-metropolitan-university",
+    "aliases": [
+      "tokyo-metropolitan-university",
+      "東京都立大学"
+    ],
+    "labelZh": "东京都立大学",
+    "labelJa": "東京都立大学",
+    "labelEn": "Tokyo Metropolitan University"
+  },
+  "Yamagata-University": {
+    "universityId": "yamagata-university",
+    "aliases": [
+      "yamagata-university",
+      "山形大学"
+    ],
+    "labelZh": "山形大学",
+    "labelJa": "山形大学",
+    "labelEn": "Yamagata University"
+  },
+  "Yokohama-National-University": {
+    "universityId": "yokohama-national-university",
+    "aliases": [
+      "yokohama-national-university",
+      "横浜国立大学"
+    ],
+    "labelZh": "横滨国立大学",
+    "labelJa": "横浜国立大学",
+    "labelEn": "Yokohama National University"
+  },
+  "Shizuoka-University": {
+    "universityId": "shizuoka-university",
+    "aliases": [
+      "shizuoka-university",
+      "静岡大学"
+    ],
+    "labelZh": "静冈大学",
+    "labelJa": "静岡大学",
+    "labelEn": "Shizuoka University"
+  },
+  "Yamanashi-University": {
+    "universityId": "yamanashi-university",
+    "aliases": [
+      "yamanashi-university",
+      "山梨大学"
+    ],
+    "labelZh": "山梨大学",
+    "labelJa": "山梨大学",
+    "labelEn": "University of Yamanashi"
+  },
+  "Utsunomiya-University": {
+    "universityId": "utsunomiya-university",
+    "aliases": [
+      "utsunomiya-university",
+      "宇都宮大学"
+    ],
+    "labelZh": "宇都宫大学",
+    "labelJa": "宇都宮大学",
+    "labelEn": "Utsunomiya University"
+  },
+  "Chiba-University": {
+    "universityId": "chiba-university",
+    "aliases": [
+      "chiba-university",
+      "千葉大学"
+    ],
+    "labelZh": "千叶大学",
+    "labelJa": "千葉大学",
+    "labelEn": "Chiba University"
+  },
+  "Kyoto-Institute-of-Technology": {
+    "universityId": "kyoto-institute-of-technology",
+    "aliases": [
+      "kyoto-institute-of-technology",
+      "京都工芸繊維大学"
+    ],
+    "labelZh": "京都工艺纤维大学",
+    "labelJa": "京都工芸繊維大学",
+    "labelEn": "Kyoto Institute of Technology"
+  },
+  "Graduate-University-for-Advanced-Studies": {
+    "universityId": "graduate-university-for-advanced-studies",
+    "aliases": [
+      "graduate-university-for-advanced-studies",
+      "総合研究大学院大学"
+    ],
+    "labelZh": "综合研究大学院大学",
+    "labelJa": "総合研究大学院大学",
+    "labelEn": "The Graduate University for Advanced Studies",
+    "searchAliases": {
+      "en": [
+        "SOKENDAI"
+      ],
+      "ja": [
+        "総研大"
+      ],
+      "zh": [
+        "总研大"
+      ]
+    }
   }
 }

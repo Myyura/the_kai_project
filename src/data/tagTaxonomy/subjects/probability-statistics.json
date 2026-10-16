@@ -1545,6 +1545,12 @@
       "labelZh": "特征函数",
       "labelJa": "特性関数",
       "labelEn": "Characteristic Function"
+    },
+    "Probability-Statistics.Descriptive-Statistics-and-Sampling.Measurement-Error": {
+      "subsubject": "Probability-Statistics.Descriptive-Statistics-and-Sampling",
+      "labelZh": "测量误差",
+      "labelJa": "測定誤差",
+      "labelEn": "Measurement Error"
     }
   }
 }

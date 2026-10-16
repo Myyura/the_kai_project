@@ -63,7 +63,7 @@ test('same-rank links exclude the current school and schools without an archive'
   // The peer group spans subdivisions; its links still follow the shared rank order.
   assert.deepEqual(getSameRankUniversities(tsukuba, candidates), [middleSubdivision, lowerSubdivision]);
   assert.equal(getUniversityRank('kyoto-institute-of-technology'), 'B+');
-  assert.equal(getSameRankUniversities(tsukuba, universities).some(({id}) => id === 'kyoto-institute-of-technology'), false);
+  assert.equal(getSameRankUniversities(tsukuba, universities).some(({id}) => id === 'kyoto-institute-of-technology'), true);
 });
 
 test('school sorting uses subdivisions, preserves ties and places unlisted schools last without mutation', () => {

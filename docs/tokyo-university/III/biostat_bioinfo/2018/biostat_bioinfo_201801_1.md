@@ -16,12 +16,24 @@ tags:
 
 ## **Description**
 
+### 原問題
+
+![東京大学公式問題 第1問 原卷 2 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p1.png)
+
+![東京大学公式問題 第1問 原卷 3 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p2.png)
+
+![東京大学公式問題 第1問 原卷 4 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p3.png)
+
+![東京大学公式問題 第1問 原卷 5 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p4.png)
+
+![東京大学公式問題 第1問 原卷 6 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p5.png)
+
+![東京大学公式問題 第1問 原卷 7 ページ](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/III/biostat_bioinfo/2018/biostat_bioinfo_201801_1_p6.png)
+
 ### 題意の要約
 
-[公式問題 PDF](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2018/03/2018Wtokei.pdf)
-
 1. データ $40,52,55,60,64,64,67,71,73,73,75,78,80,80,82,83,83,84,87,90,91,91,92,92,95$ の平均・中央値・範囲を比較する。
-2. 原図の箱ひげ図 A, B の五数要約を比較する（PDF p.2）。
+2. 上記の箱ひげ図 A, B の五数要約を比較する（PDF p.2）。
 3. 正の相関の意味、非線形関係、因果関係について判定する。
 4. 層化・系統・多段抽出の説明を判定する。
 5. 公平な二つのサイコロで異なる目が出る確率。
@@ -41,12 +53,12 @@ tags:
 19. 平均40 kg・標準偏差8 kg の母集団10,000人から10人を抽出した平均が35 kg 以下となる確率。
 20. 最小二乗直線 $y=mx+3$ が $(3,6)$ を通るときの $\bar y$ と $\bar x$ の関係。
 
-### 题目描述
+#### 题目描述
 
 各问选择适当选项。
 
 1. 比较数据 $40,52,55,60,64,64,67,71,73,73,75,78,80,80,82,83,83,84,87,90,91,91,92,92,95$ 的平均数、中位数和极差。
-2. 比较上方原题 PDF 第2页中箱线图 A、B 的五数概括。
+2. 比较上方原题图中箱线图 A、B 的五数概括。
 3. 判断关于正相关、非线性关系与因果关系的叙述。
 4. 判断分层抽样、系统抽样和多阶段抽样的说明。
 5. 求两枚公平骰子点数不同的概率。
@@ -157,3 +169,7 @@ $$
 エ. $\bar{x}+3$
 
 なぜなら、 $m=1$ であるから、 $y=x+3$ よって $\bar{y}=\bar{x}+3$
+
+## **Reference**
+
+- [東京大学大学院情報学環・学際情報学府 公式問題（PDF 2–7 ページ）](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2018/03/2018Wtokei.pdf)

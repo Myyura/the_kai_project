@@ -1,0 +1,11 @@
+{
+  "label": "化学専攻",
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/tokyo-metropolitan-university-science-chemistry"
+  },
+  "key": "tokyo-metropolitan-university-science-chemistry",
+  "customProps": {
+    "catalogType": "program"
+  }
+}

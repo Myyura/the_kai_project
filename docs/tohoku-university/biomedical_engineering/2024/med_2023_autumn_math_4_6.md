@@ -1,0 +1,167 @@
+---
+sidebar_label: "2023年秋季実施 数学基礎 問題4-6"
+tags:
+  - Tohoku-University
+  - Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation
+  - Mathematics.Linear-Algebra.Rotation-Matrix-and-Axis-Angle
+  - Mathematics.Linear-Algebra.Gaussian-Elimination
+---
+# 東北大学 医工学研究科 医学系コース 2023年秋季実施 数学基礎 問題4-6
+
+## **Author**
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
+
+## **Description**
+
+4. 次の一階微分方程式の一般解を求めよ。
+   1. $\displaystyle xy'=y^2$
+   2. $\displaystyle y'=5xy$
+5. 点 $(3,\sqrt3)$ を原点の周りに反時計回りに $2\pi/3$ だけ回転した後の座標を求めよ。
+6. 連立一次方程式
+
+   $$
+   \begin{cases}
+   x+y-5z=8,\\
+   -2x+y+5z=-8,\\
+   -y+2z=-3,
+   \end{cases}
+   $$
+
+   について、次の問いに答えよ。
+   1. 行列方程式の形で表せ。
+   2. 解を求めよ。
+
+#### 题目描述
+
+4. 求下列一阶微分方程的通解：
+   1. $\displaystyle xy'=y^2$；
+   2. $\displaystyle y'=5xy$。
+5. 将点 $(3,\sqrt3)$ 绕原点逆时针旋转 $2\pi/3$，求旋转后点的坐标。
+6. 对线性方程组
+
+   $$
+   \begin{cases}
+   x+y-5z=8,\\
+   -2x+y+5z=-8,\\
+   -y+2z=-3,
+   \end{cases}
+   $$
+
+   1. 写成矩阵方程；
+   2. 求解。
+
+## **Kai**
+### 問題4
+#### (1)
+
+$$
+\begin{aligned}
+\frac{dy}{y^2} &= \frac{dx}{x}
+\\
+\therefore \ \
+- \frac{1}{y} &= \log_e \left| x \right| + C
+\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+\therefore \ \
+y &= - \frac{1}{\log_e \left| x \right| + C}
+\end{aligned}
+$$
+
+ただし $x\neq 0$ かつ $\log_e|x|+C\neq0$ の区間で考え，上式のほかに $y\equiv 0$ も解である。
+
+#### (2)
+
+$$
+\begin{aligned}
+\frac{dy}{y} &= 5x dx
+\\
+\therefore \ \
+\log_e \left| y \right| &= \frac{5}{2} x^2 + C'
+\ \ \ \ \ \ \ \ ( C' \text{ は積分定数 } )
+\\
+\therefore \ \
+y &= C e^{\frac{5}{2} x^2}
+\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\end{aligned}
+$$
+
+### 問題5
+
+$$
+\begin{aligned}
+\begin{pmatrix}
+\cos \left( \frac{2}{3} \pi \right) &
+- \sin \left( \frac{2}{3} \pi \right) \\
+\sin \left( \frac{2}{3} \pi \right) &
+\cos \left( \frac{2}{3} \pi \right)
+\end{pmatrix}
+\begin{pmatrix} 3 \\ \sqrt{3} \end{pmatrix}
+=
+\begin{pmatrix}
+- \frac{1}{2} &
+- \frac{\sqrt{3}}{2} \\
+\frac{\sqrt{3}}{2} &
+- \frac{1}{2}
+\end{pmatrix}
+\begin{pmatrix} 3 \\ \sqrt{3} \end{pmatrix}
+=
+\begin{pmatrix} -3 \\ \sqrt{3} \end{pmatrix}
+\end{aligned}
+$$
+
+なので、求める点の座標は $(-3, \sqrt{3})$ である。
+
+### 問題6
+#### (1)
+
+$$
+\begin{aligned}
+\begin{pmatrix} 1 & 1 & -5 \\ -2 & 1 & 5 \\ 0 & -1 & 2 \end{pmatrix}
+\begin{pmatrix} x \\ y \\ z \end{pmatrix}
+=
+\begin{pmatrix} 8 \\ -8 \\ -3 \end{pmatrix}
+\end{aligned}
+$$
+
+#### (2)
+拡大係数行列
+
+$$
+\begin{aligned}
+\begin{pmatrix}
+1 & 1 & -5 & 8 \\
+-2 & 1 & 5 & -8 \\
+0 & -1 & 2 & -3
+\end{pmatrix}
+\end{aligned}
+$$
+
+を次のように行基本変形できる：
+
+$$
+\begin{aligned}
+\begin{pmatrix}
+1 & 1 & -5 & 8 \\
+0 & 1 & -2 & 3 \\
+0 & 3 & -5 & 8
+\end{pmatrix}
+\\
+\begin{pmatrix}
+1 & 0 & -3 & 5 \\
+0 & 1 & -2 & 3 \\
+0 & 0 &  1 & -1
+\end{pmatrix}
+\\
+\begin{pmatrix}
+1 & 0 & 0 & 2 \\
+0 & 1 & 0 & 1 \\
+0 & 0 & 1 & -1
+\end{pmatrix}
+\end{aligned}
+$$
+
+よって、求める解は $x=2,y=1,z=-1$ である。
+
+## **Reference**
+
+- [大学公式問題（PDF 2ページ）](https://www.bme.tohoku.ac.jp/admission/files/r5_math.pdf)

@@ -118,6 +118,11 @@ const universities = [
             ]
           },
           {
+            "id": "appchem",
+            "name": "応用化学専攻",
+            "aliases": []
+          },
+          {
             "id": "precision",
             "name": "精密工学専攻",
             "aliases": [
@@ -274,6 +279,11 @@ const universities = [
               "广域科学"
             ],
             "archiveUrl": "/docs/category/tokyo-university-art_and_sciences-system"
+          },
+          {
+            "id": "basic",
+            "name": "広域科学専攻 相関基礎科学系",
+            "aliases": []
           }
         ],
         "websiteUrl": "https://www.c.u-tokyo.ac.jp/graduate/admission/master-doctor/index.html"
@@ -456,6 +466,26 @@ const universities = [
         "name": "工学研究科",
         "aliases": [],
         "programs": [
+          {
+            "id": "advanced-chemistry",
+            "name": "先端化学専攻群",
+            "aliases": []
+          },
+          {
+            "id": "creative-chemistry",
+            "name": "創成化学専攻群",
+            "aliases": []
+          },
+          {
+            "id": "chemical-engineering",
+            "name": "化学工学専攻",
+            "aliases": []
+          },
+          {
+            "id": "materials",
+            "name": "材料工学専攻",
+            "aliases": []
+          },
           {
             "id": "mech",
             "name": "機械工学群",
@@ -697,6 +727,11 @@ const universities = [
             "name": "知能システム学",
             "aliases": [],
             "archiveUrl": "/docs/category/osaka-university-engineering_sciences-sys"
+          },
+          {
+            "id": "chemistry",
+            "name": "化学",
+            "aliases": []
           }
         ],
         "websiteUrl": "https://www.es.osaka-u.ac.jp/ja/examinee/graduate-school-of-engineering-science/entrance-exam/"
@@ -1404,6 +1439,15 @@ const universities = [
               "电气信息生命",
               "EB"
             ]
+          },
+          {
+            "id": "life_medical_science",
+            "name": "生命医科学専攻",
+            "aliases": [
+              "生命医科学",
+              "Life Medical Science"
+            ],
+            "archiveUrl": "/docs/category/waseda-university-ase-life-medical-science"
           }
         ],
         "websiteUrl": "https://www.waseda.jp/fsci/admissions_gs/"
@@ -1616,6 +1660,12 @@ const universities = [
               "知能机能系统",
               "IMIS"
             ]
+          },
+          {
+            "id": "pas/physics",
+            "name": "物理学学位プログラム",
+            "aliases": [],
+            "archiveUrl": "/docs/category/tsukuba-university-science_and_technology-pas-physics"
           }
         ],
         "websiteUrl": "https://www.ap-graduate.tsukuba.ac.jp/course/"
@@ -1700,6 +1750,18 @@ const universities = [
             "name": "物理学プログラム",
             "aliases": [],
             "archiveUrl": "/docs/category/hiroshima-university-ASE-phys"
+          },
+          {
+            "id": "mechanical",
+            "name": "機械工学プログラム",
+            "aliases": [],
+            "archiveUrl": "/docs/category/hiroshima-university-ASE-mechanical"
+          },
+          {
+            "id": "transportation_environmental_systems",
+            "name": "輸送・環境システムプログラム",
+            "aliases": [],
+            "archiveUrl": "/docs/category/hiroshima-university-ASE-transportation_environmental_systems"
           }
         ],
         "websiteUrl": "https://www.hiroshima-u.ac.jp/adse/admission"
@@ -1730,6 +1792,18 @@ const universities = [
             "name": "機械システム工学専攻",
             "aliases": [],
             "archiveUrl": "/docs/category/TUAT-engineering-mech"
+          },
+          {
+            "id": "intelligent_information",
+            "name": "知能情報システム工学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/TUAT-engineering-intelligent-information"
+          },
+          {
+            "id": "information_engineering",
+            "name": "情報工学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/TUAT-engineering-information-engineering"
           }
         ],
         "websiteUrl": "https://www.tuat.ac.jp/admission/nyushi_daigakuin/"
@@ -1809,6 +1883,24 @@ const universities = [
             "name": "情報システム工学コース",
             "aliases": [],
             "archiveUrl": "/docs/category/saitama-university-science_and_engineering-mathematics_electronics_information-information_systems_engineering"
+          },
+          {
+            "id": "mathematics_electronics_information/mathematics",
+            "name": "数学コース",
+            "aliases": [],
+            "archiveUrl": "/docs/category/saitama-university-science-and-engineering-mathematics-electronics-information-mathematics"
+          },
+          {
+            "id": "mechanical_science",
+            "name": "機械科学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/saitama-university-science_and_engineering-mechanical_science"
+          },
+          {
+            "id": "materials_science/physics",
+            "name": "物理学プログラム",
+            "aliases": [],
+            "archiveUrl": "/docs/category/saitama-university-science_and_engineering-materials_science-physics"
           }
         ],
         "websiteUrl": "https://www.saitama-u.ac.jp/rikogaku/admission/"
@@ -1867,6 +1959,12 @@ const universities = [
             "archiveUrl": "/docs/category/nagoya-institute-of-technology-engineering-ie"
           },
           {
+            "id": "physical_engineering",
+            "name": "物理工学系",
+            "aliases": [],
+            "archiveUrl": "/docs/category/nagoya-institute-of-technology-engineering-physical-engineering"
+          },
+          {
             "id": "me",
             "name": "電気・機械工学系（機械工学）",
             "aliases": [],
@@ -1885,6 +1983,7 @@ const universities = [
       "京工纤",
       "KIT"
     ],
+    "archiveUrl": "/docs/kyoto-institute-of-technology",
     "color": "#666666",
     "departments": [
       {
@@ -2031,6 +2130,12 @@ const universities = [
           }
         ],
         "websiteUrl": "https://www.omu.ac.jp/sci/admission/"
+      },
+      {
+        "id": "economics",
+        "name": "経済学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/osaka-metropolitan-university-economics"
       }
     ]
   },
@@ -2131,6 +2236,12 @@ const universities = [
         "archiveUrl": "/docs/category/chiba-university-science_engineering",
         "programs": [
           {
+            "id": "physics",
+            "name": "先進理化学専攻 物理学コース",
+            "aliases": [],
+            "archiveUrl": "/docs/category/chiba-university-science-engineering-physics"
+          },
+          {
             "id": "math",
             "name": "数学・情報数理学コース",
             "aliases": [
@@ -2142,6 +2253,165 @@ const universities = [
           }
         ],
         "websiteUrl": "https://www.math.s.chiba-u.ac.jp/exam.html"
+      }
+    ]
+  },
+  {
+    "id": "graduate-university-for-advanced-studies",
+    "name": "総合研究大学院大学",
+    "aliases": [
+      "综合研究大学院大学",
+      "総研大",
+      "SOKENDAI"
+    ],
+    "archiveUrl": "/docs/graduate-university-for-advanced-studies",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "multidisciplinary_sciences",
+        "name": "複合科学研究科",
+        "aliases": [],
+        "programs": [
+          {
+            "id": "statistical_science",
+            "name": "統計科学専攻",
+            "aliases": [
+              "統計科学コース",
+              "统计科学"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "yokohama-national-university",
+    "name": "横浜国立大学",
+    "aliases": [
+      "横滨国立大学",
+      "横国",
+      "YNU"
+    ],
+    "archiveUrl": "/docs/yokohama-national-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "international_social_sciences",
+        "name": "国際社会科学府",
+        "aliases": [],
+        "programs": [
+          {
+            "id": "economics",
+            "name": "経済学専攻",
+            "aliases": [
+              "经济学"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kumamoto-university",
+    "name": "熊本大学",
+    "aliases": [
+      "熊大",
+      "Kumamoto"
+    ],
+    "archiveUrl": "/docs/kumamoto-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "science_and_technology",
+        "name": "自然科学教育部",
+        "aliases": [],
+        "programs": [
+          {
+            "id": "materials_and_applied_chemistry/materials_science",
+            "name": "物質材料工学教育プログラム",
+            "aliases": [
+              "物质材料工程"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "okayama-university",
+    "name": "岡山大学",
+    "aliases": [
+      "冈山大学",
+      "岡大"
+    ],
+    "archiveUrl": "/docs/okayama-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "natural_science",
+        "name": "自然科学研究科",
+        "aliases": [],
+        "programs": [
+          {
+            "id": "mechanical_systems/mechanical_engineering",
+            "name": "機械系",
+            "aliases": []
+          },
+          {
+            "id": "mechanical_systems/systems_engineering",
+            "name": "システム系",
+            "aliases": []
+          },
+          {
+            "id": "mathematical_and_physical_sciences/mathematics",
+            "name": "数学系",
+            "aliases": []
+          },
+          {
+            "id": "electronic_information_systems/information",
+            "name": "情報系",
+            "aliases": []
+          },
+          {
+            "id": "electronic_information_systems/electrical_and_communication",
+            "name": "電気電子系・通信ネットワーク系",
+            "aliases": []
+          },
+          {
+            "id": "applied_chemistry",
+            "name": "応用化学専攻",
+            "aliases": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nagasaki-university",
+    "name": "長崎大学",
+    "aliases": [
+      "长崎大学",
+      "長大"
+    ],
+    "archiveUrl": "/docs/nagasaki-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "engineering",
+        "name": "工学研究科",
+        "aliases": [],
+        "programs": [
+          {
+            "id": "integrated_engineering/information",
+            "name": "情報工学コース・海洋未来科学コース",
+            "aliases": []
+          },
+          {
+            "id": "integrated_engineering/mechanical",
+            "name": "機械工学コース・海洋未来科学コース",
+            "aliases": []
+          }
+        ]
       }
     ]
   },
@@ -2166,6 +2436,153 @@ const universities = [
               "情报科学",
               "Information Science"
             ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "shizuoka-university",
+    "name": "静岡大学",
+    "aliases": [],
+    "archiveUrl": "/docs/category/shizuoka-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "integrated_science_technology",
+        "name": "総合科学技術研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/shizuoka-university-integrated_science_technology",
+        "programs": [
+          {
+            "id": "informatics_cs",
+            "name": "情報学専攻 情報科学コース",
+            "aliases": [],
+            "archiveUrl": "/docs/category/shizuoka-university-integrated_science_technology-informatics_cs"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tokyo-metropolitan-university",
+    "name": "東京都立大学",
+    "aliases": [],
+    "archiveUrl": "/docs/category/tokyo-metropolitan-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "business_administration",
+        "name": "経営学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/tokyo-metropolitan-university-business_administration",
+        "programs": [
+          {
+            "id": "mba",
+            "name": "経営学専攻 経営学プログラム",
+            "aliases": [],
+            "archiveUrl": "/docs/category/tokyo-metropolitan-university-business_administration-mba"
+          }
+        ]
+      },
+      {
+        "id": "science",
+        "name": "理学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/tokyo-metropolitan-university-science",
+        "programs": [
+          {
+            "id": "chemistry",
+            "name": "化学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/tokyo-metropolitan-university-science-chemistry"
+          },
+          {
+            "id": "mathematics",
+            "name": "数理科学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/tokyo-metropolitan-university-science-mathematics"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "utsunomiya-university",
+    "name": "宇都宮大学",
+    "aliases": [],
+    "archiveUrl": "/docs/category/utsunomiya-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "regional_development",
+        "name": "地域創生科学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/utsunomiya-university-regional_development",
+        "programs": [
+          {
+            "id": "mechanical_intelligence",
+            "name": "工農総合科学専攻 機械知能工学プログラム",
+            "aliases": [],
+            "archiveUrl": "/docs/category/utsunomiya-university-regional_development-mechanical_intelligence"
+          },
+          {
+            "id": "civil_engineering",
+            "name": "社会デザイン科学専攻 土木工学プログラム",
+            "aliases": [],
+            "archiveUrl": "/docs/category/utsunomiya-university-regional_development-civil_engineering"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "yamagata-university",
+    "name": "山形大学",
+    "aliases": [],
+    "archiveUrl": "/docs/category/yamagata-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "science_and_engineering",
+        "name": "理工学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/yamagata-university-science_and_engineering",
+        "programs": [
+          {
+            "id": "information_electronics",
+            "name": "情報・エレクトロニクス専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/yamagata-university-science_and_engineering-information_electronics"
+          },
+          {
+            "id": "mechanical_systems",
+            "name": "機械システム工学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/yamagata-university-science_and_engineering-mechanical_systems"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "yamanashi-university",
+    "name": "山梨大学",
+    "aliases": [],
+    "archiveUrl": "/docs/category/yamanashi-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "medicine_engineering_agriculture",
+        "name": "医工農学総合教育部",
+        "aliases": [],
+        "archiveUrl": "/docs/category/yamanashi-university-medicine_engineering_agriculture",
+        "programs": [
+          {
+            "id": "mechanical_engineering",
+            "name": "工学専攻 機械工学コース",
+            "aliases": [],
+            "archiveUrl": "/docs/category/yamanashi-university-medicine_engineering_agriculture-mechanical_engineering"
           }
         ]
       }

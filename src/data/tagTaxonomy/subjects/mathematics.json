@@ -2944,6 +2944,24 @@
           "Volterra Operator Compactness and Singular Values"
         ]
       }
+    },
+    "Mathematics.Real-Analysis.Stirling-Formula": {
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "Stirling公式",
+      "labelJa": "Stirlingの公式",
+      "labelEn": "Stirling Formula"
+    },
+    "Mathematics.Linear-Algebra.Minimal-Polynomial": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "最小多项式",
+      "labelJa": "最小多項式",
+      "labelEn": "Minimal Polynomial"
+    },
+    "Mathematics.Differential-Equations.Burgers-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "伯格斯方程",
+      "labelJa": "Burgers方程式",
+      "labelEn": "Burgers Equation"
     }
   }
 }

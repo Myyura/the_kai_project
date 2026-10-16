@@ -1,0 +1,10 @@
+{
+  "label": "経済学専攻",
+  "position": 1,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "经济学"
+    ]
+  }
+}

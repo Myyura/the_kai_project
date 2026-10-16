@@ -1,0 +1,14 @@
+{
+  "label": "長崎大学",
+  "position": 54,
+  "link": {
+    "type": "generated-index",
+    "slug": "/nagasaki-university"
+  },
+  "customProps": {
+    "aliases": [
+      "长崎大学",
+      "長大"
+    ]
+  }
+}
