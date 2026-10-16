@@ -35,12 +35,22 @@
       "descriptionZh": "有机反应机理、合成、立体化学与结构鉴定。",
       "descriptionJa": "有機反応機構、合成、立体化学、構造決定。",
       "descriptionEn": "Organic reaction mechanisms, synthesis, stereochemistry, and structure determination."
+    },
+    "Chemistry.Polymer-Chemistry": {
+      "subject": "Chemistry",
+      "labelZh": "高分子化学",
+      "labelJa": "高分子化学",
+      "labelEn": "Polymer Chemistry",
+      "descriptionZh": "聚合反应、聚合物结构与性质。",
+      "descriptionJa": "重合反応、高分子の構造と物性。",
+      "descriptionEn": "Polymerization reactions, polymer structure, and polymer properties."
     }
   },
   "subsubjectOrder": [
     "Chemistry.Physical-Chemistry",
     "Chemistry.Inorganic-Chemistry",
-    "Chemistry.Organic-Chemistry"
+    "Chemistry.Organic-Chemistry",
+    "Chemistry.Polymer-Chemistry"
   ],
   "topics": {
     "Chemistry.Physical-Chemistry.Einstein-Solid-Heat-Capacity": {
@@ -308,6 +318,174 @@
       "labelZh": "X射线衍射",
       "labelJa": "X線回折",
       "labelEn": "X-Ray Diffraction"
+    },
+    "Chemistry.Physical-Chemistry.Nernst-Equation": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "labelZh": "能斯特方程",
+      "labelJa": "ネルンストの式",
+      "labelEn": "Nernst Equation"
+    },
+    "Chemistry.Physical-Chemistry.Steady-State-Approximation": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "labelZh": "稳态近似",
+      "labelJa": "定常状態近似",
+      "labelEn": "Steady-State Approximation"
+    },
+    "Chemistry.Physical-Chemistry.First-Order-Reaction-Kinetics": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "labelZh": "一级反应动力学",
+      "labelJa": "一次反応の速度論",
+      "labelEn": "First-Order Reaction Kinetics"
+    },
+    "Chemistry.Physical-Chemistry.Arrhenius-Equation": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "labelZh": "阿伦尼乌斯方程",
+      "labelJa": "アレニウスの式",
+      "labelEn": "Arrhenius Equation"
+    },
+    "Chemistry.Physical-Chemistry.Colligative-Properties": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "labelZh": "依数性",
+      "labelJa": "束一的性質",
+      "labelEn": "Colligative Properties"
+    },
+    "Chemistry.Physical-Chemistry.Ideal-Solutions": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "labelZh": "理想溶液",
+      "labelJa": "理想溶液",
+      "labelEn": "Ideal Solutions"
+    },
+    "Chemistry.Physical-Chemistry.Molecular-Vibrational-Spectroscopy": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "labelZh": "分子振动光谱",
+      "labelJa": "分子振動分光",
+      "labelEn": "Molecular Vibrational Spectroscopy"
+    },
+    "Chemistry.Physical-Chemistry.Morse-Potential": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "labelZh": "莫尔斯势",
+      "labelJa": "モースポテンシャル",
+      "labelEn": "Morse Potential"
+    },
+    "Chemistry.Inorganic-Chemistry.Ligand-Field-Theory": {
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "labelZh": "配位场理论",
+      "labelJa": "配位子場理論",
+      "labelEn": "Ligand Field Theory"
+    },
+    "Chemistry.Inorganic-Chemistry.Coordination-Isomerism": {
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "labelZh": "配位化合物异构",
+      "labelJa": "錯体の異性",
+      "labelEn": "Coordination Isomerism"
+    },
+    "Chemistry.Inorganic-Chemistry.Organometallic-Electron-Counting": {
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "labelZh": "有机金属电子计数",
+      "labelJa": "有機金属の電子数",
+      "labelEn": "Organometallic Electron Counting"
+    },
+    "Chemistry.Inorganic-Chemistry.Crystal-Structures": {
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "labelZh": "晶体结构",
+      "labelJa": "結晶構造",
+      "labelEn": "Crystal Structures"
+    },
+    "Chemistry.Inorganic-Chemistry.Semiconductor-Doping": {
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "labelZh": "半导体掺杂",
+      "labelJa": "半導体ドーピング",
+      "labelEn": "Semiconductor Doping"
+    },
+    "Chemistry.Inorganic-Chemistry.Solid-State-Magnetism": {
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "labelZh": "固体磁性",
+      "labelJa": "固体の磁性",
+      "labelEn": "Solid-State Magnetism"
+    },
+    "Chemistry.Inorganic-Chemistry.Molecular-Symmetry": {
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "labelZh": "分子对称性",
+      "labelJa": "分子の対称性",
+      "labelEn": "Molecular Symmetry"
+    },
+    "Chemistry.Organic-Chemistry.Stereochemistry": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "立体化学",
+      "labelJa": "立体化学",
+      "labelEn": "Stereochemistry"
+    },
+    "Chemistry.Organic-Chemistry.Aromaticity": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "芳香性",
+      "labelJa": "芳香族性",
+      "labelEn": "Aromaticity"
+    },
+    "Chemistry.Organic-Chemistry.Resonance": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "共振",
+      "labelJa": "共鳴",
+      "labelEn": "Resonance"
+    },
+    "Chemistry.Organic-Chemistry.Carbonyl-Reactions": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "羰基反应",
+      "labelJa": "カルボニル化合物の反応",
+      "labelEn": "Carbonyl Reactions"
+    },
+    "Chemistry.Organic-Chemistry.Aromatic-Substitution": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "芳香族取代",
+      "labelJa": "芳香族置換",
+      "labelEn": "Aromatic Substitution"
+    },
+    "Chemistry.Organic-Chemistry.Alkene-Reactions": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "烯烃反应",
+      "labelJa": "アルケンの反応",
+      "labelEn": "Alkene Reactions"
+    },
+    "Chemistry.Organic-Chemistry.Alkyne-Reactions": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "炔烃反应",
+      "labelJa": "アルキンの反応",
+      "labelEn": "Alkyne Reactions"
+    },
+    "Chemistry.Organic-Chemistry.NMR-Structure-Determination": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "NMR结构鉴定",
+      "labelJa": "NMR構造解析",
+      "labelEn": "NMR Structure Determination"
+    },
+    "Chemistry.Organic-Chemistry.Elimination-Reactions": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "消除反应",
+      "labelJa": "脱離反応",
+      "labelEn": "Elimination Reactions"
+    },
+    "Chemistry.Organic-Chemistry.Nucleophilic-Substitution": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "亲核取代",
+      "labelJa": "求核置換",
+      "labelEn": "Nucleophilic Substitution"
+    },
+    "Chemistry.Polymer-Chemistry.Polymerization-Mechanisms": {
+      "subsubject": "Chemistry.Polymer-Chemistry",
+      "labelZh": "聚合反应机理",
+      "labelJa": "重合反応機構",
+      "labelEn": "Polymerization Mechanisms"
+    },
+    "Chemistry.Polymer-Chemistry.Polymer-Structure-and-Properties": {
+      "subsubject": "Chemistry.Polymer-Chemistry",
+      "labelZh": "聚合物结构与性质",
+      "labelJa": "高分子の構造と物性",
+      "labelEn": "Polymer Structure and Properties"
+    },
+    "Chemistry.Physical-Chemistry.Acid-Base-Chemistry": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "labelZh": "酸碱化学",
+      "labelJa": "酸塩基化学",
+      "labelEn": "Acid–Base Chemistry"
     }
   }
 }

@@ -1089,6 +1089,12 @@ const universities = [
             "name": "材料系",
             "aliases": [],
             "archiveUrl": "/docs/category/institute-of-science-tokyo-MCT-mat"
+          },
+          {
+            "id": "cap",
+            "name": "応用化学系",
+            "aliases": [],
+            "archiveUrl": "/docs/category/institute-of-science-tokyo-MCT-cap"
           }
         ],
         "websiteUrl": "https://admissions.isct.ac.jp/ja/013/graduate/guideline"

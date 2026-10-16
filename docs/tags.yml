@@ -432,6 +432,10 @@
   label: "Chemistry.Organic-Chemistry"
   permalink: "/subsubject/chemistry/organic-chemistry"
   description: "Chemistry / Organic-Chemistry"
+"Chemistry.Polymer-Chemistry":
+  label: "Chemistry.Polymer-Chemistry"
+  permalink: "/subsubject/chemistry/polymer-chemistry"
+  description: "Chemistry / Polymer-Chemistry"
 "Earth-Science.Geochronology":
   label: "Earth-Science.Geochronology"
   permalink: "/subsubject/earth-science/geochronology"
@@ -668,6 +672,26 @@
   label: "Chemistry.Inorganic-Chemistry.Coordination-Compound-Composition"
   permalink: "/topic/chemistry/inorganic-chemistry/coordination-compound-composition"
   description: "Chemistry / Inorganic-Chemistry / Coordination-Compound-Composition"
+"Chemistry.Inorganic-Chemistry.Coordination-Isomerism":
+  label: "Chemistry.Inorganic-Chemistry.Coordination-Isomerism"
+  permalink: "/topic/chemistry/inorganic-chemistry/coordination-isomerism"
+  description: "Chemistry / Inorganic-Chemistry / Coordination-Isomerism"
+"Chemistry.Inorganic-Chemistry.Crystal-Structures":
+  label: "Chemistry.Inorganic-Chemistry.Crystal-Structures"
+  permalink: "/topic/chemistry/inorganic-chemistry/crystal-structures"
+  description: "Chemistry / Inorganic-Chemistry / Crystal-Structures"
+"Chemistry.Inorganic-Chemistry.Ligand-Field-Theory":
+  label: "Chemistry.Inorganic-Chemistry.Ligand-Field-Theory"
+  permalink: "/topic/chemistry/inorganic-chemistry/ligand-field-theory"
+  description: "Chemistry / Inorganic-Chemistry / Ligand-Field-Theory"
+"Chemistry.Inorganic-Chemistry.Molecular-Symmetry":
+  label: "Chemistry.Inorganic-Chemistry.Molecular-Symmetry"
+  permalink: "/topic/chemistry/inorganic-chemistry/molecular-symmetry"
+  description: "Chemistry / Inorganic-Chemistry / Molecular-Symmetry"
+"Chemistry.Inorganic-Chemistry.Organometallic-Electron-Counting":
+  label: "Chemistry.Inorganic-Chemistry.Organometallic-Electron-Counting"
+  permalink: "/topic/chemistry/inorganic-chemistry/organometallic-electron-counting"
+  description: "Chemistry / Inorganic-Chemistry / Organometallic-Electron-Counting"
 "Chemistry.Inorganic-Chemistry.Oxygen-Vacancies-in-Stabilized-Zirconia":
   label: "Chemistry.Inorganic-Chemistry.Oxygen-Vacancies-in-Stabilized-Zirconia"
   permalink: "/topic/chemistry/inorganic-chemistry/oxygen-vacancies-in-stabilized-zirconia"
@@ -676,14 +700,42 @@
   label: "Chemistry.Inorganic-Chemistry.Radius-Ratio-Rule-and-Ionic-Coordination"
   permalink: "/topic/chemistry/inorganic-chemistry/radius-ratio-rule-and-ionic-coordination"
   description: "Chemistry / Inorganic-Chemistry / Radius-Ratio-Rule-and-Ionic-Coordination"
+"Chemistry.Inorganic-Chemistry.Semiconductor-Doping":
+  label: "Chemistry.Inorganic-Chemistry.Semiconductor-Doping"
+  permalink: "/topic/chemistry/inorganic-chemistry/semiconductor-doping"
+  description: "Chemistry / Inorganic-Chemistry / Semiconductor-Doping"
+"Chemistry.Inorganic-Chemistry.Solid-State-Magnetism":
+  label: "Chemistry.Inorganic-Chemistry.Solid-State-Magnetism"
+  permalink: "/topic/chemistry/inorganic-chemistry/solid-state-magnetism"
+  description: "Chemistry / Inorganic-Chemistry / Solid-State-Magnetism"
 "Chemistry.Inorganic-Chemistry.Stepwise-Complex-Formation-and-Ligand-Field":
   label: "Chemistry.Inorganic-Chemistry.Stepwise-Complex-Formation-and-Ligand-Field"
   permalink: "/topic/chemistry/inorganic-chemistry/stepwise-complex-formation-and-ligand-field"
   description: "Chemistry / Inorganic-Chemistry / Stepwise-Complex-Formation-and-Ligand-Field"
+"Chemistry.Organic-Chemistry.Alkene-Reactions":
+  label: "Chemistry.Organic-Chemistry.Alkene-Reactions"
+  permalink: "/topic/chemistry/organic-chemistry/alkene-reactions"
+  description: "Chemistry / Organic-Chemistry / Alkene-Reactions"
+"Chemistry.Organic-Chemistry.Alkyne-Reactions":
+  label: "Chemistry.Organic-Chemistry.Alkyne-Reactions"
+  permalink: "/topic/chemistry/organic-chemistry/alkyne-reactions"
+  description: "Chemistry / Organic-Chemistry / Alkyne-Reactions"
 "Chemistry.Organic-Chemistry.Arene-Oxide-NIH-Shift":
   label: "Chemistry.Organic-Chemistry.Arene-Oxide-NIH-Shift"
   permalink: "/topic/chemistry/organic-chemistry/arene-oxide-nih-shift"
   description: "Chemistry / Organic-Chemistry / Arene-Oxide-NIH-Shift"
+"Chemistry.Organic-Chemistry.Aromatic-Substitution":
+  label: "Chemistry.Organic-Chemistry.Aromatic-Substitution"
+  permalink: "/topic/chemistry/organic-chemistry/aromatic-substitution"
+  description: "Chemistry / Organic-Chemistry / Aromatic-Substitution"
+"Chemistry.Organic-Chemistry.Aromaticity":
+  label: "Chemistry.Organic-Chemistry.Aromaticity"
+  permalink: "/topic/chemistry/organic-chemistry/aromaticity"
+  description: "Chemistry / Organic-Chemistry / Aromaticity"
+"Chemistry.Organic-Chemistry.Carbonyl-Reactions":
+  label: "Chemistry.Organic-Chemistry.Carbonyl-Reactions"
+  permalink: "/topic/chemistry/organic-chemistry/carbonyl-reactions"
+  description: "Chemistry / Organic-Chemistry / Carbonyl-Reactions"
 "Chemistry.Organic-Chemistry.Cyclohexane-Trans-Diaxial-E2-Elimination":
   label: "Chemistry.Organic-Chemistry.Cyclohexane-Trans-Diaxial-E2-Elimination"
   permalink: "/topic/chemistry/organic-chemistry/cyclohexane-trans-diaxial-e2-elimination"
@@ -692,18 +744,50 @@
   label: "Chemistry.Organic-Chemistry.Diels-Alder-and-Amino-Claisen-Rearrangements"
   permalink: "/topic/chemistry/organic-chemistry/diels-alder-and-amino-claisen-rearrangements"
   description: "Chemistry / Organic-Chemistry / Diels-Alder-and-Amino-Claisen-Rearrangements"
+"Chemistry.Organic-Chemistry.Elimination-Reactions":
+  label: "Chemistry.Organic-Chemistry.Elimination-Reactions"
+  permalink: "/topic/chemistry/organic-chemistry/elimination-reactions"
+  description: "Chemistry / Organic-Chemistry / Elimination-Reactions"
 "Chemistry.Organic-Chemistry.Friedel-Crafts-Acylation-to-Alkylbenzene":
   label: "Chemistry.Organic-Chemistry.Friedel-Crafts-Acylation-to-Alkylbenzene"
   permalink: "/topic/chemistry/organic-chemistry/friedel-crafts-acylation-to-alkylbenzene"
   description: "Chemistry / Organic-Chemistry / Friedel-Crafts-Acylation-to-Alkylbenzene"
+"Chemistry.Organic-Chemistry.NMR-Structure-Determination":
+  label: "Chemistry.Organic-Chemistry.NMR-Structure-Determination"
+  permalink: "/topic/chemistry/organic-chemistry/nmr-structure-determination"
+  description: "Chemistry / Organic-Chemistry / NMR-Structure-Determination"
+"Chemistry.Organic-Chemistry.Nucleophilic-Substitution":
+  label: "Chemistry.Organic-Chemistry.Nucleophilic-Substitution"
+  permalink: "/topic/chemistry/organic-chemistry/nucleophilic-substitution"
+  description: "Chemistry / Organic-Chemistry / Nucleophilic-Substitution"
+"Chemistry.Organic-Chemistry.Resonance":
+  label: "Chemistry.Organic-Chemistry.Resonance"
+  permalink: "/topic/chemistry/organic-chemistry/resonance"
+  description: "Chemistry / Organic-Chemistry / Resonance"
 "Chemistry.Organic-Chemistry.Robinson-Annulation":
   label: "Chemistry.Organic-Chemistry.Robinson-Annulation"
   permalink: "/topic/chemistry/organic-chemistry/robinson-annulation"
   description: "Chemistry / Organic-Chemistry / Robinson-Annulation"
+"Chemistry.Organic-Chemistry.Stereochemistry":
+  label: "Chemistry.Organic-Chemistry.Stereochemistry"
+  permalink: "/topic/chemistry/organic-chemistry/stereochemistry"
+  description: "Chemistry / Organic-Chemistry / Stereochemistry"
 "Chemistry.Organic-Chemistry.Stork-Enamine-Alkylation":
   label: "Chemistry.Organic-Chemistry.Stork-Enamine-Alkylation"
   permalink: "/topic/chemistry/organic-chemistry/stork-enamine-alkylation"
   description: "Chemistry / Organic-Chemistry / Stork-Enamine-Alkylation"
+"Chemistry.Physical-Chemistry.Acid-Base-Chemistry":
+  label: "Chemistry.Physical-Chemistry.Acid-Base-Chemistry"
+  permalink: "/topic/chemistry/physical-chemistry/acid-base-chemistry"
+  description: "Chemistry / Physical-Chemistry / Acid-Base-Chemistry"
+"Chemistry.Physical-Chemistry.Arrhenius-Equation":
+  label: "Chemistry.Physical-Chemistry.Arrhenius-Equation"
+  permalink: "/topic/chemistry/physical-chemistry/arrhenius-equation"
+  description: "Chemistry / Physical-Chemistry / Arrhenius-Equation"
+"Chemistry.Physical-Chemistry.Colligative-Properties":
+  label: "Chemistry.Physical-Chemistry.Colligative-Properties"
+  permalink: "/topic/chemistry/physical-chemistry/colligative-properties"
+  description: "Chemistry / Physical-Chemistry / Colligative-Properties"
 "Chemistry.Physical-Chemistry.Consecutive-First-Order-Reaction-Kinetics":
   label: "Chemistry.Physical-Chemistry.Consecutive-First-Order-Reaction-Kinetics"
   permalink: "/topic/chemistry/physical-chemistry/consecutive-first-order-reaction-kinetics"
@@ -720,14 +804,34 @@
   label: "Chemistry.Physical-Chemistry.Enzyme-Inhibition-and-Lineweaver-Burk-Plot"
   permalink: "/topic/chemistry/physical-chemistry/enzyme-inhibition-and-lineweaver-burk-plot"
   description: "Chemistry / Physical-Chemistry / Enzyme-Inhibition-and-Lineweaver-Burk-Plot"
+"Chemistry.Physical-Chemistry.First-Order-Reaction-Kinetics":
+  label: "Chemistry.Physical-Chemistry.First-Order-Reaction-Kinetics"
+  permalink: "/topic/chemistry/physical-chemistry/first-order-reaction-kinetics"
+  description: "Chemistry / Physical-Chemistry / First-Order-Reaction-Kinetics"
 "Chemistry.Physical-Chemistry.Gibbs-Free-Energy-and-Non-PV-Work":
   label: "Chemistry.Physical-Chemistry.Gibbs-Free-Energy-and-Non-PV-Work"
   permalink: "/topic/chemistry/physical-chemistry/gibbs-free-energy-and-non-pv-work"
   description: "Chemistry / Physical-Chemistry / Gibbs-Free-Energy-and-Non-PV-Work"
+"Chemistry.Physical-Chemistry.Ideal-Solutions":
+  label: "Chemistry.Physical-Chemistry.Ideal-Solutions"
+  permalink: "/topic/chemistry/physical-chemistry/ideal-solutions"
+  description: "Chemistry / Physical-Chemistry / Ideal-Solutions"
 "Chemistry.Physical-Chemistry.Langmuir-Hinshelwood-CO-Oxidation":
   label: "Chemistry.Physical-Chemistry.Langmuir-Hinshelwood-CO-Oxidation"
   permalink: "/topic/chemistry/physical-chemistry/langmuir-hinshelwood-co-oxidation"
   description: "Chemistry / Physical-Chemistry / Langmuir-Hinshelwood-CO-Oxidation"
+"Chemistry.Physical-Chemistry.Molecular-Vibrational-Spectroscopy":
+  label: "Chemistry.Physical-Chemistry.Molecular-Vibrational-Spectroscopy"
+  permalink: "/topic/chemistry/physical-chemistry/molecular-vibrational-spectroscopy"
+  description: "Chemistry / Physical-Chemistry / Molecular-Vibrational-Spectroscopy"
+"Chemistry.Physical-Chemistry.Morse-Potential":
+  label: "Chemistry.Physical-Chemistry.Morse-Potential"
+  permalink: "/topic/chemistry/physical-chemistry/morse-potential"
+  description: "Chemistry / Physical-Chemistry / Morse-Potential"
+"Chemistry.Physical-Chemistry.Nernst-Equation":
+  label: "Chemistry.Physical-Chemistry.Nernst-Equation"
+  permalink: "/topic/chemistry/physical-chemistry/nernst-equation"
+  description: "Chemistry / Physical-Chemistry / Nernst-Equation"
 "Chemistry.Physical-Chemistry.Operator-Commutator":
   label: "Chemistry.Physical-Chemistry.Operator-Commutator"
   permalink: "/topic/chemistry/physical-chemistry/operator-commutator"
@@ -740,6 +844,10 @@
   label: "Chemistry.Physical-Chemistry.Planck-Blackbody-Law"
   permalink: "/topic/chemistry/physical-chemistry/planck-blackbody-law"
   description: "Chemistry / Physical-Chemistry / Planck-Blackbody-Law"
+"Chemistry.Physical-Chemistry.Steady-State-Approximation":
+  label: "Chemistry.Physical-Chemistry.Steady-State-Approximation"
+  permalink: "/topic/chemistry/physical-chemistry/steady-state-approximation"
+  description: "Chemistry / Physical-Chemistry / Steady-State-Approximation"
 "Chemistry.Physical-Chemistry.Wien-Displacement-Law":
   label: "Chemistry.Physical-Chemistry.Wien-Displacement-Law"
   permalink: "/topic/chemistry/physical-chemistry/wien-displacement-law"
@@ -748,6 +856,14 @@
   label: "Chemistry.Physical-Chemistry.X-Ray-Diffraction"
   permalink: "/topic/chemistry/physical-chemistry/x-ray-diffraction"
   description: "Chemistry / Physical-Chemistry / X-Ray-Diffraction"
+"Chemistry.Polymer-Chemistry.Polymer-Structure-and-Properties":
+  label: "Chemistry.Polymer-Chemistry.Polymer-Structure-and-Properties"
+  permalink: "/topic/chemistry/polymer-chemistry/polymer-structure-and-properties"
+  description: "Chemistry / Polymer-Chemistry / Polymer-Structure-and-Properties"
+"Chemistry.Polymer-Chemistry.Polymerization-Mechanisms":
+  label: "Chemistry.Polymer-Chemistry.Polymerization-Mechanisms"
+  permalink: "/topic/chemistry/polymer-chemistry/polymerization-mechanisms"
+  description: "Chemistry / Polymer-Chemistry / Polymerization-Mechanisms"
 "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Attentional-Orienting":
   label: "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Attentional-Orienting"
   permalink: "/topic/cognitive-science-neuroscience/cognitive-neuroscience/attentional-orienting"
@@ -5556,6 +5672,10 @@
   label: "Physics.Thermodynamics.Low-Temperature-Fermi-Gas-Heat-Capacity-and-Entropy"
   permalink: "/topic/physics/thermodynamics/low-temperature-fermi-gas-heat-capacity-and-entropy"
   description: "Physics / Thermodynamics / Low-Temperature-Fermi-Gas-Heat-Capacity-and-Entropy"
+"Physics.Thermodynamics.Maxwell-Boltzmann-Speed-Distribution":
+  label: "Physics.Thermodynamics.Maxwell-Boltzmann-Speed-Distribution"
+  permalink: "/topic/physics/thermodynamics/maxwell-boltzmann-speed-distribution"
+  description: "Physics / Thermodynamics / Maxwell-Boltzmann-Speed-Distribution"
 "Physics.Thermodynamics.Maxwell-Relations":
   label: "Physics.Thermodynamics.Maxwell-Relations"
   permalink: "/topic/physics/thermodynamics/maxwell-relations"

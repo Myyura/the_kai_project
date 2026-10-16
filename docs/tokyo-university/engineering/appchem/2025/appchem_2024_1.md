@@ -1,0 +1,167 @@
+---
+sidebar_label: "2025年度 第1問（物理化学）"
+tags:
+  - Tokyo-University
+  - Chemistry.Physical-Chemistry.Ideal-Solutions
+  - Chemistry.Physical-Chemistry.Consecutive-First-Order-Reaction-Kinetics
+  - Chemistry.Physical-Chemistry.Steady-State-Approximation
+---
+
+# 東京大学 工学系研究科 応用化学専攻 2025年度（2024年実施） 第1問（物理化学）
+
+## **Author**
+
+祭音Myyura (Based on [ソニア's answer](https://univ-chem.com/tokyo-2025-applied-chem-phy/) refined with GPT 6 Astra)
+
+## **Description**
+
+### I
+
+ベンゼン B とトルエン T の気液平衡を考える。定温定圧下での混合 Gibbs 自由エネルギーは
+
+$$
+\Delta_{\rm mix}G=nRT\left(x_B\ln\frac{p_B}{p_B^*}+x_T\ln\frac{p_T}{p_T^*}\right)
+$$
+
+で与えられる。$n$ は全物質量、$x_B,x_T$ は液相のモル分率、$p_B,p_T$ は蒸気分圧、$p_B^*,p_T^*$ は純液体の蒸気圧であり、Raoult の法則 $p_B=p_B^*x_B,\ p_T=p_T^*x_T$ が成り立つ。
+
+1. $dG=V\,dp-S\,dT$ より、$(\partial G/\partial T)_{p,n,x_B,x_T}=\boxed{\mathrm{(a)}}$ である。$x_B,x_T,n,R$ を用いて $\Delta_{\rm mix}S=\boxed{\mathrm{(b)}}$ と表し、$\Delta_{\rm mix}H=\boxed{\mathrm{(c)}}$ を求めよ。
+2. 40 ℃でベンゼン：トルエンのモル比が1：4のとき、$p_B=4.8\ \mathrm{kPa}$、$p_T=6.4\ \mathrm{kPa}$ である。同温度で二つの分圧が等しくなる液相のモル比を求めよ。
+3. 40 ℃のベンゼン–トルエン混合物では全組成で Raoult の法則が成り立つが、ベンゼン–酢酸では成り立たない。前者がこの法則に従う理由を、分子構造と分子間相互作用の観点から説明せよ。
+
+### II
+
+逐次一次反応
+
+$$
+\mathrm A\xrightarrow{k_1}\mathrm B\xrightarrow{k_2}\mathrm C
+$$
+
+を考える。A は出発物質、B は中間体、C は最終生成物であり、$t=0$ で $[\mathrm A]=[\mathrm A]_0,[\mathrm B]=[\mathrm C]=0$ とする。
+
+1. 次の B の生成速度式を導け。
+
+$$
+\frac{d[\mathrm B]}{dt}=k_1[\mathrm A]_0e^{-k_1t}-k_2[\mathrm B].
+$$
+
+2. 定常状態近似（$k_1\ll k_2$）のもとで C の速度式を解き、$[\mathrm C]=(1-e^{-k_1t})[\mathrm A]_0$ を導け。
+3. $k_1>k_2$ で B が極大濃度を持つ場合を考える。厳密解は
+
+$$
+[\mathrm B]=\frac{k_1}{k_2-k_1}\left(e^{-k_1t}-e^{-k_2t}\right)[\mathrm A]_0
+$$
+
+であり、図1.1の太実線のように変化する。(i) 極大となる時刻 $t_{\max}$ を $k_1,k_2$ で表せ。(ii) $k_1$ を固定して $k_2$ を増加させたとき（$k_1>k_2$ を保つ）、変化後の曲線を図の (a)～(d) から選び、理由を述べよ。
+
+![図1.1 中間体Bの濃度変化と候補曲線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/univ-chem-20261016/physical/appchem_2024_1_fig1_1.png)
+
+#### 题目描述
+
+I. 苯与甲苯在恒温恒压下混合，吉布斯能和分压满足题给公式及拉乌尔定律。①由 $dG=Vdp-SdT$ 求温度偏导、混合熵及混合焓；②40 ℃时液相摩尔比1∶4对应分压4.8、6.4 kPa，求两分压相等时的液相比例；③从结构和分子间作用解释苯—甲苯在全组成范围近似满足拉乌尔定律。
+
+II. 对 A→B→C 的连续一级反应，初始只有 A。①推导B的净生成速率式；②在 $k_1\ll k_2$ 的稳态近似下求C浓度；③在 $k_1>k_2$ 时，(i) 根据B的严格解求峰值时刻；(ii) 固定 $k_1$ 并增大 $k_2$，从原图四条曲线中选择变化结果并说明原因。
+
+## **Kai**
+
+### I.1
+
+由来となる熱力学関係は $(\partial G/\partial T)_{p,n,x_B,x_T}=-S$。Raoult の法則を混合自由エネルギーに代入すると
+
+$$
+\Delta_{\rm mix}G=nRT(x_B\ln x_B+x_T\ln x_T).
+$$
+
+定組成で温度微分し、$\Delta_{\rm mix}H=\Delta_{\rm mix}G+T\Delta_{\rm mix}S$ を用いて
+
+$$
+\boxed{\mathrm{(a)}=-S},\qquad
+\boxed{\mathrm{(b)}=-nR(x_B\ln x_B+x_T\ln x_T)},\qquad
+\boxed{\mathrm{(c)}=0}.
+$$
+
+### I.2
+
+初めのモル分率は $x_B=0.20,x_T=0.80$ なので
+
+$$
+p_B^*=\frac{4.8}{0.20}=24\ \mathrm{kPa},\qquad
+p_T^*=\frac{6.4}{0.80}=8.0\ \mathrm{kPa}.
+$$
+
+分圧が等しいとき $24x_B=8x_T$ であり、
+
+$$
+\boxed{\text{ベンゼン：トルエン}=1:3}.
+$$
+
+### I.3
+
+両分子は類似した無極性の芳香族構造を持ち、同種分子間と異種分子間の相互作用がほぼ等しい。混合によって分子の凝集状態が大きく変わらず、理想溶液として各成分の蒸気圧がモル分率に比例する。
+
+### II.1
+
+A の速度式と初期条件から
+
+$$
+\frac{d[\mathrm A]}{dt}=-k_1[\mathrm A],\qquad
+[\mathrm A]=[\mathrm A]_0e^{-k_1t}.
+$$
+
+B には生成と消費があるため
+
+$$
+\boxed{\frac{d[\mathrm B]}{dt}=k_1[\mathrm A]-k_2[\mathrm B]
+=k_1[\mathrm A]_0e^{-k_1t}-k_2[\mathrm B]}.
+$$
+
+### II.2
+
+初期の速い緩和後に $d[\mathrm B]/dt\simeq0$ とおくと
+
+$$
+[\mathrm B]\simeq\frac{k_1}{k_2}[\mathrm A]_0e^{-k_1t},\qquad
+\frac{d[\mathrm C]}{dt}=k_2[\mathrm B]\simeq k_1[\mathrm A]_0e^{-k_1t}.
+$$
+
+初期緩和の小さな寄与を無視し、$[\mathrm C](0)=0$ を用いて積分すると
+
+$$
+\boxed{[\mathrm C]\simeq[\mathrm A]_0(1-e^{-k_1t})}.
+$$
+
+これは $k_1/k_2\ll1$ での近似式である。
+
+### II.3(i)
+
+$[\mathrm B]$ を微分し、極大条件を課すと
+
+$$
+k_1e^{-k_1t_{\max}}=k_2e^{-k_2t_{\max}}.
+$$
+
+よって
+
+$$
+\boxed{t_{\max}=\frac{\ln(k_1/k_2)}{k_1-k_2}}.
+$$
+
+### II.3(ii)
+
+$$
+\boxed{\text{(a)}}.
+$$
+
+$k_2$ を増やすと B の消費が速くなり、その極大値が小さくなる。また
+
+$$
+t_{\max}
+=\frac1{k_1-k_2}\int_{k_2}^{k_1}\frac{du}{u}
+$$
+
+は区間 $[k_2,k_1]$ における減少関数 $1/u$ の平均値なので、$k_1$ を固定して $k_2$ を大きくすると減少する。したがってピークは低く、早い時刻に移る。
+
+## **Reference**
+
+- [東京大学公式問題（PDF 3–6ページ）](https://www.t.u-tokyo.ac.jp/hubfs/graduate/2025/Past_Entrance_Examinations/2025%E5%B9%B4%E5%BA%A6_%E5%85%A5%E5%AD%A6%E8%A9%A6%E9%A8%93%E5%95%8F%E9%A1%8C_%E5%8C%96%E5%AD%A6.pdf)
+- [ソニア：参考解答](https://univ-chem.com/tokyo-2025-applied-chem-phy/)

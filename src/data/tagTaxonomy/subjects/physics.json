@@ -1602,6 +1602,12 @@
       "labelZh": "麦克斯韦方程组",
       "labelJa": "Maxwell方程式",
       "labelEn": "Maxwell Equations"
+    },
+    "Physics.Thermodynamics.Maxwell-Boltzmann-Speed-Distribution": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "麦克斯韦速率分布",
+      "labelJa": "マクスウェルの速さ分布",
+      "labelEn": "Maxwell Speed Distribution"
     }
   }
 }
