@@ -77,9 +77,9 @@
         "desc": "UTokyo CI 编程问题解答"
       },
       {
-        "name": "藍色日和 东大数理",
-        "url": "https://mathlog.info/articles/zLhBwPhItOrD5zEO3psa",
-        "desc": "東大数理院試過去問解答例"
+        "name": "藍色日和 数学院试解答",
+        "url": "https://mathlog.info/users/1427",
+        "desc": "东大、京大、阪大及东京工业大学等数学类院试过去问解答"
       },
       {
         "name": "京大数学解析系解答",
@@ -129,7 +129,7 @@
       {
         "name": "あーるえぬ 大学数学",
         "url": "https://math-note.xyz/",
-        "desc": "理論系向け大学数学の記事"
+        "desc": "大学数学笔记及东大、京大、阪大等数学类院试过去问解答"
       },
       {
         "name": "sin有機化学",
@@ -145,6 +145,26 @@
         "name": "SN 機械系過去問",
         "url": "https://bloodystream.hatenadiary.jp/entry/2021/05/01/080000",
         "desc": "東大・京大・東工大・東北大機械系解答"
+      },
+      {
+        "name": "taku物理",
+        "url": "https://takuphys.com/",
+        "desc": "东京大学物理学专攻院试过去问解答与大学物理学习资料"
+      },
+      {
+        "name": "大学化学ラボ",
+        "url": "https://univ-chem.com/",
+        "desc": "东大、东京工业大学等化学类院试过去问解答与大学化学讲解"
+      },
+      {
+        "name": "やまたく 化学院试解答",
+        "url": "https://note.com/trytech1628",
+        "desc": "京都大学、东京工业大学化学类院试过去问讲解"
+      },
+      {
+        "name": "院試解答研究所",
+        "url": "http://liberalscience.blog.fc2.com/",
+        "desc": "东大物理工学、新领域物质系等理工类院试过去问解答"
       }
     ],
     "jobLinks": [
@@ -248,9 +268,9 @@
         "desc": "UTokyo CI プログラミング問題解答"
       },
       {
-        "name": "藍色日和 東大数理",
-        "url": "https://mathlog.info/articles/zLhBwPhItOrD5zEO3psa",
-        "desc": "東大数理院試過去問解答例"
+        "name": "藍色日和 数学院試解答",
+        "url": "https://mathlog.info/users/1427",
+        "desc": "東大・京大・阪大・東工大などの数学系大学院入試の過去問解答例"
       },
       {
         "name": "京大数学解析系解答",
@@ -300,7 +320,7 @@
       {
         "name": "あーるえぬ 大学数学",
         "url": "https://math-note.xyz/",
-        "desc": "理論系向け大学数学の記事"
+        "desc": "大学数学のノートと東大・京大・阪大などの数学系大学院入試の過去問解答"
       },
       {
         "name": "sin有機化学",
@@ -316,6 +336,26 @@
         "name": "SN 機械系過去問",
         "url": "https://bloodystream.hatenadiary.jp/entry/2021/05/01/080000",
         "desc": "東大・京大・東工大・東北大機械系解答"
+      },
+      {
+        "name": "taku物理",
+        "url": "https://takuphys.com/",
+        "desc": "東京大学物理学専攻の大学院入試過去問解答と大学物理の学習資料"
+      },
+      {
+        "name": "大学化学ラボ",
+        "url": "https://univ-chem.com/",
+        "desc": "東大・東工大などの化学系大学院入試の過去問解答と大学化学の解説"
+      },
+      {
+        "name": "やまたく 化学院試解説",
+        "url": "https://note.com/trytech1628",
+        "desc": "京都大学・東京工業大学の化学系大学院入試の過去問解説"
+      },
+      {
+        "name": "院試解答研究所",
+        "url": "http://liberalscience.blog.fc2.com/",
+        "desc": "東大物理工学・新領域物質系などの理工系大学院入試の過去問解答"
       }
     ],
     "jobLinks": [
