@@ -856,6 +856,10 @@
   label: "Chemistry.Physical-Chemistry.X-Ray-Diffraction"
   permalink: "/topic/chemistry/physical-chemistry/x-ray-diffraction"
   description: "Chemistry / Physical-Chemistry / X-Ray-Diffraction"
+"Chemistry.Polymer-Chemistry.Molecular-Weight-Distribution":
+  label: "Chemistry.Polymer-Chemistry.Molecular-Weight-Distribution"
+  permalink: "/topic/chemistry/polymer-chemistry/molecular-weight-distribution"
+  description: "Chemistry / Polymer-Chemistry / Molecular-Weight-Distribution"
 "Chemistry.Polymer-Chemistry.Polymer-Structure-and-Properties":
   label: "Chemistry.Polymer-Chemistry.Polymer-Structure-and-Properties"
   permalink: "/topic/chemistry/polymer-chemistry/polymer-structure-and-properties"

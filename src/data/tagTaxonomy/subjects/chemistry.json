@@ -481,6 +481,17 @@
       "labelJa": "高分子の構造と物性",
       "labelEn": "Polymer Structure and Properties"
     },
+    "Chemistry.Polymer-Chemistry.Molecular-Weight-Distribution": {
+      "subsubject": "Chemistry.Polymer-Chemistry",
+      "labelZh": "分子量分布",
+      "labelJa": "分子量分布",
+      "labelEn": "Molecular Weight Distribution",
+      "searchAliases": {
+        "zh": ["数均分子量", "重均分子量", "分散度"],
+        "ja": ["数平均分子量", "重量平均分子量", "分散度"],
+        "en": ["Number-average molecular weight", "Weight-average molecular weight", "Dispersity"]
+      }
+    },
     "Chemistry.Physical-Chemistry.Acid-Base-Chemistry": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "labelZh": "酸碱化学",
