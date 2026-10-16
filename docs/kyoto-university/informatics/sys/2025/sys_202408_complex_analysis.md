@@ -44,7 +44,7 @@ $$
 $$
 
 を示せ。$\int_0^\infty e^{-x^2}\,dx=\sqrt\pi/2$ を用いてよい。
-![積分路 C_R](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2025/sys_202408_complex_analysis_sector.svg)
+![積分路 C_R](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2025/sys_202408_complex_analysis_sector.svg)
 
 (3) 任意の正の整数 $n$ について
 

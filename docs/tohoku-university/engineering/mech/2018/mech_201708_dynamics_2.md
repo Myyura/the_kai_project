@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年秋季 機械力学 第2問"
+sidebar_label: "2017年8月実施 機械力学 第2問"
 tags:
   - Tohoku-University
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
   - Physics.Mechanics.Forced-Vibration
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 機械力学 第2問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 機械力学 第2問
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 2. $m_1=m_2=2m,m_3=m,k_1=k,k_2=k_3=k/2$ のとき、すべての固有角振動数を求めよ。
 3. (2) の条件で、定常振動の $x_3$ がゼロとなる $\omega$ と、$x_2$ に対する $x_1$ の振幅比を求めよ。
 
-![三台車の等価なばね結合。左右二本のばねを並列にまとめた表示](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_dynamics2.svg)
+![三台車の等価なばね結合。左右二本のばねを並列にまとめた表示](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_dynamics2.svg)
 
 #### 题目描述
 

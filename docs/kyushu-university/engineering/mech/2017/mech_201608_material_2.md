@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 問2（材料力学）"
+sidebar_label: "2016年8月実施 問2（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 材料力学 問2
+# 九州大学 工学府 機械系専攻 2016年8月実施 材料力学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 弾性はり AB と CD は、図の剛体棒 JG によって接合されている。JG は両はりと固定接合され、その直径ははりの長さに比べて十分小さい。両はりの曲げ剛性は $EI$ で、AF $=$ FG $=$ GH $=$ HB $=\ell$、CJ $=$ JD $=\ell$、JG $=\ell$ である。J に下向き荷重 $P$ を加える。A、C、F における支点反力をそれぞれ $R_A,R_C,R_F$、剛体棒 JG にかかる力を $Q$ とする。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/material-2-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-2-original.png)
 
 1. $R_A,R_F,Q$ の関係を示せ。
 2. $Q$ を用いて J の変位を表せ。

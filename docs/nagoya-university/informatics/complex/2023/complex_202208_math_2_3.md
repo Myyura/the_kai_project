@@ -134,7 +134,7 @@ $$
 であり、これは安定な極限周期軌道（リミットサイクル）と呼ばれる。周期は $2\pi$ である。
 
 
-![原点近傍の外向き螺旋と指定された八つの軌道](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2023/nagoya-complex2023-limit-cycle.svg)
+![原点近傍の外向き螺旋と指定された八つの軌道](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2023/nagoya-complex202208-limit-cycle.svg)
 
 左図は原点近傍の拡大図，右図の青線は $r_0=1/2$，橙線は $r_0=2$ の軌道である。
 点は初期位置，矢印は時間が増える方向を表す。$r_0=0$ では偏角は定義されず，

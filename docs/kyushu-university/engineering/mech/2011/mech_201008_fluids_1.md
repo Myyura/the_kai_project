@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2011年度 問1（流体工学）"
+sidebar_label: "2010年8月実施 問1（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Pipe-Networks
   - Engineering.Fluid-Mechanics.Pipe-Friction
 ---
 
-# 九州大学 工学府 機械系専攻 2011年度 流体工学 問1
+# 九州大学 工学府 機械系専攻 2010年8月実施 流体工学 問1
 
 ## **Author**
 
@@ -21,7 +21,7 @@ tags:
 1. 弁を完全に閉じたときの出口体積流量を求めよ。
 2. 弁を開いたときの出口体積流量を求めよ。弁の損失係数を $\zeta_v$ とする。
 
-![原題の図（九州大学 2011年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2011/fluids-1-original.png)
+![原題の図（九州大学 2011年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2011/mech_201008_fluids-1-original.png)
 
 #### 题目描述
 

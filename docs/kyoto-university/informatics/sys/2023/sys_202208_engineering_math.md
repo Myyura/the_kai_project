@@ -29,7 +29,7 @@ $$
 が成り立つとする。ここで $u,v$ は $x,y$ の関数である。$f$ が正則であることを示し、$df/dz$ を $u,v$ で表せ。
 
 (3) 図の閉路に沿って $f(z)=(1-e^{2iz})/z^2$ を積分することにより $\int_0^\infty\sin^2x/x^2\,dx$ を求めよ。閉路は実軸上の $-R\to-r$、上半平面の小半円 $-r\to r$、実軸上の $r\to R$、上半平面の大半円 $R\to-R$ からなる。
-![原点を上側から避ける積分路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2023/sys_202208_engineering_math_indent.svg)
+![原点を上側から避ける積分路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2023/sys_202208_engineering_math_indent.svg)
 
 ### 問題2
 $z,w\in\mathbb C$ に対し $F(z,w)=\operatorname{Re}(\overline z w)$ と定義する。

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2020年度 基礎科目 問題2"
+sidebar_label: "2019年8月実施 基礎科目 問題2"
 tags:
   - Kyoto-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2020年度 基礎科目 問題2
+# 京都大学 理学研究科 数学・数理解析専攻 2019年8月実施 基礎科目 問題2
 
 ## **Author**
 

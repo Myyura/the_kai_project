@@ -155,6 +155,6 @@ $$
 この区間で $y'=y(1-y)<0$ なので、解は $+\infty$ から $1$ へ単調減少する。
 
 
-![二つの初期値の場合のロジスティック曲線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2024/nagoya-complex2024-logistic.svg)
+![二つの初期値の場合のロジスティック曲線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2024/nagoya-complex202308-logistic.svg)
 
 図はそれぞれ $B=3$ と $B=-1/2$ の代表例である。点は $x=0$ の値を示す。

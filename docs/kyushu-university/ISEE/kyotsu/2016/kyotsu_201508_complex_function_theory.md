@@ -22,7 +22,7 @@ Zero, 祭音Myyura
 (3) $\lim_{N \rightarrow \infty}\oint_{C_N}f(z)dz$ の値を用して, $\sum_{n=1}^{\infty}\frac{1}{n^2 + a^2} = \frac{\pi}{2a}\coth \pi a - \frac{1}{2a^2}$ を示せ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2016_complex_function_theory_p1.png" width="527" height="384" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/kyotsu/2016/kyotsu_201508_complex_function_theory_p1.png" width="527" height="384" alt=""/>
 </figure>
 
 -----------------------------------------------

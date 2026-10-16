@@ -1,5 +1,5 @@
 ---
-sidebar_label: "令和8年度第1回（2025年10月実施） 心理学"
+sidebar_label: "2025年10月実施 第1回 心理学"
 tags:
   - Yamaguchi-University
   - Psychology.Research-Methods-and-Statistics.Measurement-Error
@@ -10,7 +10,7 @@ tags:
   - Psychology.Basic-Psychology.Punishment-and-Aversive-Learning
 ---
 
-# 山口大学 人間社会科学研究科 臨床心理学専攻 令和8年度第1回（2025年10月実施） 専門科目（心理学）
+# 山口大学 人間社会科学研究科 臨床心理学専攻 2025年10月実施 第1回 専門科目（心理学）
 
 ## **Author**
 祭音Myyura (co-authored with GPT 5.6 SOL)

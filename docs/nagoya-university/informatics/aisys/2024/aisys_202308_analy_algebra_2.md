@@ -74,7 +74,7 @@ $$
 
 各花弁の先端は、原点からの距離が $1$、偏角が $\pi/10+2k\pi/5$ ($k=0,1,2,3,4$) の点である。
 
-![極曲線 r=sin(5θ) の5枚の花弁](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2024/nagoya-aisys2024-rose.svg)
+![極曲線 r=sin(5θ) の5枚の花弁](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/aisys/2024/nagoya-aisys202308-rose.svg)
 
 (b)
 媒介表示された平面曲線が囲む面積は

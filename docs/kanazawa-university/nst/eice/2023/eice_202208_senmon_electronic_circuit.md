@@ -43,7 +43,7 @@ $$
 このときの $t>0$ の出力電圧 $v_0(t)$ を $R,\,R_f,\,C,\,t$ を用いて表しなさい。ただし，時刻 $t=0$ において，キャパシタ $C$ の初期電荷は 0 とする。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electronic_circuit_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kanazawa-university/nst/eice/2023/eice_202208_senmon_electronic_circuit_p1.png" width="600" alt=""/>
 </figure>
 
 ### 题目描述
@@ -81,7 +81,7 @@ $$
    在 $t=0$ 时电容 $C$ 的初始电荷为 0。用 $R,R_f,C,t$ 表示 $t>0$ 时的输出电压 $v_0(t)$。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electronic_circuit_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kanazawa-university/nst/eice/2023/eice_202208_senmon_electronic_circuit_p1.png" width="600" alt=""/>
 </figure>
 
 ## **Kai**

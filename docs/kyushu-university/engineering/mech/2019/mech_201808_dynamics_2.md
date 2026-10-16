@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2019年度 問2（機械力学）"
+sidebar_label: "2018年8月実施 問2（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Forced-Vibration
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 機械力学 問2
+# 九州大学 工学府 機械系専攻 2018年8月実施 機械力学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 ばね定数 $12k$ のばねで基礎に支持された質量 $12m$ の振動体（主系）が、調和外力 $f_0\cos\Omega t$ により非常に大きな振動を生じている。$f_0$ は一定値、主系の変位を $x_0$ とする。（50 点）
 
-![従系 A、B の取り付け（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/dynamics-2-original.png)
+![従系 A、B の取り付け（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_dynamics-2-original.png)
 
 1. 図 (a) のように質量 $m$ とばねからなる従系 A を取り付け、主系の振動を抑えたい。ばね定数の設定、従系の変位を $x_A$ とした運動方程式、および両系の振幅を求めよ。
 2. 従系 A を取り付けた系の固有角振動数と固有モードを求めよ。

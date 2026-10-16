@@ -22,7 +22,7 @@ $$
 $\boldsymbol{x}^T$, which is a $1\times3$ row vector, shows the transpose of $\boldsymbol{x}$.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201208_3_p1.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2013/ci_201208_3_p1.png" width="450" alt=""/>
 </figure>
 
 (1) On the inner product $(\boldsymbol{a},\boldsymbol{b})$ between vectors $\boldsymbol{a}$ and $\boldsymbol{b}$, describe **i)** the value of $(\boldsymbol{a},\boldsymbol{b})$, **ii)** a $3\times3$ matrix $\boldsymbol{A}$ which satisfies $(\boldsymbol{a},\boldsymbol{b})\boldsymbol{a}=\boldsymbol{A}\boldsymbol{b}$, and **iii)** $\boldsymbol{A}$ with vector $\boldsymbol{a}$ and its transpose $\boldsymbol{a}^T$.

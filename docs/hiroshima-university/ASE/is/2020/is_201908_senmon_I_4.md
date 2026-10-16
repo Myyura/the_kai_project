@@ -36,7 +36,7 @@ A matching $A$ is said to be maximal if any superset of $A$ is not a matching.
 (4) Show an example of graph $G$ to have maximal matchings $A$ and $B$ satisfying $|A| = 2|B|$.
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_201908_senmon_I_4_p1.png" width="440" height="470" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2020/is_201908_senmon_I_4_p1.png" width="440" height="470" alt=""/>
 </figure>
 
 ### 题目描述

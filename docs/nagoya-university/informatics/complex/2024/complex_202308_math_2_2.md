@@ -66,7 +66,7 @@ $$
 
 1) 軌跡は原点に向かって渦巻くような形になる。 $a, b > 0$ なので、 $\theta$ が大きくなるにつれて、 $e^{-b\theta}$ の値は小さくなる。
 
-![0から4πまでの対数螺旋](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2024/nagoya-complex2024-log-spiral.svg)
+![0から4πまでの対数螺旋](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2024/nagoya-complex202308-log-spiral.svg)
 
 図は $b=0.13$ の代表例で，座標を $a$ で割って表示している。矢印は $\theta$ が増える向きを示す。
 

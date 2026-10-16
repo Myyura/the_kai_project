@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2015年度 問3（材料力学）"
+sidebar_label: "2014年8月実施 問3（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Torsion
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Strain-Energy
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 材料力学 問3
+# 九州大学 工学府 機械系専攻 2014年8月実施 材料力学 問3
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図3の弾性棒 AB、CD、EF と剛体棒 BC、DE、FG は、すべて $xy$ 平面内で接合されている。各部材の長さは $a$。三本の弾性棒は互いに平行な $x$ 方向の丸棒で、直径 $d$、ヤング率 $E$、横弾性係数 $G$ を持ち、$a\gg d$ とする。A は固定端で、G に $+z$ 方向の荷重 $P$ を加える。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/material-3-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-3-original.png)
 
 1. F のねじれ角を求めよ。
 2. 弾性棒 AB、CD、EF のねじりによる G の $z$ 方向変位 $\delta_{G\phi}$ を求めよ。

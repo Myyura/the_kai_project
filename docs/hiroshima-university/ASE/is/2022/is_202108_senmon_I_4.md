@@ -48,7 +48,7 @@ The graph $K_5$ (complete graph of $5$ vertices) is not planar but 1-planar (Fig
 
 ##### <center> Fig 1.</center>
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202108_senmon_I_4_p1.png" width="450" height="423" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2022/is_202108_senmon_I_4_p1.png" width="450" height="423" alt=""/>
 </figure>
 
 To show $K_5$ is not planar, first we note that the complete graph $K_4$ is planar (see Fig 1., vertices $A, B, C, D$).

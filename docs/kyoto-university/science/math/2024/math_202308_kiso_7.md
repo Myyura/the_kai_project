@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2024年度 基礎科目 [7]"
+sidebar_label: "2023年8月実施 基礎科目 [7]"
 tags:
   - Kyoto-University
   - Mathematics.Linear-Algebra.Basis-and-Dimension
   - Mathematics.Linear-Algebra.Vandermonde-Determinant
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2024年度 基礎科目 問題7
+# 京都大学 理学研究科 数学・数理解析専攻 2023年8月実施 基礎科目 問題7
 
 ## **Author**
 

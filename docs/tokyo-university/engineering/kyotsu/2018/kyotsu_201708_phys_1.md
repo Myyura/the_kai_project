@@ -17,7 +17,7 @@ tags:
 
 鉛直上向き $+z$ 方向に飛行するロケットを考える。ガスをロケットに対して一定の相対速度 $u$ で進行方向の逆向きに噴射して推進力を得る。重力や空気抵抗など、推進力以外の力は働かないとする。
 
-![ロケットの噴射と姿勢制御に作用する力](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2018/kyotsu_201708_phys_1_rocket_audited.svg)
+![ロケットの噴射と姿勢制御に作用する力](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2018/kyotsu_201708_phys_1_rocket_audited.svg)
 
 1. 時刻 $t$ から $t+dt$ の間に、ロケットの質量が $m$ から $m+dm\ (dm<0)$、速度が $v$ から $v+dv$ に変化する。噴射されたガスの質量は $-dm>0$ である。噴射前後の運動量保存から $dv,dm,m,u$ の関係を求めよ。$dv\,dm$ などの二次の微小量は無視してよい。
 2. 噴射を続けて質量が $m_i$ から $m_f$ に減少したときの速度増加量を求めよ。

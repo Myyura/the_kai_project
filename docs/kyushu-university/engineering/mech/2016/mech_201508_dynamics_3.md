@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2016年度 問3（機械力学）"
+sidebar_label: "2015年8月実施 問3（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Longitudinal-Vibration
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 機械力学 問3
+# 九州大学 工学府 機械系専攻 2015年8月実施 機械力学 問3
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 密度 $\rho$、縦弾性係数 $E$、長さ $l$ の弾性丸棒の両端が固定されている。左端からの座標を $x$、断面積を $A(x)$、長手方向の変位を $u(x,t)$ とする。$c=\sqrt{E/\rho}$ を用いてよい。（50 点）
 
-![断面積が変化する両端固定棒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/dynamics-3-original.png)
+![断面積が変化する両端固定棒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_dynamics-3-original.png)
 
 1. 縦振動の運動方程式を導け。
 2. $A(x)=A_0e^{-2\gamma x}$（$A_0,\gamma$ は定数）として書き直せ。

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問3（熱工学）"
+sidebar_label: "2013年8月実施 問3（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Conduction-with-Heat-Generation
   - Engineering.Heat-Transfer.Thermal-Radiation
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 熱工学 問3
+# 九州大学 工学府 機械系専攻 2013年8月実施 熱工学 問3
 
 ## **Author**
 
@@ -26,7 +26,7 @@ tags:
 
 (5) $k_h<k_p$ のとき、ヒータおよび平板内の温度分布の概略を図中に示せ。図にはヒータ中心温度 $T_0$ と平板表面温度 $T_p$ を示してある。
 
-![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/thermo-3-original.png)
+![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_thermo-3-original.png)
 
 (6) 両側から低温の面を近づけると、ふく射の影響で平板表面温度が下がった。ふく射熱流束が表面熱流束の $1/8$ である場合、平板表面温度は何度下がるか。熱伝達率は変わらないものとする。
 
@@ -109,7 +109,7 @@ $$
 
 ヒータ内は中心で勾配が零の放物線、発熱しない平板内は直線となる。界面では温度と熱流束が連続する一方、$k_h<k_p$ よりヒータ側の温度勾配の絶対値 $q/k_h$ は平板側の $q/k_p$ より大きい。
 
-![ヒータ内は放物線、平板内は直線となる温度分布](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/thermo-3-answer.svg)
+![ヒータ内は放物線、平板内は直線となる温度分布](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_thermo-3-answer.svg)
 
 ### (6) ふく射による表面温度の低下
 

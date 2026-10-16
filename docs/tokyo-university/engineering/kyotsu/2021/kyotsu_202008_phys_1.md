@@ -34,7 +34,7 @@ $$
 
 1. 二回目の衝突直前の A、B の速度を $e$ を用いて表せ。
 2. $e$ を求めよ。
-![ばねにつながれた物体との衝突と等質量の場合の位置グラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2021/kyotsu_202008_phys_1_collision_audited.svg)
+![ばねにつながれた物体との衝突と等質量の場合の位置グラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2021/kyotsu_202008_phys_1_collision_audited.svg)
 
 #### 题目描述
 

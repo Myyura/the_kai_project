@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2013年度 問3（流体工学）"
+sidebar_label: "2012年8月実施 問3（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Cylindrical-Couette-Flow
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 流体工学 問3
+# 九州大学 工学府 機械系専攻 2012年8月実施 流体工学 問3
 
 ## **Author**
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 問1（数学）"
+sidebar_label: "2019年8月実施 問1（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Linear-Algebra.Quadratic-Form
   - Mathematics.Linear-Algebra.Orthogonal-Diagonalization-of-Symmetric-Matrices
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 数学 問1
+# 九州大学 工学府 機械系専攻 2019年8月実施 数学 問1
 
 ## **Author**
 
@@ -73,13 +73,13 @@ $$
 
 原点中心、$X$ 軸方向の半径 $1$、$Y$ 軸方向の半径 $1/\sqrt5$ の楕円である。
 
-![XY平面の楕円と半軸の長さ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-university/engineering/mech/2020/kyushu_2020_math1_xy.svg)
+![XY平面の楕円と半軸の長さ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/kyushu_201908_math1_xy.svg)
 
 ### (5)
 
 $\boldsymbol x=X\boldsymbol p+Y\boldsymbol q$ より、長軸は $y=-x$、短軸は $y=x$ に沿う。$P$ は直交行列なので半軸の長さは保存される。長軸端点は $\pm(-1,1)/\sqrt2$、短軸端点は $\pm(1,1)/\sqrt{10}$。座標軸との交点は $(\pm1/\sqrt3,0),(0,\pm1/\sqrt3)$ である。
 
-![xy平面の楕円、主軸および端点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-university/engineering/mech/2020/kyushu_2020_math1_xy_original.svg)
+![xy平面の楕円、主軸および端点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/kyushu_201908_math1_xy_original.svg)
 
 ## **Reference**
 

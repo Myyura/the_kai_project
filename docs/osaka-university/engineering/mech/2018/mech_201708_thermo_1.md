@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 問題1（熱工学）"
+sidebar_label: "2017年8月実施 問題1（熱工学）"
 tags:
   - Osaka-University
   - Physics.Thermodynamics.Heat-Pump-and-Refrigeration
   - Physics.Thermodynamics.Carnot-Cycle-and-Heat-Engine-Efficiency
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2018年度 熱工学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2017年8月実施 熱工学 問題1
 
 ## **Author**
 
@@ -120,7 +120,7 @@ $$
 
 $T_H\downarrow300$ で発散し、$T_H\to\infty$ で1に漸近する単調減少曲線である。
 
-![低温熱源300 Kに対する最適熱ポンプの動作係数](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2018/mech_201708_thermo_1-solution-cop.svg)
+![低温熱源300 Kに対する最適熱ポンプの動作係数](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2018/mech_201708_thermo_1-solution-cop.svg)
 
 求める初期温度を $T$ とすると
 

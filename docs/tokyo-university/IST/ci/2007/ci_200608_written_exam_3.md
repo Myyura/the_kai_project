@@ -26,7 +26,7 @@ tags:
 (4) アームの先端 $\mathrm{W}$ に，力 $\vec{F}(F_x, F_y, F_z)$ が加わる場合に，アームの姿勢を保持するために，$3$ つの関節 $\mathrm{O, S, E}$ の各軸回りに必要な関節トルク $\vec{\tau}(\tau_0, \tau_1, \tau_2)$ を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_3_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_3_p1.png" width="600" alt=""/>
   <br>図1
 </figure>
 
@@ -42,7 +42,7 @@ Figure 1 shows an arm which has three joints at O, S and E. The axis of the join
 (4) Assume a force $\vec{F}(F_x,F_y,F_z)$ is applied to the point W. Show the joint torque $\vec{\tau}(\tau_0,\tau_1,\tau_2)$ around the three joints O, S and E in order to keep the posture of the arm.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_3_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_3_p1.png" width="600" alt=""/>
   <br>Figure 1
 </figure>
 

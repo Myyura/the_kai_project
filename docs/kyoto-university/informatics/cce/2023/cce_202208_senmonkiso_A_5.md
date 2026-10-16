@@ -59,7 +59,7 @@ Answer all the following questions.
 ## **Kai**
 ### (1) 
 
-![Communication system block diagram](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce/2023/kyoto-cce-2022-communication-model.svg)
+![Communication system block diagram](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2023/kyoto-cce-202208-communication-model.svg)
 Source $\rightarrow$ source encoder $\rightarrow$ channel encoder $\rightarrow$ Communication channel $\rightarrow$ channel decoder $\rightarrow$ source decoder $\rightarrow$ destination 
 
 ### (2)
@@ -80,7 +80,7 @@ Its merge weights are $0.04+0.08=0.12$, $0.12+0.12=0.24$, $0.16+0.24=0.40$, and 
 The corresponding tree:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_A_5_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2023/cce_202208_senmonkiso_A_5_p1.png" width="500" alt=""/>
 </figure>
 
 #### (c)  
@@ -117,7 +117,7 @@ $\max H(y) = H(\frac{1}{2}) = 1$. So that $C = 1 + p \log_2 p + (1-p) \log_2 (1-
 The graph: 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce/2023/kyoto-cce-2022-bsc-capacity.svg" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2023/kyoto-cce-202208-bsc-capacity.svg" width="500" alt=""/>
 </figure>
 
 #### (c)  

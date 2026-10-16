@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2019年度 基礎科目 問題7"
+sidebar_label: "2018年8月実施 基礎科目 問題7"
 tags:
   - Kyoto-University
   - Mathematics.Linear-Algebra.Matrix-Determinant
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2019年度 基礎科目 問題7
+# 京都大学 理学研究科 数学・数理解析専攻 2018年8月実施 基礎科目 問題7
 
 ## **Author**
 

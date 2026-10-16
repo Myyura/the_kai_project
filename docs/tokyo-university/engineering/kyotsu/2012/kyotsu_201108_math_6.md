@@ -85,4 +85,4 @@ $a,b,c$ 間に実線があれば $v$ と実線三角形を作る。なければ�
 点線の $K_4$ があれば、その四頂点は八角形上で互いに隣接してはならない。
 可能なのは $\{0,2,4,6\}$ と $\{1,3,5,7\}$ だけだが、どちらも実線の対径辺を含み、矛盾する。
 
-![K5とK8の辺のラベル付け](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2012/kyotsu_201108_math_6_graphs.svg)
+![K5とK8の辺のラベル付け](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2012/kyotsu_201108_math_6_graphs.svg)

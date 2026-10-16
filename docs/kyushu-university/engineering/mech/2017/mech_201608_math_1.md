@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年度 問1（数学）"
+sidebar_label: "2016年8月実施 問1（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Calculus.Power-Series
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 数学 問1
+# 九州大学 工学府 機械系専攻 2016年8月実施 数学 問1
 
 ## **Author**
 

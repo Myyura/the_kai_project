@@ -30,7 +30,7 @@ tags:
 
 5. 平面波における電界 $\mathbf E$、磁界 $\mathbf H$、波数 $\mathbf k$ の三つのベクトルの関係について、図 3.1 の（ク）～（コ）に当てはまるものをそれぞれ答えよ。ただし、$\odot$ は紙面に対して上向きを表す。
 
-![図3.1 電界・磁界・波数ベクトルの関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2017/ee_201708_electromagnetism_3_original_fig3-1.png)
+![図3.1 電界・磁界・波数ベクトルの関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2018/ee_201708_electromagnetism_3_original_fig3-1.png)
 
 図の出典：東京工業大学 電気電子系 2017年実施問題（原図）。
 

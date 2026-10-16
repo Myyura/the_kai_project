@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2013年度 問2（熱工学）"
+sidebar_label: "2012年8月実施 問2（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Conduction-with-Heat-Generation
   - Engineering.Heat-Transfer.Thermal-Resistance-Networks
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 熱工学 問2
+# 九州大学 工学府 機械系専攻 2012年8月実施 熱工学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 図のように、断面積と長さが同じ銅棒1本と真ちゅう棒6本を交点A、Bで連結する。各棒の長さは $1\,\mathrm m$。銅棒の熱伝導率は真ちゅう棒の3倍の $400\,\mathrm{W/(m\,K)}$ で、一様な内部発熱 $H=4800\,\mathrm{W/m^3}$ を持つ。真ちゅう棒は発熱しない。各末端温度を図の値 $T_1=60^\circ\mathrm C,T_2=80^\circ\mathrm C,T_3=40^\circ\mathrm C,T_4=50^\circ\mathrm C,T_5=10^\circ\mathrm C,T_6=30^\circ\mathrm C$ に保つ。（50点）
 
-![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/thermo-2-original.png)
+![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_thermo-2-original.png)
 
 交点A、Bの温度を求めよ。また、銅棒からA、Bにそれぞれ流出する熱量の比率を求めよ。熱は棒の軸方向にのみ流れ、棒表面と外部との熱の出入りはない。
 

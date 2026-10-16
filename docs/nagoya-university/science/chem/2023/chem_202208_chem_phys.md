@@ -29,7 +29,7 @@ tags:
 
 同じ300 K・1 molの He と Ar の速さの分布を比較し、図の破線の He に対して Ar を表す曲線を選ぶ。
 
-![問題33の分布曲線と問題35の自由エネルギー曲線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/science/chem/2023/nagoya-chem2023-curves.svg)
+![問題33の分布曲線と問題35の自由エネルギー曲線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/science/chem/2023/nagoya-chem202208-curves.svg)
 
 ### 問題34
 

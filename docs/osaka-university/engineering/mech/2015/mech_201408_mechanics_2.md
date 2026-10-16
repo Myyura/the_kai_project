@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 力学 問題2"
+sidebar_label: "2014年8月実施 力学 問題2"
 tags:
   - Osaka-University
   - Physics.Mechanics.Center-of-Mass-and-Angular-Momentum
   - Physics.Mechanics.Connected-Particles-and-Tension
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2015年度 力学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2014年8月実施 力学 問題2
 
 ## **Author**
 
@@ -20,7 +20,7 @@ tags:
 2. 初期状態 $x_A=0,\theta=\theta_0$（$0<\theta_0<\pi/2$）から静かに拘束を外す。$\theta=0$ となるときの $\dot\theta,x_A,N$ を $M,m,\ell,g,\theta_0$ で表せ。
 3. B に、その速度ベクトル $\boldsymbol v_B$ と逆向きの力 $-k\boldsymbol v_B$（$k>0$）が働く場合を考える。(2) と同じ初期状態から静かに放すと、やがて $\theta=0$ で静止した。このときの $x_A$ を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2015/mech_201408_mechanics_2-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2015/mech_201408_mechanics_2-question-fig1.png)
 
 #### 题目描述
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年度 問3（材料力学）"
+sidebar_label: "2016年8月実施 問3（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Strain-Energy
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 材料力学 問3
+# 九州大学 工学府 機械系専攻 2016年8月実施 材料力学 問3
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図の弾性丸棒 AB、BC と剛体棒 CD、DF からなる構造物が A で壁に固定されている。弾性棒のヤング率は $E$、ポアソン比は $\nu$、直径は $d$ である。AB は $x$ 方向に長さ $a$、BC は $y$ 方向に長さ $b$、CD は $x$ 方向に長さ $c$、DF は $z$ 方向に長さ $e$ を持ち、$a,b,c,e\gg d$ とする。F に $+y$ 方向の荷重 $P$ を加える。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/material-3-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-3-original.png)
 
 1. 丸棒の断面二次モーメント $I$、断面二次極モーメント $I_p$、横弾性係数 $G$ を記述せよ。
 2. AB のせん断力線図（SFD）と曲げモーメント線図（BMD）を描け。
@@ -58,7 +58,7 @@ $$
 
 SFD は高さ $P$ の一定値、BMD は A の $P(a+c)$ から B の $Pc$ へ直線的に減少する。ねじりモーメントは別に $T_x=-Pe$ で一定である。
 
-![AB のせん断力線図と曲げモーメント線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/material-3-sfd-bmd.svg)
+![AB のせん断力線図と曲げモーメント線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-3-sfd-bmd.svg)
 
 ### (3)
 

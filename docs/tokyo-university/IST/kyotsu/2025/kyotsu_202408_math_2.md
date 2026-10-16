@@ -167,4 +167,4 @@ $$
 
 より、軌道は $(y,x)=(1,2)$ から $(e,e)$ で最大値を取り、$(e^2,0)$ に至る上に凸の曲線である。$0\le t\le\pi$ ではこの順に進み、$\pi\le t\le2\pi$ では同じ曲線を逆向きに戻る。以後、周期 $2\pi$ で往復する。
 
-![横軸 y、縦軸 x の解軌道。t=0 から π で左端から右端へ進み、π から 2π で同じ曲線を戻る。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu/2025/kyotsu_202408_math_2_trajectory.svg)
+![横軸 y、縦軸 x の解軌道。t=0 から π で左端から右端へ進み、π から 2π で同じ曲線を戻る。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/kyotsu/2025/kyotsu_202408_math_2_trajectory.svg)

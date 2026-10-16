@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 問1（熱工学）"
+sidebar_label: "2017年8月実施 問1（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Brayton-Cycle
   - Physics.Thermodynamics.Steady-Flow-Energy-Equation
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 熱工学 問1
+# 九州大学 工学府 機械系専攻 2017年8月実施 熱工学 問1
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 図のガスタービンは開いた系の流動式熱機関であり、理論サイクルは断熱圧縮 $1\to2$、等圧加熱 $2\to3$、断熱膨張 $3\to4$、等圧冷却 $4\to1$ からなる Brayton サイクルである。状態を添字で表し、作動流体を理想気体、定圧比熱 $c_p$ と比熱比 $\kappa$ を一定とする。（55 点）
 
-![ガスタービンと h–s 線図の解答欄（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/thermo-1-original.png)
+![ガスタービンと h–s 線図の解答欄（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_thermo-1-original.png)
 
 1. $h$–$s$（比エンタルピー–比エントロピー）線図を描け。$T_1$、圧力比 $\gamma=p_2/p_1$、サイクル最高低温度比 $\tau=T_3/T_1$、$c_p,\kappa$ を用いて単位質量流量当たりの圧縮機仕事 $l_{C0}$、タービン仕事 $l_{T0}$、加熱量 $q_0$ を求めよ。
 2. 理論熱効率 $\eta_0$ は圧力比 $\gamma$ のみに依存することを示せ。
@@ -50,7 +50,7 @@ $$
 
 線図では $1\to2$ と $3\to4$ が鉛直線、$2\to3$ と $4\to1$ が等圧線となる。
 
-![理想・実際の Brayton サイクルの h–s 線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/thermo-1-brayton.svg)
+![理想・実際の Brayton サイクルの h–s 線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_thermo-1-brayton.svg)
 
 ### (2)
 

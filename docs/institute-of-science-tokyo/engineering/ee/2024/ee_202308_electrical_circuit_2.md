@@ -27,7 +27,7 @@ Zero
 (6) 図 $2.2$ の回路に $v_{in}$ として並列共振角周波数 $\omega_0$ の信号を入力した際の小信号利得 $v_{out}/v_{in}$ を $\omega_0,L,C,g_m,r_o$ のうち必要なものを用いて示せ。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202308_electrical_circuit_2_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2024/ee_202308_electrical_circuit_2_p1.png" width="600" alt=""/>
 </figure>
 
 ### 题目描述
@@ -81,7 +81,7 @@ $$
 ### (5)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202308_electrical_circuit_2_p2.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2024/ee_202308_electrical_circuit_2_p2.png" width="400" alt=""/>
 </figure>
 
 ### (6)

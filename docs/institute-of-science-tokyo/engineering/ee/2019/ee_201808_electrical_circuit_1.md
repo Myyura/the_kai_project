@@ -29,7 +29,7 @@ tags:
 
 (7) スイッチ $S_0$ が閉じていて、スイッチ $S_1,S_2,S_3$ が電圧源 $E_1,E_2,E_3$ にそれぞれ接続されているとき、$V_A$ を $E_1,E_2,E_3,R,R_L$ の関数で表せ。
 
-![図1.1 抵抗ラダー回路、図1.2 等価電圧源](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2018/circuit1-fig1-1-2.png)
+![図1.1 抵抗ラダー回路、図1.2 等価電圧源](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2019/ee_201808_circuit1-fig1-1-2.png)
 
 図は東京工業大学 2019 年度大学院入試の原題より。
 

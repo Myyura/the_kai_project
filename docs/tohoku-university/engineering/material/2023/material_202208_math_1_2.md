@@ -106,7 +106,7 @@ $$
 
 がわかる。
 
-![四つの四乗根。半径2^(-1/4)の円周上にπ/2ずつ離れて並ぶ。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/material/2023/tohoku-material-2023-roots.svg)
+![四つの四乗根。半径2^(-1/4)の円周上にπ/2ずつ離れて並ぶ。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/material/2023/tohoku-material-202208-roots.svg)
 
 #### 問 2
 

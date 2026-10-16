@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年度 電気回路2"
+sidebar_label: "2016年8月実施 電気回路2"
 tags:
   - institute-of-science-tokyo
   - Electrical-Electronic.Circuits.Metal-Oxide-Semiconductor-Field-Effect-Transistor-Bias-and-Small-Signal-Analysis
@@ -7,7 +7,7 @@ tags:
   - Electrical-Electronic.Control-Theory.Bode-Plot-and-Stability-Margins
 ---
 
-# 東京工業大学 工学院 電気電子系 2017年度（2016年8月実施）電気回路2
+# 東京工業大学 工学院 電気電子系 2016年8月実施 電気回路2
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図2.1の MOS トランジスタを用いたソース接地回路の周波数特性を考える。トランジスタは飽和領域で動作し、小信号等価回路は図2.2で表され、そのトランスコンダクタンスを $g_m$ とする。
 
-![MOSソース接地回路とトランジスタ小信号モデル（図2.1、2.2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2016/circuit2-original.png)
+![MOSソース接地回路とトランジスタ小信号モデル（図2.1、2.2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_circuit2-original.png)
 
 図：東京工業大学 電気電子系 2016年実施問題、図2.1、2.2（原図）。
 
@@ -36,7 +36,7 @@ tags:
 
 直流電源 $V_{CC}$ を交流的に接地する。ゲートから接地までの抵抗は $R_G=R_1\parallel R_2$、ドレインには $R_D$ と電流源 $g_mv_{gs}$ が接続される。
 
-![MOS回路の小信号等価回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2016/circuit2-small-signal.svg)
+![MOS回路の小信号等価回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_circuit2-small-signal.svg)
 
 ### 2)
 
@@ -81,4 +81,4 @@ $$
 
 骨格利得線図は $1\le\omega\le100$ で $20\,\mathrm{dB/dec}$、$\omega\ge100$ で $40\,\mathrm{dB}$ の水平線となる。位相の骨格線図は $\omega\le10$ で $-90^\circ$、$10$〜$1000$ で $-45^\circ/\mathrm{dec}$、$\omega\ge1000$ で $-180^\circ$ とする。$\omega=100$ の厳密な値は約 $37\,\mathrm{dB}$、$-135^\circ$ である。
 
-![MOS増幅回路の骨格ボード線図と厳密曲線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2016/circuit2-bode.svg)
+![MOS増幅回路の骨格ボード線図と厳密曲線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_circuit2-bode.svg)

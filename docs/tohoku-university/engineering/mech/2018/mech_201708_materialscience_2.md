@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年秋季 材料物性学 第2問"
+sidebar_label: "2017年8月実施 材料物性学 第2問"
 tags:
   - Tohoku-University
   - Engineering.Materials-Science.Fick-Diffusion-and-Arrhenius-Law
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 材料物性学 第2問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 材料物性学 第2問
 
 ## **Author**
 

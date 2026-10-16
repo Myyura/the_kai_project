@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年度 電磁気学1"
+sidebar_label: "2016年8月実施 電磁気学1"
 tags:
   - institute-of-science-tokyo
   - Physics.Electromagnetism.Gauss-Law
@@ -7,7 +7,7 @@ tags:
   - Electrical-Electronic.Circuits.Resistor-Capacitor-Charging-and-Discharging
 ---
 
-# 東京工業大学 工学院 電気電子系 2017年度（2016年8月実施）電磁気学1
+# 東京工業大学 工学院 電気電子系 2016年8月実施 電磁気学1
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図1.1のように、半径 $a,b$（$a<b$）の半球形完全導体容器を同心に配置し、その間を誘電率 $\varepsilon$、導電率 $\sigma$ の媒質で満たす。外側導体を接地し、内側導体には $t=0$ で初期電荷 $q_0$ がある。$t>0$ で導体間に電流が流れ、内側の電荷量 $q(t)$ が減少する。導体の厚さ、端部効果、および媒質内の電荷が生む電界は無視する。
 
-![半球形導体容器と媒質（図1.1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2016/em1-original.png)
+![半球形導体容器と媒質（図1.1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_em1-original.png)
 
 図：東京工業大学 電気電子系 2016年実施問題、図1.1（原図）。
 
@@ -85,7 +85,7 @@ R=\int_a^b\frac{dr}{2\pi\sigma r^2}
 \qquad RC=\frac\varepsilon\sigma.
 $$
 
-![半球形構造の漏れ抵抗と容量による等価回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2016/em1-rc-equivalent.svg)
+![半球形構造の漏れ抵抗と容量による等価回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_em1-rc-equivalent.svg)
 
 $$
 \boxed{I(t)=\frac{q_0}{RC}e^{-t/(RC)}}.

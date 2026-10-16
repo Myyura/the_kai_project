@@ -16,7 +16,7 @@ Answer the following questions.
 (1) As Figure 1 shows, an orthogonal coordinate frame $\Sigma_C$ of a camera with the lens axis $CZ$ and the projection plane $S$ is placed at the point $C$. The plane $S$ is orthogonal to the lens axis $CZ$ and has the distance $f$ from $C$. The point $Q$ is projected to the point $P$ on the plane $S$ with the coordinates $\mathbf{P}_C=(P_X,P_Y,f)^t$ in $\Sigma_C$. The coordinates of three orientation vectors $CX,CY,CZ$ are described as $\mathbf{X}_\mathbf{W}=(X_X,X_Y,X_Z)^t$, $\mathbf{Y}_\mathbf{W}=(Y_X,Y_Y,Y_Z)^t$ and $\mathbf{Z}_\mathbf{W}=(Z_X,Z_Y,Z_Z)^t$, and the position vector of $C$ is $\mathbf{C}_\mathbf{W}=(C_X,C_Y,C_Z)^t$ in the coordinate frame $\Sigma_W$. The superscript $t$ indicates transpose.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200908_2_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2010/ci_200908_2_p1.png" width="600" alt=""/>
 </figure>
 
 Assume the distance from $C$ to $Q$ is $d$, show the vector $\mathbf{Q}_C$ from the point $C$ to the point $Q$ with $\mathbf{P}_C$ and $d$. When the vector $\mathbf{Q}_\mathbf{W}$ is the position vector of $Q$ and the rotation matrix of $\Sigma_C$ is $R_C$ in $\Sigma_W$, we have $\mathbf{Q}_\mathbf{W}=R_C\mathbf{Q}_C+\mathbf{C}_\mathbf{W}$. Show the elements of the rotation matrix $R_C$.

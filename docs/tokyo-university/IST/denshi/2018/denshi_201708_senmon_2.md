@@ -21,7 +21,7 @@ tags:
 (2) (1) で設計した状態遷移図の状態遷移表を下表のように示せ。ここで状態は $n$ ビットのレジスタで保持することを想定し、$S_{n-1}\dots S_0$ のように表している。また、$S_{n-1}'\dots S_0'$ は次状態を表している。状態レジスタから出力を生成する回路が最も簡単になるように状態を割り振ること。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2018_2_p1.png" width="432" height="257" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2018/denshi_201708_2_p1.png" width="432" height="257" alt=""/>
 </figure>
 
 (3) 状態レジスタの各ビットの次状態を決定する論理式を、それぞれ加法標準形（積項を+でつないで出来た式）で示せ。カルノー図を用いて項数を最小とすること。
@@ -29,7 +29,7 @@ tags:
 (4) 図 $1$ を具体化する形で、(3) で導いた論理式を実現する回路をANDゲート、ORゲート、NOTゲート、およびDフリップ・フロップの組み合わせにて示せ。図 $2$ のように、入力値の反転を意味する記法を用いても良い。また、クロックの分配線は省略して良い。フリップ・フロップは理想的であると仮定する。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2018_2_p2.png" width="700" height="360" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2018/denshi_201708_2_p2.png" width="700" height="360" alt=""/>
 </figure>
 
 ### 题目描述
@@ -134,6 +134,6 @@ $S_1'$ のカルノー図では、孤立した $1$ が2個あり、残る6個の
 
 (3) の $S_1'$ の6積項をそれぞれ AND ゲートで作り、OR ゲートでまとめて状態 $S_1$ の D 入力に接続する。同様に $S_0'$ の2積項を AND–OR 回路で作って $S_0$ の D 入力に接続する。反転入力は NOT ゲートで生成できる。状態の出力はそのまま $O_1=S_1,\ O_0=S_0$ とする。
 
-![Modulo-4 accumulator using AND, OR, NOT and D flip-flops](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2018/tokyo-denshi-2017-mod4.svg)
+![Modulo-4 accumulator using AND, OR, NOT and D flip-flops](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2018/tokyo-denshi-201708-mod4.svg)
 
 同じ信号名は接続されているものとし、図では NOT をゲート入力の小円で表す。入力レジスタも含め、D フリップ・フロップは同じクロックを用い、状態レジスタの初期値を $S_1S_0=00$ とする。

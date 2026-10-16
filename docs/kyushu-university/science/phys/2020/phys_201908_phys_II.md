@@ -57,7 +57,7 @@ $$
 
 出典：[九州大学 令和2年度 物理学II](https://pr.phys.kyushu-u.ac.jp/graduate/pdf/R2_inshi.pdf#page=7)。
 
-![電荷・導体球・電流境界・球面コイルの配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/science/phys/2020/kyushu-phys-2019-electromagnetism.svg)
+![電荷・導体球・電流境界・球面コイルの配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/science/phys/2020/kyushu-phys-201908-electromagnetism.svg)
 
 ### 题目描述
 

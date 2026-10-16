@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 問3（機械力学）"
+sidebar_label: "2014年8月実施 問3（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Longitudinal-Vibration
   - Physics.Mechanics.Forced-Vibration
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 機械力学 問3
+# 九州大学 工学府 機械系専攻 2014年8月実施 機械力学 問3
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 密度 $\rho$、縦弾性係数 $E$、断面積 $A$、長さ $l$ の一様な弾性棒の縦振動を考える。左端を壁に固定し、右端に $f(t)=f_0\cos\Omega t$ を加える。左端を原点とする軸方向座標を $x$、変位を $u(x,t)$ とし、$c=\sqrt{E/\rho}$ を用いてよい。（50 点）
 
-![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/dynamics-3-original.png)
+![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_dynamics-3-original.png)
 
 1. $f(t)=0$ のとき、棒の縦振動の運動方程式を導出せよ。
 2. 強制振動解を $u(x,t)=U(x)\cos\Omega t$ と仮定し、境界条件を考慮して $U(x)$ を求めよ。

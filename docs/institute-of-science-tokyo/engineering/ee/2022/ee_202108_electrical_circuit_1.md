@@ -39,7 +39,7 @@ $$
 (7) 問 (6)で求めたポールが $2$ つの負の実数となる場合を考える。それらを $-\alpha_1$ と $-\alpha_2$ とし、$\alpha_1 > \alpha_2$ であるとする。回路の単位ステップ応答 $v_{out}(t)$ を求めよ。答は $R,L,C$ を用いずに $\alpha_1$ および $\alpha_2$ を用いて示せ。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202108_electrical_circuit_1_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electrical_circuit_1_p1.png" width="600" alt=""/>
 </figure>
 
 ### 题目描述

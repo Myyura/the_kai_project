@@ -16,7 +16,7 @@ tags:
 設問 以下の状態遷移図で示される単純マルコフ情報源から出力される系列 $X_1,X_2,\dots,X_t,\dots$ がある。ここで $X_t \in \{A,B\}$ である。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_201908_senmon_s_4_p1.png" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2020/ist_201908_senmon_s_4_p1.png" width="350" alt=""/>
 </figure>
 
 状態遷移（要約）：$P(A\mid A)=3/4,\ P(B\mid A)=1/4,\ P(A\mid B)=P(B\mid B)=1/2$。
@@ -44,7 +44,7 @@ $X_t$ は以下の通信路行列によって与えられる通信路を介し�
 $X_1,X_2,\ldots$，其中 $X_t\in\{A,B\}$：
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_201908_senmon_s_4_p1.png" width="350" alt="Markov 信息源状态转移图"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2020/ist_201908_senmon_s_4_p1.png" width="350" alt="Markov 信息源状态转移图"/>
 </figure>
 
 $X_t$ 通过下列信道传输，接收

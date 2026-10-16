@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 専門科目 問題8"
+sidebar_label: "2019年8月実施 専門科目 問題8"
 tags:
   - Kyoto-University
   - Mathematics.Differential-Equations.Energy-Estimates-for-Parabolic-Equations
   - Mathematics.Functional-Analysis.Uniform-Convergence
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2020年度 専門科目 問題8
+# 京都大学 理学研究科 数学・数理解析専攻 2019年8月実施 専門科目 問題8
 
 ## **Author**
 

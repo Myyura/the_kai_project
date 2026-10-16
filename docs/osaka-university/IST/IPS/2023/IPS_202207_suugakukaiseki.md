@@ -167,7 +167,7 @@ $x(-t)=x(t)$、$y(-t)=-y(t)$ より、曲線全体は実軸に関して対称で
 | $1/2$ | $-1-i$ |
 | $3/4$ | $-7i/4$ |
 
-![複素曲線の概形。矢印はパラメータ t が増加する向き。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/osaka-university/IST/IPS/2023/IPS_202207_suugakukaiseki_2_curve.svg)
+![複素曲線の概形。矢印はパラメータ t が増加する向き。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/IST/IPS/2023/IPS_202207_suugakukaiseki_2_curve.svg)
 
 $0\le t\le1$ の部分を $C_+$ とする。$0<t<1/2$ では、$x(t)=x(1-t)$ であり、
 

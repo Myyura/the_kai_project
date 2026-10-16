@@ -131,7 +131,7 @@ $$
 \boxed{J=\frac{2\pi}{\sqrt3}}.
 $$
 
-![正実軸を割線とする積分路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2018/sys_201708_engineering_math_keyhole.svg)
+![正実軸を割線とする積分路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2018/sys_201708_engineering_math_keyhole.svg)
 
 ### 問題3
 

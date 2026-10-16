@@ -26,7 +26,7 @@ Zero
   原点から点 $(x,y,z)$ 方向の単位ベクトルが $(\frac{x}{r},\frac{y}{r},\frac{z}{r})$ であることを利用せよ。ただし，$r = \sqrt{x^2 + y^2 + z^2}$ である。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electromagnetism_1_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electromagnetism_1_p1.png" width="300" alt=""/>
 </figure>
 
 (2) 
@@ -38,7 +38,7 @@ Zero
 - (b) 図 $1.3$ のように，図 $1.1$ の球状に分布した電荷のうち，位置 $(d,0,0)$ を中心とする半径 $b$ の球内の電荷を取り去ると，この領域内部では電界の方向と大きさが一定となる。その方向と大きさを求めよ。ただし，(a) と同じく $d > 0$ および $b + d < a$ とする。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electromagnetism_1_p2.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electromagnetism_1_p2.png" width="600" alt=""/>
 </figure>
 
 ### 题目描述
@@ -88,7 +88,7 @@ E &= \frac{\rho a^3}{3\varepsilon_0 r^2}
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electromagnetism_1_p3.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electromagnetism_1_p3.png" width="300" alt=""/>
 </figure>
 
 #### (b)
@@ -116,7 +116,7 @@ V &= \frac{\rho a^3}{3\varepsilon_0a} - \int_a^r \frac{\rho r}{3\varepsilon_0}dr
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electromagnetism_1_p4.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electromagnetism_1_p4.png" width="300" alt=""/>
 </figure>
 
 #### (c)

@@ -125,13 +125,13 @@ This takes exactly $3k$ units and $O(k)=O(\log n)$ time under the stated conditi
 Let us use AND, OR and NOT to define a new gate called XOR.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_2_p1.png" width="270" height="95" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_2_p1.png" width="270" height="95" alt=""/>
 </figure>
 
 Using XOR, AND, OR and NOT we will creatre `P3` as follows:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_2_p2.png" width="413" height="155" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_2_p2.png" width="413" height="155" alt=""/>
 </figure>
 
 The truth table for it would be:
@@ -160,7 +160,7 @@ where $u\oplus v=(u\land\neg v)\lor(\neg u\land v)$ uses only the allowed gates.
 For `P6` the logic will be as follows:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_2_p3.png" width="433" height="186" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_2_p3.png" width="433" height="186" alt=""/>
 </figure>
 
 If the two $P_3$ outputs are $(h_0,l_0)$ and $(h_1,l_1)$, let $c_0=l_0\land l_1$. The three output bits are

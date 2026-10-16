@@ -22,7 +22,7 @@ tags:
 3. 長さ $l$、幅 $2w$、厚さ $d$、同じ $E,\nu$ の棒②を①と並列に配置する。上端を固定し、下端を回転せず鉛直移動のみ可能な剛体で連結する。剛体に下向き荷重 $F$ を加えたときの変位を求めよ。
 4. この並列系で棒①のみを $\Delta T>0$ 加熱する。棒①の線膨張係数を $\alpha$ として、温度上昇による剛体の変位増分を求めよ。
 
-![構造・座標の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/sn-mechanics/materials/2021-5-geometry.svg)
+![構造・座標の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/2021-5-geometry.svg)
 
 #### 题目描述
 

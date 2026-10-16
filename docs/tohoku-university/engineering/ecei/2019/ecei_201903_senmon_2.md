@@ -67,7 +67,7 @@ $$
 
 一阶近似振幅谱在 $\pm f_c$ 的权重为 $A_c/2$，在 $\pm(f_c-f_s),\pm(f_c+f_s)$ 的权重均为 $A_c\beta/4$；下边带的有符号系数为负。
 
-![小相位调制的双边振幅谱](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201903_senmon_2_spectrum.svg)
+![小相位调制的双边振幅谱](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2019/ecei_201903_senmon_2_spectrum.svg)
 
 若不作小角度近似，利用第一类 Bessel 函数 $J_n$，精确式为
 

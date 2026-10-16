@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2019年度 力学 問題1"
+sidebar_label: "2018年8月実施 力学 問題1"
 tags:
   - Osaka-University
   - Physics.Mechanics.Projectile-Motion
   - Physics.Mechanics.Collision-and-Coefficient-of-Restitution
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2019年度 力学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2018年8月実施 力学 問題1
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 4. (3) の後、図3のように質点が再び A を含む水平面上の点 D に達するとする。A と D の距離が $0$ となる $v_1$ を求めよ。
 5. (4) の場合、C から D までの軌道は放物線の一部となる。この放物線の軸と D の距離を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2019/mech_201808_mechanics_1-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2019/mech_201808_mechanics_1-question-fig1.png)
 
 #### 题目描述
 

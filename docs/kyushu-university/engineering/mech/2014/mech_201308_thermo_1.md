@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2014年度 問1（熱工学）"
+sidebar_label: "2013年8月実施 問1（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Ideal-Gas-Entropy-and-Heat-Capacities
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 熱工学 問1
+# 九州大学 工学府 機械系専攻 2013年8月実施 熱工学 問1
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 図のように、断面積 $S$ のシリンダを鉛直に立て、質量がともに $m$ のピストン1、2で内部を領域1、2に分割する。各領域には単位質量の同じ理想気体（気体定数 $R$、比熱比 $\kappa$）を封入する。ピストンは摩擦なく動き、固定することもできる。領域1にはヒータがある。シリンダ壁とピストンは断熱だが、ピストン2には熱を通す仕切り材があり、断熱カバーを外したときのみ両領域間で熱を交換できる。気体・断熱カバー・仕切り材の重さと、ヒータ・カバーの体積は無視する。重力加速度を $g$ とする。（55点）
 
-![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/thermo-1-original.png)
+![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_thermo-1-original.png)
 
 (1) 両ピストンが自由に動き、断熱カバーが付いた状態で、大気圧 $p_0$、両領域の温度 $T_0$ のもとでつり合っている。各領域の高さを $h_1,h_2$ とするとき、$\alpha=h_1/h_2$ を $p_0,S,m,g$ で表せ。
 

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2018年度 問3（数学）"
+sidebar_label: "2017年8月実施 問3（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Calculus.Double-Integral
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 数学 問3
+# 九州大学 工学府 機械系専攻 2017年8月実施 数学 問3
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 右図のように、$XY$ 平面内に、ともに半径が1である2つの円 $C_1,C_2$ があり、中心の座標がそれぞれ $(0,0),(0,1)$ であるとする。このとき、以下の問いに答えよ。（50点）
 
-![原題の二円と斜線領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/math-3-original.png)
+![原題の二円と斜線領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_math-3-original.png)
 
 1. 2つの円の交点を $P$ とするとき、$y$ 軸と $OP$ とのなす角 $\theta$ を求めよ。
 2. 斜線で示した領域の面積 $S_0$ を求めよ。

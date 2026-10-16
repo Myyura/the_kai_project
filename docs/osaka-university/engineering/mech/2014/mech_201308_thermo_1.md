@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2014年度 問題1（熱工学）"
+sidebar_label: "2013年8月実施 問題1（熱工学）"
 tags:
   - Osaka-University
   - Physics.Thermodynamics.Ideal-Gas-Entropy-and-Heat-Capacities
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2014年度 熱工学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2013年8月実施 熱工学 問題1
 
 ## **Author**
 

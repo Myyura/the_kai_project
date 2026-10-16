@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2023年度 数学 1"
+sidebar_label: "2022年8月実施 数学 1"
 tags:
   - Kyoto-University
   - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
@@ -8,7 +8,7 @@ tags:
   - Mathematics.Fourier-Analysis.Parseval-Identity
 ---
 
-# 京都大学 工学研究科 機械工学群 2023年度 数学 問題1
+# 京都大学 工学研究科 機械工学群 2022年8月実施 数学 問題1
 
 ## **Author**
 

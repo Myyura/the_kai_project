@@ -36,7 +36,7 @@ $xy$ 平面に、内半径 $a$、外半径 $b$、中心 O の穴あき円板が�
 3. 磁性体に導線を一様に $N$ 回巻き、環状ソレノイドとする。電流 $I$ を流したとき、磁性体の断面を通る全磁束を求めよ。通電前の磁化は零、透磁率は $\mu$ とし、漏れ磁束は無視する。
 4. ソレノイド内の磁束密度と磁化を一様と近似し、平均周長 $2\pi(a+b)/2$ を用いて磁束密度と磁化を求めよ。さらに $a\gg b-a$ の場合に、この磁束密度が 3 の磁束から求める値と一致することを示せ。必要なら $|x|\ll1$ で $\log(1+x)\simeq x$ を用いてよい。
 
-![帯電円環板、軸方向・周方向磁化、および環状ソレノイド](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2019/kyotsu_201808_phys_2_annulus_torus_audited.svg)
+![帯電円環板、軸方向・周方向磁化、および環状ソレノイド](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2019/kyotsu_201808_phys_2_annulus_torus_audited.svg)
 
 #### 题目描述
 

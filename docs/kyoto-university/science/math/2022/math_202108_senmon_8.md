@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2022年度 専門科目 [8]"
+sidebar_label: "2021年8月実施 専門科目 [8]"
 tags:
   - Kyoto-University
   - Mathematics.Differential-Equations.Elliptic-Energy-Estimates
   - Mathematics.Vector-Calculus.Greens-Identities
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2022年度 専門科目 問題8
+# 京都大学 理学研究科 数学・数理解析専攻 2021年8月実施 専門科目 問題8
 
 ## **Author**
 

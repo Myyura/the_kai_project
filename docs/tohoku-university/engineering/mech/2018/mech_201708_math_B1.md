@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年秋季 数学B 第1問"
+sidebar_label: "2017年8月実施 数学B 第1問"
 tags:
   - Tohoku-University
   - Mathematics.Fourier-Analysis.Fourier-Series
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 数学B 第1問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 数学B 第1問
 
 ## **Author**
 

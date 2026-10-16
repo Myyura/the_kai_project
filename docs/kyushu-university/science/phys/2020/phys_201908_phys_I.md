@@ -52,7 +52,7 @@ tags:
 
 出典：[九州大学 令和2年度 物理学I](https://pr.phys.kyushu-u.ac.jp/graduate/pdf/R2_inshi.pdf#page=2)。
 
-![ばね振動子とコマの配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/science/phys/2020/kyushu-phys-2019-mechanics.svg)
+![ばね振動子とコマの配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/science/phys/2020/kyushu-phys-201908-mechanics.svg)
 
 ### 题目描述
 

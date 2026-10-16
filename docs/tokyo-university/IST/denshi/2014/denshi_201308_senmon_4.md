@@ -37,7 +37,7 @@ $$
 
 図1：$M(f)$ は原点で最大となる山形のスペクトルで、$|f|>B$ では $0$ である。
 
-![図1 ベースバンドスペクトル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-university/IST/denshi/denjo2014_q4_baseband.svg)
+![図1 ベースバンドスペクトル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2014/denjo201308_q4_baseband.svg)
 
 図2：送信者は、初期距離 $z_0$ だけ離れた静止受信者に向かって速度 $v$ で移動する。
 
@@ -59,7 +59,7 @@ $$
 
 $M(f)$ を $\pm f_C$ に平行移動し、高さを $1/2$ にした二つのスペクトルとなる。各帯域は $[-f_C-B,-f_C+B]$ と $[f_C-B,f_C+B]$ である。
 
-![変調後のスペクトル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-university/IST/denshi/denjo2014_q4_modulated.svg)
+![変調後のスペクトル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2014/denjo201308_q4_modulated.svg)
 
 ### (2)
 

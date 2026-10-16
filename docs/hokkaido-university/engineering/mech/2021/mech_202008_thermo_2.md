@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2021年度 熱力学 問2"
+sidebar_label: "2020年8月実施 熱力学 問2"
 tags:
   - Hokkaido-University
   - Physics.Thermodynamics.Exergy-and-Maximum-Useful-Work
   - Physics.Thermodynamics.Steady-Flow-Energy-Equation
 ---
 
-# 北海道大学 工学院 機械・宇宙航空工学系 2021年度 熱力学 問2
+# 北海道大学 工学院 機械・宇宙航空工学系 2020年8月実施 熱力学 問2
 
 ## **Author**
 

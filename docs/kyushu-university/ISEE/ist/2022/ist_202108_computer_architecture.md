@@ -23,11 +23,11 @@ tags:
 積項数が等しい積和形論理式が複数ある場合には、そのなかでリテラル数が最小のものを指す。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_computer_architecture_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_computer_architecture_p1.png" width="400" alt=""/>
 </figure>
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_computer_architecture_p2.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_computer_architecture_p2.png" width="600" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -72,7 +72,7 @@ add $2 ,$7, $6   # <8>
 ### 题目描述
 
 【问题 1】原题给出了一个组合逻辑电路，以及输出 $X,Y$ 和内部子电路
-$G_1,G_2$ 的逻辑函数真值表，详见[电路图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_computer_architecture_p1.png)与[真值表](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_computer_architecture_p2.png)。求子电路 $F$ 的逻辑函数 $F(a,b,c,d)$ 的最简积和式。“最简”首先要求积项数最少；若有多个积项数相同的式子，则取文字总数最少者。
+$G_1,G_2$ 的逻辑函数真值表，详见[电路图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_computer_architecture_p1.png)与[真值表](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_computer_architecture_p2.png)。求子电路 $F$ 的逻辑函数 $F(a,b,c,d)$ 的最简积和式。“最简”首先要求积项数最少；若有多个积项数相同的式子，则取文字总数最少者。
 
 【问题 2】考虑具有 IF（取指）、ID（译码）、EX（执行）、MEM（访存）和 WB（写回）五级流水数据通路的顺序执行微处理器。每一级总在 $1$ 个时钟周期内完成，WB 阶段写入寄存器的值可在同一周期被后续指令的 ID 阶段读出，所有 RAW（写后读）冒险均通过流水线停顿解决。加法指令各阶段的操作为：
 
@@ -126,7 +126,7 @@ add $2 ,$7, $6   # <8>
 |1|1|1|1|1|
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_computer_architecture_p3.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_computer_architecture_p3.png" width="500" alt=""/>
 </figure>
 
 $$

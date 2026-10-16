@@ -131,7 +131,7 @@ $$
 
 したがって、$0<x<e^{-1}$ で減少、$x>e^{-1}$ で増加し、極小点は $(e^{-1},-e^{-1})$、極大点と変曲点はない。$x$ 軸との交点は $(1,0)$、そこでの接線の傾きは $1$ で、接線は $y=x-1$ となる。また $\lim_{x\to0+}x\log x=0$ だが、原点はグラフに含まれない。
 
-![y=x log x と交点での接線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/engineering/civil/2022/kyushu-civil-2021-log-curve.svg)
+![y=x log x と交点での接線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/civil/2022/kyushu-civil-202108-log-curve.svg)
 
 ### 【問題 2】
 #### (1)

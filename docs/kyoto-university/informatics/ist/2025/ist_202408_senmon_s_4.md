@@ -225,4 +225,4 @@ $$
 
 It is even, nonnegative on the requested interval, maximal at zero, and zero at $t=\pm\pi/\omega_0$.
 
-![Sampled spectra and reconstructed signal under the angular-frequency convention](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2025/kyoto-ist-2024-sampling.svg)
+![Sampled spectra and reconstructed signal under the angular-frequency convention](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2025/kyoto-ist-202408-sampling.svg)

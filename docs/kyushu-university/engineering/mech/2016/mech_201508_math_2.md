@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2016年度 問2（数学）"
+sidebar_label: "2015年8月実施 問2（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Linear-Algebra.Matrix-Limit
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 数学 問2
+# 九州大学 工学府 機械系専攻 2015年8月実施 数学 問2
 
 ## **Author**
 
@@ -63,4 +63,4 @@ $$
 
 全体である。
 
-![像となる直線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/math-2-image.svg)
+![像となる直線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_math-2-image.svg)

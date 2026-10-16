@@ -124,7 +124,7 @@ S5 -------------/
 
 The expression $B=A S5+\overline{A}S6$ is a 2-to-1 multiplexer. Generate $\overline{A}$ with one CMOS inverter and use two CMOS transmission gates:
 
-![CMOS transmission-gate multiplexer](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/cs/2021/tokyo-cs-2020-parity-cmos.svg)
+![CMOS transmission-gate multiplexer](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/cs/2021/tokyo-cs-202008-parity-cmos.svg)
 
 Exactly one transmission gate is on: $S5$ is passed when $A=1$, and $S6$ is passed when $A=0$. Each transmission gate uses one nMOS and one pMOS, and the inverter uses two transistors, for a total of $2+2+2=6$ transistors.
 

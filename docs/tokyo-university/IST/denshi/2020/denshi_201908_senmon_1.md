@@ -24,7 +24,7 @@ $t=0$ から，上述の操作 ($T_0$ 時間短絡し，$T_1$ 時間開放させ
 (4) $v(n(T_0 + T_1))$ を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_1_p1.png" width="480" height="240" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2020/denshi_201908_1_p1.png" width="480" height="240" alt=""/>
 </figure>
 
 ### 题目描述

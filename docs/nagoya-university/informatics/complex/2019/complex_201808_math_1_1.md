@@ -159,7 +159,7 @@ $$
 
 因此图形是以原点为中心的椭圆。短半轴长为 $1/\sqrt5$ ，方向为 $x_1=x_2$ ；长半轴长为 $1$ ，方向为 $x_1=-x_2$ 。也就是说，该椭圆由标准轴方向旋转 $45^\circ$ 得到。
 
-![椭圆 3x₁²+4x₁x₂+3x₂²=1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2019/nagoya-complex2019-ellipse.svg)
+![椭圆 3x₁²+4x₁x₂+3x₂²=1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2019/nagoya-complex201808-ellipse.svg)
 
 ### 4. $f(x)$ 的最大值与最小值
 

@@ -17,7 +17,7 @@ tags:
 
 半径 $a$、質量 $M$ の一様な球の運動を考える。球と床は変形しない剛体とする。水平右向きに $x$ 軸、鉛直上向きに $y$ 軸を取り、重力加速度の大きさを $g$ とする。力積は球の重心 G を通る鉛直な $xy$ 面内で働く。
 
-![滑らかな床から粗い床へ進む球と、段差への衝突](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2013/kyotsu_201208_phys_1_sphere_audited.svg)
+![滑らかな床から粗い床へ進む球と、段差への衝突](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2013/kyotsu_201208_phys_1_sphere_audited.svg)
 
 ### I
 

@@ -28,7 +28,7 @@ $$
 ### II.
 二状態 A、B の離散時間系で、AからBへの遷移確率を $\alpha$、BからAを $\beta$ とし、$0<\alpha<1$、$0<\beta<1$ とする。
 
-![二状态转移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2021/kyotsu_202008_math_2_markov.svg)
+![二状态转移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2021/kyotsu_202008_math_2_markov.svg)
 
 1. $\boldsymbol P(n)=(P_A(n),P_B(n))^T$ に対し $\boldsymbol P(n+1)=M\boldsymbol P(n)$ の $M$ を求める。
 2. $M$ の全固有値と対応する固有ベクトルを求める。

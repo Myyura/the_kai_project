@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年秋季 量子力学 第1問"
+sidebar_label: "2017年8月実施 量子力学 第1問"
 tags:
   - Tohoku-University
   - Physics.Quantum-Mechanics.Particle-on-a-Ring
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 量子力学 第1問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 量子力学 第1問
 
 ## **Author**
 

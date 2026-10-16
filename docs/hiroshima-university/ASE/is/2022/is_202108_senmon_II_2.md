@@ -48,7 +48,7 @@ The first element of array $A$ is represented by $A[1]$.
 (5) Show the expected time complexity of `Select` for a set of $n$ elements, using big-$O$ notation. Explain the reason of the complexity, briefly.
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202108_senmon_II_2_p1.png" width="600" height="250" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2022/is_202108_senmon_II_2_p1.png" width="600" height="250" alt=""/>
 </figure>
 
 ### 题目描述

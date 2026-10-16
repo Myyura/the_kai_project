@@ -65,7 +65,7 @@ $$
 
 其有符号包络为 $\pm A_cf_0[1+2\cos(2\pi f_0t)]$；当括号内因子变负时载波相位翻转 $\pi$。
 
-![调制信号概形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201503_senmon_2_signal.svg)
+![调制信号概形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2015/ecei_201503_senmon_2_signal.svg)
 
 ### (2)
 
@@ -83,7 +83,7 @@ $$
 
 即在 $-f_0,0,f_0$ 处各有权重 $A_cf_0$ 的谱线，在 $\pm2f_c-f_0,\pm2f_c,\pm2f_c+f_0$ 处各有权重 $A_cf_0/2$ 的谱线。
 
-![同步检波输出频谱](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201503_senmon_2_spectrum.svg)
+![同步检波输出频谱](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2015/ecei_201503_senmon_2_spectrum.svg)
 
 ### (3)
 

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2015年度 問2（機械力学）"
+sidebar_label: "2014年8月実施 問2（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 機械力学 問2
+# 九州大学 工学府 機械系専攻 2014年8月実施 機械力学 問2
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 長さ $l$、質量を無視できる剛体棒の左端から $a$（$0\le a\le l$）の位置に質点 $m$ を取り付ける。左端をばね定数 $3k$、右端を $k$ のばねで支持する。平衡時は棒が水平であり、平衡からの微小振動では重力の影響を考えなくてよい。**ニュートンの第二法則によって**運動方程式を求め、以下に答えよ。（50 点）
 
-![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/dynamics-2-original.png)
+![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_dynamics-2-original.png)
 
 1. 質点の鉛直上向き変位を $y$、棒の反時計回り角変位を $\theta$ とする。$a=l/2$ のとき、固有角振動数と自由振動時の $y,\theta$ の関係を求めよ。
 2. 固有角振動数を最大にする $a$ とその最大値、およびそのときの $y,\theta$ の関係を求めよ。

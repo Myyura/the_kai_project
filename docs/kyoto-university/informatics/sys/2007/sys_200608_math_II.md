@@ -91,5 +91,5 @@ $$
 $$
 
 
-![楕円面の中心断面と軸に平行な外接直方体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2007/sys_200608_math_II_section.svg)
+![楕円面の中心断面と軸に平行な外接直方体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2007/sys_200608_math_II_section.svg)
 

@@ -27,7 +27,7 @@ tags:
 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2011_5_p1.png" width="591" height="307" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2011/denshi_201008_5_p1.png" width="591" height="307" alt=""/>
 </figure>
 
 

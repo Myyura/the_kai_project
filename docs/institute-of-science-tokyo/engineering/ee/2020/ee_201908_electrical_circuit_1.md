@@ -29,7 +29,7 @@ Zero
 (7) 問 (6)において $t = 0$ から $a$ までに端子 $ab$ から供給された電力量を $C,V$ を用いて求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electrical_circuit_1_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electrical_circuit_1_p1.png" width="500" alt=""/>
 </figure>
 
 ### 题目描述

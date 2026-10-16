@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年度 問3（材料力学）"
+sidebar_label: "2017年8月実施 問3（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Strain-Energy
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Beam-Deflection
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 材料力学 問3
+# 九州大学 工学府 機械系専攻 2017年8月実施 材料力学 問3
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 半径 $a$ の半円形丸棒 AB は A で壁に溶接されている。B には長さ $a$ の剛体はり BC が直角に溶接され、C には長さ $a$ の剛体はり CD が直角に溶接されている。AB のヤング率は $E$、横弾性係数は $G$、断面二次モーメントは $I$、断面二次極モーメントは $I_p$ である。D に紙面の表から裏へ向かう荷重 $P$ を加える。棒の直径は長さに比べて十分小さい。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/material-3-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_material-3-original.png)
 
 1. B における曲げモーメント $M_B$ とねじりモーメント $T_B$ を求めよ。
 2. B から中心角 $\theta$ だけ離れた断面 F の曲げモーメント $M_F$ とねじりモーメント $T_F$ を求めよ。

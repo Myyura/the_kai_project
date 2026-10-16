@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2011年度 問2（流体工学）"
+sidebar_label: "2010年8月実施 問2（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
   - Engineering.Fluid-Mechanics.Lift-and-Drag
 ---
 
-# 九州大学 工学府 機械系専攻 2011年度 流体工学 問2
+# 九州大学 工学府 機械系専攻 2010年8月実施 流体工学 問2
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 2. $U_2/U$ を求めよ。
 3. $\delta/B$ を求めよ。
 
-![原題の図（九州大学 2011年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2011/fluids-2-original.png)
+![原題の図（九州大学 2011年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2011/mech_201008_fluids-2-original.png)
 
 #### 题目描述
 

@@ -32,11 +32,11 @@ tags:
 
 (5) (3) で取り上げたオイラーの公式 $|V| - |E| + f = 2$ を証明せよ。必要ならば、木においては $|E| = |V| - 1$ が成立することを用いて良い。
 
-![図1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/mi/2018/nagoya-mi2018-graph1.svg)
+![図1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/mi/2018/nagoya-mi201708-graph1.svg)
 
-![図2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/mi/2018/nagoya-mi2018-graph2.svg)
+![図2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/mi/2018/nagoya-mi201708-graph2.svg)
 
-![図3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/mi/2018/nagoya-mi2018-graph3.svg)
+![図3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/mi/2018/nagoya-mi201708-graph3.svg)
 
 ### 题目描述
 

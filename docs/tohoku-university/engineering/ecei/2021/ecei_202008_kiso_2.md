@@ -20,7 +20,7 @@ tags:
 (4) Fig.2(e) に示すように、$2$ 段の $1/4$ 波長無損失線路(特性インピーダンス $Z_{02}，Z_{03}$ ,位相定数 $\beta$)を無損失分布定数線路(特性インピーダンス $Z_{0}$ ,位相定数 $\beta$, 長さ $l$)と負荷抵抗(実数 $R$)との間に挿入することによう接続点(2-2')におけるインピーダンスを整合したい。$Z_{02},Z_{03},Z_0,R$ の関係式を導け。また負荷抵抗 $R$ と特性インピーダンス $Z_0$ が大きく異なる場合に、$1/4$ 波長無損失線路の段数を増やすことによる効果をスミスチャート等を参考にして説明せよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202008_kiso_2_electrical_circuit_p1.png" width="550"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2021/ecei_202008_kiso_2_electrical_circuit_p1.png" width="550"/>
 </figure>
 
 ### 题目描述

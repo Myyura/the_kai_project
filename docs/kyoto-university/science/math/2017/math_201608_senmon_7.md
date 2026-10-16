@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年度 専門科目 [7]（正則関数と稠密性）"
+sidebar_label: "2016年8月実施 専門科目 [7]（正則関数と稠密性）"
 tags:
   - Kyoto-University
   - Mathematics.Complex-Analysis.Identity-Theorem
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Fourier-Analysis.Orthogonal-Function-Systems
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2017年度 専門科目 問題7
+# 京都大学 理学研究科 数学・数理解析専攻 2016年8月実施 専門科目 問題7
 
 ## **Author**
 

@@ -43,7 +43,7 @@ Give a circuit diagram of this D-FF in Fig. 3 using only the D-FF in Fig. 1 and 
 - Specify the data input wire of the memory as `input` in the circuit diagram.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_2_p1.png" width="550" height="130" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2020/ci_201908_2_p1.png" width="550" height="130" alt=""/>
 </figure>
 
 ### 题目描述
@@ -72,7 +72,7 @@ Give a circuit diagram of this D-FF in Fig. 3 using only the D-FF in Fig. 1 and 
 
 ### (2)
 
-![Four D flip-flops at addresses 00, 01, 10, 11, selected by a tree of three multiplexers.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2020/tokyo-ci-2019-memory-read.svg)
+![Four D flip-flops at addresses 00, 01, 10, 11, selected by a tree of three multiplexers.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2020/tokyo-ci-201908-memory-read.svg)
 
 The two first-stage selectors use `addr_low`, and the final selector uses `addr_high`. The `d` and `clk` terminals remain unconnected.
 
@@ -89,7 +89,7 @@ Since we gradually divide all inputs into 2 as inputs to the MUX, so the first l
 
 Connect the D-FF output `q` to multiplexer input `a`, the external input `d` to input `b`, and `we` to the selector. The multiplexer output feeds the D-FF data input; the external clock feeds its clock input.
 
-![Synchronous write enable: the multiplexer chooses current q or external d before the D flip-flop.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2020/tokyo-ci-2019-write-enable.svg)
+![Synchronous write enable: the multiplexer chooses current q or external d before the D flip-flop.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2020/tokyo-ci-201908-write-enable.svg)
 
 At a rising clock edge, $q^+=\overline{we}\,q+we\,d$; between edges, $q$ remains unchanged.
 
@@ -106,4 +106,4 @@ $$
 
 All four `d` inputs receive `input`; only the selected D-FF has write enable 1. Identically named wires in the diagram are the same signal. The `clk` and `q` terminals remain unconnected as requested.
 
-![Four write-enabled D flip-flops selected by a two-to-four decoder using four AND and two NOT gates.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2020/tokyo-ci-2019-memory-write.svg)
+![Four write-enabled D flip-flops selected by a two-to-four decoder using four AND and two NOT gates.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2020/tokyo-ci-201908-memory-write.svg)

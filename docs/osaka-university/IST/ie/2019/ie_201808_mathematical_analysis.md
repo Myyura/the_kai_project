@@ -1,11 +1,11 @@
 ---
-sidebar_label: 2019年度 数学解析と信号処理
+sidebar_label: 2018年8月実施 数学解析と信号処理
 tags:
   - Osaka-University
   - Mathematics.Differential-Equations.Laplace-Transform
   - Mathematics.Fourier-Analysis.Fourier-Transform
 ---
-# 大阪大学 情報科学研究科 情報工学 2019年度 数学解析と信号処理
+# 大阪大学 情報科学研究科 情報工学 2018年8月実施 数学解析と信号処理
 
 ## **Author**
 

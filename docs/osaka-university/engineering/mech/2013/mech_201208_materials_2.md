@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2013年度 材料力学 問題2"
+sidebar_label: "2012年8月実施 材料力学 問題2"
 tags:
   - Osaka-University
   - Engineering.Mechanics-of-Materials.Truss
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Thermal-Deformation-Compatibility
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2013年度 材料力学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2012年8月実施 材料力学 問題2
 
 ## **Author**
 
@@ -24,7 +24,7 @@ tags:
 2. A と D が初めて接触する温度上昇 $\Delta T_0$ を求めよ。
 3. (2) で接触した A と D を結合し、さらに温度を上げ、初期温度からの温度上昇を $\Delta T$ とする。各棒の内力を求めよ。座屈は生じず、$\alpha\Delta T\ll1$ とする。$\Delta T_0$ を用いてよい。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2013/mech_201208_materials_2-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2013/mech_201208_materials_2-question-fig1.png)
 
 #### 题目描述
 

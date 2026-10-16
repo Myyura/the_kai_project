@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2019年度 問題2（熱工学）"
+sidebar_label: "2018年8月実施 問題2（熱工学）"
 tags:
   - Osaka-University
   - Engineering.Heat-Transfer.Fins
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2019年度 熱工学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2018年8月実施 熱工学 問題2
 
 ## **Author**
 
@@ -21,7 +21,7 @@ $$
 
 である。各断面の温度は一様で、軸方向だけの一次元定常熱伝導とする。壁1から一様な熱流束 $q_1$ で熱が流入し、壁2に接する面の温度は $T_2$ に保たれる。棒の熱伝導率は $k$、周囲流体の熱伝導率は $0.01k$、遠方の流体温度は $T_2$ である。接触熱抵抗と放射を無視する。
 
-![原題の両壁間の円柱状伝熱体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2019/mech_201808_thermo_2-question-fig1.png)
+![原題の両壁間の円柱状伝熱体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2019/mech_201808_thermo_2-question-fig1.png)
 
 **(1)** 側面と周囲流体との熱交換がない場合を考える。
 

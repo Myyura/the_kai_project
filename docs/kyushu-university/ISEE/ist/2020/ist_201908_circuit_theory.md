@@ -23,7 +23,7 @@ Zero
 (2) $\frac{|I_1|}{|I_2|} = \frac{2\sqrt{2}}{3}$ であるとき, $X_1,X_2$ の値を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p1.png" width="500" height="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p1.png" width="500" height="400" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -34,7 +34,7 @@ Zero
 (2) 端子対 $1-1'$ 間に可変インピーダンス $Z = R + jX$ を接続したとする。$R$ における消費電力 $P$ が最大となる $Z$ を求め, その時の $P$ の値を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p2.png" width="500" height="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p2.png" width="500" height="400" alt=""/>
 </figure>
 
 ### 【問 3】
@@ -45,7 +45,7 @@ Zero
 (2) 電源 $E$ から右を見たインピーダンス $Z$ を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p3.png" width="665" height="405" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p3.png" width="665" height="405" alt=""/>
 </figure>
 
 ### 【問 4】
@@ -58,28 +58,28 @@ Zero
 (3) 上記 (2) において, $t = 0$ から定常状態に達するまでに抵抗 $R_1$, $R_2$ で消費されるエネルギーの合計 $W$ を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p4.png" width="618" height="375" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p4.png" width="618" height="375" alt=""/>
 </figure>
 
 ### 题目描述
 
-【问题 1】对[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p1.png)，已知电流 $I_1$ 与 $I_2$ 的相位差
+【问题 1】对[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p1.png)，已知电流 $I_1$ 与 $I_2$ 的相位差
 $\arg(I_1/I_2)=\pi/4$，且 $R=1\,\Omega$。回答：
 
 1. 写出 $X_1$ 与 $X_2$ 的关系式。
 2. 当 $\frac{|I_1|}{|I_2|}=\frac{2\sqrt2}{3}$ 时，求 $X_1,X_2$。
 
-【问题 2】对[图 2 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p2.png)，回答：
+【问题 2】对[图 2 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p2.png)，回答：
 
 1. 将端口 $1-1'$ 左侧网络等效为开路电压 $V_0$、内阻抗 $Z_0$ 的电路，求 $V_0,Z_0$。
 2. 在端口 $1-1'$ 接入可变阻抗 $Z=R+jX$。求使其中电阻 $R$ 的消耗功率 $P$ 最大的 $Z$，并求该最大功率。
 
-【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p3.png)，电源 $E$ 的角频率为 $\omega$。回答：
+【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p3.png)，电源 $E$ 的角频率为 $\omega$。回答：
 
 1. 以网孔电流 $I_1,I_2,I_3$ 为未知量列出网孔方程。
 2. 求从电源 $E$ 端向右看入的阻抗 $Z$。
 
-【问题 4】对[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p4.png)，已知
+【问题 4】对[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p4.png)，已知
 $E=1\,\mathrm V$、$R_1=R_2=1\,\Omega$、$C=1\,\mathrm F$、$L=1\,\mathrm H$。回答：
 
 1. 保持开关 $S$ 断开并待电路达到稳态后，在 $t=0$ 闭合 $S$；分别求 $t>0$ 的电流 $i_1(t),i_2(t)$。
@@ -164,11 +164,11 @@ $$
 ### 【問 2】
 #### (1)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p5.png" width="450" height="175" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p5.png" width="450" height="175" alt=""/>
 </figure>
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p6.png" width="470" height="178" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p6.png" width="470" height="178" alt=""/>
 </figure>
 
 $$
@@ -193,7 +193,7 @@ $$
 #### (2)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p7.png" width="400" height="170" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_circuit_theory_p7.png" width="400" height="170" alt=""/>
 </figure>
 
 $\overline{Z_0} = Z$ のとき、消費電力 $P$ が最大となる。

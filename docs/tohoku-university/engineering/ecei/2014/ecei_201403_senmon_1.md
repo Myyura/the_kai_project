@@ -70,7 +70,7 @@ $$
 
 响应由 $0$ 起始，初始斜率为 $0$，围绕 $1$ 衰减振荡；首个峰值在 $t=10\pi/\sqrt{19}$，峰值为 $1+e^{-\pi/\sqrt{19}}$。
 
-![单位阶跃响应](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201403_senmon_1.svg)
+![单位阶跃响应](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2014/ecei_201403_senmon_1.svg)
 
 ### (4)
 

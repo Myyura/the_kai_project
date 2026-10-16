@@ -27,7 +27,7 @@ tags:
 \Omega$ である。a-b 間の電位差がゼロであるとき、相互インダクタンス $M$ の値を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202108_kiso_2_electrical_circuit.png" width="500"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2022/ecei_202108_kiso_2_electrical_circuit.png" width="500"/>
 </figure>
 
 ### 题目描述
@@ -117,7 +117,7 @@ $$
 
 以 $E=100\angle0^\circ\,\mathrm V$ 为基准，$I=6.25-j6.25\,\mathrm A$（$|I|=25\sqrt2/4\,\mathrm A,\theta=-\pi/4$），补偿电容电流为 $I_C=j6.25\,\mathrm A$，故 $I_S=I+I_C=6.25\angle0^\circ\,\mathrm A$。
 
-![功率因数补偿相量图；电压与电流分别标注尺度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2022/ecei_202108_phasors.svg)
+![功率因数补偿相量图；电压与电流分别标注尺度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2022/ecei_202108_phasors.svg)
 
 ### (2)
 用T型等效的电桥平衡：

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2022年度 専門科目 第2問"
+sidebar_label: "2021年8月実施 専門科目 第2問"
 tags:
   - Tokyo-University
   - Physics.Thermodynamics.Bose-Einstein-Condensation
 ---
 
-# 東京大学 理学系研究科 物理学専攻 2022年度 専門科目 第2問
+# 東京大学 理学系研究科 物理学専攻 2021年8月実施 専門科目 第2問
 
 ## **Author**
 
@@ -190,7 +190,7 @@ $$
 
 一定温度では $r\geq1$ の各項が $B$ とともに減少するため、粒子数を一定に保つ転移温度は単調増加する。$S>0$ では $T_c/(2S+1)^{2/3}$ から出発し、$B\to\infty$ で $T_c$ に下から近づく。$S=0$ なら磁場に依存せず $T'_c=T_c$ である。
 
-![転移温度の磁場依存性（S=1の例）](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/tokyo_university/science/phys/2022/phys_202108_2_critical.svg)
+![転移温度の磁場依存性（S=1の例）](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/tokyo-university/science/phys/2022/phys_202108_2_critical.svg)
 
 図は $S=1$ の例を示す。一般の $S>0$ でも増加して飽和する形は同じである。強磁場では $r\geq1$ の状態が熱的に凍結し、最低ゼーマン枝だけが残る。$g_{3/2}(e^{-b})=e^{-b}+O(e^{-2b})$ より、$S>0$ の場合
 

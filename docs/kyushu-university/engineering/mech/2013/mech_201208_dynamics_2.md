@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2013年度 問2（機械力学）"
+sidebar_label: "2012年8月実施 問2（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 機械力学 問2
+# 九州大学 工学府 機械系専攻 2012年8月実施 機械力学 問2
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 長さ $l$ の一様な棒 A（質量 $3m$）は上端 O_A から下向きに、棒 B（質量 $m$）は下端 O_B から上向きに支持されている。微小角変位を図の $\theta_A,\theta_B$ とする。両角ゼロで A の下端と B の上端は同じ高さとなり、その間をばね定数 $k_1$ のばねで結ぶ。また A の下端は $k_2$ のばねで左側基礎に水平に支持する。両ばねは両角ゼロで自然長。重力加速度は $g$。（50 点）
 
-![下向き・上向きの棒とばね（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/dynamics-2-original.png)
+![下向き・上向きの棒とばね（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_dynamics-2-original.png)
 
 1. O_A まわりのモーメントから A の方程式を求めよ。
 2. O_B まわりのモーメントから B の方程式を求めよ。

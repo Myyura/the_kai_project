@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2023年度 基礎科目 問題1"
+sidebar_label: "2022年8月実施 基礎科目 問題1"
 tags:
   - Yamagata-University
   - Mathematics.Calculus.Multivariable-Differentiation
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Change-of-Variables-and-Jacobian
 ---
 
-# 山形大学 理工学研究科 情報・エレクトロニクス専攻 2023年度 基礎科目 問題1
+# 山形大学 理工学研究科 情報・エレクトロニクス専攻 2022年8月実施 基礎科目 問題1
 
 ## **Author**
 
@@ -68,7 +68,7 @@ $$
 
 $E=\{(u,v)\mid 0\le u\le a,\ 0\le v\le a\}$ であり、境界を含む一辺 $a$ の正方形である。
 
-![変換後の積分領域](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/yamagata_university/science_and_engineering/information_electronics/2023/info_202208_math_1_region.svg)
+![変換後の積分領域](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/yamagata-university/science_and_engineering/information_electronics/2023/info_202208_math_1_region.svg)
 
 #### (b)
 

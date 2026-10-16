@@ -136,4 +136,4 @@ $$
 
 $R$ 在负能区恒为 $1$，正能区单调下降至 $0$。$\tan2\phi$ 在 $-V_0/2$ 处有竖直渐近线：左极限 $+\infty$，右极限 $-\infty$，在 $-V_0$ 与 $0$ 处分别趋于 $0^+$ 与 $0^-$。
 
-![反射振幅与相位正切随能量变化](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201708_senmon_6_reflection.svg)
+![反射振幅与相位正切随能量变化](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2018/ecei_201708_senmon_6_reflection.svg)

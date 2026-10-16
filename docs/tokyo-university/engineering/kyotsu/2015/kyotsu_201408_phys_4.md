@@ -29,7 +29,7 @@ tags:
 2. $0\le\theta_i<90^\circ$ で入射角を変えると、ある範囲では斜辺からの透過光がなくなり、底辺から出射する。このときの $\theta_i$ の範囲を $\alpha,n$ で表せ。
 3. 回折格子からの一次回折光と微小プリズムによる屈折光が同方向に進むとき、$\beta$ を $d,n,\lambda$ で表せ。$d\gg\lambda$、$\beta\ll1$ と近似してよい。
 
-![平面波の屈折、直角プリズム、微小プリズム回折格子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2015/kyotsu_201408_phys_4_optics_audited.svg)
+![平面波の屈折、直角プリズム、微小プリズム回折格子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2015/kyotsu_201408_phys_4_optics_audited.svg)
 
 #### 题目描述
 

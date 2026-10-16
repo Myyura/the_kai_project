@@ -20,14 +20,14 @@ Zero, 祭音Myyura
 以下の真理値表で与えられた論理関数 $F(a, b, c, d)$ を図で示されるように $3$ つの関数 $G1(b, d), G2(a, b)，G3(c, d)$ および AND ゲートと OR ゲートを使って実現することを考える．関数 $G1, G2$ および $G3$ の真理値表を示せ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_computer_architecture_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_computer_architecture_p1.png" width="500" alt=""/>
 </figure>
 
 ### 【問 2】
 $5$ つのステージからなるパイプライン式データパスを有するマイクロプロセッサについて考える．実装されたパイプラインステージは，IF（命令取得），ID（命令デコード），EX（実行），MEM（メモリアクセス），ならびに，WB（ライトバック）である．加算命令，ロードワード命令，ストアワード命令の実行における各ステージの処理内容は以下の表に従う．ここで，パイプラインストールの発生を除き，各パイプラインステージの実行は常に $1$ クロックサイクルで完了できると仮定する．また，WB ステージでレジスタに書き込まれた値は，同一クロックサイクルにて，後続命令の ID ステージで読み出し可能である．以下の各問に答えよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_computer_architecture_p2.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_computer_architecture_p2.png" width="500" alt=""/>
 </figure>
 
 #### (1)
@@ -70,10 +70,10 @@ $$
 
 ### 题目描述
 
-【问题 1】逻辑函数 $F(a,b,c,d)$ 的真值表和组合逻辑结构见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_computer_architecture_p1.png)。要求按图使用
+【问题 1】逻辑函数 $F(a,b,c,d)$ 的真值表和组合逻辑结构见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_computer_architecture_p1.png)。要求按图使用
 $G1(b,d)$、$G2(a,b)$、$G3(c,d)$ 三个函数以及 AND、OR 门实现 $F$，写出 $G1$、$G2$、$G3$ 的真值表。
 
-【问题 2】考虑具有 IF（取指）、ID（译码）、EX（执行）、MEM（访存）和 WB（写回）五级流水数据通路的微处理器。加法、装载字与存储字指令在各级中的具体操作见[原题阶段表](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_computer_architecture_p2.png)。除发生流水线停顿外，每一级均在 $1$ 个时钟周期内完成；WB 阶段写入寄存器的值可在同一周期被后续指令的 ID 阶段读取。对以下程序（`#` 右侧为注释）回答：
+【问题 2】考虑具有 IF（取指）、ID（译码）、EX（执行）、MEM（访存）和 WB（写回）五级流水数据通路的微处理器。加法、装载字与存储字指令在各级中的具体操作见[原题阶段表](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_computer_architecture_p2.png)。除发生流水线停顿外，每一级均在 $1$ 个时钟周期内完成；WB 阶段写入寄存器的值可在同一周期被后续指令的 ID 阶段读取。对以下程序（`#` 右侧为注释）回答：
 
 ```text
         lw $3,  10($2)   # &lt;1&gt;

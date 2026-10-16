@@ -40,7 +40,7 @@ Zero
 - (h) (e) と (g) で求めた磁束密度 $B(x,t)$ と電界 $E(x,t)$ について，ファラデーの電磁誘導の法則の微分形を適用して，$\varepsilon_0,\mu_0,\omega,k$ の間に成り立つ関係を導出し，平面波の位相速度を $\varepsilon_0,\mu_0$ を用いて表せ。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202108_electromagnetism_2_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electromagnetism_2_p1.png" width="400" alt=""/>
 </figure>
 
 ### 题目描述

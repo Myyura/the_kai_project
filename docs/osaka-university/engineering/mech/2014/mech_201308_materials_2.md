@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2014年度 材料力学 問題2"
+sidebar_label: "2013年8月実施 材料力学 問題2"
 tags:
   - Osaka-University
   - Engineering.Mechanics-of-Materials.Bending-Stress
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Stress-Transformation
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2014年度 材料力学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2013年8月実施 材料力学 問題2
 
 ## **Author**
 
@@ -21,7 +21,7 @@ tags:
 2. 端面 A に生じる軸方向力、曲げモーメント、ねじりモーメントを求めよ。
 3. $H=W/3$、$a=L/2$、$d=L/3$ のとき、端面 A に生じる主応力の絶対値の最大値とその発生位置を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2014/mech_201308_materials_2-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2014/mech_201308_materials_2-question-fig1.png)
 
 #### 题目描述
 

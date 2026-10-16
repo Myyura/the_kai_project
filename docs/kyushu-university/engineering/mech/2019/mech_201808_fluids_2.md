@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 問2（流体工学）"
+sidebar_label: "2018年8月実施 問2（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Bernoulli-Equation
@@ -7,7 +7,7 @@ tags:
   - Engineering.Fluid-Mechanics.Minor-Losses
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 流体工学 問2
+# 九州大学 工学府 機械系専攻 2018年8月実施 流体工学 問2
 
 ## **Author**
 
@@ -26,7 +26,7 @@ tags:
 3. $H_0$ を $x_w,h,H_1,H_2$ で表せ。
 4. $\zeta$ を $x_w,h,H_1,H_2$ で表せ。
 
-![原題の図（九州大学 2019年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/fluids-2-original.png)
+![原題の図（九州大学 2019年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_fluids-2-original.png)
 
 #### 题目描述
 

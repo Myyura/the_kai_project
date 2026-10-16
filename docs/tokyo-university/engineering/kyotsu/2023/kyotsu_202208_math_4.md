@@ -51,7 +51,7 @@ $$
 
 すなわち、円 $(x+1)^2+y^2=1$ の内部かつ単位円の外部にある三日月形の領域であり、境界も含む。二円の交点は $(-1/2,\pm\sqrt3/2)$ である。
 
-![z=1の断面、網掛け部分が領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2023/math4-section.svg)
+![z=1の断面、網掛け部分が領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2023/kyotsu_202208_math4-section.svg)
 
 ### II
 

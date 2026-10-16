@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2014年度 問3（材料力学）"
+sidebar_label: "2013年8月実施 問3（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Strain-Energy
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 材料力学 問3
+# 九州大学 工学府 機械系専攻 2013年8月実施 材料力学 問3
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図3の半径 $a$ の半円形弾性丸棒は、両端が固定されている。断面直径は $d$、ヤング率は $E$、ポアソン比は $\nu$。半円の中央 A に長さ $\ell$ の剛体棒 AB が半径方向へ接続され、B に鉛直下向き荷重 $P$ が作用する。半円と AB は $xy$ 平面内にあり、$a,\ell\gg d$ とする。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/material-3-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-3-original.png)
 
 1. A の変位を求めよ。
 2. B の変位を求めよ。

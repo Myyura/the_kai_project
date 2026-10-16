@@ -32,7 +32,7 @@ $$
 
 に従う。
 
-![下向きのポテンシャル段差と有限幅の井戸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2012/kyotsu_201108_phys_4_potentials_audited.svg)
+![下向きのポテンシャル段差と有限幅の井戸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2012/kyotsu_201108_phys_4_potentials_audited.svg)
 
 1. 入射波を $e^{ik_1x}$、$k_1>0$ とする。領域 2 の波数を $k_2$ として、反射波・透過波を含む $\psi_1,\psi_2$ を $k_1,k_2$ で表せ。$k_1,k_2$ と $E$ の関係も示せ。
 2. 反射率 $R$ と透過率 $T$ を求めよ。

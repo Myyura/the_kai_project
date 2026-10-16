@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問題2（数学）"
+sidebar_label: "2013年8月実施 問題2（数学）"
 tags:
   - Osaka-University
   - Mathematics.Complex-Analysis.Cauchy-Riemann-Equations
   - Mathematics.Complex-Analysis.Harmonic-Functions-and-Harmonic-Conjugates
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2014年度 数学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2013年8月実施 数学 問題2
 
 ## **Author**
 

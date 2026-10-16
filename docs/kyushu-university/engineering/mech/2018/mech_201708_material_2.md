@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年度 問2（材料力学）"
+sidebar_label: "2017年8月実施 問2（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Strain-Energy
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 材料力学 問2
+# 九州大学 工学府 機械系専攻 2017年8月実施 材料力学 問2
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図の構造 ABCD は A で剛体壁に固定されている。D は $x$ 方向には自由に移動できるが、$y$ 方向には移動できず、反力を支持する。C に $y$ 方向の荷重 $P$ を作用させる。AB $=a$、BC $=c$、CD $=b$、丸棒の直径は $d$、ヤング率は $E$ とし、$a,b,c\gg d$ とする。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/material-2-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_material-2-original.png)
 
 1. 点 D の反力 $Q$ を求めよ。
 2. 着力点 C の $y$ 方向変位を求めよ。

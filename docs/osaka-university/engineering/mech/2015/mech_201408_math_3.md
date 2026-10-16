@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2015年度 問題3（数学）"
+sidebar_label: "2014年8月実施 問題3（数学）"
 tags:
   - Osaka-University
   - Mathematics.Linear-Algebra.Cross-Product-Area-and-Scalar-Triple-Product-Volume
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2015年度 数学 問題3
+# 大阪大学 工学研究科 機械工学専攻 2014年8月実施 数学 問題3
 
 ## **Author**
 
@@ -45,7 +45,7 @@ $$
 
 これは原点を中心とし、$x$ 軸方向の半径が $2$、$y$ 軸方向の半径が $4$ の楕円である。
 
-![曲線Cのxy平面への射影](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2015/mech_201408_math_3-solution-fig1.svg)
+![曲線Cのxy平面への射影](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2015/mech_201408_math_3-solution-fig1.svg)
 
 ### (2)
 

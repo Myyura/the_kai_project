@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 力学 問題1"
+sidebar_label: "2017年8月実施 力学 問題1"
 tags:
   - Osaka-University
   - Physics.Mechanics.Work-and-Mechanical-Energy
   - Physics.Mechanics.Angular-Momentum-Conservation-and-Areal-Velocity
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2018年度 力学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2017年8月実施 力学 問題1
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 4. 原点 O まわりの角運動量の $z$ 成分から、$r^2\dot\theta$ が一定であることを示せ。
 5. (2) の曲面で、質点を初期位置 $(r_0,0,z_0)$ から水平方向に速さ $v_0$ で運動させると、半径 $r_0$、高さ一定の円運動となる。同じ位置から水平な接線方向の初速を $v_1<v_0$ に変えたとき、その後の $z$ 座標の最小値を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2018/mech_201708_mechanics_1-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2018/mech_201708_mechanics_1-question-fig1.png)
 
 #### 题目描述
 

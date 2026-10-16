@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年秋季 機械力学 第1問"
+sidebar_label: "2017年8月実施 機械力学 第1問"
 tags:
   - Tohoku-University
   - Physics.Mechanics.Rigid-Body-Moment-of-Inertia
   - Physics.Mechanics.Hamilton-Principle-and-Euler-Lagrange-Equation
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 機械力学 第1問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 機械力学 第1問
 
 ## **Author**
 
@@ -24,7 +24,7 @@ tags:
 4. ポテンシャルエネルギーを求めよ。
 5. 運動方程式を導け。
 
-![剛体リンクでつながれた二本の棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_dynamics1.svg)
+![剛体リンクでつながれた二本の棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_dynamics1.svg)
 
 #### 题目描述
 

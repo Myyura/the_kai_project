@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年秋季 電磁気学 第1問"
+sidebar_label: "2017年8月実施 電磁気学 第1問"
 tags:
   - Tohoku-University
   - Physics.Electromagnetism.Magnetic-Dipole-Vector-Potential
   - Physics.Electromagnetism.Biot-Savart-Law
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 電磁気学 第1問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 電磁気学 第1問
 
 ## **Author**
 
@@ -33,7 +33,7 @@ tags:
 
 ### (1)
 
-![磁荷双極子の力線と円形電流の閉じた磁力線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_magnetic_lines.svg)
+![磁荷双極子の力線と円形電流の閉じた磁力線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_magnetic_lines.svg)
 
 双極子では力線は正磁荷から負磁荷へ向かい、両磁荷の間では $-z$ 方向となる。円形電流では力線は閉曲線であり、円の内部では $+z$ 方向に通る。遠方での形は等しいが、中心付近の向きと力線の接続は異なる。
 

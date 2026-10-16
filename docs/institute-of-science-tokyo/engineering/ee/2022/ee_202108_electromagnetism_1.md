@@ -26,13 +26,13 @@ Zero
 - (c) $2$ つの円筒間の単位長さあたりのキャパシタンスを求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202108_electromagnetism_1_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electromagnetism_1_p1.png" width="400" alt=""/>
 </figure>
 
 - (d) 図 $1.2$ のように，中心軸からの距離 $d$ とともに誘電率が変化する誘電体で $2$ つの円筒間を満たすと，電界が $d$ によらず一定となった。このとき，誘電率が距離 $d$ に対してどのように変化するか説明せよ。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202108_electromagnetism_1_p2.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electromagnetism_1_p2.png" width="400" alt=""/>
 </figure>
 
 (2) 図 $1.3$ のように，真空中におかれた，半径 $a,b,c(a < b < c)$ を持つ $3$ つの円筒状電極 $A,B,C$ からなる同軸コンデンサを考える。内側の円筒 $A$ と外側の円筒 $C$ は細い導線で接続され，接地されている。円筒の長さ $l$ はもっとも外側の円筒の直径よりも十分に長い $(l \gg 2c)$ とする。
@@ -42,7 +42,7 @@ Zero
 - (f) 円筒 $B$ に単位長さあたり $q$ の正電荷があるとき，円筒 $A$ と円筒 $C$ に誘起される単位長さあたりの電荷量を，それぞれ符号を含めて求めよ。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202108_electromagnetism_1_p3.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electromagnetism_1_p3.png" width="500" alt=""/>
 </figure>
 
 ### 题目描述
@@ -113,7 +113,7 @@ $E = \frac{q}{2\pi\varepsilon(d) d} = c\quad(c = \text{const})$ より、$\varep
 円筒 $B$ に電荷 $Q$ を与え、内側に $Q_1$, 外側に $Q_2$ が生じるとする。(単位長さ当たり)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202108_electromagnetism_1_p4.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electromagnetism_1_p4.png" width="300" alt=""/>
 </figure>
 
 このとき、$b < r < c$ における電界 $E_2$ は,ガウスの法則より、

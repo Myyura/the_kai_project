@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2015年度 問1（材料力学）"
+sidebar_label: "2014年8月実施 問1（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Truss
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Strain-Energy
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 材料力学 問1
+# 九州大学 工学府 機械系専攻 2014年8月実施 材料力学 問1
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図1の各弾性棒の軸剛性は $EA$ で、丸印はピン継手を表す。AB、ED の長さは $\ell$、斜材の角度は $45^\circ$。BC は水平、EF は鉛直である。A、C、D、F は固定されている。座標は右向きを $x$、上向きを $y$ とする。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/material-1-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-1-original.png)
 
 1. AB、BC からなる構造の B に、下向き荷重 $P$ と右向き荷重 $Q$ を加えたときの $u_y,u_x$ を求めよ。
 2. B と E の間には水平方向の隙間がなく、鉛直方向に微小な隙間 $\delta_y$ がある。(1) の荷重によって両点がちょうど接したところでピン結合し、外力を取り除いた。このとき AB に作用する力を求めよ。

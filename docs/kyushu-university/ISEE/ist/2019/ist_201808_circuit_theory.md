@@ -24,7 +24,7 @@ Zero
 (2) $|I_1| = 2\text{A},|I_2| = 1\text{A},|V| = 4\text{V},|E| = 8\text{V}$ のとき, $R_1,R_2.X_1,X_2$ の各値を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p1.png" width="506" height="452" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_circuit_theory_p1.png" width="506" height="452" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -35,7 +35,7 @@ Zero
 (2) リアクタンス $X$ が可変であるとき, 消費電力 $P$ が最大となるような $X$ を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p2.png" width="580" height="360" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_circuit_theory_p2.png" width="580" height="360" alt=""/>
 </figure>
 
 ### 【問 3】
@@ -46,7 +46,7 @@ Zero
 (2) $z_0 = R,z_1 = jX_1,z_2 = -jX_2$ のとき, $E$ と $I$ の位相差が $\arg(E/I) = 0$ となる条件を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p3.png" width="386" height="355" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_circuit_theory_p3.png" width="386" height="355" alt=""/>
 </figure>
 
 ### 【問 4】
@@ -59,12 +59,12 @@ Zero
 (3) (2) で求めた $i(t)$ のきさが最大となる時刻 $t$ を求めよ.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p4.png" width="556" height="336" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_circuit_theory_p4.png" width="556" height="336" alt=""/>
 </figure>
 
 ### 题目描述
 
-【问题 1】对[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p1.png)，电源电压 $E$ 与电流 $I_2$ 同相，即
+【问题 1】对[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_circuit_theory_p1.png)，电源电压 $E$ 与电流 $I_2$ 同相，即
 $\arg(E/I_2)=0$。回答：
 
 1. 写出 $R_1,R_2,X_1,X_2$ 之间的关系式。
@@ -73,18 +73,18 @@ $\arg(E/I_2)=0$。回答：
    $|V|=4\,\mathrm V$、$|E|=8\,\mathrm V$
    时，求 $R_1,R_2,X_1,X_2$。
 
-【问题 2】对[图 2 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p2.png)，电源电压 $E$ 的角频率为 $\omega$。回答：
+【问题 2】对[图 2 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_circuit_theory_p2.png)，电源电压 $E$ 的角频率为 $\omega$。回答：
 
 1. 求负载电阻 $R_L$ 中的电流 $I$ 与消耗功率 $P$。
 2. 电抗 $X$ 可调时，求使 $P$ 最大的 $X$。
 
-【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p3.png)，电源电压 $E$ 的角频率为 $\omega$。回答：
+【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_circuit_theory_p3.png)，电源电压 $E$ 的角频率为 $\omega$。回答：
 
 1. 求电阻 $r$ 中的电流 $I$。
 2. 当 $z_0=R$、$z_1=jX_1$、$z_2=-jX_2$ 时，求使电源电压与电流的同相条件
    $\arg(E/I)=0$ 成立的条件。
 
-【问题 4】对[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p4.png)，已知
+【问题 4】对[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_circuit_theory_p4.png)，已知
 
 $$
 E=\frac{\sqrt3}{2}\,\mathrm V,\quad
@@ -352,7 +352,7 @@ $f^{\prime\prime}(X)=2(R_1^2+\omega^2L_1^2)>0$ なので、$M E\ne0$ のとき�
 
 ### 【問 3】
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p5.png" width="420" height="660" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_circuit_theory_p5.png" width="420" height="660" alt=""/>
 </figure>
 
 #### (1)
@@ -402,7 +402,7 @@ $$
 ### 【問 4】
 #### (1)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p6.png" width="396" height="327" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_circuit_theory_p6.png" width="396" height="327" alt=""/>
 </figure>
 
 $t > 0$ における $q(t)$

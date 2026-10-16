@@ -16,7 +16,7 @@ We are constructing a deterministic finite automaton (DFA) that judges whether t
 (1) A DFA is represented by a directed graph called a state diagram. Figure 1 is an example of a state diagram. The states of a DFA are represented by the nodes of the graph. When a DFA in state $q$ reads a symbol $a$, it changes its state according to the outgoing edge labeled $a$ of the node corresponding to $q$. The set of allowed input symbols is a finite set, which is called its input alphabet. In the state graph of a DFA, each node has exactly one outgoing edge for each symbol in its input alphabet.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_1_p1.png" height="250" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2023/ci_202208_1_p1.png" height="250" alt=""/>
 </figure>
 
 One of the states is the start state, which is indicated by the arrow labeled *start*. Some states are designated as final states, which are indicated by double circles. When a DFA $M$ in its start state will be in one of the final states after reading all symbols of a symbol string $w$ one-by-one from left to right, we say $M$ accepts $w$.
@@ -134,7 +134,7 @@ $$
 
 Let $E$ and $O$ mean that an even or odd number of symbols has been read. The start state $E$ is the only final state, and either input switches between $E$ and $O$.
 
-![Two-state DFA for even length](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2023/tokyo-ci-2022-dfa-m2.svg)
+![Two-state DFA for even length](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2023/tokyo-ci-202208-dfa-m2.svg)
 
 ### (2)
 
@@ -167,7 +167,7 @@ $$
 
 Start in $E_0$ and accept only $E_0$. Each double-headed edge below represents the two directed transitions with the same label.
 
-![Six-state DFA for even length and divisibility by three](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2023/tokyo-ci-2022-dfa-m3.svg)
+![Six-state DFA for even length and divisibility by three](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2023/tokyo-ci-202208-dfa-m3.svg)
 
 ### (4)
 
@@ -179,7 +179,7 @@ Remove the parity component and retain only $r\in\{0,1,2\}$, with $\delta(r,b)=(
 | 1 | 2 | 0 |
 | 2 | 1 | 2 |
 
-![Three-state DFA for divisibility by three](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2023/tokyo-ci-2022-dfa-m4.svg)
+![Three-state DFA for divisibility by three](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2023/tokyo-ci-202208-dfa-m4.svg)
 
 ### (5)
 
@@ -199,4 +199,4 @@ The two components have the same length, so the reversal identity multiplies the
 
 In the diagram, `ab` denotes the column $\binom ab$.
 
-![Three-state DFA for the sum of two binary numbers](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2023/tokyo-ci-2022-dfa-m5.svg)
+![Three-state DFA for the sum of two binary numbers](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2023/tokyo-ci-202208-dfa-m5.svg)

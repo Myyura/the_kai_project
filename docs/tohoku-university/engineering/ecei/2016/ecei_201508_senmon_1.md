@@ -102,7 +102,7 @@ $$
 \boxed{\omega_{\pi}=\sqrt2.}
 $$
 
-![奈奎斯特曲线（坐标除以 K）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201508_senmon_1_nyquist.svg)
+![奈奎斯特曲线（坐标除以 K）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2016/ecei_201508_senmon_1_nyquist.svg)
 
 闭环特征多项式为 $s^3+3s^2+2s+10K$。Routh 第一列为 $1,3,(6-10K)/3,10K$，故
 

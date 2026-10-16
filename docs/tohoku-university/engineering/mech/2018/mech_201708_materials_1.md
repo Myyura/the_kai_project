@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年秋季 材料力学 第1問"
+sidebar_label: "2017年8月実施 材料力学 第1問"
 tags:
   - Tohoku-University
   - Engineering.Mechanics-of-Materials.Torsion
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 材料力学 第1問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 材料力学 第1問
 
 ## **Author**
 
@@ -20,7 +20,7 @@ tags:
 1. A端固定、D端にねじりモーメント $M_t$ を加える。各区間の比ねじれ角とD端のねじれ角を求めよ。
 2. A、D両端固定、C点に $M_t$ を加える。両端の反ねじりモーメント $M_{tA},M_{tD}$ とC点のねじれ角を求めよ。
 
-![三つの区間からなる丸軸と二つの支持条件](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_materials1.svg)
+![三つの区間からなる丸軸と二つの支持条件](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_materials1.svg)
 
 #### 题目描述
 

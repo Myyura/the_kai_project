@@ -24,7 +24,7 @@ tags:
 次の反応における主生成物 A から K の構造式を示せ。
 
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_chem_3_p1.png" width="600" alt=""/>
 </figure>
 
 ### II
@@ -32,7 +32,7 @@ tags:
 以下の化合物 L を出発物質とする多段階反応では，化合物 N，O がそれぞれ主生成物，副生成物として得られる。ここで，Ts，py はそれぞれ p-トルエンスルホニル基，ピリジンを表す。以下の問いに答えよ。
 
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p2.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_chem_3_p2.png" width="500" alt=""/>
 </figure>
 
 1. N の構造を示し、N が優先する理由を反応機構から説明せよ。
@@ -42,19 +42,19 @@ tags:
 1. 以下の化合物 P の反応で得られた化合物 Q を単離精製した。化合物 Q の $^1\mathrm{H}\ \ce{NMR}$ スペクトルを $\ce{CDCl3}$ 中で測定したところ，$\delta = 7.77$ ppm および $8.26$ ppm に，同一のカップリング定数を有する 2 つのダブレットシグナルが観測された。化合物 Q の構造式を描け。
 
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p3.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_chem_3_p3.png" width="400" alt=""/>
 </figure>
 
 2. ベンゼンを出発物質として化合物 R を主生成物として合成するための多段階反応経路を 1 つ示せ。
 
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p4.png" width="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_chem_3_p4.png" width="200" alt=""/>
 </figure>
 
 3. ヒト肝臓におけるヒドロキシラーゼを触媒とするフェニルアラニンの水酸化反応の反応経路は，以下のように提案されている。この反応において，重水素標識化されたフェニルアラニン S から，対応する重水素化チロシン U が得られる。中間体 T からチロシン U が生成する反応機構を，巻き矢印で電子の流れを示しながら描け。
 
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p5.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_chem_3_p5.png" width="500" alt=""/>
 </figure>
 
 ### 题目描述
@@ -269,7 +269,7 @@ T のエポキシドを構成する二つの炭素について、もともと D 
 3. C1-D 結合の電子対が C2 のカチオン中心へ移動し、D が C1 から C2 へ 1,2-転位する。
 4. 塩基が C2 上の H を引き抜き、C2–H 結合の電子対が C1=C2 結合をつくって芳香族性が回復する。
 
-![NIH shift の電子対移動](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/tokyo-kyotsu-202508-nih-shift.svg)
+![NIH shift の電子対移動](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/tokyo-kyotsu-202508-nih-shift.svg)
 
 この結果、酸素は元の D の位置でフェノール性 OH となり、D は隣接炭素へ移った重水素化チロシン U が生じる。
 

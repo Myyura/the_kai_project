@@ -1,5 +1,5 @@
 ---
-sidebar_label: 2019年度 論理設計
+sidebar_label: 2018年8月実施 論理設計
 tags:
   - Osaka-University
   - Electrical-Electronic.Digital-Logic.CMOS-Logic
@@ -9,7 +9,7 @@ tags:
   - Electrical-Electronic.Digital-Logic.Synchronous-Circuit
   - Electrical-Electronic.Digital-Logic.D-Flip-Flop
 ---
-# 大阪大学 情報科学研究科 情報工学 2019年度 論理設計
+# 大阪大学 情報科学研究科 情報工学 2018年8月実施 論理設計
 
 ## **Author**
 

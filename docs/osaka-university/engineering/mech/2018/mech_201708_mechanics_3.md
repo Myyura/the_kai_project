@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 力学 問題3"
+sidebar_label: "2017年8月実施 力学 問題3"
 tags:
   - Osaka-University
   - Physics.Mechanics.Rigid-Body-Rotation-and-Rolling
   - Physics.Mechanics.Work-and-Mechanical-Energy
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2018年度 力学 問題3
+# 大阪大学 工学研究科 機械工学専攻 2017年8月実施 力学 問題3
 
 ## **Author**
 
@@ -25,7 +25,7 @@ tags:
 5. 上端が壁から離れる瞬間の $\cos\theta$ を求めよ。
 6. 下端が床から離れないことを示せ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2018/mech_201708_mechanics_3-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2018/mech_201708_mechanics_3-question-fig1.png)
 
 #### 题目描述
 

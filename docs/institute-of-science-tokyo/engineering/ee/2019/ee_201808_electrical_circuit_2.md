@@ -41,7 +41,7 @@ $$
 
 (7) 時刻 $nT$ での $v_R(t)$ の値を $v_{\mathrm{sat}}$ とする。十分時間が経った後、$v_{\mathrm{sat}}$ の値は一定値に収束する。このときの $v_{\mathrm{sat}}$ を $E_0,e$ により表せ。
 
-![図2.1 スイッチで駆動するRL直列回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2018/circuit2-fig2-1.png)
+![図2.1 スイッチで駆動するRL直列回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2019/ee_201808_circuit2-fig2-1.png)
 
 図は東京工業大学 2019 年度大学院入試の原題より。
 

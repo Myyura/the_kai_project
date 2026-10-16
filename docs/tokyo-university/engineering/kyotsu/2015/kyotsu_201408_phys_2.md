@@ -40,7 +40,7 @@ II の回路にインダクタンス $L$ を直列に追加する。
 1. 外部トルクがない場合に $\omega$ が満たす微分方程式を書け。
 2. $\omega$ が振動的に振る舞うための $L$ の条件を求めよ。
 
-![一様磁場中の回転導体棒と抵抗・コイル回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2015/kyotsu_201408_phys_2_rod_audited.svg)
+![一様磁場中の回転導体棒と抵抗・コイル回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2015/kyotsu_201408_phys_2_rod_audited.svg)
 
 #### 题目描述
 
@@ -100,7 +100,7 @@ $$
 
 **2.** P から O を見ると電流は手前向き（$\odot$）。その磁場は反時計回りで、上向きの外部磁場と重ね合わせると棒の右側で強まり、左側で弱まる。
 
-![P から O を見た磁力線と角速度の減衰](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2015/kyotsu_201408_phys_2_fields_audited.svg)
+![P から O を見た磁力線と角速度の減衰](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2015/kyotsu_201408_phys_2_fields_audited.svg)
 
 **3.** 回転運動方程式は $J\dot\omega=-K^2\omega/R$。よって、
 

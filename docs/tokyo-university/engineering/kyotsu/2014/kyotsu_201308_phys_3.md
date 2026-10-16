@@ -85,7 +85,7 @@ $$
 
 4. $T_0,\tau,r$ を固定したとき、$W$ を最大にする $r_{OA}$ を $r$ で表し、そのときの $W$ を $C_P,T_0,\kappa,\tau,r$ で表せ。
 
-![中間冷却ガスタービンサイクルの温度エントロピー線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2014/kyotsu_201308_phys_3_cycle_audited.svg)
+![中間冷却ガスタービンサイクルの温度エントロピー線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_phys_3_cycle_audited.svg)
 
 #### 题目描述
 

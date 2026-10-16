@@ -21,7 +21,7 @@ tags:
 論理関数 $H(a, b, c, d)$ を図で示されるように関数 $F(a, b, c, d)，G(a, b, c, d)$ および NAND ゲートを使って実現することを考える．関数 $H$ および関数 $G$ の真理値表が以下のように与えられる時，関数 $F$ の最簡積和形を示せ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_computer_architecture_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_computer_architecture_p1.png" width="500" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -53,7 +53,7 @@ AMAT = キャッシュヒット時間 + キャッシュミス率 × キャッシ
 
 ### 题目描述
 
-【问题 1】逻辑函数 $H(a,b,c,d)$ 和中间函数 $G(a,b,c,d)$ 的真值表以及电路结构见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_computer_architecture_p1.png)。要求按图使用函数 $F(a,b,c,d)$、$G(a,b,c,d)$ 和 NAND 门实现 $H$；根据已知的 $H$、$G$ 真值表，求 $F$ 的最简与项之和形式（最简积和式）。
+【问题 1】逻辑函数 $H(a,b,c,d)$ 和中间函数 $G(a,b,c,d)$ 的真值表以及电路结构见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_computer_architecture_p1.png)。要求按图使用函数 $F(a,b,c,d)$、$G(a,b,c,d)$ 和 NAND 门实现 $H$；根据已知的 $H$、$G$ 真值表，求 $F$ 的最简与项之和形式（最简积和式）。
 
 【问题 2】考虑具有 IF（取指）、ID（译码）、EX（执行）、MEM（访存）和 WB（写回）五级流水数据通路的微处理器。回答：
 
@@ -109,7 +109,7 @@ $$
 |10|x||1|1|
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_computer_architecture_p2.png" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_computer_architecture_p2.png" width="350" alt=""/>
 </figure>
 
 $$

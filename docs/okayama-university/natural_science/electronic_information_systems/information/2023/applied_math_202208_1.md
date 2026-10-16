@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2023年度 応用数学 問題1"
+sidebar_label: "2022年8月実施 応用数学 問題1"
 tags:
   - Okayama-University
   - Mathematics.Linear-Algebra.Basis-and-Dimension
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Linear-Algebra.Projection-Operator
 ---
 
-# 岡山大学 自然科学研究科 電子情報システム工学専攻 情報系 2023年度 応用数学 問題1
+# 岡山大学 自然科学研究科 電子情報システム工学専攻 情報系 2022年8月実施 応用数学 問題1
 
 ## **Author**
 

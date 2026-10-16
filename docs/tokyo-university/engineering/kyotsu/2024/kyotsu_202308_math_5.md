@@ -115,7 +115,7 @@ $$
 
 形と高さは $F$ と同じであり、中心が $0$ から $-2$ に移動する。
 
-![フーリエ変換の伸縮と周波数移動](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2024/math5-fourier-transforms.svg)
+![フーリエ変換の伸縮と周波数移動](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2024/kyotsu_202308_math5-fourier-transforms.svg)
 
 ### II.1、II.2
 

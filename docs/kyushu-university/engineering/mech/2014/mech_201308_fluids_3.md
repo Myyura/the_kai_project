@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2014年度 問3（流体工学）"
+sidebar_label: "2013年8月実施 問3（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Hydrostatics
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 流体工学 問3
+# 九州大学 工学府 機械系専攻 2013年8月実施 流体工学 問3
 
 ## **Author**
 
@@ -19,7 +19,7 @@ tags:
 2. 加速期に加速度 $\alpha$ がほぼ一定として、水面と水平面の角 $\beta_b$ を求め、水面を図bに示せ。必要なら移動速度を $v$ とせよ。
 3. 等速時の水面と水平面の角 $\beta_c$ を求め、水面を図cに示せ。
 
-![原題の図（九州大学 2014年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/fluids-3-original.png)
+![原題の図（九州大学 2014年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_fluids-3-original.png)
 
 #### 题目描述
 
@@ -62,4 +62,4 @@ $$
 
 下図は同じ水量に対する各状態の模式図で、中央は $0<\alpha<g\sin\theta$ の例である。
 
-![静止・加速・等速の水面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/fluids-3-surfaces.svg)
+![静止・加速・等速の水面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_fluids-3-surfaces.svg)

@@ -100,7 +100,7 @@ $$
 
 である。概形は次のようになる（$x=0$ は定義域外）。
 
-![Function graph with stationary and inflection points](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/ochanomizu_university/humanities_and_sciences/science/information_science/2019/ocha-201902-log-square.svg)
+![Function graph with stationary and inflection points](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/ochanomizu-university/humanities_and_sciences/science/information_science/2019/ocha-201902-log-square.svg)
 
 ### [2]
 

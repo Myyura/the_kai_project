@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2013年度 機械力学・機構学 問題1"
+sidebar_label: "2012年8月実施 機械力学・機構学 問題1"
 tags:
   - Osaka-University
   - Physics.Mechanics.Lagrangian-Mechanics
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2013年度 機械力学・機構学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2012年8月実施 機械力学・機構学 問題1
 
 ## **Author**
 
@@ -24,7 +24,7 @@ tags:
 4. 微小運動の運動方程式を求めよ。
 5. $k/m=g/\ell=\omega_0^2$ のとき、2 つの固有角振動数 $\omega_1,\omega_2$（$\omega_1<\omega_2$）と、低い固有角振動数で振動するときの $x$ と $\theta$ の振幅比を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2013/mech_201208_dynamics_1-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2013/mech_201208_dynamics_1-question-fig1.png)
 
 #### 题目描述
 

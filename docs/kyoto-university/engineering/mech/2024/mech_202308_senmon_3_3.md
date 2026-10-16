@@ -21,7 +21,7 @@ tags:
 2. A に鉛直下向きの集中荷重 $P_A$ のみを加えたとき、同じ符号規約で $M_2(\theta),T_2(\theta)$ を求める。
 3. 1 の荷重条件で、A の鉛直下向き変位 $\delta_A$ を求める。
 
-![半円形リングと荷重の方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/sn-mechanics/other/kyoto-2024-ring.svg)
+![半円形リングと荷重の方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/mech/2024/kyoto-202308-ring.svg)
 
 #### 题目描述
 

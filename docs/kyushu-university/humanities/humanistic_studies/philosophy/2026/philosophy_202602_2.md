@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2026年度 第2期 問2（哲学）"
+sidebar_label: "2026年2月実施 第2期 問2（哲学）"
 tags:
   - Kyushu-University
   - Philosophy.General-Philosophy.Truth-Goodness-and-Beauty
   - Philosophy.Philosophy-of-Science.Occams-Razor
 ---
 
-# 九州大学 人文科学府 人文基礎専攻（哲学） 2026年度 第2期 問2
+# 九州大学 人文科学府 人文基礎専攻（哲学） 2026年2月実施 第2期 問2
 
 ## **Author**
 

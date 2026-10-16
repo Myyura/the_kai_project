@@ -216,4 +216,4 @@ u=\frac{v^2}{4}-1\quad(0\le v\le2),\qquad
 u=1-\frac{v^2}{4}\quad(0\le v\le2).
 $$
 
-![(b) 直線の像と (c) 三角形の周の像](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2015/nagoya-is2015-square-map.svg)
+![(b) 直線の像と (c) 三角形の周の像](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/is/2015/nagoya-is201408-square-map.svg)

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2025年度 物理（4）"
+sidebar_label: "2024年8月実施 物理（4）"
 tags:
   - Tohoku-University
   - Physics.Quantum-Mechanics.Harmonic-Oscillator-Ground-State
@@ -9,7 +9,7 @@ tags:
   - Mathematics.Differential-Equations.Hermite-Equation-and-Polynomial-Recurrence
   - Mathematics.Differential-Equations.Power-Series-Solution-and-Coefficient-Recurrence
 ---
-# 東北大学 理学研究科 天文学専攻 2025年度 物理（4）
+# 東北大学 理学研究科 天文学専攻 2024年8月実施 物理（4）
 
 ## **Author**
 

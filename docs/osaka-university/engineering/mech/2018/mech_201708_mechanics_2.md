@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2018年度 力学 問題2"
+sidebar_label: "2017年8月実施 力学 問題2"
 tags:
   - Osaka-University
   - Physics.Mechanics.Newtons-Laws-of-Motion
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2018年度 力学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2017年8月実施 力学 問題2
 
 ## **Author**
 
@@ -20,7 +20,7 @@ tags:
 3. 落下の速さ $v$ を $m$ の関数として表せ。
 4. 十分に時間が経ち $m\gg m_0$ となったとする。(3) で $m_0/m\to0$ とすることにより、このときの落下加速度の大きさを求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2018/mech_201708_mechanics_2-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2018/mech_201708_mechanics_2-question-fig1.png)
 
 #### 题目描述
 

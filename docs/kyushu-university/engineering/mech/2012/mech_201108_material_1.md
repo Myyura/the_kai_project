@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2012年度 問1（材料力学）"
+sidebar_label: "2011年8月実施 問1（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Thin-Walled-Pressure-Vessels
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 材料力学 問1
+# 九州大学 工学府 機械系専攻 2011年8月実施 材料力学 問1
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 内圧 $p$ を受ける薄肉円筒の上端を固定し、下端に質量 $M$ のおもりをつるす。円筒の長さは $L$、直径は $d$、肉厚は $h$ で、$L\gg d\gg h$ とする。ヤング率を $E$、ポアソン比を $\nu$、重力加速度を $g$ とし、円筒自身の重さを無視する。軸方向の中央付近における直径の変化 $\Delta d$ を求めよ。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/material-1-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_material-1-original.png)
 
 #### 题目描述
 

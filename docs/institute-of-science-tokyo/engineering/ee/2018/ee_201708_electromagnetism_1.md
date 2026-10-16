@@ -72,7 +72,7 @@ $$
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201708_electromagnetism_1_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2018/ee_201708_electromagnetism_1_p1.png" width="300" alt=""/>
 </figure>
 
 ### (3)
@@ -107,7 +107,7 @@ B_0 &= \frac{\mu_0 I}{4\pi a}\int_{0}^{2\pi}\text{d}\theta \\
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201708_electromagnetism_1_p2.png" width="330" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2018/ee_201708_electromagnetism_1_p2.png" width="330" alt=""/>
 </figure>
 
 ### (6)
@@ -130,5 +130,5 @@ B_P &= \frac{\mu_0 I a^2}{4\pi(a^2 + r^2)^{\frac{3}{2}}}\int_{0}^{2\pi}\text{d}\
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201708_electromagnetism_1_p3.png" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2018/ee_201708_electromagnetism_1_p3.png" width="350" alt=""/>
 </figure>

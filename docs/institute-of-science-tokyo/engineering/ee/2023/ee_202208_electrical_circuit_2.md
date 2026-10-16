@@ -48,7 +48,7 @@ $$
 (7) (6)で求めた条件を満たすとき，$R_1,R_2,R_3,R_4,E$ のうち必要なものを用いて $I_1$ および $I_2$ を表せ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202208_electrical_circuit_2_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2023/ee_202208_electrical_circuit_2_p1.png" width="400" alt=""/>
 </figure>
 
 ### 题目描述

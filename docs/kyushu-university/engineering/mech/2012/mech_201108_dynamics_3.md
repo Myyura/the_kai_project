@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2012年度 問3（機械力学）"
+sidebar_label: "2011年8月実施 問3（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Longitudinal-Vibration
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 機械力学 問3
+# 九州大学 工学府 機械系専攻 2011年8月実施 機械力学 問3
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 密度、縦弾性係数、断面積、長さが $(\rho_1,E_1,A_1,L_1)$ と $(\rho_2,E_2,A_2,L_2)$ の二本の一様な弾性棒を直列に連結する。左端は固定、右端は自由。各棒の左端からの局所座標を $x_1,x_2$、軸方向変位を $u_1,u_2$ とする。（50 点）
 
-![直列に連結した二本の弾性棒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/dynamics-3-original.png)
+![直列に連結した二本の弾性棒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_dynamics-3-original.png)
 
 一様棒の式 $u_{tt}=c^2u_{xx}$、$F=EAu_x$、$c=\sqrt{E/\rho}$ は用いてよい。
 

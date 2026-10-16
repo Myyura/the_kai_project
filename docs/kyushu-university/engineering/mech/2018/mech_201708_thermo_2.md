@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 問2（熱工学）"
+sidebar_label: "2017年8月実施 問2（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Conduction-with-Heat-Generation
   - Engineering.Heat-Transfer.Internal-Forced-Convection
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 熱工学 問2
+# 九州大学 工学府 機械系専攻 2017年8月実施 熱工学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 円管内を流体が発達した層流で流れ、$0\le x$ の加熱区間には内半径 $r_1$、外半径 $r_2$、一定熱伝導率 $k$ の環状ヒータがある。ヒータは一様な体積発熱 $q_v$ をもち、外側は完全に断熱されている。軸方向温度勾配は小さく、ヒータの熱伝導は半径方向のみの定常一次元問題とみなせる。（55 点）
 
-![環状ヒータと円管内の流れ（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/thermo-2-original.png)
+![環状ヒータと円管内の流れ（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_thermo-2-original.png)
 
 ヒータの熱伝導方程式は
 

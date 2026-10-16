@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 問3（数学）"
+sidebar_label: "2019年8月実施 問3（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Calculus.Double-Integral
   - Mathematics.Vector-Calculus.Stokes-Theorem
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 数学 問3
+# 九州大学 工学府 機械系専攻 2019年8月実施 数学 問3
 
 ## **Author**
 

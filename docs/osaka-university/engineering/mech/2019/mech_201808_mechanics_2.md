@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2019年度 力学 問題2"
+sidebar_label: "2018年8月実施 力学 問題2"
 tags:
   - Osaka-University
   - Physics.Mechanics.Rigid-Body-Moment-of-Inertia
   - Physics.Mechanics.Simple-Harmonic-Motion
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2019年度 力学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2018年8月実施 力学 問題2
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 4. $T_M$ が最小になる $r$ と、その最小周期を求めよ。
 5. (4) の $r$ に対応する直線 M が、必ず板を通ることを示せ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2019/mech_201808_mechanics_2-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2019/mech_201808_mechanics_2-question-fig1.png)
 
 #### 题目描述
 

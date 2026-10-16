@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2013年度 問1（流体工学）"
+sidebar_label: "2012年8月実施 問1（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Pipe-Friction
   - Engineering.Fluid-Mechanics.Minor-Losses
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 流体工学 問1
+# 九州大学 工学府 機械系専攻 2012年8月実施 流体工学 問1
 
 ## **Author**
 
@@ -23,7 +23,7 @@ tags:
 3. 水位 $h$ が $h_0$ より高いときの流量 $Q_2$ を求めよ。水面上昇速度は管出口の速度より十分小さい。
 4. 小容器の水位が大容器と同じ高さになる時刻 $T_2$ を求めよ。
 
-![原題の図（九州大学 2013年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/fluids-1-original.png)
+![原題の図（九州大学 2013年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_fluids-1-original.png)
 
 #### 题目描述
 

@@ -18,7 +18,7 @@ tags:
 
 両質点を静止状態から運動させる。摩擦および糸の質量、太さ、伸びを無視し、糸はたるまないものとする。重力加速度を $g$ として、次の問いに答えよ。
 
-![糸で結ばれた二質点と斜面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/kyotsu_202508_phys_1_setup_audited.svg)
+![糸で結ばれた二質点と斜面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_phys_1_setup_audited.svg)
 
 ### I
 

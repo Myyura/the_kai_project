@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 問3（熱工学）"
+sidebar_label: "2017年8月実施 問3（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Rankine-Cycle
   - Physics.Thermodynamics.Steady-Flow-Energy-Equation
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 熱工学 問3
+# 九州大学 工学府 機械系専攻 2017年8月実施 熱工学 問3
 
 ## **Author**
 
@@ -31,7 +31,7 @@ tags:
 4. 熱効率 $\eta$ を求めよ。正味仕事は $l_{\mathrm{net}}$ としてよい。
 5. 正味仕事を増やすための正しい選択肢を選び、図 2 を用いて理由を説明せよ。「タービン入口の水を圧力 $p_a$ の（湿り蒸気・過熱蒸気）とし、復水器の圧力を $p_b$ から（上げる・下げる）。」
 
-![サイクル作図用の温度–比エントロピー線図（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/thermo-3-original.png)
+![サイクル作図用の温度–比エントロピー線図（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_thermo-3-original.png)
 
 #### 题目描述
 
@@ -43,7 +43,7 @@ tags:
 
 $A\to B$ は等エントロピー圧縮、$B\to C$ は高圧等圧加熱、$C\to D$ は等エントロピー膨張、$D\to A$ は低圧等圧凝縮である。非圧縮性液の可逆断熱圧縮では温度も一定なので、$T$–$s$ 図では A と B が重なるが、エンタルピーは異なる。
 
-![Rankine サイクルと正味仕事を増す変更の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/thermo-3-rankine.svg)
+![Rankine サイクルと正味仕事を増す変更の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_thermo-3-rankine.svg)
 
 ### (2)
 

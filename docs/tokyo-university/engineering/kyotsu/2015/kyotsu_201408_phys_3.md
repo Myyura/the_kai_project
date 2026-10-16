@@ -122,7 +122,7 @@ $$
 
 両者は $(V_0,p_0)$ を通り、膨張側 $V>V_0$ では $p_{\mathrm{ad}}<p_{\mathrm{iso}}$。始点での傾きはそれぞれ $-p_0/V_0$、$-\gamma p_0/V_0$ となり、断熱線の方が急である。
 
-![同じ初期状態からの等温膨張と準静的断熱膨張](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2015/kyotsu_201408_phys_3_pv_audited.svg)
+![同じ初期状態からの等温膨張と準静的断熱膨張](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2015/kyotsu_201408_phys_3_pv_audited.svg)
 
 ### III
 

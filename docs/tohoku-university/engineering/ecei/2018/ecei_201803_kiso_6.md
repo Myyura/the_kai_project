@@ -108,7 +108,7 @@ $$
    (c) 对 $t>0$ 定义 $f(t)=\int_0^\infty\sin(tx)/\sqrt x\,dx$，求其 Laplace 变换 $F(p)$。
    (d) 利用以上结果求 $f(t)$。
 
-![正实轴割线周围的钥匙孔积分路径](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201803_kiso_6_keyhole.svg)
+![正实轴割线周围的钥匙孔积分路径](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2018/ecei_201803_kiso_6_keyhole.svg)
 
 ## **Kai**
 

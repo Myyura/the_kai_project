@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2013年度 問4（材料力学）"
+sidebar_label: "2012年8月実施 問4（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 材料力学 問4
+# 九州大学 工学府 機械系専攻 2012年8月実施 材料力学 問4
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図4の直角に折れ曲がった弾性丸棒 ABC は、AB $=$ BC $=\ell$、直径 $d$、ヤング率 $E$、ポアソン比 $\nu$ を持つ。A、C は固定端で、二本の棒は B で剛に接合されている。棒は水平面内にあり、B に鉛直下向き荷重 $P$ を加える。B の鉛直変位 $\delta_{BV}$ を求めよ。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/material-4-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-4-original.png)
 
 #### 题目描述
 

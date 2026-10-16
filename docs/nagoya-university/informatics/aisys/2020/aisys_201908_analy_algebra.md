@@ -159,7 +159,7 @@ $$
 
 円と楕円の交点は $(u,v)=(\pm1/2,\pm1/2)$（符号は独立）である。
 
-![楕円の内部と円の外部が重なる二つの領域。破線の境界は含まない。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2020/nagoya-aisys2020-region.svg)
+![楕円の内部と円の外部が重なる二つの領域。破線の境界は含まない。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/aisys/2020/nagoya-aisys201908-region.svg)
 
 ### 3
 

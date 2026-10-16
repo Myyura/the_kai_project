@@ -62,7 +62,7 @@ $$
 \text{c. }|\widetilde E(0)|^2\gg|\widetilde E(h)|^2.
 $$
 
-![導体平板と電場振幅分布](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2020/kyotsu_201908_phys_2_skin_audited.svg)
+![導体平板と電場振幅分布](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2020/kyotsu_201908_phys_2_skin_audited.svg)
 
 #### 题目描述
 

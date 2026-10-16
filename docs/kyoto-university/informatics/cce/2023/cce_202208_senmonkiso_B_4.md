@@ -99,7 +99,7 @@ Answer the following questions.
 
 | &nbsp; | &nbsp; |
 | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p1.png" width="250" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p2.png" width="250" /> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2023/cce_202208_senmonkiso_B_4_p1.png" width="250" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2023/cce_202208_senmonkiso_B_4_p2.png" width="250" /> |
 | $\bar{f} = \bar{b}\bar{d} + \bar{a}bc + a\bar{b}\bar{c}$ | $f = b\bar{c} + ab + \bar{a}\bar{b}d + \bar{b}cd$ |
 
 All minimum SOP expressions are
@@ -156,7 +156,7 @@ For the lower bound, apply De Morgan duality: $F(a,b,c,d)=\overline{f(\bar a,\ba
 
 | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p4.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p5.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p6.png" width="200" /> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2023/cce_202208_senmonkiso_B_4_p4.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2023/cce_202208_senmonkiso_B_4_p5.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2023/cce_202208_senmonkiso_B_4_p6.png" width="200" /> |
 
 **Expression for h:**
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 2020年度 計算理論
+sidebar_label: 2019年8月実施 計算理論
 tags:
   - Osaka-University
   - Computer-Science.Formal-Languages.Nondeterministic-Pushdown-Automaton
@@ -8,7 +8,7 @@ tags:
   - Computer-Science.Formal-Languages.Chomsky-Normal-Form
   - Computer-Science.Formal-Languages.CYK-Algorithm
 ---
-# 大阪大学 情報科学研究科 情報工学 2020年度 計算理論
+# 大阪大学 情報科学研究科 情報工学 2019年8月実施 計算理論
 
 ## **Author**
 

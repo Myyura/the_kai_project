@@ -32,7 +32,7 @@ $$
 5. $d$ を入力し、$A(d,K_2)$ を計算する。
 6. $d$ と正整数 $n$ を入力し、$A(d,K_n)$ を計算する。
 
-![格子およびコッホ雪片](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2014/tokyo-ci-2013-koch.svg)
+![格子およびコッホ雪片](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2014/tokyo-ci-201308-koch.svg)
 
 ### 题目描述
 

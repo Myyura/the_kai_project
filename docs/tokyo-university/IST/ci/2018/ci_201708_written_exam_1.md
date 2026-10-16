@@ -63,7 +63,7 @@ Hereinafter, when there are more than one $x_i$’s that minimize the value of E
 (4) Let the value of $i$ obtained in Question (3) be $i^*$. $S$ is partitioned into two sets according to whether $x_{i^*} = 1$ or $x_{i^*} = 0$, then $y$ is also partitioned into two strings: $y^{(i^*)}_1$ and $y^{(i^*)}_0$.
 It can be represented using a tree structure as shown in Figure 2.
 
-![Figure 2: a split on feature x_i*, with the 1 and 0 branches leading to their partitioned strings.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2018/tokyo-ci-2017-partition-tree.svg)
+![Figure 2: a split on feature x_i*, with the 1 and 0 branches leading to their partitioned strings.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2018/tokyo-ci-201708-partition-tree.svg)
 
 We call it a partitioning tree.
 We call $y^{(i^*)}_1$ and $y^{(i^*)}_0$ partitioned strings.
@@ -194,7 +194,7 @@ Hence $i=1$ minimizes $\Delta(i|y)$.
 At the root, $x_1$ is selected. In the $x_1=0$ branch, $x_2$ uniquely minimizes $\Delta$. In the $x_1=1$ branch, $x_2,x_3,x_4$ tie, so the displayed choice of $x_4$ is valid (choosing $x_2$ or $x_3$ is also valid).
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201708_1_p1.png" width="281" height="222" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2018/ci_201708_1_p1.png" width="281" height="222" alt=""/>
 </figure>
 
 With the displayed choice, the four leaf strings are respectively $000$, $1$, $10$, and $11$.

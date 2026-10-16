@@ -59,7 +59,7 @@ $$
 - サイクル B：1→2 断熱圧縮、2→3 定圧吸熱 $q_B$、3→4 断熱膨張、4→1 定積放熱 $q_F$。$\sigma=v_3/v_2$ とする。
 - サイクル C：1→2 断熱圧縮、2→2′ 定積吸熱 $q_C$、2′→3 定圧吸熱 $q_D$、3→4 断熱膨張、4→1 定積放熱 $q_G$。$\sigma=v_3/v_2$、$\rho=p_3/p_2$ とする。
 
-![三つの熱機関の圧力・比体積線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/kyotsu_201608_phys_3_diagram_audited.svg)
+![三つの熱機関の圧力・比体積線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2017/kyotsu_201608_phys_3_diagram_audited.svg)
 
 1. A の効率 $\eta_A$ を $\varepsilon,\kappa$ で表せ。
 2. B の効率 $\eta_B$ を $\varepsilon,\kappa,\sigma$ で表せ。

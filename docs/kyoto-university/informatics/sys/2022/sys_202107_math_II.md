@@ -92,7 +92,7 @@ $$
 が最大となる点 $Q(l,m,n)$ とそのときの $J$ の値を求めよ。
 
 
-![楕円体 E と接点の楕円 R、中心 T](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2022/sys_202107_math_II_ellipsoid.svg)
+![楕円体 E と接点の楕円 R、中心 T](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2022/sys_202107_math_II_ellipsoid.svg)
 
 #### 题目描述
 
@@ -184,7 +184,7 @@ $$
 
    最大的点 $Q(l,m,n)$，以及该最大值。
 
-   ![楕円体 E と接点の楕円 R、中心 T](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2022/sys_202107_math_II_ellipsoid.svg)
+   ![楕円体 E と接点の楕円 R、中心 T](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2022/sys_202107_math_II_ellipsoid.svg)
 
 ## **Kai**
 

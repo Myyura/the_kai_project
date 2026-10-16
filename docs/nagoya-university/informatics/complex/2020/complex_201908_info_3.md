@@ -237,7 +237,7 @@ $$
 
 各取り出し直後と交換後の木を順に並べると、次のとおりである。パネルは左から右、上から下へ読む。
 
-![最小ヒープから各要素を取り出す際の全12状態](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2020/nagoya-complex2020-heapsort.svg)
+![最小ヒープから各要素を取り出す際の全12状態](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2020/nagoya-complex201908-heapsort.svg)
 
 ### \[6\]
 

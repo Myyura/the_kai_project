@@ -40,7 +40,7 @@ By letting $f$ be the number of faces (i.e., closed regions including exterior o
 ##### <center> 図１グラフ $G_1$ Figure 1 Graph $G_1$</center>
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202008_senmon_I_4_p1.png" width="300" height="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2021/is_202008_senmon_I_4_p1.png" width="300" height="400" alt=""/>
 </figure>
 
 
@@ -77,7 +77,7 @@ Editorial clarification: the complement of a simple graph has no loops, so $u\ne
 ### (1)
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202008_senmon_I_4_p2.png" width="300" height="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2021/is_202008_senmon_I_4_p2.png" width="300" height="300" alt=""/>
 </figure>
 
 number of vertices: $v = 6$, number of edges: $e = 8$, number of faces: $f = 4$
@@ -89,7 +89,7 @@ $$
 ### (2)
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202008_senmon_I_4_p3.png" width="300" height="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2021/is_202008_senmon_I_4_p3.png" width="300" height="300" alt=""/>
 </figure>
 
 ### (3)

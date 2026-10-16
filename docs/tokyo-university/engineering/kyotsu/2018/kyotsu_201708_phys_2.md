@@ -19,7 +19,7 @@ tags:
 
 スイッチで端子 A、B、C のいずれかを選び、図の三つの回路に接続する。図示したもの以外の容量、インダクタンス、抵抗は無視する。
 
-![部分挿入した誘電体と三つの接続回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2018/kyotsu_201708_phys_2_capacitor_circuits_audited.svg)
+![部分挿入した誘電体と三つの接続回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2018/kyotsu_201708_phys_2_capacitor_circuits_audited.svg)
 
 ### I
 
@@ -155,7 +155,7 @@ $$
 
 コンデンサ電圧は電源電圧より $\pi/2$ 遅れる。コイル電圧はコンデンサ電圧と逆位相で打ち消し合い、電源電圧は抵抗の電圧に等しい。電圧振幅比は $\omega L/R_2$ であり、1 を超えることもある。
 
-![共振時の電源電圧とコンデンサ電圧](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2018/kyotsu_201708_phys_2_resonance_audited.svg)
+![共振時の電源電圧とコンデンサ電圧](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2018/kyotsu_201708_phys_2_resonance_audited.svg)
 
 ## **Reference**
 

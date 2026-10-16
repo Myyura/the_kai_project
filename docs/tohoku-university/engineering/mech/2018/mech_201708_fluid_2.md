@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年秋季 流体力学 第2問"
+sidebar_label: "2017年8月実施 流体力学 第2問"
 tags:
   - Tohoku-University
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
   - Engineering.Fluid-Mechanics.Bernoulli-Equation
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 流体力学 第2問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 流体力学 第2問
 
 ## **Author**
 
@@ -23,7 +23,7 @@ tags:
 3. $\theta$ を $\alpha,g$ で表せ。
 4. $U$ を求めよ。
 
-![左に加速する水槽と右向き噴流](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_fluid2.svg)
+![左に加速する水槽と右向き噴流](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_fluid2.svg)
 
 #### 题目描述
 

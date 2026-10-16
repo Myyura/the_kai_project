@@ -1,12 +1,12 @@
 ---
-sidebar_label: '数学 第4問'
+sidebar_label: '2019年8月実施 数学 第4問'
 tags:
   - Tokyo-University
   - Mathematics.Calculus.Arc-Length
   - Mathematics.Geometry.Arc-Length-Parameter-and-Curvature
 ---
 
-# 東京大学 工学系研究科 2020年度 数学 第4問
+# 東京大学 工学系研究科 2019年8月実施 数学 第4問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)
@@ -117,4 +117,4 @@ $$
 \boxed{\kappa_Q=\kappa_P\sin^2\alpha=\frac1{2\sin\theta}}.
 $$
 
-![平面曲線と球面上の空間曲線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2020/math_4_curves.svg)
+![平面曲線と球面上の空間曲線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2020/kyotsu_201908_math_4_curves.svg)

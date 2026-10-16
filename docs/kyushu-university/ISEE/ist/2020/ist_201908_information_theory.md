@@ -18,7 +18,7 @@ tags:
 下図は, 定常 $2$ 重マルコフ情報源 $S$ の状態遷移図である. 下記の設問に答えよ. 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_information_theory_p1.png" width="500" height="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_information_theory_p1.png" width="500" height="300" alt=""/>
 </figure>
 
 (1) 上図の状態遷移図を元に, このマルコフ情報源 $S$ の遷移確率行列 $A$ を求めよ. ただし, 状態 "$00$","$10$", "$01$" の順に, 行を記せ. 
@@ -66,7 +66,7 @@ $$
 
 ### 题目描述
 
-【问题 1】[原题状态迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_information_theory_p1.png)给出了平稳二阶 Markov 信源 $S$，其状态为 `00`、`10`、`01`。回答：
+【问题 1】[原题状态迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_information_theory_p1.png)给出了平稳二阶 Markov 信源 $S$，其状态为 `00`、`10`、`01`。回答：
 
 1. 根据状态图求信源 $S$ 的转移概率矩阵 $A$，矩阵行按 `00`、`10`、`01` 的顺序排列。
 2. 若时刻 $0$ 处于状态 `00`，求时刻 $2$ 处于状态 `10` 的概率。

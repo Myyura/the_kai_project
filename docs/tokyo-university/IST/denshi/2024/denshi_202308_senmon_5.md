@@ -80,7 +80,7 @@ Consider the fixed-length symbol sequences as $00 , 01 , 10$ and $11$ , and the 
 ## **Kai**
 ### (1)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_5_p1.png" width="406" height="117" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2024/denshi_202308_5_p1.png" width="406" height="117" alt=""/>
 </figure>
 
 ### (2)
@@ -137,7 +137,7 @@ $$
 
 ### (5)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_5_p2.png" width="599" height="406" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2024/denshi_202308_5_p2.png" width="599" height="406" alt=""/>
 </figure>
 
 $$

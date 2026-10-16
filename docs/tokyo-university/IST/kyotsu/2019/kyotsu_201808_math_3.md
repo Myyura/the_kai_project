@@ -45,7 +45,7 @@ $$
 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu_2019_math_3_p1.png" width="500" height="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/kyotsu/2019/kyotsu_201808_math_3_p1.png" width="500" height="500" alt=""/>
 </figure>
 
 

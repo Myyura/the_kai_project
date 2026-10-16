@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年度 電磁気学2"
+sidebar_label: "2016年8月実施 電磁気学2"
 tags:
   - institute-of-science-tokyo
   - Physics.Electromagnetism.Method-of-Images
@@ -8,7 +8,7 @@ tags:
   - Physics.Electromagnetism.Magnetic-Force
 ---
 
-# 東京工業大学 工学院 電気電子系 2017年度（2016年8月実施）電磁気学2
+# 東京工業大学 工学院 電気電子系 2016年8月実施 電磁気学2
 
 ## **Author**
 
@@ -18,7 +18,7 @@ tags:
 
 図2.1に示す、無限に広い平面を表面とする透磁率 $\mu$ の磁性体と、その表面から距離 $a$ 離れた真空中の無限長直線導線を考える。導線には直流電流 $I$ が図の向きに流れている。導線の抵抗と径は無視し、真空の透磁率を $\mu_0$ とする。
 
-![磁性体に隣接する直線電流と影像電流（図2.1〜2.3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2016/em2-original.png)
+![磁性体に隣接する直線電流と影像電流（図2.1〜2.3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_em2-original.png)
 
 図：東京工業大学 電気電子系 2016年実施問題、図2.1〜2.3（原図）。
 

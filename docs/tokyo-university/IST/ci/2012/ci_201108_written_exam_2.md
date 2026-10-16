@@ -29,7 +29,7 @@ tags:
 (4) 設問(1)のパケット転送方式では, $D$ が大きい時には, データ転送速度が大きくならない．データ転送速度を向上させる方法を, 2 つ提案し, 各方式での最大データ転送速度と, 最大データ転送速度を実現するために必要な条件を示しなさい．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201108_2_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2012/ci_201108_2_p1.png" width="500" alt=""/>
 </figure>
 
 ### 题目描述
@@ -60,7 +60,7 @@ Packets are transmitted from Host 1 to Host 2, as shown in the figure 1 below. T
 (4) With the packet transmission algorithm described in (1), we cannot obtain large throughput, when $D$ is large. Propose two methods, so as to improve the throughput, providing their maximum throughput and their required conditions.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201108_2_p1_en.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2012/ci_201108_2_p1_en.png" width="500" alt=""/>
 </figure>
 
 

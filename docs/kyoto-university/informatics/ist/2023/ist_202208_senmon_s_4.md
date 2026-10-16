@@ -55,13 +55,13 @@ $S_1,S_2$ 满足：
 ## **Kai**
 ### (1)
 
-![markov-s1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2023/kyoto-ist-2022-markov-s1.svg)
+![markov-s1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2023/kyoto-ist-202208-markov-s1.svg)
 
 After output $1$, the next output must be forced to $0$. Since $s_1$ is stochastic for $0<p<1$, this requires a distinct state, so two states are minimal.
 
 ### (2)
 
-![markov-s2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2023/kyoto-ist-2022-markov-s2.svg)
+![markov-s2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2023/kyoto-ist-202208-markov-s2.svg)
 
 After an output $1$, the diagram enters $t_3$, whose next output is forced to be $0$, so \[C1\] holds. After three consecutive outputs $0$, it enters $t_4$, whose next output is forced to be $1$, so \[C2\] holds. Moreover, $t_1,t_2$ are stochastic because $0<p,q<1$, while a forced-$0$ state and a distinct forced-$1$ state are necessary; hence at least four states are required.
 

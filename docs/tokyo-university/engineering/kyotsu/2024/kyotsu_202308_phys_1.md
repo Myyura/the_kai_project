@@ -20,7 +20,7 @@ tags:
 
 斜面を下る向きに $x$ 軸を取り、円板の中心位置を $x$ とする。バネが自然長で、糸が巻き付かず、点 P と円板中心を結ぶ直線が斜面に垂直になる位置を $x=0$ とする。円板は斜面上を滑らずに転がり、糸を巻き付けながら自転する。
 
-![円板、糸、バネと障害物の配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2024/kyotsu_202308_phys_1_setup_audited.svg)
+![円板、糸、バネと障害物の配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2024/kyotsu_202308_phys_1_setup_audited.svg)
 
 ### I
 
@@ -109,7 +109,7 @@ $$
 
 $x_0$ を中心に振幅 $x_0$、周期 $\tau=2\pi/\Omega$ で振動する。
 
-![円板中心の位置と時刻の関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2024/kyotsu_202308_phys_1_oscillation_audited.svg)
+![円板中心の位置と時刻の関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2024/kyotsu_202308_phys_1_oscillation_audited.svg)
 
 #### III.3
 

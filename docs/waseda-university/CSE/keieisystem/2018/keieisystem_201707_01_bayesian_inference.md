@@ -120,7 +120,7 @@ $$
 
 である。
 
-![事後密度と極大点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/waseda_university/CSE/keieisystem/2018/waseda-2017-beta-posterior.svg)
+![事後密度と極大点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/waseda-university/CSE/keieisystem/2018/waseda-201707-beta-posterior.svg)
 
 ### [小問 4]
 

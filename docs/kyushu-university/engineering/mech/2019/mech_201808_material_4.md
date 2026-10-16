@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2019年度 問4（材料力学）"
+sidebar_label: "2018年8月実施 問4（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Euler-Buckling
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 材料力学 問4
+# 九州大学 工学府 機械系専攻 2018年8月実施 材料力学 問4
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 長柱は上下端でそれぞれヒンジを介して剛体に取り付けられ、両端は軸方向のみに変位する。$x$ 軸まわりには両端が回転端、$y$ 軸まわりには両端が固定端となる。上側の剛体が下降し、軸圧縮荷重が作用する。各薄板が単独で座屈することはなく、$l\gg a\gg t$ とする。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/material-4-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_material-4-original.png)
 
 1. 断面の重心と薄板 AB との距離 $e$ を求めよ。
 2. 重心を通る $x,y$ 軸に関する断面二次モーメント $I_x,I_y$ を求めよ。

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年度 機械力学・機構学 問題1"
+sidebar_label: "2016年8月実施 機械力学・機構学 問題1"
 tags:
   - Osaka-University
   - Physics.Mechanics.Lagrangian-Mechanics
@@ -7,7 +7,7 @@ tags:
   - Physics.Mechanics.Damped-Harmonic-Motion
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2017年度 機械力学・機構学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2016年8月実施 機械力学・機構学 問題1
 
 ## **Author**
 
@@ -34,7 +34,7 @@ $$
 3. $\phi_1,\phi_2$ を用いて運動方程式を表せ。
 4. 右の振り子に、$\theta_{20}$ を中心とする振幅一定・角振動数 $\omega$ の正弦波状の角運動を与え、定常振動に達したとする。$\phi_1$ の振幅が最大となる $\omega$ を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2017/mech_201608_dynamics_1-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2017/mech_201608_dynamics_1-question-fig1.png)
 
 #### 题目描述
 

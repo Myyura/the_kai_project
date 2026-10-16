@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年秋季 熱力学 第2問"
+sidebar_label: "2017年8月実施 熱力学 第2問"
 tags:
   - Tohoku-University
   - Physics.Thermodynamics.Steady-Flow-Energy-Equation
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 熱力学 第2問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 熱力学 第2問
 
 ## **Author**
 
@@ -44,7 +44,7 @@ $$
 
 前者は曲線と $v$ 軸の間を $v_1$ から $v_2$ まで取った面積、後者は曲線と $p$ 軸の間を $p_2$ から $p_1$ まで取った面積である。
 
-![絶対仕事と工業仕事に対応する面積](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_thermo2.svg)
+![絶対仕事と工業仕事に対応する面積](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_thermo2.svg)
 
 両式の差を取れば
 

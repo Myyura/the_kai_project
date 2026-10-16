@@ -22,7 +22,7 @@ Zero
 (2) $|E| = 8\text{V},|I| = 2\text{A},\frac{|I_1|}{|I_2|} = 2$ のとき，$R, X_1, X_2$ の値を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p1.png" width="280" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p1.png" width="280" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -33,7 +33,7 @@ Zero
 (2) 端子対 $2-2’$ にインピーダンス $Z_K$ をつないだところ，端子対 $1-1’$ から右側を見たインピーダンスも $Z_K$ となった．$Z$ と $Y$ を用いて $Z_K$ を表せ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p2.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p2.png" width="400" alt=""/>
 </figure>
 
 ### 【問 3】
@@ -45,7 +45,7 @@ Zero
 満たすべき条件を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p3.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p3.png" width="400" alt=""/>
 </figure>
 
 ### 【問 4】
@@ -56,18 +56,18 @@ Zero
 (2) スイッチを切り替えた後の電荷 $q(t)(t > 0)$ を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p4.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p4.png" width="400" alt=""/>
 </figure>
 
 ### 题目描述
 
-【问题 1】对[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p1.png)，电源电压 $E$ 与电流 $I$ 同相，即
+【问题 1】对[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p1.png)，电源电压 $E$ 与电流 $I$ 同相，即
 $\arg(E/I)=0$，且 $X_1\ne X_2$。回答：
 
 1. 写出 $R,X_1,X_2$ 之间的关系。
 2. 当 $|E|=8\,\mathrm V$、$|I|=2\,\mathrm A$、$\frac{|I_1|}{|I_2|}=2$ 时，求 $R,X_1,X_2$ 的值。
 
-【问题 2】对[图 2 二端口电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p2.png)，回答：
+【问题 2】对[图 2 二端口电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p2.png)，回答：
 
 1. 若
 
@@ -82,12 +82,12 @@ $\arg(E/I)=0$，且 $X_1\ne X_2$。回答：
    $\begin{pmatrix}a&b\\c&d\end{pmatrix}$。
 2. 在端口 $2-2'$ 接入阻抗 $Z_K$ 后，从端口 $1-1'$ 向右看到的输入阻抗也等于 $Z_K$。用 $Z,Y$ 表示 $Z_K$。
 
-【问题 3】对[图 3 交流电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p3.png)，电源角频率为 $\omega$。回答：
+【问题 3】对[图 3 交流电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p3.png)，电源角频率为 $\omega$。回答：
 
 1. 以节点电位 $V_a,V_b,V_c$ 为未知量列出节点方程。
 2. 当 $V_b=V_c$ 时，求 $R_0\sim R_5,C_3,C_4,\omega$ 必须满足的条件。
 
-【问题 4】在[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p4.png)中，$t=0$ 时将开关从 $S_1$ 切换到 $S_2$；$t<0$ 时电路已处于稳态。已知
+【问题 4】在[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p4.png)中，$t=0$ 时将开关从 $S_1$ 切换到 $S_2$；$t<0$ 时电路已处于稳态。已知
 
 $$
 e_1(t)=4\sin2t\,\mathrm V,\quad E_2=8\,\mathrm V,\quad
@@ -225,7 +225,7 @@ $$
 $I_2 = 0$ のとき、つまり端子対  $2-2’$ 間が $\text{open}$ のときを考える
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p5.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p5.png" width="400" alt=""/>
 </figure>
 
 $$
@@ -249,7 +249,7 @@ $V_2 = 0$ のとき、つまり端子対  $2-2’$ 間が $\text{short}$ のと�
 このとき、$b = \frac{V_1}{I_2},d = \frac{I_1}{I_2}$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p6.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p6.png" width="400" alt=""/>
 </figure>
 
 $$
@@ -429,7 +429,7 @@ $$
 #### (2)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p7.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_circuit_theory_p7.png" width="400" alt=""/>
 </figure>
 
 $$

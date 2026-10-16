@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2016年度 問4（材料力学）"
+sidebar_label: "2015年8月実施 問4（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Thin-Walled-Pressure-Vessels
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Stress-Transformation
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 材料力学 問4
+# 九州大学 工学府 機械系専攻 2015年8月実施 材料力学 問4
 
 ## **Author**
 
@@ -17,12 +17,12 @@ tags:
 
 図のように直径 $D$ の薄肉円筒 A と直径 $3D$ の薄肉円筒 B の一端を壁に、他端を同じ剛体に接続する。両円筒の肉厚は $t$、長さは $\ell$ で、$D\gg t$、$\ell\gg D$ とする。A と B の間の空間に内圧 $p$ を加える。各材料のヤング率は $E_A,E_B$、横弾性係数は $G_A,G_B$ である。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/material-4-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-4-original.png)
 
 1. B の中央部表面に生じる長手方向と円周方向の垂直ひずみを求めよ。
 2. 剛体にねじりモーメント $T$ を加えると、B の中央部表面の長手方向から $45^\circ$ の方向のひずみが $\varepsilon_0$ となった。$T$ を求めよ。
 
-![原題のひずみ測定方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/material-4-coordinates-original.png)
+![原題のひずみ測定方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-4-coordinates-original.png)
 
 直径 $d$、肉厚 $t$ の薄肉円筒の断面二次極モーメントは $I_p=\pi d^3t/4$。必要なら
 

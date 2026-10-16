@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年度 電磁気学3"
+sidebar_label: "2016年8月実施 電磁気学3"
 tags:
   - institute-of-science-tokyo
   - Physics.Electromagnetism.Biot-Savart-Law
@@ -7,7 +7,7 @@ tags:
   - Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance
 ---
 
-# 東京工業大学 工学院 電気電子系 2017年度（2016年8月実施）電磁気学3
+# 東京工業大学 工学院 電気電子系 2016年8月実施 電磁気学3
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 透磁率は全領域で $\mu_0$ とする。
 
-![円形電流、微小ループとの相互インダクタンスおよび移動実験（図3.1〜3.3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2016/em3-original.png)
+![円形電流、微小ループとの相互インダクタンスおよび移動実験（図3.1〜3.3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_em3-original.png)
 
 図：東京工業大学 電気電子系 2016年実施問題、図3.1〜3.3（原図）。
 
@@ -68,4 +68,4 @@ $$
 
 $V(t)$ は奇関数であり、$t<0$ で正、$t=0$ で $0$、$t>0$ で負となり、$t\to\pm\infty$ では $0$ に近づく。
 
-![小ループ通過時の電圧計表示](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2016/em3-voltage.svg)
+![小ループ通過時の電圧計表示](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_em3-voltage.svg)

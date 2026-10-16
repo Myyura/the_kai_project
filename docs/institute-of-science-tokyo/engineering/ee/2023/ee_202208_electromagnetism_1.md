@@ -18,7 +18,7 @@ Zero
 (1) 図 $1.1$ のように，厚さが無視できる辺の長さが $a$ と $b$ の長方形導体板を間隔 $x$ で平行においたコンデンサがある。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202208_electromagnetism_1_p1.png" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2023/ee_202208_electromagnetism_1_p1.png" width="350" alt=""/>
 </figure>
 
 ① このコンデンサの静電容量 $C_1$ を $a,b,x,\varepsilon_0$ を用いて表せ。
@@ -28,13 +28,13 @@ Zero
 ③ 図 $1.2$ のように $2$ つの導体板に $\pm Q$ の電荷を与えると一様に電荷が分布した。このときの導体板間の電界強度 $E_2$ と静電エネルギー $U_2$ および，導体板間に働く静電気力の大きさ $F_2$ を，それぞれ $a,b,x,Q,\varepsilon_0$ のうち必要なものを用いて表せ。また，静電気力の向きは導体板が引き合う方向か，反発し合う方向かを答えよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202208_electromagnetism_1_p2.png" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2023/ee_202208_electromagnetism_1_p2.png" width="350" alt=""/>
 </figure>
 
 (2) 厚さが無視できる一辺の長さ $a$ の正方形導体板を間隔 $x$ で平行においたコンデンサがある。図 $1.3$ のように，この導体板間に一辺の長さ $a$, 厚さ $d$, 誘電率 $\varepsilon(\varepsilon > \varepsilon_0)$ の正方形誘電体板を導体板に重なる位置で，導体板間の中央に平行に $l(0 < l < a)$ だけ挿入し, このコンデンサの導体板間に電位差 $V$ を与えた。誘電体は帯電していないものとする。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202208_electromagnetism_1_p3.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2023/ee_202208_electromagnetism_1_p3.png" width="500" alt=""/>
 </figure>
 
 ① 図 $1.3$ に示す領域 I と領域 II の部分の静電容量 $C_I$ および $C_{II}$ を，それぞれ $a,d,x,l,\varepsilon_0,\varepsilon$ のうち必要なものを用いて表せ。

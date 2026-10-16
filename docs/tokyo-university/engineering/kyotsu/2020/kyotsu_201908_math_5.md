@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第5問'
+sidebar_label: '2019年8月実施 数学 第5問'
 tags:
   - Tokyo-University
   - Mathematics.Differential-Equations.Laplace-Transform
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Complex-Analysis.Residue-Theorem
 ---
 
-# 東京大学 工学系研究科 2020年度 数学 第5問
+# 東京大学 工学系研究科 2019年8月実施 数学 第5問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)

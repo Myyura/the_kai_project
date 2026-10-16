@@ -28,7 +28,7 @@ tags:
 - (b) 回路の合成アドミタンス $Y(=J/V)$[S] を $R,L_1,L_2,M,\omega$ を用いて表せ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202308_kiso_2_electrical_circuit.png" width="600"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2024/ecei_202308_kiso_2_electrical_circuit.png" width="600"/>
 </figure>
 
 ### 题目描述
@@ -76,7 +76,7 @@ V &= 2\sqrt{2}\angle\frac{\pi}{4}
 \end{aligned}
 $$
 
-![以 J 为基准的支路电流相量图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2024/ecei_202308_phasors.svg)
+![以 J 为基准的支路电流相量图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2024/ecei_202308_phasors.svg)
 
 ### (2)
 #### (a)

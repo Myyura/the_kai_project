@@ -31,7 +31,7 @@ Suppose a computer comprising memory hierarchy presented in Fig.
 (6) Briefly describe two effective approaches to reduce the size of the page table.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_202108_2_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2022/denshi_202108_2_p1.png" width="400" alt=""/>
 </figure>
 
 ### 题目描述

@@ -105,7 +105,7 @@ $$
 #### (2)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_information_theory_p2.png" width="600" height="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_information_theory_p2.png" width="600" height="350" alt=""/>
 </figure>
 
 例えば
@@ -126,7 +126,7 @@ $$
 #### (4)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_information_theory_p3.png" width="600" height="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_information_theory_p3.png" width="600" height="400" alt=""/>
 </figure>
 
 全記号の符号長を $2$ にできるので、平均符号長は $2$ ビットである。
@@ -134,7 +134,7 @@ $$
 #### (5)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist/2019/kyushu-201808-huffman-length.svg" width="600" height="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/kyushu-201808-huffman-length.svg" width="600" height="450" alt=""/>
 </figure>
 
 従って

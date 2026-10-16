@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2020年度 基礎科目 問題7"
+sidebar_label: "2019年8月実施 基礎科目 問題7"
 tags:
   - Kyoto-University
   - Mathematics.Calculus.Riemann-Sum
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2020年度 基礎科目 問題7
+# 京都大学 理学研究科 数学・数理解析専攻 2019年8月実施 基礎科目 問題7
 
 ## **Author**
 

@@ -31,7 +31,7 @@ $$
 $$
 
 を求めよ。
-![積分路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2021/sys_202008_engineering_math_rectangle.svg)
+![積分路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2021/sys_202008_engineering_math_rectangle.svg)
 
 ### 問題3
 領域 $\Omega\subset\mathbb C$ 上の複素関数 $f(z)$ を $z=x+iy$ によって $x,y$ の関数と見たとき、二階までの偏導関数が存在して連続であり、$f_{xx}+f_{yy}=0$ を満たすなら調和関数と呼ぶ。

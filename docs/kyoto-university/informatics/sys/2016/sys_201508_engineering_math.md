@@ -44,7 +44,7 @@ $$
 
 が $c$ によらないことを示せ。
 
-![矩形の閉路 C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2016/sys_201508_engineering_math_rectangle.svg)
+![矩形の閉路 C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2016/sys_201508_engineering_math_rectangle.svg)
 
 (2) $\int_{-\pi}^{\pi}e^{e^{i\theta}}\,d\theta$ を求めよ。
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2021年度 流体力学 問1"
+sidebar_label: "2020年8月実施 流体力学 問1"
 tags:
   - Hokkaido-University
   - Engineering.Fluid-Mechanics.Actuator-Disk
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
 ---
 
-# 北海道大学 工学院 機械・宇宙航空工学系 2021年度 流体力学 問1
+# 北海道大学 工学院 機械・宇宙航空工学系 2020年8月実施 流体力学 問1
 
 ## **Author**
 

@@ -91,7 +91,7 @@ $$
 
 これは中心 $-\sqrt2+3i$、半径 $3$ の閉円板である。
 
-![実線の境界を含む閉円板](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2024/math3-disk.svg)
+![実線の境界を含む閉円板](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2024/kyotsu_202308_math3-disk.svg)
 
 ### II
 

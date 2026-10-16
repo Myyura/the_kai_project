@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 問4（数学）"
+sidebar_label: "2016年8月実施 問4（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Calculus.Double-Integral
   - Mathematics.Vector-Calculus.Polar-Coordinates
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 数学 問4
+# 九州大学 工学府 機械系専攻 2016年8月実施 数学 問4
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 次の図および関数により示される図形について、以下の問いに答えよ。（50点）
 
-![原題のカージオイド](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/math-4-original.png)
+![原題のカージオイド](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_math-4-original.png)
 
 $$
 x=(1+\cos\theta)\cos\theta,\qquad y=(1+\cos\theta)\sin\theta.

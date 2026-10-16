@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2015年度 問3（流体工学）"
+sidebar_label: "2014年8月実施 問3（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Hydrostatics
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 流体工学 問3
+# 九州大学 工学府 機械系専攻 2014年8月実施 流体工学 問3
 
 ## **Author**
 
@@ -21,7 +21,7 @@ tags:
 2. 内側容器の底面中心に十分小さい穴を開けても水の出入りがなく、両容器の水の体積が変化しない角速度 $\omega_1$ を求めよ。
 3. (2)の水面を図示せよ。
 
-![原題の図（九州大学 2015年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/fluids-3-original.png)
+![原題の図（九州大学 2015年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_fluids-3-original.png)
 
 #### 题目描述
 
@@ -79,4 +79,4 @@ $$
 
 外側容器の底から測る共通座標 $Z$ では $Z=h+z_1=z_2$ となるため、内外の水面は同じ放物面上にある。代表点は $Z(0)=7h/4$、$Z(R)=9h/4$、$Z(2R)=15h/4$ である。
 
-![角速度ω1における自由表面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/fluids-3-surface.svg)
+![角速度ω1における自由表面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_fluids-3-surface.svg)

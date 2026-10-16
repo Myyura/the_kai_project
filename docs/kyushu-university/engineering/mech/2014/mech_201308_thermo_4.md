@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2014年度 問4（熱工学）"
+sidebar_label: "2013年8月実施 問4（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Heat-Exchangers-and-Thermal-Resistance
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 熱工学 問4
+# 九州大学 工学府 機械系専攻 2013年8月実施 熱工学 問4
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 $120^\circ\mathrm C$ の燃焼ガスによって、飽和温度 $20^\circ\mathrm C$ の湿り蒸気を $40^\circ\mathrm C$ の過熱蒸気まで加熱する向流式熱交換器がある。燃焼ガスの出口温度は $40^\circ\mathrm C$ である。湿り蒸気が乾き飽和蒸気になる位置は熱交換器の中間位置で、その位置の燃焼ガス温度は $100^\circ\mathrm C$ である。燃焼ガスと過熱蒸気の定圧比熱はそれぞれ一定とする。（30点）
 
-![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/thermo-4-original.png)
+![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_thermo-4-original.png)
 
 (1) 燃焼ガスと蒸気の流れ方向に沿う温度分布の概略を、流れ方向を示す矢印を付けて図中に示せ。湿り蒸気区間と過熱蒸気区間の温度差・温度変化の違いが分かるようにせよ。図には $20^\circ\mathrm C$ と $120^\circ\mathrm C$ の線がある。
 
@@ -37,7 +37,7 @@ $120^\circ\mathrm C$ の燃焼ガスによって、飽和温度 $20^\circ\mathrm
 
 過熱蒸気区間 $0\le x\le L/2$ では両端の温度差がともに $80\,\mathrm K$ で、(2)に示すように熱容量流量も等しい。したがって両温度線は平行な直線となる。湿り蒸気区間では蒸気温度が一定で、燃焼ガスとの温度差は $80\,\mathrm K$ から $20\,\mathrm K$ に減少するため、燃焼ガスの温度勾配の絶対値も出口に向かって小さくなる。
 
-![向流熱交換器の温度分布と流れ方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/thermo-4-answer.svg)
+![向流熱交換器の温度分布と流れ方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_thermo-4-answer.svg)
 
 ### (2) 熱容量流量の比
 

@@ -103,7 +103,7 @@ Merge weights $0.08+0.16=0.24$, $0.16+0.20=0.36$, $0.24+0.36=0.60$, and finally 
 Huffman Tree Structure:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_A_5_p1.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2022/cce_202107_senmonkiso_A_5_p1.png" width="450" alt=""/>
 </figure>
 
 #### (b) 

@@ -32,7 +32,7 @@ tags:
 3. $\omega\gg\omega_0$ の場合、$y_0,\beta$ を近似的に求め、$y$ の測定から箱の変位 $x$ を求める方法を述べよ。
 4. $\omega\ll\omega_0$ の場合、$y_0,\beta$ を近似的に求め、$y$ の測定から箱の加速度を求める方法を述べよ。
 
-![センサの構造と振幅の周波数応答](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2019/kyotsu_201808_phys_4_diagram_audited.svg)
+![センサの構造と振幅の周波数応答](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2019/kyotsu_201808_phys_4_diagram_audited.svg)
 
 #### 题目描述
 

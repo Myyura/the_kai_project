@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年秋季 制御工学 第2問"
+sidebar_label: "2017年8月実施 制御工学 第2問"
 tags:
   - Tohoku-University
   - Electrical-Electronic.Control-Theory.State-Space-Representation
   - Electrical-Electronic.Control-Theory.Controllability-and-Observability
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 制御工学 第2問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 制御工学 第2問
 
 ## **Author**
 
@@ -66,7 +66,7 @@ $$
 
 $\dot z_1=z_2$、$\dot z_2=u-2z_1-3z_2$、$y=z_1$ より、次の線図となる。
 
-![可制御正準形のブロック線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_control2.svg)
+![可制御正準形のブロック線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_control2.svg)
 
 ### (5)
 

@@ -108,7 +108,7 @@ $$
 
 であり、$z$ 軸とは $(0,3)$ で交わり、$x$ 軸とは交わらない。
 
-![楕円断面と双曲線の上側の枝](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2024/math4-sections.svg)
+![楕円断面と双曲線の上側の枝](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2024/kyotsu_202308_math4-sections.svg)
 
 ### II.3
 

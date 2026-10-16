@@ -66,7 +66,7 @@ $$
 \boxed{s=\pm i\sqrt5\quad(K=30).}
 $$
 
-![根轨迹](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201603_senmon_1_root_locus.svg)
+![根轨迹](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2016/ecei_201603_senmon_1_root_locus.svg)
 
 ### (2)
 
@@ -81,7 +81,7 @@ $$
 
 分母为 $15-9\omega^2+i\omega(23-\omega^2)$。因此正频率曲线从 $G(0)=1.28$ 出发，先位于下半平面，在 $\omega=\sqrt{23}$ 处经过负实轴上的 $-0.1$，再从上半平面趋于原点；负频率支为其共轭。
 
-![奈奎斯特曲线](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201603_senmon_1_nyquist.svg)
+![奈奎斯特曲线](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2016/ecei_201603_senmon_1_nyquist.svg)
 
 $$
 \boxed{\omega_{\pi}=\sqrt{23},\qquad GM=\frac1{0.1}=10\quad(20\ \mathrm{dB}).}

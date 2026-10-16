@@ -61,7 +61,7 @@ $$
 
 である。
 
-![直線 Im z = 1/2 の反転像。中心 -i、半径1の円から原点を除く。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2018/nagoya-aisys2018-inversion.svg)
+![直線 Im z = 1/2 の反転像。中心 -i、半径1の円から原点を除く。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/aisys/2018/nagoya-aisys201708-inversion.svg)
 
 (b) 条件を満たす係数の全体は
 

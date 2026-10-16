@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 材料力学 問題1"
+sidebar_label: "2014年8月実施 材料力学 問題1"
 tags:
   - Osaka-University
   - Engineering.Mechanics-of-Materials.Torsion
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2015年度 材料力学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2014年8月実施 材料力学 問題1
 
 ## **Author**
 
@@ -20,7 +20,7 @@ tags:
 2. $k=0$ のとき、ねじりモーメント図を描き、B、C、D のねじれ角および棒に生じる最大せん断応力を求めよ。
 3. $k\ne0$ のとき、D のねじれ角は微小として、各ばねに生じる力の大きさ $P$ を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2015/mech_201408_materials_1-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2015/mech_201408_materials_1-question-fig1.png)
 
 #### 题目描述
 
@@ -51,7 +51,7 @@ T,&L/3<x<2L/3,\\
 \end{cases}
 $$
 
-![ねじりモーメント図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2015/mech_201408_materials_1-solution-torque.svg)
+![ねじりモーメント図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2015/mech_201408_materials_1-solution-torque.svg)
 
 $\phi(0)=0$、$d\phi/dx=T_{\mathrm{int}}/(GI_p)$ より
 

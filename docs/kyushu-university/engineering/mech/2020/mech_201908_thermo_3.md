@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 問3（熱工学）"
+sidebar_label: "2019年8月実施 問3（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Heat-Pump-and-Refrigeration
   - Physics.Thermodynamics.Irreversible-Processes
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 熱工学 問3
+# 九州大学 工学府 機械系専攻 2019年8月実施 熱工学 問3
 
 ## **Author**
 
@@ -62,7 +62,7 @@ $$
 
 $1\to2$ は鉛直上向き。$2\to3$ は高圧等圧線に沿って過熱域を下り、$T_H$ で水平に飽和液線に至る。$3\to4$ は不可逆絞りを示す破線で結び、$4\to1$ は $T_L$ の水平線である。
 
-![蒸気圧縮式冷凍サイクルのT–s線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-university/engineering/mech/2020/kyushu_2020_thermo3.svg)
+![蒸気圧縮式冷凍サイクルのT–s線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/kyushu_201908_thermo3.svg)
 
 ### (4)
 

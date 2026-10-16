@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2023年度 前期募集 数学 問4"
+sidebar_label: "2022年7月実施 前期募集 数学 問4"
 tags:
   - Yamanashi-University
   - Mathematics.Calculus.Local-Extrema
 ---
 
-# 山梨大学 医工農学総合教育部 工学専攻 機械工学コース 2023年度 前期募集 数学 問4
+# 山梨大学 医工農学総合教育部 工学専攻 機械工学コース 2022年7月実施 前期募集 数学 問4
 
 ## **Author**
 

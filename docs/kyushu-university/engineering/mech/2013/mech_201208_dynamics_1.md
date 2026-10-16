@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2013年度 問1（機械力学）"
+sidebar_label: "2012年8月実施 問1（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Rigid-Body-Rotation-and-Rolling
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 機械力学 問1
+# 九州大学 工学府 機械系専攻 2012年8月実施 機械力学 問1
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 半径 $a$、慣性モーメント $J$ の定滑車に糸をかけ、一端に質量 $M$ のおもり、他端に質量 $m$、半径 $r$、慣性モーメント $I=mk^2$ の円筒を付ける。$k$ は円筒の回転半径である。糸は円筒に巻き付けられ、回転とともにたるまずほどけ、円筒半径は変わらない。滑車は滑らかに回り、糸との滑りはない。重力加速度を $g$ とする。（50 点）
 
-![定滑車と糸を巻いた円筒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/dynamics-1-original.png)
+![定滑車と糸を巻いた円筒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_dynamics-1-original.png)
 
 1. おもりの下向き変位を $x$ として、その運動方程式を求めよ。
 2. 円筒の下向き変位を $y$ として、並進と回転の方程式を求めよ。

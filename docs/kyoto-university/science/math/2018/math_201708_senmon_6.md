@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2018年度 専門科目 [6]（Laplace モーメントと測度の一意性）"
+sidebar_label: "2017年8月実施 専門科目 [6]（Laplace モーメントと測度の一意性）"
 tags:
   - Kyoto-University
   - Mathematics.Real-Analysis.Uniqueness-of-Measures-from-Laplace-Moments
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2018年度 専門科目 問題6
+# 京都大学 理学研究科 数学・数理解析専攻 2017年8月実施 専門科目 問題6
 
 ## **Author**
 

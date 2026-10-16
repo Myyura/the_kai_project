@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年秋季 流体力学 第1問"
+sidebar_label: "2017年8月実施 流体力学 第1問"
 tags:
   - Tohoku-University
   - Engineering.Fluid-Mechanics.Vorticity-and-Streamfunction
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 流体力学 第1問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 流体力学 第1問
 
 ## **Author**
 

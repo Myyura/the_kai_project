@@ -39,7 +39,7 @@ tags:
 
 (3) 図のように原点を中心とする半径1の円の第1象限の円弧上に $A,B$ をとる。$OA,OB$ が $x$ 軸となす角 $\Theta_A,\Theta_B$ は独立に区間 $[0,\pi/2)$ 上の一様分布に従う。$O$ から直線 $AB$ への垂線の長さを $\Psi$、直線 $AB$ と $x$ 軸がつくる図の角を $\Theta$ とする。$\Psi,\Theta$ の同時確率密度を求めよ。必要なら $d(\arccos x)/dx=-1/\sqrt{1-x^2}$ を用いてよい。
 
-![円弧上の二点と直線 AB](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2016/sys_201508_prob_stat_chord.svg)
+![円弧上の二点と直線 AB](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2016/sys_201508_prob_stat_chord.svg)
 
 #### 题目描述
 

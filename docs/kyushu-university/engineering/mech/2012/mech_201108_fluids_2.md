@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2012年度 問2（流体工学）"
+sidebar_label: "2011年8月実施 問2（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
   - Engineering.Fluid-Mechanics.Minor-Losses
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 流体工学 問2
+# 九州大学 工学府 機械系専攻 2011年8月実施 流体工学 問2
 
 ## **Author**
 
@@ -19,7 +19,7 @@ tags:
 1. 主管流れを考える際、枝管へ流出する水は主管軸方向の速度成分 $V$ を保ったまま流出すると仮定する。主管を流れる水の分岐損失係数 $\zeta_1$ を求めよ。
 2. 枝管では入口で一旦はく離した後、再付着して下流で一様になる。有効流路幅が最小値 $cA/2$（$c$ は縮流係数）となった位置から再付着までの拡大損失のみが生じるとする。主管から枝管へ流れる水の分岐損失係数 $\zeta_2$ を求めよ。
 
-![原題の図（九州大学 2012年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/fluids-2-original.png)
+![原題の図（九州大学 2012年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_fluids-2-original.png)
 
 #### 题目描述
 

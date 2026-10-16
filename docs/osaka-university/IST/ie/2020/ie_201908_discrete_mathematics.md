@@ -1,5 +1,5 @@
 ---
-sidebar_label: 2020年度 離散構造
+sidebar_label: 2019年8月実施 離散構造
 tags:
   - Osaka-University
   - Discrete-Mathematics.Mathematical-Logic.Predicate-Logic
@@ -8,7 +8,7 @@ tags:
   - Discrete-Mathematics.Graph-Theory.Cut
   - Discrete-Mathematics.Graph-Theory.Vertex-Degree
 ---
-# 大阪大学 情報科学研究科 情報工学 2020年度 離散構造
+# 大阪大学 情報科学研究科 情報工学 2019年8月実施 離散構造
 
 ## **Author**
 

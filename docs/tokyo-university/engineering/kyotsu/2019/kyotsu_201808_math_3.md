@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第3問'
+sidebar_label: '2018年8月実施 数学 第3問'
 tags:
   - Tokyo-University
   - Mathematics.Complex-Analysis.Complex-Roots
@@ -9,7 +9,7 @@ tags:
   - Mathematics.Complex-Analysis.Real-Integral-by-Residues
 ---
 
-# 東京大学 工学系研究科 2019年度 数学 第3問
+# 東京大学 工学系研究科 2018年8月実施 数学 第3問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)
@@ -68,7 +68,7 @@ $$
 
 したがって留数は $\boxed{1/6}$ である。
 
-![単位根、円環および鍵穴型積分経路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2019/math_3_complex.svg)
+![単位根、円環および鍵穴型積分経路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2019/kyotsu_201808_math_3_complex.svg)
 
 ### II.
 

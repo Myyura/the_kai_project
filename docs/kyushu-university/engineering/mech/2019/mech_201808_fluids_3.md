@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2019年度 問3（流体工学）"
+sidebar_label: "2018年8月実施 問3（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Hydrostatics
   - Physics.Mechanics.Newtons-Laws-of-Motion
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 流体工学 問3
+# 九州大学 工学府 機械系専攻 2018年8月実施 流体工学 問3
 
 ## **Author**
 
@@ -21,7 +21,7 @@ tags:
 1. 右向きを $x$、上向きを $y$ とする。円柱が飛び出していないときの、開口部中心（円柱中心軸）から測った水面高さを $b>R/\sqrt2$ として、圧力による円柱への力の成分 $F_x,F_y$ を求めよ。
 2. 円柱が飛び出さないための最大水面高さ $b_{\max}$ を求めよ。
 
-![原題の図（九州大学 2019年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/fluids-3-original.png)
+![原題の図（九州大学 2019年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_fluids-3-original.png)
 
 #### 题目描述
 

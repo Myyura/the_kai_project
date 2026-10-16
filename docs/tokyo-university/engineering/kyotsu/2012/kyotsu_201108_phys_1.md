@@ -21,7 +21,7 @@ tags:
 
 水平右向き、鉛直上向き、紙面手前向きを $x,y,z$ とし、単位ベクトルを $\boldsymbol i,\boldsymbol j,\boldsymbol k$ とする。必要なら、長さ $r$、質量 $m$ の一様棒の重心まわりの慣性モーメント $mr^2/12$ を用いてよい。静止状態からロープを切った瞬間について答えよ。
 
-![三つの棒と支点、ロープおよび駆動回転](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2012/kyotsu_201108_phys_1_linkage_audited.svg)
+![三つの棒と支点、ロープおよび駆動回転](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2012/kyotsu_201108_phys_1_linkage_audited.svg)
 
 1. OA の反時計回りの角加速度を $\alpha_A$ として、地面から見た A の加速度をベクトルで表せ。
 2. AB の反時計回りの角加速度を $\alpha_B$ として、A から見た B の加速度、および地面から見た B の加速度をベクトルで表せ。

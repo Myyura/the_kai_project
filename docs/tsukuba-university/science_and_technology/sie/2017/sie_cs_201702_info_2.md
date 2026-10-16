@@ -18,7 +18,7 @@ tags:
 ここで用いる木構造は以下の図のような根付き木である．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tsukuba_university/science_and_technology/sie_cs_201702_info_2_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tsukuba-university/science_and_technology/sie/2017/sie_cs_201702_info_2_p1.png" width="400" alt=""/>
 </figure>
 
 上図の例では，以下の表の5つのペアを格納した根付き木を表している．

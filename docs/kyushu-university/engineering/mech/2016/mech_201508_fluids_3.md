@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年度 問3（流体工学）"
+sidebar_label: "2015年8月実施 問3（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Hydrostatics
   - Engineering.Fluid-Mechanics.Dimensional-Analysis
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 流体工学 問3
+# 九州大学 工学府 機械系専攻 2015年8月実施 流体工学 問3
 
 ## **Author**
 

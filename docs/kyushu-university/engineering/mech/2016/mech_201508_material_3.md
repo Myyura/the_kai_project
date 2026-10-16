@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2016年度 問3（材料力学）"
+sidebar_label: "2015年8月実施 問3（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Torsion
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 材料力学 問3
+# 九州大学 工学府 機械系専攻 2015年8月実施 材料力学 問3
 
 ## **Author**
 
@@ -19,7 +19,7 @@ tags:
 
 各丸棒の直径を $d$、ヤング率を $E$、ポアソン比を $\nu$ とする。$a,b,c\gg d$、F、J の変位は $d$ に比べて十分小さいものとする。B におけるねじれ角 $\varphi_B$ を求めよ。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/material-3-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-3-original.png)
 
 #### 题目描述
 

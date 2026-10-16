@@ -94,7 +94,7 @@ $$
 
 軌跡は $(1,0)$、$(0,\sqrt3/2)$、$(-1/2,0)$ を順に通り、最後に原点へ至る。矢印は $\theta$ の増加方向を表す。
 
-![Mの軌跡とOMの掃過領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2015/tokyo-kyotsu-201408-locus.svg)
+![Mの軌跡とOMの掃過領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2015/tokyo-kyotsu-201408-locus.svg)
 
 $r\ge0$ で偏角が単調に増加するので、掃過する領域に重複はない。その面積は
 

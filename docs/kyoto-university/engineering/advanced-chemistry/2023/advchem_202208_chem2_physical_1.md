@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2023年度 化学II 物理化学 問1"
+sidebar_label: "2022年8月実施 化学II 物理化学 問1"
 tags:
   - Kyoto-University
   - Physics.Thermodynamics.Otto-Cycle
 ---
 
-# 京都大学 工学研究科 先端化学専攻群 2023年度 化学II 物理化学 問1
+# 京都大学 工学研究科 先端化学専攻群 2022年8月実施 化学II 物理化学 問1
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 図1は、1モルの理想気体が可逆的に $\mathrm A\to\mathrm B\to\mathrm C\to\mathrm D\to\mathrm A$ と循環するサイクルである。$R$ は気体定数、$C_V,C_p$ はそれぞれこの気体の定容熱容量、定圧熱容量であり、温度に対して一定である。
 
-![図1 循環サイクルにおける圧力と体積の関係](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/kyoto_university/engineering/advanced-chemistry/2023/kyoto_advanced_202208_chem2_phys_1_fig1.png)
+![図1 循環サイクルにおける圧力と体積の関係](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/kyoto-university/engineering/advanced-chemistry/2023/kyoto_advanced_202208_chem2_phys_1_fig1.png)
 
 状態 A, B, C, D はそれぞれ $(p_1,V_1,T_1)$、$(p_2,V_2,T_2)$、$(p_3,V_2,T_3)$、$(p_4,V_1,T_4)$ である。A→B と C→D は断熱過程、B→C と D→A は定容過程であり、$V_1>V_2$ である。
 

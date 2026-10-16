@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 問2（熱工学）"
+sidebar_label: "2018年8月実施 問2（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Conduction-with-Heat-Generation
@@ -7,7 +7,7 @@ tags:
   - Engineering.Heat-Transfer.Biot-Number
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 熱工学 問2
+# 九州大学 工学府 機械系専攻 2018年8月実施 熱工学 問2
 
 ## **Author**
 

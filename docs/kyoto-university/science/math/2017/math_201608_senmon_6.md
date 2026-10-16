@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 専門科目 [6]（本質的上限）"
+sidebar_label: "2016年8月実施 専門科目 [6]（本質的上限）"
 tags:
   - Kyoto-University
   - Mathematics.Real-Analysis.Essential-Suprema-of-Function-Families
   - Mathematics.Real-Analysis.Lebesgue-Dominated-and-Monotone-Convergence
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2017年度 専門科目 問題6
+# 京都大学 理学研究科 数学・数理解析専攻 2016年8月実施 専門科目 問題6
 
 ## **Author**
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問題1（数学）"
+sidebar_label: "2013年8月実施 問題1（数学）"
 tags:
   - Osaka-University
   - Mathematics.Vector-Calculus.Gradient-Divergence-and-Curl
   - Mathematics.Vector-Calculus.Laplacian
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2014年度 数学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2013年8月実施 数学 問題1
 
 ## **Author**
 

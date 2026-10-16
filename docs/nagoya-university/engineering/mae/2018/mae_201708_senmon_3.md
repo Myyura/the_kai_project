@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年度 専門部門 問題3（機械力学）"
+sidebar_label: "2017年8月実施 専門部門 問題3（機械力学）"
 tags:
   - Nagoya-University
   - Physics.Mechanics.Forced-Vibration
@@ -7,7 +7,7 @@ tags:
   - Physics.Mechanics.Beats-in-Coupled-Oscillators
 ---
 
-# 名古屋大学 工学研究科 機械航空系 2018年度 専門部門 問題3
+# 名古屋大学 工学研究科 機械航空系 2017年8月実施 専門部門 問題3
 
 ## **Author**
 
@@ -40,7 +40,7 @@ $k_y,k_\theta,k_d$ は定数で、$k_d^2<k_yk_\theta$、$\sqrt{k_y/m}=\sqrt{k_\t
 3. うなりの周期を求めよ。
 4. $k_d^2\ll k_yk_\theta$ の場合、うなり周期と $2\pi/\omega_n$ の大小を論ぜよ。
 
-![ばね・ダンパ系と伸び・ねじれ連成系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/engineering/mae/2018/nagoya2017_specialist3.svg)
+![ばね・ダンパ系と伸び・ねじれ連成系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/nagoya201708_specialist3.svg)
 
 #### 题目描述
 

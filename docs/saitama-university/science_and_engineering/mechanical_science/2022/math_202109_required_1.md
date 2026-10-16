@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2022年度 必修問題1"
+sidebar_label: "2021年9月実施 必修問題1"
 tags:
   - Saitama-University
   - Mathematics.Calculus.Multivariable-Taylor-Expansion
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Double-Integral
 ---
 
-# 埼玉大学 理工学研究科 機械科学専攻 2022年度 必修問題1
+# 埼玉大学 理工学研究科 機械科学専攻 2021年9月実施 必修問題1
 
 ## **Author**
 

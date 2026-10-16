@@ -176,7 +176,7 @@ x[3]
 \end{pmatrix}
 $$
 
-![DFT magnitude and phase spectra](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2024/kyoto-ist-2023-dft-spectra.svg)
+![DFT magnitude and phase spectra](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2024/kyoto-ist-202308-dft-spectra.svg)
 
 With phases in $[0,2\pi)$, the spectra are
 

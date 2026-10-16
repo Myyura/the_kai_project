@@ -31,7 +31,7 @@ $$
 
 ただし、 $dS$ と $ds$ はそれぞれ微小面積と微小長さを表す。
 
-![移動する領域と境界の法線・変位の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2022/nagoya-complex2022-moving-domain.svg)
+![移動する領域と境界の法線・変位の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2022/nagoya-complex202108-moving-domain.svg)
 
 ### 题目描述
 

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2014年度 問3（機械力学）"
+sidebar_label: "2013年8月実施 問3（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.String-Vibration
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 機械力学 問3
+# 九州大学 工学府 機械系専攻 2013年8月実施 機械力学 問3
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 長さ $l$、一定張力 $T$、線密度 $\rho$ の弦の左端を壁に固定する。右端にはリングが付き、固定された鉛直の剛体棒に沿って摩擦なく上下できる。左端を原点 O、弦に沿う座標を $x$、微小な横変位を $u(x,t)$ とする。リングの大きさと弦・リングの重力は無視し、$c=\sqrt{T/\rho}$ を用いてよい。（50 点）
 
-![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/dynamics-3-original.png)
+![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_dynamics-3-original.png)
 
 1. 微小要素の運動から弦の運動方程式を導出せよ。
 2. $u(x,t)=U(x)\cos\omega t$ としたとき、$U(x)$ の一般解を求めよ。

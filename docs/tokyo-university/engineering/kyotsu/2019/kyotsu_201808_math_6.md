@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第6問'
+sidebar_label: '2018年8月実施 数学 第6問'
 tags:
   - Tokyo-University
   - Probability-Statistics.Probability-Basics.Weighted-Sum-of-Independent-Bernoulli-Variables
@@ -7,7 +7,7 @@ tags:
   - Probability-Statistics.Stochastic-Processes.Pattern-Probability-in-Markov-Sequence
 ---
 
-# 東京大学 工学系研究科 2019年度 数学 第6問
+# 東京大学 工学系研究科 2018年8月実施 数学 第6問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)

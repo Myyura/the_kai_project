@@ -16,7 +16,7 @@ tags:
 グラフの構造は、配列 graph_data に格納されている。
 配列の各要素が各辺に対応しており、要素を構成する3つの数値は、辺の両端の頂点と距離を表している。なお、プログラムの行頭の数字は行番号を表す。
 
-![6頂点9辺の無向グラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2022/nagoya-is2022-shortest-path.svg)
+![6頂点9辺の無向グラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/is/2022/nagoya-is202108-shortest-path.svg)
 
 このプログラムを実行すると、次のような出力が得られる。
 

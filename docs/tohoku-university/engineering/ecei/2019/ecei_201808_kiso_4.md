@@ -88,7 +88,7 @@ $$
 
 (a) 横边、竖边权均为 $1$，匹配虚线边权为 $0$，双线替换边权为 $1.5$。
 
-![编辑距离加权格点图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201808_kiso_4_grid.svg)
+![编辑距离加权格点图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2019/ecei_201808_kiso_4_grid.svg)
 
 (b) 在递推中增加替换候选值 $d_{i-1,j-1}+1.5$。所得距离表为
 

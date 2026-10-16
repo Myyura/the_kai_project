@@ -32,7 +32,7 @@ tags:
 (9) Explain how to build a multiplier to generate a 2n-bit product $M$ from two n-bit unsigned integers $A$ and $B$.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201608_2_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2017/ci_201608_2_p1.png" width="600" alt=""/>
 </figure>
 
 ### 题目描述
@@ -62,7 +62,7 @@ tags:
 Use $C=AB$ and $S=(A+B)\overline{AB}$, where $+$ denotes OR. This uses two AND gates, one OR gate and one NOT gate.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201608_2_p2.png" width="280" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2017/ci_201608_2_p2.png" width="280" alt=""/>
 </figure>
 
 ### (3)
@@ -83,7 +83,7 @@ Use $C=AB$ and $S=(A+B)\overline{AB}$, where $+$ denotes OR. This uses two AND g
 The first HA produces $p=A\oplus B$ and $c_1=AB$. The second adds $p$ and $X$, producing $S=p\oplus X$ and $c_2=pX$. Set $C=c_1+c_2$ using an OR gate.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201608_2_p3.png" width="310" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2017/ci_201608_2_p3.png" width="310" alt=""/>
 </figure>
 
 ### (5)
@@ -109,7 +109,7 @@ This composition is associative, so a parallel prefix tree computes all carries 
 Subtraction would be an addition with the negative value. So let's assume we would like to calculate `A-B`, it is the same as computing `A+(-B)`. This means that for subtraction all we need to do is compute the 2's-complement of `B` and add the two numbers together. This can be acomplished by inverting `B` and adding `1` to the `X` (carry) input of the n-bit adder.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201608_2_p4.png" width="320" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2017/ci_201608_2_p4.png" width="320" alt=""/>
 </figure>
 
 The drawing uses 4-bit buses; the same connections apply to $n$ bits. The low $n$ sum bits give $(A-B)\bmod2^n$. For unsigned operands, the final carry is 1 exactly when $A\ge B$; a borrow is its complement.
@@ -118,7 +118,7 @@ The drawing uses 4-bit buses; the same connections apply to $n$ bits. The low $n
 A method could be to use `F` as the input to the carry of the n-bit adder. As well as XOR `F` and every bit of `B`. This way, If `F=1` meaning subtraction, `B` will be inverted and 2's complement will be implemented with the adder carry. Otherwise `B` will stay the same and addition will be implemented.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201608_2_p5.png" width="360" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2017/ci_201608_2_p5.png" width="360" alt=""/>
 </figure>
 
 ### (9)
@@ -133,7 +133,7 @@ Zero-extend the shifted rows to $2n$ bits and add them with full-adder chains or
 A method to compute multiplication would be using full adders and half adders in the following way:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201608_2_p6.png" width="560" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2017/ci_201608_2_p6.png" width="560" alt=""/>
 </figure>
 
 Notice that the Truth Table of bits `a*b` is the same as `a&b`. Each `b_i` selects either a zero row or `A`; the row for bit `i` is shifted left by `i` bit positions before addition.

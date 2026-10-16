@@ -39,7 +39,7 @@ tags:
 2. $T$–$S$ 線図を示せ。
 3. その線図から効率を導け。
 
-![隔膜で区切られた容器とカルノーサイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2016/kyotsu_201508_phys_3_diagram_audited.svg)
+![隔膜で区切られた容器とカルノーサイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2016/kyotsu_201508_phys_3_diagram_audited.svg)
 
 #### 题目描述
 

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2012年度 問2（熱工学）"
+sidebar_label: "2011年8月実施 問2（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Conduction-with-Heat-Generation
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 熱工学 問2
+# 九州大学 工学府 機械系専攻 2011年8月実施 熱工学 問2
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 厚さ $L$、熱伝導率 $k$ の平板内部で一様に発熱しており、単位時間・単位体積あたりの発熱量は $G$ である。両側は同温度 $T_f$ の流体で冷却され、左側・右側の熱伝達率は $h_1,h_2$ とする。熱伝導率と熱伝達率は温度によらず一定、熱流は $x$ 方向のみの定常状態とする。$x$ は左面からの距離である。（50点）
 
-![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/thermo-2-original.png)
+![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_thermo-2-original.png)
 
 1. 微小検査体積の熱収支より $d^2T/dx^2+G/k=0$ を導け。（10点）
 2. 左右の表面温度を $T_1,T_2$ として温度分布を求めよ。（10点）

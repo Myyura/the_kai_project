@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 問4（数学）"
+sidebar_label: "2018年8月実施 問4（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Complex-Analysis.Residue-Theorem
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Improper-Integral
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 数学 問4
+# 九州大学 工学府 機械系専攻 2018年8月実施 数学 問4
 
 ## **Author**
 

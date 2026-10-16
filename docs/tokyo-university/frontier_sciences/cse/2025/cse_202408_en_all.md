@@ -183,7 +183,7 @@ vertical upward direction. The origin is the initial position of the point mass.
 - (2) Answer the range of the vertical position y where the point mass cannot reach at x = X (> 0) for any angles  $\theta$ , using X, g, and v.
 - (Q.3) A uniform-density rigid sphere of mass m and radius r is at rest on a frictionless horizonal plate. We want to roll the sphere without slipping by hitting horizontally with a stick as shown in the figure below. Answer the vertical distance h from the center of the sphere to hit using m, r, and the moment of inertia I of the rigid sphere.
 
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2025/tokyo-cse-202408-ball.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2025/tokyo-cse-202408-ball.svg)
 
 (Q.4) Suppose the Earth is a rigid sphere that rotates eastward around the axis passing through the south pole and the north pole at a constant angular velocity  $\omega$ . Let (x, y, z) be the coordinate system fixed to the Earth's surface with the origin at Point P on the northern hemisphere at latitude  $\theta$  ( $0 < \theta < \frac{\pi}{2}$ ). Positive direction of z axis is defined in the direction from the Earth's center to Point P, and positive directions of x axis and y axis are defined towards the south and east, respectively, on the tangential plane at Point P. A point mass of mass m is thrown from Point P to the positive direction of z axis at initial velocity v.
 
@@ -210,7 +210,7 @@ Answer the following questions, assuming vacuum environment. Except for Q.5(2), 
 - (Q.2) Answer the questions on the electric circuit shown in Figure 1. The  $R_1$ ,  $R_2$ , and  $R_3$  represent electric resistors, whose resistance values are  $r_1$ ,  $r_2$ , and  $r_3$ , respectively.
   - (1) Write the combined resistance value between A and B, using  $r_1, r_2, r_3$ .
   - (2) A constant voltage V is applied between A and B. Write the current flowing in  $R_3$ , and write the electric power consumed in  $R_2$ . The answers should use V,  $r_1$ ,  $r_2$ ,  $r_3$ .
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2025/tokyo-cse-202408-circuits.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2025/tokyo-cse-202408-circuits.svg)
 
 - (Q.3) Answer the questions on the electric circuit shown in Figure 2. An AC voltage is applied with an amplitude  $\tilde{V}$  and an angular frequency $\omega$. Here, L is the inductance of the coil, C is the capacitance of the capacitor, R is the resistance value of the resistor. Use j as the imaginary unit.
 - (1) Write the combined impedance between A and B, using  $\omega$ , L, C, R.
@@ -226,7 +226,7 @@ $$
 
 from Maxwell's equations, derive the expression on a voltage V in the circuit induced by the magnetic field crossing the circuit (Note: write only the expression on V). Here,  $\boldsymbol{B}$  is a magnetic field externally given, and  $\boldsymbol{E}$  is an electric field induced by the magnetic field. The magnetic field is uniform in space. The circuit is placed on a flat surface whose normal unit vector is expressed by  $\boldsymbol{n}$ . Ignore the thickness of the conducting wire.
 
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2025/tokyo-cse-202408-flux.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2025/tokyo-cse-202408-flux.svg)
 
 Figure 3
 
@@ -237,8 +237,8 @@ Ignore the self-inductance of the circuit and the thickness of the conducting wi
 - (1) Write the electric voltage V induced in the circuit by using the variables used in the above.
 - (2) Describe the force on the wire, using V, R, L in about 5 lines.
 
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2025/tokyo-cse-202408-square.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2025/tokyo-cse-202408-square.svg)
 
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2025/tokyo-cse-202408-field.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2025/tokyo-cse-202408-field.svg)
 
 Figure 4

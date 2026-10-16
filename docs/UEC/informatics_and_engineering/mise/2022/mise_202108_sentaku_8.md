@@ -85,7 +85,7 @@ $$
 
 であり、グラフは次のとおりである。
 
-![Heaviside の階段関数のグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/UEC/informatics_and_engineering/mise/2022/mise_202108_heaviside.svg)
+![Heaviside の階段関数のグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/UEC/informatics_and_engineering/mise/2022/mise_202108_heaviside.svg)
 
 これは Heaviside の階段関数である。通常の意味では $a=0$ で微分不可能であり、超関数の意味では
 

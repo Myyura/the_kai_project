@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2023年度 物理化学 問題2"
+sidebar_label: "2022年8月実施 物理化学 問題2"
 tags:
   - Okayama-University
   - Physics.Thermodynamics.First-Law
@@ -7,7 +7,7 @@ tags:
   - Physics.Thermodynamics.Maxwell-Relations
 ---
 
-# 岡山大学 自然科学研究科 応用化学専攻 2023年度 物理化学 問題2
+# 岡山大学 自然科学研究科 応用化学専攻 2022年8月実施 物理化学 問題2
 
 ## **Author**
 

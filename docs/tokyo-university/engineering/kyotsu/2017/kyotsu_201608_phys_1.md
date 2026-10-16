@@ -16,7 +16,7 @@ tags:
 
 長さ $l$、質量 $M$、太さを無視できる一様な剛体棒 AB を水平面上に鉛直に立てる。下端 A の初期位置を原点とし、右向きを $x$ 軸、上向きを $y$ 軸とする。上端 B に $x$ 軸の正方向のごく小さい速度を与えると、棒は傾き始める。重心を G、重力加速度を $g$ とする。水平面との摩擦および空気抵抗は無視する。I〜IV では A が水平面から離れないとしてよい。
 
-![滑らかな水平面上で倒れる棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/kyotsu_201608_phys_1_rod_audited.svg)
+![滑らかな水平面上で倒れる棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2017/kyotsu_201608_phys_1_rod_audited.svg)
 
 ### I
 

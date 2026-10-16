@@ -94,7 +94,7 @@ $$
 
 $\alpha=0$ では $x=\pm1$、$0<\alpha<\pi$ では頂点 $(x,z)=(\pm\cos(\alpha/2),0)$、漸近線 $z=\pm x/\sin(\alpha/2)$ を持つ双曲線、$\alpha=\pi$ では $z=\pm x$ となる。
 
-![三つの場合の断面C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/tokyo-kyotsu-201608-sections.svg)
+![三つの場合の断面C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2017/tokyo-kyotsu-201608-sections.svg)
 
 ### III
 

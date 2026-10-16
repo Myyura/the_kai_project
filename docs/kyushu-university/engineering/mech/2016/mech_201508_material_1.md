@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年度 問1（材料力学）"
+sidebar_label: "2015年8月実施 問1（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Truss
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 材料力学 問1
+# 九州大学 工学府 機械系専攻 2015年8月実施 材料力学 問1
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 図の棒 AD、BD はヤング率 $E$、断面積 $A$ の弾性棒であり、CD は半径 $a$ の四分円形の剛体である。A、B、C は壁にピン支持され、D もピン結合である。AD $=b$、AB $=a$、棒 BD と水平線のなす角を $\theta$ とする。D に下向き荷重 $P$ を加える。各棒の伸びは長さに比べて十分小さい。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/material-1-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-1-original.png)
 
 1. 棒 AD、BD に作用する力をそれぞれ $Q,R$ として、$Q,R$ を求めよ。
 2. D の水平方向変位 $\delta_{DH}$ と垂直方向変位 $\delta_{DV}$ を求めよ。

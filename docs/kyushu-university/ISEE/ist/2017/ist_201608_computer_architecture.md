@@ -21,7 +21,7 @@ Zero, 祭音Myyura
 以下の真理値表で与えられた論理関数 $H(a, b, c, d)$ を図で示されるように $3$ つの関数 $G_1(a, b, c), G_2(a, b, c)$ および $F(d, g_1, g_2)$ を使って実現することを考える．図に示されるように，$g_1, g_2$ はそれぞれ関数 $G_1, G_2$ の出力に接続しているものとする．関数 $G_1$ の真理値表が以下の表で与えられる時，$F$ および $G_2$ の真理値表を示せ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_computer_architecture_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_computer_architecture_p1.png" width="500" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -68,7 +68,7 @@ $0101 \Rightarrow 1111 \Rightarrow 1001 \Rightarrow 0101 \Rightarrow 0001 \Right
 
 ### 题目描述
 
-【问题 1】逻辑函数 $H(a,b,c,d)$ 的真值表及其分解结构见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_computer_architecture_p1.png)。要求按图用三个函数
+【问题 1】逻辑函数 $H(a,b,c,d)$ 的真值表及其分解结构见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_computer_architecture_p1.png)。要求按图用三个函数
 $G_1(a,b,c)$、$G_2(a,b,c)$ 和 $F(d,g_1,g_2)$ 实现 $H$，其中信号 $g_1,g_2$ 分别连接到 $G_1,G_2$ 的输出。已知图中给出的 $G_1$ 真值表，写出 $F$ 与 $G_2$ 的真值表。
 
 【问题 2】考虑具有 IF（取指）、ID（译码）、EX（执行）、MEM（访存）和 WB（写回）五级流水数据通路的微处理器。除发生流水线停顿外，每一级总能在 $1$ 个时钟周期内完成；WB 阶段写入寄存器的值可在同一时钟周期被后续指令的 ID 阶段读取。加法与装载字指令各阶段的操作如下：

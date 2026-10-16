@@ -1,12 +1,12 @@
 ---
-sidebar_label: '数学 第6問'
+sidebar_label: '2017年8月実施 数学 第6問'
 tags:
   - Tokyo-University
   - Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence
   - Probability-Statistics.Stochastic-Processes.Markov-Chain
 ---
 
-# 東京大学 工学系研究科 2018年度 数学 第6問
+# 東京大学 工学系研究科 2017年8月実施 数学 第6問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)

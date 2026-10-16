@@ -20,7 +20,7 @@ We cannot order impossible actions to move to obstacles or outside of the maze.
 We assume that there are no dead ends in the maze.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201608_1_p1.png" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2017/ci_201608_1_p1.png" width="350" alt=""/>
 </figure>
 
 We consider how we can give the orders at individual cells to reach the goal so that the sum of rewards obtained in the route is maximized.
@@ -41,7 +41,7 @@ The best route is defined as the route given by a sequence of the best orders fr
 Let’s consider an example for which rewards are given in Fig. 2. We can calculate state values of individual cells from the goal according to equation (1), as illustrated in Fig. 3.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201608_1_p2.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2017/ci_201608_1_p2.png" width="600" alt=""/>
 </figure>
 
 Answer the following questions.

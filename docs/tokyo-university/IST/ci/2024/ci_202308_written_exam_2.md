@@ -133,7 +133,7 @@ $z=(\lnot x\land y)\lor(x\land\lnot y)$
 
 `z=OR(AND(NOT(x), y), AND(x, NOT(y)))`
 
-![H1 using only NOT, AND and OR gates](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2024/tokyo-ci-2023-hamming-h1.svg)
+![H1 using only NOT, AND and OR gates](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2024/tokyo-ci-202308-hamming-h1.svg)
 
 ### (6)
 
@@ -163,7 +163,7 @@ So the circuit is
 
 `z1=AND(H1(x1,y1),H1(x2,y2))`
 
-![H2 using H1 and an AND gate](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2024/tokyo-ci-2023-hamming-h2.svg)
+![H2 using H1 and an AND gate](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2024/tokyo-ci-202308-hamming-h2.svg)
 
 ### (7)
 
@@ -203,6 +203,6 @@ $z_1$ is the final carry of `A1+B1+HA(A2,B2)[C]`, namely the OR of the two carri
 `z1=OR(c1,c2)`
 
 
-![H4 using two H2 blocks, three half adders and an OR gate](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2024/tokyo-ci-2023-hamming-h4.svg)
+![H4 using two H2 blocks, three half adders and an OR gate](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2024/tokyo-ci-202308-hamming-h4.svg)
 
 In these diagrams, identically named wires are connected. A half adder outputs `S` (sum) and `C` (carry); the final output bits are ordered from most significant to least significant.

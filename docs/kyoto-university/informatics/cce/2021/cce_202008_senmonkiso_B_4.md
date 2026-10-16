@@ -72,7 +72,7 @@ Suppose that we design a Mealy-type synchronous sequential circuit that restores
 Derive the corresponding K-map:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_B_4_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_B_4_p1.png" width="400" alt=""/>
 </figure>
 
 $$
@@ -82,7 +82,7 @@ $$
 #### (b)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_B_4_p2.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_B_4_p2.png" width="400" alt=""/>
 </figure>
 
 $$
@@ -92,7 +92,7 @@ $$
 #### (c)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_B_4_p3.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_B_4_p3.png" width="400" alt=""/>
 </figure>
 
 The circuit uses three first-level NAND gates for the three product terms in (a), followed by one NAND gate; hence it uses four 3-input NAND gates.
@@ -113,7 +113,7 @@ Initial state: S0
 State transition diagram:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_B_4_p4.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_B_4_p4.png" width="400" alt=""/>
 </figure>
 
 #### (b)
@@ -166,7 +166,7 @@ Therefore, the number of states is minimal (2 states).
 K-map for $d$:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_B_4_p5.png" width="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_B_4_p5.png" width="200" alt=""/>
 </figure>
 
 Minimal sum-of-products:
@@ -179,7 +179,7 @@ $$
 K-map for $y$:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_B_4_p6.png" width="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_B_4_p6.png" width="200" alt=""/>
 </figure>
 
 $$
@@ -202,7 +202,7 @@ Output: $x$
 State transition diagram:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_B_4_p7.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_B_4_p7.png" width="400" alt=""/>
 </figure>
 
 #### (b)

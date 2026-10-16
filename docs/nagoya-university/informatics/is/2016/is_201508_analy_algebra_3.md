@@ -58,7 +58,7 @@ $y = 0$ または $x^2 + y^2 = 1$
 $y = 0$ は実軸を表す、 $x^2 + y^2 = 1$ は原点中心半径1の円を表す。
 ただし， $z=0$ を除外する条件より、 $x=0, y=0$ は除く。
 
-![単位円と原点を除く実軸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2016/nagoya-is2016-real-locus.svg)
+![単位円と原点を除く実軸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/is/2016/nagoya-is201508-real-locus.svg)
 
 (c) (b) の条件と $|z-1|\le2$ を同時に満たす集合は、単位円全体と実軸上の $[-1,3]\setminus\{0\}$ の合併である。求める量は点 $2-i$ までの距離である。
 

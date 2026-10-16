@@ -29,7 +29,7 @@ tags:
 (5) 問い (4) のパラメータを用いて，$t > 0$ における，$R_1$ の抵抗値を持つ抵抗器で消費される全エネルギーを求めよ． 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka_university/engineering/eei_202008_electrical_circuit_1_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/eei/2021/eei_202008_electrical_circuit_1_p1.png" width="600" alt=""/>
 </figure>
 
 ### 题目描述

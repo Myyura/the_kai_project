@@ -19,7 +19,7 @@ Zero, 祭音Myyura
 ただし，$K, \Sigma, \delta, q_0, F$ は，それぞれ状態の集合，アルファベット，遷移関数，初期状態，最終状態の集合を表し，$\Sigma = \{a, b, c\}$  とする．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_automata_and_formal_language_p1.png" width="400" height="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_automata_and_formal_language_p1.png" width="400" height="500" alt=""/>
 </figure>
 
 (1) $M$ が受理する長さ $2$ 以下の文字列をすべて列挙せよ．
@@ -44,7 +44,7 @@ $\Sigma = \{a, b\}$ を終端記号の集合とする２つの文脈自由文法
 
 ### 题目描述
 
-【问题 1】给定有限自动机 $M=(K,\Sigma,\delta,q_0,F)$，其中 $K$、$\Sigma$、$\delta$、$q_0$、$F$ 依次表示状态集合、字母表、转移函数、初始状态和终态集合，且 $\Sigma=\{a,b,c\}$；状态转移关系见[原题状态迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_automata_and_formal_language_p1.png)。回答：
+【问题 1】给定有限自动机 $M=(K,\Sigma,\delta,q_0,F)$，其中 $K$、$\Sigma$、$\delta$、$q_0$、$F$ 依次表示状态集合、字母表、转移函数、初始状态和终态集合，且 $\Sigma=\{a,b,c\}$；状态转移关系见[原题状态迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_automata_and_formal_language_p1.png)。回答：
 
 1. 枚举 $M$ 接受的所有长度不超过 $2$ 的字符串。
 2. 记 $M$ 接受的语言为 $L(M)$，画出接受 $L(M)$ 且状态数最少的确定性有限自动机的状态迁移图。
@@ -80,7 +80,7 @@ q_2 = q_3, q_0 = q_1
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_automata_and_formal_language_p2.png" width="550" height="250" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2017/ist_201608_automata_and_formal_language_p2.png" width="550" height="250" alt=""/>
 </figure>
 
 #### (3)

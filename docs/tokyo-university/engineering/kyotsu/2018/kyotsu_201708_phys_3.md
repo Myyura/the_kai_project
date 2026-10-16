@@ -53,7 +53,7 @@ $$
 4. 光子気体の準静的なカルノーサイクルを考える。A→B は温度 $T_2$ の等温膨張、B→C は断熱膨張、C→D は温度 $T_1<T_2$ の等温圧縮、D→A は断熱圧縮である。各状態の容積を $V_A,V_B,V_C,V_D$ とする。A→B と C→D で系に入る熱量 $Q_2,Q_1$ を求めよ。吸熱を正とする。
 5. クラウジウスの等式 $Q_2/T_2+Q_1/T_1=0$ を示せ。
 
-![不可逆熱機関と可逆ヒートポンプ、光子気体のサイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2018/kyotsu_201708_phys_3_diagram_audited.svg)
+![不可逆熱機関と可逆ヒートポンプ、光子気体のサイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2018/kyotsu_201708_phys_3_diagram_audited.svg)
 
 #### 题目描述
 

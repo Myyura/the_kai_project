@@ -26,7 +26,7 @@ the left wall is $(2i+1, 2j)$, and the right wall is $(2i+1, 2j+2)$.
 For example, the wall p in Figure 2 is $(1,6)$ and the wall q is $(8,1)$.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_p_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2023/ci_202208_p_p1.png" width="600" alt=""/>
 </figure>
 
 
@@ -79,7 +79,7 @@ The sample data files are [here](https://github.com/sophytoeat/Problem/tree/main
 
 Read consecutive pairs of integers as wall coordinates and draw each corresponding unit segment. The maze in the linked `maze1.txt` is:
 
-![Maze defined by maze1.txt](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2023/tokyo-ci-2022-maze1.svg)
+![Maze defined by maze1.txt](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2023/tokyo-ci-202208-maze1.svg)
 
 ### (2)
 

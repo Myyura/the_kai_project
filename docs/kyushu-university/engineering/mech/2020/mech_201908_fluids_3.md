@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 問3（流体工学）"
+sidebar_label: "2019年8月実施 問3（流体工学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Rotating-Frame-Coriolis-and-Centrifugal-Forces
   - Engineering.Fluid-Mechanics.Bernoulli-Equation
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 流体工学 問3
+# 九州大学 工学府 機械系専攻 2019年8月実施 流体工学 問3
 
 ## **Author**
 

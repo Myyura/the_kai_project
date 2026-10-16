@@ -17,7 +17,7 @@ tags:
 An IPv4 address, which indicates a location on the Internet, is a $32$ bits ($4$ Bytes) number. Each $8$ bits ($1$ Byte) is represented as a decimal number separated by a dot "." as in Figure 1. IP addresses are assigned to network interfaces (boundaries between nodes and physical links). An IP address consists of a network ID that identifies the network and an interface ID that identifies the interface. In the network notation, a network is expressed by a decimal notation of the IP address with "/" and a length of a network ID (number of bits), as shown in Figure 1.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_2_p1.png" height="600" alt="Figure 1"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2023/ci_202208_2_p1.png" height="600" alt="Figure 1"/>
 </figure>
 
 A network can be divided into subnets. Each subnet has a unique network ID. The network administrator assigns IP addresses from the range (block) of IP addresses with the subnet's network ID to the interfaces connecting to that subnet.
@@ -27,7 +27,7 @@ For example, 203.178.168.0/24 can be divided into 203.178.168.0/25, with IP addr
 Answer the following questions.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_2_p2.png" height="400" alt="Figure 2"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2023/ci_202208_2_p2.png" height="400" alt="Figure 2"/>
 </figure>
 
 
@@ -43,7 +43,7 @@ The subnet assignment has the following constraints: IP addresses are assigned i
 A UDP packet is sent for a Voice-over IP application in a network shown in Figure 3. The packet consists of a 100-byte header and a $P$-byte payload (data part). The bottleneck in this network is between Router 1 and Router 2, with the bandwidth of 6M bits/sec.
   
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_2_p3.png" height="600" alt="Figure 3"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2023/ci_202208_2_p3.png" height="600" alt="Figure 3"/>
 </figure>
 
 (5) Consider sending digitally encoded voice data directly from the source node to the destination node. Suppose the data is encoded at a constant rate of 128 kbps and each packet is entirely filled before the source sends the packet into the network. The source node must wait until the payload is filled with data, and this delay is called packetization delay. When $P = 1000$ bytes, determine the packetization delay.

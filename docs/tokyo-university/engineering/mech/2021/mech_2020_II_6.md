@@ -21,7 +21,7 @@ tags:
 3. 次に、上層 A（$E$）と下層 B（$2E$）が各厚さ $h$ の二層断面を考える。接合面を $y=0$ とし、中立面が接合面より下方にある距離を $h_0$ とする。図示の内表面の曲率半径 $R$ を用い、軸方向ひずみ・応力分布および $h_0$ を求めよ。
 4. 二層断面の $M$ と $R$ の関係を求めよ。
 
-![構造・座標の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/sn-mechanics/materials/2021-6-geometry.svg)
+![構造・座標の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/2021-6-geometry.svg)
 
 #### 题目描述
 

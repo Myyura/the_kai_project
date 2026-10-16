@@ -18,7 +18,7 @@ tags:
 
 線密度 $\rho$、長さ $L$ の柔軟で一様な弦を、一定張力 $T$ で $x$ 軸に沿って張り、両端を固定する。弦は $xy$ 平面内で微小振動し、位置 $x$、時刻 $t$ の横変位を $y(x,t)$ とする。
 
-![固定弦、微小区間の張力と倍音による共鳴](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/sn-mechanics/other/kyoto-2015-string.svg)
+![固定弦、微小区間の張力と倍音による共鳴](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/mech/2015/kyoto-201408-string.svg)
 
 - **2-1**：微小区間 $[x,x+dx]$ の左右の端に働く力の $y$ 成分をそれぞれ求めよ。
 - **2-2**：運動方程式を導き、$y_{tt}=c^2y_{xx}$ の形にせよ。また、正の定数 $c$ を求めよ。

@@ -114,7 +114,7 @@ $$
 ### 【問 2】
 #### (1)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_information_theory_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_information_theory_p1.png" width="500" alt=""/>
 </figure>
 
 #### (2)
@@ -151,5 +151,5 @@ $$
 
 #### (4)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_information_theory_p2.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_information_theory_p2.png" width="500" alt=""/>
 </figure>

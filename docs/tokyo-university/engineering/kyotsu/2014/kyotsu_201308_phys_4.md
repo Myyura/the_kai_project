@@ -37,7 +37,7 @@ $$
 2. $x=b$ における強度分布 $|E(y_b)|^2$ を求めよ。
 3. $|E(y_b)|^2$ を図示し、光強度が極小となる $y_b$ を求めよ。
 
-![平凸レンズの幾何光学と集光面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2014/kyotsu_201308_phys_4_lens_audited.svg)
+![平凸レンズの幾何光学と集光面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_phys_4_lens_audited.svg)
 
 #### 题目描述
 
@@ -128,5 +128,5 @@ $$
 \boxed{y_b=\frac{m\lambda b}{2r},\qquad m=\pm1,\pm2,\ldots.}
 $$
 
-![集光面の単スリット回折強度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2014/kyotsu_201308_phys_4_diffraction_audited.svg)
+![集光面の単スリット回折強度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_phys_4_diffraction_audited.svg)
 

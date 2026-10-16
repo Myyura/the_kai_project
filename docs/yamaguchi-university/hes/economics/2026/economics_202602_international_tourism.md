@@ -1,12 +1,12 @@
 ---
-sidebar_label: "令和8年度第2回（2026年2月実施） 外国人留学生 観光論"
+sidebar_label: "2026年2月実施 第2回 外国人留学生 観光論"
 tags:
   - Yamaguchi-University
   - Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management
   - Sociology.Urban-Sociology.Overtourism-and-Regional-Dispersion
 ---
 
-# 山口大学 人間社会科学研究科 経済学・経営学専攻 経済社会政策コース 令和8年度第2回（2026年2月実施） 外国人留学生選抜 専門科目（観光論）
+# 山口大学 人間社会科学研究科 経済学・経営学専攻 経済社会政策コース 2026年2月実施 第2回 外国人留学生選抜 専門科目（観光論）
 
 ## **Author**
 祭音Myyura (co-authored with GPT 5.6 SOL)

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 専門科目 [8]（熱方程式と整関数への拡張）"
+sidebar_label: "2017年8月実施 専門科目 [8]（熱方程式と整関数への拡張）"
 tags:
   - Kyoto-University
   - Mathematics.Fourier-Analysis.Fourier-Series
   - Mathematics.Complex-Analysis.Analytic-Continuation
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2018年度 専門科目 問題8
+# 京都大学 理学研究科 数学・数理解析専攻 2017年8月実施 専門科目 問題8
 
 ## **Author**
 

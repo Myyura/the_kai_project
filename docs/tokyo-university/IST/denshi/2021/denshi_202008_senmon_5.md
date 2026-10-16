@@ -78,7 +78,7 @@ $$
 
 図の白丸はその値を含まず、塗りつぶした丸はその値を含むことを表す。
 
-![上：奇成分 x_o(t)。下：偶成分 x_e(t)。端点と t=0 の値も示す。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-university/IST/denshi/q5_2021_odd_even.svg)
+![上：奇成分 x_o(t)。下：偶成分 x_e(t)。端点と t=0 の値も示す。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2021/q5_202008_odd_even.svg)
 
 ### (2)
 
@@ -140,7 +140,7 @@ $$
 \boxed{g(t)=E\left[f\left(t+\frac\tau2\right)-f\left(t-\frac\tau2\right)\right]}.
 $$
 
-![上：高さ E²τ、底辺 [-τ,τ] の三角波 f₂(t)。下：区間 (-τ,0) で E²、(0,τ) で -E² となる g(t)。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-university/IST/denshi/q5_2021_convolution.svg)
+![上：高さ E²τ、底辺 [-τ,τ] の三角波 f₂(t)。下：区間 (-τ,0) で E²、(0,τ) で -E² となる g(t)。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2021/q5_202008_convolution.svg)
 
 ### (7)
 

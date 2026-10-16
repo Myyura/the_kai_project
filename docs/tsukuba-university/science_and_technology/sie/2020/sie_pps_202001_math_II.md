@@ -318,7 +318,7 @@ $$
 $x=0$ から $x=1$ まで増加し，
 その後 $x\to\infty$ で $0$ に収束する．
 
-![Graph of f](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tsukuba_university/science_and_technology/sie/2020/tsukuba-202001-exp-linear.svg)
+![Graph of f](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tsukuba-university/science_and_technology/sie/2020/tsukuba-202001-exp-linear.svg)
 
 (ii)
 

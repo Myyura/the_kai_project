@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2019年度 基礎科目 問題5"
+sidebar_label: "2018年8月実施 基礎科目 問題5"
 tags:
   - Kyoto-University
   - Mathematics.Linear-Algebra.Jordan-Normal-Form
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2019年度 基礎科目 問題5
+# 京都大学 理学研究科 数学・数理解析専攻 2018年8月実施 基礎科目 問題5
 
 ## **Author**
 

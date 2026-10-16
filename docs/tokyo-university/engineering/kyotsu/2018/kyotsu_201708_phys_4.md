@@ -22,7 +22,7 @@ tags:
 1. 波長 $\lambda$ の可視単色光について、スクリーン上に現れる干渉縞の間隔を $\lambda,d,L$ で表せ。
 2. 単色光の場合と白色光の場合について、干渉縞の様子を説明せよ。
 
-![二重スリットとスクリーンの配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2018/kyotsu_201708_phys_4_diagram_audited.svg)
+![二重スリットとスクリーンの配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2018/kyotsu_201708_phys_4_diagram_audited.svg)
 
 ### II
 

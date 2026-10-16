@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2013年度 問2（数学）"
+sidebar_label: "2012年8月実施 問2（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Vector-Calculus.Plane-and-Distance-in-Three-Dimensional-Euclidean-Space
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 数学 問2
+# 九州大学 工学府 機械系専攻 2012年8月実施 数学 問2
 
 ## **Author**
 

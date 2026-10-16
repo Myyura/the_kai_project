@@ -103,7 +103,7 @@ The finite impulse response is absolutely summable, so the system is BIBO stable
 
 The corresponding circuit diagram is as follows:
 
-![Causal FIR circuit](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2022/kyoto-ist-2021-fir.svg)
+![Causal FIR circuit](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2022/kyoto-ist-202107-fir.svg)
 
 and
 
@@ -116,7 +116,7 @@ For the causal realization, the region of convergence is $|z|>1/2$, containing t
 
 The corresponding circuit diagram is as follows:
 
-![Causal IIR circuit](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2022/kyoto-ist-2021-iir.svg)
+![Causal IIR circuit](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2022/kyoto-ist-202107-iir.svg)
 
 Note that
 

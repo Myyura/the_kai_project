@@ -21,7 +21,7 @@ tags:
 2. 穴を一致させてピンで固定し、外部トルク $M_E$ を除く。このとき AB の E 断面のねじれ角 $\alpha$ を求める。
 3. 2 の状態で、AB と CD の最大せん断応力 $\tau_1,\tau_2$ を求める。
 
-![同軸の中空軸と中実軸のピン結合](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/sn-mechanics/other/tohoku-2023-torsion.svg)
+![同軸の中空軸と中実軸のピン結合](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2024/tohoku-202308-torsion.svg)
 
 #### 题目描述
 

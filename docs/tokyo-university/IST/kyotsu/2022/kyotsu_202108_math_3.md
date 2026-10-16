@@ -24,7 +24,7 @@ $xy$平面上に、$0<x<1$かつ$0<y<1$ で定義される領域 $R$ を考え�
 (4)、点 $A_{i}$ の長方形の面積を表す確率変数を $S_{i}$ とする．$Z$ を $S_{1},S_{2},...,S_{n}$ の最小値を表す確率変数とする．この時、$Z$ の確率密度関数を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu_2022_math_3_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/kyotsu/2022/kyotsu_202108_math_3_p1.png" width="300" alt=""/>
 </figure>
 
 ### 题目描述

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 専門科目 問題6"
+sidebar_label: "2019年8月実施 専門科目 問題6"
 tags:
   - Kyoto-University
   - Mathematics.Functional-Analysis.Bounded-Linear-Operator
   - Mathematics.Functional-Analysis.Compact-Integral-Operators
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2020年度 専門科目 問題6
+# 京都大学 理学研究科 数学・数理解析専攻 2019年8月実施 専門科目 問題6
 
 ## **Author**
 

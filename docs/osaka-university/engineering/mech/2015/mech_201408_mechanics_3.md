@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 力学 問題3"
+sidebar_label: "2014年8月実施 力学 問題3"
 tags:
   - Osaka-University
   - Physics.Mechanics.Collision-and-Coefficient-of-Restitution
   - Physics.Mechanics.Rigid-Body-Moment-of-Inertia
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2015年度 力学 問題3
+# 大阪大学 工学研究科 機械工学専攻 2014年8月実施 力学 問題3
 
 ## **Author**
 
@@ -23,7 +23,7 @@ $x,y$ 軸が定義された水平で滑らかな平面上に、$y$ 軸に沿う�
 3. 衝突前後の $y$ 軸方向の運動量変化を $M,v_0,\theta$ で表せ。
 4. 衝突後の進行角が $\theta$（$-\pi/2<\theta<\pi/2$）となるための $\omega_0$ の条件を $a,v_0,\theta$ で表せ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2015/mech_201408_mechanics_3-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2015/mech_201408_mechanics_3-question-fig1.png)
 
 #### 题目描述
 

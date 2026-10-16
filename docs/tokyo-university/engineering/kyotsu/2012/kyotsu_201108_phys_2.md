@@ -17,7 +17,7 @@ tags:
 
 十分に長い円筒導体 A、B が、誘電率 $\varepsilon$ の気体中に同軸配置されている。A の外半径は $a$、B の内半径は $b$ とする。A を電源に接続し、B を接地する。中心軸からの距離を $r$ とする。
 
-![同軸円筒導体と半径方向のイオン流](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2012/kyotsu_201108_phys_2_coaxial_audited.svg)
+![同軸円筒導体と半径方向のイオン流](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2012/kyotsu_201108_phys_2_coaxial_audited.svg)
 
 必要なら円筒座標の公式
 

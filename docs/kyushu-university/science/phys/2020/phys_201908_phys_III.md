@@ -257,7 +257,7 @@ $$
 
 $c\ne0$ なら最小ギャップは $\lambda=0$ での $2|c|$ となり、準位は交差しない。$c=0$ では $E'_{1,2}=\mp k|\lambda|$ で、$\lambda=0$ では縮退する。
 
-![無摂動準位と結合による反交差](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/science/phys/2020/kyushu-phys-2019-avoided-crossing.svg)
+![無摂動準位と結合による反交差](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/science/phys/2020/kyushu-phys-201908-avoided-crossing.svg)
 
 #### (3)
 

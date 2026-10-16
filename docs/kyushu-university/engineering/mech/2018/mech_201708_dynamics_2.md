@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 問2（機械力学）"
+sidebar_label: "2017年8月実施 問2（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
   - Physics.Mechanics.Forced-Vibration
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 機械力学 問2
+# 九州大学 工学府 機械系専攻 2017年8月実施 機械力学 問2
 
 ## **Author**
 
@@ -18,7 +18,7 @@ tags:
 
 棒 1 の時計回り角を $\theta_1$、棒 2 の反時計回り角を $\theta_2$ とし、両角がゼロのときばねは自然長にある。角変位は微小、ばねは水平を保つとし、摩擦は無視する。重力加速度は $g$ である。（50 点）
 
-![上向き・下向きの剛体棒の結合（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/dynamics-2-original.png)
+![上向き・下向きの剛体棒の結合（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_dynamics-2-original.png)
 
 1. 各支持端まわりの慣性モーメント $I_1,I_2$ を求めよ。
 2. $\theta_1,\theta_2$ の運動方程式を求めよ。

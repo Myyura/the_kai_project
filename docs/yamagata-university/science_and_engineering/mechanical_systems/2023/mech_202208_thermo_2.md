@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2023年度 熱力学 問2"
+sidebar_label: "2022年8月実施 熱力学 問2"
 tags:
   - Yamagata-University
   - Physics.Thermodynamics
 ---
 
-# 山形大学 理工学研究科 機械システム工学専攻 2023年度 熱力学 問2
+# 山形大学 理工学研究科 機械システム工学専攻 2022年8月実施 熱力学 問2
 
 ## **Author**
 

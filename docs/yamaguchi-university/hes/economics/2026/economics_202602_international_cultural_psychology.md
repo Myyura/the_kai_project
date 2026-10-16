@@ -1,12 +1,12 @@
 ---
-sidebar_label: "令和8年度第2回（2026年2月実施） 外国人留学生 文化心理学"
+sidebar_label: "2026年2月実施 第2回 外国人留学生 文化心理学"
 tags:
   - Yamaguchi-University
   - Psychology.Social-Psychology.Self-Esteem-and-Culture
   - Psychology.Research-Methods-and-Statistics.Nonverbal-Behavioral-Measurement
 ---
 
-# 山口大学 人間社会科学研究科 経済学・経営学専攻 経済社会政策コース 令和8年度第2回（2026年2月実施） 外国人留学生選抜 専門科目（文化心理学）
+# 山口大学 人間社会科学研究科 経済学・経営学専攻 経済社会政策コース 2026年2月実施 第2回 外国人留学生選抜 専門科目（文化心理学）
 
 ## **Author**
 祭音Myyura (co-authored with GPT 5.6 SOL)

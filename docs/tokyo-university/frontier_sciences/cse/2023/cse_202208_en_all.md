@@ -138,7 +138,7 @@ Assume the tension F on rod 2 is the same as (Q.1)(4) to lowest order in  $\thet
 
 (5) Let  $l_1 = 2a/3$ ,  $l_2 = a/2$  and  $m_1 = m_2$ . Obtain the two positive characteristic angular frequencies of the system, and the corresponding characteristic vector  $(\theta_1, \theta_2)$ . It is not necessary to normalize the characteristic vectors.
 
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2023/tokyo-cse-202208-pendulum.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2023/tokyo-cse-202208-pendulum.svg)
 
 ## Slot 3: 3.1 Mathematical analysis (40 minutes)
 
@@ -206,7 +206,7 @@ $$
 \boldsymbol{H}(\boldsymbol{r}) = \frac{1}{4\pi} \left\{ \frac{3(\boldsymbol{m} \cdot \boldsymbol{r})\boldsymbol{r}}{|\boldsymbol{r}|^5} - \frac{\boldsymbol{m}}{|\boldsymbol{r}|^3} \right\}.
 $$
 
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2023/tokyo-cse-202208-dipole.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2023/tokyo-cse-202208-dipole.svg)
 
 Figure 1
 
@@ -224,7 +224,7 @@ $$
 - (2) Find the magnetic field created by a circular current I of radius a at a point of height z on the central axis. Also, find the magnetic field at z=0.
 - (3) Find the magnitude of the magnetic flux density on the axis when  $z \gg a$ . If this value is equal to the magnitude of the magnetic flux density obtained in (Q.1)(3), express the magnitude of the magnetic moment  $\boldsymbol{m}$  using a and I.
 
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2023/tokyo-cse-202208-loop.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2023/tokyo-cse-202208-loop.svg)
 
 Figure 2
 

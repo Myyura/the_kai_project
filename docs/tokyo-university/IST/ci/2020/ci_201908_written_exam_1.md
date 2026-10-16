@@ -45,7 +45,7 @@ return C[n];
 ここで、$E[i',m']$ が $i' = 0, ..., n-1, m' = 2, ..., m-1$ についてすべて計算済みであるとして、$E[i,m]$ を $E[i',m']$ と $D[i,j]$ の式で表せ。ただし、$E[i,2] = 0 \ (i=0, ..., n-1)$ とする。またその状況を説明する図も付して示せ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_1_p1.png" width="350" height="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2020/ci_201908_1_p1.png" width="350" height="200" alt=""/>
 </figure>
 
 (5) 上記 (4) で得られた関係式を用いて、任意の凸 $n$ 角形の三角形分割の最小コストを求めるアルゴリズムの疑似コードを、10 行程度で示せ。またその計算量（オーダー）を答えよ。
@@ -77,7 +77,7 @@ Next, we find the triangulation of a convex n-gon with a minimum cost. Here, the
 $(4)$ We consider solving the problem of finding a triangulation with a minimum cost by dividing the problem into subproblems. We denote $E[i,m]$ as the cost of triangulating a polygon made by a path starting from $v_i$, visiting $m$ vertices clockwise, and then coming back to $v_i$ (see the figure below). Assume that $E[i',m']$ are all given for $i'=0, ..., n-1$ and $m'=2, ..., m-1$. Represent $E[i, m]$ as a function of $E[i', m']$ and $D[i, j]$. We define $E[i, 2]=0$ $(i=0, ..., n-1)$. Also draw a figure explaining the situation.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_1_p1.png" width="350" height="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2020/ci_201908_1_p1.png" width="350" height="200" alt=""/>
 </figure>
 
 $(5)$ Give approximately 10-line pseudo-code implementing an algorithm to compute the minimum cost of triangulating an arbitrary n-gon using the formula obtained in (4). Also answer the computational complexity (order) of the algorithm.
@@ -112,19 +112,19 @@ $(5)$ Give approximately 10-line pseudo-code implementing an algorithm to comput
 `C[5]=5`
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_1_p2.png" width="376" height="76" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2020/ci_201908_1_p2.png" width="376" height="76" alt=""/>
 </figure>
 
 `C[6]=14`
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_1_p3.png" width="381" height="94" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2020/ci_201908_1_p3.png" width="381" height="94" alt=""/>
 </figure>
 
 `C[7]=42`
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_1_p4.png" width="384" height="337" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2020/ci_201908_1_p4.png" width="384" height="337" alt=""/>
 </figure>
 
 ### (2)
@@ -164,7 +164,7 @@ $$
 E[i,m]=\min_{k=i+1,\dots,i+m-2} \{E[i,k-i+1]+E[k,i+m-k]+D[i,k]+D[k,i+m-1]+D[i,i+m-1]\}.
 $$
 
-![The triangle at the base edge divides the polygon into left and right subproblems.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2020/tokyo-ci-2019-triangulation.svg)
+![The triangle at the base edge divides the polygon into left and right subproblems.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2020/tokyo-ci-201908-triangulation.svg)
 
 The triangle contributes all three edge costs. An internal diagonal occurs in two adjacent triangles and is therefore counted twice, exactly as required by the definition of cost.
 

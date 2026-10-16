@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 問2（熱工学）"
+sidebar_label: "2014年8月実施 問2（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Phase-Equilibrium
   - Physics.Thermodynamics.Clapeyron-Equation
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 熱工学 問2
+# 九州大学 工学府 機械系専攻 2014年8月実施 熱工学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 高さを 1 とする断面積一定の密閉容器に、飽和液と乾き飽和蒸気が入っている。液面の高さを $z$、飽和液・乾き飽和蒸気の比体積を $v',v''$ とし、$v''=\alpha v'$ とする。内部の温度は一様である。（20 点）
 
-![飽和液と乾き飽和蒸気の密閉容器（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/thermo-2-original.png)
+![飽和液と乾き飽和蒸気の密閉容器（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_thermo-2-original.png)
 
 1. 乾き度 $x$ を $z,\alpha$ で表せ。
 2. $T=600\,\mathrm K$ で $\alpha=9$、混合物の比体積が $5v'$ のとき、$x,z$ を求めよ。

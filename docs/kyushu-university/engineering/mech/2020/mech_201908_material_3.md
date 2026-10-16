@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 問3（材料力学）"
+sidebar_label: "2019年8月実施 問3（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
   - Engineering.Mechanics-of-Materials.Torsion
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 材料力学 問3
+# 九州大学 工学府 機械系専攻 2019年8月実施 材料力学 問3
 
 ## **Author**
 

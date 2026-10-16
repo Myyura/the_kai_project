@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問1（材料力学）"
+sidebar_label: "2013年8月実施 問1（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Truss
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 材料力学 問1
+# 九州大学 工学府 機械系専攻 2013年8月実施 材料力学 問1
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 図1の弾性棒 OA、OB、OC はすべて断面積 $A$、長さ $\ell$ で、外端 A、B、C は固定されたピンに接続されている。OA、OC のヤング率は $E_1$、OB は $E_2$。三本のなす角は $120^\circ$ で、OA は鉛直、OB は水平から右下へ $30^\circ$ 傾く。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/material-1-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-1-original.png)
 
 1. 水平右向きから角度 $\theta$ の荷重 $P$ を O に加えたところ、O は真上、すなわち A の方向に変位した。OA、OB、OC の力を $Q,R,S$ として、$R$ と $S$、$Q$ と $S$ の関係を求めよ。
 2. $\theta$ を $E_1,E_2$ で表せ。

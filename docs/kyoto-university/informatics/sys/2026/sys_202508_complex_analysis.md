@@ -31,7 +31,7 @@ f(z)=\frac{e^{-2\pi iz\xi}}{\cosh\pi z},\qquad\cosh z=\frac{e^z+e^{-z}}2
 $$
 
 とおく。$\xi\ne ni/2$ ($n\in\mathbb Z$) として、$\int_{-\infty}^\infty f(x)\,dx$ を $\xi$ の関数として求めたい。$R>0$ に対し $C_R$ は、頂点 $-R,R,R+2i,-R+2i$ をこの順に通る反時計回りの長方形であり、各辺を順に $C_1,C_2,C_3,C_4$ とする。
-![積分路 C_R](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2026/sys_202508_complex_analysis_contour.svg)
+![積分路 C_R](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2026/sys_202508_complex_analysis_contour.svg)
 
 (1) 複素数 $\alpha$ に対し $\displaystyle\lim_{z\to\alpha}\frac{z-\alpha}{e^{\pi z}-e^{\pi\alpha}}$ を求めよ。
 

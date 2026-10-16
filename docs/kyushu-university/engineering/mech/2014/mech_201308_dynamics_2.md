@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問2（機械力学）"
+sidebar_label: "2013年8月実施 問2（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Lagrangian-Mechanics
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 機械力学 問2
+# 九州大学 工学府 機械系専攻 2013年8月実施 機械力学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 滑らかな水平面を動く質量 $m_1$ の物体を、ばね定数 $k_1$ のばねで基礎につなぐ。物体の支持点から、長さ $l$ の質量を無視できる剛体棒で質点 $m_2$ を支持する。棒は鉛直上向きから右へ角度 $\theta$ だけ傾き、支持点の回転ばね（ばね定数 $k_2$）のトルクは $\theta$ に比例し、$\theta=0$ でゼロである。水平ばねが自然長のときの支持点を原点 O とし、右向きを $x$、上向きを $y$ の正方向とする。一般化座標は $\boldsymbol x=(x,\theta)^T$、重力加速度は $g$。（50 点）
 
-![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/dynamics-2-original.png)
+![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_dynamics-2-original.png)
 
 1. 運動エネルギー $T$ とポテンシャルエネルギー $U$ を求めよ。
 2. ラグランジュの運動方程式を求め、さらに $\theta,\dot\theta$ が微小として線形化し、行列表示せよ。

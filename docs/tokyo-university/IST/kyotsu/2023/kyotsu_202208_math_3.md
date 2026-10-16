@@ -124,7 +124,7 @@ $$
 
 $k<M$ の場合を考える。この時、状態遷移図は次のようになる。
 
-![状態 C_k から、四角い石なら確率 q で C_(k+1)、丸石なら確率 1-q で C_0 に移る。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu/2023/kyotsu_202208_math_3_transition.svg)
+![状態 C_k から、四角い石なら確率 q で C_(k+1)、丸石なら確率 1-q で C_0 に移る。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/kyotsu/2023/kyotsu_202208_math_3_transition.svg)
 
 この図に示した通り、
 

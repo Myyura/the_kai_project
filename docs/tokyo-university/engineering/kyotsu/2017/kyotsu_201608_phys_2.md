@@ -16,7 +16,7 @@ tags:
 
 半径 $r$ の半円形導体板 A、B を、真空中で距離 $z_0$ を隔てて平行に置く。真空の誘電率を $\varepsilon_0$ とする。上側の A は、その直径の中点 $\mathrm O_A$ を通る板に垂直な軸のまわりに回転できる。B の直径の中点を $\mathrm O_B$ とし、両中点は同じ鉛直線上にある。両板の直線状の縁のなす回転角を $\theta$ とし、重なりがないときを $\theta=0$ とする。板に垂直な電場のみを考え、端効果を無視する。
 
-![半円形回転電極と誘電体の配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/kyotsu_201608_phys_2_plates_audited.svg)
+![半円形回転電極と誘電体の配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2017/kyotsu_201608_phys_2_plates_audited.svg)
 
 ### I
 
@@ -95,7 +95,7 @@ $$
 
 $\theta=\pi$ で最小値 $2Qz_0/(\pi\varepsilon_0r^2)$ を取り、$\pi$ の左右で対称である。
 
-![回転角と電位の関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/kyotsu_201608_phys_2_voltage_audited.svg)
+![回転角と電位の関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2017/kyotsu_201608_phys_2_voltage_audited.svg)
 
 ### II
 
@@ -138,7 +138,7 @@ $$
 
 3. 電気力線の密度は上下で等しい。電束線は、下側（C 内）が上側の $k=2$ 倍である。線はいずれも C 上面の正電荷から各電極へ向かう。
 
-![II と III の電気力線・電束線（線密度の比較）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/kyotsu_201608_phys_2_field_lines_audited.svg)
+![II と III の電気力線・電束線（線密度の比較）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2017/kyotsu_201608_phys_2_field_lines_audited.svg)
 
 4. 回転中、A の電荷は重なり面積に比例し、
 

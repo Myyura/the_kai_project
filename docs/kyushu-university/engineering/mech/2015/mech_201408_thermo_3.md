@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 問3（熱工学）"
+sidebar_label: "2014年8月実施 問3（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Conduction-with-Heat-Generation
   - Engineering.Heat-Transfer.Thermal-Resistance-Networks
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 熱工学 問3
+# 九州大学 工学府 機械系専攻 2014年8月実施 熱工学 問3
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 厚さ $\delta$、一定の熱伝導率 $k$ の平板の面 1（$x=0$）に、一様な放射熱流束 $q_r$ が外部から入る。面 2（$x=\delta$）では放射熱の出入りはない。両面は温度 $T_f$ の流体により同じ熱伝達率 $h$ で冷却される。定常状態を考える。（45 点）
 
-![平板と温度分布記入欄（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/thermo-3-original.png)
+![平板と温度分布記入欄（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_thermo-3-original.png)
 
 (1) 平板内に発熱がない場合：
 
@@ -57,7 +57,7 @@ $$
 
 $kT''+H=0$ なので温度分布は上に凸の放物線で、$x=\delta/3$ に極大をもつ。面温度は $T_1>T_2>T_f$ となる。
 
-![無発熱時と内部発熱時の板内温度分布](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/thermo-3-profiles.svg)
+![無発熱時と内部発熱時の板内温度分布](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_thermo-3-profiles.svg)
 
 ### (2-2)
 

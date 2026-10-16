@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2015年度 問2（流体工学）"
+sidebar_label: "2014年8月実施 問2（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Pipe-Networks
@@ -7,7 +7,7 @@ tags:
   - Engineering.Fluid-Mechanics.Minor-Losses
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 流体工学 問2
+# 九州大学 工学府 機械系専攻 2014年8月実施 流体工学 問2
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 1. 弁が完全に閉じた場合、右水槽へ流れ込む体積流量 $Q_a$ を求めよ。
 2. 弁が全開の場合、(i) 上側と下側の分岐管の体積流量の比 $Q_u/Q_d$、(ii) 右水槽へ流れ込む体積流量 $Q_b$ を求めよ。
 
-![原題の図（九州大学 2015年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/fluids-2-original.png)
+![原題の図（九州大学 2015年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_fluids-2-original.png)
 
 #### 题目描述
 

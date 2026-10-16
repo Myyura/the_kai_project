@@ -21,7 +21,7 @@ tags:
 (1) 与えられた $d_1 \times d_2$ 行列 $A$ と $d_2 \times d_3$ 行列 $B$ に対し，アルゴリズム 1 はそれらの積 $C = AB$ を求める．アルゴリズム 1 の時間計算量を答えよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_algorithm_programming_p1.png" width="400" alt=""/>
 </figure>
 
 (2) $10 \times 100$ 行列 $A$ と $100 \times 1$ 行列 $B$ と $1 \times 100$ 行列 $C$ と $100 \times 10$ 行列 $D$ が与えられたとき，積 $E = ABCD$ をアルゴリズム1をサブルーチンとして用いて求めたい．
@@ -32,7 +32,7 @@ tags:
 (3) $M_i, (i = 1, \ldots, n)$ は $d_i \times d_{i+1}$ 行列とし，積 $X = M_1 \cdots M_n$ をアルゴリズム 1 を用いて求めたい．積 $X$ の計算について，すべての積の順の中で最小の時間計算量をアルゴリズム 2 が与えることを証明せよ．またアルゴリズム 2 の時間計算量を答えよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p2.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_algorithm_programming_p2.png" width="500" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -90,12 +90,12 @@ print(list_input)
 
 【问题 1】假设两个数的加法、乘法和大小比较各自都能在单位时间内完成。回答：
 
-1. 对给定的 $d_1\times d_2$ 矩阵 $A$ 和 $d_2\times d_3$ 矩阵 $B$，[算法 1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png)计算乘积 $C=AB$。求算法 1 的时间复杂度。
+1. 对给定的 $d_1\times d_2$ 矩阵 $A$ 和 $d_2\times d_3$ 矩阵 $B$，[算法 1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_algorithm_programming_p1.png)计算乘积 $C=AB$。求算法 1 的时间复杂度。
 2. 给定 $10\times100$ 矩阵 $A$、$100\times1$ 矩阵 $B$、$1\times100$ 矩阵 $C$ 和 $100\times10$ 矩阵 $D$，要求以算法 1 为子程序计算 $E=ABCD$：
    - (a) 若按 $E=(A(BC))D$ 的顺序相乘，求计算 $E$ 所需加法次数与乘法次数之和。
    - (b) 用与 (a) 相同的数学表达式形式，写出使计算时间最短的乘法结合顺序，并求按该顺序计算时加法次数与乘法次数之和。
 3. 设 $M_i$（$i=1,\ldots,n$）为 $d_i\times d_{i+1}$ 矩阵，要求用算法 1 计算
-   $X=M_1\cdots M_n$。证明[算法 2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p2.png)能在所有乘法结合顺序中给出计算 $X$ 的最小时间复杂度，并求算法 2 本身的时间复杂度。
+   $X=M_1\cdots M_n$。证明[算法 2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_algorithm_programming_p2.png)能在所有乘法结合顺序中给出计算 $X$ 的最小时间复杂度，并求算法 2 本身的时间复杂度。
 
 【问题 2】下列图 1 是用 Python 编写的归并排序程序，第 32 行输入为
 `list_input = [8, 3, 6, 5, 2, 7, 4, 1]`：

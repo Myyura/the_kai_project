@@ -27,7 +27,7 @@ tags:
 - (b) コイル間の結合係数が $1$ のとき, $2$ 次回路側で消費される電力を求めよ。ただし、$V_1 = 100$ [V], $\omega = 10^6$ [rad/s], $R = 10 [\Omega]$, $L_1 = 10 [\mu\text{H}]$, $L_2 = 20[\mu\text{H}]$ である。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202208_kiso_2_electrical_circuit.png" width="400"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2023/ecei_202208_kiso_2_electrical_circuit.png" width="400"/>
 </figure>
 
 ### 题目描述

@@ -32,7 +32,7 @@ tags:
 - (b) キャパシタンス $C$ に発生する電圧の最大値 $V_{\max}$ [V] と, その電圧が最大となる時刻のうち最小の値 $t_m$ [s] を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_2024_8_kisosenmon_2_electrical_circuit.png" width="500"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2025/ecei_202408_8_kisosenmon_2_electrical_circuit.png" width="500"/>
 </figure>
 
 ### 题目描述

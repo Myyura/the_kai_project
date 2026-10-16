@@ -33,7 +33,7 @@ tags:
 (4) (3) で示したアルゴリズムを用いて **図** のグラフの Second MST とエッジの重みの総和を示せ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_202408_3_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2025/denshi_202408_3_p1.png" width="400" alt=""/>
 </figure>
 
 ### 题目描述

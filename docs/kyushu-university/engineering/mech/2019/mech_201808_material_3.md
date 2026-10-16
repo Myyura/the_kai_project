@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 問3（材料力学）"
+sidebar_label: "2018年8月実施 問3（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
@@ -8,7 +8,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 材料力学 問3
+# 九州大学 工学府 機械系専攻 2018年8月実施 材料力学 問3
 
 ## **Author**
 
@@ -20,7 +20,7 @@ tags:
 
 OA と CD はヤング率 $E$、ポアソン比 $\nu$、直径 $d$ の弾性丸棒で、L 字型部材 ABC は剛体である。各弾性棒は A、C で剛体部材に溶接されている。ナイフエッジと CD の間に摩擦はない。OA $=a$、AB $=b$、BC $=c$、CD $=e$ で、$a,b,c,e\gg d$ とする。OA、AB、CD は $x$ 方向、BC は $y$ 方向に配置されている。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/material-3-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_material-3-original.png)
 
 1. 点 D でナイフエッジから受ける反力を $Q$ とする。$Q$ を用いて、点 A に作用するせん断力 $F_A$、曲げモーメント $M_A$、ねじりモーメント $T_A$ を表せ。
 2. $Q$ を求めよ。

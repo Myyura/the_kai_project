@@ -88,7 +88,7 @@ $$
 \boxed{\hat\theta_{\mathrm{ML}}=\frac yn}.
 $$
 
-![ベルヌーイ尤度の概形（例：n=10, y=6）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/waseda_university/CSE/keieisystem/2019/waseda-2018-bernoulli-likelihood.svg)
+![ベルヌーイ尤度の概形（例：n=10, y=6）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/waseda-university/CSE/keieisystem/2019/waseda-201807-bernoulli-likelihood.svg)
 
 ### [小問 3]
 

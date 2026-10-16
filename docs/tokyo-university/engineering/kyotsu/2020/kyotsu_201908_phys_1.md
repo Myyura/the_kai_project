@@ -23,7 +23,7 @@ II. 傾斜角 $\theta$ の斜面 PQ は粗く、水平面 QR は摩擦がない�
 2. 円筒と円柱の間に大きさ $f$ の動摩擦力が働く場合を考える。同じ初期状態から、円筒は斜面を滑らずに転がるが、円柱は円筒と異なる角速度で滑りながら回転した。
    - (i) 斜面下向きを $x$、斜面に垂直な外向きを $y$ とする。重心速度を $v$、両者の角速度を $\omega_T,\omega_C$、相互作用の合力の成分を $N_x,N_y$、斜面から円筒に働く垂直抗力と摩擦力を $N_{PQ},F_{PQ}$ とする。① 円筒の $x,y$ 方向の運動方程式、回転の運動方程式および $v$ と $\omega_T$ の関係式を示せ。② 円柱についても並進と回転の運動方程式を示せ。
    - (ii) 水平面に達した直後の速度を $v_Q,\omega_{TQ},\omega_{CQ}$ とする。やがて円筒と円柱の角速度が等しくなった。① このときの重心速度 $v_R$ と共通角速度 $\omega_R$ を求めよ。② 水平面上での動摩擦によるエネルギー損失を求めよ。
-![同軸円筒と円柱、および斜面と水平面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2020/kyotsu_201908_phys_1_rolling_audited.svg)
+![同軸円筒と円柱、および斜面と水平面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2020/kyotsu_201908_phys_1_rolling_audited.svg)
 
 #### 题目描述
 

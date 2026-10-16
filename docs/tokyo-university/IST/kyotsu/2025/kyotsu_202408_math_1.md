@@ -160,4 +160,4 @@ $$
 
 境界は放物線 $x=-y^2$ の $y\ge0$ の部分と、半直線 $x=0,\ y\le0$ である。いずれも領域に含まれる。
 
-![直線族 M_t が掃く領域。青色が領域、実線が含まれる境界、破線が直線族の例。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu/2025/kyotsu_202408_math_1_region.svg)
+![直線族 M_t が掃く領域。青色が領域、実線が含まれる境界、破線が直線族の例。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/kyotsu/2025/kyotsu_202408_math_1_region.svg)

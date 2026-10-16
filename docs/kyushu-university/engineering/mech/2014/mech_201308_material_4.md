@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問4（材料力学）"
+sidebar_label: "2013年8月実施 問4（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Thin-Walled-Pressure-Vessels
   - Engineering.Mechanics-of-Materials.Stress-Transformation
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 材料力学 問4
+# 九州大学 工学府 機械系専攻 2013年8月実施 材料力学 問4
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 図4の薄肉円筒容器が未知の内圧 $p$ を受けている。外直径 $D$、肉厚 $h\ll D$、長さ $\ell\gg D$、ヤング率 $E$、ポアソン比 $\nu$ とする。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/material-4-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-4-original.png)
 
 1. 中央部表面 A で、容器軸 $x$ と $45^\circ$ をなす $\xi$ 方向の垂直ひずみを測定したところ $\varepsilon_0$ であった。内圧 $p$ を求めよ。
 2. A における外直径の変化量 $\delta$ を $\varepsilon_0$ の関数として求めよ。

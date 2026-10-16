@@ -39,7 +39,7 @@ $w = 2e^{\frac{\pi i}{6}}z + (1 - \sqrt{3}i)$
 $w = z^2$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2020_analysis_calculus_p1.png" width="300" height="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/kyotsu/2020/kyotsu_201908_analysis_calculus_p1.png" width="300" height="300" alt=""/>
 </figure>
 
 ### 题目描述
@@ -127,7 +127,7 @@ $$
 #### (1)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2020_analysis_calculus_p2.png" width="400" height="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/kyotsu/2020/kyotsu_201908_analysis_calculus_p2.png" width="400" height="400" alt=""/>
 </figure>
 
 $$
@@ -152,7 +152,7 @@ $$
 #### (2)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2020_analysis_calculus_p3.png" width="500" height="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/kyotsu/2020/kyotsu_201908_analysis_calculus_p3.png" width="500" height="350" alt=""/>
 </figure>
 
 $$
@@ -190,7 +190,7 @@ $$
 #### (3)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2020_analysis_calculus_p4.png" width="500" height="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/kyotsu/2020/kyotsu_201908_analysis_calculus_p4.png" width="500" height="350" alt=""/>
 </figure>
 
 $$

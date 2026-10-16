@@ -33,7 +33,7 @@ III. 棒だけが最下位置で静止している。質量 $m$ の点状物体 
 
 1. 衝突前後で全運動エネルギーが保存され、衝突後の Q が鉛直下向きに落下する場合の $y$ を求めよ。
 2. Q が棒に付着する場合、E がちょうど O と同じ高さまで上がるための入射速度 $v_0$ を $y$ で表せ。
-![一様な棒の剛体振り子、付加質点、および衝突](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/kyotsu_202108_phys_1_pendulum_audited.svg)
+![一様な棒の剛体振り子、付加質点、および衝突](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2022/kyotsu_202108_phys_1_pendulum_audited.svg)
 
 #### 题目描述
 

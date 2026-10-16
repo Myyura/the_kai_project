@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年度 専門部門 問題4（制御工学）"
+sidebar_label: "2017年8月実施 専門部門 問題4（制御工学）"
 tags:
   - Nagoya-University
   - Electrical-Electronic.Control-Theory.Routh-Hurwitz-Stability
@@ -7,7 +7,7 @@ tags:
   - Electrical-Electronic.Control-Theory.Step-Response
 ---
 
-# 名古屋大学 工学研究科 機械航空系 2018年度 専門部門 問題4
+# 名古屋大学 工学研究科 機械航空系 2017年8月実施 専門部門 問題4
 
 ## **Author**
 
@@ -42,7 +42,7 @@ $$
 2. $K=30$ のときの開ループ伝達関数のボード線図を直線近似で描け。
 3. ゲイン余裕が 2 となる $K=k$ を求めよ。
 
-![二つの制御系の信号関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/engineering/mae/2018/nagoya2017_specialist4_blocks.svg)
+![二つの制御系の信号関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/nagoya201708_specialist4_blocks.svg)
 
 #### 题目描述
 
@@ -102,7 +102,7 @@ $$
 \boxed{K_p>-1,\qquad0\le K_i<11(1+K_p)}.
 $$
 
-![伝達関数の安定領域。横軸の太線は含み、破線は含まない](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/engineering/mae/2018/nagoya2017_specialist4_stability.svg)
+![伝達関数の安定領域。横軸の太線は含み、破線は含まない](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/nagoya201708_specialist4_stability.svg)
 
 なお、約分前の特性多項式を厳密にフルビッツとする条件、あるいは積分器の状態を保持した実現の内部漸近安定性を求める場合には、両者とも $K_i=0$ を除く。境界の扱いはこの区別による。
 
@@ -157,7 +157,7 @@ $$
 
 位相は、一次遅れの折点の $1/10$ から 10 倍までを $-45^\circ$/dec で近似し、重ね合わせる。傾きは $\omega<0.1$ で 0、$0.1$–$0.3$ で $-90^\circ$/dec、$0.3$–$10$ で $-135^\circ$/dec、$10$–$30$ で $-45^\circ$/dec、$30$ 以上で 0。高周波の位相は $-270^\circ$ となる。
 
-![開ループのボード線図。実線は厳密値、破線は直線近似](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/engineering/mae/2018/nagoya2017_specialist4_bode.svg)
+![開ループのボード線図。実線は厳密値、破線は直線近似](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/nagoya201708_specialist4_bode.svg)
 
 #### 3)
 

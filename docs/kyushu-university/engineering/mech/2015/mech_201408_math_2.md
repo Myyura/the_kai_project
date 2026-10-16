@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 問2（数学）"
+sidebar_label: "2014年8月実施 問2（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Quadratic-Form
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 数学 問2
+# 九州大学 工学府 機械系専攻 2014年8月実施 数学 問2
 
 ## **Author**
 

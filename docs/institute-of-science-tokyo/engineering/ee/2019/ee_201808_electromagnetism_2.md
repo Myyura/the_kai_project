@@ -24,7 +24,7 @@ tags:
 - (c) $x>0$ の任意の点における電位は、真電荷による電位と映像電荷による電位の和となる。点 $(x,y,0)$ における電位を求めよ。
 - (d) 導体表面に誘起される電荷は、導体表面における電界強度から求めることができる。原点から距離 $r$ の位置における面電荷密度を求めよ。
 
-![図2.1 接地導体平面と点電荷](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2018/em2-fig2-1.png)
+![図2.1 接地導体平面と点電荷](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2019/ee_201808_em2-fig2-1.png)
 
 (2) 図 2.2 のように、2 点 $\mathrm A(0,h,0)$ と $\mathrm B(0,-h,0)$ にそれぞれ $+q$ と $-q$ の電荷が置かれた電気双極子を考える。
 
@@ -42,7 +42,7 @@ tags:
 - (a) 電界 $\boldsymbol E$ の中に置かれた双極子は $W=-\boldsymbol P\cdot\boldsymbol E$ で与えられるエネルギーを持つ。図 2.3 のように置かれた双極子が持つエネルギーを求めよ。ここで $\boldsymbol P=q\boldsymbol l$ は双極子モーメントであり、$\boldsymbol l$ は $-q$ の電荷から $+q$ の電荷に向かう位置ベクトルである。
 - (b) 双極子に働く力の大きさを求めよ。
 
-![図2.2 自由空間の双極子、図2.3 接地導体平面に平行な双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2018/em2-fig2-2-3.png)
+![図2.2 自由空間の双極子、図2.3 接地導体平面に平行な双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2019/ee_201808_em2-fig2-2-3.png)
 
 図は東京工業大学 2019 年度大学院入試の原題より。
 

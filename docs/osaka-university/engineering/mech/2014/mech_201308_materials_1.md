@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 材料力学 問題1"
+sidebar_label: "2013年8月実施 材料力学 問題1"
 tags:
   - Osaka-University
   - Engineering.Mechanics-of-Materials.Axial-Deformation
   - Engineering.Mechanics-of-Materials.Thermal-Deformation-Compatibility
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2014年度 材料力学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2013年8月実施 材料力学 問題1
 
 ## **Author**
 
@@ -20,7 +20,7 @@ tags:
 2. 温度を元に戻して十分長い時間保持した後、B も固定し、図2のように両端固定とする。棒全体の温度を一様に $T_0$ だけ上昇させ、十分長い時間保持したとき、B に生じる反力および棒内の垂直応力分布を求めよ。
 3. (2) の温度上昇の代わりに、温度上昇が $T(x)=T_0x^2/L^2$ で与えられる場合、B の反力は (2) の何倍になるか。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2014/mech_201308_materials_1-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2014/mech_201308_materials_1-question-fig1.png)
 
 #### 题目描述
 

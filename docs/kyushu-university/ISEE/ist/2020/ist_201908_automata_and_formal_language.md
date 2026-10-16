@@ -140,7 +140,7 @@ $S\to aSa\mid bSb\mid a\mid b\mid\varepsilon$
 ### 【問１】
 #### (1)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_automata_and_formal_language_p1.png" width="585" height="490" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2020/ist_201908_automata_and_formal_language_p1.png" width="585" height="490" alt=""/>
 </figure>
 
 #### (2)

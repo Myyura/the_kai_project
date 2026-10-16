@@ -71,7 +71,7 @@ $$
 
 故 $\boxed{\omega_{cp}=3}$，交越点为 $G_0(3i)=-K/9$。正频率支从 $-K/81-i\infty$ 出发，经过 $-K/9$，再从上半平面趋向原点；负频率支为其共轭。原点极点须以右侧小半圆绕开，其映射是右侧无穷大半圆。
 
-![Nyquist 曲线](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201903_senmon_1_nyquist.svg)
+![Nyquist 曲线](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2019/ecei_201903_senmon_1_nyquist.svg)
 
 (e) 采用顺时针围绕右半平面的 Nyquist 围道，并以逆时针环绕 $-1$ 为正。原点极点被避开，开环右半平面极点数为 $0$。当负实轴交点位于 $-1$ 右侧时无净环绕，闭环稳定：
 

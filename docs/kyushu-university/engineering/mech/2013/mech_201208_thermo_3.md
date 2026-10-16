@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2013年度 問3（熱工学）"
+sidebar_label: "2012年8月実施 問3（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Heat-Exchangers-and-Thermal-Resistance
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 熱工学 問3
+# 九州大学 工学府 機械系専攻 2012年8月実施 熱工学 問3
 
 ## **Author**
 
@@ -21,7 +21,7 @@ tags:
 4. 一方の流体側だけ伝熱促進して面積を60%にしたい。最も小さい促進率で実現するには、どちらの熱伝達率を何倍にすればよいか。
 5. 並流熱交換器で $80^\circ\mathrm C$ まで加熱できる油の流量の上限（極限）を求め、向流の優位性を述べよ。
 
-![原題の温度分布解答欄](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/thermo-3-original.png)
+![原題の温度分布解答欄](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_thermo-3-original.png)
 
 #### 题目描述
 
@@ -70,7 +70,7 @@ $$
 
 従って壁温は左端 $88^\circ\mathrm C$、右端 $74^\circ\mathrm C$ で、温排水側に近い。
 
-![向流熱交換器の流体温度と隔壁温度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/thermo-3-answer.svg)
+![向流熱交換器の流体温度と隔壁温度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_thermo-3-answer.svg)
 
 図は累積伝熱面積を全体で割った座標 $\xi$ を横軸として描いた。一定 $U$ のもとで、$T_H=95-5\,3^\xi$、$T_C=95-15\,3^\xi$、$T_w=95-7\,3^\xi$ となり、油側の温度変化は温排水側の3倍である。
 

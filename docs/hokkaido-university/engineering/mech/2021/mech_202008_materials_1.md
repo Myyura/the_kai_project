@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2021年度 材料力学 問1"
+sidebar_label: "2020年8月実施 材料力学 問1"
 tags:
   - Hokkaido-University
   - Engineering.Mechanics-of-Materials.Torsion
   - Engineering.Mechanics-of-Materials.Stress-Transformation
 ---
 
-# 北海道大学 工学院 機械・宇宙航空工学系 2021年度 材料力学 問1
+# 北海道大学 工学院 機械・宇宙航空工学系 2020年8月実施 材料力学 問1
 
 ## **Author**
 

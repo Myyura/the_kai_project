@@ -265,4 +265,4 @@ $$
 
 である。
 
-![元のxy座標における双曲線と漸近線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2016/nagoya-is2016-hyperbola.svg)
+![元のxy座標における双曲線と漸近線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/is/2016/nagoya-is201508-hyperbola.svg)

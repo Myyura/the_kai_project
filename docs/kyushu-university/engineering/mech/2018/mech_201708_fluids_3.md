@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 問3（流体工学）"
+sidebar_label: "2017年8月実施 問3（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Dimensional-Analysis
   - Engineering.Fluid-Mechanics.Viscosity-and-Reynolds-Number
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 流体工学 問3
+# 九州大学 工学府 機械系専攻 2017年8月実施 流体工学 問3
 
 ## **Author**
 
@@ -19,7 +19,7 @@ tags:
 1. 軸を角速度 $\omega$ で回転させるために必要な、軸の単位長さ当たりのトルク $T$ に関する無次元数を、次元解析により求めよ。
 2. 軸の直径を5倍にして同じ角速度 $\omega$ で回転させると、必要なトルクは何倍になるか。レイノルズ数は十分大きく、流れのレイノルズ数に対する依存性は無視できるとする。
 
-![原題の図（九州大学 2018年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/fluids-3-original.png)
+![原題の図（九州大学 2018年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_fluids-3-original.png)
 
 #### 题目描述
 

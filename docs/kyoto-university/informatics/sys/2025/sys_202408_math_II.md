@@ -191,7 +191,7 @@ $$
 
 $f'(x)=\log x+1$、$f''(x)=1/x>0$ である。従って $f$ は $(0,e^{-1})$ で減少、$(e^{-1},\infty)$ で増加し、最小値 $-e^{-1}$ を $x=e^{-1}$ で取る。また、$\lim_{x\downarrow0}f(x)=0$、$f(1)=0$、$\lim_{x\to\infty}f(x)=\infty$ である。
 
-![関数 y = x log x のグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys/2025/kyoto-sys-2024-xlogx.svg)
+![関数 y = x log x のグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2025/kyoto-sys-202408-xlogx.svg)
 
 $-e^{-1}<y<0$ には解が2個、$y<-e^{-1}$ には解が存在しない。従って正の解が一意になる範囲は
 

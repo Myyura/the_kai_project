@@ -165,7 +165,7 @@ Fix $s_0$ and translate and rotate the coordinates so that $\boldsymbol p(s_0)=(
 There are following 4 possibilities:
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu_2020_math_2_p1.png" width="600" height="140" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/kyotsu/2020/kyotsu_201908_math_2_p1.png" width="600" height="140" alt=""/>
 </figure>
 
 Case 1:

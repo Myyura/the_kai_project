@@ -28,7 +28,7 @@ $y = 0$ の位置から荷電粒子を $+y$ 方向に初速度 $v_0$ で入射�
 ④ 領域 II に飛び出した荷電粒子が，領域 I と領域 II の境界に戻ってくるまでに到達する $y$ の最大値を $y = y_{\max}$ としたとき, $y = 0$ から $y = y_{\max}$ までに外力が荷電粒子にする仕事を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202208_electromagnetism_2_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2023/ee_202208_electromagnetism_2_p1.png" width="400" alt=""/>
 </figure>
 
 (2) 図 $2.2$ のような一様な磁束密度 $B$ の磁場および電場 $E$ の中での荷電粒子の運動を考える。磁場は紙面鉛直方向 (表面から裏面の方向) を向いており，電場は $+y$ 方向を向いている。時刻 $t = 0$  のときに，原点 $O$ に荷電粒子を静かにおいた。そのときの荷電粒子の初速度は $0$ である。 
@@ -56,7 +56,7 @@ $$
 ④ 荷電粒子が到達する $y$ の最大値 $y = y_{\max}$ を求めよ。答には $\omega$ を用いること。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202208_electromagnetism_2_p2.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2023/ee_202208_electromagnetism_2_p2.png" width="400" alt=""/>
 </figure>
 
 ### 题目描述
@@ -128,7 +128,7 @@ $$
 
 #### ③
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee/2023/science-tokyo-ee-202208-trajectory.svg" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2023/science-tokyo-ee-202208-trajectory.svg" width="350" alt=""/>
 </figure>
 
 $$

@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第2問'
+sidebar_label: '2019年8月実施 数学 第2問'
 tags:
   - Tokyo-University
   - Mathematics.Linear-Algebra.Matrix-Trace
@@ -9,7 +9,7 @@ tags:
   - Mathematics.Linear-Algebra.Quadratic-Form
 ---
 
-# 東京大学 工学系研究科 2020年度 数学 第2問
+# 東京大学 工学系研究科 2019年8月実施 数学 第2問
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura

@@ -118,7 +118,7 @@ $$
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_A_5_p1.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_A_5_p1.png" width="450" alt=""/>
 </figure>
 
 **Average Code Length ($\bar{L}$):**
@@ -156,7 +156,7 @@ Thus the redundancy per symbol tends to zero and $\bar L_n/n\to H(S_A)$.
 #### (e)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_A_5_p2.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_A_5_p2.png" width="450" alt=""/>
 </figure>
 
 #### (f) 

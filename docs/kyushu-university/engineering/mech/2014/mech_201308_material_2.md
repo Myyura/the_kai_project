@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問2（材料力学）"
+sidebar_label: "2013年8月実施 問2（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 材料力学 問2
+# 九州大学 工学府 機械系専攻 2013年8月実施 材料力学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 図2の門形構造は、長さ $2\ell$ の水平はり AB と、高さ $\ell$ の柱 AC、BD からなる。C、D は固定端、A、B は剛接合であり、全材の曲げ剛性は $EI$。AB に下向き等分布荷重 $q$ が作用する。O は AB の中点である。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/material-2-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-2-original.png)
 
 1. AB 間の剪断力線図（SFD）と曲げモーメント線図（BMD）を描け。
 2. O の鉛直変位 $\delta_{OV}$ を求めよ。
@@ -58,7 +58,7 @@ $$
 
 SFD は $V(-\ell)=q\ell$ から $V(\ell)=-q\ell$ への直線、BMD は両端 $-4q\ell^2/15$、中央 $7q\ell^2/30$ の放物線である。反曲点は $x=\pm\ell\sqrt{7/15}$。
 
-![AB の SFD と BMD](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/material-2-diagrams.svg)
+![AB の SFD と BMD](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-2-diagrams.svg)
 
 ### (2)
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問題4（数学）"
+sidebar_label: "2013年8月実施 問題4（数学）"
 tags:
   - Osaka-University
   - Mathematics.Differential-Equations.Cauchy-Euler-Equation
   - Mathematics.Differential-Equations.Initial-Value-Problem
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2014年度 数学 問題4
+# 大阪大学 工学研究科 機械工学専攻 2013年8月実施 数学 問題4
 
 ## **Author**
 

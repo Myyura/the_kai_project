@@ -50,7 +50,7 @@ III. 体積がいずれも $V_0$ の容器 A、B を弁でつなぐ。初め A �
 1. この過程で一定に保たれる状態量を答えよ。
 2. 最終温度 $T$ とエントロピー変化 $\Delta S$ を求めよ。
 3. この過程の不可逆性を理由とともに説明せよ。
-![ピストンによる膨張と真空への自由膨張](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2020/kyotsu_201908_phys_3_expansion_audited.svg)
+![ピストンによる膨張と真空への自由膨張](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2020/kyotsu_201908_phys_3_expansion_audited.svg)
 
 #### 题目描述
 

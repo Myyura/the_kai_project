@@ -67,7 +67,7 @@ $$
 
 频谱是以 $\pm f'_m$ 为中心的两个高斯峰，每峰宽度约 $1/(\pi T)$、峰高约 $T\sqrt\pi/2$。
 
-![高斯带通频谱](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201408_senmon_2.svg)
+![高斯带通频谱](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2015/ecei_201408_senmon_2.svg)
 
 ### (3)
 

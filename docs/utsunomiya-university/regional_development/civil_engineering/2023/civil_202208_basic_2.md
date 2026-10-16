@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 第1期 土木工学基礎 問2"
+sidebar_label: "2022年8月実施 第1期 土木工学基礎 問2"
 tags:
   - Utsunomiya-University
   - Mathematics.Linear-Algebra.Matrix-Inverse
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
 
-# 宇都宮大学 地域創生科学研究科 社会デザイン科学専攻 土木工学プログラム 2023年度 第1期 土木工学基礎 問2
+# 宇都宮大学 地域創生科学研究科 社会デザイン科学専攻 土木工学プログラム 2022年8月実施 第1期 土木工学基礎 問2
 
 ## **Author**
 

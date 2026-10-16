@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年秋季 材料力学 第2問"
+sidebar_label: "2017年8月実施 材料力学 第2問"
 tags:
   - Tohoku-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 材料力学 第2問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 材料力学 第2問
 
 ## **Author**
 
@@ -20,7 +20,7 @@ tags:
 1. A、Bで単純支持した場合のC点たわみ $y_C$ を求めよ。
 2. A、Bを剛体天井から、自然長が等しくばね定数がともに $k$ の鉛直ばねで吊るす。ばねの微小変形を仮定し、C点の鉛直変位 $\delta_C$ を求めよ。
 
-![単純支持とばね支持の二つのはり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_materials2.svg)
+![単純支持とばね支持の二つのはり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_materials2.svg)
 
 #### 题目描述
 

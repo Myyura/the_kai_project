@@ -38,7 +38,7 @@ $$
 
 図：原点を通る、奇対称で単調増加し、正負の大振幅で飽和する入出力特性。
 
-![送信機出力段の非線形特性](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-university/IST/denshi/denjo2017_q4_nonlinear.svg)
+![送信機出力段の非線形特性](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2017/denjo201608_q4_nonlinear.svg)
 
 ## **Kai**
 

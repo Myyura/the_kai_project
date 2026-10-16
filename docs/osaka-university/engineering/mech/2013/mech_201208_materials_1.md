@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2013年度 材料力学 問題1"
+sidebar_label: "2012年8月実施 材料力学 問題1"
 tags:
   - Osaka-University
   - Engineering.Mechanics-of-Materials.Bending-Stress
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Castiglianos-Theorem
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2013年度 材料力学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2012年8月実施 材料力学 問題1
 
 ## **Author**
 
@@ -21,7 +21,7 @@ tags:
 2. $Q=0$ のとき、A および B の鉛直方向変位を求めよ。
 3. A の鉛直方向変位を $0$ にするために必要な荷重 $Q$ を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2013/mech_201208_materials_1-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2013/mech_201208_materials_1-question-fig1.png)
 
 #### 题目描述
 

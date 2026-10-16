@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2020年度 問2（流体工学）"
+sidebar_label: "2019年8月実施 問2（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Pipe-Friction
@@ -7,7 +7,7 @@ tags:
   - Engineering.Fluid-Mechanics.Bernoulli-Equation
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 流体工学 問2
+# 九州大学 工学府 機械系専攻 2019年8月実施 流体工学 問2
 
 ## **Author**
 

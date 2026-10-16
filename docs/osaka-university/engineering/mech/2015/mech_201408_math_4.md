@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2015年度 問題4（数学）"
+sidebar_label: "2014年8月実施 問題4（数学）"
 tags:
   - Osaka-University
   - Mathematics.Complex-Analysis.Contour-Integration
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Complex-Analysis.Residue-Theorem
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2015年度 数学 問題4
+# 大阪大学 工学研究科 機械工学専攻 2014年8月実施 数学 問題4
 
 ## **Author**
 

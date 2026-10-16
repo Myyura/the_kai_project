@@ -39,7 +39,7 @@ $$
 4. $\dot\theta>0$ を $g,M,m,a,b,\theta$ で表せ。
 5. B が A から離れる角度 $\theta_c$ を $M,m$ で表せ。
 
-![球殻の微小円輪と滑らず転がる二つの球殻](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2014/kyotsu_201308_phys_1_shells_audited.svg)
+![球殻の微小円輪と滑らず転がる二つの球殻](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_phys_1_shells_audited.svg)
 
 #### 题目描述
 

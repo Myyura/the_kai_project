@@ -60,7 +60,7 @@ $$
 ### 問1
 (i) 偶関数で、原点で零、$x\ne0$ で $0<f(x)<1$。$x>0$ で単調増加、$x<0$ で単調減少し、$x\to\pm\infty$ で $f(x)\to1$。原点の接線は $y=0$。
 
-![m=1 の f(x)=exp(-1/x²) の概形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2012/sys_201108_math_II_flat_function.svg)
+![m=1 の f(x)=exp(-1/x²) の概形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2012/sys_201108_math_II_flat_function.svg)
 
 (ii) $t=|x|^{-2m}$ とおくと
 

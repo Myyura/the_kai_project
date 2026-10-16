@@ -33,7 +33,7 @@ Zero, 祭音Myyura
 (6) 電極 $B$ を一定の速度 $v$ で $x$ 軸の正方向に移動させると、$AC$ を結ぶ導線に電流が流れた。この電流 $I$ の大きさと向きを求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201708_electromagnetism_2_p1.png" width="385" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2018/ee_201708_electromagnetism_2_p1.png" width="385" alt=""/>
 </figure>
 
 ### 题目描述
@@ -93,7 +93,7 @@ $x_B = \frac{d}{2}$で, $F = 0$
 ### (4)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201708_electromagnetism_2_p2.png" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2018/ee_201708_electromagnetism_2_p2.png" width="350" alt=""/>
 </figure>
 
 電荷保存則より、

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年秋季 数学A 第4問"
+sidebar_label: "2017年8月実施 数学A 第4問"
 tags:
   - Tohoku-University
   - Mathematics.Vector-Calculus.Parametric-Surface
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Vector-Calculus.Surface-Integral
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 数学A 第4問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 数学A 第4問
 
 ## **Author**
 
@@ -32,7 +32,7 @@ $$
 4. $\boldsymbol n$ を円筒座標系で求めよ。
 5. $\boldsymbol A=\theta z\boldsymbol e_\theta+\sqrt{2r^2+1}\boldsymbol e_z$ のとき、$\int_S\boldsymbol A\cdot\boldsymbol n\,dS$ を求めよ。
 
-![デカルト座標と円筒座標の基本ベクトル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_matha4.svg)
+![デカルト座標と円筒座標の基本ベクトル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_matha4.svg)
 
 #### 题目描述
 

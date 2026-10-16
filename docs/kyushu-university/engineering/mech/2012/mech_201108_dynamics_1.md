@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2012年度 問1（機械力学）"
+sidebar_label: "2011年8月実施 問1（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Lagrangian-Mechanics
@@ -7,7 +7,7 @@ tags:
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 機械力学 問1
+# 九州大学 工学府 機械系専攻 2011年8月実施 機械力学 問1
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 質量 $m$ の直方体が、左右のばね定数 $k$ のばねで支持され、滑らかな水平面上を動く。直方体の点 O には、質量 $M$、重心 G まわりの慣性モーメント $I$、OG 間距離 $L$ の物理振り子が取り付けられている。左支持部を $u(t)=A\sin\Omega t$ で加振し、右支持部は固定する。O の座標を $(x,0)$、下向き鉛直からの振り子角を $\theta$ とし、$u=x=\theta=0$ が平衡である。（50 点）
 
-![物理振り子を取り付けたばね支持物体（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/dynamics-1-original.png)
+![物理振り子を取り付けたばね支持物体（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_dynamics-1-original.png)
 
 1. 運動エネルギー $T$、ポテンシャルエネルギー $U$ を求めよ。
 2. $x,\theta$ に関する線形化した Lagrange 方程式を求めよ。

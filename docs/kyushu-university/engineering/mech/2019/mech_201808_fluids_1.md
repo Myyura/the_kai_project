@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 問1（流体工学）"
+sidebar_label: "2018年8月実施 問1（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
@@ -7,7 +7,7 @@ tags:
   - Engineering.Fluid-Mechanics.Jet-Propulsion
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 流体工学 問1
+# 九州大学 工学府 機械系専攻 2018年8月実施 流体工学 問1
 
 ## **Author**
 
@@ -32,7 +32,7 @@ $$
 2. 振動翼に作用する単位奥行き当たりの推力 $T$。
 3. 振動翼により流体が得る単位奥行き当たりの動力 $P$。
 
-![原題の図（九州大学 2019年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/fluids-1-original.png)
+![原題の図（九州大学 2019年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_fluids-1-original.png)
 
 #### 题目描述
 

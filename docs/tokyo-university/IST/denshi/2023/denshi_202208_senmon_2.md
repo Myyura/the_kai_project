@@ -41,7 +41,7 @@ Show the truth table of the circuit to output $D$ by using necessary signals.
 Also, show the circuit that genrates $D$ by combining necessary signals and gates from $A_{3:0},B_{2:0},Y_{3:0}$, AND, OR, and NOT shown on the right side of the figure below. The number of gates and inputs can be increased, but the circuit should be simple.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2023_2_p1.png" width="486" height="239" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2023/denshi_202208_2_p1.png" width="486" height="239" alt=""/>
 </figure>
 
 ### 题目描述
@@ -78,7 +78,7 @@ $A:[-8,7],\quad B:[-4,3]$
 
 ### (3)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2023/tokyo-denshi-2022-add.svg" width="1180" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2023/tokyo-denshi-202208-add.svg" width="1180" alt=""/>
 </figure>
 
 ### (4)
@@ -98,13 +98,13 @@ D = A_3B_2\overline{Y}_3 + \overline{A}_3\overline{B}_2Y_3
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2023_2_p3.png" width="700" height="440" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2023/denshi_202208_2_p3.png" width="700" height="440" alt=""/>
 </figure>
 
 ### (5)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2023/tokyo-denshi-2022-subtract.svg" width="1180" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2023/tokyo-denshi-202208-subtract.svg" width="1180" alt=""/>
 </figure>
 
 ### (6)
@@ -124,5 +124,5 @@ D = A_3\overline{B}_2\overline{Y}_3 + \overline{A}_3B_2Y_3
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2023_2_p5.png" width="700" height="440" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2023/denshi_202208_2_p5.png" width="700" height="440" alt=""/>
 </figure>

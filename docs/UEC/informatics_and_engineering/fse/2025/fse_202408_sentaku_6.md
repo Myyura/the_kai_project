@@ -105,7 +105,7 @@ $$
 
 なる円で、$z>0$ 側から見て反時計回りである。
 
-![回転放物面 S と境界円 C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/UEC/informatics_and_engineering/fse/2025/fse_202408_paraboloid.svg)
+![回転放物面 S と境界円 C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/UEC/informatics_and_engineering/fse/2025/fse_202408_paraboloid.svg)
 
 #### (b)
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 問2（数学）"
+sidebar_label: "2018年8月実施 問2（数学）"
 tags:
   - Kyushu-University
   - Discrete-Mathematics.Combinatorics.Recurrence-Relation
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Linear-Algebra.Matrix-Power
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 数学 問2
+# 九州大学 工学府 機械系専攻 2018年8月実施 数学 問2
 
 ## **Author**
 

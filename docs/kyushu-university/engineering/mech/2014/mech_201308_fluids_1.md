@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2014年度 問1（流体工学）"
+sidebar_label: "2013年8月実施 問1（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
@@ -7,7 +7,7 @@ tags:
   - Engineering.Fluid-Mechanics.Bernoulli-Equation
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 流体工学 問1
+# 九州大学 工学府 機械系専攻 2013年8月実施 流体工学 問1
 
 ## **Author**
 
@@ -26,7 +26,7 @@ tags:
 5. $p_3-p_2$ を $V_3,A,A_N,\rho$ で表せ。
 6. $V_3/V_\infty$ を $A,A_N$ で表せ。
 
-![原題の図（九州大学 2014年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/fluids-1-original.png)
+![原題の図（九州大学 2014年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_fluids-1-original.png)
 
 #### 题目描述
 

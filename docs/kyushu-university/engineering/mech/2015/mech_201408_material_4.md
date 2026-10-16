@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2015年度 問4（材料力学）"
+sidebar_label: "2014年8月実施 問4（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Thin-Walled-Pressure-Vessels
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Torsion
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 材料力学 問4
+# 九州大学 工学府 機械系専攻 2014年8月実施 材料力学 問4
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図4の両端が閉じた薄肉円筒は内圧 $q_0$ を受けている。外直径は $D$、肉厚は $h$、長さは $\ell$、材料定数は $E,\nu$ とし、$\ell\gg a>D\gg h$ とする。両端に図の軸方向引張力 $P$ と、長さ $2a$ の腕に作用する一対の荷重 $Q$ を加えられる。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/material-4-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-4-original.png)
 
 1. 中央表面 A で軸方向応力 $\sigma_x$ と円周方向応力 $\sigma_y$ が等しくなる $P$ を $q_0$ の関数として求めよ。
 2. その $P$ に加えて図の $Q$ を作用させる。$xy$ 軸から $\theta$ だけ傾いた $\xi\eta$ 軸方向の垂直ひずみが $\varepsilon_\xi=-\nu\varepsilon_\eta$ を満たすとき、$Q$ を $q_0$ の関数として求めよ。

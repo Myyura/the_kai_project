@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2015年度 材料力学 問題2"
+sidebar_label: "2014年8月実施 材料力学 問題2"
 tags:
   - Osaka-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2015年度 材料力学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2014年8月実施 材料力学 問題2
 
 ## **Author**
 
@@ -23,7 +23,7 @@ tags:
 
 2. 図3のように針を B に接触させ、円筒に $z$ 方向の力 $P$ を加えると、円筒が $U_B$ 移動した。次に図4のように針を C に接触させ、同じ力 $P$ を加えると、円筒が $U_C$ 移動した。ABC の縦弾性係数 $E$ と横弾性係数 $G$ を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2015/mech_201408_materials_2-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2015/mech_201408_materials_2-question-fig1.png)
 
 #### 题目描述
 

@@ -73,4 +73,4 @@ $$
 e\le |w|\le e^2,\qquad 0\le\arg w\le\frac\pi4.
 $$
 
-![長方形の境界と指数写像による扇形環の境界への対応](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2019/nagoya-aisys2019-exponential.svg)
+![長方形の境界と指数写像による扇形環の境界への対応](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/aisys/2019/nagoya-aisys201808-exponential.svg)

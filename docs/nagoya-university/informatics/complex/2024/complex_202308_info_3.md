@@ -139,7 +139,7 @@ $$
 7. $2<11,\ 2<7,\ 2<5$ より，2 は 5 の左。  
 8. $12>11,\ 12<13$ より，12 は 13 の左。  
 
-![8回の挿入による木の変化](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2024/nagoya-complex2024-bst.svg)
+![8回の挿入による木の変化](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2024/nagoya-complex202308-bst.svg)
 
 各挿入では，現在のノードとの比較に応じて左・右の部分木を再帰的に選ぶ。これにより左部分木の**すべて**の値が親より小さく，右部分木の**すべて**の値が親より大きいという条件を保つ。
 

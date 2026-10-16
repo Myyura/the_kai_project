@@ -33,9 +33,9 @@ V. IV の二媒質の抵抗率が十分高く、いずれも絶縁体とみな�
 
 1. 系の静電エネルギーを求めよ。
 2. $\varepsilon_1>\varepsilon_2$ として、媒質界面に働く単位面積あたりの力の大きさを求めよ。
-![同軸円筒導体と二層媒質](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/kyotsu_202108_phys_2_coaxial_audited.svg)
+![同軸円筒導体と二層媒質](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2022/kyotsu_202108_phys_2_coaxial_audited.svg)
 
-![接地前後の電界と電荷の緩和](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/kyotsu_202108_phys_2_graphs_audited.svg)
+![接地前後の電界と電荷の緩和](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2022/kyotsu_202108_phys_2_graphs_audited.svg)
 
 #### 题目描述
 

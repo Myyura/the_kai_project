@@ -22,7 +22,7 @@ Zero, 祭音Myyura
 (2) $\oint_C\frac{(\ln z)^2}{z^2 + 1}dz$ の値を用いて， $\int_{0}^{\infty}\frac{(\ln x)^2}{x^2 + 1}dx = \frac{\pi^3}{8}$ を示せ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2018_complex_function_theory_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/kyotsu/2018/kyotsu_201708_complex_function_theory_p1.png" width="500" alt=""/>
 </figure>
 
 ### 题目描述

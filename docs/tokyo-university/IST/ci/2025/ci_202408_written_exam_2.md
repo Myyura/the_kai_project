@@ -17,7 +17,7 @@ tags:
 We transmit data via packet switching between sender S and receiver R connected as shown in Figure 1. Assume that one-way propagation delay $d_{prop}$ is 250 ms and bandwidth $B$ is 200 kbps. Ignore packet losses and assume that the packets are not fragmented during transmission. The communication is full-duplex. The prefix “k” represents $10^3$.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202408_2_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2025/ci_202408_2_p1.png" width="500" alt=""/>
 </figure>
 
 Answer the following questions.
@@ -37,7 +37,7 @@ We adopt the following communication method to improve communication efficiency 
 Consider a network that transmits data via packet switching as shown in Figure 2. The server stores a file of size $4 \times 10^5$ bytes, and each client acquires the file via the network. First, a client sends a packet that requests the file to the server, and then the server sends the file to the client after receiving the request. Note that the communication between the server and a client is full-duplex. Also, the server and each client are connected by a dedicated communication channel, and therefore its bandwidth is not affected by other communication channels. The packet that requests a file is small enough that we can ignore its transmission delay.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202408_2_p2.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2025/ci_202408_2_p2.png" width="500" alt=""/>
 </figure>
 
 Answer the following questions. Note that time $t$ is the elapsed time measured from the moment Client 1 sends a file request packet.
@@ -174,7 +174,7 @@ Since $\omega$ is an integer, $\omega_{\min}=10$.
 
 The sequence diagram uses milliseconds on both vertical time axes. The shaded strips represent packet transmission, including its first and last bits.
 
-![Continuous sending with window size 10](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2025/tokyo-ci-2024-window.svg)
+![Continuous sending with window size 10](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2025/tokyo-ci-202408-window.svg)
 
 The ACK arrives while S is sending P10, so transmission continues without an idle gap.
 

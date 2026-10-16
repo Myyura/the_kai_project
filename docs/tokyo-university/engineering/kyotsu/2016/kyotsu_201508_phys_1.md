@@ -15,7 +15,7 @@ tags:
 
 半径 $r$、質量 $m$ の一様な中実球 S1、半径 $r$、質量 $3m$ の一様な中実球 S2、および半径 $r$、質量 $m$ で厚さを無視できる一様な球殻 S3 を考える。図のように、水平面となす角が $\theta$ の粗い斜面上の点 A にいずれかの球を置き、静かに放す。重力加速度を $g$ とする。重力は球の中心 O に、垂直抗力 $N$ と摩擦力 $F$ は接点 P に作用する。O のまわりの角速度を $\omega$ とし、反時計回りを正とする。
 
-![斜面上を転がる球と作用する力](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2016/kyotsu_201508_phys_1_rolling_audited.svg)
+![斜面上を転がる球と作用する力](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2016/kyotsu_201508_phys_1_rolling_audited.svg)
 
 ### I
 

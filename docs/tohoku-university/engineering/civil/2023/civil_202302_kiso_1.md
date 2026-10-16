@@ -77,7 +77,7 @@ $$
 
 $xy$ 平面への射影は $(x-1/2)^2+y^2\le1/4$ の上半円であり、その上に高さ $2\sqrt{x}$ まで積み上げた立体である。
 
-![領域Dの概形。上半円の底面と上面z=2√x。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/civil/2023/tohoku-civil-2023-region.svg)
+![領域Dの概形。上半円の底面と上面z=2√x。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/civil/2023/tohoku-civil-202302-region.svg)
 
 #### (2)
 

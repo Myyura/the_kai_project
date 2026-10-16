@@ -22,7 +22,7 @@ tags:
 4. 交流電源の力率を $1$ にできる抵抗 $R_L$ の条件を示せ。
 5. 交流電源の角周波数を $\omega=\omega_0$ 一定とし、抵抗 $R_L$ を調整して $R_L$ で消費される電力を最大にしたい。電力が最大となる抵抗 $R_L$ を求めよ。
 
-![図2.1 直列の抵抗・インダクタと並列のコンデンサ・負荷抵抗](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2017/ee_201708_electrical_circuit_2_original_fig2-1.png)
+![図2.1 直列の抵抗・インダクタと並列のコンデンサ・負荷抵抗](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2018/ee_201708_electrical_circuit_2_original_fig2-1.png)
 
 図の出典：東京工業大学 電気電子系 2017年実施問題（原図）。
 

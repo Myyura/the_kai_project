@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 問1（材料力学）"
+sidebar_label: "2018年8月実施 問1（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Truss
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Strain-Energy
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 材料力学 問1
+# 九州大学 工学府 機械系専攻 2018年8月実施 材料力学 問1
 
 ## **Author**
 
@@ -19,7 +19,7 @@ tags:
 
 点 G に徐々に鉛直下向きの力を加え、その大きさが $P$ に達したときの鉛直変位を $\delta_y$、水平変位を $\delta_x$ とする。正方向は図中の $x,y$ 軸の矢印方向とする。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/material-1-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_material-1-original.png)
 
 1. 変位の比 $\delta_y/\delta_x$ を求めよ。
 2. $\theta=45^\circ$ のとき、$\delta_y$ を求めよ。

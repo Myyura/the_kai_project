@@ -26,7 +26,7 @@ tags:
 - 図 2.1：半径 $a$ の球の内部に電荷が一様に分布している。中心からの距離を $r$ とし、中心の電位を $V=0$ とする。
 - 図 2.2：$-a<x<a$、$-\infty<y,z<\infty$ の領域に電荷が一様に分布している。$x=0$ の電位を $V=0$ とする。
 
-![一様に帯電した球と無限平板領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2024/kyotsu_202308_phys_2_distributions_audited.svg)
+![一様に帯電した球と無限平板領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2024/kyotsu_202308_phys_2_distributions_audited.svg)
 
 1. 図 2.1 の電位 $V$ を $r$ の関数として求め、図示せよ。
 2. 図 2.2 の電位 $V$ を $x$ の関数として求め、図示せよ。
@@ -42,7 +42,7 @@ tags:
 
 電気映像法を用いるため、図 2.4 では全空間を誘電体 1 で満たし P に電荷 $q'$ を置く。図 2.5 では全空間を誘電体 2 で満たし、P の電荷 $q$ に加え、Q$(0,0,-a)$ に電荷 $q''$ を置く。
 
-![誘電体界面と二つの等価電荷配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2024/kyotsu_202308_phys_2_images_audited.svg)
+![誘電体界面と二つの等価電荷配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2024/kyotsu_202308_phys_2_images_audited.svg)
 
 1. 図 2.4 の点 $(x,y,z)$ における電位 $\phi_1(x,y,z)$ を求めよ。
 2. 図 2.5 の点 $(x,y,z)$ における電位 $\phi_2(x,y,z)$ を求めよ。
@@ -123,7 +123,7 @@ $$
 
 偶関数であり、内部は放物線、外部は接線につながる直線となる。
 
-![球と無限平板領域の電位のグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2024/kyotsu_202308_phys_2_potentials_audited.svg)
+![球と無限平板領域の電位のグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2024/kyotsu_202308_phys_2_potentials_audited.svg)
 
 #### I.3
 

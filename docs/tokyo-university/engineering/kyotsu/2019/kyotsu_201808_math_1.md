@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第1問'
+sidebar_label: '2018年8月実施 数学 第1問'
 tags:
   - Tokyo-University
   - Mathematics.Differential-Equations.Cauchy-Euler-Equation
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Definite-Integral
 ---
 
-# 東京大学 工学系研究科 2019年度 数学 第1問
+# 東京大学 工学系研究科 2018年8月実施 数学 第1問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)

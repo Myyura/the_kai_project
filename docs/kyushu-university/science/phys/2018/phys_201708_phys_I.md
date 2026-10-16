@@ -8,7 +8,7 @@ tags:
   - Physics.Mechanics.Rigid-Body-Rotation-and-Rolling
 ---
 
-# 九州大学 理学府 物理学専攻 2018年度 入学試験 物理学 \[I\]
+# 九州大学 理学府 物理学専攻 2017年8月実施 入学試験 物理学 \[I\]
 
 ## **Author**
 
@@ -19,7 +19,7 @@ tags:
 
 図1のように、質量 $m_1,m_2$ の2質点が位置 $\boldsymbol r_1,\boldsymbol r_2$ にある。質点間には距離に比例する引力がはたらき、比例定数を $k$ とする。外力はない。
 
-![図1：2質点の位置ベクトル](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/kyushu_university/science/phys/2018/phys_201708_I_fig1.png)
+![図1：2質点の位置ベクトル](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/kyushu-university/science/phys/2018/phys_201708_I_fig1.png)
 
 この系の運動を、重心
 
@@ -59,19 +59,19 @@ $$
 
 図2aのように、質量と厚さを無視できる半径 $3a$ の円筒と、その表面上の点 $P$ に固定した質量 $m$ の質点からなる円筒振り子がある。円筒は水平に固定された中心軸 $O$ のまわりに回転でき、点 $P$ は重力によって振り子のように振動する。
 
-![図2a：円筒振り子](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/kyushu_university/science/phys/2018/phys_201708_I_fig2a.png)
+![図2a：円筒振り子](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/kyushu-university/science/phys/2018/phys_201708_I_fig2a.png)
 
 1. 円筒振り子の軸 $O$ のまわりの慣性モーメントを求めよ。
 
 次に図2bのように、その内面上に半径 $a$、質量 $3m/2$ の一様な円柱を置く。円柱は中心軸 $O'$ を軸 $O$ と平行に保ち、円筒振り子の内面を滑らずに転がる。点 $P$ と円柱が接したときに $P$ と一致する円柱上の点を $P'$ とする。
 
-![図2b：円筒内の一様な円柱](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/kyushu_university/science/phys/2018/phys_201708_I_fig2b.png)
+![図2b：円筒内の一様な円柱](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/kyushu-university/science/phys/2018/phys_201708_I_fig2b.png)
 
 2. 円柱の中心軸 $O'$ のまわりの慣性モーメントが $3ma^2/4$ となることを示せ。
 
 図2cのように、円筒振り子の点 $P$ の軸 $O$ まわりの回転角を $\theta$、円柱の点 $P'$ の軸 $O'$ まわりの回転角を $\phi$、円柱重心 $O'$ の軸 $O$ まわりの回転角を $\alpha$ とする。いずれも鉛直下方をゼロとし、図の反時計回りを正とする。
 
-![図2c：回転角の定義](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/kyushu_university/science/phys/2018/phys_201708_I_fig2c.png)
+![図2c：回転角の定義](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/kyushu-university/science/phys/2018/phys_201708_I_fig2c.png)
 
 3. 系の運動エネルギーを、円筒振り子の軸 $O$ まわりの回転、円柱の軸 $O'$ まわりの回転、円柱重心の軸 $O$ まわりの回転の各運動エネルギーの和として、$\dot\theta,\dot\phi,\dot\alpha$ を用いて表せ。
 4. 系の位置エネルギーは点 $P$ と円柱重心 $O'$ の位置エネルギーの和である。$|\theta|\ll1,|\alpha|\ll1$ の微小振動に対し、$\theta,\alpha$ の2次までの近似式を求めよ。点 $P$ には $\theta=0$、点 $O'$ には $\alpha=0$ を位置エネルギーの基準とし、重力加速度の大きさを $g$ とする。

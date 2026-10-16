@@ -34,7 +34,7 @@ $$
 (4) 図3はロボットの基準座標系で定義される位置と姿勢を指定することでその場所へ動かすことができるロボットハンドの投影像を示す．ロボットハンドの指先F1, F2の投影面上の運動軌跡を画像処理によって得られるとする．直交する3つの方向にロボットハンドを動かして，ロボットの基準座標系からカメラ座標系への変換行列を得る方法を考える．3つの消失点座標に加えて，他にどのような情報が必要となるか説明せよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200508_3_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2006/ci_200508_3_p1.png" width="600" alt=""/>
 </figure>
 
 ### 题目描述
@@ -70,7 +70,7 @@ Answer the questions below.
 (4) Fig. 3 shows an image of a robot hand controllable by specifying its position and orientation in the base coordinate system of the robot. Image processing provides the motion trajectories of the end points F1, F2 of the robot fingers on the screen. Consider the method to get the transformation matrix from the robot base coordinate system to the camera coordinate system by translating the robot hand in three orthogonal directions. Explain what kind of additional information other than the coordinates of three vanishing points is required to get the transformation matrix.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200508_3_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2006/ci_200508_3_p1.png" width="600" alt=""/>
 </figure>
 
 ## **Kai**

@@ -111,4 +111,4 @@ $$
 
 下図は $\tau=\sqrt{cg}\,t$、$Y=c(y-h)$ による表示である。横軸を $1/\sqrt{cg}$ 倍し、縦軸を $1/c$ 倍して $h$ だけ上へ移すと、$t$–$y$ 平面のグラフを得る。
 
-![解 Y=-log cosh τ と漸近線 Y=-τ+log 2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2018/nagoya-complex2018-falling.svg)
+![解 Y=-log cosh τ と漸近線 Y=-τ+log 2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2018/nagoya-complex201708-falling.svg)

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2014年度 機械力学・機構学 問題1"
+sidebar_label: "2013年8月実施 機械力学・機構学 問題1"
 tags:
   - Osaka-University
   - Physics.Mechanics.Lagrangian-Mechanics
@@ -7,7 +7,7 @@ tags:
   - Physics.Mechanics.Rigid-Body-Moment-of-Inertia
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2014年度 機械力学・機構学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2013年8月実施 機械力学・機構学 問題1
 
 ## **Author**
 
@@ -24,7 +24,7 @@ P にねじりばねを取り付け、棒と円板の相対角 $\phi-\theta$ が
 3. 2 つの固有角振動数 $\omega_1,\omega_2$（$\omega_1>\omega_2$）を求めよ。
 4. $k\to\infty$ のときの $\omega_2$ の極限を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2014/mech_201308_dynamics_1-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2014/mech_201308_dynamics_1-question-fig1.png)
 
 #### 题目描述
 

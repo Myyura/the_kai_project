@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年度 専門部門 問題6（電気回路）"
+sidebar_label: "2017年8月実施 専門部門 問題6（電気回路）"
 tags:
   - Nagoya-University
   - Electrical-Electronic.Circuits.Nodal-Analysis
@@ -7,7 +7,7 @@ tags:
   - Electrical-Electronic.Circuits.Two-Port-Network
 ---
 
-# 名古屋大学 工学研究科 機械航空系 2018年度 専門部門 問題6
+# 名古屋大学 工学研究科 機械航空系 2017年8月実施 専門部門 問題6
 
 ## **Author**
 
@@ -24,7 +24,7 @@ tags:
 3. 図3の $E_n$ を $E_{n-1}$ を用いて表せ。
 4. $E_n$ を $n,V$ で表せ。
 
-![抵抗ラダーの 1 段、2 段、n 段の配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/engineering/mae/2018/nagoya2017_specialist6_ladder.svg)
+![抵抗ラダーの 1 段、2 段、n 段の配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/nagoya201708_specialist6_ladder.svg)
 
 ### (2)
 
@@ -33,7 +33,7 @@ tags:
 1. $M=0$ のときの $\dot I_1,\dot I_2$ を求めよ。
 2. $M>0$ を考慮したときの $\dot I_1,\dot I_2$ を求めよ。
 
-![相互誘導回路の電圧・電流方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/engineering/mae/2018/nagoya2017_specialist6_mutual.svg)
+![相互誘導回路の電圧・電流方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/nagoya201708_specialist6_mutual.svg)
 
 ### (3)
 
@@ -47,7 +47,7 @@ $$
 
 図5は入力端に $L$ と $C$ の並列枝を持ち、その後に容量 $C$ の直列コンデンサを置く。図6は入力端・出力端にそれぞれ $L$ と $C$ の並列枝を持ち、その間に容量 $C/2$ の直列コンデンサを置く。両回路の F 行列を求めよ。
 
-![図5と図6の二端子対回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/engineering/mae/2018/nagoya2017_specialist6_twoport.svg)
+![図5と図6の二端子対回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/nagoya201708_specialist6_twoport.svg)
 
 #### 题目描述
 

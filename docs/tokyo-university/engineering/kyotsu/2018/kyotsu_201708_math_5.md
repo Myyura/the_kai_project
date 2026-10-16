@@ -1,12 +1,12 @@
 ---
-sidebar_label: '数学 第5問'
+sidebar_label: '2017年8月実施 数学 第5問'
 tags:
   - Tokyo-University
   - Mathematics.Fourier-Analysis.Fourier-Series
   - Mathematics.Linear-Algebra.Unitary-Discrete-Fourier-Transform-Matrix
 ---
 
-# 東京大学 工学系研究科 2018年度 数学 第5問
+# 東京大学 工学系研究科 2017年8月実施 数学 第5問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)

@@ -149,7 +149,7 @@ $$
 
 を得る。すなわち、$w$ の範囲は中心 $1+i$、半径 $1$ の円の内部である。境界は含まない。
 
-![Mobius 像領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/math3-mobius-region-audited.svg)
+![Mobius 像領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_math3-mobius-region-audited.svg)
 
 ### III.1
 

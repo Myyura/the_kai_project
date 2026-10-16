@@ -36,7 +36,7 @@ Answer the following questions.
 (7) Simplify the logic as much as possible using the Karnaugh maps in (6), and draw the circuit using MIL simbols shown in the Fig.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p1.png" width="700" height="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2024/denshi_202308_2_p1.png" width="700" height="600" alt=""/>
 </figure>
 
 ### 题目描述
@@ -94,7 +94,7 @@ State $B$ should be the initial state. Since any two consecutive input $BX$ only
 
 ### (4)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p3.png" width="400" height="800" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2024/denshi_202308_2_p3.png" width="400" height="800" alt=""/>
 </figure>
 
 States $A$ and $D$ are equivalent: their outputs agree for every input, and their next states are identical. Encode $AD=00$, $B=01$, $C=10$.
@@ -115,7 +115,7 @@ stateDiagram-v2
 
 ### (5)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p5.png" width="500" height="700" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2024/denshi_202308_2_p5.png" width="500" height="700" alt=""/>
 </figure>
 
 ### (6)
@@ -162,5 +162,5 @@ Here $I_1=X_1$, $I_0=X_0$, and $d$ denotes the unused state. Initialize $(S_1,S_
 
 ### (7)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p7.png" width="650" height="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2024/denshi_202308_2_p7.png" width="650" height="500" alt=""/>
 </figure>

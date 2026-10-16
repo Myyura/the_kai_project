@@ -493,7 +493,7 @@ $$
 
 
 
-![Lineweaver–Burk プロット](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/tokyo-kyotsu-202508-inhibition.svg)
+![Lineweaver–Burk プロット](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/tokyo-kyotsu-202508-inhibition.svg)
 
 ## **Reference**
 

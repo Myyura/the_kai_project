@@ -50,7 +50,7 @@ $$
 
 と表すとき、$C_n$ を求めよ。
 
-![電圧Vの周期波形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2023/math5-voltage.svg)
+![電圧Vの周期波形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2023/kyotsu_202208_math5-voltage.svg)
 
 #### 题目描述
 

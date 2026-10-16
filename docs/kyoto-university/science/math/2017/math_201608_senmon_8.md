@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 専門科目 [8]（周期的な4階拡散方程式）"
+sidebar_label: "2016年8月実施 専門科目 [8]（周期的な4階拡散方程式）"
 tags:
   - Kyoto-University
   - Mathematics.Fourier-Analysis.Fourier-Series
   - Mathematics.Functional-Analysis.Uniform-Convergence
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2017年度 専門科目 問題8
+# 京都大学 理学研究科 数学・数理解析専攻 2016年8月実施 専門科目 問題8
 
 ## **Author**
 

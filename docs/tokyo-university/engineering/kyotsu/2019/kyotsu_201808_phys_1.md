@@ -30,7 +30,7 @@ tags:
 3. 滑らずに転がり始めるまでの時間 $t_1$ と移動距離 $x_1$ を求めよ。
 4. $x_1$ より十分遠方に、水平面となす角 $\theta$ の粗い斜面がある。円筒が滑らずに転がって登れる最大の高さを求めよ。$\theta$ は十分小さく、水平面から斜面へ接触を保ったまま移れるとする。
 
-![慣性を持つ滑車と、回転する中空円筒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2019/kyotsu_201808_phys_1_pulley_rolling_audited.svg)
+![慣性を持つ滑車と、回転する中空円筒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2019/kyotsu_201808_phys_1_pulley_rolling_audited.svg)
 
 #### 题目描述
 

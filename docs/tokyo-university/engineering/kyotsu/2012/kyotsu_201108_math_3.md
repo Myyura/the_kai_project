@@ -39,7 +39,7 @@ k(re^{i\theta})=\frac1{2\pi}\int_0^{2\pi}
 \frac{1-r^2}{1+r^2-2r\cos(\theta-\varphi)}k(e^{i\varphi})\,d\varphi.
 $$
 
-![図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2012/kyotsu_201108_math_3_contour.svg)
+![図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2012/kyotsu_201108_math_3_contour.svg)
 
 #### 题目描述
 

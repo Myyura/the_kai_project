@@ -30,7 +30,7 @@ Zero
 (6) 小信号入力電圧 $v_{in}$ に対する小信号出力電圧 $v_{out}$ を求めよ。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202208_electrical_circuit_1_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2023/ee_202208_electrical_circuit_1_p1.png" width="500" alt=""/>
 </figure>
 
 ### 题目描述
@@ -87,7 +87,7 @@ $$
 ### (5)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202208_electrical_circuit_1_p2.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2023/ee_202208_electrical_circuit_1_p2.png" width="400" alt=""/>
 </figure>
 
 ### (6)

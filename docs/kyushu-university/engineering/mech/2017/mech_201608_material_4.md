@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年度 問4（材料力学）"
+sidebar_label: "2016年8月実施 問4（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Thin-Walled-Pressure-Vessels
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 材料力学 問4
+# 九州大学 工学府 機械系専攻 2016年8月実施 材料力学 問4
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 長さ $L$、内径 $d_0$、肉厚 $w$ の薄肉円筒の両端が剛体円板で閉じられている。材料のヤング率を $E$、ポアソン比を $\nu$ とし、$L\gg d_0\gg w$ とする。円筒に内圧 $p$ を負荷する。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/material-4-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-4-original.png)
 
 1. 円筒中央に生じる軸方向応力 $\sigma_a$ と円周方向応力 $\sigma_t$ を求めよ。
 2. 中央の円周方向ひずみ $\varepsilon_t$ を求めよ。

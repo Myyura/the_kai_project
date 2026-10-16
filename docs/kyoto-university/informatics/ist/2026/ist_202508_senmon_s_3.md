@@ -135,7 +135,7 @@ $$
 
 相同概率之间可以任选顺序。以下码树给出一种选择。
 
-![Huffman code tree](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2026/kyoto-ist-2025-huffman.svg)
+![Huffman code tree](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2026/kyoto-ist-202508-huffman.svg)
 
 |符号|$a$|$b$|$c$|$d$|$e$|$f$|
 |---|---|---|---|---|---|---|

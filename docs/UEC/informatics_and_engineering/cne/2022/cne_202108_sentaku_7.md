@@ -133,4 +133,4 @@ $$
 
 両手法の安定領域を次に示す。着色部分と円周を含む。
 
-![陽的 Euler 法と陰的 Euler 法の安定領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/UEC/informatics_and_engineering/cne/2022/euler-stability.svg)
+![陽的 Euler 法と陰的 Euler 法の安定領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/UEC/informatics_and_engineering/cne/2022/cne_202108_euler-stability.svg)

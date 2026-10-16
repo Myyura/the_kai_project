@@ -144,4 +144,4 @@ y = x + 5e^{-x}
 $$
 
 
-![五つの等傾線上の方向場と初期値解](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2025/nagoya-complex2025-direction-field.svg)
+![五つの等傾線上の方向場と初期値解](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2025/nagoya-complex202408-direction-field.svg)

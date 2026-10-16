@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2010年度 問1（流れ学）"
+sidebar_label: "2009年8月実施 問1（流れ学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
   - Engineering.Fluid-Mechanics.Bernoulli-Equation
 ---
 
-# 九州大学 工学府 機械系専攻 2010年度 流れ学 問1
+# 九州大学 工学府 機械系専攻 2009年8月実施 流れ学 問1
 
 ## **Author**
 
@@ -20,7 +20,7 @@ tags:
 2. 図bのようにディフューザ中に円柱を置き、(1)と同量を流す。断面IIで後流幅が最大 $2b<B_2$ となり、主流と後流は各々一様速度 $U,cU$（$0<c<1$）を持つ。断面I、IIの液柱高さが等しいとき、$U,c$ を求めよ。
 3. (2)の場合の断面I、IIIの液柱高さの差 $h_2$ を求めよ。
 
-![原題の図（九州大学 2010年度 流れ学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2010/fluids-1-original.png)
+![原題の図（九州大学 2010年度 流れ学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2010/mech_200908_fluids-1-original.png)
 
 #### 题目描述
 

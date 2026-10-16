@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年度 問2（材料力学）"
+sidebar_label: "2015年8月実施 問2（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 材料力学 問2
+# 九州大学 工学府 機械系専攻 2015年8月実施 材料力学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 高さ $d$ の浮きを水に浮かべ、図のように片持ちはり AB の先端 A と浮きを高さ $h$ の回転支点で結ぶ。はりは長さ $\ell$、曲げ剛性 $EI$ であり、B で壁に固定され、初期状態で水面と平行である。水面からはり下面までの距離を $c$ とし、$h\ll c<d$ とする。浮きは傾かず鉛直方向にだけ動く。浮きの密度を $\rho_f$、水の密度を $\rho_w$、水平断面積を $S$、重力加速度を $g$ とし、$\rho_f<\rho_w$ とする。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/material-2-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-2-original.png)
 
 1. $c$ と $d$ の関係を求めよ。
 2. A に下向き荷重 $P$ を加えたとき、A の変位を求めよ。

@@ -100,7 +100,7 @@ $$
 
 したがってグラフは全区間で単調増加かつ上に凸であり，$x=-1$ で鉛直接線，$x=1$ で水平接線をもつ。
 
-![関数のグラフ。左端は鉛直接線、右端は水平接線。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce/2022/kyoto-cce-2021-a1-curve.svg)
+![関数のグラフ。左端は鉛直接線、右端は水平接線。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2022/kyoto-cce-202107-a1-curve.svg)
 
 ### (2)
 

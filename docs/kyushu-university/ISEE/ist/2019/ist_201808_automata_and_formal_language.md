@@ -19,7 +19,7 @@ Zero, 祭音Myyura
 ただし、$K = \{ q_0, q_1 \}$, $\Sigma = \{ a, b \}$, $\delta$, $q_0$, $F = \{ q_0, q_1 \}$ は、それぞれ状態の集合、アルファベット、遷移関数、初期状態、最終状態の集合を表す。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_automata_and_formal_language_p1.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_automata_and_formal_language_p1.png" width="400" alt=""/>
 </figure>
 
 (1) $M$ が受理する長さ 4 の文字列をすべて列挙せよ。
@@ -47,7 +47,7 @@ $$
 例えば $G$ は文字列 4+4−10 を次の導出木により生成する。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_automata_and_formal_language_p2.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_automata_and_formal_language_p2.png" width="400" alt=""/>
 </figure>
 
 次の各問い (1), (2) に答えよ。
@@ -82,7 +82,7 @@ $G'$ は例えば 0 や 1+301 や 0+0-203 を生成するが、00 や 1+0301 は
 
 【问题 1】给定非确定性有限自动机 $M=(K,\Sigma,\delta,q_0,F)$，其中
 $K=\{q_0,q_1\}$、$\Sigma=\{a,b\}$、初始状态为 $q_0$、终态集合
-$F=\{q_0,q_1\}$，转移函数 $\delta$ 见[原题状态迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_automata_and_formal_language_p1.png)。回答：
+$F=\{q_0,q_1\}$，转移函数 $\delta$ 见[原题状态迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_automata_and_formal_language_p1.png)。回答：
 
 1. 枚举 $M$ 接受的所有长度为 $4$ 的字符串。
 2. 记 $M$ 接受的语言为 $L_1$，描述 $L_1$ 中字符串的共同特征。
@@ -100,7 +100,7 @@ D &\rightarrow 0 \mid 1 \mid 2 \mid 3 \mid 4 \mid 5 \mid 6 \mid 7 \mid 8 \mid 9.
 \end{aligned}
 $$
 
-能从 $S$ 按产生式改写得到的字符串即为 $G$ 生成的字符串；原题以 `4+4−10` 的[推导树](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_automata_and_formal_language_p2.png)为例。回答：
+能从 $S$ 按产生式改写得到的字符串即为 $G$ 生成的字符串；原题以 `4+4−10` 的[推导树](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_automata_and_formal_language_p2.png)为例。回答：
 
 1. 分别判断下列字符串能否由 $G$ 生成；若能，画出推导树；若不能，说明理由：
    - (a) `5+13+9`
@@ -135,13 +135,13 @@ $b$ が連続しない文字列
 #### (3)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_automata_and_formal_language_p3.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_automata_and_formal_language_p3.png" width="450" alt=""/>
 </figure>
 
 #### (4)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_automata_and_formal_language_p4.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_automata_and_formal_language_p4.png" width="500" alt=""/>
 </figure>
 
 
@@ -150,14 +150,14 @@ $b$ が連続しない文字列
 ##### (a)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_automata_and_formal_language_p5.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_automata_and_formal_language_p5.png" width="400" alt=""/>
 </figure>
 
 
 ##### (b)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_automata_and_formal_language_p6.png" width="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_automata_and_formal_language_p6.png" width="200" alt=""/>
 </figure>
 
 ##### ($c$)

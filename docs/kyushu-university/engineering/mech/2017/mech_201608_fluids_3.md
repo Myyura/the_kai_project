@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 問3（流体工学）"
+sidebar_label: "2016年8月実施 問3（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Falling-Film
   - Engineering.Fluid-Mechanics.Navier-Stokes-Equations
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 流体工学 問3
+# 九州大学 工学府 機械系専攻 2016年8月実施 流体工学 問3
 
 ## **Author**
 
@@ -24,7 +24,7 @@ tags:
 4. 厚さ $h$ を $\theta,U,\rho,L,g$ で表せ。
 5. 水がすべて斜面上方（$x$ の負方向）に流れるために必要な板速度の下限 $U_{\min}$ を $\theta,\rho,\mu,L,g$ で表せ。
 
-![原題の図（九州大学 2017年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/fluids-3-original.png)
+![原題の図（九州大学 2017年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_fluids-3-original.png)
 
 #### 题目描述
 

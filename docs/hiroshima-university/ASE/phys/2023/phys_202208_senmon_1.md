@@ -48,7 +48,7 @@ tags:
 
 (5) この系の固有振動モードは3種類ある。それぞれを図を用いて説明せよ。
 
-![図1：上端の質点の座標が x2、下端が x1、棒の中点につながる質点が x3。すべてのばね定数は k、質量は m](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/phys/2023/phys_202208_1_apparatus.svg)
+![図1：上端の質点の座標が x2、下端が x1、棒の中点につながる質点が x3。すべてのばね定数は k、質量は m](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/phys/2023/phys_202208_1_apparatus.svg)
 
 
 ### 题目描述
@@ -135,7 +135,7 @@ $$
 
 である。したがって、包絡線 $x=\pm\sqrt{A^2+B^2}\exp(-ct/2m)$ の内側で平衡点を繰り返し通過する減衰振動となる。
 
-![指数関数的に減少する上下の包絡線と、平衡点を繰り返し横切る減衰振動](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/phys/2023/phys_202208_1_underdamped.svg)
+![指数関数的に減少する上下の包絡線と、平衡点を繰り返し横切る減衰振動](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/phys/2023/phys_202208_1_underdamped.svg)
 
 #### (3)
 $c^2 \gt 4mk$ のときの一般解は、任意定数を $A,B$ として、
@@ -150,7 +150,7 @@ $$
 
 である。二つの指数はいずれも負なので、振動せずに平衡点へ近づく。下図は $x(0)>0,\ \dot x(0)=0$ の場合である。
 
-![正の初期変位から静かに放した過減衰振子が振動せず平衡点に近づく例](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/phys/2023/phys_202208_1_overdamped.svg)
+![正の初期変位から静かに放した過減衰振子が振動せず平衡点に近づく例](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/phys/2023/phys_202208_1_overdamped.svg)
 
 ### 2.
 #### (1)

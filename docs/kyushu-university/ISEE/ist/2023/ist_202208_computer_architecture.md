@@ -25,7 +25,7 @@ tags:
 積項数が等しい積和形論理式が複数ある場合にはそのなかでリテラル数が最小のものを指す．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2023_computer_architecture_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2023/ist_202208_computer_architecture_p1.png" width="500" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -80,7 +80,7 @@ $$
 ### 题目描述
 
 【问题 1】一个由若干逻辑门和子电路 $H$ 构成的组合逻辑电路，其输出函数
-$F(a,b,c,d)$ 的真值表及连接方式见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2023_computer_architecture_p1.png)。求子电路的逻辑函数 $H(s,t,u,v)$ 的最简积和式。“最简”首先要求积项数最少；若有多个积项数相同的表达式，则取文字总数最少者。
+$F(a,b,c,d)$ 的真值表及连接方式见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2023/ist_202208_computer_architecture_p1.png)。求子电路的逻辑函数 $H(s,t,u,v)$ 的最简积和式。“最简”首先要求积项数最少；若有多个积项数相同的表达式，则取文字总数最少者。
 
 【问题 2】考虑具有流水数据通路的微处理器。程序执行时间 $ET$ 可由总执行指令数 $IC$、每时钟周期执行指令数 $IPC$ 和工作频率 $F$ 表示为
 
@@ -166,7 +166,7 @@ $$
 |10|0|1|0|0|
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2023_computer_architecture_p2.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2023/ist_202208_computer_architecture_p2.png" width="400" alt=""/>
 </figure>
 
 $$

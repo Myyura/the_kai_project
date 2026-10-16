@@ -45,7 +45,7 @@ $$
 この過程について、以下の問いに答えよ。ただし、多孔質栓の体積は無視できるとする。
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/phys_202208_4_p1.png" width="600" height="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/phys/2023/phys_202208_4_p1.png" width="600" height="200" alt=""/>
 </figure>
 
 (5) この過程でエンタルピーが保存されることを示せ。

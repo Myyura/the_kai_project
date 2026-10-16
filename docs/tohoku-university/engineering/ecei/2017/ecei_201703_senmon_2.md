@@ -94,7 +94,7 @@ $$
 
 各瓣互不重叠：B 点在 $\pm f_c$ 各有一个半高主瓣；C 点在原点有完整主瓣，在 $\pm2f_c$ 各有一个半高主瓣。接收低通仅保留 $S'(f)$，故 $Y(f)=S'(f)$，即 $\boxed{y(t)=s'(t)}$。
 
-![输入、发送低通后、调制后与解调后的幅度谱](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201703_senmon_2_spectra.svg)
+![输入、发送低通后、调制后与解调后的幅度谱](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2017/ecei_201703_senmon_2_spectra.svg)
 
 ### (5)
 

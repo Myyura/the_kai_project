@@ -1,12 +1,12 @@
 ---
-sidebar_label: "令和8年度第1回（2025年10月実施） 外国人留学生 医療経済学"
+sidebar_label: "2025年10月実施 第1回 外国人留学生 医療経済学"
 tags:
   - Yamaguchi-University
   - Economics.Public-Finance.Health-Economics-and-Nursing-Services
   - Business-Administration.Human-Resource-Management.Nursing-Workforce
 ---
 
-# 山口大学 人間社会科学研究科 経済学・経営学専攻 医療・福祉経営コース 令和8年度第1回（2025年10月実施） 外国人留学生入試 医療経済学
+# 山口大学 人間社会科学研究科 経済学・経営学専攻 医療・福祉経営コース 2025年10月実施 第1回 外国人留学生入試 医療経済学
 
 ## **Author**
 祭音Myyura (co-authored with GPT 5.6 SOL)

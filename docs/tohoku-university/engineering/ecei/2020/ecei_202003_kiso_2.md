@@ -1,11 +1,11 @@
 ---
-sidebar_label: 2020年2・3月実施 基礎科目 問題2 電気回路
+sidebar_label: 2020年3月実施 基礎科目 問題2 電気回路
 tags:
   - Tohoku-University
   - Electrical-Electronic.Circuits.Transmission-Line-and-Impedance-Matching
   - Electrical-Electronic.Circuits.Circuit-Transient-Response
 ---
-# 東北大学 工学研究科 電気・情報系 2020年2・3月実施 基礎科目 問題2 電気回路
+# 東北大学 工学研究科 電気・情報系 2020年3月実施 基礎科目 問題2 電気回路
 
 ## **Author**
 [蛋黄猫物理 (xhs: 94162357270)](https://www.xiaohongshu.com/user/profile/67173192000000001e009fa7?xsec_token=YBaJbvO4qazzvNUB-8gkqSwFa4usRBcKTQe93j6tfxtPw=)
@@ -40,7 +40,7 @@ $$
 - (c) $t_1 = 10L/R$ のとき、$0 < t <2t_1$ における $v_L(t)$ の概形を描け。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202003_kiso_2_electrical_circuit_p1.png" width="400"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2020/ecei_202003_kiso_2_electrical_circuit_p1.png" width="400"/>
 </figure>
 
 ### 题目描述
@@ -138,4 +138,4 @@ $$
 
 $t_1=10\tau=10L/R$，所以 $e^{-10}\ll1$。电压从 $v_L(0^+)=E_0$ 衰减至 $v_L(t_1^-)=E_0e^{-10}\simeq0$，在 $t_1$ 跳至 $-E_0(1-e^{-10})\simeq-E_0$，再从负侧趋近零。
 
-![RL 脉冲响应，横轴为 t/τ、纵轴为 v_L/E_0](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2020/ecei_202003_rl.svg)
+![RL 脉冲响应，横轴为 t/τ、纵轴为 v_L/E_0](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2020/ecei_202003_rl.svg)

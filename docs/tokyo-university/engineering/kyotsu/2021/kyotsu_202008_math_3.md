@@ -32,7 +32,7 @@ $0<\beta<1$、$f(z)=z^\beta/(z^2+1)^2$ とする。$0<r<1<R$ に対し、閉路�
 4. $C_r$ の積分の $r\to0$ の極限を求める。
 5. 上の結果から $\int_0^\infty x^\beta/(x^2+1)^2dx$ を計算する。
 
-![上半圆环积分围道及方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2021/kyotsu_202008_math_3_contour.svg)
+![上半圆环积分围道及方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2021/kyotsu_202008_math_3_contour.svg)
 
 #### 题目描述
 
@@ -95,7 +95,7 @@ $$
 
 すなわち単位円の外で直線 $y=x\tan\alpha$ より上の部分と、単位円の内で同直線より下の部分である。境界と原点は含まない。
 
-![J(z)の虚部が正となる領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2021/kyotsu_202008_math_3_region.svg)
+![J(z)の虚部が正となる領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2021/kyotsu_202008_math_3_region.svg)
 
 ### III
 

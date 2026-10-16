@@ -28,7 +28,7 @@ Zero, 祭音Myyura
 - ⑤ この円筒導体 $A$ と $B$ からなる同軸線路が蓄えている磁気エネルギーを求めよ。同軸線路の自己インダクタンスとして $L$ を用いてよい。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202308_electromagnetism_1_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2024/ee_202308_electromagnetism_1_p1.png" width="500" alt=""/>
 </figure>
 
 (2) 次に，図 $1.2$ のように，下端部の配線のみを変更し，円筒導体 $B$ を接地して十分に時間が経過したところ，円筒導体 $A$ に電荷 $Q(Q > 0)$ が帯電した。その後，図 $1.3$ のように，スイッチをオフにした。 
@@ -47,13 +47,13 @@ $$
 - ⑤ この円筒導体 $A$ と $B$ からなるコンデンサが蓄えている静電エネルギーを求めよ。コンデンサの静電容量として $C$ を用いてよい。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202308_electromagnetism_1_p2.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2024/ee_202308_electromagnetism_1_p2.png" width="500" alt=""/>
 </figure>
 
 (3) さらに，図 $1.4$ のように，この円筒導体 $B$ の外側に導体球を離して置き，その導体球に電荷 $Q\ (Q > 0)$ を与えた。この後，十分に時間が経過したときの円筒導体 $A$ の電荷量を答えよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202308_electromagnetism_1_p3.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2024/ee_202308_electromagnetism_1_p3.png" width="300" alt=""/>
 </figure>
 
 (4) 最後に，この円筒導体 $B$ と導体球を接触させて十分に時間が経過した後に，導体球を離した。さらに十分に時間が経過したときの円筒導体 $B$ の電荷量を答えよ。

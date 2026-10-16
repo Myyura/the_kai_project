@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問2（熱工学）"
+sidebar_label: "2013年8月実施 問2（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Enthalpy-and-Thermodynamic-Relations
   - Physics.Thermodynamics.Phase-Equilibrium
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 熱工学 問2
+# 九州大学 工学府 機械系専攻 2013年8月実施 熱工学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 圧力 $p_1$ の湿り蒸気（状態1）を2段階で加熱し、圧力 $p_2>p_1$ の乾き飽和蒸気（状態2）にする。図の $p$–$v$ 線図に示す2経路を考える。一方は状態1から等積加熱で圧力 $p_2$ の飽和液（状態a）にした後、等圧加熱で状態2にする経路である。他方は状態1から等圧加熱で状態bにした後、等積加熱で状態2にする経路である。圧力 $p_1,p_2$ における飽和液・飽和蒸気の比体積と比エンタルピーを、それぞれ $v_1',v_1'',h_1',h_1''$ および $v_2',v_2'',h_2',h_2''$ とする。（20点）
 
-![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/thermo-2-original.png)
+![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_thermo-2-original.png)
 
 (1) 状態1、bの乾き度 $x_1,x_b$ を求めよ。
 

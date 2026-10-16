@@ -63,7 +63,7 @@ $$
 
 であり、境界を含む。
 
-![双曲線領域と原点を避ける上半平面の積分経路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2012/sys_201108_engineering_math_region_contour.svg)
+![双曲線領域と原点を避ける上半平面の積分経路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2012/sys_201108_engineering_math_region_contour.svg)
 
 (3) $\sin w=z$、$u=e^{iw}$ とおくと $u^2-2izu-1=0$。従って多価の対数および平方根を用いて
 

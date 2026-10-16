@@ -24,7 +24,7 @@ tags:
 関数 $G$ の最簡積和形を示せ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_computer_architecture_p1.png" width="600" height="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_computer_architecture_p1.png" width="600" height="500" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -57,7 +57,7 @@ tags:
 
 ### 题目描述
 
-【问题 1】逻辑函数 $F(a,b,c,d)$ 的真值表及实现结构见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_computer_architecture_p1.png)。要求按图使用函数 $G(a,b,c,d)$ 和 NAND 门实现 $F$，求 $G$ 的最简与项之和形式（最简积和式）。
+【问题 1】逻辑函数 $F(a,b,c,d)$ 的真值表及实现结构见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_computer_architecture_p1.png)。要求按图使用函数 $G(a,b,c,d)$ 和 NAND 门实现 $F$，求 $G$ 的最简与项之和形式（最简积和式）。
 
 【问题 2】考虑具有 IF（取指）、ID（译码）、EX（执行）、MEM（访存）和 WB（写回）五级流水数据通路的微处理器。回答：
 
@@ -108,7 +108,7 @@ $$
 |10|1|1|x|x|
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_computer_architecture_p2.png" width="300" height="230" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2019/ist_201808_computer_architecture_p2.png" width="300" height="230" alt=""/>
 </figure>
 
 $$

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 問2（機械力学）"
+sidebar_label: "2019年8月実施 問2（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Rigid-Body-Rotation-and-Rolling
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 機械力学 問2
+# 九州大学 工学府 機械系専攻 2019年8月実施 機械力学 問2
 
 ## **Author**
 
@@ -32,7 +32,7 @@ tags:
 
 摩擦力 $f_1,f_2$ は右向きを正として定義する。実際の向きは得られた値の符号で決まる。
 
-![円柱に作用する力と正方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-university/engineering/mech/2020/kyushu_2020_dynamics2.svg)
+![円柱に作用する力と正方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/kyushu_201908_dynamics2.svg)
 
 $$
 \boxed{m\ddot x_1=-k(x_1-x_2)+f_1,\qquad

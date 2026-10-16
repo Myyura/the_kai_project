@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 問1（機械力学）"
+sidebar_label: "2016年8月実施 問1（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Rigid-Body-Rotation-and-Rolling
   - Physics.Mechanics.Damped-Harmonic-Motion
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 機械力学 問1
+# 九州大学 工学府 機械系専攻 2016年8月実施 機械力学 問1
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 質量 $m$、長さ $2l$ の細い一様な剛体棒が O で自由に回転できるよう支持され、重心 G の慣性モーメントは $I_G=ml^2/3$ である。図 (a) では O と G が一致し、棒の右端はばね定数 $k$ のばねと粘性減衰係数 $c$ の減衰器で棒に垂直に支持される。ばねが自然長のとき棒は水平である。微小回転における右端の上向き変位を $x$、重力加速度を $g$ とする。（50 点）
 
-![支持位置を変える剛体棒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/dynamics-1-original.png)
+![支持位置を変える剛体棒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_dynamics-1-original.png)
 
 1. Newton の第二法則から $x$ の運動方程式を示し、無減衰固有角振動数 $\omega_n$ と臨界粘性減衰係数 $c_c$ を求めよ。
 2. $c=0$、$x(0)=x_0,\dot x(0)=0$ のとき、O の支持部から棒が受ける力 $F(t)$ を求めよ。

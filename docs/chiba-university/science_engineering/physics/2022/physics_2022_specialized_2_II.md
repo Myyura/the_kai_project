@@ -98,7 +98,7 @@ $$
 
 低温・高温のどちらでも $C_V\to3Nk/2$ となり、中間温度で Schottky 型の極大を持つ。
 
-![内部二準位と並進運動による定積熱容量](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/chiba_university/chiba_phys_2022_II_heat_capacity.png)
+![内部二準位と並進運動による定積熱容量](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/chiba-university/science_engineering/physics/2022/chiba_phys_2022_II_heat_capacity.png)
 
 ### 5
 

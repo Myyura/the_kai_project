@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年度 問4（数学）"
+sidebar_label: "2015年8月実施 問4（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Vector-Calculus.Gradient-Divergence-and-Curl
   - Mathematics.Calculus.Double-Integral
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 数学 問4
+# 九州大学 工学府 機械系専攻 2015年8月実施 数学 問4
 
 ## **Author**
 
@@ -39,7 +39,7 @@ $$
 
 $\Phi(0)=-1/2$、$\Phi(R)=0$。$r<R$ では下に凸の放物線、$r>R$ では単調増加する対数曲線であり、$r=R$ で値と1階導関数が連続する。
 
-![勢関数と散度の動径方向の概形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/math-4-radial.svg)
+![勢関数と散度の動径方向の概形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_math-4-radial.svg)
 
 ### (2)
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2013年度 問3（機械力学）"
+sidebar_label: "2012年8月実施 問3（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.String-Vibration
   - Physics.Mechanics.Forced-Vibration
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 機械力学 問3
+# 九州大学 工学府 機械系専攻 2012年8月実施 機械力学 問3
 
 ## **Author**
 
@@ -16,14 +16,14 @@ tags:
 
 線密度 $\rho$、長さ $l$ の一様弦が、常に一定の張力 $T$ で二つの壁の間に張られている。左端を $x=0$、横変位を $u(x,t)$ とする。（50 点）
 
-![固定壁の間の弦（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/dynamics-3-original.png)
+![固定壁の間の弦（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_dynamics-3-original.png)
 
 1. 運動方程式を導出せよ。
 2. 前進波 $u=f(x-ct)$ を考え、波速 $c$ を求めよ。
 3. 固定端条件での $r$ 次固有角振動数 $\omega_r$ とモード $X_r(x)$ を求めよ。
 4. 左右の壁がそれぞれ $a\cos\Omega t,b\sin\Omega t$ で動くとき、定常振動解を求めよ。
 
-![位相の異なる両端加振（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/dynamics-3-excitation.png)
+![位相の異なる両端加振（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_dynamics-3-excitation.png)
 
 #### 题目描述
 

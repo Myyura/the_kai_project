@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2023年度 材料基礎学B 問題1"
+sidebar_label: "2022年8月実施 材料基礎学B 問題1"
 tags:
   - Kyoto-University
   - Physics.Quantum-Mechanics.One-Dimensional-Infinite-Square-Well
@@ -7,7 +7,7 @@ tags:
   - Physics.Quantum-Mechanics.Heisenberg-Uncertainty-and-Minimum-Uncertainty-Gaussian
 ---
 
-# 京都大学 工学研究科 材料工学専攻 2023年度 材料基礎学B 問題1
+# 京都大学 工学研究科 材料工学専攻 2022年8月実施 材料基礎学B 問題1
 
 ## **Author**
 

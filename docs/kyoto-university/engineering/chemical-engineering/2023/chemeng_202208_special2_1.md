@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2023年度 専門科目2 問題I"
+sidebar_label: "2022年8月実施 専門科目2 問題I"
 tags:
   - Kyoto-University
   - Physics.Thermodynamics.Van-der-Waals-Gas
@@ -7,7 +7,7 @@ tags:
   - Physics.Thermodynamics.Entropy
 ---
 
-# 京都大学 工学研究科 化学工学専攻 2023年度 専門科目2 問題I
+# 京都大学 工学研究科 化学工学専攻 2022年8月実施 専門科目2 問題I
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図1に示すように、断熱壁で覆われた容積 $V_2$ の容器内に断熱の仕切板があり、空間1と空間2に区切られている。空間1の容積は $V_1$ で、$N_1\ \mathrm{mol}$ の気体が封入され、空間2は真空である。平衡状態での空間1の温度は $T_1$ であり、これを状態 $\alpha$ とする。
 
-![図1 状態α](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/kyoto_university/engineering/chemical-engineering/2023/kyoto_chemeng_202208_special2_1_fig1.png)
+![図1 状態α](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/kyoto-university/engineering/chemical-engineering/2023/kyoto_chemeng_202208_special2_1_fig1.png)
 
 状態 $\alpha$ から、気体に力を及ぼさないように仕切板を引き抜いて気体を膨張させると、やがて温度 $T_2$ の平衡状態 $\beta$ に達した。気体は次の van der Waals 状態方程式に従う。
 

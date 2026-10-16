@@ -43,11 +43,11 @@ For example, a rooted tree shown in Fig. 1 (a) is represented by a binary tree o
 (5) Show the execution time of **Tree-Walk**($x$) using big-O notation.
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_201908_senmon_II_2_p1.png" width="602" height="420" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2020/is_201908_senmon_II_2_p1.png" width="602" height="420" alt=""/>
 </figure>
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_201908_senmon_II_2_p2.png" width="455" height="530" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2020/is_201908_senmon_II_2_p2.png" width="455" height="530" alt=""/>
 </figure>
 
 ### 题目描述

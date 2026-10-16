@@ -130,4 +130,4 @@ $$
 
 いずれも境界を含む。図の網掛け部分が求める像である。
 
-![二つの写像の像](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2023/math3-image-regions.svg)
+![二つの写像の像](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2023/kyotsu_202208_math3-image-regions.svg)

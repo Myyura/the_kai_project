@@ -28,7 +28,7 @@ $$
 と定義されることが知られている。以下の設問に答えよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201508_3_p1.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2016/ci_201508_3_p1.png" width="450" alt=""/>
 </figure>
 図1
 
@@ -43,7 +43,7 @@ $$
 (2) $\phi_i = 2\pi(i/N) \ (i=0, ..., N)$ と定義される $N+1$ 個の値を考える。図 2 は $[\phi_i, \phi_{i+1}]$ 間に定義される長方形の面積が $L(\phi_i)(\phi_{i+1} - \phi_i)$ で与えられることを示している。この事を利用し放射照度 $I$ の近似値の式を総和記号 $\Sigma$ を用いて書け。この手法は一般に長方形近似と呼ばれる。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201508_3_p2.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2016/ci_201508_3_p2.png" width="450" alt=""/>
 </figure>
 図2
 
@@ -76,7 +76,7 @@ $$
 Answer the following questions.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201508_3_p1.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2016/ci_201508_3_p1.png" width="450" alt=""/>
 </figure>
 Figure 1
 
@@ -91,7 +91,7 @@ Note that this situation is considered in all subsequent questions.
 (2) Consider $N+1$ values defined as $\phi_i = 2\pi(i/N) \ (i=0, ..., N)$. Figure 2 shows that the area of the rectangle defined in the interval $[\phi_i, \phi_{i+1}]$ is given by $L(\phi_i)(\phi_{i+1} - \phi_i)$. Using this fact, write the formula for the approximate value of irradiance $I$ using the summation symbol $\Sigma$. This method is generally called rectangular approximation.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201508_3_p2.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2016/ci_201508_3_p2.png" width="450" alt=""/>
 </figure>
 Figure 2
 

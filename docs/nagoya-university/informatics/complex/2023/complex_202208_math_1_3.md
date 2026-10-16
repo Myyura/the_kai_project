@@ -60,7 +60,7 @@ $$
 
 1) 図形 $F_a$ は楕円である。 $l > m$ の場合、x軸方向に $l$ 、y軸方向に $m$ だけ伸びた楕円。 $l = m$ の場合、円。 $l < m$ の場合、y軸方向に $m$ 、x軸方向に $l$ だけ伸びた楕円。
 
-![半軸 l, m の三つの場合](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2023/nagoya-complex2023-ellipses.svg)
+![半軸 l, m の三つの場合](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2023/nagoya-complex202208-ellipses.svg)
 
 2) 相似変換はすべての長さを同じ比で変えるので，二つの半軸の
 長さの比は，順序を除いて保存される。したがって必要十分条件は

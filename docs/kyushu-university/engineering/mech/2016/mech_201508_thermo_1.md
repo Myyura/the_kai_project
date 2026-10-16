@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年度 問1（熱工学）"
+sidebar_label: "2015年8月実施 問1（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Ideal-Gas-Entropy-and-Heat-Capacities
   - Physics.Thermodynamics.First-Law
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 熱工学 問1
+# 九州大学 工学府 機械系専攻 2015年8月実施 熱工学 問1
 
 ## **Author**
 
@@ -23,7 +23,7 @@ tags:
 
 再び状態 0 から始め、今度はピストンを固定して同じ $Q$ を加えた状態を 2 とする。その後加熱を止め、ピストンを手でゆっくり動かして体積 $V_1$ の状態 3 にする。全変化は準静的とする。$p_0,V_0,\kappa,Q$ を用いて答えよ。（全 55 点）
 
-![断熱シリンダとヒータ（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/thermo-1-original.png)
+![断熱シリンダとヒータ（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_thermo-1-original.png)
 
 1. $V_1$ を求めよ。
 2. 状態 3 の圧力 $p_3$ を求めよ。

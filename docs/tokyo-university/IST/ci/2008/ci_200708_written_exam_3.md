@@ -12,8 +12,8 @@ tags:
 Consider a method to find equations of two straight boundary lines of the two-colored regions like Fig. 1. Suppose the points in Fig. 2 are derived through processing the image of Fig. 1 and answer the following questions.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200708_3_p1.png" width="300" alt=""/>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200708_3_p2.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2008/ci_200708_3_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2008/ci_200708_3_p2.png" width="300" alt=""/>
 </figure>
 
 (1) The line $L_0$ that passes the point $(x_0, y_0)$ as in Fig. 3 is described as
@@ -25,7 +25,7 @@ $$
 The point $P_0(a_0, b_0)$ of the $a$-$b$ parameter coordinates (Fig. 4) shows the line $L_0$. Explain what the parameters of $a_0, b_0$ mean in the $x$-$y$ coordinates.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200708_3_p3.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2008/ci_200708_3_p3.png" width="600" alt=""/>
 </figure>
 
 (2) Rotate the line $L_0$ in Fig. 3 at the point $(x_0, y_0)$. Illustrate the trajectory of the point $P_0$ in the $a$-$b$ coordinates.
@@ -76,7 +76,7 @@ $$
 
 となる。元の3点を通る直線を $y=a_*x+b_*$ とすれば、各式に $a=a_*$ を代入して $b=b_*$ が得られる。したがって3本のパラメータ直線は共通点 $(a_*,b_*)$ をもつ。元の点が相異なり、共通の直線が垂直でなければ、この共通点は一意である。
 
-![一点に対するパラメータ直線と、共線な三点に対する交点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2008/tokyo-ci-2007-hough-trajectories.svg)
+![一点に対するパラメータ直線と、共線な三点に対する交点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2008/tokyo-ci-200708-hough-trajectories.svg)
 
 解答用の作図例。左は $(x_0,y_0)=(1,4)$、右は同一直線 $y=x+3$ 上の $(-1,2),(1,4),(3,6)$ を使っている。これらの数値は作図用に選んだもので、原図の測定値ではない。
 

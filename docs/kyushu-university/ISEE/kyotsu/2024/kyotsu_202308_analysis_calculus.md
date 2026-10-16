@@ -35,7 +35,7 @@ $$
 (b) 下図の半円閉路 $C$ に沿う複素積分 $\oint_Cf(z)\,dz$ を求めよ。ただし $R>1$ とする。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2024_analysis_calculus_p1.png" width="555" height="395" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/kyotsu/2024/kyotsu_202308_analysis_calculus_p1.png" width="555" height="395" alt=""/>
 </figure>
 
 ### 题目描述

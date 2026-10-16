@@ -61,7 +61,7 @@ $$
 
 (3) 両辺を二乗して整理すると $|z|^2+2\operatorname{Re}z\ge0$。従って $\boxed{|z+1|\ge1}$、すなわち中心 $-1$、半径 $1$ の円の外部と円周である。分母が零になる $z=-1/2$ はこの領域に含まれない。
 
-![中心 -1、半径 1 の円の外部と円周](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2014/sys_201308_engineering_math_region.svg)
+![中心 -1、半径 1 の円の外部と円周](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2014/sys_201308_engineering_math_region.svg)
 
 (4) $w=e^{iz}$ とおくと $w^2-8iw-1=0$ より $w=i(4\pm\sqrt{15})$。従って
 

@@ -23,7 +23,7 @@ tags:
 
 半径 $a$ の円形断面をもつ無限に長い導線 A、B が、中心間距離 $d$ で真空中に平行に配置されている。単位長さ当たり $+Q,-Q$ の静電荷が、それぞれ A、B の導線内に一様に分布している。A の中心から B の中心方向へ距離 $x$ の点を P とし、$a<x<d-a$ とする。
 
-![平行導線の断面と電荷・電流の配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2025/kyotsu_202408_phys_2_wires_audited.svg)
+![平行導線の断面と電荷・電流の配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2025/kyotsu_202408_phys_2_wires_audited.svg)
 
 1. A の電荷によって P に生じる電界の大きさ $E_A(x)$ を求めよ。
 2. A、B の電荷による合成電界の大きさ $E_{\mathrm{TOTAL}}(x)$ を求めよ。
@@ -42,7 +42,7 @@ tags:
 
 同じ導線対を、接地された無限に広い平面導体から高さ $h$、中心間距離 $d$ の位置に平行に配置する。導線対は無限遠で接続され、互いに反対方向の定常電流 $I$ が各導線内に一様に流れている。
 
-![接地導体上の平行導線と映像電流](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2025/kyotsu_202408_phys_2_ground_audited.svg)
+![接地導体上の平行導線と映像電流](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2025/kyotsu_202408_phys_2_ground_audited.svg)
 
 1. A が受ける力の向きを図示し、その理由を説明せよ。
 2. この場合の単位長さ当たりの自己インダクタンス $L_2$ は $L_1$ より大きいか小さいか。物理的理由を簡潔に述べよ。
@@ -159,7 +159,7 @@ $$
 
 したがって、図のように $\boxed{\text{B から遠ざかり、平面からも離れる斜め上向き}}$ である。水平左向きからの角度を $\alpha$ とすれば $\tan\alpha=(d/(2h))^3$ となる。
 
-![導線 A の受ける磁気力の向き](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2025/kyotsu_202408_phys_2_force_audited.svg)
+![導線 A の受ける磁気力の向き](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2025/kyotsu_202408_phys_2_force_audited.svg)
 
 #### III.2
 

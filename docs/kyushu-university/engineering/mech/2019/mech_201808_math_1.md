@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 問1（数学）"
+sidebar_label: "2018年8月実施 問1（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 数学 問1
+# 九州大学 工学府 機械系専攻 2018年8月実施 数学 問1
 
 ## **Author**
 

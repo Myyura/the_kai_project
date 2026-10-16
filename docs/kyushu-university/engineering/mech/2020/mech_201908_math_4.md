@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2020年度 問4（数学）"
+sidebar_label: "2019年8月実施 問4（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Linear-Algebra.Least-Squares-and-Minimum-Norm-Solutions
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 数学 問4
+# 九州大学 工学府 機械系専攻 2019年8月実施 数学 問4
 
 ## **Author**
 
@@ -61,7 +61,7 @@ $$
 
 $0<2/3$ より、指定された基準では $\boxed{f_2(X)=X^2+1}$ の方が優れている。
 
-![データ点と二つの最小二乗モデル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-university/engineering/mech/2020/kyushu_2020_math4.svg)
+![データ点と二つの最小二乗モデル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/kyushu_201908_math4.svg)
 
 ## **Reference**
 

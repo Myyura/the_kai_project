@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2014年度 機械力学 1-2"
+sidebar_label: "2013年8月実施 機械力学 1-2"
 tags:
   - Kyoto-University
   - Physics.Mechanics.Lagrangian-Mechanics
@@ -7,7 +7,7 @@ tags:
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 京都大学 工学研究科 機械工学群 2014年度 機械力学 1-2
+# 京都大学 工学研究科 機械工学群 2013年8月実施 機械力学 1-2
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 3. 単振り子の支点 O を、水平方向にのみ伸縮するばねで支える。角度を近似せずに Lagrange 方程式から運動方程式を導き、線形化して微小振動の周期 $T_2$ を求めよ。支点の質量は無視する。
 4. (3) の単振り子を、質量 $m$、O から重心 G までの距離 $h$、O まわりの慣性モーメント $I$ の剛体振り子に替える。角度を近似せずに運動方程式を導き、線形化して固有角振動数を求め、振動の様子を簡潔に説明せよ。
 
-![固定支点・ばね支点の単振り子と剛体振り子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/sn-mechanics/materials/kyoto-2014-pendulums.svg)
+![固定支点・ばね支点の単振り子と剛体振り子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/mech/2014/kyoto-201308-pendulums.svg)
 
 #### 题目描述
 

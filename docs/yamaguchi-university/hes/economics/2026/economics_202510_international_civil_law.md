@@ -1,11 +1,11 @@
 ---
-sidebar_label: "令和8年度第1回（2025年10月実施） 外国人留学生 民法"
+sidebar_label: "2025年10月実施 第1回 外国人留学生 民法"
 tags:
   - Yamaguchi-University
   - Law.Civil-Law.Creditors-Subrogation-Right
 ---
 
-# 山口大学 人間社会科学研究科 経済学・経営学専攻 経済社会政策コース 令和8年度第1回（2025年10月実施） 外国人留学生選抜 専門科目（民法）
+# 山口大学 人間社会科学研究科 経済学・経営学専攻 経済社会政策コース 2025年10月実施 第1回 外国人留学生選抜 専門科目（民法）
 
 ## **Author**
 祭音Myyura (co-authored with GPT 5.6 SOL)

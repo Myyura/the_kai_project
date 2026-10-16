@@ -19,7 +19,7 @@ On the $t$-th day, after the senior predictor ouputs, the real outcome $x_t \in 
 In the above setting, answer the following questions.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201308_1_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2014/ci_201308_1_p1.png" width="300" alt=""/>
 </figure>
 
 (1) Assume that the senior predictor defines the weight $v_i^{(t)}$ of the $i$-th predictor on the $t$-th day so that the ratio of $v_i^{(t)}$s with respect to $i$ is equal to that of their corresponding likelihoods with respect to the sequence of the past $t-1$ data: $x^{t-1} = x_1 \dots x_{t-1}$. That is, when we denote the likelihood of the $i$-th predictor with respect to $x^{t-1}$ as $w_i^{(t-1)}$,

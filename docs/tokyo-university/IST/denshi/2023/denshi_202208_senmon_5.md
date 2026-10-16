@@ -28,7 +28,7 @@ Consider the input sequnence $x_n = e^{jn\omega T}$ sampled at the interval $T$ 
 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2023_5_p1.png" width="590" height="280" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2023/denshi_202208_5_p1.png" width="590" height="280" alt=""/>
 </figure>
 
 

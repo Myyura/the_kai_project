@@ -89,7 +89,7 @@ $$
 
 (c) $F$ 为实偶函数，最大值 $F(0)=1$，两端趋零，拐点为 $w=\pm1/\sigma$。两个图形见下图（横纵坐标均已归一化）。
 
-![高斯函数及其傅里叶变换](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201903_kiso_6_gaussian.svg)
+![高斯函数及其傅里叶变换](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2019/ecei_201903_kiso_6_gaussian.svg)
 
 ### (2)
 

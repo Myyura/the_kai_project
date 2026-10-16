@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2019年度 問3（機械力学）"
+sidebar_label: "2018年8月実施 問3（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.String-Vibration
   - Physics.Mechanics.Forced-Vibration
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 機械力学 問3
+# 九州大学 工学府 機械系専攻 2018年8月実施 機械力学 問3
 
 ## **Author**
 
@@ -18,7 +18,7 @@ tags:
 
 静止系の鉛直変位を $u(x,t)$、移動系の鉛直変位を $v(\xi,t)$ とする。張力は一定、重力は無視し、$c=\sqrt{T/\rho}$ を用いてよい。（50 点）
 
-![静止座標系と移動座標系（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/dynamics-3-original.png)
+![静止座標系と移動座標系（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_dynamics-3-original.png)
 
 1. 静止系における運動方程式を導出せよ。
 2. 静止系の定常振動解を $u(x,t)=U(x)\sin\Omega t$ として求めよ。

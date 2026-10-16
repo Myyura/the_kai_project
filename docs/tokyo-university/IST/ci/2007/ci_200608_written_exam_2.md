@@ -36,7 +36,7 @@ $t_{\text{COMP}}$：コンピュータ上で，デジタルパラレル入力 $x
 (3) センサからのデータの入力を伴う並列処理システムを実際に設計する際，一般的に留意すべき事項を $300$ 字以内で述べよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_2_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_2_p1.png" width="600" alt=""/>
 </figure>
 
 ### English
@@ -60,7 +60,7 @@ Ignore other delays except the above defined delay times. Suppose that these del
 (3) Describe general important points, within about 100 words, for the design of actual parallel processing systems which manipulate sensor data inputs.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_2_p1_en.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_2_p1_en.png" width="600" alt=""/>
 </figure>
 
 ### 题目描述

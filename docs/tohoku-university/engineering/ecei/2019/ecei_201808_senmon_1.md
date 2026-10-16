@@ -65,7 +65,7 @@ $$
 
 全频率轨迹为圆心 $(1/2,0)$、半径 $1/2$ 的圆，原点为 $|\omega|\to\infty$ 的极限。$\omega$ 从 $-\infty$ 增至 $0$ 时沿上半圆从原点到 $(1,0)$，再沿下半圆返回原点；$\omega=1$ 对应 $(1/2,-1/2)$。
 
-![RC 电路的 Nyquist 曲线](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2019/ecei_201808_nyquist.svg)
+![RC 电路的 Nyquist 曲线](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2019/ecei_201808_nyquist.svg)
 
 ### (2)
 

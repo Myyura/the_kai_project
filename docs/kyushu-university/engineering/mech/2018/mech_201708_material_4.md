@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年度 問4（材料力学）"
+sidebar_label: "2017年8月実施 問4（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Thin-Walled-Pressure-Vessels
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Torsion
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 材料力学 問4
+# 九州大学 工学府 機械系専攻 2017年8月実施 材料力学 問4
 
 ## **Author**
 
@@ -26,7 +26,7 @@ $$
 
 である。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/material-4-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_material-4-original.png)
 
 1. $\sigma_x>\sigma_y$、$\sigma_x=\sigma_y$、$\sigma_x<\sigma_y$ のうち正しい関係を選べ。
 2. A の $\sigma_x,\sigma_y,\tau_{xy}$ を $\varepsilon_0$ を用いて表せ。

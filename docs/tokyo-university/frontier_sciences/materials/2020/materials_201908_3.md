@@ -399,4 +399,4 @@ $$
 
 $t=0,2\pi/\omega$ で期待値は $0$、$t=\pi/\omega$ で最小値 $-2F/(m\omega^2)$ をとる。
 
-![Position expectation over one oscillation period](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/materials/2020/tokyo-materials-201908-position.svg)
+![Position expectation over one oscillation period](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/materials/2020/tokyo-materials-201908-position.svg)

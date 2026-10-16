@@ -227,7 +227,7 @@ $d$。
 (i) 係数行列の四つの列は非零で相互に直交するから、行列は正則で解は一意である。四式を加えると $124x_3=23-11-51+37=-2$。従って $\boxed{x_3=-1/62}$。
 
 (ii) 固有値の和は跡に等しく、$1+4+4+x=23$ より $x=14$。$y$ に制限はないため、解集合は縦の直線 $\boxed{x=14}$ である。
-![固有値和を満たす点の集合](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2024/sys_202308_math_I_trace.svg)
+![固有値和を満たす点の集合](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2024/sys_202308_math_I_trace.svg)
 
 ### 問2
 (i) 行列式を展開すると $\det A=-(s-t)^2\le0$。$s=t$ で等号を達成するから最大値は $\boxed0$。

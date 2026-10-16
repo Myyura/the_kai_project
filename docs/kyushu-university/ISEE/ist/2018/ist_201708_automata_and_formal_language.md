@@ -18,7 +18,7 @@ Zero, 祭音Myyura
 以下の遷移図を持つ非決定性有限オートマトン $M = (K,\Sigma,\delta,q_0,F)$ に対し, 次の各問いに答えよ。ただし, $K = \{q_0,q_1,q_2,q_3,q_4\}$, $\Sigma = \{a,b\}$, $\delta$, $q_0$, $F = \{q_1,q_2,q_4\}$ は, それぞれ状態の集合, アルファベット, 遷移関数, 初期状態, 最終状態の集合を表す。$M$ によって受理される言語を $L$ とする。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_automata_and_formal_language_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_automata_and_formal_language_p1.png" width="500" alt=""/>
 </figure>
 
 (1) $L$ に含まれる長さ $4$ の文字列をすべて列挙せよ。
@@ -50,7 +50,7 @@ Zero, 祭音Myyura
 
 【问题 1】给定非确定性有限自动机 $M=(K,\Sigma,\delta,q_0,F)$，其中
 $K=\{q_0,q_1,q_2,q_3,q_4\}$、$\Sigma=\{a,b\}$、初始状态为 $q_0$、终态集合
-$F=\{q_1,q_2,q_4\}$，$\delta$ 及其余转移关系见[原题迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_automata_and_formal_language_p1.png)。记 $M$ 接受的语言为 $L$。回答：
+$F=\{q_1,q_2,q_4\}$，$\delta$ 及其余转移关系见[原题迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_automata_and_formal_language_p1.png)。记 $M$ 接受的语言为 $L$。回答：
 
 1. 枚举 $L$ 中所有长度为 $4$ 的字符串。
 2. $L$ 中任意字符串都可用正则表达式 $(\alpha+\beta)(\alpha+\beta)^*$ 表示，其中 $\alpha,\beta$ 均为 $\Sigma$ 上的字符串；求 $\alpha$ 与 $\beta$。
@@ -132,7 +132,7 @@ $$
 ゆえに、求める状態数最小の決定性有限オートマトンの遷移図は
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_automata_and_formal_language_p2.png" width="600" height="415" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_automata_and_formal_language_p2.png" width="600" height="415" alt=""/>
 </figure>
 
 ### 【問２】

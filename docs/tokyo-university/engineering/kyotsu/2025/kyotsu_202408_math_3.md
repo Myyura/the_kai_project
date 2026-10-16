@@ -34,7 +34,7 @@ $$
 
 いずれも始点は $t=-R/2$、終点は $t=R/2$ に対応する。$I_k=\int_{C_k}f(z)\,dz$ とし、$\lim_{M\to\infty}I_k$ を求めよ（$k=1,2,3,4$）。
 
-![正方形の積分路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2025/math3-square-contour.svg)
+![正方形の積分路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2025/kyotsu_202408_math3-square-contour.svg)
 
 IV. 四つの線分をつないだ閉曲線を $C$ とする。$I=\oint_Cf(z)\,dz$ に留数定理を適用して、$\sum_{n=1}^{\infty}1/n^2$ を求めよ。
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年秋季 数学A 第2問"
+sidebar_label: "2017年8月実施 数学A 第2問"
 tags:
   - Tohoku-University
   - Mathematics.Differential-Equations.Homogeneous-First-Order-Ordinary-Differential-Equation
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Differential-Equations.Systems-of-ODEs
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 数学A 第2問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 数学A 第2問
 
 ## **Author**
 

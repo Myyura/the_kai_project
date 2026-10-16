@@ -147,5 +147,5 @@ $$
 
 ゆっくりした定常振動に固有角振動数に近い過渡振動が重なり、後者のみが減衰する。
 
-![共鳴付近と低い駆動周波数での過渡応答](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2016/kyotsu_201508_phys_4_diagram_audited.svg)
+![共鳴付近と低い駆動周波数での過渡応答](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2016/kyotsu_201508_phys_4_diagram_audited.svg)
 

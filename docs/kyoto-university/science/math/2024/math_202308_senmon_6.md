@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2024年度 専門科目 [6]"
+sidebar_label: "2023年8月実施 専門科目 [6]"
 tags:
   - Kyoto-University
   - Mathematics.Functional-Analysis.Banach-Space
   - Mathematics.Functional-Analysis.Normed-Space
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2024年度 専門科目 問題6
+# 京都大学 理学研究科 数学・数理解析専攻 2023年8月実施 専門科目 問題6
 
 ## **Author**
 

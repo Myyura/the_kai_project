@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2022年度 基礎科目 [1]"
+sidebar_label: "2021年8月実施 基礎科目 [1]"
 tags:
   - Kyoto-University
   - Mathematics.Calculus.Improper-Integral
   - Mathematics.Vector-Calculus.Polar-Coordinates
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2022年度 基礎科目 問題1
+# 京都大学 理学研究科 数学・数理解析専攻 2021年8月実施 基礎科目 問題1
 
 ## **Author**
 

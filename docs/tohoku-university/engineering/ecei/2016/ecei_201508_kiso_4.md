@@ -43,7 +43,7 @@ Assume that the element $x$ of each node is a unique integer. Answer the followi
 
 
 <figure style={{textAlign: 'center'}}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_2015_8_kiso_4_1.jpg" width="400" height="350" alt="Fig. 4"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2016/ecei_201508_8_kiso_4_1.jpg" width="400" height="350" alt="Fig. 4"/>
 </figure>
 
 ### 题目描述

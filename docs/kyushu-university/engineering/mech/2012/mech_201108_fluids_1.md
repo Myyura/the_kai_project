@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2012年度 問1（流体工学）"
+sidebar_label: "2011年8月実施 問1（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Pipe-Networks
   - Engineering.Fluid-Mechanics.Pipe-Friction
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 流体工学 問1
+# 九州大学 工学府 機械系専攻 2011年8月実施 流体工学 問1
 
 ## **Author**
 
@@ -24,7 +24,7 @@ IIの水は内径 $d$、長さ $l$ の二本の水平管からIIIへ流出する
 2. II内のガスのゲージ圧 $p_G$。
 3. 下管の弁損失係数 $\zeta$。
 
-![原題の図（九州大学 2012年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/fluids-1-original.png)
+![原題の図（九州大学 2012年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_fluids-1-original.png)
 
 #### 题目描述
 

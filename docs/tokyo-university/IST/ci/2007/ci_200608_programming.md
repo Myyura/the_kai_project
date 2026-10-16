@@ -50,7 +50,7 @@ tags:
 図 1 に A, B, C, D, E の頻度がそれぞれ 50, 20, 33, 15, 40 だった場合の組み立て方を示した.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_p_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_p_p1.png" width="600" alt=""/>
   <br />図 1. ハフマン符号化のための順序付き 2 進木のつくりかた (例)
 </figure>
 
@@ -58,7 +58,7 @@ tags:
 
 <figure style="text-align:center;">
     ASCII コード表 (必要なもののみ, コードは 10 進数で表記)<br />
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_p_p2.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_p_p2.png" width="600" alt=""/>
 </figure>
 
 ### English
@@ -93,7 +93,7 @@ This article is cited from: `www.cs.utexas.edu/users/EWD/transcriptions/EWD03xx/
 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_p_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_p_p1.png" width="600" alt=""/>
   <br />Figure 1. Construction of an ordered binary tree for Huffman coding (example)
 </figure>
 
@@ -101,7 +101,7 @@ This article is cited from: `www.cs.utexas.edu/users/EWD/transcriptions/EWD03xx/
 
 <figure style="text-align:center;">
    The ASCII code table (only those relevant to this examination)<br />
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_p_p2.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_p_p2.png" width="600" alt=""/>
 </figure>
 
 

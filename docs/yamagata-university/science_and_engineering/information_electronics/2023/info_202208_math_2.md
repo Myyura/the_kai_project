@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2023年度 基礎科目 問題2"
+sidebar_label: "2022年8月実施 基礎科目 問題2"
 tags:
   - Yamagata-University
   - Mathematics.Linear-Algebra.Jordan-Normal-Form
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Linear-Algebra.Matrix-Limit
 ---
 
-# 山形大学 理工学研究科 情報・エレクトロニクス専攻 2023年度 基礎科目 問題2
+# 山形大学 理工学研究科 情報・エレクトロニクス専攻 2022年8月実施 基礎科目 問題2
 
 ## **Author**
 

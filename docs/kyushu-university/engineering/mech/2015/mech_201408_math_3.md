@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2015年度 問3（数学）"
+sidebar_label: "2014年8月実施 問3（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Calculus.Double-Integral
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 数学 問3
+# 九州大学 工学府 機械系専攻 2014年8月実施 数学 問3
 
 ## **Author**
 
@@ -29,7 +29,7 @@ tags:
 
 $D$ は第1象限の半径1と2の円弧に挟まれた閉領域である。
 
-![四分の一円環とD1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/math-3-region.svg)
+![四分の一円環とD1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_math-3-region.svg)
 
 ### (2)
 

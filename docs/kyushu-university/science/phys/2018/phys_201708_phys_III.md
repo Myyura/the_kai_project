@@ -9,7 +9,7 @@ tags:
   - Physics.Quantum-Mechanics.Angular-Momentum-Addition
 ---
 
-# 九州大学 理学府 物理学専攻 2018年度 入学試験 物理学 \[III\]
+# 九州大学 理学府 物理学専攻 2017年8月実施 入学試験 物理学 \[III\]
 
 ## **Author**
 
@@ -252,7 +252,7 @@ $$
 
 $x=0,L/2,L$ で零となり、$x=L/4,3L/4$ で最大値 $2/L$ をとる。井戸の外では零である。
 
-![n=2 の確率密度。横軸は x/L、縦軸は L|ψ₂(x)|²。](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/kyushu_university/science/phys/2018/phys_201708_III_A_density.svg)
+![n=2 の確率密度。横軸は x/L、縦軸は L|ψ₂(x)|²。](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/kyushu-university/science/phys/2018/phys_201708_III_A_density.svg)
 
 #### 問6
 

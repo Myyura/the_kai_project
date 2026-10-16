@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 問4（数学）"
+sidebar_label: "2014年8月実施 問4（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Calculus.Improper-Integral
   - Mathematics.Calculus.Gamma-Function
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 数学 問4
+# 九州大学 工学府 機械系専攻 2014年8月実施 数学 問4
 
 ## **Author**
 

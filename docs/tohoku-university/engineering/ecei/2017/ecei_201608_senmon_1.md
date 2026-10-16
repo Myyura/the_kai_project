@@ -71,7 +71,7 @@ $$
 
 它从 $0$ 以零斜率出发，导数 $v_2'=e^{-2t/3}-e^{-2t}>0$，因此单调上升至 $1$、无超调。拐点在 $t=3\ln3/4$。
 
-![单位阶跃响应](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2017/ecei_201608_step.svg)
+![单位阶跃响应](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2017/ecei_201608_step.svg)
 
 
 ### (2)
@@ -90,7 +90,7 @@ $$
 
 正频率支从 $(1/2,0)$ 出发进入下半平面，在 $\omega=\sqrt2$ 处经过 $(0,-1/(3\sqrt2))$，再从第三象限趋于原点。负频率支关于实轴对称。
 
-![奈奎斯特曲线](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201608_senmon_1_nyquist.svg)
+![奈奎斯特曲线](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2017/ecei_201608_senmon_1_nyquist.svg)
 
 ### (3)
 

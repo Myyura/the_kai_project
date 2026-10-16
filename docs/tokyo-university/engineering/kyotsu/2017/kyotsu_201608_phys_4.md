@@ -28,7 +28,7 @@ tags:
 4. 波数 $k$、角振動数 $\omega$ の振動について $u_n,v_n$ の表式を示し、振幅が満たす方程式を求めよ。
 5. $\omega$ を $k$ の関数で表せ。
 
-![単原子格子と二原子格子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/kyotsu_201608_phys_4_diagram_audited.svg)
+![単原子格子と二原子格子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2017/kyotsu_201608_phys_4_diagram_audited.svg)
 
 ### II
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 基礎科目 問題3"
+sidebar_label: "2019年8月実施 基礎科目 問題3"
 tags:
   - Kyoto-University
   - Mathematics.Linear-Algebra.Kernel-and-Image
   - Mathematics.Linear-Algebra.Projection-Operator
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2020年度 基礎科目 問題3
+# 京都大学 理学研究科 数学・数理解析専攻 2019年8月実施 基礎科目 問題3
 
 ## **Author**
 

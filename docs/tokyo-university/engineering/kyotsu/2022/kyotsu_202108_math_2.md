@@ -133,7 +133,7 @@ $$
 \boxed{V=\int_0^1\frac{\pi Z}{2\sqrt2}\,dZ=\frac\pi{4\sqrt2}}.
 $$
 
-![直交座標における楕円放物面と断面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/kyotsu_202108_math_2_paraboloid.svg)
+![直交座標における楕円放物面と断面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2022/kyotsu_202108_math_2_paraboloid.svg)
 
 ## **Reference**
 

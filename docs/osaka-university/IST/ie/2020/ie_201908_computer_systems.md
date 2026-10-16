@@ -1,5 +1,5 @@
 ---
-sidebar_label: 2020年度 計算機システムとシステムプログラム
+sidebar_label: 2019年8月実施 計算機システムとシステムプログラム
 tags:
   - Osaka-University
   - Computer-Science.Computer-Architecture.Floating-Point-Representation
@@ -7,7 +7,7 @@ tags:
   - Computer-Science.Operating-Systems.Virtual-Memory
   - Computer-Science.Operating-Systems.Page-Replacement
 ---
-# 大阪大学 情報科学研究科 情報工学 2020年度 計算機システムとシステムプログラム
+# 大阪大学 情報科学研究科 情報工学 2019年8月実施 計算機システムとシステムプログラム
 
 ## **Author**
 

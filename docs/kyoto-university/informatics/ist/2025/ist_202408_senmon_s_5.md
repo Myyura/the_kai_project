@@ -65,12 +65,12 @@ Let $\Sigma = \{0, 1, 2, \dots, 9\}$. For $w \in \Sigma^*$, $n(w)$ returns an in
 ### (1)
 Use states $r_0,r_1$ for the remainder modulo $2$. The start state $r_0$ is accepting, including the empty string. Reading an even digit leads to $r_0$ from either state; reading an odd digit leads to $r_1$.
 
-![DFA for divisibility by 2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2025/kyoto-ist-2024-dfa-mod2.svg)
+![DFA for divisibility by 2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2025/kyoto-ist-202408-dfa-mod2.svg)
 
 ### (2)
 Use states $r_0,r_1,r_2$ for the remainder modulo $3$, starting and accepting at $r_0$. Since $10\equiv1\pmod3$, a digit with remainder $d$ changes state $r_i$ to $r_{(i+d)\bmod3}$.
 
-![DFA for divisibility by 3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2025/kyoto-ist-2024-dfa-mod3.svg)
+![DFA for divisibility by 3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2025/kyoto-ist-202408-dfa-mod3.svg)
 
 The edge labels are $A=\{0,3,6,9\}$, $B=\{1,4,7\}$, and $C=\{2,5,8\}$.
 

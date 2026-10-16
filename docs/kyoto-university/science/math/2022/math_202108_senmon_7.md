@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2022年度 専門科目 [7]"
+sidebar_label: "2021年8月実施 専門科目 [7]"
 tags:
   - Kyoto-University
   - Mathematics.Functional-Analysis.Weak-and-Strong-Convergence
   - Mathematics.Functional-Analysis.Compact-Operators-and-Finite-Rank-Approximation
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2022年度 専門科目 問題7
+# 京都大学 理学研究科 数学・数理解析専攻 2021年8月実施 専門科目 問題7
 
 ## **Author**
 

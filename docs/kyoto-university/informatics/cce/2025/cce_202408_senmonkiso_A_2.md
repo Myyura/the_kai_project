@@ -205,7 +205,7 @@ This expression has the minimum number of product terms, and among them, the min
 ### (2)
 #### (a)
 
-<img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce/2025/kyoto-cce-2024-moore.svg" width="520" alt="Four-state Moore machine, with previous input and current output as state bits" />
+<img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2025/kyoto-cce-202408-moore.svg" width="520" alt="Four-state Moore machine, with previous input and current output as state bits" />
 
 #### (b)
 Assign $q_1$ to the previous input and $q_0$ to the current output $z$. The initial state is $00$. The minimized Moore machine has the following four states:

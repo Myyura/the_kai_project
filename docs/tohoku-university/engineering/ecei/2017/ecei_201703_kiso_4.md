@@ -102,7 +102,7 @@ int cdp(int m, int n) {
 }
 ```
 
-![封闭一条道路的有向格点图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201703_kiso_4_grid.svg)
+![封闭一条道路的有向格点图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2017/ecei_201703_kiso_4_grid.svg)
 
 ## **Kai**
 

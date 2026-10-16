@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 物理化学 問題I"
+sidebar_label: "2022年8月実施 物理化学 問題I"
 tags:
   - Kyoto-University
   - Physics.Thermodynamics.Van-der-Waals-Gas
   - Physics.Thermodynamics.Carnot-Cycle-and-Heat-Engine-Efficiency
 ---
 
-# 京都大学 工学研究科 創成化学専攻群 2023年度 物理化学 問題I
+# 京都大学 工学研究科 創成化学専攻群 2022年8月実施 物理化学 問題I
 
 ## **Author**
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問2（流体工学）"
+sidebar_label: "2013年8月実施 問2（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Pipe-Friction
   - Engineering.Fluid-Mechanics.Minor-Losses
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 流体工学 問2
+# 九州大学 工学府 機械系専攻 2013年8月実施 流体工学 問2
 
 ## **Author**
 
@@ -21,7 +21,7 @@ tags:
 1. 管内の体積流量 $Q_1$ を求めよ。
 2. 図bのように上槽との接続を変え、管の一部を上槽の水面より $h$ 高く、出口を上槽の水中に置く。全長は $L_2\gg D$、曲がり部は三つ、最後の曲がり部から出口までの長さは $l$ で、各損失係数は前問と同じである。管内圧力が飽和蒸気圧を下回ることによる水柱分離を防ぐため、$\Delta p$ が満たす条件を求めよ。大気圧を $p_a$、飽和蒸気圧を $p_s<p_a$ とする。
 
-![原題の図（九州大学 2014年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/fluids-2-original.png)
+![原題の図（九州大学 2014年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_fluids-2-original.png)
 
 #### 题目描述
 

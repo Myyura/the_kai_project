@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 問2（材料力学）"
+sidebar_label: "2014年8月実施 問2（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 材料力学 問2
+# 九州大学 工学府 機械系専攻 2014年8月実施 材料力学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 図2の二本の弾性はり AB、EC は A、E で壁に固定され、下のはりは中点 D でも単純支持されている。AB $=$ EC $=2a$、ED $=$ DC $=a$。B と C は長さ $b$ の剛体棒にピン結合されている。両はりの曲げ剛性は $EI$。C に下向き荷重 $P$ を加える。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/material-2-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-2-original.png)
 
 1. 支点 D の反力 $R_D$ を求めよ。
 2. C の変位 $\delta_C$ を求めよ。

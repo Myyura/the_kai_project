@@ -24,7 +24,7 @@ Zero
 (2) $\big|\frac{V}{E}\big| = 1$となるときの $\arg(\frac{V}{E})$ を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p1.png" width="250" height="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p1.png" width="250" height="350" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -35,7 +35,7 @@ Zero
 (2) 図 $2(a)$ の端子対 $1-1'$ に図 $2(b)$ に示すアドミタンス $Y_2 = G + jB$ を接続したとする。コンダクタンス $G(>0)$ およびサセプタンス $B$ は可変とする。アドミタンス $Y_2$ における最大消費電力 $P$ を最大とする $G$ および $B$ を求めよ。また, このときの消費電力 $P$ の最大値を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p2.png" width="450" height="275" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p2.png" width="450" height="275" alt=""/>
 </figure>
 
 ### 【問 3】
@@ -46,7 +46,7 @@ Zero
 (2) 図 $3(a)$ の端子対 $1-1'$ から右側を見た入力インピーダンス $Z$ を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p3.png" width="390" height="480" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p3.png" width="390" height="480" alt=""/>
 </figure>
 
 ### 【問 4】
@@ -57,12 +57,12 @@ Zero
 (2) $v(t)(t \ge 0)$ を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p4.png" width="515" height="220" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p4.png" width="515" height="220" alt=""/>
 </figure>
 
 ### 题目描述
 
-【问题 1】在[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p1.png)中，电流 $I_1$ 与电压 $E$ 满足
+【问题 1】在[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p1.png)中，电流 $I_1$ 与电压 $E$ 满足
 
 $$
 \arg(E/I_1)=\frac{\pi}{6},\qquad |E/I_1|=2.
@@ -73,20 +73,20 @@ $$
 1. 求 $R_1,X_1$。
 2. 当 $|V/E|=1$ 时，求 $\arg(V/E)$。
 
-【问题 2】对[图 2 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p2.png)，回答：
+【问题 2】对[图 2 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p2.png)，回答：
 
 1. 在图 2(a) 中，求从端口 $1-1'$ 向左看入的导纳 $Y_1$。
 2. 在图 2(a) 的端口 $1-1'$ 接入图 2(b) 所示的导纳
    $Y_2=G+jB$，其中电导 $G>0$ 与电纳 $B$ 均可调。求使
    $Y_2$ 消耗功率 $P$ 最大的 $G,B$，并求该最大功率。
 
-【问题 3】对[图 3 耦合线圈电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p3.png)，电源电压 $E$ 的角频率为 $\omega$；$L_1,L_2$ 为自感，$M>0$ 为互感。回答：
+【问题 3】对[图 3 耦合线圈电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p3.png)，电源电压 $E$ 的角频率为 $\omega$；$L_1,L_2$ 为自感，$M>0$ 为互感。回答：
 
 1. 若图 3(b) 与图 3(a) 虚线框内的二端口网络等效，分别用
    $L_1,L_2,M$ 表示 $Z_1,Z_2,Z_3$。
 2. 求从图 3(a) 端口 $1-1'$ 向右看入的输入阻抗 $Z$。
 
-【问题 4】在[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p4.png)中，$t=0$ 时同时断开 $S_1$、闭合 $S_2$。已知
+【问题 4】在[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p4.png)中，$t=0$ 时同时断开 $S_1$、闭合 $S_2$。已知
 
 $$
 E=2\,\mathrm V,\quad C=1\,\mathrm F,\quad L=1\,\mathrm H,\quad
@@ -102,7 +102,7 @@ $$
 ### 【問 1】
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p5.png" width="515" height="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p5.png" width="515" height="450" alt=""/>
 </figure>
 
 $$
@@ -194,7 +194,7 @@ $$
 #### (1)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p6.png" width="400" height="375" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p6.png" width="400" height="375" alt=""/>
 </figure>
 
 $$
@@ -320,7 +320,7 @@ $Z=Z_1+Z_2-Z_2^2/(Z_2+Z_3+Z_4)$ としても得られる。
 #### (1)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p9.png" width="300" height="175" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2022/ist_202108_circuit_theory_p9.png" width="300" height="175" alt=""/>
 </figure>
 
 $$

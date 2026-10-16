@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第1問'
+sidebar_label: '2019年8月実施 数学 第1問'
 tags:
   - Tokyo-University
   - Mathematics.Differential-Equations.Reduction-of-Order
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Gaussian-Integral
 ---
 
-# 東京大学 工学系研究科 2020年度 数学 第1問
+# 東京大学 工学系研究科 2019年8月実施 数学 第1問
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)、後生楽 広小路, 祭音Myyura

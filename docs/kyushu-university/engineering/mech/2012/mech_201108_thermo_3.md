@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2012年度 問3（熱工学）"
+sidebar_label: "2011年8月実施 問3（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Cylindrical-Conduction
   - Engineering.Heat-Transfer.Heat-Exchangers-and-Thermal-Resistance
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 熱工学 問3
+# 九州大学 工学府 機械系専攻 2011年8月実施 熱工学 問3
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 飽和蒸気の輸送管の外周を断熱材で覆う。図aで、断熱材の内半径 $R_i$ は管の外半径、外半径は $R_o$、蒸気温度は $T_s$、断熱材外表面温度は $T_o$、周囲空気温度は $T_a$ である。初期状態は $R_o=2R_i$、$T_s-T_o=(T_o-T_a)/2$ とする。定常・半径方向一次元熱流で、管内凝縮と管材の熱抵抗は無視できる。断熱材の熱伝導率と外表面の対流熱伝達率は一定とする。$R_i$ を固定して $R_o$ を増加させる場合について答えよ。（30点）
 
-![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/thermo-3-original.png)
+![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_thermo-3-original.png)
 
 1. $R_o$ を $2R_i$ より徐々に大きくしたときの放熱量の増減を論ぜよ。極小・極大があれば、そのときの比 $R_o/R_i$ を求め、その理由を説明せよ。（25点）
 2. $R_o=3R_i$ としたとき、放熱量は $R_o=2R_i$ の何倍になるか。できるだけ簡単な式で表せ。（5点）
@@ -29,7 +29,7 @@ $$
 
 である。
 
-![円筒熱伝導式の記号（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/thermo-3-reference.png)
+![円筒熱伝導式の記号（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_thermo-3-reference.png)
 
 #### 题目描述
 

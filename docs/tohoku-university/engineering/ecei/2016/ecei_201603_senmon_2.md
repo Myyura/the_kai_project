@@ -56,7 +56,7 @@ $$
 
 包络幅度的最大值、最小值分别为 $A_c(1+m),A_c(1-m)$；$m=1$ 时最小值为零。
 
-![调幅波形（示例 m=0.7）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201603_senmon_2_am.svg)
+![调幅波形（示例 m=0.7）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2016/ecei_201603_senmon_2_am.svg)
 
 ### (2)
 

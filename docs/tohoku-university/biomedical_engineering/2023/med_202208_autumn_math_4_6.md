@@ -1,0 +1,176 @@
+---
+sidebar_label: "2022年8月実施 数学基礎 問題4-6"
+tags:
+  - Tohoku-University
+  - Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Homogeneous-First-Order-Ordinary-Differential-Equation
+  - Mathematics.Linear-Algebra.Commuting-Matrices
+  - Mathematics.Linear-Algebra.Gaussian-Elimination
+---
+# 東北大学 医工学研究科 医学系コース 2022年8月実施 数学基礎 問題4-6
+
+## **Author**
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
+
+## **Description**
+
+4. 次の一階微分方程式の一般解を求めよ。
+   1. $\displaystyle y'=e^{2x-y}$
+   2. $\displaystyle x^2+y^2=xyy'$
+5. 行列 $A,B$ を
+
+   $$
+   A=\begin{pmatrix}1&0&1\\-2&1&0\\2&-1&1\end{pmatrix},\qquad
+   B=\begin{pmatrix}1&-1&-1\\2&-1&-2\\0&1&1\end{pmatrix}
+   $$
+
+   とするとき、$(A+B)(A-B)=A^2-B^2$ が成り立つかどうか調べよ。
+6. 連立一次方程式
+
+   $$
+   \begin{cases}
+   2x+5y+3z=-7,\\
+   x+2y+4z=3,\\
+   -x-y+2z=6.
+   \end{cases}
+   $$
+
+   について拡大係数行列を示し、解を求めよ。
+
+#### 题目描述
+
+4. 求下列一阶微分方程的通解：
+   1. $\displaystyle y'=e^{2x-y}$；
+   2. $\displaystyle x^2+y^2=xyy'$。
+5. 对日文题面给出的两个具体矩阵 $A,B$，判断 $(A+B)(A-B)=A^2-B^2$ 是否成立。
+
+6. 写出下列线性方程组的增广矩阵，并求解
+
+   $$
+   \begin{cases}
+   2x+5y+3z=-7,\\
+   x+2y+4z=3,\\
+   -x-y+2z=6.
+   \end{cases}
+   $$
+
+## **Kai**
+### 問題4
+#### (1)
+
+$$
+\begin{aligned}
+y'
+&= e^{2x-y}
+\\
+\therefore \ \
+e^y dy &= e^{2x} dx
+\\
+\therefore \ \
+e^y &= \frac{1}{2} e^{2x} + C
+\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+\therefore \ \
+y &= \log \left( \frac{1}{2} e^{2x} + C \right)
+\ \ \ \ \ \ \ \ \left( C \text{ は積分定数},\ \frac{1}{2}e^{2x}+C>0 \right)
+\end{aligned}
+$$
+
+#### (2)
+
+$$
+\begin{aligned}
+z = \frac{y}{x}
+\end{aligned}
+$$
+
+とおくと、
+
+$$
+\begin{aligned}
+z'
+&= \frac{y'x - y}{x^2}
+\\
+&= \frac{\left( \frac{x^2}{y} + y \right) - y}{x^2}
+\\
+&= \frac{1}{y}
+\\
+&= \frac{1}{xz}
+\\
+\therefore \ \
+z dz &= \frac{dx}{x}
+\\
+\\
+\therefore \ \
+\frac{1}{2} z^2 &= \log |x| + C_0
+\ \ \ \ \ \ \ \ \left( C_0 \text{ は積分定数 } \right)
+\\
+\therefore \ \
+z &= \pm \sqrt{ 2 \log |x| + C }
+\ \ \ \ \ \ \ \ \left( C=2C_0 \right)
+\end{aligned}
+$$
+
+となるので、
+
+$$
+\begin{aligned}
+y &= \pm x \sqrt{ 2 \log |x| + C }
+\ \ \ \ \ \ \ \ \left( C \text{ は積分定数},\ x\ne0,\ 2\log|x|+C>0 \right)
+\end{aligned}
+$$
+
+である。
+
+### 問題5
+$AB=BA$ が成り立つので、
+
+$$
+\begin{aligned}
+(A+B)(A-B)
+&= A^2 - AB + BA - B^2
+\\
+&= A^2 - B^2
+\end{aligned}
+$$
+
+が成り立つ。
+
+### 問題6
+拡大係数行列は次の通りである：
+
+$$
+\begin{aligned}
+\begin{pmatrix}
+2 & 5 & 3 & -7 \\ 1 & 2 & 4 & 3 \\ -1 & -1 & 2 & 6
+\end{pmatrix}
+\end{aligned}
+$$
+
+これは次のように行基本変形できる：
+
+$$
+\begin{aligned}
+\begin{pmatrix}
+0 & 1 & -5 & -13 \\ 1 & 2 & 4 & 3 \\ 0 & 1 & 6 & 9
+\end{pmatrix}
+\\
+\begin{pmatrix}
+0 & 1 & -5 & -13 \\ 1 & 0 & 14 & 29 \\ 0 & 0 & 11 & 22
+\end{pmatrix}
+\\
+\begin{pmatrix}
+0 & 1 & -5 & -13 \\ 1 & 0 & 14 & 29 \\ 0 & 0 & 1 & 2
+\end{pmatrix}
+\\
+\begin{pmatrix}
+0 & 1 & 0 & -3 \\ 1 & 0 & 0 & 1 \\ 0 & 0 & 1 & 2
+\end{pmatrix}
+\end{aligned}
+$$
+
+よって、求める解は $x=1,y=-3,z=2$ である。
+
+## **Reference**
+
+- [大学公式問題（PDF 2–3ページ）](https://www.bme.tohoku.ac.jp/admission/files/r4_math.pdf)

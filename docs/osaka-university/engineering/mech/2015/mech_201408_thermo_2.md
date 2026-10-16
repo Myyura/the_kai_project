@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 問題2（熱工学）"
+sidebar_label: "2014年8月実施 問題2（熱工学）"
 tags:
   - Osaka-University
   - Engineering.Heat-Transfer.Cylindrical-Conduction
   - Engineering.Heat-Transfer.Conduction-with-Heat-Generation
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2015年度 熱工学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2014年8月実施 熱工学 問題2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 無限に長い円形銅線を絶縁体で被覆し、周囲温度 $T_0$ の空気中に置く。銅線の半径は $r_1$、被覆の外半径は $r_2$、熱伝導率はそれぞれ $\lambda_1,\lambda_2$ である。銅線内部には一様な単位体積当たりの発熱量 $w$ があり、被覆内部には発熱がない。外表面の熱伝達率は $h$ とする。定常状態を考え、物性値は一定、接触熱抵抗は無視する。
 
-![原題の銅線と被覆の断面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2015/mech_201408_thermo_2-question-fig1.png)
+![原題の銅線と被覆の断面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2015/mech_201408_thermo_2-question-fig1.png)
 
 1. 銅線と被覆の境界、および被覆外表面での熱流束を求めよ。
 2. 被覆外表面の温度を求めよ。

@@ -31,7 +31,7 @@ Zero
 (6) 問(4)の条件が満たされるとき，負荷で消費される有効電力 $P$ が最大となる $R$ を $R_S$ を用いて表せ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202308_electrical_circuit_1_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2024/ee_202308_electrical_circuit_1_p1.png" width="500" alt=""/>
 </figure>
 
 ### 题目描述
@@ -123,7 +123,7 @@ $$
 ### (6)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202308_electrical_circuit_1_p2.png" width="250" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2024/ee_202308_electrical_circuit_1_p2.png" width="250" alt=""/>
 </figure>
 
 インピーダンス整合より、

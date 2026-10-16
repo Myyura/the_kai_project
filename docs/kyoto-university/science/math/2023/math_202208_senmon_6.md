@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 専門科目 [6]（積分作用素のコンパクト性）"
+sidebar_label: "2022年8月実施 専門科目 [6]（積分作用素のコンパクト性）"
 tags:
   - Kyoto-University
   - Mathematics.Functional-Analysis.Compact-Operators-and-Finite-Rank-Approximation
   - Mathematics.Functional-Analysis.Bounded-Linear-Operator
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2023年度 専門科目 問題6
+# 京都大学 理学研究科 数学・数理解析専攻 2022年8月実施 専門科目 問題6
 
 ## **Author**
 

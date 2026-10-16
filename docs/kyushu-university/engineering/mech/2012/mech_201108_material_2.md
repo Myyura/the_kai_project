@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2012年度 問2（材料力学）"
+sidebar_label: "2011年8月実施 問2（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Truss
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Strain-Energy
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 材料力学 問2
+# 九州大学 工学府 機械系専攻 2011年8月実施 材料力学 問2
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図2、図3の CDB は L 字型の剛体であり、CD $=$ DB $=\ell$ である。A、C、および図3の F は固定されたピン支点、B はピン結合である。AB は水平となす角が $45^\circ$ の弾性棒、図3の FB は長さ $\ell$ の鉛直な弾性棒である。弾性棒のヤング率は $E$、直径は $d$。D に鉛直下向き荷重 $P$ を加える。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/material-2-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_material-2-original.png)
 
 図2について、次を求めよ。
 

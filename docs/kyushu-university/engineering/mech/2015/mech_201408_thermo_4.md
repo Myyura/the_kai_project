@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2015年度 問4（熱工学）"
+sidebar_label: "2014年8月実施 問4（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Heat-Exchangers-and-Thermal-Resistance
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 熱工学 問4
+# 九州大学 工学府 機械系専攻 2014年8月実施 熱工学 問4
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 質量流量 $W_A$、入口温度 $T_A$ の流体 A により、質量流量 $W_B$ の流体 B を入口温度 $T_B$ から $\Delta T_B$ だけ加熱する。直径 $d$ の伝熱管を用いた向流二重管式熱交換器とし、管壁の厚さは無視する。A、B 側の熱伝達率を $h_A,h_B$、比熱を $C_A,C_B$、入口温度差を $\Delta T_{AB}=T_A-T_B$ とする。熱容量流量比は $n=W_BC_B/(W_AC_A)<1$ である。（30 点）
 
-![向流熱交換器の温度分布記入欄（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/thermo-4-original.png)
+![向流熱交換器の温度分布記入欄（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_thermo-4-original.png)
 
 1. 温度勾配の変化に注意して、熱交換器内の A、B の温度分布を図示せよ。
 2. A、B の出口温度を等しくするとき、$\Delta T_B$ と $\Delta T_{AB}$ の比を $n$ で表せ。
@@ -46,7 +46,7 @@ $$
 
 したがって右ほど温度差と両勾配の絶対値が増す。下図は (2) の出口温度一致条件を満たす例である。
 
-![向流熱交換器の温度分布と流れの向き](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/thermo-4-profiles.svg)
+![向流熱交換器の温度分布と流れの向き](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_thermo-4-profiles.svg)
 
 ### (2)
 

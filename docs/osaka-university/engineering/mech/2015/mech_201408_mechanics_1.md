@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 力学 問題1"
+sidebar_label: "2014年8月実施 力学 問題1"
 tags:
   - Osaka-University
   - Physics.Mechanics.Friction
   - Physics.Mechanics.Simple-Harmonic-Motion
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2015年度 力学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2014年8月実施 力学 問題1
 
 ## **Author**
 
@@ -21,7 +21,7 @@ tags:
 3. (1) の条件の下で、B が A と初めて衝突する時刻が、A の速度が初めて $0$ になる時刻であった。このときの $\delta$ を求めよ。
 4. (3) の $\delta$ を $\delta_0$ とする。(1) の条件を満たし、$\delta>\delta_0$ とする。A が滑り落ちて速度が初めて $0$ になった後、再び斜面上向きに滑り出すための $\theta$ の条件を不等式で示せ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2015/mech_201408_mechanics_1-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2015/mech_201408_mechanics_1-question-fig1.png)
 
 #### 题目描述
 

@@ -30,7 +30,7 @@ II. 蝶番を水平方向にのみ伸縮するばねの先端に固定する。�
 4. 蝶番が O、おもりが $(0,l)$ に静止していた状態から、$t=0$ におもりを $+x$ 方向へ初速 $u_2$ で打ち出す。$\theta(t)$ を求めよ。
 
 III. $t=0$ から蝶番を水平方向に $\xi=A\sin\omega t$ で強制的に動かす。$A,\omega$ は実定数で、$\omega\ne\sqrt{g/l}$ とする。$t<0$ では蝶番は O、おもりは $(0,l)$ で静止していた。I.2 の微小角近似のもとで、$t\ge0$ の $\theta(t)$ を求めよ。
-![固定支点、ばね付き支点、強制的に動く支点の単振り子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2023/kyotsu_202208_phys_1_pendulum_audited.svg)
+![固定支点、ばね付き支点、強制的に動く支点の単振り子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2023/kyotsu_202208_phys_1_pendulum_audited.svg)
 
 #### 题目描述
 

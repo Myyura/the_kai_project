@@ -105,7 +105,7 @@ $$
 
 である（ $k$ 方向の区間 $(-1/2,1/2)$ に対し，上へ無限に延びる帯状領域）．
 
-![積分領域の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hosei_university/science_and_engineering/systems_engineering/management_systems/2022/hosei-2021-open-strip.svg)
+![積分領域の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hosei-university/science_and_engineering/systems_engineering/management_systems/2022/hosei-202108-open-strip.svg)
 
 (2) 重積分 $I$ を求める．
 

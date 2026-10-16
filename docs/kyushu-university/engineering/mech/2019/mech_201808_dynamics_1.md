@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2019年度 問1（機械力学）"
+sidebar_label: "2018年8月実施 問1（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Gyroscopic-Precession
   - Physics.Mechanics.Rigid-Body-Moment-of-Inertia
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 機械力学 問1
+# 九州大学 工学府 機械系専攻 2018年8月実施 機械力学 問1
 
 ## **Author**
 
@@ -18,7 +18,7 @@ tags:
 
 G を原点、円板 B の中心へ向かう水平方向を $z$、鉛直上向きを $x$ とする直交座標系 G–$xyz$ をとる。この座標系自身も $x$ 軸まわりに角速度 $\beta$ で回転する。重力加速度を $g$ とする。ベクトル・テンソルはすべてこの座標系の成分で答えよ。各軸の単位ベクトルを $\boldsymbol e_x,\boldsymbol e_y,\boldsymbol e_z$ としてよい。（50 点）
 
-![二円板と回転座標系（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/dynamics-1-original.png)
+![二円板と回転座標系（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_dynamics-1-original.png)
 
 1. 座標系の角速度 $\boldsymbol\Omega$ と剛体の角速度 $\boldsymbol\omega$ を求めよ。
 2. G に関する慣性テンソルを $I_G=\operatorname{diag}(I,I,J)$ と書くとき、$I,J$ を求めよ。円板一個の極慣性モーメントは $I_p=mR^2/2$ である。平行軸・直交軸の定理に注意せよ。

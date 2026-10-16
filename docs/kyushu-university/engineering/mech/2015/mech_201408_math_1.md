@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 問1（数学）"
+sidebar_label: "2014年8月実施 問1（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
   - Mathematics.Differential-Equations.Cauchy-Euler-Equation
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 数学 問1
+# 九州大学 工学府 機械系専攻 2014年8月実施 数学 問1
 
 ## **Author**
 

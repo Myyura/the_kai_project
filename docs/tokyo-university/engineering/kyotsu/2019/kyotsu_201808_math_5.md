@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第5問'
+sidebar_label: '2018年8月実施 数学 第5問'
 tags:
   - Tokyo-University
   - Mathematics.Fourier-Analysis.Fourier-Transform-Differentiation-and-Time-Multiplication
@@ -8,7 +8,7 @@ tags:
   - Mathematics.Calculus.Gaussian-Integral
 ---
 
-# 東京大学 工学系研究科 2019年度 数学 第5問
+# 東京大学 工学系研究科 2018年8月実施 数学 第5問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)

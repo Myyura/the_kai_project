@@ -80,7 +80,7 @@ $$
 
 (a) $\widetilde g_{AM}=A_c\max(\cos(2\pi f_ct),0)$，保留余弦的正半周，负半周为零。
 
-![低通冲激响应及半波整流波形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201808_senmon_2_waveforms.svg)
+![低通冲激响应及半波整流波形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2019/ecei_201808_senmon_2_waveforms.svg)
 
 (b) 令 $\theta=2\pi f_ct$。偶函数 $q(\theta)=\max(\cos\theta,0)$ 的常数项为 $1/\pi$，一次谐波系数为 $1/2$；对 $n\ge1$，
 

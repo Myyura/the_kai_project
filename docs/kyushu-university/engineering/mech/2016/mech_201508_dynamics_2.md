@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2016年度 問2（機械力学）"
+sidebar_label: "2015年8月実施 問2（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Torsion
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 機械力学 問2
+# 九州大学 工学府 機械系専攻 2015年8月実施 機械力学 問2
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 二つの質量 $m$ の質点が長さ $2l/\sqrt5$ の剛体棒で結合され、その中心が長さ $l$、曲げ剛性 $EI$、円形断面の片持ちはり先端に直角に剛結されている。はりと棒の質量は無視する。図 1 のはり軸を $x$、剛体棒の方向を $y$、それらに垂直な方向を $z$ とする。（50 点）
 
-![片持ちはりと剛体棒の二つの配置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/dynamics-2-original.png)
+![片持ちはりと剛体棒の二つの配置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_dynamics-2-original.png)
 
 1. 図 1 ではり先端に $z$ 方向の初速度を与えた。$zx$ 面内の曲げ自由振動の固有角振動数と、先端変位・角変位の比を求めよ。
 2. $xy$ 面内の曲げ自由振動について同様に求めよ。

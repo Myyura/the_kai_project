@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2019年度 問3（熱工学）"
+sidebar_label: "2018年8月実施 問3（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Heat-Exchangers-and-Thermal-Resistance
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 熱工学 問3
+# 九州大学 工学府 機械系専攻 2018年8月実施 熱工学 問3
 
 ## **Author**
 
@@ -18,14 +18,14 @@ tags:
 1. 並流型か向流型か、理由とともに答えよ。
 2. 高温流体と低温流体の温度差の分布を下図 (A)–(E) から選び、理由を述べよ。
 
-![温度差分布の選択肢（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/thermo-3-choices.png)
+![温度差分布の選択肢（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo-3-choices.png)
 
 3. 交換熱量を kW で求めよ。
 4. 低温流体の熱容量流量（質量流量×比熱）を kW/K で求めよ。
 5. 熱通過面積を m² で求めよ。
 6. 低温流体の質量流量だけを変え、高温側と熱容量流量を等しくした。両流体の温度分布を下の座標に図示し、新しい出口温度を求めよ。熱通過率は変わらず、ここでは $\ln2=0.7,\ln3=1.1,\ln5=1.6$ とする。
 
-![温度分布の解答欄（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/thermo-3-axes.png)
+![温度分布の解答欄（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo-3-axes.png)
 
 #### 题目描述
 
@@ -92,4 +92,4 @@ $$
 
 高温側入口から出口へ向かって、高温側は $80\to45^\circ\mathrm C$、低温側は $55\to20^\circ\mathrm C$ と直線的に下がり、差は常に $25\ \mathrm K$ である。
 
-![熱容量流量が等しい場合の温度分布](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/thermo-3-profiles.svg)
+![熱容量流量が等しい場合の温度分布](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo-3-profiles.svg)

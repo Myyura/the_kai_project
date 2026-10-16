@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第6問'
+sidebar_label: '2019年8月実施 数学 第6問'
 tags:
   - Tokyo-University
   - Probability-Statistics.Stochastic-Processes.Absorbing-Random-Walk
@@ -7,7 +7,7 @@ tags:
   - Discrete-Mathematics.Combinatorics.Binomial-Coefficient
 ---
 
-# 東京大学 工学系研究科 2020年度 数学 第6問
+# 東京大学 工学系研究科 2019年8月実施 数学 第6問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)

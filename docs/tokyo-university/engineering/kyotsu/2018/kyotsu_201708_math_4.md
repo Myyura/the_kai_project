@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第4問'
+sidebar_label: '2017年8月実施 数学 第4問'
 tags:
   - Tokyo-University
   - Mathematics.Vector-Calculus.Parametric-Surface
@@ -9,7 +9,7 @@ tags:
   - Mathematics.Geometry.Gaussian-Curvature
 ---
 
-# 東京大学 工学系研究科 2018年度 数学 第4問
+# 東京大学 工学系研究科 2017年8月実施 数学 第4問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)
@@ -75,7 +75,7 @@ $$
 
 これは $z$ 軸を軸とする一葉双曲面である。ただし媒介変数表示には、$y/b=z/c$ を満たす2本の直線母線は含まれない。
 
-![規格化した座標による媒介変数曲面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2018/math_4_surfaces.svg)
+![規格化した座標による媒介変数曲面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2018/kyotsu_201708_math_4_surfaces.svg)
 
 ### II.
 

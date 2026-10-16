@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 問3（数学）"
+sidebar_label: "2016年8月実施 問3（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Matrix-Diagonalization
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 数学 問3
+# 九州大学 工学府 機械系専攻 2016年8月実施 数学 問3
 
 ## **Author**
 

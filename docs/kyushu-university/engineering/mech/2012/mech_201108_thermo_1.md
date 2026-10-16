@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2012年度 問1（熱工学）"
+sidebar_label: "2011年8月実施 問1（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Otto-Cycle
   - Physics.Thermodynamics.Entropy
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 熱工学 問1
+# 九州大学 工学府 機械系専攻 2011年8月実施 熱工学 問1
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 理論オットーサイクルの $p$–$v$ 線図を下図に示す。作動ガスは温度によらず比熱一定の理想気体、比熱比を $\kappa$ とする。状態1、2における圧力を $p_1,p_2$、比容積を $v_1,v_2$ とする。（70点）
 
-![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/thermo-1-original.png)
+![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_thermo-1-original.png)
 
 1. 可逆断熱圧縮 $1\to2$ における単位質量あたりの仕事 $l_{12}$ を、$p_1,v_1,v_2,\kappa$ のみで表せ。（10点）
 2. 等積加熱 $2\to3$ の単位質量あたりの加熱量が $q$ のとき、$p_3$ を $p_1,v_1,v_2,\kappa,q$ で表せ。（10点）
@@ -73,7 +73,7 @@ $$
 
 断熱過程では $s_2=s_1$、$s_4=s_3$ である。等積過程では $ds=c_vdT/T$ より $T\propto e^{s/c_v}$。したがって $1\to2$ と $3\to4$ は縦線、$2\to3$ と $4\to1$ は図の曲線となる。
 
-![OttoサイクルのT–s線図と膨張延長](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/thermo-1-answer.svg)
+![OttoサイクルのT–s線図と膨張延長](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_thermo-1-answer.svg)
 
 ### (5)
 

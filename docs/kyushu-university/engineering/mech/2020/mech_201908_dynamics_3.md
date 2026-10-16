@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 問3（機械力学）"
+sidebar_label: "2019年8月実施 問3（機械力学）"
 tags:
   - Kyushu-University
   - Mathematics.Differential-Equations.Wave-Equation
   - Physics.Mechanics.Forced-Vibration
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 機械力学 問3
+# 九州大学 工学府 機械系専攻 2019年8月実施 機械力学 問3
 
 ## **Author**
 

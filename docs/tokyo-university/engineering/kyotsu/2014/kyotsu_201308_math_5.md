@@ -73,7 +73,7 @@ t-\dfrac12,&t>1.
 \end{cases}}
 $$
 
-![q、rおよび畳み込みyのグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2014/kyotsu_201308_math_5_functions.svg)
+![q、rおよび畳み込みyのグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_math_5_functions.svg)
 
 $0<t<1$ では $y'(t)=t+\sin(2\pi t)$ であるため、全区間で単調増加するわけではない。例えば $y'(3/4)=-1/4<0$ である。
 

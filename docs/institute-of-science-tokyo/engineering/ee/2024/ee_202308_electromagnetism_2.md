@@ -31,7 +31,7 @@ Zero, 祭音Myyura
 - ③ このコイルに電流 $I$ を流した。ある角度 $\theta$ におけるトルクを求めよ。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202308_electromagnetism_2_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2024/ee_202308_electromagnetism_2_p1.png" width="600" alt=""/>
 </figure>
 
 (3) 図 $2.3$ のように半径 $a$, 巻数 $N$ の円形コイルを，外部磁場が存在しない場所に置き，電流 $I$ を流してしばらく待った。
@@ -41,7 +41,7 @@ Zero, 祭音Myyura
 - ② 図 $2.4$ のように，図 $2.3$ の中心軸上に $d = a$ 離れた点 $O'$ を中心として，同じ円形コイルを設置し，同じ向きで電流 $I$ を流してしばらく待った。この時に，コイル間の中心軸上の $2$ 点 $OO'$ 間の中点における磁束密度の大きさを求めよ。また，このようなコイル配置では，コイル間中心軸上の磁束密度は，どのような特徴をもつか。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202308_electromagnetism_2_p2.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2024/ee_202308_electromagnetism_2_p2.png" width="400" alt=""/>
 </figure>
   
 ### 题目描述

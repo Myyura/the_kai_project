@@ -24,7 +24,7 @@ III. (1) $w=(z+1)/(z-1)$ による領域 $|z|<1$ と $\operatorname{Re}z<0$ の�
 (2) 正の実数 $\alpha,\beta$ に対し、$w=(z-\alpha)/(\alpha z-1)$ は円環 $\beta<|z|<1$ を
 $|w-1/4|>1/4,\ |w|<1$ に写す。$\alpha,\beta$ を求めよ。
 
-![図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2014/kyotsu_201308_math_3_contour.svg)
+![図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_math_3_contour.svg)
 
 #### 题目描述
 

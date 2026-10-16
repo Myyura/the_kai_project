@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2019年度 基礎科目 問題4"
+sidebar_label: "2018年8月実施 基礎科目 問題4"
 tags:
   - Kyoto-University
   - Mathematics.Calculus.Improper-Integral
   - Mathematics.Calculus.Mean-Value-Theorem
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2019年度 基礎科目 問題4
+# 京都大学 理学研究科 数学・数理解析専攻 2018年8月実施 基礎科目 問題4
 
 ## **Author**
 

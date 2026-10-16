@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2014年度 問1（数学）"
+sidebar_label: "2013年8月実施 問1（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation
   - Mathematics.Differential-Equations.Laplace-Transform
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 数学 問1
+# 九州大学 工学府 機械系専攻 2013年8月実施 数学 問1
 
 ## **Author**
 

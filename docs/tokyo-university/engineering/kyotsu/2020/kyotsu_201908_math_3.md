@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第3問'
+sidebar_label: '2019年8月実施 数学 第3問'
 tags:
   - Tokyo-University
   - Mathematics.Complex-Analysis.Complex-Roots
@@ -8,7 +8,7 @@ tags:
   - Mathematics.Complex-Analysis.Contour-Integration
 ---
 
-# 東京大学 工学系研究科 2020年度 数学 第3問
+# 東京大学 工学系研究科 2019年8月実施 数学 第3問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)

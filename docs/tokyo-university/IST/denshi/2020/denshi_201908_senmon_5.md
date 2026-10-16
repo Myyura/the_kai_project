@@ -17,7 +17,7 @@ tags:
 
 離散時間信号 $x$ の出力が、図のような確率密度関数 $p(x)$ に従うとする。以下の問いに答えよ。$\log_2 3=1.58,\ \log_2 5=2.32$ とする。
 
-![確率密度 p(x) は区間 [-1,1] で p(x)=1-|x|、それ以外では 0。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-university/IST/denshi/q5_2020_density.svg)
+![確率密度 p(x) は区間 [-1,1] で p(x)=1-|x|、それ以外では 0。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2020/q5_201908_density.svg)
 
 (1) 量子化器 $Q_0$ は、信号 $x$ の出力のレンジ $[-1,1]$ を均等に $5$ 分割して、$5$ レベルの量子化を行う。その量子化出力を入力信号値の小さい方から $q_1,q_2,q_3,q_4,q_5$ とする。それぞれの出現確率を求めよ。
 

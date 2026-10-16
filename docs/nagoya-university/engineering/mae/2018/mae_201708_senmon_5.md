@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年度 専門部門 問題5（材料力学）"
+sidebar_label: "2017年8月実施 専門部門 問題5（材料力学）"
 tags:
   - Nagoya-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Composite-Beams
 ---
 
-# 名古屋大学 工学研究科 機械航空系 2018年度 専門部門 問題5
+# 名古屋大学 工学研究科 機械航空系 2017年8月実施 専門部門 問題5
 
 ## **Author**
 
@@ -39,7 +39,7 @@ tags:
 2. 主応力とその方向を求めよ。
 3. 最大せん断応力とその面の方向を求めよ。
 
-![はりおよび加熱される同軸部材](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/engineering/mae/2018/nagoya2017_specialist5_setup.svg)
+![はりおよび加熱される同軸部材](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/nagoya201708_specialist5_setup.svg)
 
 #### 题目描述
 
@@ -122,7 +122,7 @@ $$
 
 従って円の式は $\boxed{(\sigma-30)^2+\tau^2=5000}$（応力の単位は MPa）。
 
-![モールの応力円。せん断応力を上向き正に表示](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/engineering/mae/2018/nagoya2017_specialist5_mohr.svg)
+![モールの応力円。せん断応力を上向き正に表示](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/nagoya201708_specialist5_mohr.svg)
 
 #### 2)
 

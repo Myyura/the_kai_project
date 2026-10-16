@@ -23,7 +23,7 @@ tags:
 - (b) 固定電荷が円柱内に一様に分布しているとき、点 P における電界強度を求めよ。$r>a$ と $0<r<a$ の場合についてそれぞれ求めること。
 - (c) 円柱の中心から距離 $r_1$ の点 $\mathrm P_1$ にある電荷量 $q$ の電荷を、図 1.2 のように円柱の中心から距離 $r_2$ の点 $\mathrm P_2$ に移動させた。この移動に必要な仕事を求めよ。ただし、$r_1>r_2>a$ とする。また、電荷の電荷量は十分に小さく、円柱の電荷による電界に影響を及ぼすことはない。
 
-![図1.1、図1.2 円柱状誘電体と電荷の移動](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2018/em1-fig1-1-2.png)
+![図1.1、図1.2 円柱状誘電体と電荷の移動](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2019/ee_201808_em1-fig1-1-2.png)
 
 (2) 固定電荷が表面にのみ一様に分布している円柱を、図 1.3 のようにその中心軸を中心にゆっくり回転させる。このとき、表面に固定された電荷の移動速度は光速よりも十分に小さい。
 
@@ -31,7 +31,7 @@ tags:
 - (b) 円柱が一定の角速度 $\omega$ で回転しているとき、円柱内部の磁束密度を求めよ。
 - (c) 回転速度を $\omega=kt$ のように時間 $t$ とともに緩やかに増加させる。このとき、円柱の中心軸から距離 $r$ の点における電界強度を求めよ。ただし、$k$ は定数とし、$t>0$ および $r<a$ とする。
 
-![図1.3 円柱の回転](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2018/em1-fig1-3.png)
+![図1.3 円柱の回転](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2019/ee_201808_em1-fig1-3.png)
 
 図は東京工業大学 2019 年度大学院入試の原題より。
 

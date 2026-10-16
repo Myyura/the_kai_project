@@ -42,7 +42,7 @@ $$
 - **問 D**：$x(t)$ を求める。その結果を式 (8) とする。もう一方の座標は $y(t)=A(\omega t-\sin\omega t)/\omega$ である。
 - **問 E**：$B$ が十分大きい場合の電子軌道を、次の候補から選ぶ。上向きが $x$、右向きが $y$ の正方向である。
 
-![電子軌道の六つの候補を示す模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/science/chem/2023/kyoto-chem-2022-trajectories.svg)
+![電子軌道の六つの候補を示す模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/science/chem/2023/kyoto-chem-202208-trajectories.svg)
 
 - **問 F(a)**：軌道の $x$ 座標の最大値が $d$ を下回ると電極間の電流は急減する。その境界となる磁場 $B_c$ を $d,V,m,e$ で表す。
 - **問 F(b)**：$B>B_c$ で、問 B の二式にそれぞれ減衰項 $-v_x/\tau,-v_y/\tau$ を加えた式を (10) とする。$t\gg\tau$ の定常速度を求め、速度と $x$ 軸との角が $45^\circ$ になる $\tau$ を $\omega$ で表す。

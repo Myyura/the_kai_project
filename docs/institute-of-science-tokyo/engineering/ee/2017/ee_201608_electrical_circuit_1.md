@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年度 電気回路1"
+sidebar_label: "2016年8月実施 電気回路1"
 tags:
   - institute-of-science-tokyo
   - Electrical-Electronic.Circuits.Kirchhoff-Laws
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Differential-Equations.Laplace-Transform
 ---
 
-# 東京工業大学 工学院 電気電子系 2017年度（2016年8月実施）電気回路1
+# 東京工業大学 工学院 電気電子系 2016年8月実施 電気回路1
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図1.1の RLC 回路で $t=0$ にスイッチ SW を閉じる。初期コンデンサ電圧 $v_c(0)$ とインダクタ電流 $i_L(0)$ はともに $0$ とする。
 
-![抵抗と並列LCからなる回路（図1.1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2016/circuit1-original.png)
+![抵抗と並列LCからなる回路（図1.1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_circuit1-original.png)
 
 図：東京工業大学 電気電子系 2016年実施問題、図1.1（原図）。
 
@@ -95,6 +95,6 @@ $$
 
 原点から傾き $E/(RC)$ で立ち上がり、$0$ に向かって減衰振動する。零点は $t=n\pi/\omega_d$、包絡線は $\pm E e^{-\alpha t}/(RC\omega_d)$ である。
 
-![コンデンサ電圧の減衰振動と代表的な値](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2016/circuit1-transient.svg)
+![コンデンサ電圧の減衰振動と代表的な値](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_circuit1-transient.svg)
 
 図は $\alpha/\omega_d=1/4$ の場合の概形である。初期値 $v_c(0)=0$ と最終値 $v_c(\infty)=0$ を満たす。

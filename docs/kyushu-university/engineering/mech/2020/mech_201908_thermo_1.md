@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2020年度 問1（熱工学）"
+sidebar_label: "2019年8月実施 問1（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Reciprocating-and-Multistage-Compression
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 熱工学 問1
+# 九州大学 工学府 機械系専攻 2019年8月実施 熱工学 問1
 
 ## **Author**
 

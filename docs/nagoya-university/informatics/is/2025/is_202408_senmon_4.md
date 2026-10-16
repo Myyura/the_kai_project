@@ -31,9 +31,9 @@ tags:
 
 (4) 図 2 の $a$ から $d$ に示す 4 つのグラフのそれぞれについて，図 1 のグラフと同型であるかどうかを答え，同型の場合は頂点間の全単射を示し，同型でない場合は，同型でないと判断する理由を述べよ。
 
-![図1：グラフG](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2025/nagoya-is2025-graph1.svg)
+![図1：グラフG](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/is/2025/nagoya-is202408-graph1.svg)
 
-![図2：グラフ(a)〜(d)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2025/nagoya-is2025-graph2.svg)
+![図2：グラフ(a)〜(d)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/is/2025/nagoya-is202408-graph2.svg)
 
 (5) $G$ が補グラフと同型であるとする。非負整数 $k$ を用いて、頂点数が $n=4k$ または $n=4k+1$ と表されることを示せ。
 
@@ -103,7 +103,7 @@ $$
 
 となる。
 
-![補グラフ：v4は孤立頂点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2025/nagoya-is2025-complement.svg)
+![補グラフ：v4は孤立頂点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/is/2025/nagoya-is202408-complement.svg)
 
 ### (4)
 まず，図 1 のグラフ $G$ の各頂点の次数を調べる：

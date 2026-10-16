@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2013年度 問3（材料力学）"
+sidebar_label: "2012年8月実施 問3（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Strain-Energy
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 材料力学 問3
+# 九州大学 工学府 機械系専攻 2012年8月実施 材料力学 問3
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図3の四分円形棒 AB は半径 $a$、直線棒 BC は長さ $a$ であり、A、C は固定端、B はピン継手である。両棒の直径は $d$、ヤング率は $E$、$a\gg d$ とする。図の B に作用する下向き荷重の大きさを $P$ とおく。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/material-3-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-3-original.png)
 
 1. BC 間の SFD と BMD を描け。
 2. B の鉛直変位 $\delta_{BV}$ と水平変位 $\delta_{BH}$ を求めよ。
@@ -102,7 +102,7 @@ $$
 
 SFD は一定値 $-P_2$、BMD は B の 0 から C の $-P_2a$ へ下がる三角形である。
 
-![BC の SFD と BMD](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/material-3-diagrams.svg)
+![BC の SFD と BMD](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-3-diagrams.svg)
 
 ### (2)
 

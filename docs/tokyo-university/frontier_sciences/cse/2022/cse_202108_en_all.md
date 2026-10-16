@@ -147,7 +147,7 @@ Consider four point masses with mass m which move along a straight line. As show
   - (4) Express  $R_A$  just before the collision using m,  $V_{10}$  and  $V_2$ .
   - (5) Express the ratio  $C_{\rm A}/(R_{\rm A}+S_{\rm A})$  just after the collision using  $V_{10}$  and  $V_2$ .
 
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2022/tokyo-cse-202108-springs.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2022/tokyo-cse-202108-springs.svg)
 
 ## Slot 3: 3.1 Mathematical analysis (40 minutes)
 
@@ -186,7 +186,7 @@ by applying the residue theorem to Eq. (1). You may use the fact that the contri
 
 (Q.4) Obtain the inverse Fourier transform  $\mathcal{F}^{-1}[H(\omega)]$  of  $H(\omega)$  obtained in (Q.2), and sketch its graph as a function of t.
 
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2022/tokyo-cse-202108-contour.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2022/tokyo-cse-202108-contour.svg)
 
 Figure 1: Integral path.
 
@@ -224,7 +224,7 @@ Answer the following questions. Use the vacuum permittivity  $\varepsilon_0$  an
   - (3) Self-inductance L of a long solenoid with cross-sectional area S, length l and number of turns per unit length n.
 - (Q.2) When an AC voltage (angular frequency  $\omega$ ) is applied to both ends of the circuit shown in Fig.1, express the total impedance using R, L and C.
 
-![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2022/tokyo-cse-202108-rlc.svg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/cse/2022/tokyo-cse-202108-rlc.svg)
 
 (Q.3) Faraday's law and Ampere's law in vacuum with charge and
 

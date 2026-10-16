@@ -111,5 +111,5 @@ $$
 したがって直線 $y=-x$ の上側の開半平面から極 $z=i$ を除いた領域である。
 
 
-![零点と |g(z)|>1 の領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2010/sys_200908_engineering_math_region.svg)
+![零点と |g(z)|>1 の領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2010/sys_200908_engineering_math_region.svg)
 

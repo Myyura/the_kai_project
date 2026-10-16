@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2013年度 問4（数学）"
+sidebar_label: "2012年8月実施 問4（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Linear-Algebra.Quadratic-Form
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 数学 問4
+# 九州大学 工学府 機械系専攻 2012年8月実施 数学 問4
 
 ## **Author**
 
@@ -54,7 +54,7 @@ $$
 
 第2行は第1行の $b$ 倍なので、条件は $x+ay=1$ だけとなる。したがって解集合は、$(1,0)$ と $(0,1/a)$ を通る直線全体である。
 
-![退化した連立方程式の解直線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/math-4-line.svg)
+![退化した連立方程式の解直線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_math-4-line.svg)
 
 ### (3)
 

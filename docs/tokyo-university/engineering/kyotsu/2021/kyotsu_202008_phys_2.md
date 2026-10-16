@@ -28,7 +28,7 @@ II. 導線の $\beta\beta'$ 部分に容量 $C$ のコンデンサーを入れ�
 1. 電流 $I(t)$ を $Q(t),v(t)$ の両方で表せ。
 2. 棒の加速度 $a(t)$ を $Q(t),v(t)$ の両方で表せ。
 3. $v(0)=v_0$ のとき、$I(t)$ を求めよ。
-![一様磁場中で動く導体棒とコンデンサー付き回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2021/kyotsu_202008_phys_2_rod_audited.svg)
+![一様磁場中で動く導体棒とコンデンサー付き回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2021/kyotsu_202008_phys_2_rod_audited.svg)
 
 #### 题目描述
 

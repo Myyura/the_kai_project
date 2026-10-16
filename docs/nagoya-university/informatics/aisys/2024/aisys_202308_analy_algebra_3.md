@@ -15,7 +15,7 @@ tags:
 
 以下の図に示す線形写像 $f: \mathbb{R}^3 \to \mathbb{R}^3$ について考える。 $A', B', C', D', P'$ はそれぞれ点 $A, B, C, D, P$ を写像 $f$ で移した点である。点 $P'$ の座標を求めよ。
 
-![線形写像による点 A、B、C、D、P とその像の対応](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/informatics/aisys/2024/aisys_202308_analy_algebra_3_linear_map.svg)
+![線形写像による点 A、B、C、D、P とその像の対応](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/aisys/2024/aisys_202308_analy_algebra_3_linear_map.svg)
 
 図中の座標は次のとおりである。
 

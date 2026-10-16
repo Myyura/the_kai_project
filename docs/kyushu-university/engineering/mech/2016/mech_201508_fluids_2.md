@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2016年度 問2（流体工学）"
+sidebar_label: "2015年8月実施 問2（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Pipe-Networks
@@ -7,7 +7,7 @@ tags:
   - Engineering.Fluid-Mechanics.Minor-Losses
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 流体工学 問2
+# 九州大学 工学府 機械系専攻 2015年8月実施 流体工学 問2
 
 ## **Author**
 
@@ -19,7 +19,7 @@ tags:
 
 レイノルズ数は十分に大きく、管摩擦係数 $\lambda$ と入口損失係数 $\zeta_{\rm in}$ は流体状態によらず一定とする。合流部の損失を無視し、出口で縮流は起こらない。二種類の液体の質量混合割合が等しくなるよう弁を操作するとき、弁の損失係数 $\zeta_v$ と混合液の質量流量 $G$ を求めよ。重力加速度は $g$ とする。（50点）
 
-![原題の図（九州大学 2016年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/fluids-2-original.png)
+![原題の図（九州大学 2016年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_fluids-2-original.png)
 
 #### 题目描述
 

@@ -35,7 +35,7 @@ $$
 ### 問題2
 $C$ は原点を中心とし、正の実軸と接した半径 $r$、中心角 $\pi/4$ の扇形の周囲を反時計回りに一周する経路である。
 
-![積分経路 C0 と扇形経路 C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2015/sys_201408_engineering_math_contours.svg)
+![積分経路 C0 と扇形経路 C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2015/sys_201408_engineering_math_contours.svg)
 
 $C$ に沿って $e^{-z^2}$ を積分し、$r\to\infty$ の極限をとることにより、$\int_0^\infty\sin x^2\,dx$ を求めよ。ただし、以下を証明せず用いてよい。
 

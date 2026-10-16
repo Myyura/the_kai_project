@@ -40,7 +40,7 @@ $$
 4. $\boldsymbol E_T,\boldsymbol E_R,\boldsymbol H_T,\boldsymbol H_R$ を求めよ。
 5. 各波の Poynting ベクトル $\boldsymbol S=\boldsymbol E\times\boldsymbol H$、すなわち $\boldsymbol S_0,\boldsymbol S_T,\boldsymbol S_R$ を求めよ。
 6. 透過率 $T=|\boldsymbol S_T|_{\rm ave}/|\boldsymbol S_0|_{\rm ave}$、反射率 $R=|\boldsymbol S_R|_{\rm ave}/|\boldsymbol S_0|_{\rm ave}$ を求めよ。添字 ave は時間平均を表す。
-![帯電円柱と金属円筒、および電磁波の垂直入射](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2023/kyotsu_202208_phys_2_fields_audited.svg)
+![帯電円柱と金属円筒、および電磁波の垂直入射](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2023/kyotsu_202208_phys_2_fields_audited.svg)
 
 #### 题目描述
 

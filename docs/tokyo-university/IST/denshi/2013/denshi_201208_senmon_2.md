@@ -25,7 +25,7 @@ Let us design a binary digital synchronous sequential circuit which outputs $6,1
 (4) Using (3) as a black box, design the synchronous sequential circuit producing $6,1,0,2$ and $5$ periodically and draw it using MIL symbols. Simplify the circuit as far as possible, using Karnaugh Map.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2013_2_p1.png" width="700" height="650" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2013/denshi_201208_2_p1.png" width="700" height="650" alt=""/>
 </figure>
 
 ### 题目描述
@@ -46,7 +46,7 @@ Circuit's output determined by its input and past states.
 
 ### (2)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2013_2_p2.png" width="600" height="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2013/denshi_201208_2_p2.png" width="600" height="300" alt=""/>
 </figure>
 
 ### (3)
@@ -62,7 +62,7 @@ $$
 The transition sequence is $000\to001\to010\to011\to100\to000$.
 Only one NOT gate and one AND gate are needed in addition to the flip-flops.
 
-![Synchronous modulo-5 JK counter](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2013/tokyo-denshi-2012-mod5.svg)
+![Synchronous modulo-5 JK counter](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2013/tokyo-denshi-201208-mod5.svg)
 
 ### (4)
 |$S_2$|$S_1$|$S_0$|$S_2'$|$S_1'$|$S_0'$|
@@ -98,9 +98,9 @@ $S_0'$
 $S_0' = S_2 + \overline{S_1}S_0$ -->
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2013_2_p4.png" width="400" height="900" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2013/denshi_201208_2_p4.png" width="400" height="900" alt=""/>
 </figure>
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2013_2_p5.png" width="700" height="310" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2013/denshi_201208_2_p5.png" width="700" height="310" alt=""/>
 </figure>

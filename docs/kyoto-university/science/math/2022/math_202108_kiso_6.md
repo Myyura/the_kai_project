@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2022年度 基礎科目 [6]"
+sidebar_label: "2021年8月実施 基礎科目 [6]"
 tags:
   - Kyoto-University
   - Mathematics.Geometry.Differentiable-Manifolds-and-Regular-Values
   - Mathematics.Topology.Compactness-and-Connectedness
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2022年度 基礎科目 問題6
+# 京都大学 理学研究科 数学・数理解析専攻 2021年8月実施 基礎科目 問題6
 
 ## **Author**
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 問3（機械力学）"
+sidebar_label: "2016年8月実施 問3（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.String-Vibration
   - Physics.Mechanics.Forced-Vibration
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 機械力学 問3
+# 九州大学 工学府 機械系専攻 2016年8月実施 機械力学 問3
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 長さ $l$、線密度 $\rho$、張力 $T$ の一様な弦と、質量 $m$、長さ $2l$ の細い一様な剛体棒が直線状に結合され、水平面内で微小振動する。弦の左端および棒の右端は壁に取り付けられ、棒の右端は摩擦なく自由に回転できる。弦の左端 O を原点、長手方向を $x$ とし、変位を $u(x,t)$ とする。棒の重心に $x$ と直交する周期外力 $f\cos\omega t$ が作用する。重力と張力の変動は無視する。（50 点）
 
-![弦と右端支持の剛体棒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/dynamics-3-original.png)
+![弦と右端支持の剛体棒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_dynamics-3-original.png)
 
 1. 弦の波動方程式を導出せよ。
 2. $x=0,l$ における境界条件を示せ。棒の重心まわりの慣性モーメント $I_G=ml^2/3$ を用い、右端まわりの回転方程式を考えてよい。

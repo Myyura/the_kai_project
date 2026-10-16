@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年秋季 電磁気学 第2問"
+sidebar_label: "2017年8月実施 電磁気学 第2問"
 tags:
   - Tohoku-University
   - Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance
   - Electrical-Electronic.Circuits.Mutual-Inductance
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 電磁気学 第2問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 電磁気学 第2問
 
 ## **Author**
 
@@ -18,7 +18,7 @@ tags:
 
 同軸の長いソレノイド $C_1,C_2$ は、ともに長さ $L$、巻数 $N$ で、半径はそれぞれ $r_1,r_2$（$r_1>r_2$）である。外側の $C_1$ に電源から $I=I_0\sin\omega t$ が流れる。内側の $C_2$ にはスイッチを介して抵抗 $R$ が接続され、最初スイッチは開いている。真空の透磁率を $\mu_0$ とし、端効果と巻線の抵抗は無視する。
 
-![同軸ソレノイドと二次側負荷](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_solenoids.svg)
+![同軸ソレノイドと二次側負荷](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_solenoids.svg)
 
 1. マクスウェル方程式からアンペールの法則の積分形を導け。ただし変位電流は無視する。
 2. マクスウェル方程式からファラデーの法則の積分形を導け。

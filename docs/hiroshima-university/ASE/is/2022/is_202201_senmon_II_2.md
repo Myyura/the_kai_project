@@ -64,7 +64,7 @@ Answer the following questions
 ## **Kai**
 ### (1)
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202201_senmon_II_2_p1.png" width="400" height="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2022/is_202201_senmon_II_2_p1.png" width="400" height="400" alt=""/>
 </figure>
 
 The edges are

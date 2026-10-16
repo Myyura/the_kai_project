@@ -74,7 +74,7 @@ $$
 
 正半周保留，负半周为零，各正峰位于包络 $1+m\cos(2\pi f_mt)$ 下。
 
-![半波整流信号（示例 m=0.7）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201608_senmon_2_rectified.svg)
+![半波整流信号（示例 m=0.7）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2017/ecei_201608_senmon_2_rectified.svg)
 
 ### (2)(b)
 

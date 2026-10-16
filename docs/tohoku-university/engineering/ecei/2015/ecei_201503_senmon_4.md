@@ -51,7 +51,7 @@ $$
 | $x_t$ |1|0|1|0|1|1|
 | $z_t$ |0|0|1|0|1|0|
 
-![输入与输出采样时序](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201503_senmon_4.svg)
+![输入与输出采样时序](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2015/ecei_201503_senmon_4.svg)
 
 ### (2)
 

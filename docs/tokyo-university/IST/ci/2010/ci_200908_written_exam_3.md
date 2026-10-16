@@ -17,25 +17,25 @@ Design a multiplier whose inputs are two 3-bit numbers and the output is a 6-bit
 (1) Show the truth-table of the full adder and the half adder shown in Figure 1. Then construct them using AND, OR and NOT gates.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200908_3_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2010/ci_200908_3_p1.png" width="500" alt=""/>
 </figure>
 
 (2) Design the 4-bit adder shown in Figure 2 using the adders designed in question (1) with additional AND, OR and NOT gates.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200908_3_p2.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2010/ci_200908_3_p2.png" width="500" alt=""/>
 </figure>
 
 (3) Design a 3-bit by 3-bit multiplier that produces 6-bit output using adders from (1) and (2) with additional AND, OR and NOT gates. Inputs for the multiplier are two unsigned 3-bit integers and the output is an unsigned 6-bit integer as shown in Figure 3.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200908_3_p3.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2010/ci_200908_3_p3.png" width="500" alt=""/>
 </figure>
 
 (4) Design a 3-bit by 3-bit multiplier that produces 6-bit output using adders from (1) and (2) with additional AND, OR and NOT gates. The inputs of the multiplier are two signed 3-bit integers and the output is a signed 6-bit integer as shown in Figure 4. Two's complement numbers are used both in inputs and the output numbers.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200908_3_p4.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2010/ci_200908_3_p4.png" width="500" alt=""/>
 </figure>
 
 (5) Describe the construction of an $N$-bit by $N$-bit multiplier whose computation time is $O(\log N)$.

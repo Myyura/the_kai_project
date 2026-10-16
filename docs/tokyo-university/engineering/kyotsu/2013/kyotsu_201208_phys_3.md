@@ -70,7 +70,7 @@ III の熱効率を求め、理想気体を作動流体にした場合と比較�
 
 図 3.2 のサイクルは、図 3.3 のような微小カルノーサイクル K→L→M→J→K の和で近似できる。すべての微小サイクルの熱効率が等しいことを示せ。$V_E/V_F=\epsilon$ とするとき、サイクル全体の熱効率を $\epsilon,V_F$ を用いて求めよ。
 
-![カルノーサイクル、定容加熱サイクルと微小サイクルの T–S 図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2013/kyotsu_201208_phys_3_cycles_audited.svg)
+![カルノーサイクル、定容加熱サイクルと微小サイクルの T–S 図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2013/kyotsu_201208_phys_3_cycles_audited.svg)
 
 #### 题目描述
 

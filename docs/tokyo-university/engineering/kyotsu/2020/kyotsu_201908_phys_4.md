@@ -51,7 +51,7 @@ $$
 
 である。
 3. 両端で $y=0$ とし、端部にモーメントは作用しない。(i) 許される $\mu$ を求めよ。(ii) この結果をもとに棒の曲げ振動の様子を説明せよ。
-![単純支持梁、微小部分の力、および曲げ振動のモード](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2020/kyotsu_201908_phys_4_beam_audited.svg)
+![単純支持梁、微小部分の力、および曲げ振動のモード](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2020/kyotsu_201908_phys_4_beam_audited.svg)
 
 #### 题目描述
 

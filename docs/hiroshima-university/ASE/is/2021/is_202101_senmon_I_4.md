@@ -37,7 +37,7 @@ Show how many different spanning trees are possible for Graph $G$. Also state th
 (3) Out of the possible spanning trees considered in Question (2) above, find the one with the least total cost and show that total cost.
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202101_senmon_I_4_p1.png" width="380" height="286" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2021/is_202101_senmon_I_4_p1.png" width="380" height="286" alt=""/>
 </figure>
 
 ##### 図 1 / Figure 1

@@ -73,7 +73,7 @@ Discuss the relationship between the square root of the sum of the squared value
 ### 設問1
 #### (1)
 
-![network](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2023/kyoto-ist-2022-network.svg)
+![network](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2023/kyoto-ist-202208-network.svg)
 
 For $m\ge1$, the total number of network weights is
 

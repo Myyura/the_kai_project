@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2016年度 問3（数学）"
+sidebar_label: "2015年8月実施 問3（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Calculus.Double-Integral
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 数学 問3
+# 九州大学 工学府 機械系専攻 2015年8月実施 数学 問3
 
 ## **Author**
 
@@ -33,7 +33,7 @@ $$
 
 3領域の概形は次の通りである。
 
-![矩形、三角形、円環の積分領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/math-3-regions.svg)
+![矩形、三角形、円環の積分領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_math-3-regions.svg)
 
 ### (1)
 

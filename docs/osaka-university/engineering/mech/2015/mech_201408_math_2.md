@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 問題2（数学）"
+sidebar_label: "2014年8月実施 問題2（数学）"
 tags:
   - Osaka-University
   - Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation
   - Mathematics.Differential-Equations.Boundary-Value-Problem
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2015年度 数学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2014年8月実施 数学 問題2
 
 ## **Author**
 
@@ -113,4 +113,4 @@ $$
 
 である。以下に $a=1$ の場合の概形を示す。任意の $a>0$ で上記の対称性、零点、凸性は共通である。
 
-![境界条件を満たす懸垂線の概形（a=1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2015/mech_201408_math_2-solution-fig1.svg)
+![境界条件を満たす懸垂線の概形（a=1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2015/mech_201408_math_2-solution-fig1.svg)

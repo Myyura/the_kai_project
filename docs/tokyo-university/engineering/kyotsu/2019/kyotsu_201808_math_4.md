@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第4問'
+sidebar_label: '2018年8月実施 数学 第4問'
 tags:
   - Tokyo-University
   - Mathematics.Vector-Calculus.Surface-Normal
@@ -9,7 +9,7 @@ tags:
   - Mathematics.Calculus.Definite-Integral
 ---
 
-# 東京大学 工学系研究科 2019年度 数学 第4問
+# 東京大学 工学系研究科 2018年8月実施 数学 第4問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)
@@ -121,4 +121,4 @@ $$
 \boxed{A_2=\pi}.
 $$
 
-![回転の向きと二つの断面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2019/math_4_sections.svg)
+![回転の向きと二つの断面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2019/kyotsu_201808_math_4_sections.svg)

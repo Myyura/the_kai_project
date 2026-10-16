@@ -21,13 +21,13 @@ Zero
 「図 2.1 のように円電流の微小線素ベクトル $d\boldsymbol{s}$ が，$P$ の位置に作る磁束密度を $d\boldsymbol{B}$ とし，これを $d\boldsymbol{B}_z$ とそれに垂直な成分 $d\boldsymbol{B}_{\perp}$ に分け，$dB_z = |d\boldsymbol{B}_z|$ とする。$d\boldsymbol{B}_{\perp}$ については円電流全体からの寄与を合計すると消しあうので，積分すると $|\boldsymbol{B}_{\perp}| = (\textcircled{1})$ となる。次に $dB_z$ を求める。微小線素 $d\boldsymbol{s}$ から点 $P$ に向かうベクトルを $\boldsymbol{R}$ とし，その大きさ $R$ を $R = |\boldsymbol{R}|$ と定義すると，$(\textcircled{2})$ の法則により，外積を $\times$ で表すものとして $d\boldsymbol{B} = \frac{\mu_0}{4\pi}I\frac{d\boldsymbol{s} \times \boldsymbol{R}}{R^3}$ である。$d\boldsymbol{s}$ と $\boldsymbol{R}$ は直交しているので，$d\boldsymbol{B}$ の大きさ $dB = |d\boldsymbol{B}|$ を $\mu_0,I,a,z_1$ および $ds = |d\boldsymbol{s}|$ を用いて表すと $dB = (\textcircled{3})$ となる。一方，$d\boldsymbol{B}$ と $z$ 軸のなす角 $\varphi$ につき，$a$ および $z_1$ を用いると，$\cos\varphi = (\textcircled{4})$ となる。そこで $\mu_0,I,a,z_1$ および $ds$ を用いて $dB_z = (\textcircled{5})$ を得る。⑤ を円電流全体について積分することにより，$\mu_0,I,a,z_1$ を用いて $\boldsymbol{B}_1$ の $z$ 成分 $B_z$ を $B_z = (\textcircled{6})$ と表すことができる。よって，直交座標成分で書くと $\boldsymbol{B}_1 = (\textcircled{1}, \textcircled{1}, \textcircled{6})$ と，$\boldsymbol{B}_1$ が求められた。」
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electromagnetism_2_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electromagnetism_2_p1.png" width="300" alt=""/>
 </figure>
 
 (2) 図 $2.2$ のように，断面が長方形のコアに細い導線が巻かれた環状コイルがあり（図の破線部分にもコイルは存在する），その内半径は $a$ , 外半径は $b$ , 厚さは $h$ であるとする。コアの表面に沿って，導線は十分に密に巻かれており，巻き数は全体で $N$ である。このとき，以下の設問に答えよ。ただし，コアの透磁率を $\mu$ とする。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electromagnetism_2_p2.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electromagnetism_2_p2.png" width="300" alt=""/>
 </figure>
 
 - (a) コアの内側 $(a < r < b,0 \le \theta <2\pi, -h/2 < z <h/2)$ では，図 $2.2$ のような円柱座標系 $(r,\theta,z)$ を用いると，コイルに流れる直流電流 $J$ による磁界が

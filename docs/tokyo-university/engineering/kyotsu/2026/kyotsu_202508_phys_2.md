@@ -49,7 +49,7 @@ $$
 
 を用いてよい。
 
-![二つの点電荷と電気双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/kyotsu_202508_phys_2_dipole_audited.svg)
+![二つの点電荷と電気双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_phys_2_dipole_audited.svg)
 
 ### II
 
@@ -64,7 +64,7 @@ $$
 1. 外部電場と誘起電荷の両方を考慮し、球殻外部の静電ポテンシャルを求めよ。基準は任意に選んでよい。
 2. 球殻上の任意の点の位置ベクトルを $\boldsymbol{s}\ (|\boldsymbol{s}|=R)$ とする。球殻上の面電荷密度 $\sigma(\boldsymbol{s})$ を求めよ。
 
-![一様電場中の導体球殻](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/kyotsu_202508_phys_2_sphere_audited.svg)
+![一様電場中の導体球殻](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_phys_2_sphere_audited.svg)
 
 ### III
 
@@ -91,7 +91,7 @@ $$
 
 を磁気双極子モーメントとする。ただし、$\boldsymbol{k}$ は $+z$ 方向の単位ベクトルである。$\boldsymbol{A}(\boldsymbol{r})$ を $\boldsymbol{m}$ と $\boldsymbol{r}$ で表せ。
 
-![円形電流と磁気双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/kyotsu_202508_phys_2_loop_audited.svg)
+![円形電流と磁気双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_phys_2_loop_audited.svg)
 
 #### 题目描述
 

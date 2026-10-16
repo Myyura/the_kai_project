@@ -16,7 +16,7 @@ Zero
 図 $2.1$ に示すインダクタンス $L$ とキャパシタンス $C$ の並列回路に，以下の式で与えられる二つの異なる周波数成分を持つ電圧 $e_1(t)$ を印加する。ただし $t$ は時刻である。電圧，電流の数値の単位は，それぞれ V,A とする。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202108_electrical_circuit_2_p1.png" width="150" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electrical_circuit_2_p1.png" width="150" alt=""/>
 </figure>
 
 $$
@@ -57,7 +57,7 @@ e_3(t) &= 100\sqrt{2}\sin(500t + \frac{4\pi}{3}) + \frac{100\sqrt{2}}{3}\sin(150
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202108_electrical_circuit_2_p2.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electrical_circuit_2_p2.png" width="300" alt=""/>
 </figure>
 
 (7) $500$ rad/s 成分の線間電圧の実効値を求めよ。

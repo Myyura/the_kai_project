@@ -17,7 +17,7 @@ tags:
 
 屈折率 $n_1$ の媒質 1 から入射角 $\theta_1$ で進む光が、屈折率 $n_2$ の媒質 2 に入り、屈折角 $\theta_2$ で進む。図 4.1 では点 A は界面から高さ $a$、点 B は界面から深さ $b$ にあり、両点の水平距離は $c$。A の真下から入射点までの距離を $x$ とする。
 
-![光学距離を停留させる屈折光路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2013/kyotsu_201208_phys_4_fermat_audited.svg)
+![光学距離を停留させる屈折光路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2013/kyotsu_201208_phys_4_fermat_audited.svg)
 
 1. 屈折率と光の進む距離の積を光学距離という。A から B までの光学距離を $n_1,n_2,a,b,c,x$ で表せ。
 2. 光路が光学距離を停留させるフェルマーの原理から、スネルの法則 $n_1\sin\theta_1=n_2\sin\theta_2$ を導け。
@@ -26,7 +26,7 @@ tags:
 
 真空中に平担な平行平板ガラスを置き、入射光が面の法線となす角を $\theta_1$ とする。入射光の直進延長と出射光との間の垂直距離を、図 4.2 のように光線の移動量 $d$ と定義する。
 
-![単層・二層平行平板ガラスを通る光の側方変位](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2013/kyotsu_201208_phys_4_plates_audited.svg)
+![単層・二層平行平板ガラスを通る光の側方変位](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2013/kyotsu_201208_phys_4_plates_audited.svg)
 
 1. 屈折率 $n_1$、厚さ $h_1$ の平板ガラス 1 による移動量 $d$ を求めよ。
 2. ガラス 1 の下に、屈折率 $n_2>n_1$、厚さ $h_2$ の平板ガラス 2 を貼り合わせる。通過後の移動量 $d$ を $\theta_1,n_1,n_2,h_1,h_2$ を用いて表せ。
@@ -35,7 +35,7 @@ tags:
 
 真空中に屈折率 $n_1$ のガラス製の頂角 $\alpha$ のプリズムを置く。光が入射角 $\theta_a$ で入り、出射角 $\theta_b$ で出るとする。光の偏向角を $\epsilon$ とする。
 
-![プリズムの屈折光路と最小偏向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2013/kyotsu_201208_phys_4_prism_audited.svg)
+![プリズムの屈折光路と最小偏向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2013/kyotsu_201208_phys_4_prism_audited.svg)
 
 1. $\epsilon$ を $\theta_a,\theta_b,\alpha$ で表せ。
 2. $\epsilon$ が最小値 $\epsilon_{\min}$ を取るときの $\theta_a,\theta_b$ の関係を導き、過程も記せ。

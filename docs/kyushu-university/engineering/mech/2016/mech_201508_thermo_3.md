@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年度 問3（熱工学）"
+sidebar_label: "2015年8月実施 問3（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Heat-Exchangers-and-Thermal-Resistance
   - Engineering.Heat-Transfer.Thermal-Resistance-Networks
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 熱工学 問3
+# 九州大学 工学府 機械系専攻 2015年8月実施 熱工学 問3
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 熱伝導率 $k_A$、厚さ $L_A$ の平板 A と、$k_B=k_A/2$、$L_B=2L_A$ の平板 B が密着している。A 側の流体温度を $T_1$、B 側を $T_2$（$T_1>T_2$）、熱伝達率を $h_A,h_B$、外表面温度を $T_A,T_B$ とする。接触熱抵抗と放射は無視し、物性一定の一次元定常熱伝導を考える。B は発熱しない。（55 点）
 
-![二層平板と温度分布用の座標（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/thermo-3-original.png)
+![二層平板と温度分布用の座標（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_thermo-3-original.png)
 
 1. A に発熱がない場合：
    - (1-1) 熱流束 $q$ を $k_A,L_A,h_A,h_B,T_1-T_2$ で表せ。

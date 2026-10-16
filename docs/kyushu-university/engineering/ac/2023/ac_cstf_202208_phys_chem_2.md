@@ -108,7 +108,7 @@ $$
 
 $\lambda\to0+$ と $\lambda\to\infty$ で $\rho\to0$ となり、その間に最大点を持つ。温度を高くすると、任意の固定波長で $\rho$ が増加し、ピークは短波長側へ移動する。
 
-![プランク分布の温度依存性](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/engineering/ac/2023/kyushu-ac-2022-planck.svg)
+![プランク分布の温度依存性](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/ac/2023/kyushu-ac-202208-planck.svg)
 
 ### (4)
 

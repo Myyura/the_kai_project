@@ -22,7 +22,7 @@ d. The value of the counter increases by 1 at every input of the clock. When the
 For example, the following figure depicts the input (the clock CK) and the output ($Z_0\sim Z_{15}$) representing a decimal number with $N=4$ digits.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200808_2_p1.png" width="550" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2009/ci_200808_2_p1.png" width="550" alt=""/>
 </figure>
 
 (1) Draw a table or a diagram showing the state-transition for the case $N=1$.

@@ -28,7 +28,7 @@ b> a)$ の完全導体球殻 $2$ からなる同心球コンデンサがある.
 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202308_kiso_1_electromagnetism.png" width="300"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2024/ecei_202308_kiso_1_electromagnetism.png" width="300"/>
 </figure>
 
 

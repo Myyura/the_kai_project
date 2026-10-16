@@ -129,7 +129,7 @@ $$
 (2) (1) の波動関数で表される状態のエネルギーの期待値を求めよ。
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hokkaido_university/IST/joele/joele_202208_senmon2_2_p1.png" width="300"  alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hokkaido-university/IST/joele/2023/joele_202208_senmon2_2_p1.png" width="300"  alt=""/>
 </figure>
 
 ### 题目描述
@@ -231,7 +231,7 @@ $$
    （2）求该波函数所描述状态的能量期望值。
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hokkaido_university/IST/joele/joele_202208_senmon2_2_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hokkaido-university/IST/joele/2023/joele_202208_senmon2_2_p1.png" width="300" alt=""/>
 </figure>
 
 ## **Kai**

@@ -273,7 +273,7 @@ $$
 #### (c)
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce/2024/kyoto-cce-2023-polynomial-divider.svg" width="500" />
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2024/kyoto-cce-202308-polynomial-divider.svg" width="500" />
 </div>
 
 The division circuit uses 4 delay elements because  $\deg G(x)=4$, and the feedback taps correspond to the nonzero coefficients of $1, x^2, x^3$.

@@ -21,7 +21,7 @@ tags:
 与えられた真理値表で表される論理関数 $F(a, b, c, d)$ が以下の論理式を満たす時，論理関数 $G(X,Y,Z,W)$ の最簡積和形を示せ．ただし，最簡積和形とは積和形論理式のうち，積項数が最小のものを指す．積項数が等しい積和形論理式が複数ある場合にはそのなかでリテラル数が最小のものを指す．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_computer_architecture_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_computer_architecture_p1.png" width="500" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -49,7 +49,7 @@ $5$ つのステージからなるパイプライン式データパスを有す�
 ### 题目描述
 
 【问题 1】已知逻辑函数 $F(a,b,c,d)$ 的真值表，以及 $F$ 与
-$G(X,Y,Z,W)$ 之间的逻辑表达式，均见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_computer_architecture_p1.png)。求 $G$ 的最简积和式。这里“最简积和式”首先指积项数最少；若有多个积项数相同的表达式，则取文字总数最少者。
+$G(X,Y,Z,W)$ 之间的逻辑表达式，均见[原题图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_computer_architecture_p1.png)。求 $G$ 的最简积和式。这里“最简积和式”首先指积项数最少；若有多个积项数相同的表达式，则取文字总数最少者。
 
 【问题 2】考虑具有 IF（取指）、ID（译码）、EX（执行）、MEM（访存）和 WB（写回）五级流水数据通路的微处理器。回答：
 
@@ -108,7 +108,7 @@ $G(X,Y,Z,W)$ 之间的逻辑表达式，均见[原题图](https://raw.githubuser
 |10||X|1||
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_computer_architecture_p2.png" width="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_computer_architecture_p2.png" width="400" alt=""/>
 </figure>
 
 $$

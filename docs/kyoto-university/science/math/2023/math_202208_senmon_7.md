@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 専門科目 [7]（Poincaré 不等式と熱方程式）"
+sidebar_label: "2022年8月実施 専門科目 [7]（Poincaré 不等式と熱方程式）"
 tags:
   - Kyoto-University
   - Mathematics.Differential-Equations.Poincare-Inequality-and-Energy-Decay
   - Mathematics.Vector-Calculus.Greens-Identities
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2023年度 専門科目 問題7
+# 京都大学 理学研究科 数学・数理解析専攻 2022年8月実施 専門科目 問題7
 
 ## **Author**
 

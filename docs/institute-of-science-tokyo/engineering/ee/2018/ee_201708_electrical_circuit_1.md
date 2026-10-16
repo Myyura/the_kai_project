@@ -31,7 +31,7 @@ tags:
 3. 図 1.3 の回路の X から Y への伝達関数を $W(\omega)$ とする。$\omega=\omega_0$ のときの $W(\omega_0)$ を示せ。
 4. 図 1.3 の回路でオペアンプ入力端子 X とフィルタ出力端子 Y を接続したときに、発振するための $R_1,R_2$ の条件を示せ。
 
-![図1.1 非反転増幅回路、図1.2 RCフィルタ、図1.3 両者の接続](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2017/ee_201708_electrical_circuit_1_original_fig1-1_1-3.png)
+![図1.1 非反転増幅回路、図1.2 RCフィルタ、図1.3 両者の接続](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2018/ee_201708_electrical_circuit_1_original_fig1-1_1-3.png)
 
 図の出典：東京工業大学 電気電子系 2017年実施問題（原図）。
 

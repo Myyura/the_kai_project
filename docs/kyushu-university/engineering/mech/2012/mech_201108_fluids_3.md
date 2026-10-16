@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2012年度 問3（流体工学）"
+sidebar_label: "2011年8月実施 問3（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Hydrostatics
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 流体工学 問3
+# 九州大学 工学府 機械系専攻 2011年8月実施 流体工学 問3
 
 ## **Author**
 
@@ -20,7 +20,7 @@ tags:
 1. 時刻 $t$ の水面が水平方向となす角 $\theta$ を求めよ。中心から水面までの距離は $R$ と近似してよい。
 2. 一回転中に水がこぼれないための水深 $h$ の条件を求めよ。必要なら $\tan(\alpha-\beta)=(\tan\alpha-\tan\beta)/(1+\tan\alpha\tan\beta)$ を用いよ。
 
-![原題の図（九州大学 2012年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/fluids-3-original.png)
+![原題の図（九州大学 2012年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_fluids-3-original.png)
 
 #### 题目描述
 

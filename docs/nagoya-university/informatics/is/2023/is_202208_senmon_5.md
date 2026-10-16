@@ -58,7 +58,7 @@ for i = floor(A.size / 2) down to 1 do
     Heapify(A, i)
 ```
 
-![図1：ヒープ構成前の初期データ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2023/nagoya-is2023-heap1.svg)
+![図1：ヒープ構成前の初期データ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/is/2023/nagoya-is202208-heap1.svg)
 
 #### 疑似コード 3: Pull(A)
 
@@ -91,7 +91,7 @@ while i > 1 and A[p] < A[i] do
 
 (6) Build-Heap の最悪時間計算量を　n　に関するオーダー記法で示せ．また，その計算量となる理由を説明せよ．
 
-![図2：Push 操作前のヒープ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2023/nagoya-is2023-heap2.svg)
+![図2：Push 操作前のヒープ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/is/2023/nagoya-is202208-heap2.svg)
 
 ### 题目描述
 

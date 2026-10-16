@@ -23,7 +23,7 @@ Zero
 (2) 電流 $I$ の時間関数が $i(t) = \sin(2t + \frac{\pi}{6})\text{A}$ であり，これに対応するフェーザ電流を $I = e^{j\frac{\pi}{6}}\text{A}$ と表すとき，フェーザ電圧 $V$ を求め，その時間関数 $v(t)$ を答えよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p1.png" width="335" height="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p1.png" width="335" height="200" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -36,7 +36,7 @@ Zero
 (3) 図 $2(b)$ の $Z_0$ において，$R$ も $X$ も可変であるとき，$Z_0$ における消費電力を最大とする $R$ および $X$ を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p2.png" width="400" height="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p2.png" width="400" height="600" alt=""/>
 </figure>
 
 ### 【問 3】
@@ -47,7 +47,7 @@ Zero
 (2) 図 $3(a)$ の電流 $I$ を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p3.png" width="660" height="290" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p3.png" width="660" height="290" alt=""/>
 </figure>
 
 ### 【問 4】
@@ -58,12 +58,12 @@ Zero
 (2) $t > 0$ における電流 $i(t)$ を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p4.png" width="360" height="245" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p4.png" width="360" height="245" alt=""/>
 </figure>
 
 ### 题目描述
 
-【问题 1】在[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p1.png)中，
+【问题 1】在[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p1.png)中，
 $C=\sqrt3\,\mathrm F$、$L=\frac{\sqrt3}{6}\,\mathrm H$，电源角频率
 $\omega=2\,\mathrm{rad/s}$；端电压 $V$ 与电流 $I$ 的相位差为
 $\arg(V/I)=-\pi/6\,\mathrm{rad}$，且电路处于稳态。回答：
@@ -73,7 +73,7 @@ $\arg(V/I)=-\pi/6\,\mathrm{rad}$，且电路处于稳态。回答：
    $i(t)=\sin(2t+\frac{\pi}{6})\,\mathrm A$，对应相量为
    $I=e^{j\pi/6}\,\mathrm A$，求电压相量 $V$ 及其时域表达式 $v(t)$。
 
-【问题 2】同一[原题图片](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p2.png)中的图 2(a) 与图 2(b) 等效。回答：
+【问题 2】同一[原题图片](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p2.png)中的图 2(a) 与图 2(b) 等效。回答：
 
 1. 求图 2(b) 中的阻抗 $Z_1,Z_2,Z_3$。
 2. 在图 2(b) 中，求从端口 $1-1'$ 分别向右、向左看到的阻抗
@@ -81,12 +81,12 @@ $\arg(V/I)=-\pi/6\,\mathrm{rad}$，且电路处于稳态。回答：
    $Z_0=R+jX$。
 3. 图 2(b) 的 $Z_0$ 中 $R,X$ 均可调，求使 $Z_0$ 消耗功率最大的 $R,X$。
 
-【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p3.png)，电源角频率为 $\omega$。回答：
+【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p3.png)，电源角频率为 $\omega$。回答：
 
 1. 若图 3(b) 与图 3(a) 端口 $1-1'$ 左侧的二端网络等效，求 Norton 等效电流源 $J_0$ 和导纳 $Y_0$。
 2. 求图 3(a) 中的电流 $I$。
 
-【问题 4】对[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p4.png)，已知
+【问题 4】对[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p4.png)，已知
 $e(t)=50\sin t\,\mathrm V$，闭合开关 $S$ 前电路已处于稳态。回答：
 
 1. 求 $t=0$ 闭合 $S$ 后瞬间的电流 $i(0^+)$。
@@ -236,7 +236,7 @@ $Z_R$ 全体の消費電力には固定抵抗成分 $\operatorname{Re}Z_2$ の�
 $1 - 1'$ の左の電圧源を短絡、電流源を開放する
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p6.png" width="355" height="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p6.png" width="355" height="200" alt=""/>
 </figure>
 
 $$
@@ -260,7 +260,7 @@ $$
 J のみ残したとき
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p7.png" width="390" height="260" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p7.png" width="390" height="260" alt=""/>
 </figure>
 
 $I_J = \frac{R}{R + R}J = \frac{1}{2}J$
@@ -269,7 +269,7 @@ $I_J = \frac{R}{R + R}J = \frac{1}{2}J$
 $E$ を残したとき
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p8.png" width="435" height="340" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p8.png" width="435" height="340" alt=""/>
 </figure>
 
 $I_E = \frac{E}{2R}$
@@ -278,7 +278,7 @@ $I_E = \frac{E}{2R}$
 $E'$ を残したとき
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p9.png" width="420" height="265" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2021/ist_202012_circuit_theory_p9.png" width="420" height="265" alt=""/>
 </figure>
 
 $I_E = -\frac{E}{2R}$

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2019年度 数学 第1問"
+sidebar_label: "2018年8月実施 数学 第1問"
 tags:
   - Tokyo-University
   - Mathematics.Linear-Algebra.Unitary-Matrix
   - Mathematics.Linear-Algebra.Matrix-Exponential
 ---
 
-# 東京大学 理学系研究科 物理学専攻 2019年度 数学 第1問
+# 東京大学 理学系研究科 物理学専攻 2018年8月実施 数学 第1問
 
 ## **Author**
 

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2018年度 問題2（熱工学）"
+sidebar_label: "2017年8月実施 問題2（熱工学）"
 tags:
   - Osaka-University
   - Physics.Thermodynamics.Ideal-Gas-Entropy-and-Heat-Capacities
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2018年度 熱工学 問題2
+# 大阪大学 工学研究科 機械工学専攻 2017年8月実施 熱工学 問題2
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 図のように、真空中に固定された二つのシリンダーのピストンを剛体棒で連結する。断面積はシリンダー1が $A$、2が $2A$ で、ピストン変位は常に等しい。封入された理想気体の量はそれぞれ $n$ モル、$2n$ モルである。ピストンは摩擦なく動き、気体漏れはない。ピストン・シリンダー・剛体棒は断熱材で熱容量を無視でき、ピストンと棒の質量は十分小さい。一般気体定数を $R_0$、比熱比を $\kappa$ とし、すべての変化は準静的とする。
 
-![原題の二つのシリンダーと連結棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2018/mech_201708_thermo_2-question-fig1.png)
+![原題の二つのシリンダーと連結棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2018/mech_201708_thermo_2-question-fig1.png)
 
 1. 両気体の温度が $T_1$ で等しく、シリンダー1の圧力が $p_1$ のとき、シリンダー2の圧力と体積を求めよ。
 2. (1)の状態から気体1を加熱すると、気体2の体積が半分になった。気体2の変化が断熱であるとして、気体1の圧力と温度を求めよ。

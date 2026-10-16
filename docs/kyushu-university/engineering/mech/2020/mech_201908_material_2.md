@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 問2（材料力学）"
+sidebar_label: "2019年8月実施 問2（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
   - Physics.Mechanics.Euler-Bernoulli-Beam
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 材料力学 問2
+# 九州大学 工学府 機械系専攻 2019年8月実施 材料力学 問2
 
 ## **Author**
 
@@ -60,7 +60,7 @@ $$
 
 C では $F_s/P:-1/2\to-3/2$、$M/(Pa):11/2\to9/2$ と不連続になる。最大曲げモーメントは $x=7a/2$ における $45Pa/8$。
 
-![せん断力線図と曲げモーメント線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-university/engineering/mech/2020/kyushu_2020_material2.svg)
+![せん断力線図と曲げモーメント線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/kyushu_201908_material2.svg)
 
 ### (3)
 

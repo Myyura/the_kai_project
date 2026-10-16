@@ -47,7 +47,7 @@ $$
 
 で表される曲線はカージオイド（心臓形曲線）である．
 
-![カージオイド r=1+cos θ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2016/nagoya-is2016-cardioid.svg)
+![カージオイド r=1+cos θ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/is/2016/nagoya-is201508-cardioid.svg)
 
 ( b )
 極方程式 $r=f(\theta)$ により表される曲線の弧長は，

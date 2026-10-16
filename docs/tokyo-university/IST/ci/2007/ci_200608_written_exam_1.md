@@ -18,7 +18,7 @@ tags:
 下左図は，$2$ 入力 $2$ 出力の比較器であり，大きさ $2$ のソーティングネットワークでもある。入出力の接続部は黒丸●で表現されている。比較器に左から数を $2$ つ入力すると，小さい数を上から，大きい数を下から右方向へそれぞれ出力する。$2$ 数が等しい場合には，同じ数を上下から出力する。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_1_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_1_p1.png" width="600" alt=""/>
 </figure>
 
 以下ではこの比較器を組み合わせることで，大きさ $n$ のソーティングネットワークを構成することを考える。大きさ $n$ のソーティングネットワークには，入力線が $n$ 本あり，左端から $n$ 個の整数を入力すると，上から下に昇順に整列して右端から出力する。
@@ -27,7 +27,7 @@ tags:
 (1) 下記のように配線すると，$3$ つの入力は $4$ ステップの実行の後，右端で必ず昇順に出力されることを示しなさい。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_1_p2.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_1_p2.png" width="600" alt=""/>
 </figure>
 
 (2) 比較器の個数が $O(n^2)$ となる大きさ $n$ のソーティングネットワークを大きさ $n-1$ のソーティングネットワークから帰納的に構成する方法を一つ示し，正しさを説明した上で，必要な比較器の個数を $n$ の式で表しなさい。
@@ -40,7 +40,7 @@ tags:
 The left figure below shows a sorting network of size 2. The network has a "comparator module" that has two inputs, represented as lines coming into the module from left, and two outputs, represented as lines going out to right. Note that the connecting points of input/ouptut are indicated by the black dots $\bullet$. The upper output is the smaller of the two inputs and the lower output is the larger. When the 2 values are the same, the value is output from both lines.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_1_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_1_p1.png" width="600" alt=""/>
 </figure>
 
 We consider a problem of constructing a sorting network of size $n$. A sorting network of size $n$ has $n$ lines and multiple comparator modules. The $n$ numbers are given at the left end and the network sorts them in the increasing order from top to bottom and outputs them from the right end.
@@ -50,7 +50,7 @@ Comparisons of two modules of which one's output is another's input cannot be ex
 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_1_p2.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2007/ci_200608_1_p2.png" width="600" alt=""/>
 </figure>
 
 (2) Show how to construct a sorting network of size $n$ inductively from a sorting network of size $n-1$, using in total $O(n^2)$ comparator modules. Describe the exact number of comparator modules as a function of $n$.

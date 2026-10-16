@@ -102,4 +102,4 @@ $1/\sqrt6$ の楕円である。長軸方向は
 $\frac1{\sqrt5}(1,-2)^T$ ，短軸方向は
 $\frac1{\sqrt5}(2,1)^T$ である。
 
-![二次曲線 5x² + 4xy + 2y² = 1 の回転楕円](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2019/nagoya-aisys2019-ellipse.svg)
+![二次曲線 5x² + 4xy + 2y² = 1 の回転楕円](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/aisys/2019/nagoya-aisys201808-ellipse.svg)

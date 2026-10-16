@@ -90,7 +90,7 @@ $$
 
 よって像領域は $\boxed{\Delta_1=\{u\ge0,v\ge0\}}$。
 
-![正弦写像による帯状領域と第1象限の対応](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2016/tokyo-kyotsu-201508-sine-map.svg)
+![正弦写像による帯状領域と第1象限の対応](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2016/tokyo-kyotsu-201508-sine-map.svg)
 
 ### II.1
 

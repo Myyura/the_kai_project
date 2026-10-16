@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2024年度 基礎科目 [4]"
+sidebar_label: "2023年8月実施 基礎科目 [4]"
 tags:
   - Kyoto-University
   - Mathematics.Real-Analysis.Lebesgue-Dominated-and-Monotone-Convergence
   - Mathematics.Real-Analysis.Interchange-of-Limit-Derivative-and-Integral
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2024年度 基礎科目 問題4
+# 京都大学 理学研究科 数学・数理解析専攻 2023年8月実施 基礎科目 問題4
 
 ## **Author**
 

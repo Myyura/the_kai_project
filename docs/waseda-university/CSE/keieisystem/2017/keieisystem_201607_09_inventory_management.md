@@ -113,7 +113,7 @@ C(Q)=
 \end{cases}
 $$
 
-![数量割引による費用関数の不連続点と最小点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/waseda_university/CSE/keieisystem/2017/waseda-2016-discount-cost.svg)
+![数量割引による費用関数の不連続点と最小点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/waseda-university/CSE/keieisystem/2017/waseda-201607-discount-cost.svg)
 
 $Q<500$ の範囲では $Q=200$ が最小で、
 

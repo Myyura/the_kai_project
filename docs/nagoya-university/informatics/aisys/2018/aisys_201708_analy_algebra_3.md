@@ -117,4 +117,4 @@ $\frac{(x')^2}{4} + \frac{(y')^2}{1} = 1$ であり、これは楕円を表す�
 
 長軸は $y=x$ 方向で半径 $2$、短軸は $y=-x$ 方向で半径 $1$ である。長軸の端点は $(\sqrt2,\sqrt2)$ と $(-\sqrt2,-\sqrt2)$ である。
 
-![二次曲線 5x² − 6xy + 5y² = 8 の回転楕円](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2018/nagoya-aisys2018-ellipse.svg)
+![二次曲線 5x² − 6xy + 5y² = 8 の回転楕円](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/aisys/2018/nagoya-aisys201708-ellipse.svg)

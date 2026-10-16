@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2016年度 問1（機械力学）"
+sidebar_label: "2015年8月実施 問1（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 機械力学 問1
+# 九州大学 工学府 機械系専攻 2015年8月実施 機械力学 問1
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 質量 $2m$ の物体 A と質量 $m$ の物体 B が、ばね定数 $6k,4k$ の軽いばねで鉛直方向に支持されている。B の上に質量 $m$ の物体 C を固定し、B と一体として動かす。静的平衡から A を下向きに $d$、B を $2d$ 押して静止させ、時刻 $t=0$ に静かに放す。平衡からの下向き変位を $x_1,x_2$、重力加速度を $g$ とし、鉛直運動のみを考える。（50 点）
 
-![三物体と二つのばね（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/dynamics-1-original.png)
+![三物体と二つのばね（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_dynamics-1-original.png)
 
 1. 自由振動の運動方程式を求めよ。
 2. 固有角振動数と固有モードを求めよ。

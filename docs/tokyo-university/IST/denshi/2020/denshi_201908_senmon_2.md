@@ -51,18 +51,18 @@ $$
 ### (2)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_2_p1.png" width="700" height="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2020/denshi_201908_2_p1.png" width="700" height="500" alt=""/>
 </figure>
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_2_p2.png" width="700" height="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2020/denshi_201908_2_p2.png" width="700" height="400" alt=""/>
 </figure>
 
 半加器は $S=a\oplus b,\ C=ab$、全加器は $S=a\oplus b\oplus c,\ C=ab+c(a\oplus b)$ を実現する。
 
 $B$ を4ビットに符号拡張して $B_{3..0}^{\mathrm{ext}}=(B_1,B_1,B_1,B_0)$ とする。下図の $U$ を GND（$0$）に接続すれば、4段の全加器で $A+B$ が得られる。最下位段は $C_0=0$ なので半加器に置き換えてもよい。
 
-![Signed four-bit ripple-carry addition and subtraction](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2020/tokyo-denshi-2019-signed-adder.svg)
+![Signed four-bit ripple-carry addition and subtraction](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2020/tokyo-denshi-201908-signed-adder.svg)
 
 ### (3)
 

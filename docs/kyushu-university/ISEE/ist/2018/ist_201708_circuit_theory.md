@@ -24,7 +24,7 @@ Zero
 (3) 位相差 $\arg(I/E)$ が $\pi/2$ となる条件を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p1.png" width="300" height="240" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p1.png" width="300" height="240" alt=""/>
 </figure>
 
 ### 【問 2】
@@ -44,7 +44,7 @@ $$
 (2) $2$ 端子対回路 $N$ が図 $2(c)$ で与えられるとき，$E_0$ および $Z_0$ を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p2.png" width="400" height="580" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p2.png" width="400" height="580" alt=""/>
 </figure>
 
 ### 【問 3】
@@ -59,7 +59,7 @@ $$
 - (c) $X_1$ が可変で，$X_2$ が固定である．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p3.png" width="365" height="180" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p3.png" width="365" height="180" alt=""/>
 </figure>
 
 ### 【問 4】
@@ -70,18 +70,18 @@ $$
 (2) 電源電圧 $E$ が $4\text{V}$ で回路が定常状態に達した後，時刻 $t = 0$ で $E$ を $8\text{V}$ に変化させた．$t > 0$ における電流 $i(t)$ を求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p4.png" width="365" height="180" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p4.png" width="365" height="180" alt=""/>
 </figure>
 
 ### 题目描述
 
-【问题 1】对[图 1 交流电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p1.png)，电源电压 $E$ 的角频率为 $\omega$。回答：
+【问题 1】对[图 1 交流电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p1.png)，电源电压 $E$ 的角频率为 $\omega$。回答：
 
 1. 求电源端看到的等效阻抗 $Z$。
 2. 求电流 $I$。
 3. 求使相位差 $\arg(I/E)=\pi/2$ 成立的条件。
 
-【问题 2】[图 2(a)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p2.png)由二端口网络 $N$、电压源 $E$ 和阻抗 $Z_G$ 构成，并与同一图片中的图 2(b) 等效。回答：
+【问题 2】[图 2(a)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p2.png)由二端口网络 $N$、电压源 $E$ 和阻抗 $Z_G$ 构成，并与同一图片中的图 2(b) 等效。回答：
 
 1. 若 $N$ 的阻抗参数矩阵为
 
@@ -96,7 +96,7 @@ $$
    求图 2(b) 等效电路中的 $E_0$ 与 $Z_0$。
 2. 当二端口网络 $N$ 具体为图 2(c) 所示电路时，求 $E_0$ 与 $Z_0$。
 
-【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p3.png)，电流源 $J$ 的角频率为 $\omega$。回答：
+【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p3.png)，电流源 $J$ 的角频率为 $\omega$。回答：
 
 1. 求负载电阻 $R_L$ 中的电流 $I$ 及其消耗功率 $P$。
 2. 分别求下列三种情形中使 $P$ 最大的条件：
@@ -104,7 +104,7 @@ $$
    - (b) $X_1$ 固定、$X_2$ 可调；
    - (c) $X_1$ 可调、$X_2$ 固定。
 
-【问题 4】对[图 4 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p4.png)，已知
+【问题 4】对[图 4 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p4.png)，已知
 $R=2\,\Omega$、$C=\frac16\,\mathrm F$、$L=3\,\mathrm H$。回答：
 
 1. 电源电压 $E=0\,\mathrm V$ 且电路达到稳态后，在 $t=0$ 将 $E$ 改为 $2\,\mathrm V$；求 $t>0$ 的电流 $i(t)$。
@@ -224,7 +224,7 @@ $$
 $2$ 端子回路 $N$ が $(c)$ のとき $E_0$ と $Z_0$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p6.png" width="315" height="155" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p6.png" width="315" height="155" alt=""/>
 </figure>
 
 $$
@@ -266,7 +266,7 @@ $$
 $V_2 = 0$ のとき、
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p7.png" width="270" height="150" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p7.png" width="270" height="150" alt=""/>
 </figure>
 
 回路より、
@@ -300,7 +300,7 @@ $$
 $V_1 = 0$ のとき、
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p8.png" width="275" height="150" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p8.png" width="275" height="150" alt=""/>
 </figure>
 
 $0 = Z_{11}I_1 + Z_{12}I_2$
@@ -352,7 +352,7 @@ $$
 #### (1)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p9.png" width="720" height="180" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/ISEE/ist/2018/ist_201708_circuit_theory_p9.png" width="720" height="180" alt=""/>
 </figure>
 
 $$

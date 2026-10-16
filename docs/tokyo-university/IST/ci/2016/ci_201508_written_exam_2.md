@@ -44,7 +44,7 @@ $h(i,j) = \min\{h(i,k) + h(k,j)\}, \quad h(i,i)=0, \quad h(i,k)=1, \quad k$ は�
 (2) 各ノードの経路表の情報から、ノード6を根とする残りのすべてのノード(1,2,3,4,5)への転送経路を示す木(tree)が作成される。この木を図示しなさい。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201508_2_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2016/ci_201508_2_p1.png" width="500" alt=""/>
   <figcaption>図2
 </figure>
 
@@ -86,7 +86,7 @@ Figure 1
 Next, consider a digital communication network in the delivery network of Figure 2 where parcels of digital bits of arbitrary size (hereinafter referred to as packets) are delivered. Consider the case where only packet delivery from Node 6 to Node 2 takes place. Also, assume that the two edges L5 and L6 are satellite links (Delay 500 [ms], Bandwidth 1 [Mbps]), L4 and L7 are wide-area terrestrial lines (Delay 50 [ms], Bandwidth 100 [Mbps]), and other edges are local network lines (Delay 1 [ms], Bandwidth 1 [Gbps]).
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201508_2_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2016/ci_201508_2_p1.png" width="500" alt=""/>
   <figcaption>Figure 2
 </figure>
 

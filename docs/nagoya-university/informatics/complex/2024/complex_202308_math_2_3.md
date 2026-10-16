@@ -127,6 +127,6 @@ $$
 という3本の閉曲線である。いずれも点 $(x_0,y_0/j)$ では右向きに出発し、 $j$ が大きいほど保存量が小さいため外側の大きな閉軌道となる。
 
 
-![指定された三初期値からの閉軌道と進行方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2024/nagoya-complex2024-predator-prey.svg)
+![指定された三初期値からの閉軌道と進行方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/informatics/complex/2024/nagoya-complex202308-predator-prey.svg)
 
 図は $a=c$ の代表例で，横軸を $X=x/x_0$，縦軸を $Y=y/y_0$ とした。一般の $a,c>0$ でも，軌道の入れ子構造と進行方向は同じである。

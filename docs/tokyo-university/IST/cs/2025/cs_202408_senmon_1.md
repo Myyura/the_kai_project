@@ -27,7 +27,7 @@ $$
 (2) 以下の有限オートマトンによって受理される言語を $L_3$ とする．ただし，初期状態は $q_0$ であり，受理状態の集合は $\{q_1\}$ である．$\mathcal{H}(L_3)$ を受理する状態数最小の決定性有限オートマトンを構成せよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/cs_202308_senmon_1_p1.png" width="250" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/cs/2025/cs_202408_senmon_1_p1.png" width="250" alt=""/>
 </figure>
 
 (3) 以下の命題 1 が真であるか否かを答え，真であればその証明を，そうでなければ簡単な説明とともに反例を示せ． 

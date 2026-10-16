@@ -21,7 +21,7 @@ tags:
 ### 問題2
 図1の負帰還系について答えよ。ただし $P(s)=1/(s+1)^3$ とする。
 
-![図1：ゲイン K と P(s) の単位負帰還系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2011/sys_201008_control_theory_feedback.svg)
+![図1：ゲイン K と P(s) の単位負帰還系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2011/sys_201008_control_theory_feedback.svg)
 
 (1) $P(j\omega)$ のベクトル軌跡（$\omega:0\to\infty$）の概形を描け。始点、終点、実軸との交点の座標とその角周波数を明示せよ。
 
@@ -55,7 +55,7 @@ $$
 
 単位ステップ応答は $\boxed{y(t)=\frac32(1-e^{-2t}),\ t\ge0}$。$y(T)=K(1-e^{-1})$、初期接線は時刻 $T$ で最終値 $K$ と交わる。
 
-![一次遅れのステップ応答と P(jω) のベクトル軌跡](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2011/sys_201008_control_theory_response_nyquist.svg)
+![一次遅れのステップ応答と P(jω) のベクトル軌跡](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2011/sys_201008_control_theory_response_nyquist.svg)
 
 ### 問題2
 (1) 実部と虚部は
@@ -90,7 +90,7 @@ $$
 \end{cases}}
 $$
 
-![PID 補償器のゲイン線図：厳密曲線と折れ線近似](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2011/sys_201008_control_theory_bode.svg)
+![PID 補償器のゲイン線図：厳密曲線と折れ線近似](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2011/sys_201008_control_theory_bode.svg)
 
 (2) $C(s)=11+10/s+s$ なので P、I、D の三要素を組み合わせ、追従性、定常精度、過渡応答を調整する。I は誤差を積算し、安定な閉ループでステップ目標値・定値外乱に対する定常偏差を減らす。D は誤差の変化率に応じて作用し、位相進みと減衰を与えて過大な振動や行き過ぎを抑える。
 

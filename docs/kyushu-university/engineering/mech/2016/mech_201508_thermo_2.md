@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年度 問2（熱工学）"
+sidebar_label: "2015年8月実施 問2（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Carnot-Cycle-and-Heat-Engine-Efficiency
   - Physics.Thermodynamics.Entropy
 ---
 
-# 九州大学 工学府 機械系専攻 2016年度 熱工学 問2
+# 九州大学 工学府 機械系専攻 2015年8月実施 熱工学 問2
 
 ## **Author**
 
@@ -21,7 +21,7 @@ tags:
 | $p_a$ | $T_a$ | $s_a'$ | $s_a''$ |
 | $p_b$ | $T_b$ | $s_b'=s_2$ | $s_b''=s_3$ |
 
-![蒸気サイクルの p–v 図と T–s 解答図（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/thermo-2-original.png)
+![蒸気サイクルの p–v 図と T–s 解答図（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_thermo-2-original.png)
 
 $T_a,T_b,s_a',s_a'',s_b',s_b''$ を用いて答えよ。
 
@@ -42,7 +42,7 @@ $T_a,T_b,s_a',s_a'',s_b',s_b''$ を用いて答えよ。
 
 二相域の等圧過程は等温でもあるため、$T$–$s$ 線図は時計回りの長方形となる。
 
-![蒸気 Carnot サイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2016/thermo-2-carnot.svg)
+![蒸気 Carnot サイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_thermo-2-carnot.svg)
 
 $$
 1=(s_b',T_a),\quad2=(s_b',T_b),\quad

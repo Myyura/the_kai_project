@@ -17,7 +17,7 @@ tags:
 ### 問題1
 $X,Y$ は独立な標準正規変数とする。一辺が $a>0$ の正方形 $[0,a]^2$ と、原点を中心に $(r,0)$ から $(0,r)$ に至る半径 $r$ の四分円を考える。図のように、円内・正方形外を $A,C$、正方形内・円外を $B$ とする。
 
-![等面積の正方形と四分円、差領域 A、B、C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2011/sys_201008_prob_stat_square_disk.svg)
+![等面積の正方形と四分円、差領域 A、B、C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2011/sys_201008_prob_stat_square_disk.svg)
 
 (i) $A\cup C$ の面積と $B$ の面積が等しいとする。このとき $r$ を $a$ で表せ。
 

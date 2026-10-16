@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 専門部門 問題1（熱力学）"
+sidebar_label: "2017年8月実施 専門部門 問題1（熱力学）"
 tags:
   - Nagoya-University
   - Physics.Thermodynamics.Van-der-Waals-Gas
   - Physics.Thermodynamics.Maxwell-Relations
 ---
 
-# 名古屋大学 工学研究科 機械航空系 2018年度 専門部門 問題1
+# 名古屋大学 工学研究科 機械航空系 2017年8月実施 専門部門 問題1
 
 ## **Author**
 

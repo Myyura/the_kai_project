@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年度 問1（機械力学）"
+sidebar_label: "2019年8月実施 問1（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Connected-Particles-and-Tension
   - Physics.Mechanics.Rigid-Body-Moment-of-Inertia
 ---
 
-# 九州大学 工学府 機械系専攻 2020年度 機械力学 問1
+# 九州大学 工学府 機械系専攻 2019年8月実施 機械力学 問1
 
 ## **Author**
 

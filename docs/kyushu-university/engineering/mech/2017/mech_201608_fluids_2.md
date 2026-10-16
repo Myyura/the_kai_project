@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年度 問2（流体工学）"
+sidebar_label: "2016年8月実施 問2（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Bernoulli-Equation
@@ -7,7 +7,7 @@ tags:
   - Engineering.Fluid-Mechanics.Pipe-Networks
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 流体工学 問2
+# 九州大学 工学府 機械系専攻 2016年8月実施 流体工学 問2
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 1. 水平管軸の高さを基準に、噴流の最高高さ $h$ を求めよ。
 2. 同じ基準で、水槽の水位 $H$ を求めよ。
 
-![原題の図（九州大学 2017年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/fluids-2-original.png)
+![原題の図（九州大学 2017年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_fluids-2-original.png)
 
 #### 题目描述
 

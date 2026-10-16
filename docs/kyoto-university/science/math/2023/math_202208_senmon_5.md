@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 専門科目 [5]（無限積とリーマン和）"
+sidebar_label: "2022年8月実施 専門科目 [5]（無限積とリーマン和）"
 tags:
   - Kyoto-University
   - Mathematics.Calculus.Riemann-Sum
   - Mathematics.Real-Analysis.Lebesgue-Dominated-and-Monotone-Convergence
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2023年度 専門科目 問題5
+# 京都大学 理学研究科 数学・数理解析専攻 2022年8月実施 専門科目 問題5
 
 ## **Author**
 

@@ -39,7 +39,7 @@ $$
 
 (6) 同様の手順で図 $2$ に示した回路を離散時間回路で実現し構成を示せ。
 
-![図1：抵抗を直列、コンデンサを並列に接続した回路。図2：コンデンサを直列、抵抗を並列に接続した回路。いずれも R=C=1。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-university/IST/denshi/q5_2018_circuits.svg)
+![図1：抵抗を直列、コンデンサを並列に接続した回路。図2：コンデンサを直列、抵抗を並列に接続した回路。いずれも R=C=1。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2018/q5_201708_circuits.svg)
 
 ### 题目描述
 

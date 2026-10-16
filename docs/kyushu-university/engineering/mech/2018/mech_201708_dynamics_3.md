@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 問3（機械力学）"
+sidebar_label: "2017年8月実施 問3（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.String-Vibration
   - Physics.Mechanics.Damped-Harmonic-Motion
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 機械力学 問3
+# 九州大学 工学府 機械系専攻 2017年8月実施 機械力学 問3
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 長さ $l$、張力 $T$、線密度 $\rho$ の弦の両端が壁に固定されている。左端を原点、長手方向を $x$ とし、横変位を $u(x,t)$ とする。弦は空気中で単位長さ当たり $\nu(\partial u/\partial t)$ の抵抗力を受け、張力は一定である。$c=\sqrt{T/\rho}$、$\mu=\nu/\rho$ を用いてよい。（50 点）
 
-![両端固定の弦（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/dynamics-3-original.png)
+![両端固定の弦（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_dynamics-3-original.png)
 
 1. 運動方程式を導出せよ。
 2. 自由振動解を $u(x,t)=U(x)W(t)$ と仮定し、$U,W$ の微分方程式を求めよ。

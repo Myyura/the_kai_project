@@ -17,7 +17,7 @@ tags:
 
 密度が一様な球（半径 $a$、質量 $M$）が水平な床の上に静止している。球の高さ $h$ の点に、紙面内で床に平行な方向の力積 $P$ をもつ撃力を与えると、球は床に対して滑らずに転がった。球の重心は紙面内のみを運動する。空気抵抗と転がり摩擦を無視し、重力加速度の大きさを $g$ とする。
 
-![球への撃力、滑らかな斜面、段差](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2025/kyotsu_202408_phys_1_rolling_audited.svg)
+![球への撃力、滑らかな斜面、段差](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2025/kyotsu_202408_phys_1_rolling_audited.svg)
 
 ### I
 

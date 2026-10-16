@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2015年度 機械力学・機構学 問題1"
+sidebar_label: "2014年8月実施 機械力学・機構学 問題1"
 tags:
   - Osaka-University
   - Physics.Mechanics.Lagrangian-Mechanics
@@ -7,7 +7,7 @@ tags:
   - Physics.Mechanics.Forced-Vibration
 ---
 
-# 大阪大学 工学研究科 機械工学専攻 2015年度 機械力学・機構学 問題1
+# 大阪大学 工学研究科 機械工学専攻 2014年8月実施 機械力学・機構学 問題1
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 3. $\tau=\tau_0+A\sin\omega t$（$A>0,\omega>0$）とする。棒が水平のまま静止し、$\bar\ell=B\sin(\omega t+\varphi)$ と振動するときの $\omega$ を求めよ。
 4. $\tau=\tau_0-\beta\theta$（$\beta>0$）とする。ある固有振動で、$\bar\ell$ の振幅が $\theta$ の振幅の $\sqrt2L$ 倍になる。このときの $\beta$ と固有角振動数を求めよ。
 
-![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka-university/engineering/mech/2015/mech_201408_dynamics_1-question-fig1.png)
+![原題の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2015/mech_201408_dynamics_1-question-fig1.png)
 
 #### 题目描述
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: 2021年2・3月実施 基礎科目 問題2 電気回路
+sidebar_label: 2021年3月実施 基礎科目 問題2 電気回路
 tags:
   - Tohoku-University
   - Electrical-Electronic.Circuits.Circuit-Transient-Response
   - Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Damping
   - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
 ---
-# 東北大学 工学研究科 電気・情報系 2021年2・3月実施 基礎科目 問題2 電気回路
+# 東北大学 工学研究科 電気・情報系 2021年3月実施 基礎科目 問題2 電気回路
 
 ## **Author**
 [蛋黄猫物理 (xhs: 94162357270)](https://www.xiaohongshu.com/user/profile/67173192000000001e009fa7?xsec_token=YBaJbvO4qazzvNUB-8gkqSwFa4usRBcKTQe93j6tfxtPw=)
@@ -37,7 +37,7 @@ $$
 ただし、$a$ は実数、$n$ は整数とする。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202103_kiso_2_electrical_circuit.png" width="400"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2021/ecei_202103_kiso_2_electrical_circuit.png" width="400"/>
 </figure>
 
 ### 题目描述
@@ -96,7 +96,7 @@ $$
 
 处达到唯一最大值，再单调衰减至零。
 
-![临界阻尼放电电流](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2021/ecei_202103_current.svg)
+![临界阻尼放电电流](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2021/ecei_202103_current.svg)
 
 ### (4)
 

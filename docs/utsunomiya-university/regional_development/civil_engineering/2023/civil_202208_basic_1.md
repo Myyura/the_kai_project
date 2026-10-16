@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 第1期 土木工学基礎 問1"
+sidebar_label: "2022年8月実施 第1期 土木工学基礎 問1"
 tags:
   - Utsunomiya-University
   - Mathematics.Calculus.Differentiation
   - Mathematics.Calculus.Indefinite-Integral
 ---
 
-# 宇都宮大学 地域創生科学研究科 社会デザイン科学専攻 土木工学プログラム 2023年度 第1期 土木工学基礎 問1
+# 宇都宮大学 地域創生科学研究科 社会デザイン科学専攻 土木工学プログラム 2022年8月実施 第1期 土木工学基礎 問1
 
 ## **Author**
 

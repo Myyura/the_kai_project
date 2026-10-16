@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2013年度 問1（数学）"
+sidebar_label: "2012年8月実施 問1（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 数学 問1
+# 九州大学 工学府 機械系専攻 2012年8月実施 数学 問1
 
 ## **Author**
 
@@ -46,4 +46,4 @@ $$
 
 よって $R=\sqrt{A^2+B^2}>0$ なら、軌跡は原点を中心とする半径 $R$ の円である。$(R,0)$ における速度が $(0,-2R)$ なので、時間の増加とともに時計回りに進む。$A=B=0$ の場合は原点に静止する。
 
-![解の円軌道](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/math-1-orbit.svg)
+![解の円軌道](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_math-1-orbit.svg)

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 問2（数学）"
+sidebar_label: "2016年8月実施 問2（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Linear-Algebra.Matrix-Operations
   - Mathematics.Linear-Algebra.Matrix-Rank
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 数学 問2
+# 九州大学 工学府 機械系専攻 2016年8月実施 数学 問2
 
 ## **Author**
 

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2010年度 問2（流れ学）"
+sidebar_label: "2009年8月実施 問2（流れ学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Hydrostatics
 ---
 
-# 九州大学 工学府 機械系専攻 2010年度 流れ学 問2
+# 九州大学 工学府 機械系専攻 2009年8月実施 流れ学 問2
 
 ## **Author**
 
@@ -19,7 +19,7 @@ tags:
 2. 容器を中心軸まわりに一定角速度で回転させると、図bのように円錐体の軸から半径 $a$ の領域が水に浸かった。このときの角速度 $\omega$ を求めよ。容器壁付近における水面の接線と水平面との角度は $\pi/4$ を超えない。
 3. (2)のとき、容器壁での水面高さ $H_r$ を求めよ。
 
-![原題の図（九州大学 2010年度 流れ学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2010/fluids-2-original.png)
+![原題の図（九州大学 2010年度 流れ学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2010/mech_200908_fluids-2-original.png)
 
 #### 题目描述
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2012年度 問4（材料力学）"
+sidebar_label: "2011年8月実施 問4（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Beam-Deflection
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Strain-Energy
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 材料力学 問4
+# 九州大学 工学府 機械系専攻 2011年8月実施 材料力学 問4
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 図のように $x\to y\to x$ 方向へ直角に折れ曲がった丸棒 ABCD は A で固定され、AB $=a$、BC $=b$、CD $=c$ である。先端 D に鉛直下向きの荷重 $P$ とねじりモーメント $T$ が作用する。丸棒の直径を $d$、ヤング率を $E$、ポアソン比を $\nu$ とする。D の $yz$ 平面内の角度変化（ねじれ角）$\theta$ と $z$ 方向変位 $\delta_z$ を求めよ。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/material-4-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_material-4-original.png)
 
 #### 题目描述
 

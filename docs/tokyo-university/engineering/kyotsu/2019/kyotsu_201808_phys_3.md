@@ -31,7 +31,7 @@ C→D だけで一定の大きさ $f$ の摩擦力がピストンに働き、摩
 2. C→D で外界から受け取る熱量 $Q_2$ を求めよ。放熱の場合は負とする。
 3. サイクルの効率 $\eta=(Q_1+Q_2)/Q_1$ を $n,R,f,Z,T_1,T_2,V_3,V_4$ で表せ。
 
-![摩擦を伴うピストンと熱サイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2019/kyotsu_201808_phys_3_diagram_audited.svg)
+![摩擦を伴うピストンと熱サイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2019/kyotsu_201808_phys_3_diagram_audited.svg)
 
 ### III
 

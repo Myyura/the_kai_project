@@ -22,7 +22,7 @@ tags:
 
 (7) $R_2/R_1=\sqrt2$ の場合、外筒面と内筒面の圧力差 $\Delta p=p(R_2)-p(R_1)$ を求めよ。
 
-![流れと座標の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/sn-mechanics/fluid/2018-couette.svg)
+![流れと座標の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2018/201708-couette.svg)
 
 #### 题目描述
 

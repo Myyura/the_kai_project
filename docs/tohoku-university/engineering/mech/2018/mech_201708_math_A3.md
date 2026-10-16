@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年秋季 数学A 第3問"
+sidebar_label: "2017年8月実施 数学A 第3問"
 tags:
   - Tohoku-University
   - Mathematics.Linear-Algebra.Permutation-Matrix
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 数学A 第3問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 数学A 第3問
 
 ## **Author**
 

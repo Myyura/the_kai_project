@@ -81,7 +81,7 @@ $$
 
 Connect $A$ to the D input, and combine $A$ with the complemented Q output in an AND gate. Initialize Q to $1$ before sampling starts. The output is evaluated from the current input and the state holding the previous sample; the active clock edge stores the current sample.
 
-![Rising-edge detector using a D flip-flop and an AND gate](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2026/tokyo-denshi-2026-rising-edge.svg)
+![Rising-edge detector using a D flip-flop and an AND gate](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2026/tokyo-denshi-202601-rising-edge.svg)
 
 ### Clocked state-output interpretation
 
@@ -138,4 +138,4 @@ $$
 
 The two D flip-flops use the same clock and start at $(1,0)$. The labelled $s_1,s_0$ nets connect each register output to the OR inputs.
 
-![Three-state Moore rising-edge detector](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2026/tokyo-denshi-2026-rising-edge-moore.svg)
+![Three-state Moore rising-edge detector](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2026/tokyo-denshi-202601-rising-edge-moore.svg)

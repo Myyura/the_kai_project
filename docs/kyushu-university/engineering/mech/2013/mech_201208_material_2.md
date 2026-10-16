@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2013年度 問2（材料力学）"
+sidebar_label: "2012年8月実施 問2（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Truss
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 材料力学 問2
+# 九州大学 工学府 機械系専攻 2012年8月実施 材料力学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 図2の棒 BD、BF はヤング率 $E$、断面積 $A$ の弾性棒である。B は固定位置のピン、CF は C でピン支持された一本の剛体で、D では折れ曲がらない。BD は D で CF の中心線上にピン接合される。CD $=a$、DF $=b$、BD は水平、BF は水平から角度 $\theta$ だけ下がる。F に右向き荷重 $P$ を加える。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/material-2-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-2-original.png)
 
 1. BD、BF の軸力 $Q_{BD},Q_{BF}$ を求めよ。
 2. F の水平変位 $\delta_{FH}$ を求めよ。

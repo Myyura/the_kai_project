@@ -17,7 +17,7 @@ tags:
 
 導電率 $\sigma$、誘電率 $\varepsilon$ の物質からなる半径 $a$、高さ $h\ (h\gg a)$ の円柱を真空中に置き、上下の端面に電極を取り付ける。図のように、円柱の中心軸に沿って電極から導線を延ばし、十分遠方の電流源とスイッチに接続する。電流源、スイッチおよび遠方の配線が作る場と、電極・配線の抵抗は無視する。端効果を無視し、電場は円柱内部で軸に平行な一様な場とする。真空の誘電率を $\varepsilon_0$、円柱と真空の透磁率を $\mu_0$ とする。電流は上部電極から下部電極へ流れる。
 
-![導電性誘電体の円柱と電極・電流源](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2016/kyotsu_201508_phys_2_cylinder_audited.svg)
+![導電性誘電体の円柱と電極・電流源](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2016/kyotsu_201508_phys_2_cylinder_audited.svg)
 
 ### I
 

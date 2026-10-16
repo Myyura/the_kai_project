@@ -40,7 +40,7 @@ $$
 
 2. $r=R_0+\varepsilon$ とおき、微小変位 $\varepsilon$ の微分方程式と振動周期を求めよ。
 
-![円錐面上の質点と頂点の穴を通る糸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2015/kyotsu_201408_phys_1_cone_audited.svg)
+![円錐面上の質点と頂点の穴を通る糸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2015/kyotsu_201408_phys_1_cone_audited.svg)
 
 #### 题目描述
 

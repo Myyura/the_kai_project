@@ -44,7 +44,7 @@ $$
 \frac{\partial^2H_y}{\partial z^2}=\varepsilon\mu\frac{\partial^2H_y}{\partial t^2}+\mu\sigma\frac{\partial H_y}{\partial t}.
 $$
 
-![良導体への垂直入射と反射・透過](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2013/kyotsu_201208_phys_2_waves_audited.svg)
+![良導体への垂直入射と反射・透過](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2013/kyotsu_201208_phys_2_waves_audited.svg)
 
 ### I
 

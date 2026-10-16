@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年度 問1（流体工学）"
+sidebar_label: "2017年8月実施 問1（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
@@ -7,7 +7,7 @@ tags:
   - Engineering.Fluid-Mechanics.Minor-Losses
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 流体工学 問1
+# 九州大学 工学府 機械系専攻 2017年8月実施 流体工学 問1
 
 ## **Author**
 
@@ -24,7 +24,7 @@ tags:
 3. ベルマウスがある場合に、ファンを含む管全体を固定するために必要な軸方向の力 $F$ を $\Delta p,D$ で表せ。流れの方向を正とする。
 4. ベルマウスがない場合は入口で縮流に伴う逆流が生じ、入口から①までに未知の損失がある。この場合の流量 $Q'$ と、ベルマウスがある場合の $Q$ の比を求めよ。
 
-![原題の図（九州大学 2018年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/fluids-1-original.png)
+![原題の図（九州大学 2018年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_fluids-1-original.png)
 
 #### 题目描述
 

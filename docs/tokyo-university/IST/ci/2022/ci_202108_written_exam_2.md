@@ -19,7 +19,7 @@ tags:
 Consider packet transfer between the computers shown in the figure.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202108_2_p1.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2022/ci_202108_2_p1.png" width="450" alt=""/>
 </figure>
 
 First, we upload a very large file from a client node to the server node. Packets are not discarded in the communication links and routers on the packet transmission path. The server node checks whether the data in the received packet sent from the client node has a bit error. Let $\alpha$ ($0\le\alpha<1$) be the probability that one or more than one bit errors will occur in the data in the received packet. In addition, it is assumed that no bit error in the destination address part occurs.

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2014年度 問1（機械力学）"
+sidebar_label: "2013年8月実施 問1（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 機械力学 問1
+# 九州大学 工学府 機械系専攻 2013年8月実施 機械力学 問1
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 半径 $r$、回転中心まわりの慣性モーメント $I=mr^2$ の円板状滑車に、軽く伸び縮みしないロープを巻く。一端にはばね定数 $k$ の軽いばねを介して質量 $2m$ の物体 A、他端には直接質量 $m$ の物体 B を取り付ける。滑車とロープの間に滑りはない。ロープがたるまず、ばねが自然長になる位置で A、B を支持し、$t=0$ に静かに支持を外す。初期位置からの A の下向き変位を $x_A$、B の上向き変位を $x_B$、重力加速度を $g$ とする。（50 点）
 
-![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/dynamics-1-original.png)
+![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_dynamics-1-original.png)
 
 1. ニュートンの運動法則から運動方程式を求めよ。
 2. 固有角振動数と M-正規固有モードを求め、各モードの運動を物理的に説明せよ。

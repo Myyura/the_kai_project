@@ -32,7 +32,7 @@ tags:
 - (c) コイルに蓄えられる磁気エネルギーを求めよ。
 - (d) 上下 2 つの鉄心間に働く力の大きさを求めよ。
 
-![図3.1 閉じた鉄心、図3.2 二つの空隙を持つ鉄心](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-tech-ee/2018/em3-fig3-1-2.png)
+![図3.1 閉じた鉄心、図3.2 二つの空隙を持つ鉄心](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2019/ee_201808_em3-fig3-1-2.png)
 
 図は東京工業大学 2019 年度大学院入試の原題より。
 

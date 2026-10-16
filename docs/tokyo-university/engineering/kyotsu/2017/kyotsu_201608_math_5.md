@@ -180,4 +180,4 @@ $(a,b)=(1,1)$ なら $y=x,\ 0<x\le1$ であり、$(1,1)$ から原点へ向か�
 
 $(a,b)=(-1,1)$ なら $y=x+2x^2,\ -1\le x<0$。$(-1,1)$ から $(-1/2,0)$、頂点 $(-1/4,-1/8)$ を通って原点へ向かう。いずれも原点は $t\to\infty$ の極限点である。
 
-![軌跡と時刻の増加方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/tokyo-kyotsu-201608-trajectories-audited.svg)
+![軌跡と時刻の増加方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2017/tokyo-kyotsu-201608-trajectories-audited.svg)

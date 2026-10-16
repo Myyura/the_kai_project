@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 数学 2"
+sidebar_label: "2022年8月実施 数学 2"
 tags:
   - Kyoto-University
   - Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation
   - Mathematics.Differential-Equations.Burgers-Equation
 ---
 
-# 京都大学 工学研究科 機械工学群 2023年度 数学 問題2
+# 京都大学 工学研究科 機械工学群 2022年8月実施 数学 問題2
 
 ## **Author**
 

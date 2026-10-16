@@ -105,6 +105,6 @@ $B_+=(s-c)/2+bc/\sqrt2$、$B_-=-(s-c)/2+bc/\sqrt2$。
 | 6 | $s$ | $-bc$ |
 | 7 | $L_-$ | $-B_+$ |
 
-![投影軌跡と八つの媒介変数の点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2013/kyotsu_201208_math_4_orbit.svg)
+![投影軌跡と八つの媒介変数の点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2013/kyotsu_201208_math_4_orbit.svg)
 
 図は条件を満たす $a=1,b=0.4,\theta=1$ の例で、数字 $k$ は $t=k\pi/4$ に対応する。一般の点の位置は上表で与えられる。

@@ -38,7 +38,7 @@ $$
 **設問4** 下の通信線路図によって与えられる非対称の２元通信路を考える。$X$ の生起確率が**設問3**のように与えられるとき、相互情報量 $I(X;Y)$ を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202008_senmon_s_4_p1.png" width="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2021/ist_202008_senmon_s_4_p1.png" width="200" alt=""/>
 </figure>
 
 通信路の条件（要約）：$P(Y=0\mid X=0)=8/9$、$P(Y=1\mid X=0)=1/9$、$P(Y=0\mid X=1)=0$、$P(Y=1\mid X=1)=1$。
@@ -77,7 +77,7 @@ $$
 4. 考虑题图给出的非对称二元信道。当输入 $X$ 的概率由第 3 问确定时，求互信息 $I(X;Y)$。
 
    <figure style="text-align:center;">
-     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202008_senmon_s_4_p1.png" width="200" alt="非对称二元信道图"/>
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2021/ist_202008_senmon_s_4_p1.png" width="200" alt="非对称二元信道图"/>
    </figure>
 
 5. 改用固定长码 $C_2$ 编码信源符号，经第 4 问信道传输后再按 $C_2$ 译码，令译码符号为随机变量 $B$，求 $I(A;B)$。

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2013年度 問1（熱工学）"
+sidebar_label: "2012年8月実施 問1（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Ideal-Gas-Entropy-and-Heat-Capacities
   - Physics.Thermodynamics.Enthalpy-and-Thermodynamic-Relations
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 熱工学 問1
+# 九州大学 工学府 機械系専攻 2012年8月実施 熱工学 問1
 
 ## **Author**
 
@@ -18,7 +18,7 @@ tags:
 
 状態0ではばねが自然長、A室の圧力・温度は $p_0,T_0$、位置は $x_0$ である。ヒータで加熱し、ピストンがゆっくり動いて $x=x_1$ となったところで加熱を止め、この状態1の圧力・温度を $p_1,T_1$ とする。$p_0,T_0,S,k,x_0,x_1,\kappa$ は既知、A室内の変化は準静的、$\kappa$ は温度に依存しないとする。
 
-![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/thermo-1-original.png)
+![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_thermo-1-original.png)
 
 1. $p_1,T_1$ を求めよ。
 2. 状態0から1の間に与えた熱量 $Q_{01}$ を求めよ。

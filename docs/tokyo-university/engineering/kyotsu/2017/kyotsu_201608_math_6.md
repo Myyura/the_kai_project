@@ -16,7 +16,7 @@ tags:
 
 工場は製品Iと製品IIを製造する。製品Iには部品Aが必要で、製品IIには部品Aと部品Bの両方が必要である。A、Bが規格内である確率はそれぞれ $a,b$ で、品質は互いに独立である。部品の受入検査は行わない。
 
-![部品と製品の対応関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/tokyo-kyotsu-201608-products.svg)
+![部品と製品の対応関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2017/tokyo-kyotsu-201608-products.svg)
 
 出荷前に製品検査を行う。規格内製品が1回の検査に合格する確率は $x$、規格外製品が合格する確率は $y$ である。製品の実際の品質を条件としたとき、各回の検査は独立である。
 

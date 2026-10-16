@@ -137,4 +137,4 @@ $$
 
 $\omega=0$ では連続延長により $R(0)=1,X(0)=0$。$R$ は偶関数で、零点は $\omega=k\pi/2\ (k\ne0)$。$\operatorname{Im}X$ は奇関数で、$\omega>0$ では非負、零点は $\omega=k\pi$ である。どちらも無限遠で $0$ に収束する。
 
-![二組のフーリエ変換の実部と虚部](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2015/tokyo-kyotsu-201408-fourier.svg)
+![二組のフーリエ変換の実部と虚部](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2015/tokyo-kyotsu-201408-fourier.svg)

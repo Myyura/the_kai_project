@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年度 問2（機械力学）"
+sidebar_label: "2016年8月実施 問2（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 機械力学 問2
+# 九州大学 工学府 機械系専攻 2016年8月実施 機械力学 問2
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 図の二つの円板は中心 O₁、O₂ まわりに回転でき、軸まわりの極慣性モーメントを $I_1,I_2$、半径を $R_1,R_2$ とする。円板に巻かれたひもは、上下二つのばね定数 $k$ のばねを介してつながる。平衡状態でひもとばねはたわまずに張られており、そこからの微小回転角を $\theta_1,\theta_2$ とする。ひもは伸びず、質量は無視でき、円板との間に滑りはない。（50 点）
 
-![二円板と二つのばね（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/dynamics-2-original.png)
+![二円板と二つのばね（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_dynamics-2-original.png)
 
 1. 両円板の回転の運動方程式を行列表示せよ。
 2. 固有角振動数 $\omega_1<\omega_2$ と固有モード $\boldsymbol X_1,\boldsymbol X_2$ を求めよ。

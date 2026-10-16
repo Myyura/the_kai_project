@@ -188,7 +188,7 @@ $$
 
 ㉓のグラフは次のようになる。$r\to0^+$ で $+\infty$、$r=a$ で0となり、以後は0である。
 
-![磁界成分比の概形](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomonn/osaka_university/engineering/eei/2020/osaka_eei_201908_em1_ratio.svg)
+![磁界成分比の概形](https://cdn.jsdelivr.net/gh/Myyura/the_kai_project_assets@main/kakomon/osaka-university/engineering/eei/2020/osaka_eei_201908_em1_ratio.svg)
 
 磁気力線上では $dz/(r\,d\varphi)=H_z/H_\varphi$。半径は一定であるから、1回転のピッチ $p(r)$ は
 

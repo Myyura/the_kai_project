@@ -27,7 +27,7 @@ Let us consider a falling-edge-triggered JK flip-flop as shown in Fig.1. This JK
 (5) Modify the circuit in (2) to an up/down counter and show its schematic. An up/down counter is a counter whose operation mode can be changed either to count-up or count-down by a control signal $UP/\overline{DOWN}$.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2017_2_p1.png" width="700" height="700" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2017/denshi_201608_2_p1.png" width="700" height="700" alt=""/>
 </figure>
 
 ### 题目描述
@@ -47,19 +47,19 @@ Let us consider a falling-edge-triggered JK flip-flop as shown in Fig.1. This JK
 ## **Kai**
 ### (1)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2017_2_p2.png" width="700" height="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2017/denshi_201608_2_p2.png" width="700" height="350" alt=""/>
 </figure>
 
 Let $t_n$ be the time of the $n$-th falling input edge after reset. For $i=0,1,2,3$, $Q_i$ toggles precisely when $n$ is a multiple of $2^i$, at time $t_n+(i+1)\tau$. The clock period is assumed long enough for the ripple to settle.
 
 ### (2)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2017_2_p3.png" width="700" height="225" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2017/denshi_201608_2_p3.png" width="700" height="225" alt=""/>
 </figure>
 
 ### (3)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2017_2_p4.png" width="600" height="185" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2017/denshi_201608_2_p4.png" width="600" height="185" alt=""/>
 </figure>
 
 |$Q_3$|$Q_2$|$Q_1$|$Q_0$|$Q_3'$|$Q_2'$|$Q_1'$|$Q_0'$|
@@ -131,11 +131,11 @@ $$
 
 With $Q_i^+=J_i\overline{Q_i}+\overline{K_i}Q_i$, these connections produce the ten transitions in (3).
 
-![Synchronous decimal JK counter](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2017/tokyo-denshi-2016-mod10.svg)
+![Synchronous decimal JK counter](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2017/tokyo-denshi-201608-mod10.svg)
 
 ### (5)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2017_2_p7.png" width="700" height="325" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/denshi/2017/denshi_201608_2_p7.png" width="700" height="325" alt=""/>
 </figure>
 
 Writing $U=UP/\overline{DOWN}$, the toggle inputs in (5) are

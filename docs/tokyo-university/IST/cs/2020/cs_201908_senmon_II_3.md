@@ -93,7 +93,7 @@ $\sin\varphi=0$ 时未定义。
 
 ## **Kai**
 
-![固定视点下的原图与所求姿态](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/cs_201908_senmon_II_3_rotations.svg)
+![固定视点下的原图与所求姿态](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/cs/2020/cs_201908_senmon_II_3_rotations.svg)
 
 ### (1)
 

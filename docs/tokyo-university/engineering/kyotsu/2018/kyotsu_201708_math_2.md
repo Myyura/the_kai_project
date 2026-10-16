@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第2問'
+sidebar_label: '2017年8月実施 数学 第2問'
 tags:
   - Tokyo-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
@@ -8,7 +8,7 @@ tags:
   - Mathematics.Linear-Algebra.Tridiagonal-Determinant-Recurrence
 ---
 
-# 東京大学 工学系研究科 2018年度 数学 第2問
+# 東京大学 工学系研究科 2017年8月実施 数学 第2問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)

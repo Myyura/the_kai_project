@@ -31,7 +31,7 @@ tags:
 2. ラグランジアンを求める。
 3. $\varphi$ の運動方程式を導く。
 
-![円環と壁に沿って滑る棒の座標を示す独自の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/waseda_university/FSE/denshibutsuri/2024/waseda-2023-denshi-mechanics.svg)
+![円環と壁に沿って滑る棒の座標を示す独自の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/waseda-university/FSE/denshibutsuri/2024/waseda-202308-denshi-mechanics.svg)
 
 
 ### 题目描述

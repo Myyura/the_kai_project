@@ -139,4 +139,4 @@ $$
 \boxed{\theta_o=\frac\pi{\sqrt2}\simeq127.3^\circ.}
 $$
 
-![线性近似下的聚焦轨道](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201608_kiso_5_focus.svg)
+![线性近似下的聚焦轨道](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2017/ecei_201608_kiso_5_focus.svg)

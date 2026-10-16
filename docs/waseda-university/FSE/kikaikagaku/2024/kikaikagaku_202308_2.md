@@ -24,7 +24,7 @@ tags:
 6. 固有角振動数と各振幅比を求める。
 7. 各モードの動きを図で説明する。
 
-![二重振り子の座標と二つの正常モードの独自の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/waseda_university/FSE/kikaikagaku/2024/waseda-2023-double-pendulum.svg)
+![二重振り子の座標と二つの正常モードの独自の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/waseda-university/FSE/kikaikagaku/2024/waseda-202308-double-pendulum.svg)
 
 ### 题目描述
 

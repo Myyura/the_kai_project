@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 問3（数学）"
+sidebar_label: "2018年8月実施 問3（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Calculus.Double-Integral
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Triple-Integral
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 数学 問3
+# 九州大学 工学府 機械系専攻 2018年8月実施 数学 問3
 
 ## **Author**
 
@@ -59,7 +59,7 @@ $$
 
 半径 $2r$ の円板の内部に半径 $r$ の円板があり、$(2r,r)$ で内接する。
 
-![球体と円柱のXY平面への投影](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/math-3-projection.svg)
+![球体と円柱のXY平面への投影](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_math-3-projection.svg)
 
 ### (4)
 

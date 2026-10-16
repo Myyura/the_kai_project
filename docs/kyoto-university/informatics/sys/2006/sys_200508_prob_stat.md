@@ -75,7 +75,7 @@ $$
 P((X,Y)\in D)<P((X,Y)\in C)=\tfrac14P(X^2+Y^2\ge2a^2).
 $$
 
-![正規分布の上側確率を比較する領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2006/sys_200508_prob_stat_tail.svg)
+![正規分布の上側確率を比較する領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2006/sys_200508_prob_stat_tail.svg)
 
 (iii) 極座標により
 

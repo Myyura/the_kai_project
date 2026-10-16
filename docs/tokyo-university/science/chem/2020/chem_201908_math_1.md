@@ -25,7 +25,7 @@ tags:
 $\sin \theta \approx \theta$ ，$\cos \theta \approx 1$ の近似が成り立つ範囲において，質点に働く合力の大きさが，原点 $O$ から質点までの距離 $r$ に比例することを示せ．また，その比例係数 $k$ を求めよ．ただし，重力加速度を $g$ ，糸の長さを $l$ とする．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/science/astron_2023_astro_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/science/chem/2020/chem_201908_math_1_fig1.png" width="300" alt=""/>
 </figure>
 
 

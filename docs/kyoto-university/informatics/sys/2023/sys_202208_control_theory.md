@@ -48,7 +48,7 @@ $2 \leq a \leq 5$ を満たすすべての $a$ に対してフィードバック
 $b, c$ の条件を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2023/sys_202208_control_theory_p1.png" width="300" alt=""/>
 </figure>
 
 **(4)** 設問(3)のフィードバック制御系において $a=1$ とする。単位ステップ入力 $r(t)=1$ に対する出力 $y(t)$ が $\lim_{t\to\infty} y(t) = 1$ と $\left| \frac{d^2 y}{dt^2}(0) \right| \leq 1$ を満たす  
@@ -88,7 +88,7 @@ $$
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p2.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2023/sys_202208_control_theory_p2.png" width="300" alt=""/>
 </figure>
 
 ### 题目描述
@@ -121,7 +121,7 @@ $$
    其中 $a,b,c$ 为常数参数且 $c\ne0$。求 $b,c$ 的条件，使系统对满足 $2\leq a\leq5$ 的每一个 $a$ 都稳定。
 
    <figure style="text-align:center;">
-     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p1.png" width="300" alt=""/>
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2023/sys_202208_control_theory_p1.png" width="300" alt=""/>
    </figure>
 
    （4）对第（3）问的反馈系统取 $a=1$。求 $b,c$ 的条件，使单位阶跃输入 $r(t)=1$ 的输出 $y(t)$ 同时满足
@@ -176,14 +176,14 @@ $$
    $$
 
    <figure style="text-align:center;">
-     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p2.png" width="300" alt=""/>
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2023/sys_202208_control_theory_p2.png" width="300" alt=""/>
    </figure>
 
 ## **Kai**
 ### 問題1
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p1_s.jpg" width="700" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2023/sys_202208_control_theory_p1_s.jpg" width="700" alt=""/>
 </figure>
 
 ### 問題2
@@ -210,7 +210,7 @@ $$
 
 位相は $\arctan(2\omega)-\arctan(0.2\omega)$ であり、$\omega\to0,\infty$ で $0^\circ$ に近づく。最大値は $\omega_m=\sqrt{10}/2$ における約 $55^\circ$ である。
 
-![位相進み補償器のボード線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys/2023/kyoto-sys-2022-bode.svg)
+![位相進み補償器のボード線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2023/kyoto-sys-202208-bode.svg)
 
 #### (3)
 

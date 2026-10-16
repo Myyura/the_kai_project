@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2024年度 基礎科目 [6]"
+sidebar_label: "2023年8月実施 基礎科目 [6]"
 tags:
   - Kyoto-University
   - Mathematics.Geometry.Differentiable-Manifolds-and-Regular-Values
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2024年度 基礎科目 問題6
+# 京都大学 理学研究科 数学・数理解析専攻 2023年8月実施 基礎科目 問題6
 
 ## **Author**
 

@@ -405,7 +405,7 @@ $$
 
 したがってフェルミ気体の曲線は原点から正の傾きで増加する。高温では設問3の古典曲線に近づき、$S\sim(3/2)Nk_B\ln T+\text{定数}$ となる。古典式を低温まで延長した点線は $T\to0$ で $-\infty$ に発散する。
 
-![固定した粒子数・体積におけるフェルミ気体と古典気体のエントロピー](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/science/phys/2020/tokyo-phys-201908-entropy.svg)
+![固定した粒子数・体積におけるフェルミ気体と古典気体のエントロピー](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/science/phys/2020/tokyo-phys-201908-entropy.svg)
 
 ## **Reference**
 

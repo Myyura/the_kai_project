@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2012年度 問2（機械力学）"
+sidebar_label: "2011年8月実施 問2（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Lagrangian-Mechanics
   - Physics.Mechanics.Rigid-Body-Rotation-and-Rolling
 ---
 
-# 九州大学 工学府 機械系専攻 2012年度 機械力学 問2
+# 九州大学 工学府 機械系専攻 2011年8月実施 機械力学 問2
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 質量 $m$、長さ $2l$ の一様な棒の両端 A、B に軽いローラーがある。A は鉛直方向、B は水平方向にのみ動くよう滑らかに拘束され、A はばね定数 $2k$、B は $k$ のばねで支持される。$mg/(8l)<k<mg/(4l)$ とし、棒の鉛直からの傾きが $\theta=0$ のとき両ばねは自然長である。重心慣性モーメントは $I_G=ml^2/3$。（50 点）
 
-![直交ガイドに拘束された棒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2012/dynamics-2-original.png)
+![直交ガイドに拘束された棒（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_dynamics-2-original.png)
 
 1. 仮想仕事の原理から、$0\le\theta\le\pi/2$ にある二つの平衡角 $\theta_1<\theta_2$ を求めよ。
 2. 運動エネルギー、ポテンシャルエネルギーと Lagrange 方程式を求めよ。

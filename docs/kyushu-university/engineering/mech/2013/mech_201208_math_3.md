@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2013年度 問3（数学）"
+sidebar_label: "2012年8月実施 問3（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Calculus.Double-Integral
   - Mathematics.Calculus.Constrained-Optimization
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 数学 問3
+# 九州大学 工学府 機械系専攻 2012年8月実施 数学 問3
 
 ## **Author**
 
@@ -31,7 +31,7 @@ tags:
 
 $D$ は $x^2/4+y^2\le1$ の第一象限部分で、境界を含む。軸との交点は $(2,0)$、$(0,1)$ である。
 
-![楕円領域とその上の立体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/math-3-region-solid.svg)
+![楕円領域とその上の立体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_math-3-region-solid.svg)
 
 ### (2)
 

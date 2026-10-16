@@ -38,7 +38,7 @@ Let $N_v$ be a set of adjacent nodes of node $v$. The following algorithm $\text
 (4) Derive the time complexity of $\textbf{Shortest}(G, s)$.
 
 <figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202008_senmon_II_2_p1.png" width="800" height="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hiroshima-university/ASE/is/2021/is_202008_senmon_II_2_p1.png" width="800" height="350" alt=""/>
 </figure>
 
 ### 题目描述

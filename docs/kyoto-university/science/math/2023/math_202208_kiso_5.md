@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 基礎科目 [5]"
+sidebar_label: "2022年8月実施 基礎科目 [5]"
 tags:
   - Kyoto-University
   - Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation
   - Mathematics.Functional-Analysis.Uniform-Convergence
 ---
 
-# 京都大学 理学研究科 数学・数理解析専攻 2023年度 基礎科目 問題5
+# 京都大学 理学研究科 数学・数理解析専攻 2022年8月実施 基礎科目 問題5
 
 ## **Author**
 

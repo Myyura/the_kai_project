@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 問1（機械力学）"
+sidebar_label: "2017年8月実施 問1（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Lagrangian-Mechanics
   - Physics.Mechanics.Damped-Harmonic-Motion
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 機械力学 問1
+# 九州大学 工学府 機械系専攻 2017年8月実施 機械力学 問1
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 水平方向に移動できる質量 $M$ の台車上で、質量 $m$ の質点がばね定数 $k$ のばねと粘性減衰係数 $c$ の減衰器により、台車と同じ方向に支持されている。静止座標系における台車位置を $x$、ばねの静的平衡状態からの伸びを $\xi$ とし、これらを一般化座標とする。（50 点）
 
-![台車と内部のばね・減衰器（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/dynamics-1-original.png)
+![台車と内部のばね・減衰器（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_dynamics-1-original.png)
 
 1. 運動エネルギー $T$ とポテンシャルエネルギー $U$ を求めよ。
 2. 非保存力による一般化力 $Q_x^{\mathrm{nc}},Q_\xi^{\mathrm{nc}}$ を求めよ。

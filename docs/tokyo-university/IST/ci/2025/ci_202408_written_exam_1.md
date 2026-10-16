@@ -16,7 +16,7 @@ Suppose that there are $N$ web pages. A user staying at a web page at time $t$ (
 First, let us consider the case of $N = 3$ shown in Table 1. When there are three web pages shown in Table 1, the state transition diagram that represents a user's state is depicted as a graph in Figure 1. Each node in the graph shown in Figure 1 corresponds one-to-one to a page in Table 1, and an edge represents a transition between the pages from time $t$ to time $t+1$. The value appended to an edge shows the probability of the transition occurring. Note that when there are no linked pages and a user keeps staying at the same page, it is interpreted as a transition to the same page as time $t$.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202408_1_p1.png" height="250" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2025/ci_202408_1_p1.png" height="250" alt=""/>
 </figure>
 
 Answer the following questions.
@@ -170,7 +170,7 @@ Thus the diagram has outgoing probabilities
 $1\to(1,2,3):(1,7,1)/9$, $2\to(1,2,3):(4,1,4)/9$, and
 $3\to(1,2,3):(1,1,7)/9$.
 
-![State transitions with jump probability 1/3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2025/tokyo-ci-2024-pagerank.svg)
+![State transitions with jump probability 1/3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2025/tokyo-ci-202408-pagerank.svg)
 
 ### (5)
 Let $p = (x, y, z)^{\top}$. Then, by solving $Ap = p$, i.e., the following equations

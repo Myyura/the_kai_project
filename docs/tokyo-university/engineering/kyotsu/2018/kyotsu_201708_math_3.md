@@ -1,5 +1,5 @@
 ---
-sidebar_label: '数学 第3問'
+sidebar_label: '2017年8月実施 数学 第3問'
 tags:
   - Tokyo-University
   - Mathematics.Complex-Analysis.Singularities-and-Poles
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Complex-Analysis.Contour-Integration
 ---
 
-# 東京大学 工学系研究科 2018年度 数学 第3問
+# 東京大学 工学系研究科 2017年8月実施 数学 第3問
 
 ## **Author**
 祭音Myyura (co-authored with GPT 6 Astra)
@@ -28,7 +28,7 @@ $g(z)=z/[(z^2+1)(z-1)]$ とする。反時計回りの閉曲線 $C$ は、次の
 - $C_3:z=1-re^{i\theta}$、$0\le\theta\le\pi$（下半円）；
 - $C_4:z=x$，$1+r\le x\le R$。
 
-![積分経路（0より大きく1より小さいrの例）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2018/math_3_contour.svg)
+![積分経路（0より大きく1より小さいrの例）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2018/kyotsu_201708_math_3_contour.svg)
 
 1. $\displaystyle\oint_Cg(z)\,dz$ を求めよ。
 2. $\displaystyle\lim_{\varepsilon\to0^+}\left[\int_{-\infty}^{1-\varepsilon}g(x)\,dx+\int_{1+\varepsilon}^{\infty}g(x)\,dx\right]$ を求めよ。

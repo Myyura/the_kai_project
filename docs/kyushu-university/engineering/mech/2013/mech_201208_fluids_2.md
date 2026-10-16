@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2013年度 問2（流体工学）"
+sidebar_label: "2012年8月実施 問2（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
   - Engineering.Fluid-Mechanics.Jet-Propulsion
 ---
 
-# 九州大学 工学府 機械系専攻 2013年度 流体工学 問2
+# 九州大学 工学府 機械系専攻 2012年8月実施 流体工学 問2
 
 ## **Author**
 
@@ -20,7 +20,7 @@ tags:
 2. 相対座標系での流れの幅 $A_1,A_2$ を求めよ。
 3. 噴流が単位奥行き当たり平板に及ぼす力による仕事率を求めよ。
 
-![原題の図（九州大学 2013年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2013/fluids-2-original.png)
+![原題の図（九州大学 2013年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_fluids-2-original.png)
 
 #### 题目描述
 

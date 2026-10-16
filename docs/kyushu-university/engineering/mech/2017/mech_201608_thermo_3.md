@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年度 問3（熱工学）"
+sidebar_label: "2016年8月実施 問3（熱工学）"
 tags:
   - Kyushu-University
   - Engineering.Heat-Transfer.Heat-Exchangers-and-Thermal-Resistance
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 熱工学 問3
+# 九州大学 工学府 機械系専攻 2016年8月実施 熱工学 問3
 
 ## **Author**
 
@@ -23,7 +23,7 @@ $35^\circ\mathrm C$ の油で $65^\circ\mathrm C$ の過熱蒸気を冷却し、
 4. 両流体の温度差の最小値を求めよ。
 5. 全体の伝熱面積に対する過熱蒸気区間の面積比を求めよ。
 
-![温度分布の解答座標（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/thermo-3-original.png)
+![温度分布の解答座標（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-3-original.png)
 
 #### 题目描述
 
@@ -54,7 +54,7 @@ T_s(z)=\begin{cases}65-45z,&0\le z\le1/3,\\50,&1/3\le z\le1,\end{cases}
 \qquad T_o(z)=50-15z.
 $$
 
-![累積交換熱量に対する蒸気と油の温度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/thermo-3-profiles.svg)
+![累積交換熱量に対する蒸気と油の温度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-3-profiles.svg)
 
 ### (4)
 

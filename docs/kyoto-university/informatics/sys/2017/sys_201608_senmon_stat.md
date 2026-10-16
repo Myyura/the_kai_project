@@ -178,5 +178,5 @@ $$
 \boxed{P=\int_0^a\frac{(a-r)^2}{a^2}\frac{2r}{a^2}\,dr=\frac16}.
 $$
 
-![条件を満たす B の領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2017/sys_201608_senmon_stat_disk.svg)
+![条件を満たす B の領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2017/sys_201608_senmon_stat_disk.svg)
 

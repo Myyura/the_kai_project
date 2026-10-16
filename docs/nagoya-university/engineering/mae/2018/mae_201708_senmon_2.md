@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年度 専門部門 問題2（流体力学）"
+sidebar_label: "2017年8月実施 専門部門 問題2（流体力学）"
 tags:
   - Nagoya-University
   - Engineering.Fluid-Mechanics.Bernoulli-Equation
   - Engineering.Fluid-Mechanics.Falling-Film
 ---
 
-# 名古屋大学 工学研究科 機械航空系 2018年度 専門部門 問題2
+# 名古屋大学 工学研究科 機械航空系 2017年8月実施 専門部門 問題2
 
 ## **Author**
 
@@ -30,7 +30,7 @@ tags:
 2. 自由表面速度を $V=v(h)$ として $v=V(y/h)(2-y/h)$ を示せ。
 3. 単位幅当たり流量 $Q$ を求め、$h$ と $Q$ の関係を示せ。
 
-![連通容器と斜面上の液膜](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/engineering/mae/2018/nagoya2017_specialist2.svg)
+![連通容器と斜面上の液膜](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/nagoya201708_specialist2.svg)
 
 #### 题目描述
 

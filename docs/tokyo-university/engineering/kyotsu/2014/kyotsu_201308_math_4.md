@@ -23,7 +23,7 @@ III. $R(v)=S(1,v)=(\cos v,\sin v,v)$ とする。点 $R(v)$ における接線�
 IV. 曲面 $D(v,w)=T_v(w)$ を考える。(1) $w\ne0$ のときの法線ベクトルを求めよ。
 (2) 任意の $w_1,w_2\ne0$ と同一の $v$ に対し、二点の法線ベクトルが平行であることを示せ。
 
-![常螺面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2014/kyotsu_201308_math_4_helicoid.svg)
+![常螺面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_math_4_helicoid.svg)
 
 #### 题目描述
 

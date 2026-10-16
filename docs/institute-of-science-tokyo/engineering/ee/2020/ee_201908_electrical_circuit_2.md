@@ -31,7 +31,7 @@ Zero
 ダンス $Z_1,Z_3$ の素子をそれぞれ抵抗 $R_1,R_3$ とすることで，入力インピーダンス $Z_{in} = j\omega L_e$ が得られる。$L_e$ を求めよ。 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electrical_circuit_2_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electrical_circuit_2_p1.png" width="600" alt=""/>
 </figure>
 
 ### 题目描述
@@ -74,7 +74,7 @@ Zero
 ## **Kai**
 ### (1)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electrical_circuit_2_p2.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electrical_circuit_2_p2.png" width="300" alt=""/>
 </figure>
 
 $v_A = R_1i_A$, $v_B = R_1i_B$, $v_C = R_1i_C$ より
@@ -97,7 +97,7 @@ $$
 
 ### (3)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electrical_circuit_2_p3.png" width="250" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electrical_circuit_2_p3.png" width="250" alt=""/>
 </figure>
 
 $v_A = \frac{i}{j\omega C}$ より
@@ -118,7 +118,7 @@ $$
 
 ### (4)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electrical_circuit_2_p4.png" width="250" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electrical_circuit_2_p4.png" width="250" alt=""/>
 </figure>
 
 $$
@@ -143,7 +143,7 @@ $$
 
 ### (5)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electrical_circuit_2_p5.png" width="250" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electrical_circuit_2_p5.png" width="250" alt=""/>
 </figure>
 
 $$
@@ -162,7 +162,7 @@ $$
 
 ### (6)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electrical_circuit_2_p6.png" width="250" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electrical_circuit_2_p6.png" width="250" alt=""/>
 </figure>
 
 $v_A = Z_3i_B$ より

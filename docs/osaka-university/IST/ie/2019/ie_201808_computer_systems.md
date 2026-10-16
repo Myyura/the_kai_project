@@ -1,5 +1,5 @@
 ---
-sidebar_label: 2019年度 計算機システムとシステムプログラム
+sidebar_label: 2018年8月実施 計算機システムとシステムプログラム
 tags:
   - Osaka-University
   - Computer-Science.Computer-Architecture.Number-Representation
@@ -8,7 +8,7 @@ tags:
   - Computer-Science.Operating-Systems.Semaphore
   - Computer-Science.Operating-Systems.Process-Synchronization
 ---
-# 大阪大学 情報科学研究科 情報工学 2019年度 計算機システムとシステムプログラム
+# 大阪大学 情報科学研究科 情報工学 2018年8月実施 計算機システムとシステムプログラム
 
 ## **Author**
 

@@ -44,7 +44,7 @@ $a, K_P, K_I, K_D$ は定数パラメータである。以下の設問に答え�
 (3) $K_I = 1$ のとき、フィードバック制御系が安定となるような $a, K_P, K_D$ の条件を求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_control_theory_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2022/sys_202107_control_theory_p1.png" width="300" alt=""/>
 </figure>
 
 ---
@@ -69,7 +69,7 @@ $$
 は図2のようなベクトル軌跡を持つ伝達関数とする。このうち $n$ が最小であるようなものを求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_control_theory_p2.png" width="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2022/sys_202107_control_theory_p2.png" width="450" alt=""/>
 </figure>
 
 ### 题目描述
@@ -107,7 +107,7 @@ $$
    （3）当 $K_I=1$ 时，求使反馈控制系统稳定的 $a,K_P,K_D$ 条件。
 
    <figure style="text-align:center;">
-     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_control_theory_p1.png" width="300" alt=""/>
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2022/sys_202107_control_theory_p1.png" width="300" alt=""/>
    </figure>
 
 2. 传递函数 $P(s)$ 具有图 2 所示的矢量轨迹，虚线表示其渐近线。每个极点或者为 $0$（零极点不重合），或者实部为负。令 $k$ 为正常数。
@@ -128,7 +128,7 @@ $$
    具有图 2 所示的矢量轨迹。在所有满足条件的传递函数中，求阶数 $n$ 最小者。
 
    <figure style="text-align:center;">
-     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_control_theory_p2.png" width="450" alt=""/>
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2022/sys_202107_control_theory_p2.png" width="450" alt=""/>
    </figure>
 
 ## **Kai**
@@ -179,5 +179,5 @@ $a<0$ では $q(0)=1$、$q(s)\to-\infty$ ($s\to+\infty$) より正の実根が�
 ### 問題2
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_control_theory_p2_s.jpg" width="700" alt="Nyquist stability and minimum-order transfer-function derivation"/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2022/sys_202107_control_theory_p2_s.jpg" width="700" alt="Nyquist stability and minimum-order transfer-function derivation"/>
 </figure>

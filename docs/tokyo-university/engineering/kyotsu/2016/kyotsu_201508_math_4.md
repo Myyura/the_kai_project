@@ -99,7 +99,7 @@ $$
 
 位置関係は次の3種類である。図は各場合の代表例で、すべての平面は球に接している。
 
-![三つの接平面と球の位置関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2016/tokyo-kyotsu-201508-tangent-planes.svg)
+![三つの接平面と球の位置関係](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2016/tokyo-kyotsu-201508-tangent-planes.svg)
 
 | 位置関係 | $\operatorname{rank}A$ | $\operatorname{rank}B$ |
 |---|---:|---:|

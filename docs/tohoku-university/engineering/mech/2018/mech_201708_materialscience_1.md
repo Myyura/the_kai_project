@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2017年秋季 材料物性学 第1問"
+sidebar_label: "2017年8月実施 材料物性学 第1問"
 tags:
   - Tohoku-University
   - Engineering.Materials-Science.Frank-Read-Source
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 材料物性学 第1問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 材料物性学 第1問
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 すべり面上で2点A、Bに固定された長さ $l$ の転位を考える。バーガースベクトルの大きさを $b$、剛性率を $G$ とする。せん断応力 $\tau$ によって転位が張り出し、端点の接線がABとなす角を $\theta$ とする。転位全体に作用する力は $f=\tau bl$ である。
 
-![固定された転位の張り出しと端点の角度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_fr_setup.svg)
+![固定された転位の張り出しと端点の角度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_fr_setup.svg)
 
 1. この機構による転位増殖源の名称を答えよ。
 2. 転位の線張力 $T$ を $\tau,b,l,\theta$ で表せ。
@@ -62,7 +62,7 @@ $$
 
 ### (4)
 
-![半円への張り出し、拡大、合体、ループ放出](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_fr_sequence.svg)
+![半円への張り出し、拡大、合体、ループ放出](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_fr_sequence.svg)
 
 応力が臨界値を超えると半円状の転位は安定形を保てず、ピン止め点を回り込むように拡大する。背後で向きの反対の転位部分が接触して消滅すると、閉じた転位ループと、A、Bを結ぶ転位が残る。再生したABから同じ過程が繰り返され、ループが連続的に放出される。
 

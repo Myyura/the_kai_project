@@ -21,7 +21,7 @@ tags:
 図1のような角度$\theta$の斜面に置かれた質量$M$の台車の位置制御を考える。台車には、斜面に沿った$x$軸方向へ力$f$を加え、移動させることができる。力$f$は台車を引き上げるために十分な大きさを与えることができ、台車と床の摩擦および空気抵抗は無視できるものとする。時刻$t$における力$f$および台車の位置と速度をそれぞれ$f(t)$、$x(t)$、$v(t)$と表記する。また、重力加速度の大きさを$g$とする。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201708_2_p1.png" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2018/ci_201708_2_p1.png" width="350" alt=""/>
 </figure>
 
 時刻$t=0$において$x(0)=0$、$v(0)=0$とする。この台車を$x=L$の位置へ移動させる方法を考える。
@@ -79,7 +79,7 @@ $f(t)=k_1\{L-x(t)\}-k_2v(t)+k_3\int_0^t\{L-x(\tau)\}d\tau$ を与える。なお
 Let us consider to control the position of a cart with mass $M$ placed on a slope with angle $\theta$ as illustrated in Figure 1. We can move the cart by force $f$ along the $x$-axis parallel to the slope. Assume that $f$ can be sufficiently large to pull up the cart. Friction between the cart and the slope and air resistance are negligible. We let $f(t), x(t),$ and $v(t)$ denote the force $f$, the position, and the velocity of the cart at time $t$, respectively. The magnitude of gravity acceleration is denoted by $g$.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201708_2_p1.png" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2018/ci_201708_2_p1.png" width="350" alt=""/>
 </figure>
 
 Suppose that $x(0)=0$ and $v(0)=0$ at time $t=0$. We consider a method to move the cart to the position $x=L$. Answer the following questions.
@@ -346,7 +346,7 @@ The maximum peak is $2x_{eq}$. The graph oscillates indefinitely between $0$ and
 
 With $\omega=\sqrt{k_1/M}$, the following graph uses $\tau=\omega t$ and $x/x_{eq}$.
 
-![P control: x/xeq equals 1 minus cos(tau), oscillating between 0 and 2.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2018/tokyo-ci-2017-p-response.svg)
+![P control: x/xeq equals 1 minus cos(tau), oscillating between 0 and 2.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2018/tokyo-ci-201708-p-response.svg)
 
 If $x_{eq}=0$, the cart stays at $x(t)=0$; if $x_{eq}<0$, the formula still applies, with motion on the negative side of the origin.
 
@@ -410,7 +410,7 @@ $$
 
 Both curves start with zero slope and converge monotonically to $x_{eq}$. For $x_{eq}>0$, they rise from below; the steady error is exactly $L-x_{eq}=Mg\sin\theta/k_1$. The graph shows the normalized response with damping ratio $\zeta=k_2/(2\sqrt{Mk_1})$; $\zeta=1.5$ is an illustrative overdamped case.
 
-![PD control: critical and overdamped normalized responses increase from zero to one.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2018/tokyo-ci-2017-pd-response.svg)
+![PD control: critical and overdamped normalized responses increase from zero to one.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2018/tokyo-ci-201708-pd-response.svg)
 
 For $x_{eq}=0$, $x(t)\equiv0$ for every $k_2>0$, even when the characteristic roots are complex; the discriminant condition describes non-oscillatory modes and the nonzero response.
 

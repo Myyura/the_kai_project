@@ -36,7 +36,7 @@ $$
 I_3=\int_0^\infty\frac{dx}{\sqrt{x}(x^2+1)}.
 $$
 
-![積分路 C3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2020/sys_201908_engineering_math_contour.svg)
+![積分路 C3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2020/sys_201908_engineering_math_contour.svg)
 
 $C_3$ は $\varepsilon\to R$ の実軸、上半平面の半円 $R\to-R$、実軸 $-R\to-\varepsilon$、上半平面の小半円 $-\varepsilon\to\varepsilon$ からなる。
 
@@ -164,5 +164,5 @@ $$
 
 すなわち双曲線のうち $u$ と $\cos\theta$ の符号が一致する一方の枝全体である。
 
-![Joukowski 写像による円周と半直線の像](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2020/sys_201908_engineering_math_mapping.svg)
+![Joukowski 写像による円周と半直線の像](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2020/sys_201908_engineering_math_mapping.svg)
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年度 問1（流体工学）"
+sidebar_label: "2014年8月実施 問1（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Bernoulli-Equation
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 流体工学 問1
+# 九州大学 工学府 機械系専攻 2014年8月実施 流体工学 問1
 
 ## **Author**
 
@@ -21,7 +21,7 @@ tags:
 1. 小孔から流出する体積流量 $q$ を求めよ。
 2. 衝突により平板が下方へ移動した距離 $x$ を求めよ。
 
-![原題の図（九州大学 2015年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/fluids-1-original.png)
+![原題の図（九州大学 2015年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_fluids-1-original.png)
 
 #### 题目描述
 

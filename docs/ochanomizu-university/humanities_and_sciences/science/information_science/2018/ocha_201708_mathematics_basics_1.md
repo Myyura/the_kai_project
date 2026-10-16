@@ -87,7 +87,7 @@ $$
 
 をとる。
 
-![exp-curve](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/ochanomizu_university/humanities_and_sciences/science/information_science/2018/ocha-201708-exp-curve.svg)
+![exp-curve](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/ochanomizu-university/humanities_and_sciences/science/information_science/2018/ocha-201708-exp-curve.svg)
 
 ### [2]
 
@@ -141,7 +141,7 @@ $$
 
 $\theta=0$ で $(r,\theta)=(1,0)$ から出発し、反時計回りに無限回転しながら原点へ近づく対数螺旋である。
 
-![spiral](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/ochanomizu_university/humanities_and_sciences/science/information_science/2018/ocha-201708-spiral.svg)
+![spiral](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/ochanomizu-university/humanities_and_sciences/science/information_science/2018/ocha-201708-spiral.svg)
 
 $dr/d\theta=-r/\pi$ であるから、全長は
 

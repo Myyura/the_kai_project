@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 問1（流体工学）"
+sidebar_label: "2016年8月実施 問1（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Control-Volume-Momentum
   - Physics.Mechanics.Angular-Momentum-Conservation-and-Areal-Velocity
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 流体工学 問1
+# 九州大学 工学府 機械系専攻 2016年8月実施 流体工学 問1
 
 ## **Author**
 
@@ -24,7 +24,7 @@ tags:
 4. 噴流2が板に及ぼす力の成分 $F_{x2},F_{y2}$ を求めよ。
 5. $w_1=w_2=w$ のとき、両噴流が板に及ぼす合力 $F_x,F_y$ を求めよ。
 
-![原題の図（九州大学 2017年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/fluids-1-original.png)
+![原題の図（九州大学 2017年度 流体工学 問1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_fluids-1-original.png)
 
 #### 题目描述
 

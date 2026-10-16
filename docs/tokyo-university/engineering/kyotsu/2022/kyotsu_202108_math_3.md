@@ -19,7 +19,7 @@ tags:
 ### I.
 1. $f(z)=z/[(z-i)(z-1)]$ を、$1$ の周囲を反時計回りに一周し、$i$ の周囲を時計回りに一周する図の閉路 $C$ で積分する。
 
-![Equivalent contour with the original winding directions](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/kyotsu_202108_math_3_contour.svg)
+![Equivalent contour with the original winding directions](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2022/kyotsu_202108_math_3_contour.svg)
 
 図は原図と同じ巻き数をもつ模式図である。
 

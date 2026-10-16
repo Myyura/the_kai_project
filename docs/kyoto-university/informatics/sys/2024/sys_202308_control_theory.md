@@ -30,7 +30,7 @@ tags:
 (5) 図2のフィードバック制御系において $a = 1, b = 3, -\infty < K < +\infty$ とする．フィードバック制御系の極のうち実部が正のものの個数を答えよ．ただし，重複する極の個数は重複度に等しいとして数える．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2024/sys_202308_control_theory_p1.png" width="500" alt=""/>
 </figure>
 
 ---
@@ -59,7 +59,7 @@ $$
 (6) 設問 (5) において，$H(s)$ の出力が入力と同位相，つまり，位相が $2n\pi$（$n$ は整数）であったとする．このような $H(s)$ のひとつを求めよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p2.png" width="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2024/sys_202308_control_theory_p2.png" width="200" alt=""/>
 </figure>
 
 ### 题目描述
@@ -81,7 +81,7 @@ $$
    （5）在图 2 的反馈控制系统中令 $a=1,b=3$，并允许 $-\infty<K<+\infty$。求闭环极点中实部为正者的个数；重极点按其重数计数。
 
    <figure style="text-align:center;">
-     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p1.png" width="500" alt=""/>
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2024/sys_202308_control_theory_p1.png" width="500" alt=""/>
    </figure>
 
 2. 考虑传递函数
@@ -107,14 +107,14 @@ $$
    （6）在第（5）问中，进一步要求 $H(s)$ 的输出与输入同相，即相位为 $2n\pi$，其中 $n$ 为整数。求一个满足条件的 $H(s)$。
 
    <figure style="text-align:center;">
-     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p2.png" width="200" alt=""/>
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2024/sys_202308_control_theory_p2.png" width="200" alt=""/>
    </figure>
 
 ## **Kai**
 ### 問題1
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p1_s.jpg" width="700" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2024/sys_202308_control_theory_p1_s.jpg" width="700" alt=""/>
 </figure>
 
 ### 問題2
@@ -131,7 +131,7 @@ $$
 \end{cases}
 $$
 
-![ゲイン線図の折線近似](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys/2024/kyoto-sys-2023-gain.svg)
+![ゲイン線図の折線近似](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2024/kyoto-sys-202308-gain.svg)
 
 #### (2)
 

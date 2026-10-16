@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2021年度 流体力学 問2"
+sidebar_label: "2020年8月実施 流体力学 問2"
 tags:
   - Hokkaido-University
   - Engineering.Fluid-Mechanics.Boundary-Layer-Integral-Method
 ---
 
-# 北海道大学 工学院 機械・宇宙航空工学系 2021年度 流体力学 問2
+# 北海道大学 工学院 機械・宇宙航空工学系 2020年8月実施 流体力学 問2
 
 ## **Author**
 
@@ -52,7 +52,7 @@ $$
 
 ### (3)
 
-![境界層の運動量収支に用いる検査体積](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hokkaido-university/engineering/mech/2021/hokkaido2021_fluid2_cv.svg)
+![境界層の運動量収支に用いる検査体積](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hokkaido-university/engineering/mech/2021/hokkaido202008_fluid2_cv.svg)
 
 前縁から後縁まで、板面から境界層外の高さ $H>\delta$ までの長方形を検査体積に取る。入口質量流量は $\rho U_0H$、後縁からは $\rho\int_0^H u\,dy$ が流出する。差は上面から流出し、その $x$ 方向速度は $U_0$ なので
 

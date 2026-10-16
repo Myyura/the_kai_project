@@ -92,7 +92,7 @@ g'(x)=\begin{cases}1,&0<x\le e,\\\log x+1-e/x,&x>e.\end{cases}
 $$
 
 $0<x\le e$ では直線 $g=x-e$。$x>e$ では $g'>0$、$g''=(x+e)/x^2>0$ であり、$(e,0)$ で傾き $1$ のまま上に曲がる。
-![g(x) の概形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2026/sys_202508_math_II_g.svg)
+![g(x) の概形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2026/sys_202508_math_II_g.svg)
 
 (ii) $u>e$ なら $f(u)=\log u\le u-1$ だから、有限回の反復で値が $e$ 以下になる。その次からはすべて $1$ である。従って無限積は有限個の正の因子の積となり、有限である。
 

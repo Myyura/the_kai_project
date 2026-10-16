@@ -30,7 +30,7 @@ $n \times n$ 点（ピクセル）からなる $2$ 次元 $256$ 階調グレー�
 計算量については、$n$ の関数として示せ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p1.png" width="185" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_1_p1.png" width="185" alt=""/>
 </figure>
 
 (1) 黒い背景に白い物体がいくつか写っているとする（下図参照）。
@@ -41,7 +41,7 @@ $n \times n$ 点（ピクセル）からなる $2$ 次元 $256$ 階調グレー�
 この計算を再帰呼び出しによって行うアルゴリズムを 20 行以内の擬似コードで示し、その計算量を $O$ 記法を用いて答えよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p2.png" width="165" height="165" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_1_p2.png" width="165" height="165" alt=""/>
 </figure>
 
 (2) 以下のような方法で、白い背景の画像に写っている黒い曲線を抽出することを考える（下図参照）。自己交差はないものとする。
@@ -51,7 +51,7 @@ $n \times n$ 点（ピクセル）からなる $2$ 次元 $256$ 階調グレー�
 この計算を効率よく行うアルゴリズムを 20 行以内の擬似コードで示し、その計算量を $O$ 記法を用いて答えよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p3.png" width="165" height="165" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_1_p3.png" width="165" height="165" alt=""/>
 </figure>
 
 (3) 画像を点列で左右に分割する方法として（下図参照）、以下のような方法が考えられる。
@@ -61,7 +61,7 @@ $n \times n$ 点（ピクセル）からなる $2$ 次元 $256$ 階調グレー�
 この計算を効率よく行うアルゴリズムを 20 行以内の擬似コードで示し、その計算量を $O$ 記法を用いて答えよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p4.png" width="165" height="165" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_1_p4.png" width="165" height="165" alt=""/>
 </figure>
 
 (4) 画像をぼかす方法として、以下のような処理が考えられる。
@@ -78,7 +78,7 @@ $x^\text{inf}$ を、(4) で定義した行列を用いて解析的な式で表�
 Consider a 256-level 2-dimensional gray-scale image with $n \times n$ points (pixels). Assume that each point is connected to vertical, horizontal, and diagonal neighbors as shown on the right. We represent each pixel $p$ using a type Pixel and its brightness as $p.\text{brightness}$. An image is given as an $n \times n$ array $P$ of Pixels. You can use basic data structures in a pseudo-code. Computational complexity should be given as a function of $n$.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p1.png" width="185" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_1_p1.png" width="185" alt=""/>
 </figure>
 
 
@@ -89,7 +89,7 @@ Consider a 256-level 2-dimensional gray-scale image with $n \times n$ points (pi
 Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes the computation using recursion and answer its computational complexity using the big-$O$ notation.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p2.png" width="165" height="165" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_1_p2.png" width="165" height="165" alt=""/>
 </figure>
 
 (2) We consider the problem of detecting a black curve in a white background (as shown on the right) as follows. Assume that there is no self-intersection.
@@ -99,7 +99,7 @@ Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes t
 Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes the computation efficiently and answer its computational complexity using the big-$O$ notation.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p3.png" width="165" height="165" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_1_p3.png" width="165" height="165" alt=""/>
 </figure>
 
 (3) We consider the problem of dividing an image into left and right at a point sequence (as shown on the right) as follows.
@@ -109,7 +109,7 @@ Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes t
 Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes the computation efficiently and answer its computational complexity using the big-$O$ notation.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p4.png" width="165" height="165" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_1_p4.png" width="165" height="165" alt=""/>
 </figure>
 
 (4) We blur an image by applying the following operation to the image.
@@ -237,7 +237,7 @@ implementation takes $O(n^2\log n)$ time and $O(n^2)$ space.
 Assuming an image such as the internal points (blue) are all pixels in range $(i,j),\space i\in[1,n-2],\space j\in[1,n-2]$. And the external points (red) are on the edges of the pixel matrix.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p5.png" width="300" height="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2019/ci_201808_1_p5.png" width="300" height="300" alt=""/>
 </figure>
 
 We define $x'=\frac{1}{8}\mathbf{A}x+\frac{1}{8}\mathbf{B}b$ for vectors $x$ and $b$. Such that:

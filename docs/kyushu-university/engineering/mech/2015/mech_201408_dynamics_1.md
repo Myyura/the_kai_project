@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2015年度 問1（機械力学）"
+sidebar_label: "2014年8月実施 問1（機械力学）"
 tags:
   - Kyushu-University
   - Physics.Mechanics.Rigid-Body-Rotation-and-Rolling
 ---
 
-# 九州大学 工学府 機械系専攻 2015年度 機械力学 問1
+# 九州大学 工学府 機械系専攻 2014年8月実施 機械力学 問1
 
 ## **Author**
 
@@ -15,7 +15,7 @@ tags:
 
 水平な一様円板（質量 $M$、半径 $R$）が中心を通る鉛直軸のまわりに摩擦なく回転できる。中心から距離 $r$ に質量 $m_1$ のおもり A を置く。円板の側面に巻いた伸び縮みしない軽い糸を、質量を無視できる滑車にかけ、他端に質量 $m_2$ のおもり B をつるす。時刻 $t=0$ に静止状態から放すと、$t=t_1>0$ で A が円板に対して滑り始める。糸はたるまずほどける。円板の角変位を $\theta$、B の下向き変位を $x$、重力加速度を $g$ とする。（50 点）
 
-![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2015/dynamics-1-original.png)
+![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_dynamics-1-original.png)
 
 1. $t<t_1$ における、A を含む円板の鉛直軸まわりの慣性モーメントを求めよ。
 2. $0<t<t_1$ における B と A を含む円板の運動方程式、および $\dot\theta,\ddot\theta$ を求めよ。

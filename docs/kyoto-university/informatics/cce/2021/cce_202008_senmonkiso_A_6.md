@@ -46,7 +46,7 @@ something(int a, int b) {
 The following flowchart represents analgorithm manipulating a given array $A[1] \ldots A[n]$, each of which stores a numerical data. Answer the following questions.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_A_6_p1.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_A_6_p1.png" width="500" alt=""/>
 </figure>
 
 (a) Explain how the contents ofthe array $A[1] \ldots A[n]$ will be changed eventually by this algorithm.
@@ -85,7 +85,7 @@ merge sort. Then, explain its time complexity using n as the length of the seque
 3. 下图流程图表示对数值数组 $A[1],\ldots,A[n]$ 的算法：
 
    <figure style="text-align:center;">
-     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_A_6_p1.png" width="500" alt="题目流程图"/>
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/cce/2021/cce_202008_senmonkiso_A_6_p1.png" width="500" alt="题目流程图"/>
    </figure>
 
    1. 说明算法最终会如何改变数组内容。

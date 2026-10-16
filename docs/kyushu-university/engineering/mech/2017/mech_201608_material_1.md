@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年度 問1（材料力学）"
+sidebar_label: "2016年8月実施 問1（材料力学）"
 tags:
   - Kyushu-University
   - Engineering.Mechanics-of-Materials.Truss
   - Engineering.Mechanics-of-Materials.Deformation-Compatibility
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 材料力学 問1
+# 九州大学 工学府 機械系専攻 2016年8月実施 材料力学 問1
 
 ## **Author**
 
@@ -16,7 +16,7 @@ tags:
 
 図の各棒はヤング率 $E$、断面積 $A$ を持ち、丸印はピン結合を表す。A、D は壁に固定され、AB $=a$、BC $=$ BD $=$ DC $=2a$ である。C に水平右向きから上へ $60^\circ$ の方向に荷重 $P$ を加える。各棒の伸びは長さに比べて十分小さい。
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/material-1-original.png)
+![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-1-original.png)
 
 1. 棒 BD に作用する力を求めよ。
 2. 着力点 C の水平方向変位を求めよ。

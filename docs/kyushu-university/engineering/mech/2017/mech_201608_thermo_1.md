@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2017年度 問1（熱工学）"
+sidebar_label: "2016年8月実施 問1（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.Otto-Cycle
@@ -7,7 +7,7 @@ tags:
   - Physics.Thermodynamics.Entropy
 ---
 
-# 九州大学 工学府 機械系専攻 2017年度 熱工学 問1
+# 九州大学 工学府 機械系専攻 2016年8月実施 熱工学 問1
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 3. A の断熱膨張を $v=v_1$ の状態 4B で止め、等積放熱で 1 に戻るサイクル B を考える。A、B の $T$–$s$ 線図を同じ図に描き、熱効率を比較して理由を述べよ。
 4. 1、2 は B と同じだが、$2\to3\mathrm C$ を等圧加熱、$3\mathrm C\to4\mathrm C$ を断熱膨張、$4\mathrm C\to1$ を等積放熱とする C を考える。C の加熱量は B と同じである。同じ $T$–$s$ 図に C を描き、B と C の効率を比較して理由を述べよ。
 
-![T–s 線図の解答座標（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/thermo-1-original.png)
+![T–s 線図の解答座標（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-1-original.png)
 
 #### 题目描述
 
@@ -61,7 +61,7 @@ $$
 
 ### (3)
 
-![三つのサイクルの T–s 線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2017/thermo-1-cycles.svg)
+![三つのサイクルの T–s 線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-1-cycles.svg)
 
 A と B の加熱量はともに $q_{\mathrm{in}}=c_v(T_3-T_2)$ である。B の膨張終点は $T_{4B}=T_3\varepsilon_C^{1-\kappa}$。放熱量の差は
 

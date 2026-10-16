@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2014年度 問4（数学）"
+sidebar_label: "2013年8月実施 問4（数学）"
 tags:
   - Kyushu-University
   - Mathematics.Numerical-Analysis.Central-Finite-Difference-for-Second-Derivative
 ---
 
-# 九州大学 工学府 機械系専攻 2014年度 数学 問4
+# 九州大学 工学府 機械系専攻 2013年8月実施 数学 問4
 
 ## **Author**
 
@@ -76,4 +76,4 @@ $N=10$ では $\boxed{\phi_i=i(10-i)}$。
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | $\phi_i$ | 0 | 9 | 16 | 21 | 24 | 25 | 24 | 21 | 16 | 9 | 0 |
 
-![差分解の各点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2014/math-4-difference.svg)
+![差分解の各点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_math-4-difference.svg)

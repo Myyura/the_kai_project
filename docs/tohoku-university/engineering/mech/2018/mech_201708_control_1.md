@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2017年秋季 制御工学 第1問"
+sidebar_label: "2017年8月実施 制御工学 第1問"
 tags:
   - Tohoku-University
   - Electrical-Electronic.Control-Theory.Nyquist-Stability-Criterion
   - Electrical-Electronic.Control-Theory.Steady-State-Error
 ---
 
-# 東北大学 工学研究科 機械・知能系 2017年秋季 制御工学 第1問
+# 東北大学 工学研究科 機械・知能系 2017年8月実施 制御工学 第1問
 
 ## **Author**
 
@@ -18,7 +18,7 @@ tags:
 
 下図の単位負帰還系について答えよ。$k$ は正の定数であり、前向き伝達関数は $G(s)=k/\{s(2s+1)(s+4)\}$ である。
 
-![単位負帰還系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_control1_setup.svg)
+![単位負帰還系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_control1_setup.svg)
 
 1. 一巡伝達関数を求め、そのベクトル軌跡の概形を描け。
 2. 位相交差周波数を求めよ。
@@ -46,7 +46,7 @@ $$
 
 $\omega\to0^+$ では実部は $-9k/16$、虚部は $-\infty$。$\omega=\sqrt2$ で負の実軸を横切り、$\omega\to\infty$ では第2象限から原点に近づく。負の周波数側は実軸に関する鏡像である。
 
-![正の周波数に対するベクトル軌跡](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku-university/engineering/mech/2018/tohoku2017_control1_nyquist.svg)
+![正の周波数に対するベクトル軌跡](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_control1_nyquist.svg)
 
 ### (2)
 

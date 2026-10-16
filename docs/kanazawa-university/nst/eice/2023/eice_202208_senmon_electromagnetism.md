@@ -35,7 +35,7 @@ tags:
 ### 図
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electromagnetism_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kanazawa-university/nst/eice/2023/eice_202208_senmon_electromagnetism_p1.png" width="600" alt=""/>
 </figure>
 
 ### 题目描述
@@ -59,7 +59,7 @@ tags:
    （3）仅使回路 $\#2$ 以速度 $v>0$ 沿 $+z$ 方向匀速运动，其缺口处产生电动势，且该电动势在 $z=z_0>0$ 时最大。求 $z_0$；仍假设 $\#2$ 内磁场在其平面内均匀。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electromagnetism_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kanazawa-university/nst/eice/2023/eice_202208_senmon_electromagnetism_p1.png" width="600" alt=""/>
 </figure>
 
 ## **Kai**

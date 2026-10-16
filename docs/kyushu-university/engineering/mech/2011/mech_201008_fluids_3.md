@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2011年度 問3（流体工学）"
+sidebar_label: "2010年8月実施 問3（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Falling-Film
   - Engineering.Fluid-Mechanics.Dimensional-Analysis
 ---
 
-# 九州大学 工学府 機械系専攻 2011年度 流体工学 問3
+# 九州大学 工学府 機械系専攻 2010年8月実施 流体工学 問3
 
 ## **Author**
 
@@ -22,7 +22,7 @@ tags:
 4. $u(y)$ を求めよ。大気の粘度は水の粘度より十分小さい。
 5. $\theta$ を (1) の無次元数で表せ。
 
-![原題の図（九州大学 2011年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2011/fluids-3-original.png)
+![原題の図（九州大学 2011年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2011/mech_201008_fluids-3-original.png)
 
 #### 题目描述
 

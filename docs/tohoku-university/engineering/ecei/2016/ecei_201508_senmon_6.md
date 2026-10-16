@@ -93,7 +93,7 @@ $$
 
 图像为半径 $a$ 的上半圆，定义域为 $-a\le\langle Z\rangle\le a$。
 
-![不确定度随均值的变化](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201508_senmon_6_uncertainty.svg)
+![不确定度随均值的变化](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/ecei/2016/ecei_201508_senmon_6_uncertainty.svg)
 
 ### (3)
 

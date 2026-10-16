@@ -46,7 +46,7 @@ $$
 4. 板上の点 $(0,0,a)$ における $\sigma_\perp/\sigma_{//}$ を求めよ。
 5. $y=0$ における $\sigma_\perp$ の $z$ 依存性を図示せよ。極値があればその値を求めて図に明記せよ。
 
-![接地平面の像電荷と二方向の像双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2014/kyotsu_201308_phys_2_images_audited.svg)
+![接地平面の像電荷と二方向の像双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_phys_2_images_audited.svg)
 
 #### 题目描述
 
@@ -164,5 +164,5 @@ $$
 
 原点を通る奇関数であり、$z\to\pm\infty$ では $0$ に近づく。
 
-![板に平行な双極子による表面電荷密度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2014/kyotsu_201308_phys_2_charge_audited.svg)
+![板に平行な双極子による表面電荷密度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_phys_2_charge_audited.svg)
 

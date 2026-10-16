@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年度 問2（流体工学）"
+sidebar_label: "2017年8月実施 問2（流体工学）"
 tags:
   - Kyushu-University
   - Engineering.Fluid-Mechanics.Bernoulli-Equation
@@ -7,7 +7,7 @@ tags:
   - Engineering.Fluid-Mechanics.Pipe-Networks
 ---
 
-# 九州大学 工学府 機械系専攻 2018年度 流体工学 問2
+# 九州大学 工学府 機械系専攻 2017年8月実施 流体工学 問2
 
 ## **Author**
 
@@ -24,7 +24,7 @@ A–B 間、B–C 間を、それぞれ長さ $L$、内径 $d$、管摩擦係数
 3. $H(0)=H_2$ として微分方程式を積分し、$H(t)$ を求めよ。
 4. 十分時間が経過した後の B の水位 $H_\infty$ を求めよ。
 
-![原題の図（九州大学 2018年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2018/fluids-2-original.png)
+![原題の図（九州大学 2018年度 流体工学 問2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_fluids-2-original.png)
 
 #### 题目描述
 

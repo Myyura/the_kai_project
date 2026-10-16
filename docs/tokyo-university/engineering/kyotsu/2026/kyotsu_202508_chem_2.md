@@ -51,7 +51,7 @@ $$
   A の分子量を計算し、配位構造式を図 2.1 にならって描け。
 
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_2_p1.png" width="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_chem_2_p1.png" width="300" alt=""/>
 </figure>
 
 ### II
@@ -193,7 +193,7 @@ $$
 である。錯陽イオンは $+1$ なので Co は $+3$ 価である。六つの配位結合を矢印で表した構造式は次のとおりである。
 
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_2_p2.png" width="200" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_chem_2_p2.png" width="200" alt=""/>
 </figure>
 
 ピリオドの左側が外圏の $\ce{Cl^-}$、右側が八面体型の錯陽イオンである。

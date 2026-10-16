@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2019年度 問1（熱工学）"
+sidebar_label: "2018年8月実施 問1（熱工学）"
 tags:
   - Kyushu-University
   - Physics.Thermodynamics.First-Law
 ---
 
-# 九州大学 工学府 機械系専攻 2019年度 熱工学 問1
+# 九州大学 工学府 機械系専攻 2018年8月実施 熱工学 問1
 
 ## **Author**
 
@@ -17,7 +17,7 @@ tags:
 
 温度を $T_0$ に保ち、A のピストンを力 $F$ で準静的に押して気体をすべて B に送り込む（状態 2）。ばねは気体の圧力が初期の 2 倍になると長さも 2 倍になるばね定数をもつ。ばねと連絡通路の容積は無視でき、両シリンダの気体の圧力・温度は等しい。（50 点）
 
-![連通シリンダの初期状態と終状態（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/thermo-1-original.png)
+![連通シリンダの初期状態と終状態（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo-1-original.png)
 
 1. ばね定数が $k=p_0S^2/V_0$ となることを示せ。
 2. 状態 2 で B のピストンに作用する気体・ばねからの力をすべて矢印で示し、各力の原因も示せ。
@@ -45,7 +45,7 @@ $$
 
 B のピストンには右向きに気体の力 $p_2S$、左向きに大気の力 $p_0S$ とばねの力 $k(V_{B2}-V_0)/S$ が作用する。
 
-![B ピストンの水平力](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu-mechanical/2019/thermo-1-forces.svg)
+![B ピストンの水平力](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo-1-forces.svg)
 
 したがって力のつり合いは
 
