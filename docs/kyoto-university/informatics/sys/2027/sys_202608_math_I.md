@@ -2,7 +2,12 @@
 sidebar_label: "京都大学 情報学研究科 システム科学専攻 2026年8月実施 数学【I】"
 tags:
   - Kyoto-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Matrix-Rank
+  - Mathematics.Linear-Algebra.Kernel-and-Image
+  - Mathematics.Linear-Algebra.Affine-Solution-Space-of-Linear-System
+  - Mathematics.Linear-Algebra.Projection-Operator
+  - Mathematics.Linear-Algebra.Matrix-Trace
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
 # 京都大学 情報学研究科 システム科学専攻 2026年8月実施 数学【I】
 
