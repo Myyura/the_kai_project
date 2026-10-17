@@ -1,0 +1,219 @@
+---
+sidebar_label: "京都大学 情報学研究科 システム科学専攻 2026年8月実施 制御工学"
+tags:
+  - Kyoto-University
+  - Mathematics.Differential-Equations.Laplace-Transform
+  - Electrical-Electronic.Control-Theory.Feedback-Control
+  - Electrical-Electronic.Control-Theory.Transfer-Function
+  - Electrical-Electronic.Control-Theory.Routh-Hurwitz-Stability
+  - Electrical-Electronic.Control-Theory.Step-Response
+  - Electrical-Electronic.Control-Theory.Bode-Plot-and-Stability-Margins
+---
+# 京都大学 情報学研究科 システム科学専攻 2026年8月実施 制御工学
+
+## **Author**
+[AnonTokyo #83056](https://github.com/cdc95-04)
+
+## **Description**
+### 問題 1
+
+図 1 のフィードバック制御系 (feedback control system) において，
+
+$$
+L(s)=\frac{as+3}{s^3+3s^2+7s+b}
+$$
+
+とし，$a,b$ は定数パラメータとする。以下の設問に答えよ。
+
+(1) $b=5$ のとき，$L(s)$ のインパルス応答 (impulse response) を求めよ。
+
+(2) $r$ から $y$ への伝達関数 (transfer function) $G_{yr}(s)$ を求めよ。$s$ について降べきの順 (in descending powers of $s$) で整理すること。
+
+(3) $G_{yr}(s)$ が安定 (stable) となる $a,b$ の条件を求め，その条件を満たす点 $(a,b)$ の集合 (set) を $a$-$b$ 平面に図示せよ。境界と $a$ 軸および $b$ 軸との交点の座標を記すこと。
+
+(4) $G_{yr}(s)$ のステップ応答 (step response) $y(t)$ が $\lim_{t\to\infty}y(t)=1$ を満たす $a,b$ が存在するか否か，理由とともに述べよ。また，存在する場合はその集合を求めよ。
+
+**図 1（原図の接続関係を Markdown で再現）**
+
+```text
+     r            +           L(s)                    y
+─────→──────────( ⊕ )────────[ L(s) ]──────────●─────→
+                  − ↑                          │
+                    └───────────(単位負帰還)────┘
+```
+
+### 問題 2
+
+一巡伝達関数 (loop transfer function) が次式で与えられる負帰還制御系 (negative feedback control system) を考える。
+
+$$
+G(s)=\frac{K(1-s)}{2s(s+1)}
+$$
+
+以下の設問に答えよ。なお，設問 (4) までは $K=1$ とする。また，$20\log_{10}2=6.0$，$\tan27^\circ=0.5$ としてよい。
+
+(1) $G(s)$ の極 (pole) および零点 (zero) を求めよ。
+
+(2) $G(s)$ のゲインと位相を求めよ。さらに，ゲイン線図 (gain diagram) および位相線図 (phase diagram) の概形を描け。
+
+(3) ゲイン交差角周波数 (gain crossover frequency)，位相交差角周波数 (phase crossover frequency)，ゲイン余裕 (gain margin)，位相余裕 (phase margin) を求めよ。なお，単位も書くこと。
+
+(4) 得られたゲイン余裕および位相余裕に基づいて，この制御系の安定性 (stability) を判定せよ。
+
+(5) $K$ の値を変化させると，ゲイン余裕も変化する。ゲイン余裕が $0\,\mathrm{dB}$ となる $K$ を求めよ。
+
+## **Kai**
+### 問題 1
+#### (1) インパルス応答
+
+$b=5$ のとき，
+
+$$
+s^3+3s^2+7s+5=(s+1)\bigl[(s+1)^2+4\bigr].
+$$
+
+部分分数分解すると，
+
+$$
+L(s)=\frac{3-a}{4(s+1)}+
+\frac{(a-3)(s+1)/4+a}{(s+1)^2+4}.
+$$
+
+逆ラプラス変換により，因果系のインパルス応答は
+
+$$
+\boxed{h(t)=e^{-t}\left[\frac{3-a}{4}+\frac{a-3}{4}\cos2t+\frac a2\sin2t\right]u(t)}
+$$
+
+となる。ここで $u(t)$ は単位ステップ関数である。
+
+#### (2) 閉ループ伝達関数
+
+単位負帰還より $y=L(s)(r-y)$ なので，
+
+$$
+\boxed{G_{yr}(s)=\frac{L(s)}{1+L(s)}
+=\frac{as+3}{s^3+3s^2+(7+a)s+(b+3)}}.
+$$
+
+#### (3) 安定条件と領域
+
+閉ループ特性多項式 $p(s)=s^3+3s^2+(7+a)s+b+3$ に Routh–Hurwitz の判別法を適用する。漸近安定であるための条件は
+
+$$
+7+a>0,\qquad b+3>0,\qquad 3(7+a)>b+3.
+$$
+
+従って，これらを整理すると
+
+$$
+\boxed{-3<b<3a+18}
+$$
+
+となる。この開領域は $b=-3$ の上側かつ $b=3a+18$ の下側にあり，境界線は含まない。境界の交点は $(-7,-3)$，座標軸との交点は $(0,-3)$，$(-6,0)$，$(0,18)$ である。
+
+**安定性の定義についての補足：** 通常の閉ループ特性多項式による内部漸近安定の条件は上式である。問題文の「伝達関数が安定」を極零相殺後の入出力 BIBO 安定だけの意味で解釈する場合は，正の不安定極が相殺される例外的なパラメータも存在する。すなわち $r>0$ として
+
+$$
+a=-\frac3r,\qquad b=-r(r^2+3r+7),\qquad r^3+3r^2+7r-3>0
+$$
+
+の場合，$(s-r)$ が分子・分母で相殺され，残る二次因子は安定である。ただし相殺された不安定モードが内部的に安定化されるわけではない。通常の安定領域図は前記の開領域を示す。
+
+#### (4) ステップ応答の最終値
+
+最終値が存在するとき，最終値定理により
+
+$$
+\lim_{t\to\infty}y(t)=\lim_{s\to0}G_{yr}(s)=\frac3{b+3}.
+$$
+
+この値が 1 になるには $b=0$ が必要である。そのとき閉ループ安定条件は $a>-6$ となるので，条件を満たすパラメータは存在し，その全体は
+
+$$
+\boxed{\{(a,b)\mid a>-6,\ b=0\}}
+$$
+
+である。
+
+### 問題 2
+#### (1) 極と零点
+
+$K=1$ のとき $G(s)=(1-s)/[2s(s+1)]$ だから，
+
+$$
+\boxed{\text{極： }s=0,-1;\qquad\text{零点： }s=1}.
+$$
+
+#### (2) ゲイン・位相・ボード線図
+
+$s=j\omega$（$\omega>0$）を代入すると，
+
+$$
+\left|G(j\omega)\right|
+=\frac{|1-j\omega|}{2\omega|1+j\omega|}
+=\boxed{\frac1{2\omega}}.
+$$
+
+従ってデシベル表示は
+
+$$
+\boxed{M(\omega)=20\log_{10}|G(j\omega)|=-6.02-20\log_{10}\omega\ \mathrm{dB}}.
+$$
+
+右半平面零点 $s=1$ の位相寄与に注意して，
+
+$$
+\boxed{\phi(\omega)=-90^\circ-2\arctan(\omega)\frac{180^\circ}{\pi}}.
+$$
+
+ゲイン線図は全域で傾き $-20\,\mathrm{dB/dec}$ の直線であり，$\omega=0.5\,\mathrm{rad/s}$ で $0\,\mathrm{dB}$ を通る。位相は低周波で $-90^\circ$，$\omega=1$ で $-180^\circ$，高周波で $-270^\circ$ に近づく。
+
+#### (3) 交差周波数と余裕
+
+$|G(j\omega)|=1$ より
+
+$$
+\boxed{\omega_{gc}=0.5\,\mathrm{rad/s}}.
+$$
+
+$\phi(\omega)=-180^\circ$ より
+
+$$
+\boxed{\omega_{pc}=1\,\mathrm{rad/s}}.
+$$
+
+$|G(j1)|=1/2$ であるため，ゲイン余裕は
+
+$$
+\boxed{\mathrm{GM}=2,\quad \mathrm{GM}_{dB}=20\log_{10}2\simeq6.0\,\mathrm{dB}}.
+$$
+
+位相余裕は
+
+$$
+\boxed{\mathrm{PM}=180^\circ+\phi(0.5)
+=90^\circ-2\arctan(0.5)\simeq36.9^\circ}
+$$
+
+である。問題文の近似を使うと約 $36^\circ$ となる。
+
+#### (4) 安定性
+
+ゲイン余裕・位相余裕ともに正であるから，$K=1$ の負帰還閉ループ系は安定である。実際，特性方程式は $2s^2+s+1=0$ で，極の実部は $-1/4$ である。
+
+#### (5) ゲイン余裕が 0 dB となる K
+
+$K>0$ では位相交差周波数は変わらず $1\,\mathrm{rad/s}$ であり，そこでの開ループゲインは $K/2$ である。よって
+
+$$
+\mathrm{GM}_{dB}=20\log_{10}(2/K).
+$$
+
+これを $0\,\mathrm{dB}$ と置くと
+
+$$
+\boxed{K=2}
+$$
+
+を得る。
