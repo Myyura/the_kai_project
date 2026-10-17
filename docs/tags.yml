@@ -2976,6 +2976,10 @@
   label: "Electrical-Electronic.Digital-Logic.Three-State-Logic"
   permalink: "/topic/electrical-electronic/digital-logic/three-state-logic"
   description: "Electrical-Electronic / Digital-Logic / Three-State-Logic"
+"Electrical-Electronic.Signal-Processing.Analytic-Signal":
+  label: "Electrical-Electronic.Signal-Processing.Analytic-Signal"
+  permalink: "/topic/electrical-electronic/signal-processing/analytic-signal"
+  description: "Electrical-Electronic / Signal-Processing / Analytic-Signal"
 "Electrical-Electronic.Signal-Processing.Autocorrelation-and-Power-Spectral-Density":
   label: "Electrical-Electronic.Signal-Processing.Autocorrelation-and-Power-Spectral-Density"
   permalink: "/topic/electrical-electronic/signal-processing/autocorrelation-and-power-spectral-density"
