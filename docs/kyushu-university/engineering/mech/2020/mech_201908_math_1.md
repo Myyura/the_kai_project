@@ -17,20 +17,50 @@ tags:
 $xy$ 平面上の方程式
 
 $$
-(a-1)(x^2+y^2)+4xy-1=0\tag{*}
+(a-1)(x^2+y^2)+4xy-1=0
+\tag{*}
 $$
 
-について、以下の問いに答えよ。ただし、$a$ は $1$ 以外の実数の定数とする。
+について、以下の問いに答えよ。ただし、$a$ は1以外の実数の定数とする。（50点）
 
-1. $\boldsymbol{x}=[x,y]^{\mathsf T}\in\mathbb R^2$ とする。対称行列 $A\in\mathbb R^{2\times2}$ を用いて (*) を $\boldsymbol{x}^{\mathsf T}A\boldsymbol{x}=1$ と表せ。ただし、$A$ の要素を具体的に示せ。
-2. $A$ の固有値を $\lambda_l,\lambda_s$（$\lambda_l>\lambda_s$）とする。$\lambda_l=5$ のとき、$a$ と $\lambda_s$ を求めよ。
-3. (2) の $\lambda_s$ に対する大きさ $1$ の固有ベクトルを $\boldsymbol p$、$\lambda_l=5$ に対する大きさ $1$ の固有ベクトルを $\boldsymbol q$ とする。$P=[\boldsymbol p\ \boldsymbol q]$ を求めよ。
-4. $\boldsymbol X=[X,Y]^{\mathsf T}$、$\boldsymbol x=P\boldsymbol X$ とする。i) (*) を $X,Y$ で表せ。ii) 得られた式が $XY$ 平面に描く図形を図示し、形状を決める根拠となる値を図中に示せ。
-5. $a$ を (2) の値として、(*) が $xy$ 平面に描く図形を図示し、形状を決める根拠となる値を図中に示せ。
+(1) $\boldsymbol x=[x,y]^{\mathsf T}\in\mathbb R^2$ とする。対称行列 $A\in\mathbb R^{2\times2}$ を用いて与式(*)を $\boldsymbol x^{\mathsf T}A\boldsymbol x=1$ の形で表せ。ただし、行列 $A$ の要素を具体的に示すこと。
+
+(2) (1)で求めた行列 $A$ の2つの固有値を $\lambda_l,\lambda_s$（$\lambda_l>\lambda_s$）とする。$\lambda_l=5$ であるとき、定数 $a$ およびもう一つの固有値 $\lambda_s$ をそれぞれ求めよ。
+
+(3) (2)で求めた固有値 $\lambda_s$ についての大きさ1の固有ベクトルを $\boldsymbol p\in\mathbb R^2$、固有値 $\lambda_l=5$ についての大きさ1の固有ベクトルを $\boldsymbol q\in\mathbb R^2$ とする。行列 $P=[\boldsymbol p,\boldsymbol q]\in\mathbb R^{2\times2}$ を求めよ。
+
+(4) いま、(3)で求めた行列 $P$ について、$\boldsymbol X=[X,Y]^{\mathsf T}\in\mathbb R^2$ とすると、$\boldsymbol x=P\boldsymbol X$ が成立している。
+
+i) 与式(*)を $X,Y$ を用いて表せ。
+
+ii) i)で求めた方程式が、$XY$ 平面上に描く図形を図示せよ。ただし、図形の形状を決める根拠となる値は図中で示すこと。
+
+(5) 与式(*)が、$xy$ 平面上に描く図形を図示せよ。ただし、$a$ は(2)で求めた値とし、図形の形状を決める根拠となる値は図中で示すこと。
 
 #### 题目描述
 
-考虑 $a\ne1$ 时的曲线 $(a-1)(x^2+y^2)+4xy=1$。① 写出对应的实对称矩阵 $A$。② 已知较大特征值为 $5$，求 $a$ 和较小特征值。③ 按较小、较大特征值的顺序取单位特征向量组成 $P$。④ 令 $\boldsymbol x=P\boldsymbol X$，求新坐标下的方程并画图，标明决定形状的数值。⑤ 在原 $xy$ 平面画图并标明相应数值。
+对于 $xy$ 平面上的方程
+
+$$
+(a-1)(x^2+y^2)+4xy-1=0,
+\tag{*}
+$$
+
+回答以下各问，其中 $a$ 是不等于1的实常数。（50分）
+
+(1) 设 $\boldsymbol x=[x,y]^{\mathsf T}\in\mathbb R^2$。用对称矩阵 $A\in\mathbb R^{2\times2}$ 将式(*)表示为 $\boldsymbol x^{\mathsf T}A\boldsymbol x=1$，并具体写出 $A$ 的元素。
+
+(2) 将(1)所得矩阵 $A$ 的两个特征值记为 $\lambda_l,\lambda_s$，且 $\lambda_l>\lambda_s$。当 $\lambda_l=5$ 时，分别求常数 $a$ 和另一个特征值 $\lambda_s$。
+
+(3) 设 $\boldsymbol p\in\mathbb R^2$ 为(2)所得特征值 $\lambda_s$ 对应的单位特征向量，$\boldsymbol q\in\mathbb R^2$ 为特征值 $\lambda_l=5$ 对应的单位特征向量。求矩阵 $P=[\boldsymbol p,\boldsymbol q]\in\mathbb R^{2\times2}$。
+
+(4) 对于(3)所得的矩阵 $P$，令 $\boldsymbol X=[X,Y]^{\mathsf T}\in\mathbb R^2$，且满足 $\boldsymbol x=P\boldsymbol X$。
+
+i) 用 $X,Y$ 表示式(*)。
+
+ii) 画出i)所得方程在 $XY$ 平面上表示的图形，并在图中标出用于确定图形形状的数值。
+
+(5) 取(2)所得的 $a$ 值，画出式(*)在 $xy$ 平面上表示的图形，并在图中标出用于确定图形形状的数值。
 
 ## **Kai**
 
@@ -53,9 +83,11 @@ $$
 $(A-I)\boldsymbol p=0$、$(A-5I)\boldsymbol q=0$ より、一例として
 
 $$
-\boldsymbol p=\frac1{\sqrt2}\binom{-1}{1},\qquad
-\boldsymbol q=\frac1{\sqrt2}\binom{1}{1},\qquad
+\begin{gathered}
+\boldsymbol p=\frac1{\sqrt2}\binom{-1}{1},\\
+\boldsymbol q=\frac1{\sqrt2}\binom{1}{1},\\
 \boxed{P=\frac1{\sqrt2}\begin{pmatrix}-1&1\\1&1\end{pmatrix}}.
+\end{gathered}
 $$
 
 $P^{\mathsf T}P=I$、$P^{\mathsf T}AP=\operatorname{diag}(1,5)$ である。
@@ -65,8 +97,11 @@ $P^{\mathsf T}P=I$、$P^{\mathsf T}AP=\operatorname{diag}(1,5)$ である。
 #### i)
 
 $$
-1=\boldsymbol X^{\mathsf T}P^{\mathsf T}AP\boldsymbol X
-\quad\Longrightarrow\quad\boxed{X^2+5Y^2=1}.
+\begin{gathered}
+1=\boldsymbol X^{\mathsf T}P^{\mathsf T}AP\boldsymbol X\\
+\Longrightarrow\\
+\boxed{X^2+5Y^2=1}.
+\end{gathered}
 $$
 
 #### ii)

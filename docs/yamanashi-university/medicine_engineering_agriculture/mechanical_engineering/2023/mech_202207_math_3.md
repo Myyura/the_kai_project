@@ -13,15 +13,37 @@ tags:
 
 ## **Description**
 
-次の定積分を求めよ。
+問3　次の2つの定積分の値を求めよ。
 
-(a) $\displaystyle\int_1^2\frac{dx}{(x+1)^2}$。
+Problem 3　Find the values of the two definite integrals.
 
-(b) $\displaystyle\int_{-1}^1e^{-2x}\,dx$。
+(a)
+
+$$
+\int_1^2\frac{dx}{(x+1)^2}
+$$
+
+(b)
+
+$$
+\int_{-1}^1e^{-2x}\,dx
+$$
 
 #### 题目描述
 
-求定积分：(a) $\int_1^2(x+1)^{-2}\,dx$；(b) $\int_{-1}^1e^{-2x}\,dx$。
+问3　求下列两个定积分的值。
+
+(a)
+
+$$
+\int_1^2\frac{dx}{(x+1)^2}
+$$
+
+(b)
+
+$$
+\int_{-1}^1e^{-2x}\,dx
+$$
 
 ## **Kai**
 

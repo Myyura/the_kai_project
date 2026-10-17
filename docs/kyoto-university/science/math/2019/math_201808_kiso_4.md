@@ -39,14 +39,19 @@ $x\ge1$ なら $0<x^{-1-f(x)^2}\le x^{-1-m^2}$ であり、右辺は $[1,\infty)
 逆に $f$ が零点をもつとする。周期性より $z\in[0,1)$ で $f(z)=0$ となるものを取れる。また、$f'$ も周期的なので $M=\sup_{x\in\mathbb R}|f'(x)|<\infty$ であり、平均値の定理より
 
 $$
-|f(n+z+t)|=|f(z+t)|\le M|t|\qquad(n\in\mathbb Z)
+\begin{gathered}
+|f(n+z+t)|=|f(z+t)|\le M|t|\\
+(n\in\mathbb Z)
+\end{gathered}
 $$
 
 である。十分大きい整数 $n$ に対して $h_n=(\log(n+2))^{-1/2}<1$ と置く。区間 $I_n=[n+z,n+z+h_n]$ は互いに交わらず、$x\in I_n$ なら
 
 $$
-x\le n+2,\qquad
+\begin{gathered}
+x\le n+2,\\
 f(x)^2\log x\le M^2h_n^2\log(n+2)=M^2.
+\end{gathered}
 $$
 
 したがって

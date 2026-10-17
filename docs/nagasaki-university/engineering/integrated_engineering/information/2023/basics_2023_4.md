@@ -14,21 +14,43 @@ tags:
 
 ## **Description**
 
-確率変数 $X$ の累積分布関数が
+確率変数 $X$ の（累積）分布関数が、
 
 $$
-F(x)=\begin{cases}0&(x\le0),\\\sin x&(0<x<\pi/2),\\1&(x\ge\pi/2)\end{cases}
+F(x)=\begin{cases}
+0&x\le0,\\
+\sin x&0<x<\dfrac\pi2,\\
+1&x\ge\dfrac\pi2
+\end{cases}
 $$
 
-で与えられるとき、以下に答えよ。
+で与えられるとき、以下の問いに答えよ。
 
-1. 事象 $\pi/4<X\le\pi/3$ の確率を求めよ。
-2. 確率密度関数 $f(x)$ を求めよ。
-3. 期待値 $E(X)$ および分散 $V(X)$ を求めよ。
+(1) 事象 $\dfrac\pi4<X\le\dfrac\pi3$ の確率を求めよ。
+
+(2) 確率変数 $X$ の確率密度関数 $f(x)$ を求めよ。
+
+(3) 確率変数 $X$ の期待値 $E(X)$ および分散 $V(X)$ をそれぞれ求めよ。
 
 #### 题目描述
 
-随机变量 $X$ 的累积分布函数在 $x\le0$ 时为 $0$，在 $0<x<\pi/2$ 时为 $\sin x$，在 $x\ge\pi/2$ 时为 $1$。求 $\Pr(\pi/4<X\le\pi/3)$、概率密度、期望与方差。
+随机变量 $X$ 的累积分布函数为
+
+$$
+F(x)=\begin{cases}
+0&x\le0,\\
+\sin x&0<x<\dfrac\pi2,\\
+1&x\ge\dfrac\pi2.
+\end{cases}
+$$
+
+回答以下问题。
+
+(1) 求事件 $\dfrac\pi4<X\le\dfrac\pi3$ 的概率。
+
+(2) 求随机变量 $X$ 的概率密度函数 $f(x)$。
+
+(3) 分别求随机变量 $X$ 的期望 $E(X)$ 和方差 $V(X)$。
 
 ## **Kai**
 
@@ -37,9 +59,11 @@ $$
 累積分布関数の定義より
 
 $$
+\begin{gathered}
 \Pr\left(\frac\pi4<X\le\frac\pi3\right)
-=F(\pi/3)-F(\pi/4)
+=F(\pi/3)-F(\pi/4)\\
 =\boxed{\frac{\sqrt3-\sqrt2}2}.
+\end{gathered}
 $$
 
 ### (2)
@@ -75,8 +99,11 @@ $$
 したがって
 
 $$
-\boxed{V(X)=E(X^2)-E(X)^2
-=\frac{\pi^2}4-2-\left(\frac\pi2-1\right)^2=\pi-3}.
+\boxed{\begin{gathered}
+V(X)=E(X^2)-E(X)^2\\
+=\frac{\pi^2}4-2-\left(\frac\pi2-1\right)^2\\
+=\pi-3
+\end{gathered}}.
 $$
 
 ## **Reference**

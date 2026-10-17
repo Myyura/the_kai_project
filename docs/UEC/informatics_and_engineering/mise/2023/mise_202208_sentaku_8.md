@@ -17,33 +17,111 @@ tags:
 
 ## **Description**
 
-1. $u(x,y)=2x^2-2y^2-2xy$ を実部とし、$f(0)=i$ を満たす正則関数 $f(z)=u(x,y)+iv(x,y)$ を考える。$u$ が調和関数であることを確かめ、$v(x,y)$ と $f(z)$ を求めよ。
-2. 原点中心、半径 $2$ の円を反時計回りに一周する閉曲線 $C$ に対し、
+※以下では虚数単位を $i$ と表記する。
 
-   $$
-   \oint_C\frac{\cos z}{z^2+2zi+3}\,dz
-   $$
+**問 1.** 複素数 $z=x+iy$ について（$x,y$ は実数）、二変数関数
 
-   を求めよ。
-3. $r(t)=(\cos t,\sin t,2t)$ 上で、$(1,0,0)$ から $(0,-1,3\pi)$ までのベクトル場
+$$
+u(x,y)=2x^2-2y^2-2xy
+$$
 
-   $$
-   \boldsymbol v=(x^2z-yz)\boldsymbol i+xyz\boldsymbol j
-   +\frac12x^2z\boldsymbol k
-   $$
+を実部とする正則関数 $f(z)=u(x,y)+iv(x,y)$ を求めたい。ただし $f(0)=i$ とする。
 
-   の線積分を求めよ。
-4. 定義
+（1）$u(x,y)$ が調和関数であることを確かめよ。
 
-   $$
-   F(\omega)=\int_{-\infty}^{\infty}f(t)e^{-i\omega t}\,dt
-   $$
+（2）$f(z)$ の虚部 $v(x,y)$ を求めよ。
 
-   のもとで、$e^{-|t|}$ と $1/(t^2+1)$ の Fourier 変換を求めよ。
+（3）$f(z)$ を複素数 $z$ の関数で表せ。
 
-### 题目描述
+**問 2.** つぎの複素積分において、積分経路 $C$ を、原点を中心とした半径 2 の円を反時計回りに回る単純閉曲線としたときの積分値を求めよ。
 
-求给定实部的解析函数；用留数定理计算圆周积分；计算参数曲线上的向量场线积分；最后在指定约定下求两个函数的 Fourier 变换。
+$$
+\oint_C\frac{\cos z}{z^2+2zi+3}\,dz
+$$
+
+なお、積分値が実数である場合には、虚数単位 $i$ を用いずに表すこと。
+
+**問 3.** 三次元空間のデカルト座標系の正規直交基底を $\vec i=(1,0,0)$、$\vec j=(0,1,0)$、$\vec k=(0,0,1)$ とする。この三次元座標系で、媒介変数 $t$ を用いて表される位置ベクトル
+
+$$
+\begin{aligned}
+\vec r(t)&=x(t)\vec i+y(t)\vec j+z(t)\vec k,\\
+x(t)&=\cos t,\quad y(t)=\sin t,\quad z(t)=2t
+\end{aligned}
+$$
+
+において、座標 $(1,0,0)$ から $(0,-1,3\pi)$ までの曲線を $C$ とする。このとき、ベクトル場
+
+$$
+\vec v=(x^2z-yz)\vec i+xyz\vec j+\frac12x^2z\vec k
+$$
+
+の曲線 $C$ に沿う線積分 $\int_C\vec v\cdot d\vec r$ を求めよ。
+
+**問 4.** 時間信号 $f(t)$ に対するフーリエ変換 $F(\omega)$ は次式で表されるとして、以下の問に答えよ。
+
+$$
+F(\omega)=\int_{-\infty}^\infty f(t)e^{-i\omega t}\,dt
+$$
+
+（1）$f(t)=e^{-|t|}$ のフーリエ変換を求めよ。
+
+（2）$x(t)=1/(t^2+1)$ のフーリエ変換を求めよ。なお、（1）の結果を用いても良い。
+
+キーワード：虚数単位 imaginary unit、複素数 complex number、実数 real number、二変数関数 two-variable function、実部 real part、正則関数 holomorphic function、調和関数 harmonic function、虚部 imaginary part、関数 function、複素積分 complex integral、積分経路 integral path、原点 origin、中心 center、半径 radius、円 circle、反時計回り counterclockwise、単純閉曲線 simple closed curve、積分値 integral value、三次元空間 Three-dimensional space、デカルト座標系 Cartesian coordinate system、正規直交基底 orthogonal basis、媒介変数 parameter、位置ベクトル position vector、座標 coordinate、曲線 curve、ベクトル場 vector field、線積分 line integral、時間信号 time signal、フーリエ変換 Fourier transform。
+
+#### 题目描述
+
+以下以 $i$ 表示虚数单位。
+
+**问 1.** 对复数 $z=x+iy$（$x,y$ 为实数），要求以二元函数
+
+$$
+u(x,y)=2x^2-2y^2-2xy
+$$
+
+为实部的全纯函数 $f(z)=u(x,y)+iv(x,y)$，其中 $f(0)=i$。
+
+（1）验证 $u(x,y)$ 是调和函数。
+
+（2）求 $f(z)$ 的虚部 $v(x,y)$。
+
+（3）将 $f(z)$ 表示为复数 $z$ 的函数。
+
+**问 2.** 计算下列复积分。积分路径 $C$ 为以原点为中心、半径为 2 的圆，沿逆时针方向绕行的简单闭曲线。
+
+$$
+\oint_C\frac{\cos z}{z^2+2zi+3}\,dz
+$$
+
+若积分值为实数，表达结果时不得使用虚数单位 $i$。
+
+**问 3.** 三维笛卡尔坐标系的标准正交基为 $\vec i=(1,0,0)$、$\vec j=(0,1,0)$、$\vec k=(0,0,1)$。位置向量用参数 $t$ 表示为
+
+$$
+\begin{aligned}
+\vec r(t)&=x(t)\vec i+y(t)\vec j+z(t)\vec k,\\
+x(t)&=\cos t,\quad y(t)=\sin t,\quad z(t)=2t.
+\end{aligned}
+$$
+
+设 $C$ 为从 $(1,0,0)$ 到 $(0,-1,3\pi)$ 的这段曲线，求向量场
+
+$$
+\vec v=(x^2z-yz)\vec i+xyz\vec j+\frac12x^2z\vec k
+$$
+
+沿 $C$ 的线积分 $\int_C\vec v\cdot d\vec r$。
+
+**问 4.** 时间信号 $f(t)$ 的傅里叶变换采用约定
+
+$$
+F(\omega)=\int_{-\infty}^\infty f(t)e^{-i\omega t}\,dt.
+$$
+
+（1）求 $f(t)=e^{-|t|}$ 的傅里叶变换。
+
+（2）求 $x(t)=1/(t^2+1)$ 的傅里叶变换。可以使用（1）的结果。
 
 ## **Kai**
 
@@ -62,7 +140,10 @@ $$
 Cauchy--Riemann の関係より
 
 $$
-v_x=-u_y=2x+4y,\qquad v_y=u_x=4x-2y.
+\begin{gathered}
+v_x=-u_y=2x+4y,\\
+v_y=u_x=4x-2y.
+\end{gathered}
 $$
 
 したがって
@@ -117,7 +198,7 @@ $$
 \begin{aligned}
 \boldsymbol v\mathbin{\cdot}d\boldsymbol r
 &=\{2t(\cos^2t-\sin t)\}(-\sin t)\,dt\\
-&\quad +(2t\cos t\sin t)\cos t\,dt
+&+(2t\cos t\sin t)\cos t\,dt
 +(t\cos^2t)\,2\,dt\\
 &=2t\,dt.
 \end{aligned}
@@ -157,3 +238,7 @@ $$
 =\pi e^{-|\omega|}
 }.
 $$
+
+## **Reference**
+
+- [大学公表の原題](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_m_choice202208.pdf)

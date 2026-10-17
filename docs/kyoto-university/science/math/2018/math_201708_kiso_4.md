@@ -28,7 +28,7 @@ $$
 
 #### 题目描述
 
-设实值函数列 $f_n:[0,1]\to\mathbb R$ 中每个 $f_n$ 都关于自变量单调不减，且 $f_n$ 逐点收敛于 $f$。
+设实值函数列 $f_n:[0,1]\to\mathbb R$ 中每个 $f_n$ 都广义单调递增，即 $0\le x<y\le1$ 时 $f_n(x)\le f_n(y)$。假设 $n\to\infty$ 时 $f_n$ 逐点收敛于 $f$。
 
 (1) 证明对任意 $0\le x<y\le1$，
 
@@ -63,8 +63,11 @@ $$
 となる正の整数 $m$ を取れる。分点 $t_j=j/m$（$0\le j\le m$）は有限個であり、各点収束により、ある $N$ について
 
 $$
-n\ge N\quad\Longrightarrow\quad
+\begin{gathered}
+n\ge N\\
+\Longrightarrow\\
 \max_{0\le j\le m}|f_n(t_j)-f(t_j)|<\frac{\varepsilon}{2}.
+\end{gathered}
 $$
 
 このとき、各区間 $[t_{j-1},t_j]$ の両端では
@@ -72,9 +75,11 @@ $$
 $$
 \begin{aligned}
 |f_n(t_{j-1})-f(t_j)|
-&\le |f_n(t_{j-1})-f(t_{j-1})|+|f(t_{j-1})-f(t_j)|<\varepsilon,\\
+&\le |f_n(t_{j-1})-f(t_{j-1})|\\
+&\quad+|f(t_{j-1})-f(t_j)|<\varepsilon,\\
 |f_n(t_j)-f(t_{j-1})|
-&\le |f_n(t_j)-f(t_j)|+|f(t_j)-f(t_{j-1})|<\varepsilon.
+&\le |f_n(t_j)-f(t_j)|\\
+&\quad+|f(t_j)-f(t_{j-1})|<\varepsilon.
 \end{aligned}
 $$
 

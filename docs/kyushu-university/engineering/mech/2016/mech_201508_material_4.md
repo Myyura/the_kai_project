@@ -15,27 +15,38 @@ tags:
 
 ## **Description**
 
-図のように直径 $D$ の薄肉円筒 A と直径 $3D$ の薄肉円筒 B の一端を壁に、他端を同じ剛体に接続する。両円筒の肉厚は $t$、長さは $\ell$ で、$D\gg t$、$\ell\gg D$ とする。A と B の間の空間に内圧 $p$ を加える。各材料のヤング率は $E_A,E_B$、横弾性係数は $G_A,G_B$ である。
+次の問いに答えよ。（35点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-4-original.png)
+図に示す断面図のように、直径 $D$ の薄肉円筒 A と直径 $3D$ の薄肉円筒 B を組み合わせた二重薄肉円筒構造の一端を壁面に、他端を剛体に接続した後、薄肉円筒 A の外側の空間に内圧 $p$ を与えた。なお、いずれの円筒も肉厚は同じで、肉厚 $t$ は直径 $D$ に比べて十分に小さく、円筒は $D$ に比べて十分に長いものとする。
 
-1. B の中央部表面に生じる長手方向と円周方向の垂直ひずみを求めよ。
-2. 剛体にねじりモーメント $T$ を加えると、B の中央部表面の長手方向から $45^\circ$ の方向のひずみが $\varepsilon_0$ となった。$T$ を求めよ。
+**(1)** 薄肉円筒 B の中央部表面上の長手方向および円周方向の垂直ひずみを求めよ。
+
+**(2)** さらに、剛体にねじりモーメント $T$ を与えると、薄肉円筒 B の中央部表面において、長手方向と $45^\circ$ をなす方向のひずみは $\varepsilon_0$ となった。このときのねじりモーメント $T$ を求めよ。ただし、直径 $d$ の薄肉円筒の断面二次極モーメント $I_p$ は、$I_p=\pi d^3t/4$ である。必要に応じ、次のひずみ変換式を使用してもよい。
+
+$$
+\begin{aligned}
+\varepsilon_\xi={}&\varepsilon_x\cos^2\theta+\varepsilon_y\sin^2\theta\\
+&+\gamma_{xy}\cos\theta\sin\theta.
+\end{aligned}
+$$
+
+図中、$E_A,E_B$ はヤング率、$G_A,G_B$ は横弾性係数、$\ell$ は円筒の長さ、$t$ は肉厚（$D\gg t$）である。
+
+![原題の二重薄肉円筒の断面図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-4-original.png)
 
 ![原題のひずみ測定方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-4-coordinates-original.png)
 
-直径 $d$、肉厚 $t$ の薄肉円筒の断面二次極モーメントは $I_p=\pi d^3t/4$。必要なら
-
-$$
-\varepsilon_\xi=\varepsilon_x\cos^2\theta
-+\varepsilon_y\sin^2\theta+\gamma_{xy}\cos\theta\sin\theta
-$$
-
-を用いてよい。
-
 #### 题目描述
 
-直径为 $D$、$3D$ 的同轴薄壁圆筒 A、B，左端固定，右端连接同一刚体。两筒厚度均为 $t$、长均为 $\ell$，且 $\ell\gg D\gg t$，两筒之间施加压力 $p$。材料常数为 $E_A,G_A,E_B,G_B$。求外筒 B 的轴向和环向应变；再求使 B 表面与轴向成 $45^\circ$ 方向的应变等于 $\varepsilon_0$ 的外加扭矩 $T$。
+回答下列问题。（35分）
+
+如图示截面，将直径为 $D$ 的薄壁圆筒 A 与直径为 $3D$ 的薄壁圆筒 B 组合成双层薄壁圆筒结构，一端连接墙壁，另一端连接刚体，随后在圆筒 A 外侧的空间施加内压 $p$。两圆筒壁厚相同，壁厚 $t$ 相对于直径 $D$ 充分小，圆筒长度相对于 $D$ 充分大。
+
+**(1)** 求薄壁圆筒 B 中央部表面沿轴向和圆周方向的正应变。
+
+**(2)** 进一步向刚体施加扭矩 $T$，此时圆筒 B 中央部表面上与轴向成 $45^\circ$ 的方向的应变为 $\varepsilon_0$。求该扭矩 $T$。直径为 $d$ 的薄壁圆筒的截面极二次矩为 $I_p=\pi d^3t/4$。需要时可使用上面的应变变换式，坐标方向如图。
+
+图中 $E_A,E_B$ 为杨氏模量，$G_A,G_B$ 为剪切模量，$\ell$ 为圆筒长度，$t$ 为壁厚（$D\gg t$）。
 
 ## **Kai**
 
@@ -60,15 +71,20 @@ $$
 両円筒は同じ剛体につながっているので、軸ひずみは共通の $\varepsilon_x$ であり
 
 $$
-\sigma_{Ax}=E_A\varepsilon_x+\nu_A\sigma_{Ay},\qquad
+\begin{gathered}
+\sigma_{Ax}=E_A\varepsilon_x+\nu_A\sigma_{Ay},\\
 \sigma_{Bx}=E_B\varepsilon_x+\nu_B\sigma_{By}.
+\end{gathered}
 $$
 
 端部の軸方向のつり合いは
 
 $$
+\begin{gathered}
 \pi Dt\sigma_{Ax}+3\pi Dt\sigma_{Bx}
-=p\frac\pi4\{(3D)^2-D^2\}=2\pi pD^2.
+=p\frac\pi4\{(3D)^2-D^2\}\\
+=2\pi pD^2.
+\end{gathered}
 $$
 
 したがって B の軸ひずみは
@@ -90,8 +106,11 @@ $$
 同じ剛体に固定されているので、両円筒のねじれ角 $\varphi$ が等しい。
 
 $$
-T=\frac{\varphi}{\ell}(G_AI_{pA}+G_BI_{pB}),\qquad
-I_{pA}=\frac{\pi D^3t}{4},\quad I_{pB}=27I_{pA}.
+\begin{gathered}
+T=\frac{\varphi}{\ell}(G_AI_{pA}+G_BI_{pB}),\\
+I_{pA}=\frac{\pi D^3t}{4},\\
+I_{pB}=27I_{pA}.
+\end{gathered}
 $$
 
 B の表面のせん断ひずみは

@@ -14,15 +14,35 @@ tags:
 
 ## **Description**
 
+$\mathbb R^2$ の部分集合 $D$ を
+
 $$
-D=\{(x,y)\in\mathbb R^2:x\ge0,\ y\ge0,\ (x^2+y^2)^2\le x^2+2y^2\}
+D=\{(x,y)\in\mathbb R^2\mid x\ge0,\ y\ge0,\ (x^2+y^2)^2\le x^2+2y^2\}
 $$
 
-上の積分 $\iint_Dxy e^{1-x^2-y^2}\,dx\,dy$ を求める。
+で定める。積分
+
+$$
+\iint_Dxy e^{1-x^2-y^2}\,dx\,dy
+$$
+
+の値を求めよ。
 
 #### 题目描述
 
-设 $D=\{(x,y)\in\mathbb R^2:x\ge0,\ y\ge0,\ (x^2+y^2)^2\le x^2+2y^2\}$。求 $\iint_D xy e^{1-x^2-y^2}\,dx\,dy$。
+定义 $\mathbb R^2$ 的子集 $D$ 为
+
+$$
+D=\{(x,y)\in\mathbb R^2\mid x\ge0,\ y\ge0,\ (x^2+y^2)^2\le x^2+2y^2\}.
+$$
+
+求积分
+
+$$
+\iint_Dxy e^{1-x^2-y^2}\,dx\,dy
+$$
+
+的值。
 
 ## **Kai**
 

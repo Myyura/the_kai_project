@@ -14,21 +14,75 @@ tags:
 
 ## **Description**
 
-[原問題（平成27年度、大学公式PDFの保存版、3–4ページ）](https://web.archive.org/web/20160619031705id_/http://www.me.t.kyoto-u.ac.jp:80/ja/admission/exam/body/past_problems/files/H27_kikairikigaku)
+2. 図2-1のように、柔軟で均質かつ一様な弦（単位長さ当たりの質量が $\rho$）が、$x$ 軸の方向に張力 $T$ で張られている。弦の長さは $L$ で、その両端は固定されている。$x$ 軸と直角方向に $y$ 軸があり、弦は $xy$ 平面内で定常的に振動している。時刻 $t$ における位置 $x$ の弦の変位 $y$ は、$x$ および $t$ の2つの変数の関数になる。弦の振動は微小であり、張力 $T$ は変化しないものとする。以下の問いに答えよ。
 
-線密度 $\rho$、長さ $L$ の柔軟で一様な弦を、一定張力 $T$ で $x$ 軸に沿って張り、両端を固定する。弦は $xy$ 平面内で微小振動し、位置 $x$、時刻 $t$ の横変位を $y(x,t)$ とする。
+![原題の図2-1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/mech/2015/mech_201408_dynamics_2_original_figure_1.png)
 
-![固定弦、微小区間の張力と倍音による共鳴](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/mech/2015/kyoto-201408-string.svg)
+### 2-1
 
-- **2-1**：微小区間 $[x,x+dx]$ の左右の端に働く力の $y$ 成分をそれぞれ求めよ。
-- **2-2**：運動方程式を導き、$y_{tt}=c^2y_{xx}$ の形にせよ。また、正の定数 $c$ を求めよ。
-- **2-3 (1)**：非自明な解 $y=(P\cos\alpha x+Q\sin\alpha x)(R\cos c\alpha t+S\sin c\alpha t)$ が境界条件を満たすように、$P,\alpha$ を定めよ。
-- **2-3 (2)**：解の重ね合わせにより、弦の振動を表す一般式を求めよ。
-- **2-4**：ピアノでは、鍵を押すとハンマーが対応する弦を打つ。ある鍵を弾くと、その1オクターブ上の鍵に対応する弦も振動し始めた。1オクターブ上では基本振動数が2倍になることを用いて、この現象を説明せよ。
+弦の微小部分 $dx$ の両端に働く $y$ 方向の力をそれぞれ求めよ。
+
+### 2-2
+
+弦の変位 $y$ に関する運動方程式を導出し、次の形になることを示せ。ここで、$c$ は正の定数である。
+
+$$
+\frac{\partial^2y}{\partial t^2}=c^2\frac{\partial^2y}{\partial x^2}\tag{1}
+$$
+
+### 2-3
+
+この弦の変位 $y$ に関し、振動の波形を表す式を求めたい（$y=0$ は除く）。
+
+(1) 式 (1) は、次式で表される解を持つ。
+
+$$
+y=(P\cos\alpha x+Q\sin\alpha x)(R\cos c\alpha t+S\sin c\alpha t)\tag{2}
+$$
+
+ただし、$P,Q,R,S$ および $\alpha$ は定数である。式 (2) を用い、弦の変位 $y$ に対して $P$ および $\alpha$ を定めよ。
+
+(2) 弦の変位 $y$ に関し、2-3 (1) で得られた結果に基づき、解の重ね合わせを用いて、この振動の波形を表す最も一般的な式を求めよ。
+
+### 2-4
+
+音が1オクターブ高くなると、基本波の振動数（最も低い固有振動数）が倍になる。図2-2のように、楽器のピアノでは、鍵をたたくとハンマーが弦を打つことにより音がでる。いま、ある鍵をたたいたところ、その鍵より1オクターブ高い鍵に対応する弦も振動をはじめた。この現象が生じた理由を文章で説明せよ。
+
+![原題の図2-2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/mech/2015/mech_201408_dynamics_2_original_figure_2.png)
 
 #### 题目描述
 
-线密度 $\rho$、长度 $L$ 的均匀柔弦以恒张力 $T$ 沿 $x$ 轴张紧，两端固定，在 $xy$ 平面内作微振动，横向位移为 $y(x,t)$。求微段左右两端张力的 $y$ 分量，导出波动方程及波速 $c$；将给定分离变量解代入固定端边界条件，求 $P$ 与 $\alpha$，再写出叠加得到的一般解。最后解释钢琴敲击一个琴键后，高一个八度所对应的弦也开始振动的原因；高八度的基频为原基频的两倍。
+2. 如图2-1，一根柔软、均质且均匀的弦沿 $x$ 轴方向以张力 $T$ 张紧，单位长度质量为 $\rho$。弦长为 $L$，两端固定。$y$ 轴垂直于 $x$ 轴，弦在 $xy$ 平面内作稳定振动。时刻 $t$、位置 $x$ 处的弦位移 $y$ 是 $x,t$ 的二元函数。假设振动微小，张力 $T$ 不变，回答以下问题。
+
+**2-1**
+
+分别求弦微元 $dx$ 两端所受的 $y$ 方向的力。
+
+**2-2**
+
+推导弦位移 $y$ 的运动方程，并证明它具有下列形式，其中 $c$ 为正常数。
+
+$$
+\frac{\partial^2y}{\partial t^2}=c^2\frac{\partial^2y}{\partial x^2}.\qquad(1)
+$$
+
+**2-3**
+
+求表示弦位移 $y$ 振动波形的表达式，不考虑 $y=0$。
+
+(1) 式 (1) 有如下形式的解：
+
+$$
+y=(P\cos\alpha x+Q\sin\alpha x)(R\cos c\alpha t+S\sin c\alpha t).\qquad(2)
+$$
+
+其中 $P,Q,R,S,\alpha$ 为常数。利用式 (2)，针对弦位移 $y$ 确定 $P$ 与 $\alpha$。
+
+(2) 根据2-3 (1) 的结果，利用解的叠加，求表示弦振动波形的最一般表达式。
+
+**2-4**
+
+音高升高一个八度时，基波频率（最低固有频率）变为原来的两倍。如图2-2，钢琴通过按键使琴槌敲击琴弦而发声。按下某个键后，比该键高一个八度的键所对应的琴弦也开始振动。用文字解释发生这一现象的原因。
 
 ## **Kai**
 
@@ -37,9 +91,11 @@ tags:
 弦の接線と $x$ 軸の角を $\theta(x,t)$ とする。微小振動では $\sin\theta\simeq\theta\simeq y_x$ なので
 
 $$
-\boxed{F_{y,\mathrm L}=-Ty_x(x,t)},\qquad
+\begin{gathered}
+\boxed{F_{y,\mathrm L}=-Ty_x(x,t)},\\
 \boxed{F_{y,\mathrm R}=Ty_x(x+dx,t)
 \simeq T(y_x+y_{xx}dx)}.
+\end{gathered}
 $$
 
 微小区間の質量は $\rho\,dx$。運動方程式は
@@ -75,9 +131,10 @@ $$
 $A_n,B_n$ は初期条件で定まる。$y(x,0)=f(x)$、$y_t(x,0)=g(x)$ なら、正弦関数の直交性より
 
 $$
-A_n=\frac2L\int_0^L f(x)\sin\frac{n\pi x}{L}\,dx,
-\qquad
+\begin{gathered}
+A_n=\frac2L\int_0^L f(x)\sin\frac{n\pi x}{L}\,dx,\\
 B_n=\frac2{cn\pi}\int_0^L g(x)\sin\frac{n\pi x}{L}\,dx.
+\end{gathered}
 $$
 
 ### 2-4
@@ -87,3 +144,5 @@ $$
 ## **Reference**
 
 - [SN の解答・解説](https://bloodystream.hatenadiary.jp/entry/2021/05/06/203000)
+
+- [原問題（平成27年度、大学公式PDFの保存版、3–4ページ）](https://web.archive.org/web/20160619031705id_/http://www.me.t.kyoto-u.ac.jp:80/ja/admission/exam/body/past_problems/files/H27_kikairikigaku)

@@ -17,36 +17,85 @@ tags:
 
 ## **Description**
 
-次の問いに答えよ。
+以下の設問に答えよ。
 
-1. 行列
+**（1）** $\mathbb R^n$ を $n$ 次元の実数空間とし、線形写像 $F:\mathbb R^4\to\mathbb R^3$ が次式で定義されている。
 
-   $$
-   M=\begin{pmatrix}
-   3&-2&5&-7\\
-   -1&-1&0&-1\\
-   1&-1&2&-3
-   \end{pmatrix}
-   $$
+$$
+F:\begin{bmatrix}x\\y\\z\\w\end{bmatrix}\mapsto
+\begin{bmatrix}3&-2&5&-7\\-1&-1&0&-1\\1&-1&2&-3\end{bmatrix}
+\begin{bmatrix}x\\y\\z\\w\end{bmatrix}
+$$
 
-   が定める線形写像 $F:\mathbb R^4\to\mathbb R^3$ について、$\dim\ker F$ と、各ベクトルを長さ $1$ に正規化した $\operatorname{Im}F$ の基底を求めよ。
-2. 連立一次方程式
+線形写像 $F$ の核 $\operatorname{Ker}F$ の次元の数を答えよ。さらに、線形写像 $F$ の像 $\operatorname{Im}F$ の基底を 1 組求めよ。なお、基底はそれぞれ大きさを 1 に正規化したものとすること。
 
-   $$
-   \begin{cases}
-   x_1-x_2+x_3=2,\\
-   -x_1+2x_2+x_3=2,\\
-   x_2+ax_3=1,\\
-   -x_1+x_2=a
-   \end{cases}
-   $$
+**（2）** 次の $x_1,x_2,x_3$ に関する連立 1 次方程式が一意解をもつとき、定数 $a$ が満たすべき条件と、そのときの解 $x_1,x_2,x_3$ を求めよ。
 
-   が一意解をもつための実数 $a$ の条件と、その解を求めよ。
-3. 相異なる固有値 $k_1,k_2$ に対する固有ベクトルが $(1,3)^{\mathsf T}$、$(3,b)^{\mathsf T}$ の定数倍で与えられるとき、対角化の条件、正則行列 $P$、および $A$ と対角行列 $B$ の関係を求めよ。
+$$
+\begin{cases}
+x_1-x_2+x_3=2,\\
+-x_1+2x_2+x_3=2,\\
+x_2+ax_3=1,\\
+-x_1+x_2=a.
+\end{cases}
+$$
 
-### 题目描述
+**（3）** 定数 $a_{11},a_{12},a_{21},a_{22}$ によって次式のように行列 $A$ が定義されている。
 
-求给定线性映射的核维数和像空间的一组单位化基；求含参数超定线性方程组具有唯一解的条件与解；最后根据两条特征向量求矩阵可对角化的条件及对角化关系。
+$$
+A=\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}
+$$
+
+行列 $A$ の固有値は $k_1,k_2$ であり、$k_1\ne k_2$ とし、それぞれの固有値に対応する固有ベクトル $v_1,v_2$ は任意定数 $t$ を用いて次式で与えられるとする。
+
+$$
+v_1=\begin{bmatrix}1\\3\end{bmatrix}t,
+\qquad v_2=\begin{bmatrix}3\\b\end{bmatrix}t
+$$
+
+このとき、行列 $A$ が対角化可能であるための条件式を求めよ。また、行列 $A$ を対角化することで得られる行列を $B$ とし、行列 $B$ の対角要素が $k_1,k_2$ となる場合について、対角化に用いる正則行列 $P$ を求め、行列 $A$ と行列 $B$ の関係を $P$ を用いて表現せよ。
+
+キーワード：次元 dimension、実数空間 real space、線形写像 linear mapping、定義 definition、核 kernel、像 image、基底 basis、正規化 normalization、連立 1 次方程式 simultaneous linear equations、一意解 unique solution、定数 constant、条件 condition、解 solution、行列 matrix、固有値 eigenvalue、固有ベクトル eigenvector、任意定数 arbitrary constant、対角化可能 diagonalizable、対角化 diagonalization、対角要素 diagonal element、正則行列 regular matrix。
+
+#### 题目描述
+
+回答下列问题。
+
+**（1）** 设 $\mathbb R^n$ 为 $n$ 维实空间，线性映射 $F:\mathbb R^4\to\mathbb R^3$ 定义为
+
+$$
+F:\begin{bmatrix}x\\y\\z\\w\end{bmatrix}\mapsto
+\begin{bmatrix}3&-2&5&-7\\-1&-1&0&-1\\1&-1&2&-3\end{bmatrix}
+\begin{bmatrix}x\\y\\z\\w\end{bmatrix}.
+$$
+
+回答 $F$ 的核 $\operatorname{Ker}F$ 的维数，并求像 $\operatorname{Im}F$ 的一组基。每个基向量都须归一化为长度 1。
+
+**（2）** 若下列关于 $x_1,x_2,x_3$ 的线性方程组有唯一解，求常数 $a$ 应满足的条件，以及此时的解 $x_1,x_2,x_3$。
+
+$$
+\begin{cases}
+x_1-x_2+x_3=2,\\
+-x_1+2x_2+x_3=2,\\
+x_2+ax_3=1,\\
+-x_1+x_2=a.
+\end{cases}
+$$
+
+**（3）** 由常数 $a_{11},a_{12},a_{21},a_{22}$ 定义矩阵
+
+$$
+A=\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}.
+$$
+
+设 $A$ 的特征值为 $k_1,k_2$，且 $k_1\ne k_2$，对应的特征向量用任意常数 $t$ 表示为
+
+$$
+v_1=\begin{bmatrix}1\\3\end{bmatrix}t,
+\qquad v_2=\begin{bmatrix}3\\b\end{bmatrix}t.
+$$
+
+求矩阵 $A$ 可对角化的条件式。再设 $A$ 对角化后得到的矩阵为 $B$，其对角元素依次为 $k_1,k_2$，求对角化所用的可逆矩阵 $P$，并用 $P$ 表示 $A$ 与 $B$ 的关系。
 
 ## **Kai**
 
@@ -142,3 +191,7 @@ $$
 \qquad
 \boxed{A=PBP^{-1}}.
 $$
+
+## **Reference**
+
+- [大学公表の原題](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_m_mandatory202208.pdf)

@@ -17,20 +17,64 @@ tags:
 行列
 
 $$
-A=\begin{pmatrix}5&a&0\\1&5-a&1\\0&a&5\end{pmatrix}
+A=\begin{bmatrix}
+5&a&0\\
+1&5-a&1\\
+0&a&5
+\end{bmatrix}
 $$
 
 について、以下の問いに答えよ。ただし、$a$ を実数とする。（50点）
 
-1. 行列 $A$ が対角化できないときの $a$ を求めよ。
-2. $a=1$ のとき、行列 $A$ が対角化できるとする。このときの行列 $A$ のすべての固有値と固有ベクトルを求めよ。
-3. (2) のとき、$P^{\mathsf T}AP$ が対角行列となる直交行列 $P$ を求めよ。
-4. 楕円面 $S$ の方程式 $5x^2+4y^2+5z^2+2xy+2yz+\sqrt6x-2\sqrt6y+\sqrt6z=0$ を $a=1$ のときの行列 $A$ を用いて表せ。
-5. 楕円面 $S$ を行列 $P$ で変換した楕円面 $S'$ で囲まれる領域の中心座標と体積を求めよ。
+(1) 行列 $A$ が対角化できないときの $a$ を求めよ。
+
+(2) $a=1$ のとき、行列 $A$ が対角化できるとする。このときの行列 $A$ のすべての固有値と固有ベクトルを求めよ。
+
+(3) (2)のとき、$P^{\mathsf T}AP$ が対角行列となる直交行列 $P$ を求めよ。
+
+(4) 楕円面 $S$ の方程式
+
+$$
+\begin{aligned}
+5x^2+4y^2+5z^2+2xy+2yz&\\
+{}+\sqrt6x-2\sqrt6y+\sqrt6z&=0
+\end{aligned}
+$$
+
+を $a=1$ のときの行列 $A$ を用いて表せ。
+
+(5) 楕円面 $S$ を行列 $P$ で変換した楕円面 $S'$ で囲まれる領域の中心座標と体積を求めよ。
 
 #### 题目描述
 
-对给定的含实参数矩阵求不能对角化的参数。令 $a=1$ 后，求全部特征值、特征向量及正交对角化矩阵，再将给定椭球方程写为矩阵形式，求在新坐标系中的中心和体积。
+对于矩阵
+
+$$
+A=\begin{bmatrix}
+5&a&0\\
+1&5-a&1\\
+0&a&5
+\end{bmatrix},
+$$
+
+回答以下各问，其中 $a$ 为实数。（50分）
+
+(1) 求使矩阵 $A$ 不能对角化的 $a$。
+
+(2) 当 $a=1$ 时，设矩阵 $A$ 可以对角化，求此时 $A$ 的所有特征值和特征向量。
+
+(3) 在(2)的情况下，求使 $P^{\mathsf T}AP$ 成为对角矩阵的正交矩阵 $P$。
+
+(4) 用 $a=1$ 时的矩阵 $A$ 表示椭球面 $S$ 的方程
+
+$$
+\begin{aligned}
+5x^2+4y^2+5z^2+2xy+2yz&\\
+{}+\sqrt6x-2\sqrt6y+\sqrt6z&=0.
+\end{aligned}
+$$
+
+(5) 将椭球面 $S$ 经矩阵 $P$ 变换为椭球面 $S'$，求 $S'$ 所围区域的中心坐标和体积。
 
 ## **Kai**
 
@@ -39,8 +83,11 @@ $$
 $t=\lambda-5$ とおくと
 
 $$
-\det(\lambda I-A)=t(t^2+at-2a),\qquad
-\lambda=5,\quad 5+\frac{-a\pm\sqrt{a^2+8a}}2.
+\begin{gathered}
+\det(\lambda I-A)=t(t^2+at-2a),\\
+\lambda=5,\\
+5+\frac{-a\pm\sqrt{a^2+8a}}2.
+\end{gathered}
 $$
 
 $a>0$ または $a<-8$ では異なる3実固有値を持つ。$-8<a<0$ では非実固有値を持つため、実数上では対角化できない。
@@ -58,9 +105,11 @@ $$
 $a=1$ では固有値は $3,5,6$。対応する正規化固有ベクトルを
 
 $$
-v_1=\frac1{\sqrt6}\begin{pmatrix}-1\\2\\-1\end{pmatrix},\qquad
-v_2=\frac1{\sqrt2}\begin{pmatrix}1\\0\\-1\end{pmatrix},\qquad
+\begin{gathered}
+v_1=\frac1{\sqrt6}\begin{pmatrix}-1\\2\\-1\end{pmatrix},\\
+v_2=\frac1{\sqrt2}\begin{pmatrix}1\\0\\-1\end{pmatrix},\\
 v_3=\frac1{\sqrt3}\begin{pmatrix}1\\1\\1\end{pmatrix}
+\end{gathered}
 $$
 
 と取れる。各固有空間はそれぞれ $v_1,v_2,v_3$ の非零定数倍からなる。
@@ -68,9 +117,11 @@ $$
 ### (3)
 
 $$
+\begin{gathered}
 \boxed{P=(v_1\ v_2\ v_3)=\frac1{\sqrt6}
-\begin{pmatrix}-1&\sqrt3&\sqrt2\\2&0&\sqrt2\\-1&-\sqrt3&\sqrt2\end{pmatrix}},
-\qquad P^{\mathsf T}AP=\operatorname{diag}(3,5,6).
+\begin{pmatrix}-1&\sqrt3&\sqrt2\\2&0&\sqrt2\\-1&-\sqrt3&\sqrt2\end{pmatrix}},\\
+P^{\mathsf T}AP=\operatorname{diag}(3,5,6).
+\end{gathered}
 $$
 
 $v_i^{\mathsf T}v_j=\delta_{ij}$ より $P^{\mathsf T}P=I$。
@@ -88,9 +139,11 @@ $$
 $X=PU$、$U=(u,v,w)^{\mathsf T}$ とする。$P^{\mathsf T}b=(-6,0,0)^{\mathsf T}$ より
 
 $$
-3u^2+5v^2+6w^2-6u=0
-\quad\Longleftrightarrow\quad
+\begin{gathered}
+3u^2+5v^2+6w^2-6u=0\\
+\Longleftrightarrow\\
 (u-1)^2+\frac{v^2}{3/5}+\frac{w^2}{1/2}=1.
+\end{gathered}
 $$
 
 したがって新座標での中心は $\boxed{(1,0,0)}$、半軸長は $1,\sqrt{3/5},1/\sqrt2$ であり、

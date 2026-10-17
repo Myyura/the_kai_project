@@ -17,40 +17,65 @@ tags:
 $xyz$ 空間の2次曲面を表す次の方程式について、以下の問いに答えよ。（50点）
 
 $$
-2x^2+2y^2+4z^2+2xy+2yz+2xz+4\sqrt3x+4\sqrt3y-4\sqrt3z+17=0.
+\begin{aligned}
+2x^2+2y^2+4z^2+2xy+2yz+2xz&\\
+{}+4\sqrt3x+4\sqrt3y-4\sqrt3z+17&=0.
+\end{aligned}
 $$
 
-1. 与式を $X^{\mathsf T}AX+B^{\mathsf T}X+c=0$ と表したとき、行列 $A$ の固有値と正規化した固有ベクトルを求めよ。ただし $X$ は $xyz$ 空間のベクトルを表す。
-2. $P^{\mathsf T}AP$ が対角行列になる行列 $P$ とその時の対角行列を求めよ。
-3. $xyz$ 空間は $uvw$ 空間を行列 $P$ によって変換されたものとすると、$uvw$ 空間の2次曲面を求めよ。
+(1) 与式を $\boldsymbol X^{\mathsf T}A\boldsymbol X+\boldsymbol B^{\mathsf T}\boldsymbol X+c=0$ と表したとき、行列 $A$ の固有値と正規化した固有ベクトルを求めよ。ただし $\boldsymbol X$ は $xyz$ 空間のベクトルを表す。
+
+(2) $P^{\mathsf T}AP$ が対角行列になる行列 $P$ とその時の対角行列を求めよ。
+
+(3) $xyz$ 空間は $uvw$ 空間を行列 $P$ によって変換されたものとすると、$uvw$ 空間の2次曲面を求めよ。
 
 #### 题目描述
 
-将给定三元二次方程写为二次型，求特征值及单位特征向量，构造正交坐标变换，并求新坐标下的曲面。
+对于表示 $xyz$ 空间中二次曲面的下列方程，回答以下各问。（50分）
+
+$$
+\begin{aligned}
+2x^2+2y^2+4z^2+2xy+2yz+2xz&\\
+{}+4\sqrt3x+4\sqrt3y-4\sqrt3z+17&=0.
+\end{aligned}
+$$
+
+(1) 将该方程写为 $\boldsymbol X^{\mathsf T}A\boldsymbol X+\boldsymbol B^{\mathsf T}\boldsymbol X+c=0$ 时，求矩阵 $A$ 的特征值和归一化特征向量。其中 $\boldsymbol X$ 表示 $xyz$ 空间中的向量。
+
+(2) 求使 $P^{\mathsf T}AP$ 成为对角矩阵的矩阵 $P$，以及相应的对角矩阵。
+
+(3) 设 $xyz$ 空间由 $uvw$ 空间经矩阵 $P$ 变换得到，求 $uvw$ 空间中的二次曲面。
 
 ## **Kai**
 
 ### (1)
 
 $$
-A=\begin{pmatrix}2&1&1\\1&2&1\\1&1&4\end{pmatrix},\qquad
-B=4\sqrt3\begin{pmatrix}1\\1\\-1\end{pmatrix},\qquad c=17.
+\begin{gathered}
+A=\begin{pmatrix}2&1&1\\1&2&1\\1&1&4\end{pmatrix},\\
+B=4\sqrt3\begin{pmatrix}1\\1\\-1\end{pmatrix},\\
+c=17.
+\end{gathered}
 $$
 
 $\det(\lambda I-A)=(\lambda-1)(\lambda-2)(\lambda-5)$。対応する単位固有ベクトルは
 
 $$
-\boxed{v_1=\frac1{\sqrt2}(1,-1,0)^{\mathsf T},\quad
-v_2=\frac1{\sqrt3}(1,1,-1)^{\mathsf T},\quad
-v_3=\frac1{\sqrt6}(1,1,2)^{\mathsf T}}.
+\boxed{\begin{gathered}
+v_1=\frac1{\sqrt2}(1,-1,0)^{\mathsf T},\\
+v_2=\frac1{\sqrt3}(1,1,-1)^{\mathsf T},\\
+v_3=\frac1{\sqrt6}(1,1,2)^{\mathsf T}
+\end{gathered}}.
 $$
 
 ### (2)
 
 $$
+\begin{gathered}
 \boxed{P=(v_1\ v_2\ v_3)=\frac1{\sqrt6}
-\begin{pmatrix}\sqrt3&\sqrt2&1\\-\sqrt3&\sqrt2&1\\0&-\sqrt2&2\end{pmatrix}},
-\qquad \boxed{P^{\mathsf T}AP=\operatorname{diag}(1,2,5)}.
+\begin{pmatrix}\sqrt3&\sqrt2&1\\-\sqrt3&\sqrt2&1\\0&-\sqrt2&2\end{pmatrix}},\\
+\boxed{P^{\mathsf T}AP=\operatorname{diag}(1,2,5)}.
+\end{gathered}
 $$
 
 ### (3)
@@ -58,9 +83,11 @@ $$
 $X=PU$、$U=(u,v,w)^{\mathsf T}$、$P^{\mathsf T}B=(0,12,0)^{\mathsf T}$ より
 
 $$
-u^2+2v^2+5w^2+12v+17=0
-\quad\Longleftrightarrow\quad
+\begin{gathered}
+u^2+2v^2+5w^2+12v+17=0\\
+\Longleftrightarrow\\
 \boxed{u^2+2(v+3)^2+5w^2=1}.
+\end{gathered}
 $$
 
 中心 $(0,-3,0)$、半軸長 $1,1/\sqrt2,1/\sqrt5$ の楕円面である。

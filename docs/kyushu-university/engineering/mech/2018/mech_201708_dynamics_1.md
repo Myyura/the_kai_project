@@ -14,23 +14,47 @@ tags:
 
 ## **Description**
 
-水平方向に移動できる質量 $M$ の台車上で、質量 $m$ の質点がばね定数 $k$ のばねと粘性減衰係数 $c$ の減衰器により、台車と同じ方向に支持されている。静止座標系における台車位置を $x$、ばねの静的平衡状態からの伸びを $\xi$ とし、これらを一般化座標とする。（50 点）
+水平方向に移動できる質量 $M$ の台車の上に、質量 $m$ の質点がばね定数 $k$ のばねと粘性減衰係数 $c$ の減衰器で、台車の移動と同一方向に支持されている。静止座標系における台車の位置を $x$、ばねの静的平衡状態からの伸びを $\xi$ とする。$x,\xi$ を一般化座標とする。（50点）
 
-![台車と内部のばね・減衰器（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_dynamics-1-original.png)
+**(1)** 系の運動エネルギー $T$ とポテンシャルエネルギー $U$ を求めよ。
 
-1. 運動エネルギー $T$ とポテンシャルエネルギー $U$ を求めよ。
-2. 非保存力による一般化力 $Q_x^{\mathrm{nc}},Q_\xi^{\mathrm{nc}}$ を求めよ。
-3. Lagrange の運動方程式を求めよ。
-4. $t=0$ で $\xi=\xi_0,\dot\xi=0,x=\dot x=0$ のとき、$\xi,x$ を時間の関数として求めよ。次の記号を用い、$0<\zeta<1$ とする。
+**(2)** 一般化力としての非保存力 $Q_x^{nc},Q_\xi^{nc}$ を求めよ。
+
+**(3)** ラグランジュの運動方程式を求めよ。
+
+**(4)** 時間 $t=0$ で $\xi=\xi_0,\ \dot\xi=0,\ x=\dot x=0$ の初期条件のもと、$\xi,x$ を時間の関数として求めよ。
 
 $$
-\omega_n=\sqrt{\frac kM+\frac km},\qquad
-\zeta=\frac c2\sqrt{\frac1k\left(\frac1M+\frac1m\right)}.
+\begin{aligned}
+\omega_n&=\sqrt{\frac{k}{M}+\frac{k}{m}},\\
+\zeta&=\frac{c}{2}\sqrt{\frac1k\left(\frac1M+\frac1m\right)}
+\end{aligned}
 $$
+
+として解答せよ。$0<\zeta<1$ とする。
+
+![台車と内部のばね・減衰器の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_dynamics-1-original.png)
 
 #### 题目描述
 
-质量 $M$ 的自由小车内有质量 $m$ 的物体，通过刚度 $k$ 的弹簧和阻尼 $c$ 与车相连。小车绝对位移为 $x$、内部物体相对平衡位置的位移为 $\xi$。求能量、非保守广义力、Lagrange 方程，并在相对初位移 $\xi_0$、小车初位移及两初速度均为零时求欠阻尼响应。$\omega_n,\zeta$ 按题给定义。
+在可沿水平方向移动的质量为 $M$ 的小车上，质量为 $m$ 的质点由弹簧常数为 $k$ 的弹簧和黏性阻尼系数为 $c$ 的阻尼器沿小车移动方向支承。静止坐标系中小车的位置为 $x$，弹簧相对静平衡状态的伸长量为 $\xi$。取 $x,\xi$ 为广义坐标。（50分）
+
+**(1)** 求系统的动能 $T$ 和势能 $U$。
+
+**(2)** 求作为广义力的非保守力 $Q_x^{nc},Q_\xi^{nc}$。
+
+**(3)** 求拉格朗日运动方程。
+
+**(4)** 在 $t=0$ 时初始条件为 $\xi=\xi_0,\ \dot\xi=0,\ x=\dot x=0$，求 $\xi,x$ 随时间的函数。使用
+
+$$
+\begin{aligned}
+\omega_n&=\sqrt{\frac{k}{M}+\frac{k}{m}},\\
+\zeta&=\frac{c}{2}\sqrt{\frac1k\left(\frac1M+\frac1m\right)}
+\end{aligned}
+$$
+
+作答，并设 $0<\zeta<1$。
 
 ## **Kai**
 
@@ -39,8 +63,10 @@ $$
 質点の絶対速度は $\dot x+\dot\xi$ なので
 
 $$
-\boxed{T=\frac12M\dot x^2+\frac12m(\dot x+\dot\xi)^2,\qquad
-U=\frac12k\xi^2.}
+\boxed{\begin{gathered}
+T=\frac12M\dot x^2+\frac12m(\dot x+\dot\xi)^2,\\
+U=\frac12k\xi^2.
+\end{gathered}}
 $$
 
 ### (2)
@@ -54,8 +80,10 @@ $$
 ### (3)
 
 $$
-\boxed{(M+m)\ddot x+m\ddot\xi=0,\qquad
-m(\ddot x+\ddot\xi)+c\dot\xi+k\xi=0.}
+\boxed{\begin{gathered}
+(M+m)\ddot x+m\ddot\xi=0,\\
+m(\ddot x+\ddot\xi)+c\dot\xi+k\xi=0.
+\end{gathered}}
 $$
 
 ### (4)
@@ -69,8 +97,10 @@ $$
 また $x$ を消去すれば
 
 $$
-\frac{Mm}{M+m}\ddot\xi+c\dot\xi+k\xi=0,
-\qquad\ddot\xi+2\zeta\omega_n\dot\xi+\omega_n^2\xi=0.
+\begin{gathered}
+\frac{Mm}{M+m}\ddot\xi+c\dot\xi+k\xi=0,\\
+\ddot\xi+2\zeta\omega_n\dot\xi+\omega_n^2\xi=0.
+\end{gathered}
 $$
 
 $\omega_d=\omega_n\sqrt{1-\zeta^2}$ とおくと、両初期条件を満たす解は

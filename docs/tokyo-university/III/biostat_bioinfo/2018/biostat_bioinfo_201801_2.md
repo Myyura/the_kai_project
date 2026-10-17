@@ -16,37 +16,43 @@ tags:
 
 ## **Description**
 
-### 題意の要約
-
-[公式問題 PDF](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2018/03/2018Wtokei.pdf)
-
-同時密度は $f_{X,Y}(x,y)=cxy$（$0<x<y<2$）、領域外では0。
-
-1. 正規化定数 $c$。
-2. $P(0<X<1/4\mid Y=1/2)$。
-3. $X,Y$ の独立性を理由とともに判定する。
-4. 相関係数 $r_{XY}$。
-5. $U=aX+b,\ V=cY+d$ により相関の符号が反転する実数 $a,b,c,d$ の条件。
-
-### 题目描述
-
-随机变量 $X,Y$ 的联合密度为
+確率変数 $X$ と $Y$ の同時確率密度関数が次のように与えられている：
 
 $$
-f_{X,Y}(x,y)=
-\begin{cases}
-cxy,&0<x<y<2,\\
-0,&\text{其他},
-\end{cases}
+f_{X,Y}(x,y)=\begin{cases}cxy&(0<x<y<2),\\0&\text{(otherwise)}.\end{cases}
 $$
 
-其中 $c$ 为常数。
+ただし，$c$ は定数とする。このとき，以下の問いに答えよ。
 
-1. 求 $c$。
-2. 求条件概率 $P(0<X<1/4\mid Y=1/2)$。
-3. 判断 $X,Y$ 是否独立，并说明理由。
-4. 求相关系数 $r_{XY}$。
-5. 令 $U=aX+b,\ V=cY+d$。求 $r_{UV}$ 与 $r_{XY}$ 符号相反时，实数 $a,b,c,d$ 应满足的条件。
+(2-1) 定数 $c$ を求めよ。
+
+(2-2) 条件付き確率 $P(0<X<1/4\mid Y=1/2)$ を求めよ。
+
+(2-3) 確率変数 $X$ と $Y$ は独立であるか，理由とあわせて述べよ。
+
+(2-4) 確率変数 $X,Y$ の相関係数 $r_{XY}$ を求めよ。
+
+(2-5) 実数 $a,b,c,d$ を用いて，$U=aX+b,V=cY+d$ という変数変換を考える。このとき，確率変数 $U,V$ の相関係数 $r_{UV}$ と (2-4) で求めた相関係数 $r_{XY}$ の正負はどのような場合に逆であるか，実数 $a,b,c,d$ に関する条件として求めよ。
+
+#### 题目描述
+
+随机变量 $X,Y$ 的联合概率密度函数为
+
+$$
+f_{X,Y}(x,y)=\begin{cases}cxy&(0<x<y<2),\\0&\text{其他情况}\end{cases}
+$$
+
+其中 $c$ 为常数。回答下列问题。
+
+(2-1) 求常数 $c$。
+
+(2-2) 求条件概率 $P(0<X<1/4\mid Y=1/2)$。
+
+(2-3) 随机变量 $X,Y$ 是否独立？说明理由。
+
+(2-4) 求随机变量 $X,Y$ 的相关系数 $r_{XY}$。
+
+(2-5) 用实数 $a,b,c,d$ 作变量变换 $U=aX+b,V=cY+d$。在什么情况下，随机变量 $U,V$ 的相关系数 $r_{UV}$ 与 (2-4) 所求的 $r_{XY}$ 符号相反？求出关于实数 $a,b,c,d$ 的条件。
 
 ## **Kai**
 ### (2-1)
@@ -76,14 +82,14 @@ $$
 \begin{aligned}
 f_Y\left(\frac12\right)
 &=\int_0^{1/2} f_{X,Y} \left(x, \frac{1}{2} \right) dx
-&= \frac{1}{4} \int_0^{1/2} x dx
-= \frac{1}{4} \left[ \frac{x^2}{2} \right]_0^{1/2}
-= \frac{1}{2^5}
 \\
+&= \frac{1}{4} \int_0^{1/2} x dx\\
+&= \frac{1}{4} \left[ \frac{x^2}{2} \right]_0^{1/2}\\
+&= \frac{1}{2^5}\\
 \int_0^{1/4} f_{X,Y} \left(x, \frac{1}{2} \right) dx
-&= \frac{1}{4} \int_0^{1/4} x dx
-= \frac{1}{4} \left[ \frac{x^2}{2} \right]_0^{1/4}
-= \frac{1}{2^7}
+&= \frac{1}{4} \int_0^{1/4} x dx\\
+&= \frac{1}{4} \left[ \frac{x^2}{2} \right]_0^{1/4}\\
+&= \frac{1}{2^7}
 \end{aligned}
 $$
 
@@ -91,6 +97,7 @@ $$
 
 $$
 \begin{aligned}
+&
 P(0 \lt X \lt 1/4 | Y=1/2)
 = \frac{\frac{1}{2^7}}{\frac{1}{2^5}}
 = \frac{1}{4}
@@ -103,17 +110,16 @@ $X,Y$ の周辺密度関数をそれぞれ $f_X(x), f_Y(y)$ とすると、
 $$
 \begin{aligned}
 f_X(x)
-&= \int_x^2 f_{X,Y}(x,y) dy
-= \frac{x}{2} \int_x^2 y dy
-= \frac{x}{2} \left[ \frac{y^2}{2} \right]_x^2
-= \frac{x}{4} \left( 4 - x^2 \right)
-= x - \frac{x^3}{4}
-\\
+&= \int_x^2 f_{X,Y}(x,y) dy\\
+&= \frac{x}{2} \int_x^2 y dy\\
+&= \frac{x}{2} \left[ \frac{y^2}{2} \right]_x^2\\
+&= \frac{x}{4} \left( 4 - x^2 \right)\\
+&= x - \frac{x^3}{4}\\
 f_Y(y)
-&= \int_0^y f_{X,Y}(x,y) dx
-= \frac{y}{2} \int_0^y x dx
-= \frac{y}{2} \left[ \frac{x^2}{2} \right]_0^y
-= \frac{y^3}{4}
+&= \int_0^y f_{X,Y}(x,y) dx\\
+&= \frac{y}{2} \int_0^y x dx\\
+&= \frac{y}{2} \left[ \frac{x^2}{2} \right]_0^y\\
+&= \frac{y^3}{4}
 \end{aligned}
 $$
 
@@ -128,43 +134,34 @@ $X$ と $Y$ は独立ではない。
 $$
 \begin{aligned}
 E(X)
-&= \int_0^2 x f_X(x) dx
-= \int_0^2 \left( x^2 - \frac{x^4}{4} \right) dx
-= \left[ \frac{x^3}{3} - \frac{x^5}{4 \cdot 5} \right]_0^2 
-= \frac{8}{3} - \frac{8}{5}
-= \frac{16}{15}
-\\
+&= \int_0^2 x f_X(x) dx\\
+&= \int_0^2 \left( x^2 - \frac{x^4}{4} \right) dx\\
+&= \left[ \frac{x^3}{3} - \frac{x^5}{4 \cdot 5} \right]_0^2\\
+&= \frac{8}{3} - \frac{8}{5}\\
+&= \frac{16}{15}\\
 E(Y)
-&= \int_0^2 y f_Y(y) dy
-= \int_0^2 \frac{y^4}{4} dy
-= \left[ \frac{y^5}{4 \cdot 5} \right]_0^2 
-= \frac{2^5}{4 \cdot 5}
-= \frac{8}{5}
-\\
+&= \int_0^2 y f_Y(y) dy\\
+&= \int_0^2 \frac{y^4}{4} dy\\
+&= \left[ \frac{y^5}{4 \cdot 5} \right]_0^2\\
+&= \frac{2^5}{4 \cdot 5}\\
+&= \frac{8}{5}\\
 E(XY)
-&= \iint_{0 \lt x \lt y \lt 2} xy f_{X,Y}(x,y) dx dy
-= \frac{1}{2} \int_0^2 \left( \int_0^y x^2 dx \right) y^2 dy
-\\
-&= \frac{1}{2} \int_0^2 \left[ \frac{x^3}{3} \right]_0^y y^2 dy
-= \frac{1}{6} \int_0^2 y^5 dy
-= \frac{1}{6} \left[ \frac{y^6}{6} \right]_0^2
-= \frac{16}{9}
-\\
+&= \iint_{0 \lt x \lt y \lt 2} xy f_{X,Y}(x,y) dx dy\\
+&= \frac{1}{2} \int_0^2 \left( \int_0^y x^2 dx \right) y^2 dy\\
+&= \frac{1}{2} \int_0^2 \left[ \frac{x^3}{3} \right]_0^y y^2 dy\\
+&= \frac{1}{6} \int_0^2 y^5 dy\\
+&= \frac{1}{6} \left[ \frac{y^6}{6} \right]_0^2\\
+&= \frac{16}{9}\\
 \operatorname{Cov}(X,Y)
-&= E(XY) - E(X) E(Y)
-= \frac{16}{9} - \frac{16}{15} \cdot \frac{8}{5}
-= \frac{16}{225}
-\\
+&= E(XY) - E(X) E(Y)\\
+&= \frac{16}{9} - \frac{16}{15} \cdot \frac{8}{5}\\
+&= \frac{16}{225}\\
 E(X^2)
-&=\int_0^2x^2f_X(x)\,dx=\frac43,
-\qquad
-E(Y^2)=\int_0^2y^2f_Y(y)\,dy=\frac83
-\\
-V(X)&=\frac{44}{225},
-\qquad
-V(Y)=\frac{8}{75}
-\\
-\therefore\quad
+&=\int_0^2x^2f_X(x)\,dx=\frac43,\\
+&E(Y^2)=\int_0^2y^2f_Y(y)\,dy=\frac83\\
+V(X)&=\frac{44}{225},\\
+&V(Y)=\frac{8}{75}\\
+&\therefore\\
 r_{XY}
 &=\frac{\operatorname{Cov}(X,Y)}{\sqrt{V(X)V(Y)}}
 =\frac{4}{\sqrt{66}}
@@ -179,3 +176,7 @@ r_{UV}=\frac{ac}{|a||c|}r_{XY}=\operatorname{sgn}(ac)r_{XY}.
 $$
 
 したがって，正負が逆になる条件は $ac<0$ である。
+
+## **Reference**
+
+- [大学公表の原題](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2018/03/2018Wtokei.pdf)

@@ -15,15 +15,31 @@ tags:
 
 ## **Description**
 
-弾性棒 AB、CD（いずれも縦弾性係数 $E$、断面積 $A$）を、固定壁の点 A、D にピン結合し、点 B、C で剛体棒 BC にピン結合する。各弾性棒の伸びは、その長さに比べて十分小さい。
+次の問いに答えよ。各弾性棒の伸びは、その長さに比べて十分に小さいものとする。（50点）
 
-1. 水平方向の座標が A、B、C、D の順に $0,a,2a,3a$ で、A、B、C は一直線上にある。AB、BC は右下がりで鉛直線となす角が $60^\circ$、CD は右上がりで鉛直線となす角が $45^\circ$ である。C に右向きの荷重 $P$ を加えるとき、荷重方向の変位 $\delta_{CH}$ を求めよ。
-2. 次に A、B、C、D を同一水平線上に間隔 $a$ ずつ並べる。C に鉛直下向きの荷重 $P$ を加える。荷重方向の変位を $\delta_{CV}$、AB、CD の伸びを $\lambda_{AB},\lambda_{CD}$ とする。変形後の形状を考慮し、これら三量の間に成り立つ関係を求めよ。
-3. (2) の $\delta_{CV}$ を求めよ。
+**(1)** 図1のように、弾性棒 AB と CD がそれぞれ点 A と点 D で剛体壁にピン結合され、点 B と点 C で剛体棒 BC にピン結合されている。荷重 $P$ が作用する点 C における荷重負荷方向の変位 $\delta_{CH}$ を求めよ。
+
+![図1：傾斜した弾性棒と剛体棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_material_1_figure_1.png)
+
+**(2)** 図2のように、弾性棒 AB と CD がそれぞれ点 A と点 D で剛体壁にピン結合され、点 B と点 C で剛体棒 BC にピン結合されている。点 C に荷重 $P$ が作用した際の荷重負荷方向の変位を $\delta_{CV}$、弾性棒 AB の伸びを $\lambda_{AB}$、弾性棒 CD の伸びを $\lambda_{CD}$ とするとき、荷重負荷による変形を考慮して $\delta_{CV},\lambda_{AB},\lambda_{CD}$ の間に成り立つ関係を求めよ。
+
+![図2：水平に配置した弾性棒と剛体棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_material_1_figure_2.png)
+
+**(3)** (2) における $\delta_{CV}$ を求めよ。
+
+図中、$E$ はヤング率、$A$ は断面積、丸印はピン結合を表す。水平投影された隣接点間の距離は各 $a$、角度と荷重方向は図示のとおりである。
 
 #### 题目描述
 
-两根弹性杆 AB、CD 具有相同的 $E,A$，A、D 与固定壁铰接，B、C 与刚杆 BC 铰接。弹性杆伸长远小于杆长。① 各点水平坐标依次为 $0,a,2a,3a$，A、B、C 共线并向右下倾斜，与竖直线夹角 $60^\circ$；CD 向右上倾斜，与竖直线夹角 $45^\circ$。C 受水平向右力 $P$，求水平位移。② 改为四点在同一水平线上、相邻间距均为 $a$，C 受竖直向下力 $P$，考虑变形后的几何关系，求 C 的向下位移与两弹性杆伸长的关系。③ 求该位移。
+回答下列问题。各弹性杆的伸长与其自身长度相比充分小。（50分）
+
+**(1)** 如图1，弹性杆 AB、CD 分别在 A、D 两点与刚性墙壁铰接，并在 B、C 两点与刚杆 BC 铰接。求载荷 $P$ 作用点 C 沿加载方向的位移 $\delta_{CH}$。
+
+**(2)** 如图2，弹性杆 AB、CD 分别在 A、D 两点与刚性墙壁铰接，并在 B、C 两点与刚杆 BC 铰接。设在 C 点施加载荷 $P$ 后，沿加载方向的位移为 $\delta_{CV}$，弹性杆 AB、CD 的伸长分别为 $\lambda_{AB},\lambda_{CD}$。考虑加载后的几何变形，求 $\delta_{CV},\lambda_{AB},\lambda_{CD}$ 之间成立的关系。
+
+**(3)** 求 (2) 中的 $\delta_{CV}$。
+
+图中 $E$ 为杨氏模量，$A$ 为截面积，圆圈表示铰接。相邻各点间的水平投影距离均为 $a$，角度与荷载方向如图所示。
 
 ## **Kai**
 
@@ -32,8 +48,10 @@ tags:
 AB と BC は無載荷の節点 B を共有する二力部材であり、軸力は等しい。引張を正に取ると C のつり合いは
 
 $$
--\frac{\sqrt3}{2}N_{AB}+\frac1{\sqrt2}N_{CD}+P=0,\qquad
+\begin{gathered}
+-\frac{\sqrt3}{2}N_{AB}+\frac1{\sqrt2}N_{CD}+P=0,\\
 \frac12N_{AB}+\frac1{\sqrt2}N_{CD}=0.
+\end{gathered}
 $$
 
 したがって $N_{AB}=(\sqrt3-1)P$、$N_{CD}=-(\sqrt3-1)P/\sqrt2$。部材長は $\ell_{AB}=2a/\sqrt3$、$\ell_{CD}=\sqrt2a$ なので
@@ -45,8 +63,10 @@ $$
 Castigliano の定理から
 
 $$
-\boxed{\delta_{CH}=\frac{\partial U}{\partial P}
-=\frac{8\sqrt3+6\sqrt2-3\sqrt6-12}{3}\frac{Pa}{EA}}.
+\boxed{\begin{gathered}
+\delta_{CH}=\frac{\partial U}{\partial P}\\
+=\frac{8\sqrt3+6\sqrt2-3\sqrt6-12}{3}\frac{Pa}{EA}
+\end{gathered}}.
 $$
 
 ### (2)
@@ -54,8 +74,10 @@ $$
 $\delta=\delta_{CV}$ とする。変形後も B には外力がないため A、B、C は一直線となる。C の水平変位を $u$ とすれば、AC の長さは $2a+\lambda_{AB}$、CD の長さは $a+\lambda_{CD}$ なので
 
 $$
-2a+\lambda_{AB}=\sqrt{(2a+u)^2+\delta^2},\qquad
+\begin{gathered}
+2a+\lambda_{AB}=\sqrt{(2a+u)^2+\delta^2},\\
 a+\lambda_{CD}=\sqrt{(a-u)^2+\delta^2}.
+\end{gathered}
 $$
 
 $u=O(\delta^2/a)$ として支配的な二次項まで展開すると

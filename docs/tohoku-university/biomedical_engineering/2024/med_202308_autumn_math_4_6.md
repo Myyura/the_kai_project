@@ -16,7 +16,7 @@ tags:
 4. 次の一階微分方程式の一般解を求めよ。
    1. $\displaystyle xy'=y^2$
    2. $\displaystyle y'=5xy$
-5. 点 $(3,\sqrt3)$ を原点の周りに反時計回りに $2\pi/3$ だけ回転した後の座標を求めよ。
+5. 点 $(3,\sqrt3)$ を、原点を中心に $\frac23\pi\,\mathrm{rad}$ 回転させた点の座標を求めよ。
 6. 連立一次方程式
 
    $$
@@ -36,7 +36,7 @@ tags:
 4. 求下列一阶微分方程的通解：
    1. $\displaystyle xy'=y^2$；
    2. $\displaystyle y'=5xy$。
-5. 将点 $(3,\sqrt3)$ 绕原点逆时针旋转 $2\pi/3$，求旋转后点的坐标。
+5. 将点 $(3,\sqrt3)$ 以原点为中心旋转 $\frac23\pi\,\mathrm{rad}$，求旋转后的坐标。
 6. 对线性方程组
 
    $$
@@ -60,7 +60,8 @@ $$
 \\
 \therefore \ \
 - \frac{1}{y} &= \log_e \left| x \right| + C
-\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+&\quad ( C \text{ は積分定数 } )
 \\
 \therefore \ \
 y &= - \frac{1}{\log_e \left| x \right| + C}
@@ -77,11 +78,13 @@ $$
 \\
 \therefore \ \
 \log_e \left| y \right| &= \frac{5}{2} x^2 + C'
-\ \ \ \ \ \ \ \ ( C' \text{ は積分定数 } )
+\\
+&\quad ( C' \text{ は積分定数 } )
 \\
 \therefore \ \
 y &= C e^{\frac{5}{2} x^2}
-\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+&\quad ( C \text{ は積分定数 } )
 \end{aligned}
 $$
 
@@ -89,23 +92,21 @@ $$
 
 $$
 \begin{aligned}
-\begin{pmatrix}
+&\begin{pmatrix}
 \cos \left( \frac{2}{3} \pi \right) &
 - \sin \left( \frac{2}{3} \pi \right) \\
 \sin \left( \frac{2}{3} \pi \right) &
 \cos \left( \frac{2}{3} \pi \right)
 \end{pmatrix}
-\begin{pmatrix} 3 \\ \sqrt{3} \end{pmatrix}
-=
-\begin{pmatrix}
+\begin{pmatrix} 3 \\ \sqrt{3} \end{pmatrix}\\
+={}&\begin{pmatrix}
 - \frac{1}{2} &
 - \frac{\sqrt{3}}{2} \\
 \frac{\sqrt{3}}{2} &
 - \frac{1}{2}
 \end{pmatrix}
-\begin{pmatrix} 3 \\ \sqrt{3} \end{pmatrix}
-=
-\begin{pmatrix} -3 \\ \sqrt{3} \end{pmatrix}
+\begin{pmatrix} 3 \\ \sqrt{3} \end{pmatrix}\\
+={}&\begin{pmatrix} -3 \\ \sqrt{3} \end{pmatrix}
 \end{aligned}
 $$
 

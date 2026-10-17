@@ -59,8 +59,10 @@ $$
 任意の $R>0$ を固定する。$0\le x\le R,y>0$ に対して
 
 $$
-|1-2e^{-x/y}|\le1,
-\qquad e^{-x}+y\ge e^{-R}(1+y)
+\begin{gathered}
+|1-2e^{-x/y}|\le1,\\
+e^{-x}+y\ge e^{-R}(1+y)
+\end{gathered}
 $$
 
 なので、

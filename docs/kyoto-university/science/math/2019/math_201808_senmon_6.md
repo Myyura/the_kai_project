@@ -63,8 +63,11 @@ $$
 したがって全域で $0\le g_n(t)\le e^{-t/2}t^{x-1}$ となる。右辺は、原点付近では $x>0$ により、無限遠では指数減衰により可積分である。優収束定理から
 
 $$
-\boxed{\varphi_n(x)\longrightarrow
-\varphi(x)=\int_0^\infty e^{-t}t^{x-1}\,dt=\Gamma(x)}.
+\boxed{\begin{gathered}
+\varphi_n(x)\longrightarrow
+\varphi(x)=\int_0^\infty e^{-t}t^{x-1}\,dt\\
+=\Gamma(x)
+\end{gathered}}.
 $$
 
 ### (2)
@@ -72,13 +75,18 @@ $$
 任意に $x_0>0$ を取り、$a=x_0/2,\ b=3x_0/2$ と置く。$x\in[a,b]$ に対し
 
 $$
+\begin{gathered}
+\\
 \left|\frac{\partial}{\partial x}\bigl(e^{-t}t^{x-1}\bigr)\right|
 =e^{-t}t^{x-1}|\log t|
+\\
 \le
 \begin{cases}
-t^{a-1}|\log t|,&0<t\le1,\\
+t^{a-1}|\log t|,&0<t\\
+\le1,\\
 e^{-t}t^{b-1}\log t,&t\ge1.
 \end{cases}
+\end{gathered}
 $$
 
 この上界は $(0,\infty)$ 上で可積分である。平均値の定理により $x_0$ における差分商も同じ上界で抑えられるので、優収束定理を差分商に適用できる。したがって

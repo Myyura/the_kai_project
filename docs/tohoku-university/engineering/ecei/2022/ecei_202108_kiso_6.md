@@ -12,35 +12,91 @@ tags:
 
 ## **Description**
 
-### 題意の要約
+### (1)
 
-[大学公開の原題、13 ページ](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/202108kiso.pdf#page=13)
+行列
 
-1. 行列 $A=\begin{pmatrix}-1&1&0\\-1&2&-1\\0&1&-1\end{pmatrix}$ について、(a) 固有値と固有ベクトルを求める。(b) $P^{-1}AP$ が対角行列となる正則行列 $P$ を選び、その対角行列および $n$ 乗を計算する。(c) 自然数 $n$ に対して $A^n$ を求める。
-2. $f(x)=x$（$0\le x\le2\pi$）を、$0<x<2\pi$ で
+$$
+A=\begin{pmatrix}-1&1&0\\-1&2&-1\\0&1&-1\end{pmatrix}
+$$
 
-   $$
-   f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)
-   $$
+について考える．以下の問に答えよ．
 
-   と展開する。係数は $a_n=\pi^{-1}\int_0^{2\pi}x\cos nx\,dx$、$b_n=\pi^{-1}\int_0^{2\pi}x\sin nx\,dx$ で定める。(a) $a_0$、(b) $n\ge1$ の $a_n,b_n$ を計算し、(c) $\sum_{n\ge1}\sin(nx)/n=(\pi-x)/2$ を導く。
+(a) $A$ のすべての固有値と，それに対応する固有ベクトルを求めよ．
 
-### 题目描述
+(b) $P^{-1}AP$ が対角行列になるような正則行列 $P$ を用いて，$P^{-1}AP$ および $(P^{-1}AP)^n$ を求めよ．ここで，$n$ は自然数である．
 
-1. 给定矩阵
+(c) $A^n$ を求めよ．
 
-   $$
-   A=\begin{pmatrix}-1&1&0\\-1&2&-1\\0&1&-1\end{pmatrix}.
-   $$
+### (2)
 
-   求全部特征值和特征向量；选取可逆矩阵 $P$ 将 $A$ 对角化，求对角矩阵的 $n$ 次幂，并由此求自然数 $n$ 对应的 $A^n$。
-2. 将 $f(x)=x$ 在 $0<x<2\pi$ 上展开为 Fourier 级数
+$0\le x\le2\pi$ で定義される関数 $f(x)=x$ に対し，フーリエ級数展開
 
-   $$
-   f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx).
-   $$
+$$
+f(x)=\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\quad(0<x<2\pi)
+$$
 
-   用 $a_n=\pi^{-1}\int_0^{2\pi}x\cos nx\,dx$、$b_n=\pi^{-1}\int_0^{2\pi}x\sin nx\,dx$ 分别计算 $a_0$ 及 $n\ge1$ 时的系数，并推出 $\sum_{n\ge1}\sin(nx)/n=(\pi-x)/2$。
+を考える．ここで，$a_n$ および $b_n$ は
+
+$$
+a_n=\frac1\pi\int_0^{2\pi}f(x)\cos nx\,dx,\qquad
+b_n=\frac1\pi\int_0^{2\pi}f(x)\sin nx\,dx
+$$
+
+で与えられる．以下の問に答えよ．
+
+(a) $a_0$ を求めよ．
+
+(b) $n\ge1$ に対して，$a_n$ および $b_n$ を求めよ．
+
+(c) 問(a)および問(b)の結果を利用して，次式，
+
+$$
+\sum_{n=1}^\infty\frac{\sin nx}{n}=\frac{\pi-x}{2}\quad(0<x<2\pi)
+$$
+
+を導け．
+
+#### 题目描述
+
+**(1)** 考虑矩阵
+
+$$
+A=\begin{pmatrix}-1&1&0\\-1&2&-1\\0&1&-1\end{pmatrix}.
+$$
+
+回答下列问题。
+
+(a) 求 $A$ 的所有特征值及对应的特征向量。
+
+(b) 利用使 $P^{-1}AP$ 为对角矩阵的可逆矩阵 $P$，求 $P^{-1}AP$ 和 $(P^{-1}AP)^n$。其中 $n$ 为自然数。
+
+(c) 求 $A^n$。
+
+**(2)** 对定义在 $0\le x\le2\pi$ 上的函数 $f(x)=x$，考虑傅里叶级数展开
+
+$$
+f(x)=\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\quad(0<x<2\pi),
+$$
+
+其中系数由下式给出：
+
+$$
+a_n=\frac1\pi\int_0^{2\pi}f(x)\cos nx\,dx,\qquad
+b_n=\frac1\pi\int_0^{2\pi}f(x)\sin nx\,dx.
+$$
+
+回答下列问题。
+
+(a) 求 $a_0$。
+
+(b) 当 $n\ge1$ 时，求 $a_n$ 和 $b_n$。
+
+(c) 利用(a)、(b)的结果，导出
+
+$$
+\sum_{n=1}^\infty\frac{\sin nx}{n}=\frac{\pi-x}{2}\quad(0<x<2\pi).
+$$
 
 ## **Kai**
 ### (1)
@@ -53,9 +109,9 @@ $$
 可取三组特征值及特征向量为
 
 $$
-\boxed{\lambda=-1:\ (-1,0,1)^T,\qquad
-\lambda=0:\ (1,1,1)^T,\qquad
-\lambda=1:\ (1,2,1)^T}.
+\boxed{\begin{gathered}\lambda=-1:\ (-1,0,1)^T,\\
+\lambda=0:\ (1,1,1)^T,\\
+\lambda=1:\ (1,2,1)^T\end{gathered}}.
 $$
 
 各特征空间均为一维，其全部特征向量为所列向量的非零倍数。
@@ -74,12 +130,13 @@ $n\ge1$ 时，$\boxed{(P^{-1}AP)^n=\operatorname{diag}((-1)^n,0,1)}$；$n=0$ 时
 令 $\epsilon=(-1)^n$。由 $A^n=P\operatorname{diag}(\epsilon,0,1)P^{-1}$，或利用 $A^3=A$，得 $n\ge1$ 时
 
 $$
-\boxed{A^n=\frac{A^2+A}{2}+\frac{\epsilon(A^2-A)}2
+\boxed{\begin{gathered}A^n=\frac{A^2+A}{2}+\frac{\epsilon(A^2-A)}2
+\\
 =\begin{pmatrix}
 (\epsilon-1)/2&1&-(1+\epsilon)/2\\
 -1&2&-1\\
 -(1+\epsilon)/2&1&(\epsilon-1)/2
-\end{pmatrix}}.
+\end{pmatrix}\end{gathered}}.
 $$
 
 $n=0$ 时 $A^0=I$。
@@ -150,3 +207,7 @@ $$
 $$
 
 が成り立つことがわかる。
+
+## **Reference**
+
+- [公式問題（PDF）](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/202108kiso.pdf#page=13)

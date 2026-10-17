@@ -13,60 +13,109 @@ tags:
 
 ## **Description**
 
-`data.txt` の第1行に整数 $n,s_1,s_2$（$n\ge1, s_1<s_2$）、第2行以降に $n$ 組の整数 `ID score` が記録される。次の主要部分を持つANSI Cプログラムを考える。`student_type` は整数メンバ `id, score` を持つ構造体である。`main` は入力を読み終えた後、`funcA(students,n)`、`funcC(students,n,s1,s2)` の順に呼ぶ。これは[公式問題（2ページ）](https://www.ist.osaka-u.ac.jp/files/examinees/admission/past-exam/5_Information%20engineering_2026_JA.pdf)の省略部分を要約したものである。
+配点：(1-1) 20、(1-2) 25、(1-3) 15、(2) 25、(3-1) 20、(3-2) 20
 
-```text
- 9  void funcA(student_type students[], int n)
-10  {
-11      int i, j;
-12      for(i = 0; i < n - 1; i++){
-13          for(j = 0; j < n - 1 - i; j++){
-14              if(students[j].score > students[j + 1].score){
-15                  student_type tmp = students[j];
-16                  students[j] = students[j + 1];
-17                  students[j + 1] = tmp;
-18              }
-19          }
-20      }
-21  }
-
-23  int funcB(student_type students[], int n, int target)
-24  {
-25      int left = 0, right = n;
-26      while(left < right){
-27          int mid = (left + right) / 2;
-28          if(students[mid].score < target)
-29              left = mid + 1;
-30          else
-31              right = mid;
-32      }
-33      return left;
-34  }
-
-36  void funcC(student_type students[], int n, int s1, int s2)
-37  {
-38      int i;
-39      int lower = funcB(students, n, s1);
-40      int upper = funcB(students, n, s2);
-41
-42      for(i = lower; i < upper; i++)
-43          printf("%d %d\n", students[i].id, students[i].score);
-44  }
-```
+図1は ANSI C で記述されたプログラム（program）である。このプログラムは `data.txt` を読み込んで（read）処理を行い、その結果を出力（output）する。`data.txt` には、1行目に $n,s_1,s_2$ が記述されている。$n,s_1,s_2$ は整数（integer）であり、$n\ge1$ および $s_1<s_2$ を満たす。2行目以降は $n$ 件の識別子（ID）と得点（score）の対（pair）が各行（each line）に記述されている。識別子および得点は整数とする。図1のプログラムに関する以下の各問に答えよ。
 
 ### (1)
 
-- (1-1) `funcA` の14行目の条件式が評価される最大回数を $n$ で表せ。
-- (1-2) 39行目から呼ばれる `funcB` について、28行目の条件式が評価される最大回数を $n$ で表せ。
-- (1-3) `funcB` の最悪時間計算量を次から選べ。
+以下の各小問に答えよ。
 
-```text
-O(1), O(log N), O(N), O(N log N), O(N²), O(N³), O(2ᴺ), O(N!)
-```
+(1-1) 関数（function）`funcA` において、14行目の条件式（conditional expression）`students[j].score > students[j + 1].score` が評価（evaluate）される最大（maximum）の回数を、引数（argument）$n$ を用いて示せ。
+
+(1-2) 39行目で呼び出される関数 `funcB` において、28行目の条件式 `students[mid].score < target` が評価される最大の回数を、引数 $n$ を用いて示せ。
+
+(1-3) 関数 `funcB` は、第一引数として与えられる配列（array）を扱うアルゴリズムを実装している。このアルゴリズムの最悪時間計算量（worst-case time complexity）のオーダ表記（order notation）として最も適しているものを、下記の選択肢から一つ選択せよ。ただし、配列のサイズを $N$ とする。
+
+$O(1)$、$O(\log N)$、$O(N)$、$O(N\log N)$、$O(N^2)$、$O(N^3)$、$O(2^N)$、$O(N!)$
 
 ### (2)
 
-次の `data.txt` に対する出力を、開始から終了まで示せ。
+`data.txt` が図2の内容である場合、図1のプログラムが開始（start）してから終了（finish）するまでに出力される内容を記述せよ。
+
+### (3)
+
+関数 `funcA` を改変することにより、14行目の条件式 `students[j].score > students[j + 1].score` が評価される回数を減らすことを考える。ただし、関数 `funcA` の終了時における配列 `students` の要素（element）の並びは、改変の前後で変わらないようにせよ。以下の各小問に答えよ。
+
+(3-1) `data.txt` が図2の内容である場合、以下の三つの文（statement）を追加することで14行目の条件式が評価される回数を減らすことができる。図1のどの行の直後に追加すればよいか、それぞれの文に対して行番号を一つずつ答えよ。ただし、三つの文が追加される位置はそれぞれ異なる。また、文の追加によって行番号が変わることは考えなくてよい。
+
+- `int flag = 0;`
+- `if(flag == 0) break;`
+- `flag = 1;`
+
+(3-2) 小問 (3-1) で完成させた関数 `funcA` は、第一引数として与えられる配列を扱うアルゴリズムを実装している。このアルゴリズムの最悪時間計算量のオーダ表記として最も適しているものを、下記の選択肢から一つ選択せよ。ただし、配列のサイズを $N$ とする。
+
+$O(1)$、$O(\log N)$、$O(N)$、$O(N\log N)$、$O(N^2)$、$O(N^3)$、$O(2^N)$、$O(N!)$
+
+図1：プログラム
+
+```c showLineNumbers
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct{
+  int id;
+  int score;
+} student_type;
+
+void funcA(student_type students[], int n)
+{
+  int i, j;
+  for(i = 0; i < n - 1; i++){
+    for(j = 0; j < n - 1 - i; j++){
+      if(students[j].score > students[j + 1].score){
+        student_type tmp = students[j];
+        students[j] = students[j + 1];
+        students[j + 1] = tmp;
+      }
+    }
+  }
+}
+
+int funcB(student_type students[], int n, int target)
+{
+  int left = 0, right = n;
+  while(left < right){
+    int mid = (left + right) / 2;
+    if(students[mid].score < target)
+      left = mid + 1;
+    else
+      right = mid;
+  }
+  return left;
+}
+
+void funcC(student_type students[], int n, int s1, int s2)
+{
+  int i;
+  int lower = funcB(students, n, s1);
+  int upper = funcB(students, n, s2);
+
+  for(i = lower; i < upper; i++)
+    printf("%d %d\n", students[i].id, students[i].score);
+}
+
+int main(void)
+{
+  int n, s1, s2, i;
+  student_type *students;
+  FILE *fp;
+
+  fp = fopen("data.txt", "r");
+  fscanf(fp, "%d %d %d\n", &n, &s1, &s2);
+  students = malloc(sizeof(student_type) * n);
+  for(i = 0; i < n; i++)
+    fscanf(fp, "%d %d\n", &students[i].id, &students[i].score);
+  fclose(fp);
+
+  funcA(students, n);
+  funcC(students, n, s1, s2);
+
+  return 0;
+}
+```
+
+図2：`data.txt` の例
 
 ```text
 10 70 80
@@ -82,22 +131,41 @@ O(1), O(log N), O(N), O(N log N), O(N²), O(N³), O(2ᴺ), O(N!)
 1003 85
 ```
 
+#### 题目描述
+
+分值：(1-1) 20、(1-2) 25、(1-3) 15、(2) 25、(3-1) 20、(3-2) 20。
+
+图1是用 ANSI C 编写的程序，读取 `data.txt`，处理数据并输出结果。文件第一行给出整数 $n,s_1,s_2$，满足 $n\ge1$、$s_1<s_2$；之后的各行分别记录一组标识符 ID 和分数 score，共 $n$ 组，二者均为整数。回答下列有关图1程序的问题。
+
+### (1)
+
+回答各小问。
+
+(1-1) 在 `funcA` 中，第14行条件表达式 `students[j].score > students[j + 1].score` 最多被计算多少次？用参数 $n$ 表示。
+
+(1-2) 对第39行调用的 `funcB`，第28行条件表达式 `students[mid].score < target` 最多被计算多少次？用参数 $n$ 表示。
+
+(1-3) `funcB` 实现了处理第一个参数所传入数组的算法。设数组大小为 $N$，从以下选项中选择最适合表示其最坏时间复杂度的量级。
+
+$O(1)$、$O(\log N)$、$O(N)$、$O(N\log N)$、$O(N^2)$、$O(N^3)$、$O(2^N)$、$O(N!)$
+
+### (2)
+
+当 `data.txt` 的内容为图2时，写出图1程序从开始到结束的所有输出。
+
 ### (3)
 
-`data.txt` が上の図2の内容である場合について、`funcA` の終了時の配列順序を変えずに比較回数を減らすため、次の3文を互いに異なる位置へ追加する。
+通过修改 `funcA`，减少第14行条件表达式 `students[j].score > students[j + 1].score` 的计算次数。要求修改前后，函数结束时 `students` 中的元素顺序相同。回答各小问。
 
-```c
-int flag = 0;
-if(flag == 0) break;
-flag = 1;
-```
+(3-1) 当 `data.txt` 为图2时，加入以下三条语句可减少第14行条件表达式的计算次数。分别写出每条语句应插入图1的哪一行之后。三个插入位置必须不同，不考虑插入导致的行号变化。
 
-- (3-1) 各文を原プログラムの何行目の直後へ追加するか答えよ。
-- (3-2) 改変後の `funcA` の最悪時間計算量を選べ。
+- `int flag = 0;`
+- `if(flag == 0) break;`
+- `flag = 1;`
 
-### 题目描述
+(3-2) (3-1) 中完成的 `funcA` 实现了处理第一个参数所传入数组的算法。设数组大小为 $N$，从以下选项中选择最适合表示其最坏时间复杂度的量级。
 
-本题以学生成绩为数据，考查冒泡排序的精确比较次数和稳定性、lower_bound 型二分查找的精确迭代次数与复杂度、半开区间筛选，以及“某一趟无交换即提前终止”的优化。
+$O(1)$、$O(\log N)$、$O(N)$、$O(N\log N)$、$O(N^2)$、$O(N^3)$、$O(2^N)$、$O(N!)$
 
 ## **Kai**
 
@@ -195,3 +263,7 @@ for(i = 0; i < n - 1; i++){
 $$
 \boxed{O(N^2)}.
 $$
+
+## **Reference**
+
+- [大学公式問題](https://www.ist.osaka-u.ac.jp/files/examinees/admission/past-exam/5_Information%20engineering_2026_JA.pdf)

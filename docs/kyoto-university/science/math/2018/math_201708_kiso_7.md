@@ -36,6 +36,8 @@ $$
 \operatorname{rank}(A^m)=\operatorname{rank}(A^k).
 $$
 
+这里，对矩阵 $X$，$\operatorname{rank}(X)$ 表示其秩。
+
 ## **Kai**
 
 $A$ を $\mathbb R^n$ 上の線形写像とみなすと、

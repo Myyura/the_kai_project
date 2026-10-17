@@ -14,21 +14,49 @@ tags:
 
 ## **Description**
 
-$C^2$ 級関数 $u:\mathbb R\times[0,\infty)\to\mathbb R$ が
+$C^2$ 級関数 $u:\mathbb R\times[0,\infty)\to\mathbb R$ は
 
 $$
-u_t-u_{xx}=0\quad(t>0),\qquad u(x+2\pi,t)=u(x,t)
+\begin{aligned}
+\frac{\partial u}{\partial t}(x,t)-\frac{\partial^2u}{\partial x^2}(x,t)&=0,
+&& (x,t)\in\mathbb R\times(0,\infty),\\
+u(x+2\pi,t)&=u(x,t),
+&& (x,t)\in\mathbb R\times[0,\infty)
+\end{aligned}
 $$
 
-を満たすとする。「任意の $t>0$ に対し、$x\mapsto u(x,t)$ は $\mathbb C$ 上の正則関数に拡張できる」という命題を (P) とする。
+を満たすとする。この $u$ に対して次の命題(P)を考える。
 
-(1) $u(x,0)=\sin x$ の場合に (P) を示せ。
+(P) 任意の $t>0$ に対し，$x$ の関数 $u(x,t)$ は $\mathbb C$ 上の正則関数に拡張できる。
 
-(2) 一般の場合に (P) を示せ。
+このとき，以下の問に答えよ。
+
+(1) $u(x,0)=\sin x$ のとき，(P)が成り立つことを示せ。
+
+(2) 一般に，(P)が成り立つことを示せ。
 
 #### 题目描述
 
-$C^2$ 函数 $u(x,t)$ 满足热方程 $u_t=u_{xx}$，且关于 $x$ 为 $2\pi$ 周期。证明对每个 $t>0$，函数 $u(\cdot,t)$ 都能延拓为整函数：(1) 初值为 $\sin x$；(2) 一般初值。
+假设 $C^2$ 函数 $u:\mathbb R\times[0,\infty)\to\mathbb R$ 满足
+
+$$
+\begin{aligned}
+\frac{\partial u}{\partial t}(x,t)-\frac{\partial^2u}{\partial x^2}(x,t)&=0,
+&& (x,t)\in\mathbb R\times(0,\infty),\\
+u(x+2\pi,t)&=u(x,t),
+&& (x,t)\in\mathbb R\times[0,\infty).
+\end{aligned}
+$$
+
+对于该函数 $u$，考虑下列命题(P)。
+
+(P) 对任意 $t>0$，关于 $x$ 的函数 $u(x,t)$ 都能延拓为 $\mathbb C$ 上的全纯函数。
+
+回答下列问题。
+
+(1) 当 $u(x,0)=\sin x$ 时，证明(P)成立。
+
+(2) 证明一般情况下(P)成立。
 
 ## **Kai**
 

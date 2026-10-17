@@ -14,35 +14,49 @@ tags:
 
 ## **Description**
 
-正整数 $n$ に対して、確率変数 $X_n$ は次の確率関数をもつとする。
+正整数 $n$ に対して確率変数 $X_n$ は次の確率関数を持つものとする。
 
 $$
-\Pr\left(X_n=\frac{k}{2^n}\right)=\frac1{2^n},\qquad k=1,2,\ldots,2^n.
+P\left(X_n=\frac{k}{2^n}\right)=\frac1{2^n},\qquad k=1,2,3,\ldots,2^n.
 $$
 
-また、確率変数 $X$ は $[0,1]$ 上の一様確率変数とする。すなわち、その密度関数は
+また確率変数 $X$ は $[0,1]$ 上の一様確率変数とする。ここで $[0,1]$ 上の一様確率変数とは、以下の密度関数をもつ確率変数のことである。
 
 $$
-f(x)=\begin{cases}1&(0\le x\le1),\\0&\text{それ以外}\end{cases}
+f(x)=\begin{cases}1&0\le x\le1,\\0&\text{それ以外}.\end{cases}
 $$
 
-である。以下の問いに答えよ。
+以下の問いに答えよ。
 
-(a) 期待値 $E(X_n)$ と $E(X)$ を求め、$\lim_{n\to\infty}E(X_n)=E(X)$ を示せ。
+(a) 期待値 $E(X_n)$ と $E(X)$ を求め、$\displaystyle\lim_{n\to\infty}E(X_n)=E(X)$ を示せ。
 
-(b) 分散 $\operatorname{Var}(X_n)$ と $\operatorname{Var}(X)$ を求め、$\lim_{n\to\infty}\operatorname{Var}(X_n)=\operatorname{Var}(X)$ を示せ。
+(b) 分散 $\operatorname{Var}(X_n)$ と期待値 $\operatorname{Var}(X)$ を求め、$\displaystyle\lim_{n\to\infty}\operatorname{Var}(X_n)=\operatorname{Var}(X)$ を示せ。
 
-(c) 実数 $t$ に対し、$X_n$ と $X$ のモーメント母関数 $m_{X_n}(t)=E(e^{tX_n})$、$m_X(t)=E(e^{tX})$ を求め、$\lim_{n\to\infty}m_{X_n}(t)=m_X(t)$ を示せ。
+(c) 実数 $t$ に対し、$X_n$ のモーメント母関数 $m_{X_n}(t)=E(e^{tX_n})$ と $X$ のモーメント母関数 $m_X(t)=E(e^{tX})$ を求め、$\displaystyle\lim_{n\to\infty}m_{X_n}(t)=m_X(t)$ を示せ。
+
 
 #### 题目描述
 
-对正整数 $n$，随机变量 $X_n$ 在 $k/2^n$（$k=1,\ldots,2^n$）各点取值的概率均为 $2^{-n}$。随机变量 $X$ 服从 $[0,1]$ 上的均匀分布，即该区间上密度为 $1$，其余地方为 $0$。
 
-(a) 求 $E(X_n)$ 与 $E(X)$，并证明前者随 $n\to\infty$ 收敛到后者。
+对于正整数 $n$，设随机变量 $X_n$ 的概率质量函数为
 
-(b) 求 $\operatorname{Var}(X_n)$ 与 $\operatorname{Var}(X)$，并证明方差也具有同样的收敛关系。
+$$
+P\left(X_n=\frac{k}{2^n}\right)=\frac1{2^n},\qquad k=1,2,3,\ldots,2^n.
+$$
 
-(c) 对任意实数 $t$，求二者的矩母函数 $m_{X_n}(t)$ 和 $m_X(t)$，并证明 $m_{X_n}(t)\to m_X(t)$。
+随机变量 $X$ 为 $[0,1]$ 上的均匀随机变量。这里，$[0,1]$ 上的均匀随机变量是指具有下列密度函数的随机变量：
+
+$$
+f(x)=\begin{cases}1&0\le x\le1,\\0&\text{其他情况}.\end{cases}
+$$
+
+回答以下问题。
+
+(a) 求期望 $E(X_n)$ 和 $E(X)$，并证明 $\displaystyle\lim_{n\to\infty}E(X_n)=E(X)$。
+
+(b) 求方差 $\operatorname{Var}(X_n)$ 和 $\operatorname{Var}(X)$，并证明 $\displaystyle\lim_{n\to\infty}\operatorname{Var}(X_n)=\operatorname{Var}(X)$。原题在 $\operatorname{Var}(X)$ 前写作“期待値”，按方差符号理解。
+
+(c) 对于实数 $t$，求 $X_n$ 的矩母函数 $m_{X_n}(t)=E(e^{tX_n})$ 和 $X$ 的矩母函数 $m_X(t)=E(e^{tX})$，并证明 $\displaystyle\lim_{n\to\infty}m_{X_n}(t)=m_X(t)$。
 
 ## **Kai**
 
@@ -53,9 +67,11 @@ $$
 整数の和の公式より
 
 $$
-E(X_n)=\frac1{N^2}\sum_{k=1}^Nk
-=\frac{N(N+1)}{2N^2}
+\begin{gathered}
+E(X_n)=\frac1{N^2}\sum_{k=1}^Nk\\
+=\frac{N(N+1)}{2N^2}\\
 =\boxed{\frac12+\frac1{2^{n+1}}}.
+\end{gathered}
 $$
 
 一方、
@@ -117,8 +133,10 @@ $$
 連続一様分布については
 
 $$
-\boxed{m_X(t)=\int_0^1e^{tx}\,dx
-=\begin{cases}\dfrac{e^t-1}{t}&(t\ne0),\\1&(t=0).\end{cases}}
+\boxed{\begin{gathered}
+m_X(t)=\int_0^1e^{tx}\,dx\\
+=\begin{cases}\dfrac{e^t-1}{t}&(t\ne0),\\1&(t=0).\end{cases}
+\end{gathered}}
 $$
 
 固定した $t\ne0$ に対し、$N(e^{t/N}-1)\to t$、$e^{t/N}\to1$ なので

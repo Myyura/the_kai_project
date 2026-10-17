@@ -20,30 +20,91 @@ tags:
 インパルス応答が
 
 $$
-h[n]=\left(\frac16\right)^{n-1}-\left(\frac12\right)^{n-1}\quad(n=1,2,\ldots),
-\qquad h[0]=0
+h[n]=\left(\frac16\right)^{n-1}-\left(\frac12\right)^{n-1},
+\qquad n=1,2,\ldots
+\tag{1.1}
 $$
 
-である因果的な線形時不変システムを考える。
+で表される因果性をもつ線形時不変システムを考える。ただし，$h[0]=0$ とする。
 
-1. 有限入力有限出力安定であるか、理由とともに答えよ。
-2. $z$ 変換により伝達関数 $H(z)$ を求めよ。
-3. 因果入力 $u[n]=(1/6)^n\ (n=0,1,\ldots)$ に対する出力の $z$ 変換 $Y(z)$ を求めよ。
-4. 逆 $z$ 変換により出力 $y[n]$ を求めよ。
+(1) このシステムが有限入力有限出力安定であるか否か，理由とともに答えよ。
+
+(2) $z$ 変換を行い，このシステムの伝達関数 $H(z)$ を求めよ。
+
+(3) このシステムに，入力信号として次式で表される因果性信号を印加することを考える。
+
+$$
+u[n]=\left(\frac16\right)^n,\qquad n=0,1,2,\ldots
+\tag{1.2}
+$$
+
+このときの対応する出力信号 $y[n]$ を $z$ 変換した $Y(z)$ を求めよ。
+
+(4) (3)の結果を逆 $z$ 変換することで出力信号 $y[n]$ を求めよ。
 
 ### 問2
 
-連続時間信号 $x(t)=\cos(4\pi t+\pi/2)$ を、標本化周期 $T=1/8$ sで標本化する。
+次で表される連続時間信号をサンプリング周期 $T=1/8\,[\mathrm{sec}]$ で計測することを考える。
 
-1. 標本化周波数 [Hz] を求めよ。
-2. 連続時間信号の周期 [s] を求めよ。
-3. 離散時間信号の周期と正規化角周波数を求めよ。
-4. 離散時間信号の周期を $N$、$x[n]=x(nT)$ とし、1周期の各値 $x[n]\ (n=0,\ldots,N-1)$ を求めよ。
-5. 離散時間フーリエ級数 $X[k]\ (k=0,\ldots,N-1)$ を求めよ。
+$$
+x(t)=\cos\left(4\pi t+\frac\pi2\right).
+\tag{2.1}
+$$
+
+(1) サンプリング周波数 $[\mathrm{Hz}]$ を求めよ。
+
+(2) (2.1)式で表される信号の連続時間における周期 $[\mathrm{sec}]$ を求めよ。
+
+(3) (2.1)式で表される信号をサンプリングした離散時間信号の周期と正規化角周波数を求めよ。
+
+(4) (3)で求めた離散時間信号の周期を $N$ とおく。さらに $x[n]=x(nT)$ と表記する。このとき離散時間信号の一周期における各々の値 $x[n],n=0,1,\ldots,N-1$ を求めよ。
+
+(5) 離散時間信号 $x[n]$ に対する離散時間フーリエ級数 $X[k],k=0,1,\ldots,N-1$ を求めよ。
 
 #### 题目描述
 
-问1：因果LTI系统的脉冲响应为 $h[n]=(1/6)^{n-1}-(1/2)^{n-1}$（$n\ge1$），$h[0]=0$。判断BIBO稳定性，求传递函数，并对因果输入 $(1/6)^n$ 求输出的 $z$ 变换和时域表达式。问2：以周期 $T=1/8$ s采样 $\cos(4\pi t+\pi/2)$，求采样频率、连续信号周期、离散信号周期和归一化角频率、一个周期的样本以及离散时间傅里叶级数系数。原题未指定傅里叶级数归一化，解答中明确采用的正反变换。
+### 第1题
+
+考虑冲激响应为式(1.1)的因果线性时不变系统：
+
+$$
+h[n]=\left(\frac16\right)^{n-1}-\left(\frac12\right)^{n-1},
+\qquad n=1,2,\ldots
+$$
+
+并规定 $h[0]=0$。
+
+(1) 判断该系统是否有界输入有界输出稳定，并说明理由。
+
+(2) 进行 $z$ 变换，求系统的传递函数 $H(z)$。
+
+(3) 考虑向该系统施加式(1.2)所示因果输入信号：
+
+$$
+u[n]=\left(\frac16\right)^n,\qquad n=0,1,2,\ldots
+$$
+
+求对应输出信号 $y[n]$ 的 $z$ 变换 $Y(z)$。
+
+(4) 对第(3)问的结果作逆 $z$ 变换，求输出信号 $y[n]$。
+
+### 第2题
+
+考虑以采样周期 $T=1/8\,[\mathrm{sec}]$ 测量式(2.1)的连续时间信号：
+
+$$
+x(t)=\cos\left(4\pi t+\frac\pi2\right).
+$$
+
+(1) 求采样频率 $[\mathrm{Hz}]$。
+
+(2) 求式(2.1)所示信号在连续时间中的周期 $[\mathrm{sec}]$。
+
+(3) 求对式(2.1)信号采样所得离散时间信号的周期及归一化角频率。
+
+(4) 将第(3)问求得的离散时间信号周期记为 $N$，并记 $x[n]=x(nT)$。求该信号一个周期内的各值 $x[n],n=0,1,\ldots,N-1$。
+
+(5) 求离散时间信号 $x[n]$ 的离散时间傅里叶级数 $X[k],k=0,1,\ldots,N-1$。
 
 ## **Kai**
 
@@ -52,16 +113,22 @@ $$
 $n\ge1$ では $h[n]\le0$ だから
 
 $$
+\begin{gathered}
 \sum_{n=0}^\infty|h[n]|=\sum_{n=1}^\infty
-\left[\left(\frac12\right)^{n-1}-\left(\frac16\right)^{n-1}\right]
-=2-\frac65=\frac45<\infty.
+\left[\left(\frac12\right)^{n-1}-\left(\frac16\right)^{n-1}\right]\\
+=2-\frac65\\
+=\frac45<\infty.
+\end{gathered}
 $$
 
 したがってBIBO安定である。また
 
 $$
-\boxed{H(z)=\frac1{z-1/6}-\frac1{z-1/2}
-=-\frac{1}{3(z-1/6)(z-1/2)},\quad |z|>\frac12}.
+\boxed{\begin{gathered}
+H(z)=\frac1{z-1/6}-\frac1{z-1/2}
+=-\frac{1}{3(z-1/6)(z-1/2)},\\
+|z|>\frac12
+\end{gathered}}.
 $$
 
 ### 問1 (3), (4)
@@ -82,8 +149,11 @@ $$
 $z/(z-a)\leftrightarrow a^n$、$z/(z-a)^2\leftrightarrow na^{n-1}$ より
 
 $$
-\boxed{y[n]=3\left(\frac16\right)^n-3\left(\frac12\right)^n
-+n\left(\frac16\right)^{n-1}\quad(n\ge0)}.
+\boxed{\begin{gathered}
+y[n]=3\left(\frac16\right)^n-3\left(\frac12\right)^n
++n\left(\frac16\right)^{n-1}\\
+(n\ge0)
+\end{gathered}}.
 $$
 
 因果性より $n<0$ では0。$y[0]=y[1]=0,y[2]=-1/3$ は直接畳み込みとも一致する。
@@ -91,15 +161,19 @@ $$
 ### 問2 (1)–(4)
 
 $$
-\boxed{f_s=1/T=8\ \mathrm{Hz}},\qquad
+\begin{gathered}
+\boxed{f_s=1/T=8\ \mathrm{Hz}},\\
 \boxed{T_0=2\pi/(4\pi)=0.5\ \mathrm s}.
+\end{gathered}
 $$
 
 標本値は $x[n]=\cos(\pi n/2+\pi/2)=-\sin(\pi n/2)$。したがって
 
 $$
-\boxed{N=4,\quad\Omega=\frac\pi2\ \mathrm{rad/sample}},\qquad
+\begin{gathered}
+\boxed{N=4,\quad\Omega=\frac\pi2\ \mathrm{rad/sample}},\\
 \boxed{(x[0],x[1],x[2],x[3])=(0,-1,0,1)}.
+\end{gathered}
 $$
 
 ### 問2 (5)
@@ -107,8 +181,10 @@ $$
 フーリエ級数の正逆変換を
 
 $$
-X[k]=\frac1N\sum_{n=0}^{N-1}x[n]e^{-2\pi i kn/N},\qquad
+\begin{gathered}
+X[k]=\frac1N\sum_{n=0}^{N-1}x[n]e^{-2\pi i kn/N},\\
 x[n]=\sum_{k=0}^{N-1}X[k]e^{2\pi i kn/N}
+\end{gathered}
 $$
 
 と定義する。$N=4$ を代入すると

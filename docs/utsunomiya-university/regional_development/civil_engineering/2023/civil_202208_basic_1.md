@@ -14,13 +14,31 @@ tags:
 
 ## **Description**
 
-(1) $y=x\sqrt{x}$ を $x$ で微分せよ。
+(1) 次の関数を $x$ で微分しなさい。
 
-(2) 不定積分 $\displaystyle\int\frac{dx}{\sqrt{2x-x^2}}$ を求めよ。
+$$
+y=x\sqrt{x}
+$$
+
+(2) 次の不定積分を求めなさい。
+
+$$
+\int\frac{1}{\sqrt{2x-x^2}}\,dx
+$$
 
 #### 题目描述
 
-(1) 对 $y=x\sqrt{x}$ 求导；(2) 求不定积分 $\int(2x-x^2)^{-1/2}\,dx$。
+(1) 对以下函数关于 $x$ 求导：
+
+$$
+y=x\sqrt{x}.
+$$
+
+(2) 求以下不定积分：
+
+$$
+\int\frac{1}{\sqrt{2x-x^2}}\,dx.
+$$
 
 ## **Kai**
 
@@ -33,9 +51,11 @@ $y=x^{3/2}$ より $\boxed{dy/dx=\frac32\sqrt{x}}$。
 実数範囲では $0<x<2$。$2x-x^2=1-(x-1)^2$ なので、$u=x-1$ と置換すれば
 
 $$
+\begin{gathered}
 \int\frac{dx}{\sqrt{2x-x^2}}
-=\int\frac{du}{\sqrt{1-u^2}}
+=\int\frac{du}{\sqrt{1-u^2}}\\
 =\boxed{\arcsin(x-1)+C}.
+\end{gathered}
 $$
 
 ## **Reference**

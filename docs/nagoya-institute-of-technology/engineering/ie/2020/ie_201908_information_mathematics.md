@@ -16,75 +16,129 @@ tags:
 
 ## **Description**
 
+設問すべてについて解答すること。
+
 ### I
 
-二つの確率変数 $X,Y$ は $A=\{1,2,\ldots,N\}$ の値を取る。同時確率を $P_{XY}(i,j)$、周辺確率を $P_X(i),P_Y(j)$、条件付き確率を $P_{X\mid Y}(i\mid j)$ とする。
+アルファベット $A=\{1,2,\ldots,N\}$ を取り得る $2$ つの確率変数 $X,Y$ が存在し、その同時確率は $P_{XY}(i,j)$、$i,j\in A$ で与えられるものとする。また、周辺化された $X,Y$ の確率をそれぞれ $P_X(i)$、$i\in A$ および $P_Y(j)$、$j\in A$ と表記し、$Y$ が与えられたときの $X$ の条件付き確率を $P_{X\mid Y}(i\mid j)$、$i,j\in A$ と表すこととする。以下の問いに答えよ。
 
-1. $P_X(i)$ と $P_{X\mid Y}(i\mid j)$ を $P_{XY}$ のみを用いて表せ。
-2. エントロピー $H(X)$ と条件付きエントロピー $H(X\mid Y)$ を $P_{XY}$ のみを用いて表せ。
-3. 相互情報量を
+(1) $P_X(i)$ および $P_{X\mid Y}(i\mid j)$ を、$P_{XY}(i,j)$ のみを用いて表せ。
+
+(2) エントロピー $H(X)$ および条件付きエントロピー $H(X\mid Y)$ を、$P_{XY}(i,j)$ のみを用いて表せ。
+
+(3) 相互情報量 $I(X;Y)$ は以下のダイバージェンスとして定義される。
 
 $$
-I(X;Y)=\sum_{i=1}^N\sum_{j=1}^N P_{XY}(i,j)\log_2\frac{P_{XY}(i,j)}{P_X(i)P_Y(j)}
+\begin{aligned}
+I(X;Y)&=D(P_{XY}(i,j)\parallel P_X(i)P_Y(j))\\
+&=\sum_{i=1}^N\sum_{j=1}^N P_{XY}(i,j)\log_2\frac{P_{XY}(i,j)}{P_X(i)P_Y(j)}.
+\end{aligned}
 $$
 
-と定義する。この式から $I(X;Y)=H(X)-H(X\mid Y)$ を示せ。
+この定義式から $I(X;Y)=H(X)-H(X\mid Y)$ であることを示せ。
 
-4. Jensen の不等式を用いて $I(X;Y)\ge0$ を示せ。
-5. $N=2$ の場合、$I(X;Y)$ が最小となる分布の例を一つ、理由とともに示せ。
-6. $N=2$ の場合、$I(X;Y)$ が最大となる分布をすべて、理由とともに示せ。
+(4) 相互情報量 $I(X;Y)$ が非負であることをイェンゼン（Jensen）の不等式を用いて示せ。
 
-5、6では次の行列形式を用いよ。
+(5) $N=2$ としたとき、相互情報量 $I(X;Y)$ が最小となる確率分布 $P_{XY}(i,j)$ の例を $1$ つ、理由とともに示せ。ただし、確率分布は以下の行列 $P$ の形式で記述すること。
+
+$$
+P=\begin{pmatrix}P_{XY}(1,1)&P_{XY}(2,1)\\P_{XY}(1,2)&P_{XY}(2,2)\end{pmatrix}
+$$
+
+(6) $N=2$ としたとき、相互情報量 $I(X;Y)$ が最大となる確率分布 $P_{XY}(i,j)$ をすべて、理由とともに示せ。ただし、確率分布は行列 $P$ の形式で記述すること。
+
+### II
+
+$\mathbb N$ を自然数の集合とし、$a,b$ をそれぞれ $2\le a\le5$、$b\le7$ を満たす自然数とする。$\mathbb N\times\mathbb N$ の部分集合として
+
+$$
+\begin{aligned}
+X_a&=\{(x,y)\mid x,y\in\mathbb N,1\le x\le a,2\le y\le a\},\\
+Y_b&=\{(x,x)\mid x\in\mathbb N,b\le x\le7\}
+\end{aligned}
+$$
+
+を定めるとき、以下の問いに答えよ。
+
+(1) $X_4\cap Y_3$ に含まれる要素をすべて列挙せよ。
+
+(2) $2\le b\le a$ であるとき、$X_a\cup Y_b$ の要素数を $a,b$ の関数として表せ。
+
+(3) 写像 $f:X_a\cup Y_b\to\mathbb N$ を $f((x,y))=x$ と定義するとき、$f$ が単射となるような $a,b$ の組をすべて答えよ。
+
+### III
+
+連結な無向グラフで閉路を持たないようなものを木と呼ぶ。このとき以下の問いに答えよ。
+
+(1) 頂点数 $6$ の木で、その最大次数が最大となるもの、および最小となるものをそれぞれ $1$ つずつ図示せよ。記載する図において、頂点および辺にラベルを書き入れる必要はない。
+
+(2) グラフ $T=(V,E)$ を任意の木とする。$T$ 中の任意の辺 $e\in E$ を除去して得られるグラフ $T-e=(V,E\setminus\{e\})$ が必ず非連結になることを、背理法を用いて証明せよ。
+
+(3) 以下の重み付き無向グラフを考える。
+
+![重み付き無向グラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-institute-of-technology/engineering/ie/2020/nitech_201908_info_28_graph.png)
+
+このグラフの最小全域木（最小生成木）を $T_{\min}$ とする。$T_{\min}$ において頂点 D に接続している辺をすべて列挙せよ。ただし、グラフ中の各辺はその両端点のラベル $2$ つを要素とする集合で表現すること。
+
+#### 题目描述
+
+回答全部问题。
+
+**I** 设随机变量 $X,Y$ 的取值字母表为 $A=\{1,2,\ldots,N\}$，其联合概率为 $P_{XY}(i,j)$（$i,j\in A$）。将 $X,Y$ 的边缘概率分别记为 $P_X(i)$（$i\in A$）、$P_Y(j)$（$j\in A$），给定 $Y$ 时 $X$ 的条件概率记为 $P_{X\mid Y}(i\mid j)$（$i,j\in A$）。回答以下问题。
+
+(1) 仅用 $P_{XY}(i,j)$ 表示 $P_X(i)$ 和 $P_{X\mid Y}(i\mid j)$。
+
+(2) 仅用 $P_{XY}(i,j)$ 表示熵 $H(X)$ 和条件熵 $H(X\mid Y)$。
+
+(3) 互信息 $I(X;Y)$ 定义为下列散度：
+
+$$
+\begin{aligned}
+I(X;Y)&=D(P_{XY}(i,j)\parallel P_X(i)P_Y(j))\\
+&=\sum_{i=1}^N\sum_{j=1}^N P_{XY}(i,j)\log_2\frac{P_{XY}(i,j)}{P_X(i)P_Y(j)}.
+\end{aligned}
+$$
+
+由此定义证明 $I(X;Y)=H(X)-H(X\mid Y)$。
+
+(4) 利用 Jensen 不等式证明互信息 $I(X;Y)$ 非负。
+
+(5) 取 $N=2$，给出一个使互信息 $I(X;Y)$ 最小的概率分布 $P_{XY}(i,j)$，并说明理由。概率分布须以下列矩阵 $P$ 的形式表示：
 
 $$
 P=\begin{pmatrix}P_{XY}(1,1)&P_{XY}(2,1)\\P_{XY}(1,2)&P_{XY}(2,2)\end{pmatrix}.
 $$
 
-### II
+(6) 取 $N=2$，给出全部使互信息 $I(X;Y)$ 最大的概率分布 $P_{XY}(i,j)$，并说明理由。概率分布须以矩阵 $P$ 的形式表示。
 
-$\mathbb N$ を自然数の集合とし、自然数 $a,b$ は $2\le a\le5$、$b\le7$ を満たす。
+**II** 设 $\mathbb N$ 为自然数集合，$a,b$ 为分别满足 $2\le a\le5$、$b\le7$ 的自然数。定义 $\mathbb N\times\mathbb N$ 的子集
 
 $$
-X_a=\{(x,y)\mid x,y\in\mathbb N,\ 1\le x\le a,\ 2\le y\le a\},\qquad
-Y_b=\{(x,x)\mid x\in\mathbb N,\ b\le x\le7\}.
+\begin{aligned}
+X_a&=\{(x,y)\mid x,y\in\mathbb N,1\le x\le a,2\le y\le a\},\\
+Y_b&=\{(x,x)\mid x\in\mathbb N,b\le x\le7\}.
+\end{aligned}
 $$
 
-1. $X_4\cap Y_3$ の全要素を列挙せよ。
-2. $2\le b\le a$ のとき、$X_a\cup Y_b$ の要素数を $a,b$ の関数で表せ。
-3. $f:X_a\cup Y_b\to\mathbb N$、$f((x,y))=x$ が単射となる $a,b$ の組をすべて答えよ。
+回答以下问题。
 
-### III
+(1) 列出 $X_4\cap Y_3$ 的全部元素。
 
-連結な無向グラフで閉路を持たないものを木と呼ぶ。
+(2) 当 $2\le b\le a$ 时，将 $X_a\cup Y_b$ 的元素个数表示为 $a,b$ 的函数。
 
-1. 頂点数6の木で、最大次数が最大となるものと最小となるものを一つずつ図示せよ。頂点や辺のラベルは不要である。
-2. 任意の木 $T=(V,E)$ から任意の辺 $e$ を除いた $T-e=(V,E\setminus\{e\})$ が非連結となることを、背理法で証明せよ。
-3. 下図の重み付き無向グラフの最小全域木を $T_{\min}$ とする。$T_{\min}$ で頂点 D に接続する辺をすべて列挙せよ。辺は両端のラベルを要素とする集合で表せ。
+(3) 定义映射 $f:X_a\cup Y_b\to\mathbb N$ 为 $f((x,y))=x$。求全部使 $f$ 为单射的 $(a,b)$。
 
-![重み付き無向グラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-institute-of-technology/engineering/ie/2020/nitech_201908_info_28_graph.png)
+**III** 连通且不含环的无向图称为树。回答以下问题。
 
-#### 题目描述
+(1) 对于顶点数为 $6$ 的树，分别画出一个最大度达到最大、一个最大度达到最小的例子。图中不必标注顶点和边的标签。
 
-**I**：随机变量 $X,Y$ 取值于 $\{1,\ldots,N\}$，联合概率为 $P_{XY}(i,j)$。
+(2) 设 $T=(V,E)$ 为任意一棵树。利用反证法证明：删除 $T$ 中任意一条边 $e\in E$ 所得图 $T-e=(V,E\setminus\{e\})$ 必定不连通。
 
-1. 仅用联合概率写出边缘概率 $P_X(i)$ 和条件概率 $P_{X\mid Y}(i\mid j)$。
-2. 仅用联合概率写出熵 $H(X)$ 与条件熵 $H(X\mid Y)$。
-3. 从题给相互信息定义证明 $I(X;Y)=H(X)-H(X\mid Y)$。
-4. 用 Jensen 不等式证明相互信息非负。
-5. $N=2$ 时，举出使相互信息最小的一个分布并说明理由。
-6. $N=2$ 时，给出使相互信息最大的全部分布并说明理由。后两问按题给矩阵形式作答（列对应 $X$，行对应 $Y$）。
+(3) 考虑下列带权无向图。
 
-**II**：自然数 $2\le a\le5,b\le7$，集合 $X_a,Y_b$ 定义见上式。
+![带权无向图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-institute-of-technology/engineering/ie/2020/nitech_201908_info_28_graph.png)
 
-1. 列举 $X_4\cap Y_3$。
-2. $2\le b\le a$ 时求 $|X_a\cup Y_b|$。
-3. 求使映射 $(x,y)\mapsto x$ 为单射的全部 $(a,b)$。
-
-**III**：树是连通且无环的无向图。
-
-1. 分别画出六个顶点的树中，最大度达到最大、最小的例子。
-2. 用反证法证明删除树的任意一条边都会使其不连通。
-3. 对上图求最小生成树中与 D 相连的全部边，以两个端点组成的集合表示。
+记其最小生成树为 $T_{\min}$。列出 $T_{\min}$ 中与顶点 D 相连的全部边。每条边须表示为以其两个端点的标签为元素的集合。
 
 ## **Kai**
 
@@ -93,7 +147,10 @@ $$
 $p_{ij}=P_{XY}(i,j)$ と略記する。周辺化と条件付き確率の定義より、
 
 $$
-\boxed{P_X(i)=\sum_jp_{ij},\qquad P_{X\mid Y}(i\mid j)=\frac{p_{ij}}{\sum_kp_{kj}}}.
+\boxed{\begin{gathered}
+P_X(i)=\sum_jp_{ij},\\
+P_{X\mid Y}(i\mid j)=\frac{p_{ij}}{\sum_kp_{kj}}
+\end{gathered}}.
 $$
 
 条件付き確率は $P_Y(j)>0$ の場合に定義する。エントロピーは
@@ -148,8 +205,11 @@ $$
 $0\le H(X\mid Y)$、$H(X)\le1$ より $I(X;Y)\le1$。等号には $X$ の一様性と、$Y$ から $X$ が確定することが必要十分である。二値の場合、その対応は恒等か交換の二通りしかないので、全解は
 
 $$
-\boxed{P=\begin{pmatrix}1/2&0\\0&1/2\end{pmatrix}\quad\text{または}\quad
-P=\begin{pmatrix}0&1/2\\1/2&0\end{pmatrix}}.
+\boxed{\begin{gathered}
+P=\begin{pmatrix}1/2&0\\0&1/2\end{pmatrix}\\
+\text{または}\\
+P=\begin{pmatrix}0&1/2\\1/2&0\end{pmatrix}
+\end{gathered}}.
 $$
 
 ### II
@@ -159,7 +219,10 @@ $$
 (2) $|X_a|=a(a-1)$、$|Y_b|=8-b$、$|X_a\cap Y_b|=a-b+1$ より、
 
 $$
-\boxed{|X_a\cup Y_b|=a(a-1)+(8-b)-(a-b+1)=a^2-2a+7}.
+\boxed{\begin{gathered}
+|X_a\cup Y_b|=a(a-1)+(8-b)-(a-b+1)\\
+=a^2-2a+7
+\end{gathered}}.
 $$
 
 (3) $a\ge3$ では $(1,2),(1,3)\in X_a$ が同じ値1に写り、単射にならない。$a=2$ なら $X_2=\{(1,2),(2,2)\}$。$b=1$ は $(1,1)$ との衝突を生じるが、$b\ge2$ では新たな衝突はない。したがって
@@ -172,7 +235,9 @@ $$
 
 最大次数の最大値は5で、星型の木 $K_{1,5}$ が実現する。最小値は2で、道 $P_6$ が実現する。最大次数が1以下のグラフは六頂点で連結になれない。
 
-![六頂点の星型の木と道](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-institute-of-technology/engineering/ie/2020/nitech_201908_info_28_trees.svg)
+![最大次数5の木](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-institute-of-technology/engineering/ie/2020/ie_201908_information_mathematics_answer_layout_1.svg)
+
+![最大次数2の木](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-institute-of-technology/engineering/ie/2020/ie_201908_information_mathematics_answer_layout_2.svg)
 
 ### III (2)
 

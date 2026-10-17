@@ -209,7 +209,7 @@ tags:
 [Your Name](https://example.com)
 
 ## **Description**
-Problem statement, transcription, or a short summary of the question.
+Transcribe the complete original problem in its original language, including all conditions, formulas, subquestions, and answer requirements. Use text and LaTeX for ordinary content, and include necessary crops of the original figures beside the relevant questions. A summary, a source link, or a whole-page screenshot does not replace the transcription. Any translation should cover the same content in full.
 
 ## **Kai**
 Your solution, derivation, explanation, or notes.

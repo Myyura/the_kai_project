@@ -14,26 +14,53 @@ tags:
 
 ## **Description**
 
-2017年10月・2018年4月入学対象、2017年8月実施。
+1. 図1に示すように大きさが等しく符号の異なる2個の点磁荷 $+q_m$ と $-q_m$ が微小距離 $s$ だけ離れて存在するものを磁気双極子と呼ぶ。磁気双極子モーメントは，$m=q_ms$ で定義される。以下の問いに答えよ。ただし，透磁率として $\mu_0$ を用いよ。
 
-真空中で $z$ 軸上の $z=s/2$、$z=-s/2$ にそれぞれ磁荷 $+q_m$、$-q_m$ を置いた磁気双極子と、$xy$ 平面上で原点を中心とする半径 $a$ の円形電流 $I$ を考える。電流は $+z$ 側から見て反時計回りである。磁気双極子モーメントを $\boldsymbol m=q_ms\boldsymbol e_z$ とし、真空の透磁率を $\mu_0$ とする。
+**(1)** 図1に示す磁気双極子と図2に示す電流 $I$ が流れる半径 $a$ の円形コイルそれぞれがつくる磁力線を描け。
 
-1. 双極子と円形電流それぞれの磁力線を図示せよ。
-2. 磁荷 $q_m$ から距離 $R$ の磁気スカラーポテンシャルが $q_m/(4\pi\mu_0R)$ であることを用いて、$z_1\gg s$ における軸上の磁場 $\boldsymbol H$ を求めよ。
-3. ビオ・サバールの法則を用いて、$z_2\gg a$ における円形電流の軸上の磁束密度 $\boldsymbol B$ を求めよ。
-4. 遠方に同じ磁場を作るための $m$ と $I$ の関係を求めよ。
+**(2)** 磁場の強さ $\boldsymbol H$ は磁気スカラーポテンシャル $\phi_m$ により $\boldsymbol H=-\nabla\phi_m$ として求めることができる。点磁荷 $q_m$ から距離 $R$ だけ離れた点の $\phi_m$ は，
+
+$$
+\phi_m=\frac{q_m}{4\pi\mu_0R}
+$$
+
+と表すことができる。図1に示す磁気双極子について，$z$ 軸上の点 $\mathrm P_1\ (z=z_1,\ z_1\gg s)$ における磁場の強さ $\boldsymbol H$ を求めよ。
+
+**(3)** 図2に示す電流 $I$ が流れる半径 $a$ の円形コイルが $z$ 軸上の点 $\mathrm P_2\ (z=z_2,\ z_2\gg a)$ につくる磁束密度 $\boldsymbol B$ を求めよ。
+
+**(4)** 問(2)と問(3)の結果において，磁気双極子による磁場が円形コイルによる磁場と等価であると仮定するとき，磁気双極子モーメントの大きさは，$m=\mu_0I\pi a^2$ で表されることを示せ。
+
+![図1 磁気双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_electromagnetism_1_original_figure_1.png)
+
+![図2 電流が流れる円形コイル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_electromagnetism_1_original_figure_2.png)
 
 #### 题目描述
 
-本题为2017年8月实施、面向2017年10月及2018年4月入学的考试。
+1. 如图1所示，大小相等、符号相反的两个点磁荷 $+q_m$ 和 $-q_m$ 相距微小距离 $s$ 时，称为磁偶极子。磁偶极矩定义为 $m=q_ms$。回答下列问题，磁导率用 $\mu_0$ 表示。
 
-真空中 $z=\pm s/2$ 的磁荷 $\pm q_m$ 组成磁偶极子，定义 $\boldsymbol m=q_ms\boldsymbol e_z$。另有位于 $xy$ 平面、半径 $a$ 的圆电流，沿 $+z$ 方向看为逆时针。（1）分别画磁力线；（2）利用题定磁标势求 $z_1\gg s$ 处的 $H$；（3）利用毕奥–萨伐尔定律求 $z_2\gg a$ 处的 $B$；（4）求使远场相等的磁矩与电流关系。
+**(1)** 分别画出图1的磁偶极子与图2中通有电流 $I$、半径为 $a$ 的圆形线圈所产生的磁感线。
+
+**(2)** 磁场强度 $\boldsymbol H$ 可由磁标势 $\phi_m$ 按 $\boldsymbol H=-\nabla\phi_m$ 求得。距离点磁荷 $q_m$ 为 $R$ 的点处，磁标势为
+
+$$
+\phi_m=\frac{q_m}{4\pi\mu_0R}.
+$$
+
+求图1所示磁偶极子在 $z$ 轴上 $\mathrm P_1\ (z=z_1,\ z_1\gg s)$ 点产生的磁场强度 $\boldsymbol H$。
+
+**(3)** 求图2中通有电流 $I$、半径为 $a$ 的圆形线圈在 $z$ 轴上 $\mathrm P_2\ (z=z_2,\ z_2\gg a)$ 点产生的磁通密度 $\boldsymbol B$。
+
+**(4)** 根据第(2)、(3)问的结果，假定磁偶极子产生的磁场与圆形线圈产生的磁场等效，证明磁偶极矩的大小可表示为 $m=\mu_0I\pi a^2$。
+
+图1标出了磁荷、间距及观察点，图2标出了线圈半径、电流方向及观察点。
 
 ## **Kai**
 
 ### (1)
 
-![磁荷双極子の力線と円形電流の閉じた磁力線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_magnetic_lines.svg)
+![解答図 1/2：元図の第1パネル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_electromagnetism_1_answer_layout_1.svg)
+
+![解答図 2/2：元図の第2パネル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_electromagnetism_1_answer_layout_2.svg)
 
 双極子では力線は正磁荷から負磁荷へ向かい、両磁荷の間では $-z$ 方向となる。円形電流では力線は閉曲線であり、円の内部では $+z$ 方向に通る。遠方での形は等しいが、中心付近の向きと力線の接続は異なる。
 

@@ -26,7 +26,7 @@ $$
 
 #### 题目描述
 
-设 $p$ 为素数，$\mathbb F_p=\mathbb Z/p\mathbb Z$。对矩阵乘法构成的群
+设 $p$ 为素数，$\mathbb F_p=\mathbb Z/p\mathbb Z$ 为阶数为 $p$ 的有限域。对矩阵乘法构成的群
 
 $$
 G=\left\{
@@ -35,7 +35,7 @@ G=\left\{
 \right\},
 $$
 
-求从 $G$ 到乘法群 $\mathbb C^\times$ 的群同态的个数。
+求从 $G$ 到乘法群 $\mathbb C^\times=\mathbb C\setminus\{0\}$ 的群同态的个数。
 
 ## **Kai**
 

@@ -12,17 +12,39 @@ tags:
 
 ## **Description**
 
-### 題意の要約
+以下の問に答えよ．ただし，$A,B,C,D,E$ は集合を表す．
 
-[大学公開の原題、8 ページ](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/202308kiso.pdf#page=8)
+### (1)
 
-1. 写像 $f:A\to B$ と集合 $S\subseteq A$ に対し、$f(S)=\{f(x):x\in S\}$ とする。(a) $f(A_1\cap A_2)\subseteq f(A_1)\cap f(A_2)$ を証明する。(b) この包含が等号にならない具体例を与える。
-2. $f:A\to B$、$g:B\to C$ について、(a) 両方が単射ならば $g\circ f$ も単射、(b) 両方が全射ならば $g\circ f$ も全射であることを証明する。単射は異なる元の像が異なること、全射は終域の各元が像として現れることを意味する。
+$f:A\to B$ を $A$ から $B$ への写像とし，任意の $A'\subseteq A$ に対し $f(A')=\{b\mid b=f(a)\text{ となる }a\in A'\text{ が存在}\}$ とする．
 
-### 题目描述
+(a) 任意の $A_1,A_2\subseteq A$ に対し，$f(A_1\cap A_2)\subseteq f(A_1)\cap f(A_2)$ が成り立つことを証明せよ．
 
-1. 对映射 $f:A\to B$ 和子集 $S\subseteq A$，定义像集 $f(S)=\{f(x):x\in S\}$。证明 $f(A_1\cap A_2)\subseteq f(A_1)\cap f(A_2)$，并举出包含关系严格成立的例子。
-2. 对 $f:A\to B$、$g:B\to C$，分别证明：两个映射都是单射时，复合映射 $g\circ f$ 也是单射；两个映射都是满射时，复合映射也是满射。
+(b) $f(A_1\cap A_2)\ne f(A_1)\cap f(A_2)$ となる $f$ および $A_1,A_2\subseteq A$ の具体例を与えよ．
+
+### (2)
+
+写像 $f:A\to B,\ g:B\to C$ に対し，合成写像 $g\circ f:A\to C$ を考える．ただし，任意の $a\in A$ に対し $g\circ f(a)=g(f(a))$ とする．
+
+(a) $f$ と $g$ がどちらも1対1の写像（単射）であるとき，$g\circ f$ は1対1の写像であることを証明せよ．ここで，写像 $h:D\to E$ が1対1の写像であるとは，任意の $d_1,d_2\in D$ に対し $h(d_1)=h(d_2)\Rightarrow d_1=d_2$ が成り立つことである．
+
+(b) $f$ と $g$ がどちらも上への写像（全射）であるとき，$g\circ f$ は上への写像であることを証明せよ．ここで，写像 $h:D\to E$ が上への写像であるとは，各 $e\in E$ に対し $h(d)=e$ となる $d\in D$ が存在することをいう．
+
+#### 题目描述
+
+回答下列问题，其中 $A,B,C,D,E$ 表示集合。
+
+**(1)** 设 $f:A\to B$ 为从 $A$ 到 $B$ 的映射。对任意 $A'\subseteq A$，定义 $f(A')=\{b\mid\text{存在 }a\in A'\text{ 使得 }b=f(a)\}$。
+
+(a) 证明对任意 $A_1,A_2\subseteq A$，成立 $f(A_1\cap A_2)\subseteq f(A_1)\cap f(A_2)$。
+
+(b) 给出满足 $f(A_1\cap A_2)\ne f(A_1)\cap f(A_2)$ 的 $f$ 及 $A_1,A_2\subseteq A$ 的具体例子。
+
+**(2)** 对映射 $f:A\to B,\ g:B\to C$，考虑复合映射 $g\circ f:A\to C$，其定义是对任意 $a\in A$，有 $g\circ f(a)=g(f(a))$。
+
+(a) 证明当 $f,g$ 均为一一映射（单射）时，$g\circ f$ 也是一一映射。其中映射 $h:D\to E$ 是一一映射，是指对任意 $d_1,d_2\in D$，都有 $h(d_1)=h(d_2)\Rightarrow d_1=d_2$。
+
+(b) 证明当 $f,g$ 均为到上映射（满射）时，$g\circ f$ 也是到上映射。其中映射 $h:D\to E$ 是到上映射，是指对每个 $e\in E$，都存在 $d\in D$ 使 $h(d)=e$。
 
 ## **Kai**
 ### (1)
@@ -162,3 +184,7 @@ $$
 
 であるような $a \in A$ が存在するので、
 $g \circ f$ は上への写像である。
+
+## **Reference**
+
+- [公式問題（PDF）](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/202308kiso.pdf#page=8)

@@ -56,8 +56,10 @@ $$
 $f$ の連続性と $f(x)\to0$ により、すべての $x\ge0$ で $1+f(x)\ge a$ となる定数 $a\in(0,1]$ が存在する。$h(x)=\log(1+f(x))$ とおくと、平均値の定理から
 
 $$
-|h(x)|\le\frac{|f(x)|}{a},\qquad
+\begin{gathered}
+|h(x)|\le\frac{|f(x)|}{a},\\
 |h(y)-h(x)|\le\frac{|f(y)-f(x)|}{a}.
+\end{gathered}
 $$
 
 よって $h\in L^1([0,\infty))$ である。各正整数 $n$ に対し、階段関数 $h_n$ を区間 $((k-1)/n,k/n]$ 上で
@@ -69,9 +71,10 @@ $$
 と定める。$x\le k/n\le x+1$ だから、ほとんどすべての $x$ で
 
 $$
-|h_n(x)-h(x)|\le\frac{g(x)}a,
-\qquad
+\begin{gathered}
+|h_n(x)-h(x)|\le\frac{g(x)}a,\\
 |h_n(x)|\le\frac{|f(x)|+g(x)}a
+\end{gathered}
 $$
 
 を得る。後者の評価より各 $h_n$ は可積分であり、
@@ -86,8 +89,12 @@ $$
 また $h$ の連続性から $h_n(x)\to h(x)$ である。差の絶対値は可積分関数 $g/a$ で抑えられるので、優収束定理により
 
 $$
+\begin{gathered}
+\\
 \left|\frac1n\sum_{k=1}^\infty h(k/n)-\int_0^\infty h(x)\,dx\right|
+\\
 \le\int_0^\infty|h_n(x)-h(x)|\,dx\longrightarrow0
+\end{gathered}
 $$
 
 を得る。指数関数の連続性より、求める極限は

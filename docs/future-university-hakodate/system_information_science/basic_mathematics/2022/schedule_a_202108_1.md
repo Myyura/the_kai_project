@@ -14,21 +14,35 @@ tags:
 
 ## **Description**
 
-実数 $a$ と行列
+行列
 
 $$
 A=\begin{pmatrix}1&1&a\\1&0&-1\\a&-1&-1\end{pmatrix}
 $$
 
-に対し、線形写像 $f:\mathbb R^3\to\mathbb R^3$ を $f(x)=Ax$ により定める。
+に対し，線形写像 $f:\mathbb{R}^3\to\mathbb{R}^3$ を $f(x)=Ax$（$x\in\mathbb{R}^3$）により定める。ただし，$a$ は実数とする。以下の問いに答えよ。（配点 25 点）
 
-1. $A$ の階数を求めよ。
-2. $f$ の核 $\operatorname{Ker}(f)$ を求めよ。
-3. $f$ の像 $\operatorname{Im}(f)$ の基底を求めよ。
+**問1** 行列 $A$ の階数を求めよ。
+
+**問2** 線形写像 $f$ の核 $\operatorname{Ker}(f)$ を求めよ。
+
+**問3** 線形写像 $f$ の像 $\operatorname{Im}(f)$ の基底を求めよ。
 
 #### 题目描述
 
-设 $a$ 为实数，矩阵 $A$ 如上，并定义线性映射 $f:\mathbb R^3\to\mathbb R^3$、$f(x)=Ax$。求 $A$ 的秩、$f$ 的核，以及 $f$ 的像的一组基。
+对于矩阵
+
+$$
+A=\begin{pmatrix}1&1&a\\1&0&-1\\a&-1&-1\end{pmatrix},
+$$
+
+用 $f(x)=Ax$（$x\in\mathbb{R}^3$）定义线性映射 $f:\mathbb{R}^3\to\mathbb{R}^3$，其中 $a$ 为实数。回答以下问题。（25 分）
+
+**问1** 求矩阵 $A$ 的秩。
+
+**问2** 求线性映射 $f$ 的核 $\operatorname{Ker}(f)$。
+
+**问3** 求线性映射 $f$ 的像 $\operatorname{Im}(f)$ 的一组基。
 
 ## **Kai**
 

@@ -14,31 +14,61 @@ tags:
 
 ## **Description**
 
-以下の(1)〜(4)に答えよ。図は原題の条件を保った模式図である。
+問題[1]，[2]は別々の答案用紙に回答すること。
 
-(1) 図1-1の二次元切削モデルについて、(a)角度 $\alpha,\phi$ の名称を示せ。(b)$\phi=20^\circ,30^\circ$ のどちらで切削力が大きいかを示し、その理由を簡潔に説明せよ。(c)工具材料に要求される特性を二つ挙げ、必要な理由を説明せよ。$d$ は切込み、$t$ は切りくず厚さである。
+**[1]** 以下の(1)～(4)の問いに答えよ。
 
-![図1-1 二次元切削モデル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kobe-university/engineering/mech/2019/kobe201808_cutting.svg)
+**(1)** 図1-1に示す2次元切削モデルについて次の問いに答えよ。
 
-(2) 図1-2の砥石の状態について、(a)正常な状態①に対し、切れ味が劣化する②、③、④の名称を示せ。(b)②、③で切れ味が劣化する理由を説明せよ。(c)砥石の自生作用を説明せよ。
+- **(a)** 図中の角度 $\alpha,\phi$ の名称を示せ。
+- **(b)** 図中の角度 $\phi$ の値によって切削力の大きさが決まるが，$\phi$ が $20^\circ$ と $30^\circ$ では切削力が大きいのはどちらか示せ。また，その理由を簡潔に説明せよ。
+- **(c)** 工具材料に要求される特性を2つ挙げて，その特性が必要となる理由を説明せよ。
 
-![図1-2 砥石の状態：灰色は結合剤、黒は砥粒、白い空隙は気孔](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kobe-university/engineering/mech/2019/kobe201808_grinding.svg)
+![図1-1 2次元切削モデル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kobe-university/engineering/mech/2019/manufacturing_201808_1_original_figure_1.png)
 
-(3) 図1-3の部品①について、(a)「M12」と「3-M12」の意味を説明せよ。(b)$102\times102\times22\,\mathrm{mm}$ のS45C鋼板からこの部品を加工するために必要な切削工具を列挙せよ。完成寸法は $100\times100\,\mathrm{mm}$、厚さ $20\,\mathrm{mm}$、中央穴 $\phi40$、$\mathrm{P.C.D.}\,70$ 上に $120^\circ$ 間隔で3個のM12ねじ穴がある。
+**(2)** 図1-2の砥石の状態を示す模式図を見て次の問いに答えよ。
 
-![図1-3 部品図、寸法単位mm](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kobe-university/engineering/mech/2019/kobe201808_part.svg)
+- **(a)** 図中①の正常な砥石の状態に対して，砥石の切れ味が劣化する②，③，④の状態がどのように呼ばれているかを示せ。
+- **(b)** 図中②と③の砥石の状態で，砥石の切れ味が劣化する理由を説明せよ。
+- **(c)** 砥石の自生作用という現象を説明せよ。
 
-(4) 工作機械における「母性の原理」を簡潔に説明せよ。
+![図1-2 砥石の状態を示す模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kobe-university/engineering/mech/2019/manufacturing_201808_1_original_figure_2.png)
+
+**(3)** 図1-3に示す部品番号①の部品図を見て次の問いに答えよ。
+
+- **(a)** “M12” および “3-M12” の意味を説明せよ。
+- **(b)** $102\times102\times22$ の鋼板（材質は S45C）からこの部品を加工するために必要な切削工具を列挙せよ。
+
+![図1-3 部品図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kobe-university/engineering/mech/2019/manufacturing_201808_1_original_figure_3.png)
+
+**(4)** 工作機械における “母性の原理” を簡潔に説明せよ。
 
 #### 题目描述
 
-(1) 对图1-1的二维切削模型：(a)写出 $\alpha,\phi$ 的名称；(b)比较 $\phi=20^\circ$ 与 $30^\circ$ 时切削力的大小，并解释原因；(c)列举刀具材料应具备的两项性能并说明理由。$d$ 为切入厚度，$t$ 为切屑厚度。
+问题[1]、[2]须分别在不同的答题纸上作答。
 
-(2) 对图1-2的砂轮状态：(a)相对于正常状态①，写出②③④的名称；(b)说明②③切削能力降低的原因；(c)解释砂轮自锐作用。
+**[1]** 回答下列第(1)～(4)问。
 
-(3) 对图1-3的零件：(a)解释“M12”和“3-M12”；(b)列出从 $102\times102\times22\,\mathrm{mm}$ 的S45C钢板加工该零件所需的切削工具。成品为 $100\times100\,\mathrm{mm}$、厚 $20\,\mathrm{mm}$，中央为直径 $40\,\mathrm{mm}$ 的通孔，直径 $70\,\mathrm{mm}$ 的分布圆上有3个相隔 $120^\circ$ 的M12螺纹孔。
+**(1)** 关于图1-1所示的二维切削模型，回答下列问题。
 
-(4) 简述机床的“母性原理”。
+- **(a)** 写出图中角度 $\alpha,\phi$ 的名称。
+- **(b)** 切削力大小随图中角度 $\phi$ 的值而定。比较 $\phi=20^\circ$ 与 $30^\circ$ 两种情形，指出哪种情形的切削力较大，并简要说明理由。
+- **(c)** 列举刀具材料必须具备的两种性能，并说明需要这些性能的原因。
+
+**(2)** 根据图1-2所示砂轮状态示意图，回答下列问题。
+
+- **(a)** 相对于图①中的正常砂轮状态，图②、③、④中导致砂轮切削能力下降的状态分别叫什么？
+- **(b)** 说明图②和图③中的砂轮切削能力下降的原因。
+- **(c)** 说明砂轮的自锐作用这一现象。
+
+**(3)** 根据图1-3中零件编号①的零件图，回答下列问题。
+
+- **(a)** 说明“M12”和“3-M12”的含义。
+- **(b)** 列出从 $102\times102\times22$ 的钢板（材料为 S45C）加工出该零件所需的切削刀具。
+
+**(4)** 简要说明机床中的“母性原则”。
+
+图1-1标明刀具、切削方向与各角度；图1-2标明磨粒、结合剂、气孔及切屑；图1-3保留零件尺寸、孔位、螺纹和表面粗糙度标注。
 
 ## **Kai**
 

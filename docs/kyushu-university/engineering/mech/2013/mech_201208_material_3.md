@@ -15,24 +15,36 @@ tags:
 
 ## **Description**
 
-図3の四分円形棒 AB は半径 $a$、直線棒 BC は長さ $a$ であり、A、C は固定端、B はピン継手である。両棒の直径は $d$、ヤング率は $E$、$a\gg d$ とする。図の B に作用する下向き荷重の大きさを $P$ とおく。
+図3の構造において，次の問に答えよ。（40点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-3-original.png)
+**1)** BC間のSFD，BMDを描きなさい。
 
-1. BC 間の SFD と BMD を描け。
-2. B の鉛直変位 $\delta_{BV}$ と水平変位 $\delta_{BH}$ を求めよ。
+**2)** 点Bの垂直方向変位 $\delta_{BV}$，水平方向変位 $\delta_{BH}$ を求めよ。
+
+![原題の図3：四分円形棒ABと直線棒BC](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-3-original.png)
+
+図中，$E$ はヤング率，$\phi d$ は直径 $d$ を表し，$a\gg d$ である。ABは半径 $a$ の四分円形棒，BCは長さ $a$ の直線棒で，A，Cは固定端，Bはピン継手である。図のBに作用する下向き荷重の大きさを $P$ とおく。
 
 #### 题目描述
 
-半径 $a$ 的四分之一圆弧杆 AB 和长 $a$ 的直杆 BC 在 B 铰接，A、C 固定。两杆直径均为 $d$，杨氏模量为 $E$，且 $a\gg d$。将图中 B 处向下荷载记为 $P$。求 BC 的剪力图、弯矩图，以及 B 的竖直、水平位移。
+对于图3的结构，回答下列问题。（40分）
+
+**1)** 画出BC段的剪力图（SFD）和弯矩图（BMD）。
+
+**2)** 求B点的竖直位移 $\delta_{BV}$ 和水平位移 $\delta_{BH}$。
+
+图中 $E$ 为杨氏模量，$\phi d$ 表示直径 $d$，且 $a\gg d$。AB为半径 $a$ 的四分之一圆弧杆，BC为长 $a$ 的直杆；A、C固定，B铰接。将图中B点向下的载荷大小记为 $P$。
 
 ## **Kai**
 
 円断面について
 
 $$
-A_s=\frac{\pi d^2}{4},\qquad I=\frac{\pi d^4}{64},\qquad
+\begin{gathered}
+A_s=\frac{\pi d^2}{4},\\
+I=\frac{\pi d^4}{64},\\
 \eta=\frac{I}{A_sa^2}=\frac{d^2}{16a^2}
+\end{gathered}
 $$
 
 とおく。剪断変形は無視し、曲げと軸方向変形を考える。水平変位を求めるため、BC の軸方向剛性も必要となる。
@@ -44,8 +56,10 @@ $$
 B を角度 0、A を角度 $\pi/2$ とする円弧上の断面で
 
 $$
-M=a\{P_1\sin\theta+H(1-\cos\theta)\},\qquad
+\begin{gathered}
+M=a\{P_1\sin\theta+H(1-\cos\theta)\},\\
 N=H\cos\theta-P_1\sin\theta.
+\end{gathered}
 $$
 
 円弧のエネルギー
@@ -77,9 +91,11 @@ $$
 そこで
 
 $$
-\alpha=\frac\pi4(1+\eta),\qquad
-\beta=\frac{1-\eta}{2},\qquad
+\begin{gathered}
+\alpha=\frac\pi4(1+\eta),\\
+\beta=\frac{1-\eta}{2},\\
 \gamma=\frac{3\pi}4-2+\left(1+\frac\pi4\right)\eta,
+\end{gathered}
 $$
 
 $$
@@ -89,9 +105,11 @@ $$
 とおく。二方向の変位の適合条件を解けば
 
 $$
-P_1=\frac{\gamma}{D_0}P,\qquad
-H=-\frac{\beta}{D_0}P,\qquad
+\begin{gathered}
+P_1=\frac{\gamma}{D_0}P,\\
+H=-\frac{\beta}{D_0}P,\\
 \boxed{P_2=\frac{3(\alpha\gamma-\beta^2)}{D_0}P}.
+\end{gathered}
 $$
 
 B から C へ向かう座標を $x\in[0,a]$ とし、正曲げを下側引張りと定めると
@@ -131,9 +149,11 @@ P_2\simeq\frac{3(3\pi^2-8\pi-4)}K P,
 $$
 
 $$
-\boxed{\delta_{BV}\simeq
-\frac{3\pi^2-8\pi-4}{K}\frac{Pa^3}{EI},\qquad
-\delta_{BH}\simeq\frac8K\frac{Pa}{EA_s}}.
+\boxed{\begin{gathered}
+\delta_{BV}\simeq
+\frac{3\pi^2-8\pi-4}{K}\frac{Pa^3}{EI},\\
+\delta_{BH}\simeq\frac8K\frac{Pa}{EA_s}
+\end{gathered}}.
 $$
 
 水平変位は鉛直変位に比べて小さいが、その先頭項を求めるときは $EA_s$ を有限のまま保つ。

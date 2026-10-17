@@ -15,25 +15,23 @@ tags:
 
 ## **Description**
 
-**問1** 次の極限の値を選択肢から選べ。
+**問1** $\displaystyle\lim_{x\to0}\frac{x^3}{x-\sin x}$ の答えを以下から選びなさい。
 
-$$
-\lim_{x\to0}\frac{x^3}{x-\sin x}.
-$$
+① $1$、② $2$、③ $3$、④ $6$、⑤ $0$、⑥ $-6$、⑦ $-3$、⑧ $-2$、⑨ $-1$
 
-① $1$、② $2$、③ $3$、④ $6$、⑤ $0$、⑥ $-6$、⑦ $-3$、⑧ $-2$、⑨ $-1$。
+**問2** $\displaystyle\int_0^\infty\int_0^\infty\frac{dx\,dy}{(1+x^2)(1+y^2)}$ の答えを以下から選びなさい。
 
-**問2** 次の重積分の値を選択肢から選べ。
-
-$$
-\int_0^\infty\int_0^\infty\frac{dx\,dy}{(1+x^2)(1+y^2)}.
-$$
-
-① $1$、② $1/3$、③ $1/4$、④ $0$、⑤ $\pi/4$、⑥ $\pi^2/4$、⑦ $\pi$、⑧ $2\pi$、⑨ $\pi^2$。
+① $1$、② $\dfrac13$、③ $\dfrac14$、④ $0$、⑤ $\dfrac\pi4$、⑥ $\dfrac{\pi^2}4$、⑦ $\pi$、⑧ $2\pi$、⑨ $\pi^2$
 
 #### 题目描述
 
-分别求极限 $\lim_{x\to0}x^3/(x-\sin x)$，以及第一象限上的广义二重积分 $\int_0^\infty\int_0^\infty[(1+x^2)(1+y^2)]^{-1}\,dx\,dy$，并选择日文题面中对应的选项。
+**问1** 从以下选项中选择 $\displaystyle\lim_{x\to0}\frac{x^3}{x-\sin x}$ 的答案。
+
+① $1$、② $2$、③ $3$、④ $6$、⑤ $0$、⑥ $-6$、⑦ $-3$、⑧ $-2$、⑨ $-1$
+
+**问2** 从以下选项中选择 $\displaystyle\int_0^\infty\int_0^\infty\frac{dx\,dy}{(1+x^2)(1+y^2)}$ 的答案。
+
+① $1$、② $\dfrac13$、③ $\dfrac14$、④ $0$、⑤ $\dfrac\pi4$、⑥ $\dfrac{\pi^2}4$、⑦ $\pi$、⑧ $2\pi$、⑨ $\pi^2$
 
 ## **Kai**
 
@@ -42,8 +40,11 @@ $$
 $\sin x=x-x^3/6+O(x^5)$ より、
 
 $$
+\begin{gathered}
 \lim_{x\to0}\frac{x^3}{x-\sin x}
-=\lim_{x\to0}\frac1{1/6+O(x^2)}=\boxed{6\text{（④）}}.
+=\lim_{x\to0}\frac1{1/6+O(x^2)}\\
+=\boxed{6\text{（④）}}.
+\end{gathered}
 $$
 
 ### 問2
@@ -51,9 +52,11 @@ $$
 被積分関数は非負で、各一変数積分は収束するから、
 
 $$
+\begin{gathered}
 \int_0^\infty\int_0^\infty\frac{dx\,dy}{(1+x^2)(1+y^2)}
-=\left([\arctan x]_0^\infty\right)^2
+=\left([\arctan x]_0^\infty\right)^2\\
 =\boxed{\frac{\pi^2}{4}\text{（⑥）}}.
+\end{gathered}
 $$
 
 ## **Reference**

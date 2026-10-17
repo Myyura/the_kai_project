@@ -13,18 +13,37 @@ tags:
 
 ## **Description**
 
-以下に示す (1)(2) の微分方程式の解を (A) 式で表すとき、係数 $a_0,a_1,a_2,\ldots,a_n,\ldots$ を求めよ。（50点）
+以下に示す(1)(2)の微分方程式の解を(A)式で表すとき、係数 $a_0,a_1,a_2,\ldots,a_n,\ldots$ を求めよ。（50点）
 
 $$
-y(x)=\sum_{n=0}^{\infty}a_nx^n=a_0+a_1x+a_2x^2+\cdots+a_nx^n+\cdots.\tag{A}
+\begin{aligned}
+y(x)&=\sum_{n=0}^{\infty}a_nx^n\\
+&=a_0+a_1x+a_2x^2+\cdots\\
+&\qquad{}+a_nx^n+\cdots.
+\end{aligned}
+\tag{A}
 $$
 
-1. $y'-y=0,\quad y(0)=1$
-2. $(x+1)y'+y-2x=0,\quad y(0)=0$
+(1) $\dfrac{dy(x)}{dx}-y(x)=0,\quad y(0)=1$
+
+(2) $(x+1)\dfrac{dy(x)}{dx}+y(x)-2x=0,\quad y(0)=0$
 
 #### 题目描述
 
-将两道初值问题的解展开为 $y=\sum_{n\ge0}a_nx^n$，求所有系数。
+将下面(1)、(2)中微分方程的解表示为式(A)时，求系数 $a_0,a_1,a_2,\ldots,a_n,\ldots$。（50分）
+
+$$
+\begin{aligned}
+y(x)&=\sum_{n=0}^{\infty}a_nx^n\\
+&=a_0+a_1x+a_2x^2+\cdots\\
+&\qquad{}+a_nx^n+\cdots.
+\end{aligned}
+\tag{A}
+$$
+
+(1) $\dfrac{dy(x)}{dx}-y(x)=0,\quad y(0)=1$。
+
+(2) $(x+1)\dfrac{dy(x)}{dx}+y(x)-2x=0,\quad y(0)=0$。
 
 ## **Kai**
 

@@ -13,17 +13,16 @@ tags:
 Zero
 
 ## **Description**
+
 図 $2.1$ に示すインダクタンス $L$ とキャパシタンス $C$ の並列回路に，以下の式で与えられる二つの異なる周波数成分を持つ電圧 $e_1(t)$ を印加する。ただし $t$ は時刻である。電圧，電流の数値の単位は，それぞれ V,A とする。 
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electrical_circuit_2_p1.png" width="150" alt=""/>
-</figure>
+![図2.1 並列LC回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electrical_circuit_2_p1.png)
 
 $$
 e_1(t) = 100\sqrt{2}\sin(500t) + \frac{100\sqrt{2}}{3}\sin(1500t)
 $$
 
-$L = 10$ mH,$C = 300\mu$ F として，以下の問に答えよ。なお，数値については小数点以下を四捨五入して整数で答えよ。
+$L = 10$ mH,$C = 300\mu$ F として，以下の問に答えよ。なお，数値については小数点以下を四捨五入して整数で答えよ。（100点）
 
 重ね合わせの理を用いて電流を求める。まず，$500$ rad/s 成分のみに着目する。 
 
@@ -56,9 +55,7 @@ e_3(t) &= 100\sqrt{2}\sin(500t + \frac{4\pi}{3}) + \frac{100\sqrt{2}}{3}\sin(150
 \end{aligned}
 $$
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electrical_circuit_2_p2.png" width="300" alt=""/>
-</figure>
+![図2.2 三相Y接続回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electrical_circuit_2_p2.png)
 
 (7) $500$ rad/s 成分の線間電圧の実効値を求めよ。
 
@@ -66,9 +63,9 @@ $$
 
 [公式問題 PDF・8ページ](https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=exam_ee_20218&key=cd5c2ecd3d4dc49c5c29e8de8374f19b.pdf&pageId=3186&prevId=&type=1)
 
-### 题目描述
+#### 题目描述
 
-如原 Description 图 2.1，把含两个不同频率分量的电压
+如图2.1，把含两个不同频率分量的电压
 
 $$
 e_1(t)
@@ -82,7 +79,7 @@ $$
 L=10\ \mathrm{mH},\qquad C=300\ \mu\mathrm F.
 $$
 
-电压、电流数值单位分别为 V、A；所有数值答案均对小数部分四舍五入取整数。使用叠加原理，先只看 $500\ \mathrm{rad/s}$ 分量：
+电压、电流数值单位分别为 V、A；所有数值答案均对小数部分四舍五入取整数。（100分）使用叠加原理，先只看 $500\ \mathrm{rad/s}$ 分量：
 
 1. 求该电压分量在电感中产生的电流有效值。
 2. 求该电压分量在电容中产生的电流有效值。
@@ -122,7 +119,7 @@ e_3(t)
 \end{aligned}
 $$
 
-并把三个与图 2.1 相同的负载作 Y 形连接，用三根导线接到电源；接线和导线 U 的位置以图 2.2 为准。
+并把三个与图 2.1 相同的负载作 Y 形连接，用三根导线接到电源。
 
 7. 求 $500\ \mathrm{rad/s}$ 分量的线电压有效值。
 8. 求导线 U 中电流的有效值。
@@ -169,10 +166,11 @@ $$
 $T=2\pi/\omega$ にわたり異なる高調波は直交するため、
 
 $$
-\frac{1}{T}\int_0^T\sin\omega t\sin3\omega t\,\mathrm dt=0,
-\qquad
-\frac{1}{T}\int_0^T\sin^2(n\omega t)\,\mathrm dt=\frac12
-\quad(n=1,3).
+\begin{gathered}
+\frac{1}{T}\int_0^T\sin\omega t\sin3\omega t\,\mathrm dt=0,\\
+\frac{1}{T}\int_0^T\sin^2(n\omega t)\,\mathrm dt=\frac12\\
+(n=1,3).
+\end{gathered}
 $$
 
 したがって、

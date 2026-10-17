@@ -20,7 +20,7 @@ tags:
 
 #### 题目描述
 
-设连续函数 $f:(0,\infty)\to\mathbb R$ 单调不增，且反常积分 $\int_0^\infty f(x)\,dx$ 收敛。
+设连续函数 $f:(0,\infty)\to\mathbb R$ 广义单调递减，即 $0<x\le y$ 时 $f(x)\ge f(y)$。进一步假设反常积分 $\int_0^\infty f(x)\,dx$ 收敛。
 
 1. 证明对所有 $x>0$ 都有 $f(x)\ge0$。
 2. 证明 $\lim_{x\to0+}xf(x)=\lim_{x\to\infty}xf(x)=0$。
@@ -32,7 +32,10 @@ tags:
 ある $a>0$ で $f(a)<0$ とすると、単調性より $x\ge a$ で $f(x)\le f(a)<0$ となる。したがって
 
 $$
-\int_a^b f(x)\,dx\le(b-a)f(a)\longrightarrow-\infty\qquad(b\to\infty),
+\begin{gathered}
+\int_a^b f(x)\,dx\le(b-a)f(a)\longrightarrow-\infty\\
+(b\to\infty),
+\end{gathered}
 $$
 
 これは広義積分の収束に反する。よって $f(x)\ge0$ である。
@@ -50,8 +53,11 @@ $$
 同様に
 
 $$
+\begin{gathered}
 0\le\frac{x}{2}f(x)\le\int_{x/2}^{x}f(t)\,dt
-\le\int_{x/2}^{\infty}f(t)\,dt\longrightarrow0\qquad(x\to\infty).
+\le\int_{x/2}^{\infty}f(t)\,dt\longrightarrow0\\
+(x\to\infty).
+\end{gathered}
 $$
 
 よって両方の極限は $0$ である。

@@ -14,16 +14,25 @@ tags:
 
 ## **Description**
 
-図の棒 AD、BD はヤング率 $E$、断面積 $A$ の弾性棒であり、CD は半径 $a$ の四分円形の剛体である。A、B、C は壁にピン支持され、D もピン結合である。AD $=b$、AB $=a$、棒 BD と水平線のなす角を $\theta$ とする。D に下向き荷重 $P$ を加える。各棒の伸びは長さに比べて十分小さい。
+図の構造において、以下の各問いに答えよ。ただし、各棒の伸びはその長さに比べて充分に小さいものとする。（40点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-1-original.png)
+**(1)** 棒 AD、棒 BD に作用する力をそれぞれ $Q,R$ とするとき、$Q$ および $R$ を求めよ。
 
-1. 棒 AD、BD に作用する力をそれぞれ $Q,R$ として、$Q,R$ を求めよ。
-2. D の水平方向変位 $\delta_{DH}$ と垂直方向変位 $\delta_{DV}$ を求めよ。
+**(2)** 着力点 D における水平方向変位 $\delta_{DH}$ および垂直方向変位 $\delta_{DV}$ を求めよ。
+
+図中、$E$ はヤング率、$A$ は断面積、丸印はピン結合を表す。AD の長さは $b$、CD は半径 $a$ の四分円形の剛体、棒 BD と AD のなす角は $\theta$ である。D に下向きの荷重 $P$ が作用する。
+
+![原題の棒と四分円剛体の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-1-original.png)
 
 #### 题目描述
 
-两根轴向刚度为 $EA$ 的弹性杆 AD、BD 与半径 $a$ 的四分圆刚体 CD 按图铰接。A、B、C 固定，AD 长 $b$、AB 长 $a$，BD 与水平线夹角为 $\theta$。D 受向下载荷 $P$，变形很小。求 AD、BD 的轴力和 D 的水平、竖直位移。
+对于图示结构，回答下列问题。各杆的伸长与其自身长度相比充分小。（40分）
+
+**(1)** 设杆 AD、BD 中的力分别为 $Q,R$，求 $Q,R$。
+
+**(2)** 求载荷作用点 D 的水平位移 $\delta_{DH}$ 和竖直位移 $\delta_{DV}$。
+
+图中 $E$ 为杨氏模量，$A$ 为截面积，圆圈表示铰接。AD 长 $b$，CD 为半径 $a$ 的四分之一圆刚体，BD 与 AD 之间的夹角为 $\theta$。D 点承受向下的载荷 $P$，各支承和连接位置如图。
 
 ## **Kai**
 
@@ -51,15 +60,19 @@ $$
 したがって、
 
 $$
-K=1+\cos\theta(\cos\theta+\sin\theta)^2
+\begin{gathered}
+K=1+\cos\theta(\cos\theta+\sin\theta)^2\\
 =1+\cos\theta+2\sin\theta\cos^2\theta
+\end{gathered}
 $$
 
 とおけば
 
 $$
-\boxed{Q=\frac{P}{K},\qquad
-R=\frac{P\cos\theta(\cos\theta+\sin\theta)}{K}}.
+\boxed{\begin{gathered}
+Q=\frac{P}{K},\\
+R=\frac{P\cos\theta(\cos\theta+\sin\theta)}{K}
+\end{gathered}}.
 $$
 
 いずれも引張力である。
@@ -69,9 +82,11 @@ $$
 AD の伸びが D の右向き変位に等しいため
 
 $$
-\boxed{\delta_{DH}=\delta_{DV}
-=\frac{Qb}{EA}
-=\frac{Pb}{EA\{1+\cos\theta+2\sin\theta\cos^2\theta\}}}.
+\boxed{\begin{gathered}
+\delta_{DH}=\delta_{DV}\\
+=\frac{Qb}{EA}\\
+=\frac{Pb}{EA\{1+\cos\theta+2\sin\theta\cos^2\theta\}}
+\end{gathered}}.
 $$
 
 $\delta_{DH}$ は右向き、$\delta_{DV}$ は下向きの大きさである。

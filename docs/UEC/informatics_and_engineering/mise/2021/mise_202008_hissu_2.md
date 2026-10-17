@@ -15,35 +15,67 @@ tags:
 
 ## **Description**
 
-(1) 連立方程式
+以下の設問に答えよ。
+
+(1) 次の $x_1,x_2,x_3$ に関する連立1次方程式が解をもつとき，定数 $a,b$ が満たすべき条件を求めよ。
 
 $$
-x_1-2x_2-ax_3=1,\qquad2x_1-3x_2+3x_3=b,\qquad x_1+x_2+x_3=0
+\begin{cases}
+x_1-2x_2-ax_3=1,\\
+2x_1-3x_2+3x_3=b,\\
+x_1+x_2+x_3=0.
+\end{cases}
 $$
 
-が解をもつための定数 $a,b$ の条件を求めよ。
-
-(2) 線形写像 $F:\mathbb R^3\to\mathbb R^2$ を
+(2) $\mathbb R^n$ を $n$ 次元の実数空間とし，線形写像 $F:\mathbb R^3\to\mathbb R^2$ を次式で定義する。
 
 $$
-F\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
-=\begin{pmatrix}x_1+ax_3\\3x_1+x_2+x_3\end{pmatrix}
+F:\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
+\mapsto\begin{bmatrix}x_1+ax_3\\3x_1+x_2+x_3\end{bmatrix}.
 $$
 
-と定義する。核 $\operatorname{Ker}F$ の基底の一つが $[1,b,1]^{\mathsf T}$ となるとき、$a,b$ を求めよ。
+線形写像 $F$ の核 $\operatorname{Ker}F$ の基底の1つが $[1,b,1]^{\mathsf T}$ となるとき，定数 $a,b$ の値を求めよ。ただし，記号の右上に付した添え字 $\mathsf T$ は転置を表す。
 
-(3) $x=[x_1,x_2]^{\mathsf T},y=[y_1,y_2]^{\mathsf T}$ とする。二次形式 $x^{\mathsf T}Ax$ が標準形 $y^{\mathsf T}By$ に変換でき、
+(3) $\boldsymbol x=[x_1,x_2]^{\mathsf T}$，$\boldsymbol y=[y_1,y_2]^{\mathsf T}$ であり，2次形式 $\boldsymbol x^{\mathsf T}A\boldsymbol x$ が標準形 $\boldsymbol y^{\mathsf T}B\boldsymbol y$ に変換できるとする。ここで，
 
 $$
-A=\begin{pmatrix}1&12\\12&a\end{pmatrix},\qquad
-B=\begin{pmatrix}-15&0\\0&b\end{pmatrix}
+A=\begin{bmatrix}1&12\\12&a\end{bmatrix},\qquad
+B=\begin{bmatrix}-15&0\\0&b\end{bmatrix}
 $$
 
-であるとき、$a,b$ を求め、$y_1,y_2$ を $x_1,x_2$ で表せ。
+である。このとき，定数 $a,b$ の値を求めよ。また，$x_1,x_2$ を用いて $y_1,y_2$ を表せ。
 
 #### 题目描述
 
-(1) 求所示三元线性方程组有解的参数条件。(2) 给定从 $\mathbb R^3$ 到 $\mathbb R^2$ 的线性映射，若 $[1,b,1]^{\mathsf T}$ 是核的一组基，求 $a,b$。(3) 将对称矩阵 $A$ 对应二次型化成对角项为 $-15,b$ 的标准形，求参数及新坐标。第(3)问按正交主轴变换理解。
+回答下列问题。
+
+(1) 求下列关于 $x_1,x_2,x_3$ 的线性方程组有解时，常数 $a,b$ 应满足的条件。
+
+$$
+\begin{cases}
+x_1-2x_2-ax_3=1,\\
+2x_1-3x_2+3x_3=b,\\
+x_1+x_2+x_3=0.
+\end{cases}
+$$
+
+(2) 以 $\mathbb R^n$ 表示 $n$ 维实数空间，定义线性映射 $F:\mathbb R^3\to\mathbb R^2$ 如下。
+
+$$
+F:\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
+\mapsto\begin{bmatrix}x_1+ax_3\\3x_1+x_2+x_3\end{bmatrix}.
+$$
+
+当线性映射 $F$ 的核 $\operatorname{Ker}F$ 的一个基为 $[1,b,1]^{\mathsf T}$ 时，求常数 $a,b$ 的值。其中右上角的上标 $\mathsf T$ 表示转置。
+
+(3) 设 $\boldsymbol x=[x_1,x_2]^{\mathsf T}$，$\boldsymbol y=[y_1,y_2]^{\mathsf T}$，二次型 $\boldsymbol x^{\mathsf T}A\boldsymbol x$ 可以变换为标准形 $\boldsymbol y^{\mathsf T}B\boldsymbol y$。这里
+
+$$
+A=\begin{bmatrix}1&12\\12&a\end{bmatrix},\qquad
+B=\begin{bmatrix}-15&0\\0&b\end{bmatrix}.
+$$
+
+求常数 $a,b$ 的值，并用 $x_1,x_2$ 表示 $y_1,y_2$。
 
 ## **Kai**
 
@@ -54,7 +86,10 @@ $$
 $a=-8/5$ のとき、第一式の5倍から第二式の3倍を引き第三式を加えると、左辺が0となる。整合条件は $5-3b=0$。係数行列の階数は2なので、この条件で無数の解をもつ。
 
 $$
-\boxed{a\ne-\frac85\ (b\text{ は任意}),\quad\text{または }a=-\frac85,\ b=\frac53.}
+\boxed{\begin{gathered}
+a\ne-\frac85\ (b\text{ は任意}),\\
+\text{または }a=-\frac85,\ b=\frac53.
+\end{gathered}}
 $$
 
 ### (2)

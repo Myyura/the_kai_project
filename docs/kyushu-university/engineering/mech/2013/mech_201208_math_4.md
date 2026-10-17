@@ -13,32 +13,61 @@ tags:
 
 ## **Description**
 
-$a,b,c,r,\lambda$ はすべて正の定数、$x,y$ は実数とする。行列・ベクトルを
+$a,b,c,r,\lambda$ はすべて正の定数、$x$ と $y$ は実数とする。行列 $A$、ベクトル $\boldsymbol z$、ベクトル $\boldsymbol p$ をそれぞれ
 
 $$
-A=\begin{pmatrix}1&a\\b&c\end{pmatrix},\quad
-\boldsymbol z=\begin{pmatrix}x\\y\end{pmatrix},\quad
-\boldsymbol p=\begin{pmatrix}1\\r\end{pmatrix}
+A=\begin{bmatrix}1&a\\b&c\end{bmatrix},\quad
+\boldsymbol z=\begin{bmatrix}x\\y\end{bmatrix},\quad
+\boldsymbol p=\begin{bmatrix}1\\r\end{bmatrix}
 $$
 
-とし、$I$ は $2\times2$ の単位行列、$\|\boldsymbol x\|=\sqrt{\boldsymbol x^{\mathsf T}\boldsymbol x}$ とする。次の各問いに答えよ。（50点）
+とする。$I$ は $2\times2$ の単位行列を表すものとする。また、任意のベクトル $\boldsymbol x$ に対し、記号 $\|\cdot\|$ は $\|\boldsymbol x\|=\sqrt{\boldsymbol x^{\mathsf T}\boldsymbol x}$ で定義されるベクトルノルムを表すものとする。次の各問いに答えよ。（50点）
 
-1. $c\ne ab$ のとき、$\|A\boldsymbol z-\boldsymbol p\|^2=0$ を満たす $\boldsymbol z$ を $a,b,c,r$ を用いて表せ。
-2. $c=ab$ および $r=b$ のとき、$\|A\boldsymbol z-\boldsymbol p\|^2=0$ を満たす $\boldsymbol z$ の領域を $xy$ 平面に図示せよ。$a,b$ のうち必要なものを用いて主要な座標を記入せよ。
-3. $c=ab$ のとき、適切な定数 $C$ と定数ベクトル $\boldsymbol q$ を用いて
+(1) $c\ne ab$ のとき、$\|A\boldsymbol z-\boldsymbol p\|^2=0$ を満たす $\boldsymbol z$ を $a,b,c,r$ を用いて表せ。
+
+(2) $c=ab$ および $r=b$ が満たされるとき、$\|A\boldsymbol z-\boldsymbol p\|^2=0$ を満たす $\boldsymbol z$ の領域を $xy$ 平面に図示せよ。この際、$a,b$ のうち必要なものを用いて主要な座標を記入せよ。
+
+(3) $c=ab$ が満たされるとき、適切な定数 $C$ と定数要素の2次元列ベクトル $\boldsymbol q$ を用いると
 
 $$
-\|A\boldsymbol z-\boldsymbol p\|^2+\lambda\|\boldsymbol z\|^2
-=(\boldsymbol z-\boldsymbol q)^{\mathsf T}(A^{\mathsf T}A+\lambda I)(\boldsymbol z-\boldsymbol q)+C
+\begin{aligned}
+&\|A\boldsymbol z-\boldsymbol p\|^2+\lambda\|\boldsymbol z\|^2\\
+&=(\boldsymbol z-\boldsymbol q)^{\mathsf T}(A^{\mathsf T}A+\lambda I)(\boldsymbol z-\boldsymbol q)+C
+\end{aligned}
 $$
 
-が成り立つ。この $\boldsymbol q$ を $A,I,\boldsymbol p,\lambda$ のみを用いて表せ。
+が成立する。このとき、$\boldsymbol q$ を $A,I,\boldsymbol p,\lambda$ のみを用いて（$a,b,c,r,C$ を用いずに）表せ。
 
-4. $b=c=0$ のとき、$\|A\boldsymbol z-\boldsymbol p\|^2+\lambda\|\boldsymbol z\|^2$ を最小化する $\boldsymbol z$ を $a,r,\lambda$ のうち必要なものを用いて表せ。
+(4) $b=c=0$ が満たされるとき、$\|A\boldsymbol z-\boldsymbol p\|^2+\lambda\|\boldsymbol z\|^2$ を最小化する $\boldsymbol z$ を $a,r,\lambda$ のうち必要なものを用いて表せ。
 
 #### 题目描述
 
-求二元线性方程的精确解、退化一致时的解直线，以及加上正则项后的配方中心和指定退化情况下的最小点。第 (4) 问按其单独给出的 $b=c=0$ 条件计算。
+$a,b,c,r,\lambda$ 均为正常数，$x,y$ 为实数。定义矩阵 $A$ 和向量 $\boldsymbol z,\boldsymbol p$ 为
+
+$$
+A=\begin{bmatrix}1&a\\b&c\end{bmatrix},\quad
+\boldsymbol z=\begin{bmatrix}x\\y\end{bmatrix},\quad
+\boldsymbol p=\begin{bmatrix}1\\r\end{bmatrix}.
+$$
+
+$I$ 表示 $2\times2$ 单位矩阵。对于任意向量 $\boldsymbol x$，符号 $\|\cdot\|$ 表示由 $\|\boldsymbol x\|=\sqrt{\boldsymbol x^{\mathsf T}\boldsymbol x}$ 定义的向量范数。回答以下各问。（50分）
+
+(1) 当 $c\ne ab$ 时，用 $a,b,c,r$ 表示满足 $\|A\boldsymbol z-\boldsymbol p\|^2=0$ 的 $\boldsymbol z$。
+
+(2) 当 $c=ab$ 且 $r=b$ 时，在 $xy$ 平面上画出满足 $\|A\boldsymbol z-\boldsymbol p\|^2=0$ 的 $\boldsymbol z$ 的区域，并用 $a,b$ 中所需的量标出主要坐标。
+
+(3) 当 $c=ab$ 时，存在适当的常数 $C$ 和各分量为常数的二维列向量 $\boldsymbol q$，使得
+
+$$
+\begin{aligned}
+&\|A\boldsymbol z-\boldsymbol p\|^2+\lambda\|\boldsymbol z\|^2\\
+&=(\boldsymbol z-\boldsymbol q)^{\mathsf T}(A^{\mathsf T}A+\lambda I)(\boldsymbol z-\boldsymbol q)+C.
+\end{aligned}
+$$
+
+仅用 $A,I,\boldsymbol p,\lambda$ 表示 $\boldsymbol q$，不得使用 $a,b,c,r,C$。
+
+(4) 当 $b=c=0$ 时，用 $a,r,\lambda$ 中所需的量表示使 $\|A\boldsymbol z-\boldsymbol p\|^2+\lambda\|\boldsymbol z\|^2$ 最小的 $\boldsymbol z$。
 
 ## **Kai**
 

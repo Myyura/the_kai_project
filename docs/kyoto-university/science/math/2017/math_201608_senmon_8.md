@@ -14,18 +14,37 @@ tags:
 
 ## **Description**
 
-$C^\infty$ 級関数 $u:\mathbb R\times[0,\infty)\to\mathbb R$ が
+$C^\infty$ 級関数 $u:\mathbb R\times[0,\infty)\to\mathbb R$ は偏微分方程式
 
 $$
-u_t(x,t)+u_{xxxx}(x,t)=t\sin x,\qquad
-u(x+2\pi,t)=u(x,t)
+\frac{\partial u}{\partial t}(x,t)+\frac{\partial^4u}{\partial x^4}(x,t)=t\sin x,
+\quad (x,t)\in\mathbb R\times[0,\infty)
 $$
 
-を満たすとする。$t\to\infty$ のとき $u(x,t)/t$ が $\mathbb R$ 上である関数 $g(x)$ に一様収束することを示し、$g$ を求めよ。
+および周期境界条件
+
+$$
+u(x+2\pi,t)=u(x,t),\quad (x,t)\in\mathbb R\times[0,\infty)
+$$
+
+を満たすとする。このとき，$t\to\infty$ で $u(x,t)/t$ はある関数 $g(x)$ に $\mathbb R$ 上で一様収束することを示し，その関数 $g(x)$ を求めよ。
 
 #### 题目描述
 
-光滑函数 $u:\mathbb R\times[0,\infty)\to\mathbb R$ 满足 $u_t+u_{xxxx}=t\sin x$，且对 $x$ 为 $2\pi$ 周期函数。证明 $t\to\infty$ 时 $u(x,t)/t$ 在整个实轴上一致收敛，并求极限函数。
+假设 $C^\infty$ 函数 $u:\mathbb R\times[0,\infty)\to\mathbb R$ 满足偏微分方程
+
+$$
+\frac{\partial u}{\partial t}(x,t)+\frac{\partial^4u}{\partial x^4}(x,t)=t\sin x,
+\quad (x,t)\in\mathbb R\times[0,\infty)
+$$
+
+及周期边界条件
+
+$$
+u(x+2\pi,t)=u(x,t),\quad (x,t)\in\mathbb R\times[0,\infty).
+$$
+
+证明当 $t\to\infty$ 时，$u(x,t)/t$ 在 $\mathbb R$ 上一致收敛于某函数 $g(x)$，并求该函数。
 
 ## **Kai**
 
@@ -41,8 +60,10 @@ $$
 を満たす。よって
 
 $$
-v(x,t)=\sum_{k\in\mathbb Z}c_ke^{-k^4t}e^{ikx},\qquad
+\begin{gathered}
+v(x,t)=\sum_{k\in\mathbb Z}c_ke^{-k^4t}e^{ikx},\\
 \sup_{x\in\mathbb R,\ t\ge0}|v(x,t)|\le\sum_{k\in\mathbb Z}|c_k|.
+\end{gathered}
 $$
 
 ゆえに $t>0$ について

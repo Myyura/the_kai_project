@@ -31,18 +31,26 @@ $$
 
 #### 题目描述
 
-设 $u\in C^2([0,1]\times[0,\infty))$ 为实值函数，满足
+假设 $C^2$ 函数 $u:[0,1]\times[0,\infty)\to\mathbb R$ 满足
 
 $$
-u_t=u_{xx}-u+\alpha\quad(0<x<1,t>0),
-\qquad u_x(0,t)=u_x(1,t)=0,
+\begin{cases}
+u_t(x,t)=u_{xx}(x,t)-u(x,t)+\alpha,&0<x<1,\ t>0,\\
+u_x(0,t)=u_x(1,t)=0,&t>0.
+\end{cases}
 $$
 
-其中 $\alpha=\int_0^1u(x,0)\,dx$。
+这里，$\displaystyle\alpha=\int_0^1u(x,0)\,dx$。
 
-1. 证明所有 $t\ge0$ 都有 $\int_0^1u(x,t)\,dx=\alpha$。
-2. 令 $E(t)=\int_0^1u_x(x,t)^2\,dx$，证明 $E(t)\to0$。
-3. 证明 $u(\cdot,t)$ 在 $[0,1]$ 上一致收敛到常数 $\alpha$。
+(1) 证明对任意 $t\ge0$，有 $\displaystyle\int_0^1u(x,t)\,dx=\alpha$。
+
+(2) 令 $\displaystyle E(t)=\int_0^1(u_x(x,t))^2\,dx$，证明 $\displaystyle\lim_{t\to\infty}E(t)=0$。
+
+(3) 证明
+
+$$
+\lim_{t\to\infty}\max_{x\in[0,1]}|\alpha-u(x,t)|=0.
+$$
 
 ## **Kai**
 
@@ -51,8 +59,11 @@ $$
 $m(t)=\int_0^1u(x,t)\,dx$ と置く。方程式と境界条件から、$t>0$ で
 
 $$
-m'(t)=\int_0^1u_t\,dx
-=[u_x]_0^1-m(t)+\alpha=-m(t)+\alpha.
+\begin{gathered}
+m'(t)=\int_0^1u_t\,dx\\
+=[u_x]_0^1-m(t)+\alpha\\
+=-m(t)+\alpha.
+\end{gathered}
 $$
 
 $m(0)=\alpha$ なので、この常微分方程式の解は $m(t)=\alpha$ である。

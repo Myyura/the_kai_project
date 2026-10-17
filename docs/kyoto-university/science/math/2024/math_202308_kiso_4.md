@@ -14,19 +14,35 @@ tags:
 
 ## **Description**
 
-$r>0$ に対して $\rho_r(x)=\sin\bigl(r e^{-r^2x^2}\bigr)$ とする。$f:\mathbb R\to\mathbb R$ は有界連続関数とする。
+$r$ を正の実数とし，$\mathbb R$ 上の関数 $\rho_r(x)$ を
 
-1. 各 $r>0$ で広義積分 $\int_{-\infty}^{\infty}f(x)\rho_r(x)\,dx$ が収束することを示す。
-2. $r\to\infty$ でこの積分が $0$ に収束することを示す。
-3. さらに $f$ が原点で微分可能で $f(0)=0$ なら、$r\int_{-\infty}^{\infty}f(x)\rho_r(x)\,dx\to0$ を示す。
+$$
+\rho_r(x)=\sin\left(re^{-r^2x^2}\right)
+$$
+
+と定義する。$\mathbb R$ 上の有界な実数値連続関数 $f(x)$ に対し，次の問に答えよ。
+
+(1) 任意の $r>0$ に対し，広義積分 $\displaystyle\int_{-\infty}^{\infty}f(x)\rho_r(x)\,dx$ が収束することを示せ。
+
+(2) $\displaystyle\lim_{r\to\infty}\int_{-\infty}^{\infty}f(x)\rho_r(x)\,dx=0$ を示せ。
+
+(3) $f(x)$ が $x=0$ で微分可能で $f(0)=0$ を満たすとき，$\displaystyle\lim_{r\to\infty}r\int_{-\infty}^{\infty}f(x)\rho_r(x)\,dx=0$ を示せ。
 
 #### 题目描述
 
-对 $r>0$ 令 $\rho_r(x)=\sin(re^{-r^2x^2})$，设 $f:\mathbb R\to\mathbb R$ 是有界连续函数。
+设 $r$ 为正实数，定义 $\mathbb R$ 上的函数 $\rho_r(x)$ 为
 
-1. 证明每个 $r>0$ 时 $\int_{\mathbb R}f(x)\rho_r(x)\,dx$ 收敛。
-2. 证明该积分在 $r\to\infty$ 时趋于 $0$。
-3. 若 $f$ 在原点可微且 $f(0)=0$，证明 $r\int_{\mathbb R}f(x)\rho_r(x)\,dx\to0$。
+$$
+\rho_r(x)=\sin\left(re^{-r^2x^2}\right).
+$$
+
+对于 $\mathbb R$ 上的有界实值连续函数 $f(x)$，回答下列问题。
+
+(1) 证明对任意 $r>0$，反常积分 $\displaystyle\int_{-\infty}^{\infty}f(x)\rho_r(x)\,dx$ 收敛。
+
+(2) 证明 $\displaystyle\lim_{r\to\infty}\int_{-\infty}^{\infty}f(x)\rho_r(x)\,dx=0$。
+
+(3) 当 $f(x)$ 在 $x=0$ 处可微且满足 $f(0)=0$ 时，证明 $\displaystyle\lim_{r\to\infty}r\int_{-\infty}^{\infty}f(x)\rho_r(x)\,dx=0$。
 
 ## **Kai**
 

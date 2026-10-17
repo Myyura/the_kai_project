@@ -15,13 +15,45 @@ tags:
 
 以下に示す微分方程式の一般解を求めよ。（50点）
 
-1. $y''-4y'+3y=0$
-2. $y''-4y'+3y=x$
-3. $y''-4y'+3y=x\cos x$
+(1)
+
+$$
+\frac{d^2y(x)}{dx^2}-4\frac{dy(x)}{dx}+3y(x)=0.
+$$
+
+(2)
+
+$$
+\frac{d^2y(x)}{dx^2}-4\frac{dy(x)}{dx}+3y(x)=x.
+$$
+
+(3)
+
+$$
+\frac{d^2y(x)}{dx^2}-4\frac{dy(x)}{dx}+3y(x)=x\cos(x).
+$$
 
 #### 题目描述
 
-分别求右端为 $0$、$x$、$x\cos x$ 的微分方程 $y^{\prime\prime}-4y^\prime+3y$ 的一般解。
+求下列微分方程的通解。（50分）
+
+(1)
+
+$$
+\frac{d^2y(x)}{dx^2}-4\frac{dy(x)}{dx}+3y(x)=0.
+$$
+
+(2)
+
+$$
+\frac{d^2y(x)}{dx^2}-4\frac{dy(x)}{dx}+3y(x)=x.
+$$
+
+(3)
+
+$$
+\frac{d^2y(x)}{dx^2}-4\frac{dy(x)}{dx}+3y(x)=x\cos(x).
+$$
 
 ## **Kai**
 
@@ -46,8 +78,12 @@ $$
 特解を $y_p=(ax+b)\cos x+(cx+d)\sin x$ とおいて係数を比較する。
 
 $$
-2a-4c=1,\quad 4a+2c=0,\quad
-2b+2c-4a-4d=0,\quad 2d-2a-4c+4b=0.
+\begin{gathered}
+2a-4c=1,\\
+4a+2c=0,\\
+2b+2c-4a-4d=0,\\
+2d-2a-4c+4b=0.
+\end{gathered}
 $$
 
 これより $(a,b,c,d)=(1/10,-1/25,-1/5,-11/50)$。したがって

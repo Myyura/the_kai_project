@@ -16,14 +16,13 @@ tags:
 
 $\Phi$ は区間 $[0,\infty)$ 上の単調増加で下に凸な連続関数であり、さらに $\Phi(0)=0$ および $\Phi(t)\ge t$ ($t\ge0$) を満たすとする。
 
+$\mathcal L$ を，$\mathbb R$ 上の実数値ルベーグ可測関数 $f$ で，ある $\lambda>0$ に対して
+
 $$
-\mathcal L=\left\{f\ \middle|\
-\begin{array}{l}f\text{ は }\mathbb R\text{ 上の実数値ルベーグ可測関数で、ある }\lambda>0\text{ に対して}\\
-\displaystyle\int_{\mathbb R}\Phi\left(\frac{|f(x)|}{\lambda}\right)dx\le1
-\end{array}\right\}
+\int_{\mathbb R}\Phi\left(\frac{|f(x)|}{\lambda}\right)\,dx\le1
 $$
 
-と定める。また、$f\in\mathcal L$ に対して
+を満たすもの全体の集合と定める。また、$f\in\mathcal L$ に対して
 
 $$
 \|f\|=\inf\left\{\lambda>0\ \middle|\ \int_{\mathbb R}\Phi\left(\frac{|f(x)|}{\lambda}\right)dx\le1\right\}
@@ -37,22 +36,25 @@ $$
 
 #### 题目描述
 
-设 $\Phi:[0,\infty)\to\mathbb R$ 连续、单调递增且为凸函数，满足 $\Phi(0)=0$ 和 $\Phi(t)\ge t$。定义
+设 $\Phi$ 是区间 $[0,\infty)$ 上单调递增的连续凸函数，并满足 $\Phi(0)=0$ 及 $\Phi(t)\ge t$（$t\in[0,\infty)$）。定义 $\mathcal L$ 为所有满足以下条件的 $\mathbb R$ 上实值勒贝格可测函数 $f$ 组成的集合：存在 $\lambda>0$ 使得
 
 $$
-\mathcal L=\left\{f:\mathbb R\to\mathbb R\text{ 为勒贝格可测函数}\ \middle|\
-\exists\lambda>0,\ \int_{\mathbb R}\Phi(|f(x)|/\lambda)\,dx\le1\right\},
+\int_{\mathbb R}\Phi\left(\frac{|f(x)|}{\lambda}\right)\,dx\le1.
 $$
 
-并对 $f\in\mathcal L$ 定义
+对 $f\in\mathcal L$，定义
 
 $$
-\|f\|=\inf\left\{\lambda>0\ \middle|\ \int_{\mathbb R}\Phi(|f(x)|/\lambda)\,dx\le1\right\}.
+\|f\|=\inf\left\{\lambda>0\ \middle|\ \int_{\mathbb R}\Phi\left(\frac{|f(x)|}{\lambda}\right)\,dx\le1\right\}.
 $$
 
-1. 证明 $\int_{\mathbb R}|f(x)|\,dx\le\|f\|$。
-2. 证明 $f,g\in\mathcal L$ 时，$f-g\in\mathcal L$ 且 $\|f-g\|\le\|f\|+\|g\|$。
-3. 若 $\{f_m\}\subset\mathcal L$ 对该量满足柯西条件，即每个 $\varepsilon>0$ 都存在 $N$ 使 $m,n\ge N$ 时 $\|f_m-f_n\|<\varepsilon$，证明存在 $f\in\mathcal L$ 使 $\|f_m-f\|\to0$。
+回答下列问题。
+
+(1) 当 $f\in\mathcal L$ 时，证明 $\int_{\mathbb R}|f(x)|\,dx\le\|f\|$。
+
+(2) 设 $f,g\in\mathcal L$。证明 $f-g\in\mathcal L$ 且 $\|f-g\|\le\|f\|+\|g\|$。
+
+(3) 假设由 $\mathcal L$ 的元素组成的序列 $\{f_m\}_{m=1}^{\infty}$ 具有以下性质：对任意 $\varepsilon>0$，存在正整数 $N$，使 $m\ge N,n\ge N$ 时 $\|f_m-f_n\|<\varepsilon$。证明存在 $f\in\mathcal L$，使 $\lim_{m\to\infty}\|f_m-f\|=0$。
 
 ## **Kai**
 

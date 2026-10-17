@@ -14,16 +14,25 @@ tags:
 
 ## **Description**
 
-図2の門形構造は、長さ $2\ell$ の水平はり AB と、高さ $\ell$ の柱 AC、BD からなる。C、D は固定端、A、B は剛接合であり、全材の曲げ剛性は $EI$。AB に下向き等分布荷重 $q$ が作用する。O は AB の中点である。
+図2の構造において，次の問に答えよ。（40点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-2-original.png)
+**1)** AB間のせん断力線図（SFD），曲げモーメント線図（BMD）を描け。
 
-1. AB 間の剪断力線図（SFD）と曲げモーメント線図（BMD）を描け。
-2. O の鉛直変位 $\delta_{OV}$ を求めよ。
+**2)** 点Oの垂直方向変位 $\delta_{OV}$ を求めよ。
+
+![原題の図2：等分布荷重を受ける門形構造](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-2-original.png)
+
+図中，$q$ は分布力（$\mathrm{N/m}$），$E$ はヤング率，$I$ は断面二次モーメントを表す。$AO=OB=AC=BD=\ell$ で，C，D端は固定され，AB全体に下向きの等分布荷重 $q$ が作用している。
 
 #### 题目描述
 
-门形刚架的横梁 AB 长 $2\ell$，两柱 AC、BD 高 $\ell$，柱脚固定，梁柱刚接，所有杆件的弯曲刚度为 $EI$。横梁受向下均布荷载 $q$，O 为其中点。求横梁的剪力图、弯矩图和 O 的竖直位移。
+对于图2的结构，回答下列问题。（40分）
+
+**1)** 画出AB段的剪力图（SFD）和弯矩图（BMD）。
+
+**2)** 求O点的竖直位移 $\delta_{OV}$。
+
+图中 $q$ 为分布载荷（$\mathrm{N/m}$），$E$ 为杨氏模量，$I$ 为截面二次矩。$AO=OB=AC=BD=\ell$，C、D端固定，AB全段承受向下的均布载荷 $q$。
 
 ## **Kai**
 
@@ -65,9 +74,11 @@ SFD は $V(-\ell)=q\ell$ から $V(\ell)=-q\ell$ への直線、BMD は両端 $-
 長さ $2\ell$ の単純支持梁の中央たわみから、両端モーメントによる上向き変位を差し引くと
 
 $$
+\begin{gathered}
 \delta_{OV}=\frac{5q(2\ell)^4}{384EI}
--\frac{m(2\ell)^2}{8EI}
+-\frac{m(2\ell)^2}{8EI}\\
 =\left(\frac5{24}-\frac2{15}\right)\frac{q\ell^4}{EI}.
+\end{gathered}
 $$
 
 よって

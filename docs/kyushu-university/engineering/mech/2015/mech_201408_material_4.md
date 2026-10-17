@@ -15,25 +15,32 @@ tags:
 
 ## **Description**
 
-図4の両端が閉じた薄肉円筒は内圧 $q_0$ を受けている。外直径は $D$、肉厚は $h$、長さは $\ell$、材料定数は $E,\nu$ とし、$\ell\gg a>D\gg h$ とする。両端に図の軸方向引張力 $P$ と、長さ $2a$ の腕に作用する一対の荷重 $Q$ を加えられる。
+図4のように、薄肉円筒が内圧 $q_0$ を受けている。次の各問に答えよ。（35点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-4-original.png)
+**(1)** 容器中央部表面（点 A）において、$\sigma_x=\sigma_y$ となるようにさらに荷重 $P$ を作用させる。このときの $P$ を $q_0$ の関数として求めよ。
 
-1. 中央表面 A で軸方向応力 $\sigma_x$ と円周方向応力 $\sigma_y$ が等しくなる $P$ を $q_0$ の関数として求めよ。
-2. その $P$ に加えて図の $Q$ を作用させる。$xy$ 軸から $\theta$ だけ傾いた $\xi\eta$ 軸方向の垂直ひずみが $\varepsilon_\xi=-\nu\varepsilon_\eta$ を満たすとき、$Q$ を $q_0$ の関数として求めよ。
-
-必要なら
+**(2)** (1) で求めた $P$ に加え、$Q$ も作用させた。点 A の $x$-$y$ 平面において、$x$-$y$ 軸から $\theta$ だけ傾いた軸である $\xi$-$\eta$ 軸において垂直ひずみを測定すると、$\varepsilon_\xi=-\nu\varepsilon_\eta$ であった。このときの $Q$ を $q_0$ の関数として求めよ。必要に応じて下記の応力変換式を使用してもよい。
 
 $$
-\sigma_\xi=\sigma_x\cos^2\theta+\sigma_y\sin^2\theta
-+2\tau_{xy}\cos\theta\sin\theta
+\begin{aligned}
+\sigma_\xi={}&\sigma_x\cos^2\theta+\sigma_y\sin^2\theta\\
+&+2\tau_{xy}\cos\theta\sin\theta.
+\end{aligned}
 $$
 
-を用いてよい。
+図中、$D$ は外直径、$\ell$ は容器長さ、$h$ は肉厚、$E$ はヤング率、$\nu$ はポアソン比であり、$\ell\gg a>D\gg h$。各端の腕の長さは中心からそれぞれ $a$ で、荷重の向きは図示のとおりである。
+
+![図4：内圧・軸荷重・ねじりを受ける薄肉円筒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-4-original.png)
 
 #### 题目描述
 
-图示封闭薄壁圆筒受内压 $q_0$，外径 $D$、壁厚 $h$、长 $\ell$、材料参数 $E,\nu$，且 $\ell\gg a>D\gg h$。求使中部轴向和环向正应力相等的端部拉力 $P$；再加图示力偶 $Q$ 后，若倾斜 $\theta$ 的两正交方向应变满足 $\varepsilon_\xi=-\nu\varepsilon_\eta$，求 $Q$。
+如图4，薄壁圆筒承受内压 $q_0$。回答下列问题。（35分）
+
+**(1)** 进一步施加载荷 $P$，使容器中央表面的 A 点满足 $\sigma_x=\sigma_y$。将此时的 $P$ 表示为 $q_0$ 的函数。
+
+**(2)** 在 (1) 求得的 $P$ 之外，再施加图示载荷 $Q$。在 A 点的 $x$-$y$ 平面内，沿相对 $x$-$y$ 轴转过角度 $\theta$ 的 $\xi$-$\eta$ 轴测量正应变，得到 $\varepsilon_\xi=-\nu\varepsilon_\eta$。将此时的 $Q$ 表示为 $q_0$ 的函数。需要时可使用上面的应力变换式。
+
+图中 $D$ 为外径，$\ell$ 为容器长度，$h$ 为壁厚，$E$ 为杨氏模量，$\nu$ 为泊松比，且 $\ell\gg a>D\gg h$。两端各力臂从中心向两侧的长度均为 $a$，载荷方向如图所示。
 
 ## **Kai**
 
@@ -71,8 +78,11 @@ $$
 応力変換式から
 
 $$
-0=\sigma_\xi=\sigma_0+\tau_{xy}\sin2\theta
+\begin{gathered}
+0=\sigma_\xi\\
+=\sigma_0+\tau_{xy}\sin2\theta\\
 =\frac{q_0D}{2h}-\frac{4aQ}{\pi D^2h}\sin2\theta.
+\end{gathered}
 $$
 
 よって

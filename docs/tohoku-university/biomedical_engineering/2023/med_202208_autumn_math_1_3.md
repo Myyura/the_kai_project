@@ -17,27 +17,27 @@ tags:
 
 1. 次の極限を求めよ。
    1. $\displaystyle\lim_{x\to0}\frac{x^2}{1-\cos x}$
-   2. $\displaystyle\lim_{x\to0^+}\frac{\sqrt{x}}{\log x}$
-   3. $\displaystyle\lim_{x\to0^+}\frac{\tan^{-1}x}{\sqrt{x}}$
+   2. $\displaystyle\lim_{x\to0}\frac{\sqrt{x}}{\log x}$
+   3. $\displaystyle\lim_{x\to0}\frac{\tan^{-1}x}{\sqrt{x}}$
 2. 次の不定積分を求めよ。
    1. $\displaystyle\int(6x-3)^5\,dx$
    2. $\displaystyle\int\frac{1}{\sqrt[3]{1-2x}}\,dx$
    3. $\displaystyle\int x^2\log x^2\,dx$
    4. $\displaystyle\int\frac{1}{3x^2+2x-1}\,dx$
-3. 曲線 $y=2\sqrt{x}-x^2$ と直線 $y=x$ が囲む領域の面積を求めよ。
+3. $xy$ 平面上で曲線 $y=2\sqrt{x}-x^2$ と直線 $y=x$ とで囲まれた図形の面積を求めよ。
 
 #### 题目描述
 
 1. 计算下列极限：
    1. $\displaystyle\lim_{x\to0}\frac{x^2}{1-\cos x}$；
-   2. $\displaystyle\lim_{x\to0^+}\frac{\sqrt{x}}{\log x}$；
-   3. $\displaystyle\lim_{x\to0^+}\frac{\tan^{-1}x}{\sqrt{x}}$。
+   2. $\displaystyle\lim_{x\to0}\frac{\sqrt{x}}{\log x}$；
+   3. $\displaystyle\lim_{x\to0}\frac{\tan^{-1}x}{\sqrt{x}}$。
 2. 计算下列不定积分：
    1. $\displaystyle\int(6x-3)^5\,dx$；
    2. $\displaystyle\int\frac{1}{\sqrt[3]{1-2x}}\,dx$；
    3. $\displaystyle\int x^2\log x^2\,dx$；
    4. $\displaystyle\int\frac{1}{3x^2+2x-1}\,dx$。
-3. 求曲线 $y=2\sqrt{x}-x^2$ 与直线 $y=x$ 所围成区域的面积。
+3. 求 $xy$ 平面上曲线 $y=2\sqrt{x}-x^2$ 与直线 $y=x$ 所围成图形的面积。
 
 ## **Kai**
 ### 問題1
@@ -92,13 +92,16 @@ $$
 \begin{aligned}
 \int (6x-3)^5 dx
 &= 3^5 \int t^5 \frac{dt}{2}
-\ \ \ \ \ \ \ \ (t=2x-1)
+\\
+&\quad (t=2x-1)
 \\
 &= \frac{3^5}{2 \cdot 6} t^6 + C
-\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+&\quad ( C \text{ は積分定数 } )
 \\
 &= \frac{81}{4} (2x-1)^6 + C
-\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+&\quad ( C \text{ は積分定数 } )
 \end{aligned}
 $$
 
@@ -108,13 +111,16 @@ $$
 \begin{aligned}
 \int \frac{1}{\sqrt[3]{1-2x}} dx
 &= \int t^{- \frac{1}{3}} \frac{-dt}{2}
-\ \ \ \ \ \ \ \ (t=1-2x)
+\\
+&\quad (t=1-2x)
 \\
 &= - \frac{1}{2} \cdot \frac{3}{2} t^\frac{2}{3} + C
-\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+&\quad ( C \text{ は積分定数 } )
 \\
 &= - \frac{3}{4} (1-2x)^\frac{2}{3} + C
-\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+&\quad ( C \text{ は積分定数 } )
 \end{aligned}
 $$
 
@@ -128,7 +134,8 @@ $$
 &= \frac{1}{3} x^3 \log x^2 - \frac{2}{3} \int x^2 dx
 \\
 &= \frac{1}{3} x^3 \log x^2 - \frac{2}{9} x^3 + C
-\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+&\quad ( C \text{ は積分定数 } )
 \end{aligned}
 $$
 
@@ -146,7 +153,8 @@ $$
 \\
 &= - \frac{1}{4} \log |x+1|
 + \frac{1}{4} \log \left| x - \frac{1}{3} \right| + C
-\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+&\quad ( C \text{ は積分定数 } )
 \end{aligned}
 $$
 

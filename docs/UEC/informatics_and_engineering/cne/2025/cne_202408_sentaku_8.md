@@ -16,47 +16,139 @@ tags:
 
 ## **Description**
 
-命題 $\alpha,\beta$ について $\alpha\land\beta$, $\alpha\lor\beta$, $\alpha\to\beta$, $\alpha\leftrightarrow\beta$ の真理値表を作れ。さらに (i) $\alpha\to\beta$、(ii) $\neg(\alpha\land\beta)$、(iii) $\forall x\neg P(x)$ と同値な式を求めよ。次に、$A=\{1,2,3\}$ とし、$A^2$ 上の関係
+**1.** $\alpha$ と $\beta$ は命題を表し、$P(x)$ は $x$ を変数とする述語論理式を表す。
+
+（1）論理式 $\alpha\land\beta$、$\alpha\lor\beta$、$\alpha\to\beta$、$\alpha\leftrightarrow\beta$ の真理値表を書け。なお、真は 1、偽は 0 で表すこと。
+
+（2）以下の（i）〜（iii）の論理式に対し、常に真偽が一致する論理式を直後の選択肢より一つ選び、（a）〜（d）の記号で答えよ。
+
+（i）$\alpha\to\beta$
+
+| （a） | （b） | （c） | （d） |
+|---|---|---|---|
+| $\beta\to\alpha$ | $\beta\to\neg\alpha$ | $\neg\beta\to\alpha$ | $\neg\beta\to\neg\alpha$ |
+
+（ii）$\neg(\alpha\land\beta)$
+
+| （a） | （b） | （c） | （d） |
+|---|---|---|---|
+| $\neg\alpha\land\neg\beta$ | $\neg\alpha\lor\neg\beta$ | $\neg(\neg\alpha\land\neg\beta)$ | $\neg(\neg\alpha\lor\neg\beta)$ |
+
+（iii）$\forall x\neg P(x)$
+
+| （a） | （b） | （c） | （d） |
+|---|---|---|---|
+| $\neg(\forall xP(x))$ | $\neg(\forall x\neg P(x))$ | $\neg(\exists xP(x))$ | $\neg(\exists x\neg P(x))$ |
+
+**2.** 集合 $A=\{1,2,3\}$、$A^2=A\times A$ 上の関係 $R_1$ と $R_2$ について以下の問に答えよ。
+
+（1）
 
 $$
-((a,b),(c,d))\in R_1\iff a+b=c+d,
+\begin{gathered}
+R_1=\{((a,b),(c,d))\in A^2\times A^2\mid a+b\\
+=c+d\}
+\end{gathered}
 $$
 
-$$
-((a,b),(c,d))\in R_2
-\iff (a=c\land b=d)\lor(a<c\land b<d)
-$$
+とすると、$R_1$ は同値関係である。$A^2$ の $R_1$ による同値類をすべて書け。各同値類の要素もすべて記述すること。
 
-について、$R_1$ の同値類と半順序 $R_2$ の Hasse 図を求めよ。
-
-最後に、$|w|_1,|w|_0$ を語 $w\in\{0,1\}^*$ に含まれる $1,0$ の個数とし、
+（2）
 
 $$
 \begin{aligned}
-L_1&=\{w\mid |w|_1-|w|_0\text{ は偶数}\},&
-L_2&=\{w\mid |w|_1\le2^{100}\},\\
-L_3&=\{w\mid |w|_1\le|w|_0\},&
-L_4&=L_1\cup L_2,\quad L_5=L_1\cap L_2,\\
-L_6&=L_1\cup L_3,&
-L_7&=L_1\cap L_3,\\
-L_8&=L_2\cup L_3,&
-L_9&=L_2\cap L_3
+R_2=\{((a,b),(c,d))\in A^2\times A^2\mid{}&((a=c)\land(b=d))\\
+&\lor((a<c)\land(b<d))\}
 \end{aligned}
 $$
 
-が正則か否かを判定せよ。
+とすると、$R_2$ は半順序である。半順序集合 $(A^2,R_2)$ のハッセ図を描け。
 
-[公式問題（PDF第12頁）](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_4_i_choice202408.pdf)の 1.(2) では、同値な式を次の (a)～(d) から選ぶ。
+**3.** 以下の（1）〜（9）で示す各々の言語 $L_1\sim L_9$ に対し、正則（すなわちそれを受理する有限オートマトンが存在する）ならば ○、正則でないならば × で答えよ。なお、どれも入力記号集合は $\Sigma=\{0,1\}$ とし、任意の語 $w\in\Sigma^*$ に対し、$w$ の含む “1” の数と “0” の数を各々 $|w|_1$ と $|w|_0$ で表現する。
 
-| 問 | (a) | (b) | (c) | (d) |
-|---|---|---|---|---|
-|(i)|$\beta\to\alpha$|$\beta\to\neg\alpha$|$\neg\beta\to\alpha$|$\neg\beta\to\neg\alpha$|
-|(ii)|$\neg\alpha\land\neg\beta$|$\neg\alpha\lor\neg\beta$|$\neg(\neg\alpha\land\neg\beta)$|$\neg(\neg\alpha\lor\neg\beta)$|
-|(iii)|$\neg(\forall xP(x))$|$\neg(\forall x\neg P(x))$|$\neg(\exists xP(x))$|$\neg(\exists x\neg P(x))$|
+（1）$L_1=\{w\in\Sigma^*\mid (|w|_1-|w|_0)\text{ は偶数}\}$
 
-### 题目描述
+（2）$L_2=\{w\in\Sigma^*\mid |w|_1\le2^{100}\}$
 
-求命题逻辑与谓词逻辑的等价式；列出给定等价关系的所有等价类并绘制偏序的 Hasse 图；最后判断九个由字符计数、奇偶性及固定上界定义的语言是否为正则语言。
+（3）$L_3=\{w\in\Sigma^*\mid |w|_1\le|w|_0\}$
+
+（4）$L_4=L_1\cup L_2$
+
+（5）$L_5=L_1\cap L_2$
+
+（6）$L_6=L_1\cup L_3$
+
+（7）$L_7=L_1\cap L_3$
+
+（8）$L_8=L_2\cup L_3$
+
+（9）$L_9=L_2\cap L_3$
+
+命題：proposition、変数：variable、述語論理式：predicate logic expression、論理式：logic expression、真理値表：truth table、真：true、偽：false、集合：set、関係：relation、同値関係：equivalence relation、同値類：equivalence class、半順序：partial order、半順序集合：partially ordered set、ハッセ図：Hasse diagram、言語：language、正則：regular、受理：accept、有限オートマトン：finite automaton、入力記号集合：input alphabet set、語：word、偶数：even number。
+
+#### 题目描述
+
+**1.** $\alpha,\beta$ 表示命题，$P(x)$ 表示以 $x$ 为变量的谓词逻辑式。
+
+（1）写出 $\alpha\land\beta$、$\alpha\lor\beta$、$\alpha\to\beta$、$\alpha\leftrightarrow\beta$ 的真值表，用 1 表示真、0 表示假。
+
+（2）对下列（i）～（iii），从各自的（a）～（d）中选择一个与所给式子始终具有相同真值的逻辑式，回答字母。
+
+（i）$\alpha\to\beta$：
+
+（a）$\beta\to\alpha$；（b）$\beta\to\neg\alpha$；（c）$\neg\beta\to\alpha$；（d）$\neg\beta\to\neg\alpha$。
+
+（ii）$\neg(\alpha\land\beta)$：
+
+（a）$\neg\alpha\land\neg\beta$；（b）$\neg\alpha\lor\neg\beta$；（c）$\neg(\neg\alpha\land\neg\beta)$；（d）$\neg(\neg\alpha\lor\neg\beta)$。
+
+（iii）$\forall x\neg P(x)$：
+
+（a）$\neg(\forall xP(x))$；（b）$\neg(\forall x\neg P(x))$；（c）$\neg(\exists xP(x))$；（d）$\neg(\exists x\neg P(x))$。
+
+**2.** 设 $A=\{1,2,3\}$、$A^2=A\times A$，回答关于 $A^2$ 上关系 $R_1,R_2$ 的问题。
+
+（1）定义
+
+$$
+\begin{gathered}
+R_1=\{((a,b),(c,d))\in A^2\times A^2\mid a+b\\
+=c+d\},
+\end{gathered}
+$$
+
+则 $R_1$ 是等价关系。写出 $A^2$ 关于 $R_1$ 的全部等价类，须列出每个等价类的全部元素。
+
+（2）定义
+
+$$
+\begin{aligned}
+R_2=\{((a,b),(c,d))\in A^2\times A^2\mid{}&((a=c)\land(b=d))\\
+&\lor((a<c)\land(b<d))\},
+\end{aligned}
+$$
+
+则 $R_2$ 是偏序。画出偏序集 $(A^2,R_2)$ 的 Hasse 图。
+
+**3.** 判断以下（1）～（9）的语言 $L_1\sim L_9$ 是否为正则语言，即是否存在接受它的有限自动机。正则填 ○，非正则填 ×。所有语言的输入字母表均为 $\Sigma=\{0,1\}$。对任意单词 $w\in\Sigma^*$，其中 “1” 与 “0” 的数量分别记为 $|w|_1,|w|_0$。
+
+（1）$L_1=\{w\in\Sigma^*\mid (|w|_1-|w|_0)\text{ 为偶数}\}$
+
+（2）$L_2=\{w\in\Sigma^*\mid |w|_1\le2^{100}\}$
+
+（3）$L_3=\{w\in\Sigma^*\mid |w|_1\le|w|_0\}$
+
+（4）$L_4=L_1\cup L_2$
+
+（5）$L_5=L_1\cap L_2$
+
+（6）$L_6=L_1\cup L_3$
+
+（7）$L_7=L_1\cap L_3$
+
+（8）$L_8=L_2\cup L_3$
+
+（9）$L_9=L_2\cap L_3$
 
 ## **Kai**
 
@@ -168,3 +260,7 @@ $$
   $$
 
   は正則言語の有限和なので正則である。
+
+## **Reference**
+
+- [大学公表の原題](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_4_i_choice202408.pdf)

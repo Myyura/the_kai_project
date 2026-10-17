@@ -13,35 +13,79 @@ tags:
 
 ## **Description**
 
-### 題意の要約
+### (1)
 
-[大学公開の原題、14 ページ](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/202203kiso.pdf#page=14)
+行列
 
-1. $A=\begin{pmatrix}1&2&0\\-1&-2&1\\0&0&1\end{pmatrix}$ とする。(a) 固有値と対応する固有ベクトルを求める。(b) $A^3+aA^2+bA+cE=O$ を満たす係数 $a,b,c$ を求める。(c) $A^4+A^3-A^2+4A-5E$ を計算する。$E$ は単位行列である。
-2. $F(s)=\int_0^\infty e^{-st}f(t)\,dt$ とする。(a) $a>0$ に対して
+$$
+A=\begin{pmatrix}1&2&0\\-1&-2&1\\0&0&1\end{pmatrix}
+$$
 
-   $$
-   \mathcal L[f(at+b)](s)=\frac{e^{bs/a}}a\left[F(s/a)-\int_0^b e^{-st/a}f(t)\,dt\right]
-   $$
+について考える．以下の問に答えよ．
 
-   を示す。ただし $at+b\le0$ では $f(at+b)=0$ とする。(b) この関係を利用し、$f(t+2)-3f(t+1)+2f(t)=t$（$t\ge0$）および $f(t)=0$（$0\le t\le2$）から $F(s)$ を求める。
+(a) $A$ のすべての固有値と，それに対応する固有ベクトルを求めよ．
 
-### 题目描述
+(b) 行列に関する方程式，$A^3+aA^2+bA+cE=O$ の係数 $a,b,c$ を求めよ．ただし，$E$ は3行3列の単位行列，$O$ は零行列である．
 
-1. 给定
+(c) 行列 $A^4+A^3-A^2+4A-5E$ を計算せよ．
 
-   $$
-   A=\begin{pmatrix}1&2&0\\-1&-2&1\\0&0&1\end{pmatrix},
-   $$
+### (2)
 
-   $E$ 为单位矩阵。求特征值和对应特征向量；求满足 $A^3+aA^2+bA+cE=O$ 的 $a,b,c$；计算 $A^4+A^3-A^2+4A-5E$。
-2. 设 $F(s)=\int_0^\infty e^{-st}f(t)\,dt$。对 $a>0$，证明
+関数 $f(t)$ のラプラス変換を $F(s)=\mathcal L[f(t)]=\displaystyle\int_0^\infty e^{-st}f(t)\,dt$ とする．以下の問に答えよ．
 
-   $$
-   \mathcal L[f(at+b)](s)=\frac{e^{bs/a}}a\left[F(s/a)-\int_0^b e^{-st/a}f(t)\,dt\right],
-   $$
+(a)
 
-   其中 $at+b\le0$ 时令 $f(at+b)=0$。再利用这一关系，由 $f(t+2)-3f(t+1)+2f(t)=t$（$t\ge0$）及 $f(t)=0$（$0\le t\le2$）求 $F(s)$。
+$$
+\mathcal L[f(at+b)]=\frac{e^{bs/a}}a\left\{F\left(\frac sa\right)-\int_0^b e^{-st/a}f(t)\,dt\right\}
+$$
+
+となることを導け．ここで，$a>0$．また，$at+b\le0$ のとき，$f(at+b)=0$ である．
+
+(b) 上式を用いて，以下の差分方程式，
+
+$$
+\begin{cases}
+f(t+2)-3f(t+1)+2f(t)=t&(t\ge0)\\
+f(t)=0&(0\le t\le2),
+\end{cases}
+$$
+
+を満たす $f(t)$ に対する $F(s)$ を求めよ．
+
+#### 题目描述
+
+**(1)** 考虑矩阵
+
+$$
+A=\begin{pmatrix}1&2&0\\-1&-2&1\\0&0&1\end{pmatrix}.
+$$
+
+回答下列问题。
+
+(a) 求 $A$ 的所有特征值及对应的特征向量。
+
+(b) 求矩阵方程 $A^3+aA^2+bA+cE=O$ 的系数 $a,b,c$。其中 $E$ 为三阶单位矩阵，$O$ 为零矩阵。
+
+(c) 计算矩阵 $A^4+A^3-A^2+4A-5E$。
+
+**(2)** 设函数 $f(t)$ 的拉普拉斯变换为 $F(s)=\mathcal L[f(t)]=\displaystyle\int_0^\infty e^{-st}f(t)\,dt$。回答下列问题。
+
+(a) 导出
+
+$$
+\mathcal L[f(at+b)]=\frac{e^{bs/a}}a\left\{F\left(\frac sa\right)-\int_0^b e^{-st/a}f(t)\,dt\right\}.
+$$
+
+其中 $a>0$；当 $at+b\le0$ 时，$f(at+b)=0$。
+
+(b) 利用上式，求满足下列差分方程的 $f(t)$ 对应的 $F(s)$：
+
+$$
+\begin{cases}
+f(t+2)-3f(t+1)+2f(t)=t&(t\ge0),\\
+f(t)=0&(0\le t\le2).
+\end{cases}
+$$
 
 ## **Kai**
 ### (1)
@@ -116,7 +160,7 @@ $$
 
 である。
 
-#### ($c$)
+#### (c)
 
 $$
 \begin{aligned}
@@ -175,10 +219,10 @@ $$
 
 $$
 \begin{aligned}
-e^{2s} \left\{ F(s) - \int_0^2 e^{-st} f(t) dt \right\}
--3e^{s} \left\{ F(s) - \int_0^1 e^{-st} f(t) dt \right\}
-+ 2F(s)
-= \frac{1}{s^2}
+&e^{2s} \left\{ F(s) - \int_0^2 e^{-st} f(t) dt \right\}\\
+&{}-3e^{s} \left\{ F(s) - \int_0^1 e^{-st} f(t) dt \right\}
++ 2F(s)\\
+&= \frac{1}{s^2}
 \end{aligned}
 $$
 
@@ -202,3 +246,7 @@ F(s)
 $$
 
 を得る。
+
+## **Reference**
+
+- [公式問題（PDF）](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/202203kiso.pdf#page=14)

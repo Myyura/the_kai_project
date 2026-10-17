@@ -27,7 +27,7 @@ $$
 
 #### 题目描述
 
-设 $f:[0,\infty)\to\mathbb R$ 连续，令 $f_n(x)=f(x+n)$。已知 $\{f_n\}$ 在 $[0,\infty)$ 上一致收敛。
+设 $f:[0,\infty)\to\mathbb R$ 连续，对正整数 $n$，令 $f_n(x)=f(x+n)$。已知 $\{f_n\}$ 在 $[0,\infty)$ 上一致收敛。
 
 (i) 令 $g(x)=\lim_{n\to\infty}f_n(x)$，证明 $g$ 在 $[0,\infty)$ 上一致连续。
 
@@ -68,7 +68,8 @@ $$
 $$
 \begin{aligned}
 |f(x)-f(y)|
-&\le |f(x)-g(x-N)|+|g(x-N)-g(y-N)|\\
+&\le |f(x)-g(x-N)|\\
+&\quad+|g(x-N)-g(y-N)|\\
 &\qquad+|g(y-N)-f(y)|<\varepsilon.
 \end{aligned}
 $$

@@ -14,16 +14,29 @@ tags:
 
 ## **Description**
 
-図2の棒 BD、BF はヤング率 $E$、断面積 $A$ の弾性棒である。B は固定位置のピン、CF は C でピン支持された一本の剛体で、D では折れ曲がらない。BD は D で CF の中心線上にピン接合される。CD $=a$、DF $=b$、BD は水平、BF は水平から角度 $\theta$ だけ下がる。F に右向き荷重 $P$ を加える。
+図2の構造において，次の問に答えよ。（40点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-2-original.png)
+**1)** 棒BD，BFに作用する力 $Q_{BD},Q_{BF}$ を求めよ。
 
-1. BD、BF の軸力 $Q_{BD},Q_{BF}$ を求めよ。
-2. F の水平変位 $\delta_{FH}$ を求めよ。
+**2)** 着力点Fの水平方向変位 $\delta_{FH}$ を求めよ。
+
+ただし，棒BD，BFのヤング率を $E$，断面積を $A$ とする。また，棒CFは点Dで折れ曲がらない。棒BDは点Dで棒CFの中心線上にピンで接合している。
+
+![原題の図2：棒BD・BFと剛体CF](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-2-original.png)
+
+図中，$CD=a$，$DF=b$，棒BDとBFのなす角は $\theta$，点Fには右向き荷重 $P$ が作用する。
 
 #### 题目描述
 
-图示弹性杆 BD、BF 的轴向刚度均为 $EA$，B 为固定铰点。竖直刚杆 CF 在 C 铰支，D 处连续，BD 在其中心线上铰接。CD 长 $a$，DF 长 $b$，BF 与水平夹角为 $\theta$。F 受水平向右力 $P$。求两弹性杆轴力和 F 的水平位移。
+对于图2的结构，回答下列问题。（40分）
+
+**1)** 求杆BD、BF所受的力 $Q_{BD},Q_{BF}$。
+
+**2)** 求载荷作用点F的水平位移 $\delta_{FH}$。
+
+杆BD、BF的杨氏模量均为 $E$，截面积均为 $A$。杆CF在点D处不会折弯，杆BD在D点通过铰接连接于杆CF的中心线上。
+
+图中CF为刚体，$CD=a$、$DF=b$，杆BD与BF的夹角为 $\theta$，F点承受向右的载荷 $P$；支承和铰接位置如图。
 
 ## **Kai**
 
@@ -45,8 +58,10 @@ $$
 引張りを正とすると
 
 $$
-\delta_{DH}=\frac{L_{BD}}{EA}Q_{BD},\qquad
+\begin{gathered}
+\delta_{DH}=\frac{L_{BD}}{EA}Q_{BD},\\
 \delta_{FH}\cos\theta=\frac{L_{BF}}{EA}Q_{BF}.
+\end{gathered}
 $$
 
 したがって
@@ -83,8 +98,10 @@ $$
 より
 
 $$
-\boxed{\delta_{FH}=
+\boxed{\begin{gathered}
+\delta_{FH}=
 \frac{Pb(a+b)^2\cos\theta}
-{EA\sin\theta\{a^2+(a+b)^2\cos^3\theta\}}
-\quad\text{（右向き）}}.
+{EA\sin\theta\{a^2+(a+b)^2\cos^3\theta\}}\\
+\text{（右向き）}
+\end{gathered}}.
 $$

@@ -542,6 +542,11 @@ a.button,
 }
 
 /* Display 公式横向滚动：长推导式在移动端不溢出视口（与 NoteEditor 预览一致） */
+.markdown table {
+  /* Keep KaTeX's absolutely positioned accessibility text inside table scrolling. */
+  position: relative;
+}
+
 .katex-display {
   overflow-x: auto;
   overflow-y: hidden;

@@ -41,25 +41,31 @@ $$
 
 #### 题目描述
 
-设 $H$ 是希尔伯特空间，$H_1,H_2,\ldots$ 是两两正交的有限维子空间，满足 $(\bigcup_{n\ge1}H_n)^\perp=\{0\}$。正整数 $n$ 时，$P_n$ 为到 $H_n$ 的正交投影；整数 $n\le0$ 时令 $P_n=0$。
-
-有界线性算子 $T:H\to H$ 满足
+设 $H$ 为希尔伯特空间，$H_1,H_2,\ldots$ 为 $H$ 中两两正交的有限维子空间，满足
 
 $$
-\|TP_n\|\to0,\qquad
-\sum_{n\in\mathbb Z}a_n<\infty,\qquad
-a_n=\sup_{k\ge1}\|P_{n+k}TP_k\|,
+\left(\bigcup_{n=1}^{\infty}H_n\right)^\perp=\{0\}.
 $$
 
-其中 $\|\cdot\|$ 表示算子范数。对 $n\in\mathbb Z$，定义
+对正整数 $n$，以 $P_n$ 表示从 $H$ 到 $H_n$ 的正交投影；对整数 $n\le0$，令 $P_n=0$。
+
+假设有界线性算子 $T:H\to H$ 满足以下两个条件。
+
+(i) $\lim_{n\to\infty}\|TP_n\|=0$。
+
+(ii) 令 $a_n=\sup_{k\ge1}\|P_{n+k}TP_k\|$，则 $\sum_{n\in\mathbb Z}a_n<\infty$。
+
+这里，对算子 $A$，$\|A\|$ 表示其算子范数。对 $n\in\mathbb Z$，定义算子 $S_n:H\to H$ 为
 
 $$
-S_nx=\sum_{k=1}^\infty P_{n+k}TP_kx.
+S_nx=\sum_{k=1}^{\infty}P_{n+k}TP_kx\qquad(x\in H).
 $$
 
-1. 证明 $\|S_n\|\le a_n$。
-2. 证明 $S_n$ 是紧算子。
-3. 证明 $T$ 是紧算子。
+(1) 证明 $\|S_n\|\le a_n$。
+
+(2) 证明 $S_n$ 是紧算子。
+
+(3) 证明 $T$ 是紧算子。
 
 ## **Kai**
 

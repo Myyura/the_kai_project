@@ -13,26 +13,75 @@ tags:
 
 ## **Description**
 
-### 原題に基づく要約（日本語）
+### 1
 
-[公式原題](https://www.civil.tohoku.ac.jp/admission/img/2023_spring_BasicSubjectsJ.pdf)
+次の極限値を求めよ．ただし，$a>0,b>0$ とする．
 
-1. $a,b>0$ に対し、$\displaystyle\lim_{x\to0}((a^x+b^x)/2)^{1/x}$ を求める。
-2. $x=r\cos\theta,\ y=r\sin\theta$ のとき $dx,dy$ を計算し、$x\,dy-y\,dx$ を $r,dr,d\theta$ で表す。
-3. 領域 $D=\{(x,y,z):y,z\ge0,\ z^2\le4x,\ y^2\le x-x^2\}$ の形と積分範囲を示し、体積を計算する。
-4. 微分方程式 $y''-2y'+2y=e^x+2x$ の一般解を求める。
+$$
+\lim_{x\to0}\left(\frac{a^x+b^x}{2}\right)^{1/x}
+$$
 
-### 题目描述
+### 2
 
-1. 对 $a,b>0$，计算
+$x=r\cos\theta,y=r\sin\theta$ のとき，以下の問いに答えよ．
 
-   $$
-   \lim_{x\to0}\left(\frac{a^x+b^x}{2}\right)^{1/x}.
-   $$
+(1) $dx$ および $dy$ を求めよ．
 
-2. 在极坐标变换 $x=r\cos\theta,\ y=r\sin\theta$ 下，求 $dx,dy$，并用 $r,dr,d\theta$ 表示 $x\,dy-y\,dx$。
-3. 对区域 $D=\{(x,y,z):y,z\ge0,\ z^2\le4x,\ y^2\le x-x^2\}$，说明其形状与积分范围，计算体积。
-4. 求微分方程 $y''-2y'+2y=e^x+2x$ 的通解。
+(2) $r,dr,\theta,d\theta$ を用いて次式を表せ．
+
+$$
+x\,dy-y\,dx
+$$
+
+### 3
+
+次に示す $xyz$ 空間の領域 $D$ を考える．このとき，以下の問いに答えよ．
+
+$$
+D=\{(x,y,z)\mid y\ge0,\ z\ge0,\ z^2\le4x,\ y^2\le x-x^2\}
+$$
+
+(1) 領域 $D$ を図示せよ．
+
+(2) 領域 $D$ の体積を求めよ．
+
+### 4
+
+次の微分方程式を解け．ここで，$e$ は自然対数の底である．
+
+$$
+y''-2y'+2y-e^x-2x=0
+$$
+
+#### 题目描述
+
+**1** 求下列极限，其中 $a>0,b>0$。
+
+$$
+\lim_{x\to0}\left(\frac{a^x+b^x}{2}\right)^{1/x}
+$$
+
+**2** 当 $x=r\cos\theta,y=r\sin\theta$ 时，回答下列问题。
+
+(1) 求 $dx$ 和 $dy$。
+
+(2) 用 $r,dr,\theta,d\theta$ 表示 $x\,dy-y\,dx$。
+
+**3** 考虑 $xyz$ 空间中的区域
+
+$$
+D=\{(x,y,z)\mid y\ge0,\ z\ge0,\ z^2\le4x,\ y^2\le x-x^2\}.
+$$
+
+(1) 画出区域 $D$。
+
+(2) 求区域 $D$ 的体积。
+
+**4** 解下列微分方程，其中 $e$ 为自然对数的底。
+
+$$
+y''-2y'+2y-e^x-2x=0
+$$
 
 ## **Kai**
 ### 1.

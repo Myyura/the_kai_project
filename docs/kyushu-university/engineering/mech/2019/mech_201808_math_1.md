@@ -17,13 +17,45 @@ tags:
 
 以下に示す微分方程式の一般解をそれぞれ求めよ。なお、積分定数は適宜定義してよい。（50点）
 
-1. $y''(x)-5y'(x)+6y(x)=e^{2x}$
-2. $x^2y''(x)-4xy'(x)+6y(x)=0$
-3. $y''(x)-\{y'(x)\}^2=0$
+(1)
+
+$$
+\frac{d^2y(x)}{dx^2}-5\frac{dy(x)}{dx}+6y(x)=e^{2x}.
+$$
+
+(2)
+
+$$
+x^2\frac{d^2y(x)}{dx^2}-4x\frac{dy(x)}{dx}+6y(x)=0.
+$$
+
+(3)
+
+$$
+\frac{d^2y(x)}{dx^2}-\left(\frac{dy(x)}{dx}\right)^2=0.
+$$
 
 #### 题目描述
 
-分别求三个微分方程的一般解，积分常数可自行定义：① $y''-5y'+6y=e^{2x}$；② $x^2y''-4xy'+6y=0$；③ $y''-(y')^2=0$。
+分别求下列微分方程的通解。积分常数可以自行适当定义。（50分）
+
+(1)
+
+$$
+\frac{d^2y(x)}{dx^2}-5\frac{dy(x)}{dx}+6y(x)=e^{2x}.
+$$
+
+(2)
+
+$$
+x^2\frac{d^2y(x)}{dx^2}-4x\frac{dy(x)}{dx}+6y(x)=0.
+$$
+
+(3)
+
+$$
+\frac{d^2y(x)}{dx^2}-\left(\frac{dy(x)}{dx}\right)^2=0.
+$$
 
 ## **Kai**
 
@@ -40,7 +72,10 @@ $$
 $x\ne0$ の区間で $y=x^m$ とおくと
 
 $$
-m(m-1)-4m+6=(m-2)(m-3)=0.
+\begin{gathered}
+m(m-1)-4m+6=(m-2)(m-3)\\
+=0.
+\end{gathered}
 $$
 
 したがって
@@ -56,10 +91,13 @@ $x>0$、$x<0$ のいずれの区間でも同じ形となる。
 $u=y'$ とおくと $u'=u^2$。$u\ne0$ の場合は
 
 $$
-\frac{du}{u^2}=dx
-\quad\Longrightarrow\quad
-u=-\frac1{x-C_1},\qquad
-\boxed{y(x)=-\log|x-C_1|+C_2}\quad(x\ne C_1).
+\begin{gathered}
+\frac{du}{u^2}=dx\\
+\Longrightarrow\\
+u=-\frac1{x-C_1},\\
+\boxed{y(x)=-\log|x-C_1|+C_2}\\
+(x\ne C_1).
+\end{gathered}
 $$
 
 また、$u=0$ に対応する定数解 $\boxed{y(x)=C}$ もある。

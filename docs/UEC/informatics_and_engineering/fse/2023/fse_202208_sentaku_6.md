@@ -18,30 +18,77 @@ tags:
 
 ## **Description**
 
-1. 実数 $a$ に対して
+**（1）** 実数 $a$ に対して、
 
-   $$
-   A=\begin{pmatrix}
-   -1&1+a&-2\\
-   0&1&0\\
-   4&1-a&5
-   \end{pmatrix}
-   $$
+$$
+A=\begin{bmatrix}-1&1+a&-2\\0&1&0\\4&1-a&5\end{bmatrix}
+$$
 
-   の固有値、最大固有値の固有空間、および対角化可能となる $a$ の条件を求めよ。
-2. $g(x,y)=(x^2+xy)e^y$ の停留点と極値を求めよ。
-3. 円板 $D=\{(x,y)\mid x^2+y^2\le\pi^2\}$ 上の
+を考える。
 
-   $$
-   \iint_D\sin\sqrt{x^2+y^2}\,dx\,dy
-   $$
+（a）$A$ の固有値をすべて求めよ。
 
-   を求めよ。
-4. 微分方程式 $9yy'+4x=0$ と $y''+2y'-3y=0$ の一般解を求めよ。
+（b）$A$ の最大の固有値を $\lambda_1$ とする。$\lambda_1$ に対する $A$ の固有空間の基底を求めよ。
 
-### 题目描述
+（c）$A$ が対角化可能であるための $a$ の条件を求めよ。
 
-本题包括含参数矩阵的特征值、特征空间与可对角化条件，二元函数的驻点和极值，圆域上的二重积分，以及一阶、二阶常微分方程。
+**（2）** 関数 $g(x,y)=(x^2+xy)e^y$ について以下の問いに答えよ。
+
+（a）$g_x(a,b)=g_y(a,b)=0$ を満たす点 $(a,b)$ をすべて求めよ。ただし、$g_x=\partial g/\partial x$、$g_y=\partial g/\partial y$ である。
+
+（b）$g$ の極値を求めよ。
+
+**（3）** 次の重積分の値を求めよ。
+
+$$
+\begin{gathered}
+I=\iint_D\sin\sqrt{x^2+y^2}\,dx\,dy,\\
+D=\{(x,y)\mid x^2+y^2\le\pi^2\}.
+\end{gathered}
+$$
+
+**（4）** 次の微分方程式の一般解を求めよ。ここで、$y'=dy/dx$、$y''=d^2y/dx^2$ とする。
+
+（a）$9yy'+4x=0$
+
+（b）$y''+2y'-3y=0$
+
+実数：real number、固有値：eigenvalue、固有空間：eigenspace、基底：basis、対角化可能：diagonalizable、極値：extremum、重積分：multiple integral、微分方程式：differential equation、一般解：general solution。
+
+#### 题目描述
+
+**（1）** 对实数 $a$，考虑矩阵
+
+$$
+A=\begin{bmatrix}-1&1+a&-2\\0&1&0\\4&1-a&5\end{bmatrix}.
+$$
+
+（a）求 $A$ 的全部特征值。
+
+（b）设 $A$ 的最大特征值为 $\lambda_1$，求 $A$ 对应于 $\lambda_1$ 的特征空间的一组基。
+
+（c）求 $A$ 可对角化时 $a$ 必须满足的条件。
+
+**（2）** 对函数 $g(x,y)=(x^2+xy)e^y$，回答：
+
+（a）求全部满足 $g_x(a,b)=g_y(a,b)=0$ 的点 $(a,b)$。其中 $g_x=\partial g/\partial x$、$g_y=\partial g/\partial y$。
+
+（b）求 $g$ 的极值。
+
+**（3）** 求重积分
+
+$$
+\begin{gathered}
+I=\iint_D\sin\sqrt{x^2+y^2}\,dx\,dy,\\
+D=\{(x,y)\mid x^2+y^2\le\pi^2\}.
+\end{gathered}
+$$
+
+**（4）** 求下列微分方程的通解。其中 $y'=dy/dx$、$y''=d^2y/dx^2$。
+
+（a）$9yy'+4x=0$
+
+（b）$y''+2y'-3y=0$
 
 ## **Kai**
 
@@ -53,7 +100,8 @@ $$
 \begin{aligned}
 \det(\lambda I-A)
 &=(\lambda-1)
-\det\begin{pmatrix}\lambda+1&2\\-4&\lambda-5\end{pmatrix}\\
+\det\begin{pmatrix}\lambda+1&2\\
+-4&\lambda-5\end{pmatrix}\\
 &=(\lambda-1)^2(\lambda-3).
 \end{aligned}
 $$
@@ -107,8 +155,10 @@ $$
 #### (a)
 
 $$
-g_x=(2x+y)e^y,\qquad
+\begin{gathered}
+g_x=(2x+y)e^y,\\
 g_y=x(x+y+1)e^y.
+\end{gathered}
 $$
 
 したがって停留点は
@@ -139,9 +189,10 @@ $$
 が正定値である。よって、
 
 $$
-\boxed{\text{極小値 }-e^{-2}\text{ を }(1,-2)\text{ でとる}},
-\qquad
+\begin{gathered}
+\boxed{\text{極小値 }-e^{-2}\text{ を }(1,-2)\text{ でとる}},\\
 \boxed{\text{極大値なし}}.
+\end{gathered}
 $$
 
 ### (3)
@@ -188,3 +239,7 @@ $$
 $$
 \boxed{y=C_1e^x+C_2e^{-3x}}.
 $$
+
+## **Reference**
+
+- [大学公表の原題](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_s_choice202208.pdf)

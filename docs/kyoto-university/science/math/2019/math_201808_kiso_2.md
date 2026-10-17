@@ -29,7 +29,7 @@ $$
 
 #### 题目描述
 
-对复数 $\alpha$，定义矩阵
+对复数 $\alpha$，定义 $3$ 阶复方阵
 
 $$
 A(\alpha)=\begin{pmatrix}

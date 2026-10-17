@@ -16,72 +16,147 @@ tags:
 
 ## **Description**
 
-実関数の内積を
+1. 実関数の内積を以下の式で定義する。
 
 $$
-(f_1,f_2)=\int_{-\pi}^{\pi}f_1(x)f_2(x)\,dx
+(f_1(x),f_2(x))=\int_{-\pi}^{\pi}f_1(x)f_2(x)\,dx.\tag{1.1}
 $$
 
-で定義する。実定数 $a_0,a_1,a_2,b_0,b_1,b_2$ を用いて
+関数 $f(x),g(x)$ を
 
 $$
-f(x)=\frac{a_0}{\sqrt{2\pi}}+\frac{a_1}{\sqrt\pi}\cos x+\frac{a_2}{\sqrt\pi}\sin x,
+f(x)=a_0\frac1{\sqrt{2\pi}}+a_1\frac1{\sqrt\pi}\cos x+a_2\frac1{\sqrt\pi}\sin x,\tag{1.2}
 $$
 
 $$
-g(x)=\frac{b_0}{\sqrt{2\pi}}+\frac{b_1}{\sqrt\pi}\cos x+\frac{b_2}{\sqrt\pi}\sin x
+g(x)=b_0\frac1{\sqrt{2\pi}}+b_1\frac1{\sqrt\pi}\cos x+b_2\frac1{\sqrt\pi}\sin x\tag{1.3}
 $$
 
-とする。以下の問いに答えよ。
+とする。ここで、$a_0,a_1,a_2,b_0,b_1,b_2$ は実定数である。以下の問いに答えよ。
 
-1-1　$(f,g)$ を計算せよ。
+### 1-1
 
-1-2　演算子 $\hat O_1=2+d/dx$ に対して
+$(f(x),g(x))$ を計算せよ。
 
-$$
-(f,\hat O_1g)=(a_0\ a_1\ a_2)A
-\begin{pmatrix}b_0\\b_1\\b_2\end{pmatrix}
-$$
+### 1-2
 
-を満たす $3\times3$ 実行列 $A$ を具体的な値で示せ。
-
-1-3　$\hat O_2=1+2d/dx+2d^2/dx^2$ について $(f,\hat O_2^3f)$ を計算せよ。
-
-1-4　次の微分方程式を考える。
+演算子 $\hat O_1=2+\dfrac{d}{dx}$ を考えると
 
 $$
-\left(2\frac{d^4}{dx^4}+\frac{d^2}{dx^2}\right)f(x)=\lambda f(x).
+(f(x),\hat O_1g(x))=
+\begin{pmatrix}a_0&a_1&a_2\end{pmatrix}A
+\begin{pmatrix}b_0\\b_1\\b_2\end{pmatrix}\tag{1.4}
 $$
 
-境界条件は $f(\pi)=-1,f'(-\pi)=0$ とし、$\lambda$ は実定数とする。この方程式が成り立つすべての $\lambda$ と、それぞれに対応する $a_0,a_1,a_2$ を答えよ。
+をみたす3行3列の実行列 $A$ が存在する。$A$ を具体的な値で示せ。
 
-1-5　実定数 $\alpha_0,\ldots,\alpha_n,\beta_1,\ldots,\beta_n$ により
+### 1-3
+
+演算子 $\hat O_2=1+2\dfrac{d}{dx}+2\dfrac{d^2}{dx^2}$ について、$(f(x),(\hat O_2)^3f(x))$ を計算せよ。
+
+### 1-4
+
+次の微分方程式について考える。
 
 $$
-g_n(x)=\frac12\alpha_0+\sum_{k=1}^n(\alpha_k\cos kx+\beta_k\sin kx)
+\left(2\frac{d^4}{dx^4}+\frac{d^2}{dx^2}\right)f(x)=\lambda f(x).\tag{1.5}
 $$
 
-を定義する。周期 $2\pi$ の関数 $h(x)=|x|\ (-\pi\le x<\pi)$、$h(x+2\pi)=h(x)$ との自乗平均誤差
+境界条件は $f(\pi)=-1,f'(-\pi)=0$ とし、$\lambda$ は実定数とする。ここで $f'(x)$ は $f(x)$ の導関数である。この微分方程式が成立する全ての $\lambda$ の値とそれぞれの $\lambda$ に対応した $a_0,a_1,a_2$ の値を答えよ。
+
+### 1-5
+
+実定数 $\alpha_0,\alpha_1,\ldots,\alpha_n,\beta_1,\beta_2,\ldots,\beta_n$ を用いて関数 $g_n(x)$ を
 
 $$
-\frac1{2\pi}\int_{-\pi}^{\pi}(h(x)-g_n(x))^2\,dx
+g_n(x)=\frac12\alpha_0+\sum_{k=1}^n(\alpha_k\cos kx+\beta_k\sin kx)\tag{1.6}
 $$
 
-を最小にする $\alpha_0,\alpha_k,\beta_k\ (k=1,\ldots,n)$ を求めよ。これらはフーリエ係数となる。また $\lim_{n\to\infty}(g_n,g_n)$ を計算し、その過程を簡潔に説明せよ。
+と定義する。関数 $g_n(x)$ と $2\pi$ を周期とする次の関数
+
+$$
+h(x)=|x|\quad(-\pi\le x<\pi),\qquad h(x+2\pi)=h(x)\tag{1.7}
+$$
+
+との自乗平均誤差
+
+$$
+\frac1{2\pi}\int_{-\pi}^{\pi}(h(x)-g_n(x))^2\,dx\tag{1.8}
+$$
+
+が最小となるように $\alpha_0,\alpha_k,\beta_k\ (k=1,\ldots,n)$ を決定する。このとき $\alpha_0,\alpha_k,\beta_k\ (k=1,\ldots,n)$ はフーリエ係数となっている。$\alpha_0,\alpha_k,\beta_k\ (k=1,\ldots,n)$ を計算するとともに、$\displaystyle\lim_{n\to\infty}(g_n(x),g_n(x))$ の値がいくらになるかを計算し、その過程を簡潔に説明せよ。
 
 #### 题目描述
 
-实函数内积定义为 $(f_1,f_2)=\int_{-\pi}^{\pi}f_1f_2\,dx$。函数 $f,g$ 在正交归一基 $1/\sqrt{2\pi},\cos x/\sqrt\pi,\sin x/\sqrt\pi$ 下的系数分别为 $(a_0,a_1,a_2)$ 和 $(b_0,b_1,b_2)$，系数均为实数。
+1. 实函数的内积定义为
 
-1-1：求 $(f,g)$。
+$$
+(f_1(x),f_2(x))=\int_{-\pi}^{\pi}f_1(x)f_2(x)\,dx.\qquad(1.1)
+$$
 
-1-2：求微分算符 $\hat O_1=2+d/dx$ 的矩阵 $A$，使 $(f,\hat O_1g)=a^{\mathsf T}Ab$。
+设函数 $f(x),g(x)$ 为
 
-1-3：令 $\hat O_2=1+2d/dx+2d^2/dx^2$，求 $(f,\hat O_2^3f)$。
+$$
+f(x)=a_0\frac1{\sqrt{2\pi}}+a_1\frac1{\sqrt\pi}\cos x+a_2\frac1{\sqrt\pi}\sin x,\qquad(1.2)
+$$
 
-1-4：在上述三维函数空间内，求满足 $(2d^4/dx^4+d^2/dx^2)f=\lambda f$ 及 $f(\pi)=-1,f'(-\pi)=0$ 的所有 $\lambda,a_0,a_1,a_2$。
+$$
+g(x)=b_0\frac1{\sqrt{2\pi}}+b_1\frac1{\sqrt\pi}\cos x+b_2\frac1{\sqrt\pi}\sin x,\qquad(1.3)
+$$
 
-1-5：用三角多项式 $g_n=\alpha_0/2+\sum_{k=1}^n(\alpha_k\cos kx+\beta_k\sin kx)$ 逼近周期延拓的 $h(x)=|x|$。求使均方误差 $(2\pi)^{-1}\int_{-\pi}^{\pi}(h-g_n)^2\,dx$ 最小的全部系数，并求 $\lim_{n\to\infty}(g_n,g_n)$，简述推导。
+其中 $a_0,a_1,a_2,b_0,b_1,b_2$ 均为实常数。回答以下问题。
+
+**1-1**
+
+计算 $(f(x),g(x))$。
+
+**1-2**
+
+考虑算子 $\hat O_1=2+\dfrac{d}{dx}$，存在一个 $3\times3$ 实矩阵 $A$ 满足
+
+$$
+(f(x),\hat O_1g(x))=
+\begin{pmatrix}a_0&a_1&a_2\end{pmatrix}A
+\begin{pmatrix}b_0\\b_1\\b_2\end{pmatrix}.\qquad(1.4)
+$$
+
+求出 $A$ 的具体数值。
+
+**1-3**
+
+对于算子 $\hat O_2=1+2\dfrac{d}{dx}+2\dfrac{d^2}{dx^2}$，计算 $(f(x),(\hat O_2)^3f(x))$。
+
+**1-4**
+
+考虑微分方程
+
+$$
+\left(2\frac{d^4}{dx^4}+\frac{d^2}{dx^2}\right)f(x)=\lambda f(x).\qquad(1.5)
+$$
+
+边界条件为 $f(\pi)=-1,f'(-\pi)=0$，$\lambda$ 为实常数，$f'(x)$ 为 $f(x)$ 的导函数。求使该微分方程成立的所有 $\lambda$ 值，以及每个 $\lambda$ 对应的 $a_0,a_1,a_2$。
+
+**1-5**
+
+用实常数 $\alpha_0,\alpha_1,\ldots,\alpha_n,\beta_1,\beta_2,\ldots,\beta_n$ 定义函数
+
+$$
+g_n(x)=\frac12\alpha_0+\sum_{k=1}^n(\alpha_k\cos kx+\beta_k\sin kx).\qquad(1.6)
+$$
+
+将函数 $g_n(x)$ 与以下周期为 $2\pi$ 的函数进行比较：
+
+$$
+h(x)=|x|\quad(-\pi\le x<\pi),\qquad h(x+2\pi)=h(x).\qquad(1.7)
+$$
+
+选择 $\alpha_0,\alpha_k,\beta_k\ (k=1,\ldots,n)$，使均方误差
+
+$$
+\frac1{2\pi}\int_{-\pi}^{\pi}(h(x)-g_n(x))^2\,dx\qquad(1.8)
+$$
+
+最小。这时 $\alpha_0,\alpha_k,\beta_k\ (k=1,\ldots,n)$ 就是傅里叶系数。求这些系数，同时计算 $\displaystyle\lim_{n\to\infty}(g_n(x),g_n(x))$ 的值，并简要说明计算过程。
 
 ## **Kai**
 
@@ -142,9 +217,11 @@ $$
 さらに部分積分により
 
 $$
-\alpha_k=\frac2\pi\int_0^\pi x\cos kx\,dx
-=\boxed{\frac{2((-1)^k-1)}{\pi k^2}}
+\begin{gathered}
+\alpha_k=\frac2\pi\int_0^\pi x\cos kx\,dx\\
+=\boxed{\frac{2((-1)^k-1)}{\pi k^2}}\\
 =\begin{cases}-4/(\pi k^2)&k\text{ が奇数},\\0&k\text{ が偶数}.\end{cases}
+\end{gathered}
 $$
 
 直交性から誤差は各係数について正の二次式であり、この停留点が一意な最小点である。$g_n$ は $h$ のフーリエ部分和で、$h\in L^2[-\pi,\pi]$ より $g_n\to h$ が $L^2$ の意味で成立する。Parseval の等式によって

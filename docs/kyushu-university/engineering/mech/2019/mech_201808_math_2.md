@@ -26,14 +26,34 @@ $$
 
 について、以下の問いに答えよ。ただし、$n$ を自然数とする。（50点）
 
-1. $\boldsymbol a_n=[x_n,y_n]^{\mathsf T}$ として、この連立漸化式を $\boldsymbol a_{n+1}=A\boldsymbol a_n+\boldsymbol b$ の形で表せ。ここで、$A$ は定数行列、$\boldsymbol b$ は定数ベクトルである。
-2. 行列 $A$ の固有値と固有ベクトルを求めよ。
-3. $A^n$ を計算せよ。
-4. $[x_0,y_0]^{\mathsf T}=[1,2]^{\mathsf T}$ のとき、$\boldsymbol a_n=[x_n,y_n]^{\mathsf T}$ を求めよ。
+(1) $\boldsymbol a_n=\begin{bmatrix}x_n\\y_n\end{bmatrix}$ として、この連立漸化式を $\boldsymbol a_{n+1}=A\boldsymbol a_n+\boldsymbol b$ の形で表せ。ここで、$A$ は定数行列、$\boldsymbol b$ は定数ベクトルである。
+
+(2) 行列 $A$ の固有値と固有ベクトルを求めよ。
+
+(3) $A^n$ を計算せよ。
+
+(4) $\begin{bmatrix}x_0\\y_0\end{bmatrix}=\begin{bmatrix}1\\2\end{bmatrix}$ のとき、$\boldsymbol a_n=\begin{bmatrix}x_n\\y_n\end{bmatrix}$ を求めよ。
 
 #### 题目描述
 
-对递推关系 $x_{n+1}=x_n+2y_n-2$、$y_{n+1}=3x_n+2y_n-4$：① 写成向量形式 $\boldsymbol a_{n+1}=A\boldsymbol a_n+\boldsymbol b$；② 求 $A$ 的特征值与特征向量；③ 求 $A^n$；④ 在初值 $(x_0,y_0)=(1,2)$ 下求通项。
+对于联立递推关系
+
+$$
+\begin{cases}
+x_{n+1}=x_n+2y_n-2,\\
+y_{n+1}=3x_n+2y_n-4,
+\end{cases}
+$$
+
+回答以下各问，其中 $n$ 为自然数。（50分）
+
+(1) 令 $\boldsymbol a_n=\begin{bmatrix}x_n\\y_n\end{bmatrix}$，将联立递推关系表示为 $\boldsymbol a_{n+1}=A\boldsymbol a_n+\boldsymbol b$，其中 $A$ 为常数矩阵，$\boldsymbol b$ 为常向量。
+
+(2) 求矩阵 $A$ 的特征值和特征向量。
+
+(3) 计算 $A^n$。
+
+(4) 当 $\begin{bmatrix}x_0\\y_0\end{bmatrix}=\begin{bmatrix}1\\2\end{bmatrix}$ 时，求 $\boldsymbol a_n=\begin{bmatrix}x_n\\y_n\end{bmatrix}$。
 
 ## **Kai**
 
@@ -47,14 +67,20 @@ $$
 ### (2)
 
 $$
-\det(\lambda I-A)=\lambda^2-3\lambda-4=(\lambda+1)(\lambda-4).
+\begin{gathered}
+\det(\lambda I-A)=\lambda^2-3\lambda-4\\
+=(\lambda+1)(\lambda-4).
+\end{gathered}
 $$
 
 したがって固有値と対応する固有ベクトルは
 
 $$
+\begin{gathered}
 \boxed{\lambda=-1:\ c\binom1{-1},\qquad
-\lambda=4:\ d\binom23}\qquad(c,d\ne0).
+\lambda=4:\ d\binom23}\\
+(c,d\ne0).
+\end{gathered}
 $$
 
 ### (3)

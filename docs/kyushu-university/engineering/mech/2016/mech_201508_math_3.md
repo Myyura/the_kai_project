@@ -21,19 +21,37 @@ $$
 
 以下の各領域 $D$ を図示し、それぞれの領域に対する積分値 $I$ を求めよ。（50点）
 
-1. $D=\{(x,y)\mid0\le x\le3,\ 0\le y\le4\}$
-2. $D=\{(x,y)\mid x\ge0,\ y\ge0,\ 2x+y\le1\}$
-3. $D=\{(x,y)\mid4\le x^2+y^2\le9\}$
+(1) $D=\{(x,y)\mid0\le x\le3,\ 0\le y\le4\}$
+
+(2) $D=\{(x,y)\mid x\ge0,\ y\ge0,\ 2x+y\le1\}$
+
+(3) $D=\{(x,y)\mid4\le x^2+y^2\le9\}$
 
 #### 题目描述
 
-画出矩形、直角三角形与圆环三个积分域，分别计算 $\iint_D(x^2+ay^2)dxdy$。
+考虑下列二重积分。
+
+$$
+I=\iint_D(x^2+ay^2)\,dx\,dy,\qquad a>0.
+$$
+
+分别画出以下各区域 $D$，并求各区域对应的积分值 $I$。（50分）
+
+(1) $D=\{(x,y)\mid0\le x\le3,\ 0\le y\le4\}$。
+
+(2) $D=\{(x,y)\mid x\ge0,\ y\ge0,\ 2x+y\le1\}$。
+
+(3) $D=\{(x,y)\mid4\le x^2+y^2\le9\}$。
 
 ## **Kai**
 
 3領域の概形は次の通りである。
 
-![矩形、三角形、円環の積分領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_math-3-regions.svg)
+![解答図 1（既存図の局部表示）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_math_3_answer_layout_1.svg)
+
+![解答図 2（既存図の局部表示）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_math_3_answer_layout_2.svg)
+
+![解答図 3（既存図の局部表示）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_math_3_answer_layout_3.svg)
 
 ### (1)
 
@@ -59,6 +77,8 @@ $$
 半径2と3の同心円に挟まれた円環である。極座標を用いると
 
 $$
-I=\int_0^{2\pi}\int_2^3\rho^3(\cos^2\theta+a\sin^2\theta)\,d\rho\,d\theta
+\begin{gathered}
+I=\int_0^{2\pi}\int_2^3\rho^3(\cos^2\theta+a\sin^2\theta)\,d\rho\,d\theta\\
 =\boxed{\frac{65\pi}{4}(1+a)}.
+\end{gathered}
 $$

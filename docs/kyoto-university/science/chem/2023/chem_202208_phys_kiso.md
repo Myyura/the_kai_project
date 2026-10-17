@@ -15,49 +15,143 @@ tags:
 
 ## **Description**
 
-### 問題要約
+以下の文章を読み、問 A～F に答えよ。
 
-[大学公表の原題](https://www.kuchem.kyoto-u.ac.jp/master_past_issues/r5_butsuri_kiso.pdf)
-
-間隔 $d$ の無限平行平板に電位差 $V>0$ を与える。陰極を $x=0$、陽極を $x=d$ とし、$y$ 軸を板に平行に取る。磁場は $\boldsymbol B=(0,0,B)$（$B>0$）で、$xy$ 図では紙面の奥向きである。質量 $m$、電荷 $-e$（$e>0$）の電子を、時刻 $t=0$ に陰極の原点から初速度ゼロで放出する。電子間の相互作用を無視し、
+無限に広い平行平板電極を考え、電極面に平行な一様磁場を加えたときの、陰極から発生した電子の電極間での古典的な運動軌跡を考える。電極間の距離、電位差をそれぞれ $d,V$ とし、電子の質量を $m$、電荷を $-e$ とする。ここで、$e$ は電気素量である。時刻 $t=0$ において陰極面内に存在する電子の位置を原点とする直交座標系を考え、磁場の方向を $z$ 軸、それと直交する方向を $y$ 軸にとる（図1）。また $x$ 軸については、陰極から陽極へ向かう方向を正にとる。すなわち電場、磁場をそれぞれ
 
 $$
-A=\frac{V}{Bd},\qquad \omega=\frac{eB}{m}
+\vec E=(\boxed{\text{ア}},0,0)\tag{1}
 $$
 
-と置く。速度成分を $v_x,v_y,v_z$ とする。
+$$
+\vec B=(0,0,B)\tag{2}
+$$
 
-- **問 A**：電場 $\boldsymbol E=(E_x,0,0)$ の $E_x$ を求める。
-- **問 B**：ローレンツ力から $\dot v_x,\dot v_y$ を $\omega,A,v_x,v_y$ で表す。
-- **問 C**：初期条件を用いて次の速度を導く。
+と表す。
 
-  $$
-  v_x=A\sin\omega t,\tag{6}
-  $$
+![図1：時刻 t=0 における電子の位置を原点とする直交座標系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/science/chem/2023/chem_202208_phys_kiso_fig1.png)
 
-  $$
-  v_y=A(1-\cos\omega t).\tag{7}
-  $$
+電子の速度を $\vec v=(v_x,v_y,v_z)$ とし、時刻 $t=0$ において $|\vec v|=0$ とする。電極間が真空であり、他の粒子により電子の運動が妨げられることがないとすると、$x,y,z$ 成分の運動方程式は $A=V/(Bd)$、$\omega=eB/m$ を用いて、
 
-- **問 D**：$x(t)$ を求める。その結果を式 (8) とする。もう一方の座標は $y(t)=A(\omega t-\sin\omega t)/\omega$ である。
-- **問 E**：$B$ が十分大きい場合の電子軌道を、次の候補から選ぶ。上向きが $x$、右向きが $y$ の正方向である。
+$$
+\frac d{dt}v_x=\boxed{\text{イ}}\tag{3}
+$$
 
-![電子軌道の六つの候補を示す模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/science/chem/2023/kyoto-chem-202208-trajectories.svg)
+$$
+\frac d{dt}v_y=\boxed{\text{ウ}}\tag{4}
+$$
 
-- **問 F(a)**：軌道の $x$ 座標の最大値が $d$ を下回ると電極間の電流は急減する。その境界となる磁場 $B_c$ を $d,V,m,e$ で表す。
-- **問 F(b)**：$B>B_c$ で、問 B の二式にそれぞれ減衰項 $-v_x/\tau,-v_y/\tau$ を加えた式を (10) とする。$t\gg\tau$ の定常速度を求め、速度と $x$ 軸との角が $45^\circ$ になる $\tau$ を $\omega$ で表す。
+$$
+\frac d{dt}v_z=0\tag{5}
+$$
 
-### 题目描述
+と表せる。式 (5) より、以下では $xy$ 平面内の運動のみを考えれば良い。①<u>上で述べた初期条件の下で式 (3) および式 (4) を連立させて解く</u>と、
 
-间距为 $d$ 的无限大平行板间电势差为 $V>0$，阴极位于 $x=0$、阳极位于 $x=d$，$y$ 轴平行于板。磁场为 $\boldsymbol B=(0,0,B)$，$B>0$，在题图中指向纸面内。质量为 $m$、电荷为 $-e$（$e>0$）的电子在 $t=0$ 从阴极原点由静止释放，忽略电子间相互作用。令 $A=V/(Bd)$、$\omega=eB/m$。
+$$
+v_x=A\sin\omega t\tag{6}
+$$
 
-- 问 A：求电场 $\boldsymbol E=(E_x,0,0)$ 的 $E_x$。
-- 问 B：由 Lorentz 力，用 $\omega,A,v_x,v_y$ 表示 $\dot v_x,\dot v_y$。
-- 问 C：用初始条件导出 $v_x=A\sin\omega t$、$v_y=A(1-\cos\omega t)$。
-- 问 D：求 $x(t)$。另一坐标为 $y(t)=A(\omega t-\sin\omega t)/\omega$。
-- 问 E：当 $B$ 足够大时，从上图六个选项中选出电子轨道；图中向上为 $+x$、向右为 $+y$。
-- 问 F(a)：轨道最大 $x$ 坐标低于 $d$ 时，板间电流急剧下降。求临界磁场 $B_c$。
-- 问 F(b)：在 $B>B_c$ 时，分别在两条速度方程中加入 $-v_x/\tau,-v_y/\tau$。求 $t\gg\tau$ 的稳态速度，并求使速度与 $x$ 轴成 $45^\circ$ 的 $\tau$。
+$$
+v_y=A(1-\cos\omega t)\tag{7}
+$$
+
+が得られる。したがって、$x$ 軸、$y$ 軸方向の電子の軌道はそれぞれ
+
+$$
+x=\boxed{\text{エ}}\tag{8}
+$$
+
+$$
+y=\frac A\omega(\omega t-\sin\omega t)\tag{9}
+$$
+
+となる。よって $B$ を0から徐々に増加させた場合を考えると、②<u>$x$ の最大値が電極間の距離 $d$ を下回った時点で、電極間の電流が急激に減少する</u>ことが予想される。
+
+**問 A** 空欄アに入る数式を $d,V$ を用いて表せ。
+
+**問 B** 空欄イおよびウに入る数式を $\omega,A,v_x,v_y$ を用いて表せ。導出過程も記述すること。
+
+**問 C** 下線①に従って式 (6) および式 (7) を導出せよ。
+
+**問 D** 空欄エに入る数式を $\omega,A,t$ を用いて表せ。導出過程も記述すること。
+
+**問 E** $B$ が十分に大きいときの、式 (8) および式 (9) で表される $xy$ 平面内の電子の軌道の概形を最も適切に表している図を、以下の（あ）～（か）から選択して答えよ。
+
+![軌道の選択肢（あ）、（い）、（う）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/science/chem/2023/chem_202208_phys_kiso_choices_a_c.png)
+
+![軌道の選択肢（え）、（お）、（か）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/science/chem/2023/chem_202208_phys_kiso_choices_d_f.png)
+
+**問 F** 下線②に関して、以下の (a) および (b) に答えよ。導出過程も記述すること。
+
+(a) 電極間の電流が急激に減少する臨界磁場 $B_c$ を $d,V,m,e$ を用いて表せ。
+
+(b) $B>B_c$ のときの電子の運動について、電子の速度に比例した現象論的な減衰項を式 (3) および式 (4) に付け加えて考える。
+
+$$
+\begin{cases}
+\dfrac d{dt}v_x=\boxed{\text{イ}}-\dfrac1\tau v_x,\\[4pt]
+\dfrac d{dt}v_y=\boxed{\text{ウ}}-\dfrac1\tau v_y
+\end{cases}\tag{10}
+$$
+
+ただし、$\tau$ は減衰の時定数を表す。$\tau$ よりも十分に長い時間スケールでは電子は定常運動している（$dv_x/dt=dv_y/dt=0$）と見なして連立方程式 (10) を解き、電子の速度方向と $x$ 軸とのなす角が $45^\circ$ になるときの $\tau$ を $\omega$ を用いて表せ。
+
+#### 题目描述
+
+阅读下文，回答 A～F。
+
+考虑无限大的平行平板电极，在平行于电极面的方向施加均匀磁场，研究阴极发射的电子在电极间的经典运动轨迹。电极间距和电势差分别为 $d,V$，电子质量为 $m$、电荷为 $-e$，$e$ 为元电荷。取电子在 $t=0$ 时位于阴极面内的位置为直角坐标系原点，$z$ 轴沿磁场方向，$y$ 轴与其垂直（图1），$x$ 轴正向由阴极指向阳极。电场和磁场分别写为
+
+$$
+\vec E=(\boxed{\text{ア}},0,0),\qquad\vec B=(0,0,B).
+$$
+
+电子速度为 $\vec v=(v_x,v_y,v_z)$，且 $t=0$ 时 $|\vec v|=0$。电极间为真空，电子运动不受其他粒子干扰。记 $A=V/(Bd)$、$\omega=eB/m$，则三个方向的运动方程为
+
+$$
+\frac{dv_x}{dt}=\boxed{\text{イ}},\qquad
+\frac{dv_y}{dt}=\boxed{\text{ウ}},\qquad
+\frac{dv_z}{dt}=0.
+$$
+
+由式 (5)，以下只需考虑 $xy$ 平面内运动。①<u>在上述初始条件下联立求解式 (3)、(4)</u>，可得
+
+$$
+v_x=A\sin\omega t,\qquad v_y=A(1-\cos\omega t).
+$$
+
+因而两个方向的电子轨迹为
+
+$$
+x=\boxed{\text{エ}},\qquad y=\frac A\omega(\omega t-\sin\omega t).
+$$
+
+若将 $B$ 从0逐渐增大，可以预期：②<u>当 $x$ 的最大值小于电极间距 $d$ 时，电极间电流会急剧减小</u>。
+
+**问 A** 用 $d,V$ 表示空格ア中的式子。
+
+**问 B** 用 $\omega,A,v_x,v_y$ 表示空格イ、ウ，并写出推导过程。
+
+**问 C** 按照下划线①的步骤推导式 (6)、(7)。
+
+**问 D** 用 $\omega,A,t$ 表示空格エ，并写出推导过程。
+
+**问 E** 当 $B$ 充分大时，从原图（あ）～（か）中选择最适合表示式 (8)、(9) 所描述的 $xy$ 平面电子轨迹的图。
+
+**问 F** 关于下划线②，回答 (a)、(b)，并写出推导过程。
+
+(a) 用 $d,V,m,e$ 表示使电极间电流急剧减小的临界磁场 $B_c$。
+
+(b) 在 $B>B_c$ 时，在式 (3)、(4) 中加入与电子速度成正比的唯象阻尼项：
+
+$$
+\begin{cases}
+\dfrac{dv_x}{dt}=\boxed{\text{イ}}-\dfrac1\tau v_x,\\[4pt]
+\dfrac{dv_y}{dt}=\boxed{\text{ウ}}-\dfrac1\tau v_y.
+\end{cases}
+$$
+
+$\tau$ 为阻尼时间常数。在远大于 $\tau$ 的时间尺度上，认为电子处于定常运动（$dv_x/dt=dv_y/dt=0$），求解式 (10)。当电子速度与 $x$ 轴成 $45^\circ$ 时，用 $\omega$ 表示 $\tau$。
 
 ## **Kai**
 ### 問 A
@@ -192,3 +286,7 @@ $$
 
 電子の速度方向とx軸とのなす角が45°になるということは $v_x=v_y$ ということであり、
 2番目の式から、 $\tau = 1 / \omega$ を得る。
+
+## **Reference**
+
+- [大学公式問題](https://www.kuchem.kyoto-u.ac.jp/master_past_issues/r5_butsuri_kiso.pdf)

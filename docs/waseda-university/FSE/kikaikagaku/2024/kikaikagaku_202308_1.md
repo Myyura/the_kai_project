@@ -13,76 +13,133 @@ tags:
 
 ## **Description**
 
-問題の要約 — [大学公表問題](https://www.waseda.jp/inst/admission/assets/uploads/2023/11/51_M_kikaikagaku_2023_September2024_April_ippan_senmon.pdf)
+### (1)
 
+実定数の $n$ 次正方行列 $A\in\mathbb R^{n\times n}$ に対して、行列の指数関数を $e^A=\sum_{k=0}^\infty\frac{A^k}{k!}$ と定義する。以下の問いに答えなさい。
 
-### (1) 行列指数
+(i) $P$ を正則な $n$ 次の正方行列とすると、以下の式が成立することを示しなさい。
 
-定数行列 $A\in\mathbb R^{n\times n}$ に対して $e^A=\sum_{k\ge0}A^k/k!$ とする。
+$$
+e^{PAP^{-1}}=Pe^AP^{-1}
+$$
 
-1. 正則な $P$ について $e^{PAP^{-1}}=Pe^AP^{-1}$ を証明する。
-2. $\dot{\boldsymbol x}=A\boldsymbol x$、$\boldsymbol x(0)=\boldsymbol x_0$ を行列指数で解く。
-3. 相異なる固有値 $\lambda_k$ と対応する固有ベクトルを列に持つ $P$ を用いて、その解を表す。
-4. $A=\begin{bmatrix}1&1\\-2&4\end{bmatrix}$、$\boldsymbol x_0=(x_{10},x_{20})^T$ の解を具体的に求める。
+(ii) $t$ を実変数とし、行列 $A$ は $t$ に依存しない実定数の $n$ 次正方行列と仮定する。次の微分方程式の解 $\boldsymbol x=\boldsymbol x(t)$ を行列 $A$、及び初期値 $\boldsymbol x_0$ を用いて示しなさい。ここに、$\boldsymbol x\in\mathbb R^n$ である。
 
-### (2) 複素関数
+$$
+\frac{d\boldsymbol x}{dt}=A\boldsymbol x,\qquad
+\boldsymbol x_0=\boldsymbol x(0)
+$$
 
-領域 $D\subset\mathbb C$ 上で $f(z)=u(x,y)+iv(x,y)$、$z=x+iy$ とする。
+(iii) いま、行列 $A$ が相異なる固有値 $\lambda_k$、$k=1,\ldots,n$ と固有ベクトル $\boldsymbol p_k$、$k=1,\ldots,n$ を持つと仮定する。正則な行列 $P$ を $P=[\boldsymbol p_1,\ldots,\boldsymbol p_n]$ と定義する。このとき、(ii) で求めた解 $\boldsymbol x=\boldsymbol x(t)$ を、固有値 $\lambda_k$、$k=1,\ldots,n$、行列 $P=[\boldsymbol p_1,\ldots,\boldsymbol p_n]$ 及び初期値 $\boldsymbol x_0$ を用いて示しなさい。
 
-1. 正則性の必要十分条件を述べる。
-2. その条件を極座標 $z=re^{i\theta}$ で表す。
-3. 複素対数を $\ln|z|$ と偏角で表し、主値 $\operatorname{Log}z$ と全ての値との関係を書く。
-4. $\log(-3)$、$\log3$、$\log(1-i)$、$\operatorname{Log}(-1)$、$\operatorname{Log}(1+i)$ を求める。
-5. 複素対数が正則になる領域を説明する。
-6. 原点を反時計回りに一周する $C:|z|=1$ に沿って $\oint_C f'(z)\,dz$ を求める。
+(iv) $\boldsymbol x(t)=(x_1(t),x_2(t))^T$ に関する次の微分方程式の解を求めよ。
 
-### 题目描述
+$$
+\frac{d}{dt}\boldsymbol x=A\boldsymbol x,\qquad
+\text{但し、}\boldsymbol x_0=(x_{10},x_{20})^T,\qquad
+A=\begin{bmatrix}1&1\\-2&4\end{bmatrix}
+$$
 
-1. 回答下列有关矩阵指数与线性常微分方程组的问题。
-   1. 对方阵 $A$ 和可逆矩阵 $P$，证明
+### (2)
 
-      $$
-      e^{PAP^{-1}}=Pe^AP^{-1}.
-      $$
+複素領域 $\mathbb D\subset\mathbb C$ の点（複素数）を $z=x+iy$ として、$\mathbb D$ 上の複素関数を
 
-   2. 对初值问题
+$$
+f(z)=u(x,y)+iv(x,y)
+$$
 
-      $$
-      \frac{d\boldsymbol{x}}{dt}=A\boldsymbol{x},\qquad
-      \boldsymbol{x}(0)=\boldsymbol{x}_0,
-      $$
+とする。以下の問いに答えなさい。但し、$i$ は虚数単位である。また、円周率を $\pi$ とする。
 
-      用矩阵指数表示解。
-   3. 若 $A$ 有互不相同的特征值，且
+(i) 複素関数 $f(z)$ が領域 $\mathbb D$ で正則であるための必要かつ十分条件を示しなさい。
 
-      $$
-      A=P
-      \begin{bmatrix}
-      \lambda_1&&\\
-      &\ddots&\\
-      &&\lambda_n
-      \end{bmatrix}
-      P^{-1},
-      $$
+(ii) 領域 $\mathbb D$ の点 $z$ を極座標 $(r,\theta)$ で $z=re^{i\theta}$ と表すとき、(i) の条件はどのように表されるか。
 
-      用特征值 $\lambda_1,\ldots,\lambda_n$ 和矩阵 $P$ 写出 $\boldsymbol{x}(t)$。
-   4. 对
+(iii) 複素関数 $f(z)$ として、対数関数
 
-      $$
-      A=\begin{bmatrix}1&1\\-2&4\end{bmatrix},\qquad
-      \boldsymbol{x}(0)=
-      \begin{bmatrix}x_{10}\\x_{20}\end{bmatrix},
-      $$
+$$
+f(z)=\log z
+$$
 
-      通过特征值、特征向量和矩阵对角化，求上述初值问题的显式解。
+を考えよう。実数の対数関数を $\ln|z|$、偏角を $\arg z$ として、対数関数 $f(z)=\log z$ を $\ln|z|$ と $\arg z$ を用いて表しなさい。また、偏角として主値 $\operatorname{Arg}z$ を選ぶとき、主枝 $\operatorname{Log}z$ を $\ln|z|$ と $\operatorname{Arg}z$ を用いて表わした上で、対数関数 $f(z)=\log z$ を $\operatorname{Log}z$ と $n\in\mathbb Z$ で表しなさい。
 
-2. 设 $D\subset\mathbb C$，$f(z)=u(x,y)+iv(x,y)$，其中 $z=x+iy$。
-   1. 叙述正则性的充要条件。
-   2. 将条件写成极坐标 $z=re^{i\theta}$ 下的形式。
-   3. 用 $\ln|z|$ 和辐角表示复对数，说明主值 $\operatorname{Log}z$ 与全部对数值的关系。
-   4. 求 $\log(-3)$、$\log3$、$\log(1-i)$、$\operatorname{Log}(-1)$、$\operatorname{Log}(1+i)$。
-   5. 说明复对数可取正则分支的区域。
-   6. 对绕原点逆时针一周的 $C:|z|=1$，计算复对数导函数的积分 $\oint_C f'(z)\,dz$。
+(iv) 以下の式の値を求めなさい。
+
+a) $\log(-3)$　 b) $\log3$　 c) $\log(1-i)$　 d) $\operatorname{Log}(-1)$　 e) $\operatorname{Log}(1+i)$
+
+(v) 複素関数 $f(z)=\log z$ の正則性について述べよ。
+
+(vi) 複素数 $z$ が曲線 $C:|z|=1$ に沿って、原点の周りを正の向きに回転するとき、次の積分をしなさい。但し、$f'(z)=\frac{df}{dz}(z)$ である。
+
+$$
+\oint_C f'(z)\,dz
+$$
+
+（注意）定数や変数などの数学記号が必要であれば、適当に定めた上で用いても良い。
+
+#### 题目描述
+
+**(1)**
+
+对于实常数构成的 $n$ 阶方阵 $A\in\mathbb R^{n\times n}$，定义矩阵指数函数 $e^A=\sum_{k=0}^\infty\frac{A^k}{k!}$。回答以下问题。
+
+(i) 设 $P$ 是可逆的 $n$ 阶方阵，证明下式成立。
+
+$$
+e^{PAP^{-1}}=Pe^AP^{-1}
+$$
+
+(ii) 设 $t$ 为实变量，矩阵 $A$ 为不依赖于 $t$、由实常数构成的 $n$ 阶方阵。用矩阵 $A$ 及初值 $\boldsymbol x_0$ 表示下列微分方程的解 $\boldsymbol x=\boldsymbol x(t)$。其中，$\boldsymbol x\in\mathbb R^n$。
+
+$$
+\frac{d\boldsymbol x}{dt}=A\boldsymbol x,\qquad
+\boldsymbol x_0=\boldsymbol x(0)
+$$
+
+(iii) 现在假设矩阵 $A$ 具有互不相同的特征值 $\lambda_k$（$k=1,\ldots,n$）以及特征向量 $\boldsymbol p_k$（$k=1,\ldots,n$）。定义可逆矩阵 $P=[\boldsymbol p_1,\ldots,\boldsymbol p_n]$。此时，用特征值 $\lambda_k$（$k=1,\ldots,n$）、矩阵 $P=[\boldsymbol p_1,\ldots,\boldsymbol p_n]$ 及初值 $\boldsymbol x_0$ 表示 (ii) 中求得的解 $\boldsymbol x=\boldsymbol x(t)$。
+
+(iv) 求关于 $\boldsymbol x(t)=(x_1(t),x_2(t))^T$ 的下列微分方程的解。
+
+$$
+\frac{d}{dt}\boldsymbol x=A\boldsymbol x,\qquad
+\boldsymbol x_0=(x_{10},x_{20})^T,\qquad
+A=\begin{bmatrix}1&1\\-2&4\end{bmatrix}
+$$
+
+**(2)**
+
+将复数域 $\mathbb D\subset\mathbb C$ 中的点（复数）写成 $z=x+iy$，设 $\mathbb D$ 上的复函数为
+
+$$
+f(z)=u(x,y)+iv(x,y).
+$$
+
+回答以下问题。其中，$i$ 为虚数单位，$\pi$ 为圆周率。
+
+(i) 给出复函数 $f(z)$ 在区域 $\mathbb D$ 内正则的充要条件。
+
+(ii) 将区域 $\mathbb D$ 中的点 $z$ 用极坐标 $(r,\theta)$ 表示为 $z=re^{i\theta}$ 时，(i) 中的条件如何表示？
+
+(iii) 考虑复函数 $f(z)$ 为对数函数
+
+$$
+f(z)=\log z.
+$$
+
+将实数的对数函数记为 $\ln|z|$，辐角记为 $\arg z$，用 $\ln|z|$ 和 $\arg z$ 表示对数函数 $f(z)=\log z$。此外，选取辐角的主值 $\operatorname{Arg}z$ 时，先用 $\ln|z|$ 和 $\operatorname{Arg}z$ 表示主支 $\operatorname{Log}z$，再用 $\operatorname{Log}z$ 与 $n\in\mathbb Z$ 表示对数函数 $f(z)=\log z$。
+
+(iv) 求下列各式的值。
+
+a) $\log(-3)$　 b) $\log3$　 c) $\log(1-i)$　 d) $\operatorname{Log}(-1)$　 e) $\operatorname{Log}(1+i)$
+
+(v) 说明复函数 $f(z)=\log z$ 的正则性。
+
+(vi) 当复数 $z$ 沿曲线 $C:|z|=1$ 绕原点按正方向旋转时，计算下列积分。其中，$f'(z)=\frac{df}{dz}(z)$。
+
+$$
+\oint_C f'(z)\,dz
+$$
+
+（注意）如需使用常数、变量等数学符号，可在适当定义后使用。
 
 ## **Kai**
 ### (1)
@@ -253,7 +310,7 @@ $$
 \left( 2 x_{10} - x_{20} \right) e^{2t}
 + \left( - x_{10} + x_{20} \right) e^{3t}
 \\
-\left( 4 x_{10} - 2x_{20} \right) e^{2t}
+\left( 2 x_{10} - x_{20} \right) e^{2t}
 + \left( - 2x_{10} + 2x_{20} \right) e^{3t}
 \end{bmatrix}
 \end{aligned}
@@ -320,3 +377,8 @@ $$
 $$
 
 $C$ の周囲に一価の正則な対数がないため、この積分に大域的な原始関数として $\log z$ を用いることはできない。
+
+## **Reference**
+
+- [大学公式問題（2023年9月・2024年4月入学、PDF 2ページ）](https://www.waseda.jp/inst/admission/assets/uploads/2023/11/51_M_kikaikagaku_2023_September2024_April_ippan_senmon.pdf)
+- [公開保存版（同名原卷）](https://raw.githubusercontent.com/Zhang-HL-1/japan-study-journal/50e383d57ebcb2cbc3fed0cecf3c96e9c8b2564e/assets/past-papers/documents/f071ede7f4b9578308183dec9a5ad5a67f909128ad2d52cf60c3be65b475da71.pdf)

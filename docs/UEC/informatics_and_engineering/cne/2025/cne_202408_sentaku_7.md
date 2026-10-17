@@ -22,32 +22,125 @@ $$
 A=\begin{pmatrix}1&2\\2&3\end{pmatrix}
 $$
 
-に、初期値 $y^{(0)}=(1,1)^{\mathsf T}$ として
+は固有値 $\lambda_1=2+\sqrt5$, $\lambda_2=2-\sqrt5$ およびそれぞれの固有ベクトル
 
 $$
-z^{(k)}=Ay^{(k-1)},\qquad
-\rho^{(k)}=\frac{(y^{(k-1)})^{\mathsf T}z^{(k)}}
-{(y^{(k-1)})^{\mathsf T}y^{(k-1)}},\qquad
-y^{(k)}=\frac{z^{(k)}}{\lVert z^{(k)}\rVert_\infty}
+\boldsymbol v_1=\left(\frac{\sqrt5-1}{2},1\right)^T,
+\qquad
+\boldsymbol v_2=\left(1,\frac{1-\sqrt5}{2}\right)^T
 $$
 
-を適用する。固有値・固有ベクトルによる展開から、反復ベクトルが最大固有値の固有ベクトルへ収束し、Rayleigh 商が最大固有値へ収束することを示せ。
+を持つ。ただし固有ベクトルは最大値ノルム（無限大ノルム）で規格化されている。この行列に対し次の無限回反復を考える。
 
-[公式問題（PDF第11頁）](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_4_i_choice202408.pdf)に基づく設問要約：(1) 初期ベクトルの固有ベクトル展開、(2) 展開係数 $c_i^{(k)}$ の更新式と $c_1^{(k)}\ne0$、(3) $r^{(k)}=c_2^{(k)}/c_1^{(k)}\to0$ と $\|y^{(k)}-c_1^{(k)}v_1\|_\infty\to0$、(4) $|c_1^{(k)}|\to1$、(5) $\rho^{(k)}\to\lambda_1$ を順に示す。小問 (3) では $|c_1^{(k)}|$ の極限が有限であることを既知としてよく、小問 (4) では逆三角不等式を使ってよい。
+(i) $\boldsymbol y^{(0)}=(1,1)^T$ とする。
 
-### 题目描述
+(ii) $k=1,2,3,\ldots$ に対して以下を反復する。
 
-对给定对称矩阵施行以无穷范数归一化的幂迭代。利用特征向量展开证明迭代向量收敛到主特征向量，并证明 Rayleigh 商收敛到最大特征值。
+$$
+\begin{aligned}
+\boldsymbol z^{(k)}&:=A\boldsymbol y^{(k-1)},\\
+\rho^{(k)}&:=\frac{(\boldsymbol y^{(k-1)})^T\boldsymbol z^{(k)}}{(\boldsymbol y^{(k-1)})^T\boldsymbol y^{(k-1)}},\\
+\boldsymbol y^{(k)}&:=\frac{\boldsymbol z^{(k)}}{\|\boldsymbol z^{(k)}\|}.
+\end{aligned}
+$$
+
+ただしノルムは最大値ノルムを用いる。
+
+以下の問いに答えよ。
+
+1. $\boldsymbol y^{(0)}$ を $\boldsymbol v_1$ および $\boldsymbol v_2$ の線形結合で表せ。
+
+2. $\boldsymbol y^{(k-1)}=c_1^{(k-1)}\boldsymbol v_1+c_2^{(k-1)}\boldsymbol v_2$, $\boldsymbol y^{(k)}=c_1^{(k)}\boldsymbol v_1+c_2^{(k)}\boldsymbol v_2$ と置く。$c_1^{(k)},c_2^{(k)}$ を $c_1^{(k-1)},c_2^{(k-1)},\lambda_1,\lambda_2$ および $\|\boldsymbol z^{(k)}\|$ を用いて表し，かつ，任意の $k=0,1,2,\ldots$ に対して $c_1^{(k)}\ne0$ であることを示せ。
+
+3. $r^{(k)}=c_2^{(k)}/c_1^{(k)}$ と置く。
+
+   $$
+   \lim_{k\to\infty}r^{(k)}=0,
+   \qquad
+   \lim_{k\to\infty}\|\boldsymbol y^{(k)}-c_1^{(k)}\boldsymbol v_1\|=0
+   $$
+
+   を証明せよ。ただし $\lim_{k\to\infty}|c_1^{(k)}|<\infty$ を既知として良い。
+
+4. $\lim_{k\to\infty}|c_1^{(k)}|=1$ を証明せよ。ただし任意の $n$ 元ベクトル $\boldsymbol a,\boldsymbol b$ に対して以下の不等式が成り立つことを用いてよい。
+
+   $$
+   \|\boldsymbol a\|-\|\boldsymbol a-\boldsymbol b\|
+   \le\|\boldsymbol b\|
+   \le\|\boldsymbol a\|+\|\boldsymbol a-\boldsymbol b\|.\tag{1}
+   $$
+
+5. $\lim_{k\to\infty}\rho^{(k)}=\lambda_1$ を証明せよ。
+
+最大値ノルム：maximum norm，無限大ノルム：infinity norm，固有値：eigenvalue，固有ベクトル：eigenvector，線形結合：linear combination
+
+#### 题目描述
+
+矩阵
+
+$$
+A=\begin{pmatrix}1&2\\2&3\end{pmatrix}
+$$
+
+具有特征值 $\lambda_1=2+\sqrt5$、$\lambda_2=2-\sqrt5$，相应特征向量为
+
+$$
+\boldsymbol v_1=\left(\frac{\sqrt5-1}{2},1\right)^T,
+\qquad
+\boldsymbol v_2=\left(1,\frac{1-\sqrt5}{2}\right)^T.
+$$
+
+特征向量已按最大值范数（无穷范数）归一化。对该矩阵考虑以下无限次迭代。
+
+(i) 令 $\boldsymbol y^{(0)}=(1,1)^T$。
+
+(ii) 对 $k=1,2,3,\ldots$，重复计算
+
+$$
+\begin{aligned}
+\boldsymbol z^{(k)}&:=A\boldsymbol y^{(k-1)},\\
+\rho^{(k)}&:=\frac{(\boldsymbol y^{(k-1)})^T\boldsymbol z^{(k)}}{(\boldsymbol y^{(k-1)})^T\boldsymbol y^{(k-1)}},\\
+\boldsymbol y^{(k)}&:=\frac{\boldsymbol z^{(k)}}{\|\boldsymbol z^{(k)}\|}.
+\end{aligned}
+$$
+
+其中范数均采用最大值范数。请回答下列问题。
+
+1. 将 $\boldsymbol y^{(0)}$ 表示为 $\boldsymbol v_1$ 与 $\boldsymbol v_2$ 的线性组合。
+
+2. 设 $\boldsymbol y^{(k-1)}=c_1^{(k-1)}\boldsymbol v_1+c_2^{(k-1)}\boldsymbol v_2$、$\boldsymbol y^{(k)}=c_1^{(k)}\boldsymbol v_1+c_2^{(k)}\boldsymbol v_2$。使用 $c_1^{(k-1)},c_2^{(k-1)},\lambda_1,\lambda_2$ 和 $\|\boldsymbol z^{(k)}\|$ 表示 $c_1^{(k)},c_2^{(k)}$，并证明任意 $k=0,1,2,\ldots$ 均有 $c_1^{(k)}\ne0$。
+
+3. 令 $r^{(k)}=c_2^{(k)}/c_1^{(k)}$。证明
+
+   $$
+   \lim_{k\to\infty}r^{(k)}=0,
+   \qquad
+   \lim_{k\to\infty}\|\boldsymbol y^{(k)}-c_1^{(k)}\boldsymbol v_1\|=0.
+   $$
+
+   可以将 $\lim_{k\to\infty}|c_1^{(k)}|<\infty$ 视为已知。
+
+4. 证明 $\lim_{k\to\infty}|c_1^{(k)}|=1$。可以使用对任意 $n$ 维向量 $\boldsymbol a,\boldsymbol b$ 成立的不等式
+
+   $$
+   \|\boldsymbol a\|-\|\boldsymbol a-\boldsymbol b\|
+   \le\|\boldsymbol b\|
+   \le\|\boldsymbol a\|+\|\boldsymbol a-\boldsymbol b\|.\tag{1}
+   $$
+
+5. 证明 $\lim_{k\to\infty}\rho^{(k)}=\lambda_1$。
 
 ## **Kai**
 
 固有値・固有ベクトルを
 
 $$
-\lambda_1=2+\sqrt5,\quad
-\lambda_2=2-\sqrt5,\qquad
-v_1=\begin{pmatrix}(\sqrt5-1)/2\\1\end{pmatrix},\quad
-v_2=\begin{pmatrix}1\\ (1-\sqrt5)/2\end{pmatrix}
+\begin{aligned}
+\lambda_1&=2+\sqrt5,&
+v_1&=\begin{pmatrix}(\sqrt5-1)/2\\1\end{pmatrix},\\[6pt]
+\lambda_2&=2-\sqrt5,&
+v_2&=\begin{pmatrix}1\\ (1-\sqrt5)/2\end{pmatrix}.
+\end{aligned}
 $$
 
 とする。
@@ -155,3 +248,7 @@ $c_2^{(k-1)}/c_1^{(k-1)}=r^{(k-1)}\to0$ より、
 $$
 \boxed{\lim_{k\to\infty}\rho^{(k)}=\lambda_1=2+\sqrt5}.
 $$
+
+## **Reference**
+
+- [公式原題（大学公開PDF）](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_4_i_choice202408.pdf)

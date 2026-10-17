@@ -15,16 +15,27 @@ tags:
 
 ## **Description**
 
-行列 $A=\begin{pmatrix}a&-1\\0&1\end{pmatrix}$ について、以下の問いに答えよ。ただし、$a$ は $0<a<1$ を満たす実数とする。（50点）
+行列 $A=\begin{bmatrix}a&-1\\0&1\end{bmatrix}$ について、以下の問いに答えよ。ただし、$a$ は $0<a<1$ を満たす実数とする。（50点）
 
-1. $A$ の固有値、およびそれぞれの固有値に対応する固有ベクトルを求めよ。
-2. $n$ を $n>1$ を満たす自然数とする。$A^n$ を求めよ。
-3. (2) で求めた $A^n$ について、$B=\lim_{n\to\infty}A^n$ とするとき、$B$ を $n$ を用いずに表せ。
-4. (3) で求めた $B$ について、$xy$ 平面上の任意の点 $\boldsymbol x=[x,y]^{\mathsf T}$ の $B$ による $XY$ 平面への写像を $\boldsymbol X=[X,Y]^{\mathsf T}$ とするとき、$\boldsymbol X$ は $XY$ 平面上でどのような図形を描くか。式および図で示せ。
+(1) $A$ の固有値、およびそれぞれの固有値に対応する固有ベクトルを求めよ。
+
+(2) $n$ を $n>1$ を満たす自然数とする。$A^n$ を求めよ。
+
+(3) (2)で求めた $A^n$ について、$B=\displaystyle\lim_{n\to\infty}A^n$ とするとき、$B$ を $n$ を用いずに表せ。
+
+(4) (3)で求めた $B$ について、$xy$ 平面上の任意の点 $\boldsymbol x=[x,y]^{\mathsf T}$ の $B$ による $XY$ 平面への写像を $\boldsymbol X=[X,Y]^{\mathsf T}$ とするとき、$\boldsymbol X$ は $XY$ 平面上でどのような図形を描くか。式および図で示せ。
 
 #### 题目描述
 
-求上三角矩阵的特征值、特征向量、幂和极限，再给出极限矩阵将整个平面映成的图形与方程。
+对于矩阵 $A=\begin{bmatrix}a&-1\\0&1\end{bmatrix}$，回答以下各问。实数 $a$ 满足 $0<a<1$。（50分）
+
+(1) 求 $A$ 的特征值，以及各特征值对应的特征向量。
+
+(2) 设 $n$ 为满足 $n>1$ 的自然数，求 $A^n$。
+
+(3) 对于(2)所得的 $A^n$，令 $B=\displaystyle\lim_{n\to\infty}A^n$，用不含 $n$ 的式子表示 $B$。
+
+(4) 对于(3)所得的 $B$，将 $xy$ 平面上任意点 $\boldsymbol x=[x,y]^{\mathsf T}$ 通过 $B$ 映射到 $XY$ 平面，记其像为 $\boldsymbol X=[X,Y]^{\mathsf T}$。$\boldsymbol X$ 在 $XY$ 平面上形成什么图形？用方程和图表示。
 
 ## **Kai**
 
@@ -33,8 +44,11 @@ tags:
 固有値は $a,1$ で、対応する固有ベクトルは
 
 $$
+\begin{gathered}
 \boxed{\lambda=a:\ c\binom10,\qquad
-\lambda=1:\ d\binom1{a-1}}\quad(c,d\ne0).
+\lambda=1:\ d\binom1{a-1}}\\
+(c,d\ne0).
+\end{gathered}
 $$
 
 ### (2)

@@ -102,9 +102,12 @@ $C=\{x\in\mathbb R^n:x^\top Ax\le1\}$ とおく。$x\mapsto x^\top Ax$ は凸関
 任意の $y_1,y_2\in\mathbb R^n$ と $\theta\in[0,1]$ に対して、
 
 $$
-x_1=\bar x(y_1),\quad x_2=\bar x(y_2),\quad
-y_\theta=\theta y_1+(1-\theta)y_2,\quad
+\begin{gathered}
+x_1=\bar x(y_1),\\
+x_2=\bar x(y_2),\\
+y_\theta=\theta y_1+(1-\theta)y_2,\\
 \widetilde x=\theta x_1+(1-\theta)x_2
+\end{gathered}
 $$
 
 とおく。$x_1,x_2\in C$ と $C$ の凸性より $\widetilde x\in C$ である。よって、最適性と (i) の凸性から

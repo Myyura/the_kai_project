@@ -29,19 +29,33 @@ $A_n$ の行列式を求めよ。
 
 #### 题目描述
 
-设 $n\ge2$，$A_n$ 是元素为 $(A_n)_{ij}=|i-j|\ (1\le i,j\le n)$ 的矩阵。求 $\det A_n$。
+对不小于 $2$ 的整数 $n$，设 $A_n$ 为第 $(i,j)$ 个元素等于 $|i-j|$ 的 $n$ 阶方阵，即
+
+$$
+A_n=\begin{pmatrix}
+0&1&2&\cdots&n-1\\
+1&0&1&\cdots&n-2\\
+2&1&0&\cdots&n-3\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+n-1&n-2&n-3&\cdots&0
+\end{pmatrix}.
+$$
+
+求 $A_n$ 的行列式。
 
 ## **Kai**
 
 対角成分が $1$、第 $1$ 下副対角成分が $-1$、それ以外が $0$ の行列を $D$ とする。$\det D=1$ であり、左右からの乗算は隣り合う行・列の差を取る操作に対応する。成分を計算すると
 
 $$
+\begin{gathered}
 DA_nD^{\mathsf T}=
 \begin{pmatrix}
 0&\boldsymbol 1^{\mathsf T}\\
 \boldsymbol 1&-2I_{n-1}
-\end{pmatrix},
-\qquad \boldsymbol 1=(1,\ldots,1)^{\mathsf T}\in\mathbb R^{n-1}.
+\end{pmatrix},\\
+\boldsymbol 1=(1,\ldots,1)^{\mathsf T}\in\mathbb R^{n-1}.
+\end{gathered}
 $$
 
 実際、$i,j\ge2$ の成分は

@@ -15,13 +15,21 @@ tags:
 
 ## **Description**
 
-図4の直角に折れ曲がった弾性丸棒 ABC は、AB $=$ BC $=\ell$、直径 $d$、ヤング率 $E$、ポアソン比 $\nu$ を持つ。A、C は固定端で、二本の棒は B で剛に接合されている。棒は水平面内にあり、B に鉛直下向き荷重 $P$ を加える。B の鉛直変位 $\delta_{BV}$ を求めよ。
+図4の構造において，次の問に答えよ。（35点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-4-original.png)
+着力点Bの垂直方向変位 $\delta_{BV}$ を求めよ。
+
+![原題の図4：直角に曲がった弾性丸棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-4-original.png)
+
+図中の弾性体丸棒は直径 $d$，ヤング率 $E$，ポアソン比 $\nu$ であり，$AB=BC=\ell$，$\angle ABC=\pi/2$ である。A，C端は固定され，点Bに下向き荷重 $P$ が作用する。
 
 #### 题目描述
 
-两段长 $\ell$、直径 $d$ 的弹性圆杆在 B 处直角刚接，A、C 固定，两杆位于水平面内。材料参数为 $E,\nu$。B 受向下力 $P$，求其竖直位移。
+对于图4的结构，回答下列问题。（35分）
+
+求载荷作用点B的竖直位移 $\delta_{BV}$。
+
+图中的弹性圆杆直径为 $d$，杨氏模量为 $E$，泊松比为 $\nu$。$AB=BC=\ell$，两段互相垂直，A、C两端固定，B点承受向下载荷 $P$。
 
 ## **Kai**
 

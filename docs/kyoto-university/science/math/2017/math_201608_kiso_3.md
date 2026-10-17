@@ -39,12 +39,12 @@ $$
 
 $$
 \begin{aligned}
-V&=\{x\in\mathbb C^m\mid \exists k\ge1,\ (BA-\lambda I_m)^kx=0\},\\
-W&=\{y\in\mathbb C^n\mid \exists\ell\ge1,\ (AB-\lambda I_n)^\ell y=0\}.
+V&=\{x\in\mathbb C^m\mid \exists k\in\mathbb Z_{>0},\ (BA-\lambda I_m)^kx=0\},\\
+W&=\{y\in\mathbb C^n\mid \exists\ell\in\mathbb Z_{>0},\ (AB-\lambda I_n)^\ell y=0\}.
 \end{aligned}
 $$
 
-其中 $I_m,I_n$ 为单位矩阵。证明 $\dim V=\dim W$。
+其中 $I_m,I_n$ 为单位矩阵，$0$ 表示零向量。证明 $\dim V=\dim W$。
 
 ## **Kai**
 

@@ -17,49 +17,123 @@ tags:
 
 ## **Description**
 
-### (1) 線形代数
-
-行列
+**（1）** 行列
 
 $$
-A=\begin{pmatrix}
-3&-5&2\\
-7&-12&3\\
-1&-2&-1
-\end{pmatrix}
-=\begin{pmatrix}\boldsymbol a_1&\boldsymbol a_2&\boldsymbol a_3\end{pmatrix}
+A=\begin{bmatrix}3&-5&2\\7&-12&3\\1&-2&-1\end{bmatrix}
 $$
 
-について、$\boldsymbol a_3$ を $\boldsymbol a_1,\boldsymbol a_2$ の一次結合で表し、$\det A$ と $A$ の固有値を求めよ。
+に対して、以下の問に答えよ。
 
-### (2) ベクトル解析
+（a）$\boldsymbol a_i$ を $A$ の第 $i$ 列とする（$i=1,2,3$）。$\boldsymbol a_3$ を $\boldsymbol a_1,\boldsymbol a_2$ の 1 次結合で表せ。
 
-$$
-\boldsymbol r(\mu,\nu)
-=\mu\cos\nu\,\boldsymbol i+\mu\sin\nu\,\boldsymbol j+(4-\mu^2)\boldsymbol k,
-\quad 0\leq\mu\leq2, 0\leq\nu\leq2\pi
-$$
+（b）行列式 $|A|$ の値を求めよ。
 
-で表される曲面を $S$、$S$ と $xy$ 平面との交線を、$z>0$ 側から見て反時計回りに向き付けた曲線を $C$ とする。
+（c）$A$ の固有値をすべて求めよ。
 
-1. $S$ の特徴がわかるように図示し、その図に $C$ を描け。
-2. $S$ と $z=0$ で囲まれる体積を求めよ。
-3. $\boldsymbol A=(x^2+y-4)\boldsymbol i+3xy^2\boldsymbol j+(2xz+z^2)\boldsymbol k$ に対し、$\nabla\times\boldsymbol A$ と $\iint_S(\nabla\times\boldsymbol A)\cdot\boldsymbol n\,dS$ を求めよ。$\boldsymbol n$ は外向き単位法線である。
-4. $\displaystyle\oint_C\boldsymbol A\cdot d\boldsymbol r$ を求めよ。
-
-### (3) フーリエ級数
-
-周期 $2\pi$ の関数 $f(x)=x(\pi-x)$ $(-\pi\leq x\leq\pi)$ を
+**（2）** 二つのパラメータをもって定義されたベクトル
 
 $$
-f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)
+\begin{aligned}
+\boldsymbol r(\mu,\nu)&=\mu\cos\nu\,\boldsymbol i+\mu\sin\nu\,\boldsymbol j+(4-\mu^2)\boldsymbol k\\
+&(0\le\mu\le2,\ 0\le\nu\le2\pi)
+\end{aligned}
 $$
 
-と展開するとき、$a_n,b_n$ を求めよ。
+で与えられる曲面 $S$ がある。$\boldsymbol i,\boldsymbol j,\boldsymbol k$ は、それぞれ $x,y,z$ 方向の単位直交ベクトルである。曲面 $S$ と $xy$ 平面との交線を曲線 $C$ とする。ただし、$z$ の正の側から見て反時計回りを曲線 $C$ の向きとする。
 
-### 题目描述
+（a）$S$ がどのような曲面であるか特徴がわかるように図示せよ。その図中に $C$ がどのような曲線か描け。
 
-求给定矩阵的列向量关系、行列式与特征值；计算旋转抛物面所围体积、旋度的曲面积分及边界曲线积分；最后求周期函数 $x(\pi-x)$ 的傅里叶系数。
+（b）曲面 $S$ と $z=0$ の平面で囲まれた体積 $\iiint_V dV$ を求めよ。
+
+（c）ベクトル
+
+$$
+\boldsymbol A(x,y,z)=(x^2+y-4)\boldsymbol i+3xy^2\boldsymbol j+(2xz+z^2)\boldsymbol k
+$$
+
+について、$\nabla\times\boldsymbol A$ を計算せよ。また、
+
+$$
+\iint_S(\nabla\times\boldsymbol A)\cdot\boldsymbol n\,dS
+$$
+
+を計算せよ。$\boldsymbol n$ は曲面 $S$ の単位法線ベクトル（外向き）である。
+
+（d）曲線 $C$ に沿ってベクトル $\boldsymbol A$ の線積分 $\int_C\boldsymbol A\cdot d\boldsymbol r$ を計算せよ。ストークスの定理を利用してもよい。
+
+**（3）** 周期 $2\pi$ の周期関数 $f(x)=x(\pi-x)\ (-\pi\le x\le\pi)$ は
+
+$$
+f(x)=\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)
+$$
+
+と展開できる。以下の問に答えよ。
+
+（a）フーリエ係数 $a_n\ (n=0,1,2,3,\ldots)$ を求めよ。
+
+（b）フーリエ係数 $b_n\ (n=1,2,3,\ldots)$ を求めよ。
+
+行列：matrix、1 次結合：linear combination、行列式：determinant、固有値：eigenvalue、曲面：curved surface、単位直交ベクトル：orthogonal unit vector、曲線：curve、単位法線ベクトル：unit normal vector、線積分：line integral、ストークスの定理：Stokes' theorem、周期関数：periodic function、フーリエ係数：Fourier coefficient。
+
+#### 题目描述
+
+**（1）** 对矩阵
+
+$$
+A=\begin{bmatrix}3&-5&2\\7&-12&3\\1&-2&-1\end{bmatrix},
+$$
+
+回答：
+
+（a）设 $\boldsymbol a_i$ 为 $A$ 的第 $i$ 列（$i=1,2,3$）。将 $\boldsymbol a_3$ 表示为 $\boldsymbol a_1,\boldsymbol a_2$ 的线性组合。
+
+（b）求行列式 $|A|$。
+
+（c）求 $A$ 的全部特征值。
+
+**（2）** 曲面 $S$ 由含两个参数的向量
+
+$$
+\begin{aligned}
+\boldsymbol r(\mu,\nu)&=\mu\cos\nu\,\boldsymbol i+\mu\sin\nu\,\boldsymbol j+(4-\mu^2)\boldsymbol k\\
+&(0\le\mu\le2,\ 0\le\nu\le2\pi)
+\end{aligned}
+$$
+
+给出。其中 $\boldsymbol i,\boldsymbol j,\boldsymbol k$ 分别为 $x,y,z$ 方向的单位正交向量。设曲面 $S$ 与 $xy$ 平面的交线为曲线 $C$，其方向取从 $z$ 轴正侧看为逆时针。
+
+（a）画出能够体现 $S$ 特征的曲面图，并在同一图中画出曲线 $C$。
+
+（b）求曲面 $S$ 与平面 $z=0$ 围成的体积 $\iiint_VdV$。
+
+（c）对于向量
+
+$$
+\boldsymbol A(x,y,z)=(x^2+y-4)\boldsymbol i+3xy^2\boldsymbol j+(2xz+z^2)\boldsymbol k,
+$$
+
+计算 $\nabla\times\boldsymbol A$，并计算
+
+$$
+\iint_S(\nabla\times\boldsymbol A)\cdot\boldsymbol n\,dS.
+$$
+
+这里 $\boldsymbol n$ 为曲面 $S$ 的外向单位法向量。
+
+（d）计算沿曲线 $C$ 的线积分 $\int_C\boldsymbol A\cdot d\boldsymbol r$。可以使用斯托克斯定理。
+
+**（3）** 周期为 $2\pi$ 的周期函数 $f(x)=x(\pi-x)\ (-\pi\le x\le\pi)$ 可以展开为
+
+$$
+f(x)=\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx).
+$$
+
+回答：
+
+（a）求傅里叶系数 $a_n\ (n=0,1,2,3,\ldots)$。
+
+（b）求傅里叶系数 $b_n\ (n=1,2,3,\ldots)$。
 
 ## **Kai**
 
@@ -136,8 +210,8 @@ $$
 \iint_S(\nabla\times\boldsymbol A)\cdot\boldsymbol n\,dS
 &=\iint_D\{-4y(4-x^2-y^2)+3y^2-1\}\,dx\,dy\\
 &=3\iint_Dy^2\,dx\,dy-\iint_D1\,dx\,dy\\
-&=12\pi-4\pi
-=\boxed{8\pi}.
+&=12\pi-4\pi\\
+&=\boxed{8\pi}.
 \end{aligned}
 $$
 
@@ -153,12 +227,14 @@ $$
 
 $$
 \begin{aligned}
-a_0&=\frac1\pi\int_{-\pi}^{\pi}x(\pi-x)\,dx
-=-\frac{2\pi^2}{3},\\
+a_0&=\frac1\pi\int_{-\pi}^{\pi}x(\pi-x)\,dx\\
+&=-\frac{2\pi^2}{3},\\
 a_n&=\frac1\pi\int_{-\pi}^{\pi}x(\pi-x)\cos nx\,dx
-=\frac{4(-1)^{n+1}}{n^2}\quad(n\geq1),\\
+=\frac{4(-1)^{n+1}}{n^2}\\
+&(n\geq1),\\
 b_n&=\frac1\pi\int_{-\pi}^{\pi}x(\pi-x)\sin nx\,dx
-=\frac{2\pi(-1)^{n+1}}{n}\quad(n\geq1).
+=\frac{2\pi(-1)^{n+1}}{n}\\
+&(n\geq1).
 \end{aligned}
 $$
 
@@ -175,3 +251,7 @@ f(x)=-\frac{\pi^2}{3}
 $$
 
 である。端点 $x=\pm\pi$ では級数は左右極限の平均 $-\pi^2$ に収束する。
+
+## **Reference**
+
+- [大学公表の原題](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_8_s_choice202408.pdf)

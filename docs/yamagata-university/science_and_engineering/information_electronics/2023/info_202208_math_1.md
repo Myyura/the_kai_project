@@ -15,41 +15,57 @@ tags:
 
 ## **Description**
 
-$a>0$ とし、
+$a$ を正の定数とする。2 変数関数
 
 $$
 f(x,y)=\frac{e^{-(x+y)}}{(x-y)^2+a^2}
 $$
 
-とおく。$e$ は自然対数の底である。
+について，次の問いに答えよ。ただし，$e$ は自然対数の底である。
 
-(1) $\partial f/\partial x$ を求めよ。
+(1) 偏導関数 $\dfrac{\partial f}{\partial x}$ を求めよ。
 
-(2) 領域 $D=\{(x,y)\mid 0\le x-y\le a,\ 0\le x+y\le a\}$ を、$u=x-y,\ v=x+y$ によって $uv$ 平面の領域 $E$ に移す。
+(2) $xy$ 平面上の領域 $D=\{(x,y)\mid0\leq x-y\leq a,\ 0\leq x+y\leq a\}$ が，変数変換 $u=x-y$，$v=x+y$ によって，$uv$ 平面上の領域 $E$ に対応する。関数 $f(x,y)$ の $D$ 上の 2 重積分を
 
 $$
 I=\iint_D f(x,y)\,dx\,dy
 $$
 
-について次に答えよ。
+とおく。
 
-(a) $E$ を図示せよ。
+(a) $uv$ 平面上に領域 $E$ を図示せよ。
 
-(b) ヤコビアン $\partial(x,y)/\partial(u,v)$ を求めよ。
+(b) ヤコビアン $\dfrac{\partial(x,y)}{\partial(u,v)}=\dfrac{\partial x}{\partial u}\dfrac{\partial y}{\partial v}-\dfrac{\partial x}{\partial v}\dfrac{\partial y}{\partial u}$ を求めよ。
 
-(c) $I=\frac12\iint_E\frac{e^{-v}}{u^2+a^2}\,du\,dv$ を示し、$I$ を求めよ。
+(c) $I=\dfrac12\displaystyle\iint_E\frac{e^{-v}}{u^2+a^2}\,du\,dv$ となることを示し，$I$ の値を求めよ。
 
-(d) $\lim_{a\to+0}I$ を求めよ。
+(d) $\displaystyle\lim_{a\to+0}I$ を求めよ。
 
 #### 题目描述
 
-设 $a>0$，$f(x,y)=e^{-(x+y)}/((x-y)^2+a^2)$。
+设 $a$ 为正常数。对于二元函数
 
-(1) 求对 $x$ 的偏导数。
+$$
+f(x,y)=\frac{e^{-(x+y)}}{(x-y)^2+a^2},
+$$
 
-(2) 对区域 $D=\{0\le x-y\le a,\ 0\le x+y\le a\}$ 作变换 $u=x-y,\ v=x+y$，像区域记为 $E$，并令 $I=\iint_D f\,dx\,dy$。
+回答以下问题，其中 $e$ 为自然对数的底。
 
-(a) 画出 $E$；(b) 求变换的雅可比行列式；(c) 证明 $I=\frac12\iint_E e^{-v}/(u^2+a^2)\,du\,dv$ 并求值；(d) 求 $a\to0^+$ 时 $I$ 的极限。
+(1) 求偏导函数 $\dfrac{\partial f}{\partial x}$。
+
+(2) $xy$ 平面上的区域 $D=\{(x,y)\mid0\leq x-y\leq a,\ 0\leq x+y\leq a\}$ 通过变量代换 $u=x-y$、$v=x+y$ 对应到 $uv$ 平面上的区域 $E$。记函数 $f(x,y)$ 在 $D$ 上的二重积分为
+
+$$
+I=\iint_D f(x,y)\,dx\,dy.
+$$
+
+(a) 在 $uv$ 平面上画出区域 $E$。
+
+(b) 求雅可比行列式 $\dfrac{\partial(x,y)}{\partial(u,v)}=\dfrac{\partial x}{\partial u}\dfrac{\partial y}{\partial v}-\dfrac{\partial x}{\partial v}\dfrac{\partial y}{\partial u}$。
+
+(c) 证明 $I=\dfrac12\displaystyle\iint_E\frac{e^{-v}}{u^2+a^2}\,du\,dv$，并求 $I$ 的值。
+
+(d) 求 $\displaystyle\lim_{a\to+0}I$。
 
 ## **Kai**
 

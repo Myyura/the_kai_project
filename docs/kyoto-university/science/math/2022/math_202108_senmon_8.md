@@ -37,22 +37,26 @@ $$
 
 #### 题目描述
 
-设 $n\ge2$，$\Omega=\{x\in\mathbb R^n\mid |x|<1\}$，$\overline\Omega$ 为其闭包。$C^2(\overline\Omega)$ 表示在 $\Omega$ 内二阶连续可微、且二阶及以下偏导数均可连续延拓到闭包的实值函数。给定 $f\in C^2(\overline\Omega)$，对每个 $\varepsilon>0$，设 $u_\varepsilon\in C^2(\overline\Omega)$ 满足
+设 $n$ 为不小于 $2$ 的整数，$\Omega=\{x\in\mathbb R^n\mid |x|<1\}$，$\overline\Omega$ 为其闭包。$C^2(\overline\Omega)$ 表示在 $\Omega$ 上为 $C^2$、且二阶及以下的各偏导数均可延拓为 $\overline\Omega$ 上连续函数的实值函数全体。设 $f\in C^2(\overline\Omega)$。对每个 $\varepsilon>0$，设 $u_\varepsilon\in C^2(\overline\Omega)$ 为下列方程的解：
 
 $$
--\varepsilon\Delta u_\varepsilon+u_\varepsilon=f\quad\text{于 }\Omega,
-\qquad u_\varepsilon=0\quad\text{于 }\partial\Omega,
-\qquad \Delta=\sum_{i=1}^n\frac{\partial^2}{\partial x_i^2}.
+\begin{cases}-\varepsilon\Delta u_\varepsilon+u_\varepsilon=f,&x\in\Omega,\\
+u_\varepsilon=0,&x\in\partial\Omega.
+\end{cases}
 $$
 
-(i) 证明存在与 $\varepsilon$ 无关的正常数 $C_1,C_2$，使
+这里，$\Delta=\sum_{i=1}^n\partial^2/\partial x_i^2$。回答下列问题。
+
+(i) 证明存在与 $\varepsilon$ 无关的 $C_1,C_2>0$，使得
 
 $$
-\sqrt\varepsilon\|\nabla u_\varepsilon\|_{L^2}\le C_1\|f\|_{L^2},\qquad
-\varepsilon\|\Delta u_\varepsilon\|_{L^2}\le C_2\|f\|_{L^2}.
+\begin{aligned}
+\sqrt\varepsilon\|\nabla u_\varepsilon\|_{L^2(\Omega)}&\le C_1\|f\|_{L^2(\Omega)},\\
+\varepsilon\|\Delta u_\varepsilon\|_{L^2(\Omega)}&\le C_2\|f\|_{L^2(\Omega)}.
+\end{aligned}
 $$
 
-(ii) 证明 $\|u_\varepsilon-f\|_{L^2(\Omega)}\to0$（$\varepsilon\downarrow0$）。
+(ii) 证明 $\lim_{\varepsilon\downarrow0}\|u_\varepsilon-f\|_{L^2(\Omega)}=0$。
 
 ## **Kai**
 

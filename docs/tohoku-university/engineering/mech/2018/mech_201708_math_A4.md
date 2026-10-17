@@ -15,30 +15,87 @@ tags:
 
 ## **Description**
 
-2017年10月・2018年4月入学対象、2017年8月実施。
-
-デカルト座標 $(x,y,z)$ の単位基本ベクトルを $\boldsymbol i,\boldsymbol j,\boldsymbol k$、円筒座標 $(r,\theta,z)$ の単位基本ベクトルを $\boldsymbol e_r,\boldsymbol e_\theta,\boldsymbol e_z$ とする。$\theta$ は $+x$ 方向から $+y$ 方向へ測る角である。曲面 $S$ は
+4. 図1に示すように，デカルト座標系 $(x,y,z)$ の基本ベクトルを $\boldsymbol i,\boldsymbol j,\boldsymbol k$，円筒座標系 $(r,\theta,z)$ の基本ベクトルを $\boldsymbol e_r,\boldsymbol e_\theta,\boldsymbol e_z$ とする。ただし，基本ベクトルの大きさは1である。曲面 $S$ がデカルト座標系で
 
 $$
-\boldsymbol r=x\boldsymbol i+y\boldsymbol j+\sqrt{x^2+y^2+1}\boldsymbol k,
-\qquad x^2+y^2\le R^2
+S:\boldsymbol r=x\boldsymbol i+y\boldsymbol j+\sqrt{x^2+y^2+1}\,\boldsymbol k
+\quad(x^2+y^2\le R^2)
 $$
 
-で与えられ、$\boldsymbol n$ をその単位法線とする。
+により与えられる。$\boldsymbol n$ を曲面 $S$ の単位法線ベクトルとするとき，以下の問いに答えよ。
 
-1. $\boldsymbol e_r,\boldsymbol e_\theta,\boldsymbol e_z$ を $\boldsymbol i,\boldsymbol j,\boldsymbol k,\theta$ で表せ。
-2. 各基本ベクトルの $r,\theta$ による偏微分を円筒座標系で表せ。
-3. 曲面 $S$ を円筒座標系で表せ。
-4. $\boldsymbol n$ を円筒座標系で求めよ。
-5. $\boldsymbol A=\theta z\boldsymbol e_\theta+\sqrt{2r^2+1}\boldsymbol e_z$ のとき、$\int_S\boldsymbol A\cdot\boldsymbol n\,dS$ を求めよ。
+**(1)** $\boldsymbol e_r,\boldsymbol e_\theta,\boldsymbol e_z$ を $\boldsymbol i,\boldsymbol j,\boldsymbol k$ および $\theta$ を用いて表せ。
 
-![デカルト座標と円筒座標の基本ベクトル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_matha4.svg)
+**(2)** 次の各ベクトルを円筒座標系で表せ。
+
+$$
+\frac{\partial\boldsymbol e_r}{\partial r},\quad
+\frac{\partial\boldsymbol e_r}{\partial\theta},\quad
+\frac{\partial\boldsymbol e_\theta}{\partial r},\quad
+\frac{\partial\boldsymbol e_\theta}{\partial\theta},\quad
+\frac{\partial\boldsymbol e_z}{\partial r},\quad
+\frac{\partial\boldsymbol e_z}{\partial\theta}
+$$
+
+**(3)** 曲面 $S$ を円筒座標系で表せ。
+
+**(4)** $\boldsymbol n$ を円筒座標系で求めよ。
+
+**(5)** ベクトル場 $\boldsymbol A$ が
+
+$$
+\boldsymbol A=\theta z\boldsymbol e_\theta+\sqrt{2r^2+1}\,\boldsymbol e_z
+$$
+
+で与えられるとき，次の面積分を求めよ。
+
+$$
+\int_S\boldsymbol A\cdot\boldsymbol n\,dS
+$$
+
+![図1 デカルト座標系と円筒座標系の基本ベクトル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_math_A4_original_figure_1.png)
 
 #### 题目描述
 
-本题为2017年8月实施、面向2017年10月及2018年4月入学的考试。
+4. 如图1，设笛卡尔坐标系 $(x,y,z)$ 的基向量为 $\boldsymbol i,\boldsymbol j,\boldsymbol k$，柱坐标系 $(r,\theta,z)$ 的基向量为 $\boldsymbol e_r,\boldsymbol e_\theta,\boldsymbol e_z$。这些基向量的模均为1。曲面 $S$ 在笛卡尔坐标系中表示为
 
-直角坐标的单位基向量为 $\boldsymbol i,\boldsymbol j,\boldsymbol k$，柱坐标的单位基向量为 $\boldsymbol e_r,\boldsymbol e_\theta,\boldsymbol e_z$，$\theta$ 从 $+x$ 向 $+y$ 计量。曲面为 $z=\sqrt{x^2+y^2+1}$、$x^2+y^2\le R^2$，单位法线为 $\boldsymbol n$。（1）用直角坐标基和 $\theta$ 表示柱坐标基。（2）求三个基向量分别对 $r,\theta$ 的偏导。（3）用柱坐标表示曲面。（4）求单位法线。（5）对 $\boldsymbol A=\theta z\boldsymbol e_\theta+\sqrt{2r^2+1}\boldsymbol e_z$，求通量积分 $\int_S\boldsymbol A\cdot\boldsymbol n\,dS$。
+$$
+S:\boldsymbol r=x\boldsymbol i+y\boldsymbol j+\sqrt{x^2+y^2+1}\,\boldsymbol k
+\quad(x^2+y^2\le R^2).
+$$
+
+设 $\boldsymbol n$ 为曲面 $S$ 的单位法向量，回答下列问题。
+
+**(1)** 用 $\boldsymbol i,\boldsymbol j,\boldsymbol k$ 和 $\theta$ 表示 $\boldsymbol e_r,\boldsymbol e_\theta,\boldsymbol e_z$。
+
+**(2)** 用柱坐标系表示下列各向量。
+
+$$
+\frac{\partial\boldsymbol e_r}{\partial r},\quad
+\frac{\partial\boldsymbol e_r}{\partial\theta},\quad
+\frac{\partial\boldsymbol e_\theta}{\partial r},\quad
+\frac{\partial\boldsymbol e_\theta}{\partial\theta},\quad
+\frac{\partial\boldsymbol e_z}{\partial r},\quad
+\frac{\partial\boldsymbol e_z}{\partial\theta}
+$$
+
+**(3)** 用柱坐标系表示曲面 $S$。
+
+**(4)** 用柱坐标系求 $\boldsymbol n$。
+
+**(5)** 给定向量场
+
+$$
+\boldsymbol A=\theta z\boldsymbol e_\theta+\sqrt{2r^2+1}\,\boldsymbol e_z,
+$$
+
+求下列曲面积分。
+
+$$
+\int_S\boldsymbol A\cdot\boldsymbol n\,dS
+$$
+
+图1给出了笛卡尔坐标系及柱坐标系的各个基向量。
 
 ## **Kai**
 

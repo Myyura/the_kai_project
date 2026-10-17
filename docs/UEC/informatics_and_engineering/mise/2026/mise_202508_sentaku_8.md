@@ -15,25 +15,55 @@ tags:
 
 ## **Description**
 
-### 問1
+虚数単位を $i$ で記す。以下の問 1、問 2 に答えよ。
 
-1. $z=re^{i\theta}$, $w=z^2=u+iv$ とする。極形式の Cauchy--Riemann 方程式を用いて $w$ が正則であることを示し、導関数を求めよ。
-2. $z$ 平面上の $C_1:y=x^2$ と $C_2:y=1/x$ を $w=z^2$ で写す。交点 $z_0=1+i$ の像で、二つの像曲線の接線がなす大きい方の角を $\psi$ とするとき、$\tan\psi$ を求めよ。
+**問 1.** つぎの小問に答えよ。ここで、自然対数の底を $e$ で記し、$z,w$ を複素数の変数、$x,y,u,v,r,\theta$ を実数の変数とする。
 
-### 問2
+（1）$z=re^{i\theta}$ の関数 $w=z^2$ について、$w=u+iv$ とおく。極形式のコーシー・リーマンの方程式を用いて $w$ が任意の点で正則であることを示し、$w$ の導関数を求めよ。
 
-1. 反時計回りの円 $C:|z-i|=2$ に沿う積分
+（2）$z=x+iy$ とおく。$z$ 平面上の 2 曲線 $C_1:y=x^2$ と $C_2:y=1/x$ とは交点 $z_0=1+i$ で交わる。関数 $w=z^2$ により $w$ 平面に写される 2 曲線 $C_1$ と $C_2$ と交点 $z_0$ の像を順に $\Gamma_1,\Gamma_2,w_0$ とおく。$w$ 平面上で交点 $w_0$ での $\Gamma_1$ と $\Gamma_2$ の接線をそれぞれ $m_1,m_2$ とおき、$m_1$ と $m_2$ のなす角の大きいほうを $\psi$ とおくとき、$\tan\psi$ を求めよ。
 
-   $$
-   \oint_C\frac{2(z-i)}{z(z-2i)}\,dz
-   $$
+**問 2.** つぎの小問に答えよ。ここで、積分路はすべて反時計回りとする。
 
-   を求めよ。
-2. 自然数 $n$ に対して $\displaystyle\int_0^{2\pi}\cos^{2n}\theta\,d\theta$ を求めよ。
+（1）積分路 $C:|z-i|=2$ に沿った以下の 1 周線積分の値を求めよ。
 
-### 题目描述
+$$
+\oint_C\frac{2(z-i)}{z(z-2i)}\,dz
+$$
 
-本题考查极坐标形式的 Cauchy--Riemann 方程、保角映射下的切线夹角、留数定理，以及偶次余弦幂的定积分。
+（2）自然数 $n$ に対してつぎの定積分を求めよ。ここで、$\theta$ を実数の変数とする。
+
+$$
+\int_0^{2\pi}\cos^{2n}\theta\,d\theta
+$$
+
+キーワード：虚数単位 imaginary unit、自然対数の底 base of natural logarithm、複素数 complex number、変数 variable、実数 real number、関数 function、極形式 polar form、コーシー・リーマンの方程式 Cauchy-Riemann equations、任意の点 arbitrary point、正則 regular、導関数 derivative function、平面 plane、曲線 curved line、交点 point of intersection、像 image、接線 tangent line、角 angle、積分路 integral path、反時計回り counterclockwise、1 周線積分 one round line integral、値 value、自然数 natural number、定積分 definite integral。
+
+#### 题目描述
+
+以 $i$ 表示虚数单位，回答问题 1、2。
+
+**问 1.** 回答下列小问。$e$ 为自然对数的底，$z,w$ 为复变量，$x,y,u,v,r,\theta$ 为实变量。
+
+（1）对于 $z=re^{i\theta}$ 的函数 $w=z^2$，令 $w=u+iv$。利用极坐标形式的柯西—黎曼方程，证明 $w$ 在任意点全纯，并求 $w$ 的导函数。
+
+（2）令 $z=x+iy$。$z$ 平面上的两条曲线 $C_1:y=x^2$ 与 $C_2:y=1/x$ 相交于 $z_0=1+i$。在映射 $w=z^2$ 下，$C_1,C_2,z_0$ 在 $w$ 平面上的像依次为 $\Gamma_1,\Gamma_2,w_0$。设 $\Gamma_1,\Gamma_2$ 在交点 $w_0$ 处的切线分别为 $m_1,m_2$，两切线所成的较大角为 $\psi$，求 $\tan\psi$。
+
+**问 2.** 回答下列小问，积分路径均沿逆时针方向。
+
+（1）求沿路径 $C:|z-i|=2$ 绕行一周的积分
+
+$$
+\oint_C\frac{2(z-i)}{z(z-2i)}\,dz.
+$$
+
+（2）对自然数 $n$，求定积分
+
+$$
+\int_0^{2\pi}\cos^{2n}\theta\,d\theta,
+$$
+
+其中 $\theta$ 为实变量。
 
 ## **Kai**
 
@@ -48,9 +78,10 @@ $$
 $r>0$ では
 
 $$
-u_r=\frac1r v_\theta=2r\cos2\theta,
-\qquad
+\begin{gathered}
+u_r=\frac1r v_\theta=2r\cos2\theta,\\
 v_r=-\frac1r u_\theta=2r\sin2\theta
+\end{gathered}
 $$
 
 が成立する。$z=0$ でも
@@ -70,8 +101,11 @@ $$
 $w_0=(1+i)^2=2i$ である。$x$ を媒介変数とすると、
 
 $$
+\begin{gathered}
 \left.\frac{d}{dx}(x+ix^2)^2\right|_{x=1}
-=2(1+i)(1+2i)=-2+6i,
+=2(1+i)(1+2i)\\
+=-2+6i,
+\end{gathered}
 $$
 
 $$
@@ -92,9 +126,10 @@ $$
 被積分関数の極 $0,2i$ はともに $C$ の内部にあり、各留数は
 
 $$
-\operatorname*{Res}_{z=0}\frac{2(z-i)}{z(z-2i)}=1,
-\qquad
+\begin{gathered}
+\operatorname*{Res}_{z=0}\frac{2(z-i)}{z(z-2i)}=1,\\
 \operatorname*{Res}_{z=2i}\frac{2(z-i)}{z(z-2i)}=1.
+\end{gathered}
 $$
 
 したがって留数定理より
@@ -119,3 +154,7 @@ $$
 I_n=\frac{\pi(2n)!}{2^{2n-1}(n!)^2}
 }.
 $$
+
+## **Reference**
+
+- [大学公表の原題](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_7_m_choice202508.pdf)

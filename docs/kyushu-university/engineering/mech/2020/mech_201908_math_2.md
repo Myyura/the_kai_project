@@ -15,19 +15,51 @@ tags:
 
 ## **Description**
 
-次に示す微分方程式の一般解をそれぞれ求めよ。
+以下に示す微分方程式の一般解をそれぞれ求めよ。（50点）
+
+(1)
 
 $$
-\begin{aligned}
-(1)\quad&\frac{dy}{dx}=\frac{y^3-3y^2+2y}{x(3y^2-6y+2)},\\
-(2)\quad&\frac{dy}{dx}=\frac{y^2+2xy}{x^2+xy},\\
-(3)\quad&\frac{d^2y}{dx^2}+y=\cos x+\sin x.
-\end{aligned}
+\frac{dy(x)}{dx}
+=\frac{y(x)^3-3y(x)^2+2y(x)}{x\bigl(3y(x)^2-6y(x)+2\bigr)}.
+$$
+
+(2)
+
+$$
+\frac{dy(x)}{dx}
+=\frac{y(x)^2+2xy(x)}{x^2+xy(x)}.
+$$
+
+(3)
+
+$$
+\frac{d^2y(x)}{dx^2}+y(x)=\cos x+\sin x.
 $$
 
 #### 题目描述
 
-分别求以下微分方程的一般解：① $y'=(y^3-3y^2+2y)/[x(3y^2-6y+2)]$；② $y'=(y^2+2xy)/(x^2+xy)$；③ $y''+y=\cos x+\sin x$。
+分别求下列微分方程的通解。（50分）
+
+(1)
+
+$$
+\frac{dy(x)}{dx}
+=\frac{y(x)^3-3y(x)^2+2y(x)}{x\bigl(3y(x)^2-6y(x)+2\bigr)}.
+$$
+
+(2)
+
+$$
+\frac{dy(x)}{dx}
+=\frac{y(x)^2+2xy(x)}{x^2+xy(x)}.
+$$
+
+(3)
+
+$$
+\frac{d^2y(x)}{dx^2}+y(x)=\cos x+\sin x.
+$$
 
 ## **Kai**
 
@@ -36,8 +68,10 @@ $$
 $N(y)=y(y-1)(y-2)$ とおくと、$N'(y)=3y^2-6y+2$ である。$N(y)\ne0$ の区間では
 
 $$
-\frac{N'(y)}{N(y)}\,dy=\frac{dx}{x},\qquad
+\begin{gathered}
+\frac{N'(y)}{N(y)}\,dy=\frac{dx}{x},\\
 \log|N(y)|=\log|x|+C_0.
+\end{gathered}
 $$
 
 したがって

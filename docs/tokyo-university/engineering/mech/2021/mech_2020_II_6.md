@@ -14,18 +14,43 @@ tags:
 
 ## **Description**
 
-幅 $b$、長さ $l$ の接着組合せ片持ちはりに、自由端で一定の曲げモーメント $M$ を加える。接合面ですべらず、自重を無視する。$x$ は軸方向、$y$ は下向きで、図示の $M$ は下側を引張りにする。
+図6-1のように，ヤング率 $E$ の部材 A と，ヤング率 $2E$ の部材 B および B′ を貼り合わせて作った，長さ $l$ の組合せはりの左端が壁に固定されている。部材 A の高さは $2h$，幅は $b$ であり，部材 B および B′ の各々の高さは $h$，幅は $b$ である。はりの曲げに際して部材 A，B，B′ は接合面において互いにすべらないとし，はりの自重は無視する。はりの右端（自由端）に曲げモーメント $M$ が働くとき，以下の設問に答えよ。
 
-1. 中央層 A の厚さが $2h$、ヤング率が $E$、上下の層 B、B′ の厚さが各 $h$、ヤング率が各 $2E$ の対称断面を考える。図心を $y=0$ とし、曲率半径を用いて軸方向のひずみ・応力分布を表せ。
-2. この対称断面の曲げ剛性を求めよ。
-3. 次に、上層 A（$E$）と下層 B（$2E$）が各厚さ $h$ の二層断面を考える。接合面を $y=0$ とし、中立面が接合面より下方にある距離を $h_0$ とする。図示の内表面の曲率半径 $R$ を用い、軸方向ひずみ・応力分布および $h_0$ を求めよ。
-4. 二層断面の $M$ と $R$ の関係を求めよ。
+(1) はりの曲率半径を $R$ とするとき，はり断面における垂直ひずみおよび垂直応力の $y$ 軸に沿った分布を表す式を求めよ。なお，座標軸は図に示すようにとり，断面の図心が $y=0$ 上にあるものとする。
 
-![構造・座標の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/2021-6-geometry.svg)
+(2) はりの曲げ剛性を求めよ。
+
+![図6-1：三層の組合せはり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/mech_2020_II_6_original_fig1.png)
+
+次に，図6-2のようにヤング率 $E$ の部材 A と，ヤング率 $2E$ の部材 B を貼り合わせて作った，長さ $l$ の組合せはりを考える。部材 A および B はいずれも高さ $h$，幅 $b$ である。はりの曲げに際して部材 A および B は接合面において互いにすべらないとし，はりの自重は無視する。はりの左端が壁に固定され，右端（自由端）に曲げモーメント $M$ が働くとき，以下の設問に答えよ。
+
+(3) 図6-3のように，部材 A と B の接合面とはりの中立面（はり断面の垂直ひずみおよび応力がゼロとなる面）との距離を $h_0$ とする。はりの曲率半径を $R$ とするとき，はり断面における垂直ひずみおよび垂直応力の $y$ 軸に沿った分布を表す式を求めるとともに，$h_0$ を求めよ。なお，部材 A と B の接合面を $y=0$ とせよ。
+
+(4) はりの曲率半径 $R$ と曲げモーメント $M$ の関係式を導け。
+
+![図6-2：二層の組合せはり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/mech_2020_II_6_original_fig2.png)
+
+![図6-3：曲率半径と中立面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/mech_2020_II_6_original_fig3.png)
 
 #### 题目描述
 
-长 $l$、宽 $b$ 的完全粘结组合悬臂梁，端部受使下缘受拉的纯弯矩 $M$。先考虑中央层厚 $2h$、模量 $E$，上下表层各厚 $h$、模量 $2E$，求轴向应变、应力分布和抗弯刚度。再考虑上层模量 $E$、下层 $2E$、各厚 $h$ 的双层梁；界面取向下坐标 $y=0$，求中性面偏移 $h_0$、分布及弯矩与内表面曲率半径 $R$ 的关系。
+如图6-1所示，将杨氏模量为 $E$ 的构件 A 与杨氏模量为 $2E$ 的构件 B、B′ 粘合成长度为 $l$ 的组合梁，其左端固定于墙面。构件 A 的高度为 $2h$、宽度为 $b$；构件 B、B′ 的高度均为 $h$、宽度均为 $b$。弯曲时各构件在接合面上不发生相对滑动，忽略梁的自重。梁右端（自由端）受到弯矩 $M$，回答下列问题。
+
+(1) 设梁的曲率半径为 $R$，求梁截面上正应变和正应力沿 $y$ 轴的分布表达式。坐标轴如图所示，截面形心位于 $y=0$ 上。
+
+(2) 求梁的抗弯刚度。
+
+![图6-1：三层组合梁](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/mech_2020_II_6_original_fig1.png)
+
+接着考虑图6-2所示长度为 $l$ 的组合梁，由杨氏模量为 $E$ 的构件 A 与杨氏模量为 $2E$ 的构件 B 粘合而成。两构件的高度均为 $h$、宽度均为 $b$，弯曲时接合面不发生相对滑动，忽略梁的自重。梁左端固定于墙面，右端（自由端）受到弯矩 $M$。回答下列问题。
+
+(3) 如图6-3所示，设构件 A、B 的接合面与梁中性面（梁截面上正应变与正应力均为零的面）之间的距离为 $h_0$。当梁的曲率半径为 $R$ 时，求截面上正应变和正应力沿 $y$ 轴的分布表达式，并求 $h_0$。取 A、B 的接合面为 $y=0$。
+
+(4) 导出梁的曲率半径 $R$ 与弯矩 $M$ 的关系。
+
+![图6-2：双层组合梁](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/mech_2020_II_6_original_fig2.png)
+
+![图6-3：曲率半径及中性面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/mech_2020_II_6_original_fig3.png)
 
 ## **Kai**
 
@@ -40,8 +65,14 @@ $$
 したがって曲げ剛性は
 
 $$
-D=bE\int_{-h}^{h}y^2\,dy+2bE\left(\int_{-2h}^{-h}y^2\,dy+\int_h^{2h}y^2\,dy\right)
-=\boxed{10Ebh^3},\qquad M=\frac{D}{\rho}.
+\begin{gathered}
+\begin{aligned}
+D={}&bE\int_{-h}^{h}y^2\,dy\\
+&+2bE\left(\int_{-2h}^{-h}y^2\,dy+\int_h^{2h}y^2\,dy\right)\\
+&=\boxed{10Ebh^3},
+\end{aligned}\\
+M=\frac{D}{\rho}.
+\end{gathered}
 $$
 
 内表面の半径を $R$ と表す場合には $\rho=R+2h$ と置く。
@@ -65,8 +96,10 @@ $$
 よって
 
 $$
-\boxed{\varepsilon_x=\frac{6y-h}{6R+7h}},\qquad
+\begin{gathered}
+\boxed{\varepsilon_x=\frac{6y-h}{6R+7h}},\\
 \boxed{\sigma_x=\begin{cases}E(6y-h)/(6R+7h)&-h\le y\le0,\\2E(6y-h)/(6R+7h)&0\le y\le h.\end{cases}}
+\end{gathered}
 $$
 
 ### (4)

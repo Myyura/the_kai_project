@@ -15,17 +15,29 @@ tags:
 
 ## **Description**
 
-半径 $a$ の半円形丸棒 AB は A で壁に溶接されている。B には長さ $a$ の剛体はり BC が直角に溶接され、C には長さ $a$ の剛体はり CD が直角に溶接されている。AB のヤング率は $E$、横弾性係数は $G$、断面二次モーメントは $I$、断面二次極モーメントは $I_p$ である。D に紙面の表から裏へ向かう荷重 $P$ を加える。棒の直径は長さに比べて十分小さい。
+半径 $a$ の半円形に曲がった丸棒 AB は、下図の様に、一端が壁に溶接されている。棒 AB のもう一端は、長さ $a$ のはり BC に直角に溶接されている。また、はり BC は、同じく長さ $a$ のはり CD に直角に溶接されている。ここで、棒 AB は、ヤング率 $E$ および横弾性係数 $G$ の弾性体、はり BC および CD は剛体である。点 D には、荷重 $P$ が紙面と垂直で、かつ紙面の表から裏に向かう方向に負荷されている。なお、いずれの棒の直径も、棒の長さに比べて十分に小さいものとする。次の各問に答えよ。（35点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_material-3-original.png)
+**(1)** 点 B における曲げモーメント $M_B$ とねじりモーメント $T_B$ を求めよ。
 
-1. B における曲げモーメント $M_B$ とねじりモーメント $T_B$ を求めよ。
-2. B から中心角 $\theta$ だけ離れた断面 F の曲げモーメント $M_F$ とねじりモーメント $T_F$ を求めよ。
-3. B の変位 $\delta_B$ を求めよ。
+**(2)** 棒 AB 上で点 B から角度 $\theta$ だけ離れた断面 F にかかる曲げモーメント $M_F$、およびねじりモーメント $T_F$ を求めよ。
+
+**(3)** 点 B の変位 $\delta_B$ を求めよ。
+
+図中、$I$ は断面二次モーメント、$I_p$ は断面二次極モーメントを表す。
+
+![原題の半円形弾性棒と二本の剛体はり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_material-3-original.png)
 
 #### 题目描述
 
-半径 $a$ 的半圆弹性杆 AB 在 A 固定，B 连接长度 $a$ 的刚臂 BC，C 再垂直连接长度 $a$ 的刚臂 CD。弹性杆的弯曲与扭转刚度分别为 $EI$、$GI_p$。D 受垂直纸面向里的力 $P$，杆直径远小于长度。求 B 及距 B 中心角为 $\theta$ 的 F 截面处的弯矩、扭矩，并求 B 的位移。
+半径为 $a$ 的半圆形圆杆 AB，其一端如图焊接于墙壁，另一端与长度为 $a$ 的梁 BC 垂直焊接。梁 BC 又与同样长 $a$ 的梁 CD 垂直焊接。杆 AB 为杨氏模量为 $E$、剪切模量为 $G$ 的弹性体，梁 BC、CD 为刚体。D 点受到垂直于纸面、从纸面正面指向背面的载荷 $P$。所有杆的直径相对于杆长均充分小。回答下列问题。（35分）
+
+**(1)** 求 B 点的弯矩 $M_B$ 和扭矩 $T_B$。
+
+**(2)** 求杆 AB 上从 B 点转过角度 $\theta$ 的 F 截面处的弯矩 $M_F$ 和扭矩 $T_F$。
+
+**(3)** 求 B 点的位移 $\delta_B$。
+
+图中 $I$ 表示截面二次矩，$I_p$ 表示截面极二次矩。
 
 ## **Kai**
 
@@ -51,8 +63,11 @@ $$
 よって
 
 $$
+\begin{gathered}
 \boxed{M_F=Pa\cos\theta,\qquad
-T_F=Pa(1+\sin\theta)}\qquad(0\leq\theta\leq\pi).
+T_F=Pa(1+\sin\theta)}\\
+(0\leq\theta\leq\pi).
+\end{gathered}
 $$
 
 $M_F$ は符号付きであり、$\theta>\pi/2$ では曲げの向きが反転する。
@@ -79,11 +94,13 @@ $$
 したがって B の裏向き変位は
 
 $$
-\delta_B=\left.\frac{\partial U}{\partial q}\right|_{q=0}
-=Pa^3\left[
-\frac1{EI}\int_0^\pi\sin\theta\cos\theta\,d\theta
+\begin{gathered}
+\delta_B=\left.\frac{\partial U}{\partial q}\right|_{q=0}\\
+=Pa^3\left[\begin{gathered}
+\frac1{EI}\int_0^\pi\sin\theta\cos\theta\,d\theta\\
 +\frac1{GI_p}\int_0^\pi(1+\sin\theta)(1-\cos\theta)\,d\theta
-\right].
+\end{gathered}\right].
+\end{gathered}
 $$
 
 第1積分はゼロ、第2積分は $\pi+2$ なので

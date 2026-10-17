@@ -35,8 +35,10 @@ $$
 $u=x+y\cos\alpha$、$v=y\sin\alpha$ と置くと、
 
 $$
-x^2+2xy\cos\alpha+y^2=u^2+v^2,
-\qquad dx\,dy=\frac{du\,dv}{\sin\alpha}.
+\begin{gathered}
+x^2+2xy\cos\alpha+y^2=u^2+v^2,\\
+dx\,dy=\frac{du\,dv}{\sin\alpha}.
+\end{gathered}
 $$
 
 $x\ge0,y\ge0$ の像は、正の $u$ 軸と方向ベクトル $(\cos\alpha,\sin\alpha)$ の半直線に挟まれた角 $\alpha$ の扇形である。したがって $u=r\cos\theta,v=r\sin\theta$ と置けば、

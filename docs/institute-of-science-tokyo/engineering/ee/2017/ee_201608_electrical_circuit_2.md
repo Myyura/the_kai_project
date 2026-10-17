@@ -15,20 +15,29 @@ tags:
 
 ## **Description**
 
-図2.1の MOS トランジスタを用いたソース接地回路の周波数特性を考える。トランジスタは飽和領域で動作し、小信号等価回路は図2.2で表され、そのトランスコンダクタンスを $g_m$ とする。
+図2.1の MOS トランジスタを用いたソース接地回路の周波数特性に関して、以下の問に答えよ。トランジスタは飽和領域で動作しているものとし、トランジスタの小信号等価回路は図2.2であらわされ、そのトランスコンダクタンスが $g_m$ とする。
+
+1) 図2.1について小信号等価回路を示せ。
+
+2) 小信号等価回路から、$G(j\omega)=v_{\mathrm{out}}/v_{\mathrm{in}}$ を求めよ。
+
+3) 低域遮断角周波数 $\omega_c$（利得が $3\,\mathrm{dB}$ 下がる低周波側の角周波数）を求めよ。また、遮断角周波数より十分に高い角周波数領域における利得 $G_0$ を求めよ。ただし、$R_1=R_2=200\,\mathrm{k\Omega}$、$R_D=10\,\mathrm{k\Omega}$、$g_m=10\,\mathrm{mS}$、$C=0.1\,\mathrm{\mu F}$ とする。
+
+4) 3) の条件において、$G(j\omega)$ の骨格ボード線図（利得および位相の周波数依存性の概略図）を $1\,\mathrm{rad/s}$ 〜 $1\times10^8\,\mathrm{rad/s}$ の範囲内で描け。
 
 ![MOSソース接地回路とトランジスタ小信号モデル（図2.1、2.2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_circuit2-original.png)
 
-図：東京工業大学 電気電子系 2016年実施問題、図2.1、2.2（原図）。
-
-1. 図2.1の小信号等価回路を示せ。
-2. 小信号等価回路から $G(j\omega)=v_{\mathrm{out}}/v_{\mathrm{in}}$ を求めよ。
-3. 利得が高域の値から $3\,\mathrm{dB}$ 低下する低域遮断角周波数 $\omega_c$ と、それより十分高い角周波数での利得 $G_0$ を求めよ。ただし、$R_1=R_2=200\,\mathrm{k\Omega}$、$R_D=10\,\mathrm{k\Omega}$、$g_m=10\,\mathrm{mS}$、$C=0.1\,\mathrm{\mu F}$ とする。
-4. 3) の条件で、$G(j\omega)$ の利得および位相の骨格ボード線図を $1$〜$10^8\,\mathrm{rad/s}$ の範囲で描け。
-
 #### 题目描述
 
-对图示饱和区 MOS 管共源放大器，采用原图给定的小信号模型，跨导为 $g_m$。1) 画出整体小信号等效电路；2) 求电压增益 $G(j\omega)$；3) 在给定元件参数下，求低频侧的 $3\,\mathrm{dB}$ 截止角频率及远高于截止频率时的增益；4) 在 $1$ 至 $10^8\,\mathrm{rad/s}$ 范围画出幅频、相频渐近 Bode 图。
+对于图2.1中使用 MOS 晶体管的共源电路的频率特性，回答以下问题。设晶体管工作在饱和区，其小信号等效电路如图2.2所示，跨导为 $g_m$。
+
+1) 画出图2.1的小信号等效电路。
+
+2) 根据小信号等效电路，求 $G(j\omega)=v_{\mathrm{out}}/v_{\mathrm{in}}$。
+
+3) 求低频截止角频率 $\omega_c$（低频侧增益下降 $3\,\mathrm{dB}$ 时的角频率），并求远高于截止角频率区域的增益 $G_0$。设 $R_1=R_2=200\,\mathrm{k\Omega}$、$R_D=10\,\mathrm{k\Omega}$、$g_m=10\,\mathrm{mS}$、$C=0.1\,\mathrm{\mu F}$。
+
+4) 在 3) 的条件下，在 $1\,\mathrm{rad/s}$ 至 $1\times10^8\,\mathrm{rad/s}$ 范围内画出 $G(j\omega)$ 的渐近波特图（增益、相位随频率变化的概略图）。
 
 ## **Kai**
 
@@ -73,10 +82,11 @@ $$
 厳密な振幅・位相は
 
 $$
+\begin{gathered}
 20\log_{10}|G(j\omega)|
-=40+20\log_{10}\frac{\omega}{\sqrt{\omega^2+100^2}},
-\qquad
+=40+20\log_{10}\frac{\omega}{\sqrt{\omega^2+100^2}},\\
 \arg G=-90^\circ-\tan^{-1}\frac\omega{100}.
+\end{gathered}
 $$
 
 骨格利得線図は $1\le\omega\le100$ で $20\,\mathrm{dB/dec}$、$\omega\ge100$ で $40\,\mathrm{dB}$ の水平線となる。位相の骨格線図は $\omega\le10$ で $-90^\circ$、$10$〜$1000$ で $-45^\circ/\mathrm{dec}$、$\omega\ge1000$ で $-180^\circ$ とする。$\omega=100$ の厳密な値は約 $37\,\mathrm{dB}$、$-135^\circ$ である。

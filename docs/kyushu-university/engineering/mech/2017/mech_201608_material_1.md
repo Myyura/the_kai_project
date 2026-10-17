@@ -14,17 +14,33 @@ tags:
 
 ## **Description**
 
-図の各棒はヤング率 $E$、断面積 $A$ を持ち、丸印はピン結合を表す。A、D は壁に固定され、AB $=a$、BC $=$ BD $=$ DC $=2a$ である。C に水平右向きから上へ $60^\circ$ の方向に荷重 $P$ を加える。各棒の伸びは長さに比べて十分小さい。
+図の構造において、次の問いに答えよ。（40点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-1-original.png)
+**(1)** 棒 BD に作用する力を求めよ。
 
-1. 棒 BD に作用する力を求めよ。
-2. 着力点 C の水平方向変位を求めよ。
-3. 着力点 C の垂直方向変位を求めよ。
+**(2)** 着力点 C の水平方向変位を求めよ。
+
+**(3)** 着力点 C の垂直方向変位を求めよ。
+
+ただし、各棒の伸びは、その長さに比べて十分に小さいものとする。
+
+図中、$E$ はヤング率、$A$ は断面積、丸印はピン結合を表す。AB の長さは $a$、DC の長さは $2a$ であり、各角度および荷重 $P$ の方向は図示のとおりである。
+
+![原題の四本の棒の構造と荷重方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-1-original.png)
 
 #### 题目描述
 
-图示铰接杆系中 A、D 固定，AB 长 $a$，BC、BD、DC 长 $2a$；各杆的轴向刚度为 $EA$。C 受向右上方、与水平线成 $60^\circ$ 的力 $P$，各杆伸长相对长度很小。求 BD 的轴力及 C 的水平、竖直位移。
+对于图示结构，回答下列问题。（40分）
+
+**(1)** 求杆 BD 中的力。
+
+**(2)** 求载荷作用点 C 的水平位移。
+
+**(3)** 求载荷作用点 C 的竖直位移。
+
+各杆的伸长与其自身长度相比充分小。
+
+图中 $E$ 为杨氏模量，$A$ 为截面积，圆圈表示铰接。AB 长 $a$，DC 长 $2a$。图示各夹角为 $60^\circ$，载荷 $P$ 在 C 点沿水平右向上方 $60^\circ$ 的方向作用，支承及连接位置如图。
 
 ## **Kai**
 
@@ -35,14 +51,19 @@ tags:
 C のつり合いから
 
 $$
-\frac{\sqrt3}{2}N_{BC}+\frac{\sqrt3}{2}P=0,\qquad
+\begin{gathered}
+\frac{\sqrt3}{2}N_{BC}+\frac{\sqrt3}{2}P=0,\\
 -N_{DC}-\frac12N_{BC}+\frac12P=0.
+\end{gathered}
 $$
 
 したがって $N_{BC}=-P$、$N_{DC}=P$。B のつり合いを取ると
 
 $$
-\boxed{N_{BD}=P\quad\text{（引張り）}},\qquad N_{AB}=-P.
+\begin{gathered}
+\boxed{N_{BD}=P\quad\text{（引張り）}},\\
+N_{AB}=-P.
+\end{gathered}
 $$
 
 ### (2)

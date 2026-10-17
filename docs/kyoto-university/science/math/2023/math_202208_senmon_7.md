@@ -14,41 +14,105 @@ tags:
 
 ## **Description**
 
-$B=\{(x_1,x_2)\in\mathbb R^2:x_1^2+x_2^2<1\}$、$\overline B=\{x_1^2+x_2^2\le1\}$ とする。
-
-(1) 実数値関数 $f\in C^1([0,1])$ が $f(1)=0$ を満たすとき、$f$ に依存しない $c_1>0$ が存在して
+次の集合を定め，$\partial B$ は $B$ の境界とする。
 
 $$
-\int_0^1 f(r)^2r\,dr\le c_1\int_0^1f'(r)^2r\,dr
+\begin{aligned}
+B&:=\{x=(x_1,x_2)\in\mathbb R^2;\ x_1^2+x_2^2<1\},\\
+\overline B&:=\{x=(x_1,x_2)\in\mathbb R^2;\ x_1^2+x_2^2\le1\}.
+\end{aligned}
 $$
 
-が成り立つことを示せ。
-
-(2) 実数値関数 $f\in C^1(B)\cap C(\overline B)$ が境界で $f=0$ を満たし、すべての1階偏導関数が $\overline B$ 上の連続関数に拡張できるとする。$f$ に依存しない $c_2>0$ によって
+(1) 実数値関数 $f\in C^1([0,1])$ が $f(1)=0$ を満たしているとき，次が成り立つことを示せ。
 
 $$
-\int_Bf^2\,dx\le c_2\int_B\bigl((\partial_{x_1}f)^2+(\partial_{x_2}f)^2\bigr)\,dx
+\int_0^1 f(r)^2r\,dr\le c_1\int_0^1 f'(r)^2r\,dr.
 $$
 
-が成り立つことを示せ。
+ここで，$c_1>0$ は $f$ に依存しない定数である。
 
-(3) 実数値関数 $u\in C^2((0,\infty)\times B)\cap C([0,\infty)\times\overline B)$ が $t>0$、$x\in\partial B$ で $u(t,x)=0$ を満たすとする。各 $t>0$ で $u_t(t,\cdot),u_{x_1}(t,\cdot),u_{x_2}(t,\cdot),u_{x_1x_2}(t,\cdot)$ は $\overline B$ 上連続に拡張できるものとする。$u_t-u_{x_1x_1}-u_{x_2x_2}=0$ なら、すべての $t>0$ で
+(2) 実数値関数 $f\in C^1(B)\cap C(\overline B)$ は $\partial B$ 上で $f=0$ を満たしており，全ての1階偏導関数は $\overline B$ 上の連続関数に拡張できるものとする。このとき，次が成り立つことを示せ。
+
+$$
+\int_B f(x)^2\,dx\le c_2\int_B\left\{
+\left(\frac{\partial}{\partial x_1}f(x)\right)^2+
+\left(\frac{\partial}{\partial x_2}f(x)\right)^2\right\}\,dx.
+$$
+
+ここで，$c_2>0$ は $f$ に依存しない定数である。
+
+(3) 実数値関数 $u\in C^2((0,\infty)\times B)\cap C([0,\infty)\times\overline B)$ は次を満たすものとする。
+
+- $u(t,x)=0\quad(t\in(0,\infty),\ x\in\partial B)$。
+- 各 $t>0$ で $\dfrac{\partial}{\partial t}u(t,\cdot)$，$\dfrac{\partial}{\partial x_1}u(t,\cdot)$，$\dfrac{\partial}{\partial x_2}u(t,\cdot)$，$\dfrac{\partial^2}{\partial x_1\partial x_2}u(t,\cdot)$ は，$\overline B$ 上の連続関数に拡張できる。
+
+このとき，もし
+
+$$
+\frac{\partial}{\partial t}u(t,x)
+-\frac{\partial^2}{\partial x_1^2}u(t,x)
+-\frac{\partial^2}{\partial x_2^2}u(t,x)=0
+\qquad(t\in(0,\infty),\ x\in B)
+$$
+
+が成り立つならば，全ての $t>0$ に対して
 
 $$
 \int_Bu(t,x)^2\,dx\le c_3e^{-c_4t}
 $$
 
-を示せ。ただし $c_3>0$ は $t$ に依存せず、$c_4>0$ は $t,u$ に依存しない。
+が成り立つことを示せ。ここで，$c_3>0$ は $t$ に依存しない定数で，$c_4>0$ は $t$ と $u$ に依存しない定数である。
 
 #### 题目描述
 
-令 $B$ 为平面单位开圆盘。
+定义以下集合，并以 $\partial B$ 表示 $B$ 的边界。
 
-(1) 对满足 $f(1)=0$ 的实值 $C^1([0,1])$ 函数，证明 $\int_0^1f^2r\,dr\le c_1\int_0^1(f')^2r\,dr$，其中 $c_1>0$ 与 $f$ 无关。
+$$
+\begin{aligned}
+B&:=\{x=(x_1,x_2)\in\mathbb R^2;\ x_1^2+x_2^2<1\},\\
+\overline B&:=\{x=(x_1,x_2)\in\mathbb R^2;\ x_1^2+x_2^2\le1\}.
+\end{aligned}
+$$
 
-(2) 实值 $f\in C^1(B)\cap C(\overline B)$ 在边界为零，一阶偏导数连续延拓到闭圆盘。证明 $\int_B f^2\le c_2\int_B|\nabla f|^2$，其中 $c_2>0$ 与 $f$ 无关。
+(1) 当实值函数 $f\in C^1([0,1])$ 满足 $f(1)=0$ 时，证明
 
-(3) 实值 $u\in C^2((0,\infty)\times B)\cap C([0,\infty)\times\overline B)$ 满足齐次 Dirichlet 边界条件和热方程 $u_t=\Delta u$，且每个 $t>0$ 时 $u_t,u_{x_1},u_{x_2},u_{x_1x_2}$ 都能连续延拓到闭圆盘。证明 $\int_B u(t,x)^2\,dx\le c_3e^{-c_4t}$，其中 $c_3>0$ 不依赖于 $t$，$c_4>0$ 不依赖于 $t,u$。
+$$
+\int_0^1 f(r)^2r\,dr\le c_1\int_0^1 f'(r)^2r\,dr.
+$$
+
+这里，$c_1>0$ 是与 $f$ 无关的常数。
+
+(2) 假设实值函数 $f\in C^1(B)\cap C(\overline B)$ 在 $\partial B$ 上满足 $f=0$，且所有一阶偏导数均可延拓为 $\overline B$ 上的连续函数。证明
+
+$$
+\int_B f(x)^2\,dx\le c_2\int_B\left\{
+\left(\frac{\partial}{\partial x_1}f(x)\right)^2+
+\left(\frac{\partial}{\partial x_2}f(x)\right)^2\right\}\,dx.
+$$
+
+这里，$c_2>0$ 是与 $f$ 无关的常数。
+
+(3) 假设实值函数 $u\in C^2((0,\infty)\times B)\cap C([0,\infty)\times\overline B)$ 满足以下条件。
+
+- $u(t,x)=0\quad(t\in(0,\infty),\ x\in\partial B)$。
+- 对每个 $t>0$，$\dfrac{\partial}{\partial t}u(t,\cdot)$、$\dfrac{\partial}{\partial x_1}u(t,\cdot)$、$\dfrac{\partial}{\partial x_2}u(t,\cdot)$、$\dfrac{\partial^2}{\partial x_1\partial x_2}u(t,\cdot)$ 均可延拓为 $\overline B$ 上的连续函数。
+
+证明：若
+
+$$
+\frac{\partial}{\partial t}u(t,x)
+-\frac{\partial^2}{\partial x_1^2}u(t,x)
+-\frac{\partial^2}{\partial x_2^2}u(t,x)=0
+\qquad(t\in(0,\infty),\ x\in B),
+$$
+
+则对所有 $t>0$，有
+
+$$
+\int_Bu(t,x)^2\,dx\le c_3e^{-c_4t}.
+$$
+
+这里，$c_3>0$ 是与 $t$ 无关的常数，$c_4>0$ 是与 $t,u$ 均无关的常数。
 
 ## **Kai**
 
@@ -57,8 +121,14 @@ $$
 $0<r\le1$ について $f(r)=-\int_r^1f'(s)\,ds$ だから、Cauchy–Schwarz の不等式より
 
 $$
-|f(r)|^2\le\left(\int_r^1|f'(s)|^2s\,ds\right)\left(\int_r^1\frac{ds}{s}\right)
+\begin{gathered}
+|f(r)|^2\\
+\le\\
+\left(\int_r^1|f'(s)|^2s\,ds\right)\\
+\left(\int_r^1\frac{ds}{s}\right)
+\\
 \le\log\frac1r\int_0^1|f'(s)|^2s\,ds.
+\end{gathered}
 $$
 
 両辺に $r$ を掛けて積分すると、$\int_0^1r\log(1/r)\,dr=1/4$ より $\boxed{c_1=1/4}$ とできる。
@@ -78,7 +148,10 @@ $$
 $E(t)=\int_Bu(t,x)^2\,dx$ とおく。熱方程式、境界条件および部分積分により、$t>0$ で
 
 $$
-E'(t)=2\int_Bu\Delta u\,dx=-2\int_B|\nabla u|^2\,dx\le-8E(t).
+\begin{gathered}
+E'(t)=2\int_Bu\Delta u\,dx\\
+=-2\int_B|\nabla u|^2\,dx\le-8E(t).
+\end{gathered}
 $$
 
 部分積分は半径 $\rho<1$ の円盤上で行い、$\rho\uparrow1$ とすればよい。境界で $u=0$、1階偏導関数と $\Delta u=u_t$ は境界まで連続なので境界項は消える。

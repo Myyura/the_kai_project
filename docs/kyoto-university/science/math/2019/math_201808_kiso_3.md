@@ -35,21 +35,32 @@ $$
 
 #### 题目描述
 
-给定 $(x_0,y_0)\ne(0,0)$，考虑初值问题
+对于 $(x_0,y_0)\in\mathbb R^2\setminus\{(0,0)\}$，证明定义在 $\mathbb R$ 上的常微分方程组
 
 $$
-x'=-x^2y-y^3,\qquad y'=x^3+xy^2,
-\qquad x(0)=x_0,\quad y(0)=y_0.
+\begin{cases}
+\dfrac{dx}{dt}=-x^2y-y^3,\\
+\dfrac{dy}{dt}=x^3+xy^2,
+\end{cases}
+\qquad
+\begin{cases}x(0)=x_0,\\y(0)=y_0\end{cases}
 $$
 
-证明定义在 $\mathbb R$ 上的解 $(x(t),y(t))$ 是周期解，并求最小正周期。这里 $T>0$ 为周期是指对所有 $t\in\mathbb R$，都有 $(x(t+T),y(t+T))=(x(t),y(t))$。
+的解 $(x(t),y(t))$ 具有周期，并求最小周期。这里正实数 $T$ 为周期是指对任意 $t\in\mathbb R$，均有
+
+$$
+(x(t+T),y(t+T))=(x(t),y(t)).
+$$
 
 ## **Kai**
 
 微分方程式より
 
 $$
-\frac{d}{dt}(x^2+y^2)=2x[-y(x^2+y^2)]+2y[x(x^2+y^2)]=0.
+\begin{gathered}
+\frac{d}{dt}(x^2+y^2)=2x[-y(x^2+y^2)]+2y[x(x^2+y^2)]\\
+=0.
+\end{gathered}
 $$
 
 したがって $\rho=x_0^2+y_0^2>0$ と置けば $x^2+y^2=\rho$ であり、方程式は $x'=-\rho y,\ y'=\rho x$ となる。初期条件を満たす解は

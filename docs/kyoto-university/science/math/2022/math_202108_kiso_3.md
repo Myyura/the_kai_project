@@ -23,7 +23,7 @@ $$
 
 #### 题目描述
 
-设 $G=\mathbb Z/2\mathbb Z\times\mathbb Z/3\mathbb Z\times\mathbb Z/3\mathbb Z\times\mathbb Z/4\mathbb Z$，其子群为
+设阿贝尔群 $G=\mathbb Z/2\mathbb Z\times\mathbb Z/3\mathbb Z\times\mathbb Z/3\mathbb Z\times\mathbb Z/4\mathbb Z$，其子群为
 
 $$
 H=\{(a,b,0,0)\mid a\in\mathbb Z/2\mathbb Z,\ b\in\mathbb Z/3\mathbb Z\}.

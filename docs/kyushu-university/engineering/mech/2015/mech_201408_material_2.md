@@ -14,16 +14,25 @@ tags:
 
 ## **Description**
 
-図2の二本の弾性はり AB、EC は A、E で壁に固定され、下のはりは中点 D でも単純支持されている。AB $=$ EC $=2a$、ED $=$ DC $=a$。B と C は長さ $b$ の剛体棒にピン結合されている。両はりの曲げ剛性は $EI$。C に下向き荷重 $P$ を加える。
+図2の構造は、点 A と点 E で壁に固定され、また点 D で単純支持されている。次の各問に答えよ。（40点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-2-original.png)
+**(1)** 支点 D の抗力 $R_D$ を求めよ。
 
-1. 支点 D の反力 $R_D$ を求めよ。
-2. C の変位 $\delta_C$ を求めよ。
+**(2)** 着力点 C の変位 $\delta_C$ を求めよ。
+
+図中、AB の長さは $2a$、ED と DC の長さは各 $a$、BC は長さ $b$ の剛体で、B と C はピン継手である。C に下向きの荷重 $P$ が作用する。$E$ はヤング率、$I$ は断面二次モーメントである。
+
+![図2：固定・単純支持された二本のはり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-2-original.png)
 
 #### 题目描述
 
-两根弯曲刚度为 $EI$、长 $2a$ 的梁分别在 A、E 固定，下梁中点 D 另设简单支承。B、C 由长 $b$ 的刚杆两端铰接，C 受向下力 $P$。求 D 的反力及 C 的位移。
+图2所示结构在 A、E 两点固定于墙壁，并在 D 点简支。回答下列问题。（40分）
+
+**(1)** 求 D 支点的反力 $R_D$。
+
+**(2)** 求载荷作用点 C 的位移 $\delta_C$。
+
+图中 AB 长 $2a$，ED 与 DC 各长 $a$，BC 为长 $b$ 的刚杆，B、C 为铰接点。C 点承受向下的载荷 $P$。$E$ 为杨氏模量，$I$ 为截面二次矩。
 
 ## **Kai**
 
@@ -46,8 +55,10 @@ $$
 下梁 C の変位と上梁 B の変位は
 
 $$
-\delta_C=\frac{8(P-Q)a^3}{3EI}-\frac{5R_Da^3}{6EI}
+\begin{gathered}
+\delta_C=\frac{8(P-Q)a^3}{3EI}-\frac{5R_Da^3}{6EI}\\
 =\frac{7(P-Q)a^3}{12EI},
+\end{gathered}
 $$
 
 $$

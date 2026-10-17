@@ -15,43 +15,53 @@ tags:
 
 ## **Description**
 
-$\lambda\ne0$ を実数、$n$ を自然数とし、
+実数 $\lambda$ が $\lambda\ne0$ を満たすとき，3 つの行列：
 
 $$
-A=\begin{pmatrix}\lambda-2&1\\-4&\lambda+2\end{pmatrix},\qquad
-P=\begin{pmatrix}1&0\\2&1\end{pmatrix},\qquad
+A=\begin{pmatrix}\lambda-2&1\\-4&\lambda+2\end{pmatrix},\quad
+P=\begin{pmatrix}1&0\\2&1\end{pmatrix},\quad
 J=\begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix}
 $$
 
-とおく。
+について，次の問いに答えよ。ただし，以下では $n$ を自然数とする。
 
-(1) $P^{-1}$ を求め、$A=PJP^{-1}$ を示せ。
+(1) 逆行列 $P^{-1}$ を求め，$A=PJP^{-1}$ を示せ。
 
-(2) 数学的帰納法により $J^n=\begin{pmatrix}\lambda^n&n\lambda^{n-1}\\0&\lambda^n\end{pmatrix}$ を示せ。
+(2) 数学的帰納法を用いて，$J^n=\begin{pmatrix}\lambda^n&n\lambda^{n-1}\\0&\lambda^n\end{pmatrix}$ を示せ。
 
-(3) $A^n=PJ^nP^{-1}$ を示し、$A^n$ を $n,\lambda$ の式で表せ。
+(3) $A^n=PJ^nP^{-1}$ を示し，$A^n$ を $n$ と $\lambda$ の式で表せ。
 
-(4) $\lim_{n\to\infty}\frac{A^n}{n\lambda^{n-1}}$ を求めよ。
+(4) $\displaystyle\lim_{n\to\infty}\frac{1}{n\lambda^{n-1}}A^n$ を求めよ。
 
 #### 题目描述
 
-实数 $\lambda\ne0$，$n$ 为自然数。矩阵 $A,P,J$ 如上。
+实数 $\lambda$ 满足 $\lambda\ne0$。对于三个矩阵
 
-(1) 求 $P^{-1}$ 并证明 $A=PJP^{-1}$。
+$$
+A=\begin{pmatrix}\lambda-2&1\\-4&\lambda+2\end{pmatrix},\quad
+P=\begin{pmatrix}1&0\\2&1\end{pmatrix},\quad
+J=\begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix},
+$$
 
-(2) 用数学归纳法证明所给 $J^n$ 公式。
+回答以下问题。其中 $n$ 为自然数。
 
-(3) 证明 $A^n=PJ^nP^{-1}$，并用 $n,\lambda$ 表示 $A^n$。
+(1) 求逆矩阵 $P^{-1}$，并证明 $A=PJP^{-1}$。
 
-(4) 求 $A^n/(n\lambda^{n-1})$ 在 $n\to\infty$ 时的极限。
+(2) 用数学归纳法证明 $J^n=\begin{pmatrix}\lambda^n&n\lambda^{n-1}\\0&\lambda^n\end{pmatrix}$。
+
+(3) 证明 $A^n=PJ^nP^{-1}$，并用 $n$ 和 $\lambda$ 的表达式表示 $A^n$。
+
+(4) 求 $\displaystyle\lim_{n\to\infty}\frac{1}{n\lambda^{n-1}}A^n$。
 
 ## **Kai**
 
 ### (1)
 
 $$
-P^{-1}=\begin{pmatrix}1&0\\-2&1\end{pmatrix},\qquad
+\begin{gathered}
+P^{-1}=\begin{pmatrix}1&0\\-2&1\end{pmatrix},\\
 PJP^{-1}=\begin{pmatrix}\lambda-2&1\\-4&\lambda+2\end{pmatrix}=A.
+\end{gathered}
 $$
 
 ### (2)
@@ -59,10 +69,12 @@ $$
 $n=1$ では明らかである。$n=k$ で成り立つと仮定すると
 
 $$
-J^{k+1}=J^kJ
+\begin{gathered}
+J^{k+1}=J^kJ\\
 =\begin{pmatrix}\lambda^k&k\lambda^{k-1}\\0&\lambda^k\end{pmatrix}
-\begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix}
+\begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix}\\
 =\begin{pmatrix}\lambda^{k+1}&(k+1)\lambda^k\\0&\lambda^{k+1}\end{pmatrix}.
+\end{gathered}
 $$
 
 したがって数学的帰納法により、すべての自然数 $n$ で成立する。

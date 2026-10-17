@@ -39,22 +39,26 @@ $$
 \begin{cases}x_m'(t)=a_m(t)\sqrt{x_m(t)},&t\ge0,\\x_m(0)=x_0\end{cases}
 $$
 
-的解在 $m\to\infty$ 时，在整个 $[0,\infty)$ 上一致收敛于某个连续函数。
+的解 $x_m:[0,\infty)\to\mathbb R$ 在 $m\to\infty$ 时，在整个 $[0,\infty)$ 上一致收敛于某个连续函数。
 
 ## **Kai**
 
 解は非減少であり $x_m(t)\ge x_0>0$ なので、$y_m=\sqrt{x_m}$ とおけば $y_m'=a_m/2$ である。従って
 
 $$
-y_m(t)=\sqrt{x_0}+\frac12\left(\arctan(t+1/m)-\arctan(1/m)\right),
-\qquad x_m(t)=y_m(t)^2.
+\begin{gathered}
+y_m(t)=\sqrt{x_0}+\frac12\left(\arctan(t+1/m)-\arctan(1/m)\right),\\
+x_m(t)=y_m(t)^2.
+\end{gathered}
 $$
 
 この式は全区間 $[0,\infty)$ 上で初期値問題の解を与える。極限候補を
 
 $$
-y(t)=\sqrt{x_0}+\frac12\arctan t,\qquad
+\begin{gathered}
+y(t)=\sqrt{x_0}+\frac12\arctan t,\\
 x(t)=\left(\sqrt{x_0}+\frac12\arctan t\right)^2
+\end{gathered}
 $$
 
 とおく。$|(\arctan)'|\le1$ より、すべての $t\ge0$ に対し

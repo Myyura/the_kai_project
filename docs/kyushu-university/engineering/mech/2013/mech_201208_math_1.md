@@ -15,17 +15,31 @@ tags:
 
 次の各問いに答えよ。（50点）
 
-1. 以下の連立微分方程式の一般解を実数値関数として求めよ。
+(1) 以下の連立微分方程式の一般解を実数値関数として求めよ。
 
 $$
-\frac{dx}{dt}-2y=0,\qquad \frac{dy}{dt}+2x=0.
+\begin{cases}
+\dfrac{dx}{dt}-2y=0,\\[4pt]
+\dfrac{dy}{dt}+2x=0.
+\end{cases}
 $$
 
-2. (1) で求めた解は $xy$ 平面上にどのような図形を描くか図示せよ。
+(2) (1)で求めた解は $xy$ 平面上にどのような図形を描くか図示せよ。
 
 #### 题目描述
 
-求二元联立微分方程的实值通解，并画出解在平面上的轨迹。
+回答以下各问。（50分）
+
+(1) 求下列联立微分方程的实值函数通解。
+
+$$
+\begin{cases}
+\dfrac{dx}{dt}-2y=0,\\[4pt]
+\dfrac{dy}{dt}+2x=0.
+\end{cases}
+$$
+
+(2) 将(1)所得的解在 $xy$ 平面上描绘出的图形画出来。
 
 ## **Kai**
 
@@ -34,8 +48,11 @@ $$
 $x'=2y$ を微分し、$y'=-2x$ を代入すると $x''+4x=0$。したがって
 
 $$
-\boxed{x(t)=A\cos2t+B\sin2t,\qquad
-y(t)=-A\sin2t+B\cos2t,\quad A,B\in\mathbb R}.
+\boxed{\begin{gathered}
+x(t)=A\cos2t+B\sin2t,\\
+y(t)=-A\sin2t+B\cos2t,\\
+A,B\in\mathbb R
+\end{gathered}}.
 $$
 
 ### (2)

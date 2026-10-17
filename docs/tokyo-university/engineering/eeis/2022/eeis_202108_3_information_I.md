@@ -1,5 +1,5 @@
 ---
-sidebar_label: '2020年8月実施 問題3 情報工学I'
+sidebar_label: '2021年8月実施 問題3 情報工学I'
 tags:
   - Tokyo-University
   - Probability-Statistics.Stochastic-Processes.Markov-Information-Source
@@ -12,7 +12,7 @@ tags:
   - Electrical-Electronic.Signal-Processing.Sampling-Theorem-and-Aliasing
 ---
 
-# 東京大学 工学系研究科 電気系工学専攻 2020年8月実施 問題3 情報工学I
+# 東京大学 工学系研究科 電気系工学専攻 2021年8月実施 問題3 情報工学I
 
 
 ## **Author**
@@ -27,8 +27,8 @@ $$
 T = \begin{bmatrix}
 p(s_0|s_0) & p(s_1|s_0) & p(s_2|s_0) \\
 p(s_0|s_1) & p(s_1|s_1) & p(s_2|s_1) \\
-p(s_0|s_2) & p(s_1|s_2) & p(s_2|s_2) \\    
-\end{bmatrix} = 
+p(s_0|s_2) & p(s_1|s_2) & p(s_2|s_2) \\
+\end{bmatrix} =
 \begin{bmatrix}
 0.3 & 0.7 & 0 \\
 0.3 & 0.5 & 0.2 \\
@@ -37,7 +37,7 @@ p(s_0|s_2) & p(s_1|s_2) & p(s_2|s_2) \\
 \end{aligned}
 $$
 
-遷移の間，$S$ は次の状態を出⼒する．必要に応じて以下の近似を⽤いてよい: 
+遷移の間，$S$ は次の状態を出⼒する．必要に応じて以下の近似を⽤いてよい:
 
 $$
 \log_23 = 1.58,\log_25 = 2.32,\log_27 = 2.81
@@ -51,8 +51,8 @@ $$
 
 (4) $S$ の連続する $2$ つの出⼒に対して符号語を割り当てることを考える。
 
-- (4-i) 最も効率の良い符号を設計せよ。 
-- (4-ii) (4-i)で設計した符号の符号化効率について、定量化する⽅法について述べよ． 
+- (4-i) 最も効率の良い符号を設計せよ。
+- (4-ii) (4-i)で設計した符号の符号化効率について、定量化する⽅法について述べよ．
 
 ### II.
 信号処理に関する以下の問に答えよ．連続時間信号 $f(t)$ のフーリエ変換 $F(\omega)$ は，$t(-\infty < t < \infty)$ を時間，$\omega$ を⾓周波数，$j$ を虚数単位とすると
@@ -89,7 +89,8 @@ $$
 
 $$
 \begin{align}
-g(t) = \sum_{n = -\infty}^{\infty}c_n e^{j\frac{2\pi}{T}nt},c_n = \frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}g(t)e^{-j\frac{2\pi}{T}nt}dt \quad (n:整数) \tag{iv}
+g(t) = \sum_{n = -\infty}^{\infty}c_n e^{j\frac{2\pi}{T}nt},\\
+c_n = \frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}g(t)e^{-j\frac{2\pi}{T}nt}dt \quad (n:整数) \tag{iv}
 \end{align}
 $$
 
@@ -99,16 +100,16 @@ $$
 
 (2) 単位インパルス関数のフーリエ変換を求めよ．
 
-(3) 信号 $x(t)$ をローパスフィルタに⼊⼒し，出⼒信号 $y(t)$ を得るものとし，ローパスフィルタは理想的な周波数応答 $H(\omega)$ を持ち，$\omega_c(>0)$ を遮断周波数としたとき 
+(3) 信号 $x(t)$ をローパスフィルタに⼊⼒し，出⼒信号 $y(t)$ を得るものとし，ローパスフィルタは理想的な周波数応答 $H(\omega)$ を持ち，$\omega_c(>0)$ を遮断周波数としたとき
 
 $$
 \begin{align}
-H(\omega) = \left\{
+G(\omega) = \left\{
 \begin{aligned}
 &1 ,|\omega| \leq \omega_c \\
 &0, \text{それ以外}
 \end{aligned}
-\right. \tag{v}
+\right. \tag{iv}
 \end{align}
 $$
 
@@ -123,48 +124,111 @@ d(t) = \sum_{n = -\infty}^{\infty}\delta(t - nT) \tag{vi}
 $$
 
 のように⽰すことができる．
-- (4-i) $d(t)$ の複素フーリエ級数展開を表せ． 
+- (4-i) $d(t)$ の複素フーリエ級数展開を表せ．
 - (4-ii) $d(t)$ のフーリエ変換を $D(\omega)$ としたとき，$D(\omega)$ が周期インパルス列からなることを⽰せ．
-  
+
 (5) 連続実時間信号 $x(t)$ を標本化することを考える。
 
 - (5-i) 標本化された信号から $x(t)$ をどのように復元すればよいか，数⾏程度で説明せよ．必要に応じて Eq.(iv) から (vi) を⽤いてよい．
-- (5-ii) 標本化された信号から $x(t)$ が復元できるときの条件を⽰せ． 
+- (5-ii) 標本化された信号から $x(t)$ が復元できるときの条件を⽰せ．
 
-### 题目描述
+#### 题目描述
 
-本题分为信息论和信号处理两部分。
+**I. 信息论**
 
-I. 给定三状态马尔可夫信息源 $S=\{s_0,s_1,s_2\}$，每次转移时输出到达的下一状态，转移矩阵为
+回答以下信息论问题。设 $S$ 是具有三个状态 $\{s_0,s_1,s_2\}$ 的马尔可夫信息源。每次试验中，$S$ 按下列转移概率矩阵 $T$ 转移到下一个状态：
 
 $$
 T=\begin{bmatrix}
+p(s_0\mid s_0)&p(s_1\mid s_0)&p(s_2\mid s_0)\\
+p(s_0\mid s_1)&p(s_1\mid s_1)&p(s_2\mid s_1)\\
+p(s_0\mid s_2)&p(s_1\mid s_2)&p(s_2\mid s_2)
+\end{bmatrix}
+=\begin{bmatrix}
 0.3&0.7&0\\
 0.3&0.5&0.2\\
 0.8&0&0.2
 \end{bmatrix}.
 $$
 
-可使用原题列出的以 $2$ 为底的对数近似值。
+转移时，$S$ 输出下一个状态。必要时可使用近似值 $\log_2 3=1.58$、$\log_2 5=2.32$、$\log_2 7=2.81$。
 
-1. 画出该信息源的状态转移图。
-2. 求经过充分多次转移后的稳态概率 $P_0,P_1,P_2$。
-3. 用 $P_0,P_1,P_2$ 表示并计算该马尔可夫信息源的整体熵率。
-4. 对连续两个输出组成的二阶扩展符号：设计最高效的码字分配，并说明如何定量评价该编码的效率。
+(1) 画出 $S$ 的状态转移图。
 
-II. 采用题中给定的连续时间傅里叶变换、逆变换、单位冲激函数以及周期函数的复傅里叶级数定义。
+(2) 求充分多次试验后分别处于状态 $s_0,s_1,s_2$ 的概率 $P_0,P_1,P_2$。
 
-1. 对实信号 $x(t)$，证明其频谱满足共轭对称性 $X^*(\omega)=X(-\omega)$。
-2. 求 $\delta(t)$ 的傅里叶变换。
-3. 输入为单位冲激时，求截止角频率为 $\omega_c$、通带增益为 $1$ 的理想低通滤波器输出 $y(t)$；画出波形，并给出 $y(0)$ 以及所有零点对应的 $t$。
-4. 对周期为 $T$ 的冲激列 $d(t)=\sum_{n=-\infty}^{\infty}\delta(t-nT)$，写出其复傅里叶级数，并证明其傅里叶变换仍为周期冲激列。
-5. 对连续实信号 $x(t)$ 的采样，简述由样值恢复原信号的方法，并给出能够无失真恢复的频带与采样频率条件。
+(3) 求 $S$ 的整体熵。用问 (2) 定义的 $P_0,P_1,P_2$ 表示答案。
+
+(4) 考虑对 $S$ 的连续两个输出分配码字。
+
+- (4-i) 设计效率最高的编码。
+- (4-ii) 说明如何定量评价问 (4-i) 设计的编码的编码效率。
+
+**II. 信号处理**
+
+回答以下信号处理问题。令 $t$（$-\infty<t<\infty$）表示时间，$\omega$ 为角频率，$j$ 为虚数单位。连续时间信号 $f(t)$ 的傅里叶变换 $F(\omega)$ 为
+
+$$
+F(\omega)=\int_{-\infty}^{\infty}f(t)e^{-j\omega t}\,dt.\tag{i}
+$$
+
+其逆傅里叶变换为
+
+$$
+f(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}F(\omega)e^{j\omega t}\,d\omega.\tag{ii}
+$$
+
+单位冲激函数 $\delta(t)$ 表示为
+
+$$
+\delta(t)=\begin{cases}\infty,&t=0,\\0,&t\ne0,\end{cases}
+\qquad \int_{-\infty}^{\infty}\delta(t)\,dt=1.\tag{iii}
+$$
+
+周期为 $T$ 的周期函数 $g(t)$ 的复傅里叶级数展开为
+
+$$
+\begin{aligned}
+g(t)&=\sum_{n=-\infty}^{\infty}c_n e^{j\frac{2\pi}{T}nt},\\
+c_n&=\frac1T\int_{-T/2}^{T/2}g(t)e^{-j\frac{2\pi}{T}nt}\,dt
+\qquad(n\text{ 为整数}).
+\end{aligned}\tag{iv}
+$$
+
+(1) 设连续实时间信号 $x(t)$（取实数值）的傅里叶变换为 $X(\omega)$。证明其复共轭 $X^*(\omega)$ 等于 $X(-\omega)$。
+
+(2) 求单位冲激函数的傅里叶变换。
+
+(3) 将信号 $x(t)$ 输入低通滤波器，得到输出信号 $y(t)$。该滤波器具有理想频率响应 $H(\omega)$，截止角频率为 $\omega_c>0$，设
+
+$$
+G(\omega)=\begin{cases}1,&|\omega|\le\omega_c,\\0,&\text{其他情形}.\end{cases}\tag{iv}
+$$
+
+当 $x(t)$ 为单位冲激时，求输出信号 $y(t)$。此外，画出 $y(t)$ 的波形，标明 $y(0)$ 的值以及使 $y(t)=0$ 的 $t$ 值。
+
+(4) 周期 $T>0$ 的周期冲激列 $d(t)$ 可表示为
+
+$$
+d(t)=\sum_{n=-\infty}^{\infty}\delta(t-nT).\tag{vi}
+$$
+
+- (4-i) 写出 $d(t)$ 的复傅里叶级数展开。
+- (4-ii) 设 $d(t)$ 的傅里叶变换为 $D(\omega)$，证明 $D(\omega)$ 由周期冲激列构成。
+
+(5) 考虑对连续实时间信号 $x(t)$ 进行采样。
+
+- (5-i) 用数行说明如何从采样信号恢复 $x(t)$。必要时可使用式 (iv) 至式 (vi)。
+- (5-ii) 给出能够从采样信号恢复 $x(t)$ 的条件。
 
 ## **Kai**
+
+参考和訳原稿では II (3) の周波数応答を本文で $H(\omega)$、式で $G(\omega)$ と表し、式番号 (iv) も重複している。以下では同じ理想低域通過特性を $H(\omega)$ として扱う。
+
 ### I.
 #### (1)
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2021/eeis_202008_3_p1.png" width="600" height="163" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2022/eeis_202108_3_information_I_p1.png" width="600" height="163" alt=""/>
 </figure>
 
 #### (2)
@@ -247,7 +311,9 @@ $$
 
 $$
 \begin{aligned}
-H(S) &= -P_0(0.3\log0.3 + 0.7\log0.7) - P_1(0.3\log0.3 + 0.5\log0.5 + 0.2\log0.2) - P_2(0.8\log0.8 + 0.2\log0.2) \\
+H(S) &= -P_0(0.3\log0.3 + 0.7\log0.7) \\
+&\quad - P_1(0.3\log0.3 + 0.5\log0.5 + 0.2\log0.2) \\
+&\quad - P_2(0.8\log0.8 + 0.2\log0.2) \\
 &= 0.879P_0 + 1.486P_1 + 0.720P_2 \simeq 1.17\ \text{bit/記号}
 \end{aligned}
 $$
@@ -264,7 +330,7 @@ $$
 #### (4)
 ##### (4-i)
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2021/eeis_202008_3_p2.png" width="600" height="252" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2022/eeis_202108_3_information_I_p2.png" width="600" height="252" alt=""/>
 </figure>
 
 面倒くさかったから全て分数&分母を $550$ で統一して書いた。(本番は少数や約分したものを書いた方がいいのだろうか。)
@@ -289,7 +355,7 @@ X^*(\omega) = \{\int x(t) e^{-j\omega t}dt\}^* = \int x(t)e^{-j(-\omega)t}dt = X
 $$
 
 #### (2)
-$\delta(t)$ の定義より $\int_{-\infty}^{\infty}\delta(t)f(t)dt = f(0)$ となるから、$\int_{-\infty}^{\infty}\delta(t)e^{-j\omega t}dt = 1$  
+$\delta(t)$ の定義より $\int_{-\infty}^{\infty}\delta(t)f(t)dt = f(0)$ となるから、$\int_{-\infty}^{\infty}\delta(t)e^{-j\omega t}dt = 1$
 
 ここで言っている「定義」というのは一般的なディラックのデルタ関数の定義である。ネットでは、この一般的な「定義」からフーリエ変換を導く例はあったが、問題で与えられている $\delta(t)$ の定義から導く例は見つからなかった。問題で与えられている $\delta(t)$ の定義から一般的な「定義」の方を導くのはできないと思うので、与えられている $\delta(t)$ 関係なしに解くべきと判断した。なお、これ以降の回答もこの一般的な定義を使っている。
 
@@ -299,12 +365,18 @@ $\delta(t)$ の定義より $\int_{-\infty}^{\infty}\delta(t)f(t)dt = f(0)$ と�
 単位インパルスである $x(t)$ のフーリエ変換は $X(\omega) = 1$ である。
 
 $$
-y(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty}H(\omega)X(\omega)e^{j\omega t}d\omega = \frac{1}{2\pi} \int_{-\omega_c}^{\omega_c}e^{j\omega t}d\omega = \frac{1}{2\pi}\bigg[\frac{e^{j\omega t}}{jt}\bigg]_{-\omega_c}^{\omega_c} = \frac{1}{2\pi}\bigg(\frac{e^{j\omega_ct} - e^{-j\omega_ct}}{jt}\bigg) = \frac{\sin\omega_ct}{\pi t}
+\begin{aligned}
+y(t) &= \frac{1}{2\pi}\int_{-\infty}^{\infty}H(\omega)X(\omega)e^{j\omega t}d\omega\\
+&= \frac{1}{2\pi} \int_{-\omega_c}^{\omega_c}e^{j\omega t}d\omega\\
+&= \frac{1}{2\pi}\bigg[\frac{e^{j\omega t}}{jt}\bigg]_{-\omega_c}^{\omega_c}\\
+&= \frac{1}{2\pi}\bigg(\frac{e^{j\omega_ct} - e^{-j\omega_ct}}{jt}\bigg)\\
+&= \frac{\sin\omega_ct}{\pi t}
+\end{aligned}
 $$
 
 $t=0$ では連続延長により $y(0)=\omega_c/\pi$、零点は $t=k\pi/\omega_c$（$k\in\mathbb Z\setminus\{0\}$）である。
 
-![Normalized ideal low-pass impulse response](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2021/tokyo-eeis-202008-sinc.svg)
+![Normalized ideal low-pass impulse response](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2022/eeis_202108_3_information_I_answer_sinc.svg)
 
 #### (4)
 ##### (4-i)

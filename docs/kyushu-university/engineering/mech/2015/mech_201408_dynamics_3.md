@@ -14,18 +14,29 @@ tags:
 
 ## **Description**
 
-密度 $\rho$、縦弾性係数 $E$、断面積 $A$、長さ $l$ の一様な弾性棒の縦振動を考える。左端を壁に固定し、右端に $f(t)=f_0\cos\Omega t$ を加える。左端を原点とする軸方向座標を $x$、変位を $u(x,t)$ とし、$c=\sqrt{E/\rho}$ を用いてよい。（50 点）
+図のように、密度 $\rho$、縦弾性係数 $E$、断面積 $A$、長さ $l$ の一様な弾性棒における縦振動を考える。左端は壁に固定されており、右端には $f(t)=f_0\cos\Omega t$ の力がかかる。左端を原点とし弾性棒の長手方向に座標 $x$ をとり、座標 $x$、時刻 $t$ における弾性棒の長手方向変位を $u(x,t)$ とする。弾性棒内の音速 $c=\sqrt{E/\rho}$ を使用してよい。以下の問いに答えよ。（50点）
 
-![問題の装置（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_dynamics-3-original.png)
+**(1)** $f(t)=0$ のとき、棒の縦振動の運動方程式を導出せよ。
 
-1. $f(t)=0$ のとき、棒の縦振動の運動方程式を導出せよ。
-2. 強制振動解を $u(x,t)=U(x)\cos\Omega t$ と仮定し、境界条件を考慮して $U(x)$ を求めよ。
-3. 右端変位の振幅 $X$ と左端の壁にかかる力の振幅 $F$ を求めよ。
-4. 棒の右端にばね定数 $k$ のばねと質量 $m$ からなる振動体を取り付ける。このときの壁にかかる力の振幅 $F'$ を求め、一定の $\Omega$ に対して $F'$ をなるべく小さくする $m,k$ の条件を求めよ。
+**(2)** 棒の強制振動解を $u(x,t)=U(x)\cos\Omega t$ と仮定し、境界条件を考慮して $U(x)$ を求めよ。
+
+**(3)** 右端の変位の振幅 $X$ と左端の壁にかかる力の振幅 $F$ を求めよ。
+
+**(4)** 棒の右端に質量 $m$、ばね定数 $k$ の振動体を取り付ける。このとき、左端の壁にかかる力の振幅 $F'$ を求めよ。また、$\Omega$ が一定のとき、$F'$ をなるべく小さくするための $m$ と $k$ の条件を求めよ。
+
+![原題の弾性棒・加振力・付加振動体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_dynamics-3-original.png)
 
 #### 题目描述
 
-匀质弹性杆密度 $\rho$、弹性模量 $E$、截面积 $A$、长度 $l$，左端固定，右端受轴向简谐力 $f_0\cos\Omega t$。以左端为原点、轴向位移为 $u(x,t)$，求纵振动方程及简谐强迫解，再求杆右端位移和左端墙面受力的振幅。随后在杆右端连接刚度 $k$ 的弹簧与质量 $m$，求墙面受力振幅，并确定固定激振频率下的减振条件。
+如图，考虑密度为 $\rho$、纵向弹性模量为 $E$、截面积为 $A$、长度为 $l$ 的均匀弹性杆的纵振动。左端固定于墙壁，右端受力 $f(t)=f_0\cos\Omega t$。以左端为原点，沿杆长取坐标 $x$，坐标 $x$、时刻 $t$ 处的轴向位移为 $u(x,t)$。可使用杆内声速 $c=\sqrt{E/\rho}$。回答下列问题。（50分）
+
+**(1)** 当 $f(t)=0$ 时，推导杆纵振动的运动方程。
+
+**(2)** 假设杆的受迫振动解为 $u(x,t)=U(x)\cos\Omega t$，考虑边界条件，求 $U(x)$。
+
+**(3)** 求右端位移振幅 $X$ 和作用于左端墙壁的力的振幅 $F$。
+
+**(4)** 在杆右端安装质量为 $m$、弹簧常数为 $k$ 的振动体。求此时作用于左端墙壁的力的振幅 $F'$。当 $\Omega$ 固定时，求使 $F'$ 尽可能小的 $m,k$ 条件。
 
 ## **Kai**
 
@@ -34,8 +45,10 @@ tags:
 断面軸力は $N=EAu_x$。長さ $\mathrm dx$ の微小要素について
 
 $$
-\rho A\,\mathrm dx\,u_{tt}=N(x+\mathrm dx,t)-N(x,t)
+\begin{gathered}
+\rho A\,\mathrm dx\,u_{tt}=N(x+\mathrm dx,t)-N(x,t)\\
 =EAu_{xx}\,\mathrm dx+o(\mathrm dx).
+\end{gathered}
 $$
 
 ゆえに
@@ -61,8 +74,10 @@ $$
 振幅を非負の値とすると
 
 $$
-\boxed{X=|U(l)|=\left|\frac{f_0}{EAq}\tan(ql)\right|,\qquad
-F=|EAU'(0)|=\left|\frac{f_0}{\cos(ql)}\right|.}
+\boxed{\begin{gathered}
+X=|U(l)|=\left|\frac{f_0}{EAq}\tan(ql)\right|,\\
+F=|EAU'(0)|=\left|\frac{f_0}{\cos(ql)}\right|.
+\end{gathered}}
 $$
 
 ### (4)

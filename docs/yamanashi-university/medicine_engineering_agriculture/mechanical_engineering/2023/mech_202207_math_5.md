@@ -13,23 +13,41 @@ tags:
 
 ## **Description**
 
-(1) 次の微分方程式の一般解を求めよ。
+問5　以下の2つの問いに答えよ。
+
+Problem 5　Answer the following two questions.
+
+(1) 以下に示す微分方程式の一般解を求めよ。
+
+Find the general solution of the differential equation shown below.
 
 $$
-(2x-3y)\,dx+\left(\frac1{y^2}-3x\right)\,dy=0.
+(2x-3y)\,dx+\left(\frac1{y^2}-3x\right)dy=0
 $$
 
-(2) $D=d/dx$ として、次の微分方程式の特殊解を求めよ。
+(2) 以下に示す微分方程式の特殊解を求めよ。なお、$D$ は微分演算子である。
+
+Find the special solution of the differential equation shown below. Note that $D$ is a differential operator.
 
 $$
-(D^2+D+3)y=3x^2+8x.
+(D^2+D+3)y=3x^2+8x
 $$
 
 #### 题目描述
 
-(1) 求 $(2x-3y)\,dx+(1/y^2-3x)\,dy=0$ 的通解。
+问5　回答下列两个问题。
 
-(2) 设 $D=d/dx$，求 $(D^2+D+3)y=3x^2+8x$ 的一个特解。
+(1) 求下列微分方程的通解。
+
+$$
+(2x-3y)\,dx+\left(\frac1{y^2}-3x\right)dy=0
+$$
+
+(2) 求下列微分方程的一个特解。其中，$D$ 为微分算子。
+
+$$
+(D^2+D+3)y=3x^2+8x
+$$
 
 ## **Kai**
 

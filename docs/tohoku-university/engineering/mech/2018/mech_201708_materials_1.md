@@ -13,20 +13,23 @@ tags:
 
 ## **Description**
 
-2017年10月・2018年4月入学対象、2017年8月実施。
+1. 図1に示す段付き丸軸 ABCD を考える。この軸は3つの部分から構成されており，AB 部分は長さ $L$，外径 $2d$，内径 $d$ の中空軸，BC 部分は長さ $L$，直径 $2d$ の中実軸，CD 部分は長さ $L$，直径 $d$ の中実軸である。また，この断付き丸軸のせん断弾性係数は $G$ とする。以下の問いに答えよ。
 
-段付き丸軸 ABCD の各区間 AB、BC、CD の長さはすべて $L$。AB は外径 $2d$・内径 $d$ の中空軸、BC は直径 $2d$ の中実軸、CD は直径 $d$ の中実軸であり、せん断弾性係数はすべて $G$ である。
+**(1)** 図1(a)に示すように，この軸が A 端で剛体壁に固定され，D 端でねじりモーメント $M_t$ を受けるとき，AB 部分，BC 部分，CD 部分の比ねじれ角をそれぞれ求めよ。また，D 端におけるねじれ角も求めよ。
 
-1. A端固定、D端にねじりモーメント $M_t$ を加える。各区間の比ねじれ角とD端のねじれ角を求めよ。
-2. A、D両端固定、C点に $M_t$ を加える。両端の反ねじりモーメント $M_{tA},M_{tD}$ とC点のねじれ角を求めよ。
+![図1(a) A端固定の段付き丸軸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_materials_1_original_figure_1.png)
 
-![三つの区間からなる丸軸と二つの支持条件](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_materials1.svg)
+**(2)** 図1(b)に示すように，この軸が両端 A，D で剛体壁に固定され，位置 C でねじりモーメント $M_t$ を受けるとき，A 端，D 端における反ねじりモーメント $M_{tA},M_{tD}$ をそれぞれ求めよ。また，C 点におけるねじれ角も求めよ。
+
+![図1(b) 両端固定の段付き丸軸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_materials_1_original_figure_2.png)
 
 #### 题目描述
 
-本题为2017年8月实施、面向2017年10月及2018年4月入学的考试。
+1. 考虑图1所示的阶梯圆轴 ABCD。该轴由三部分组成：AB 段为长 $L$、外径 $2d$、内径 $d$ 的空心轴；BC 段为长 $L$、直径 $2d$ 的实心轴；CD 段为长 $L$、直径 $d$ 的实心轴。该阶梯圆轴的剪切模量为 $G$。回答下列问题。
 
-阶梯圆轴 ABCD 的 AB、BC、CD 各长 $L$，分别为外径 $2d$、内径 $d$ 的空心轴，直径 $2d$ 的实心轴，以及直径 $d$ 的实心轴；剪切模量均为 $G$。（1）A端固定，D端施加扭矩 $M_t$，求各段单位长度扭转角及D端总转角。（2）A、D两端固定，C点施加 $M_t$，求两端反扭矩及C点转角。
+**(1)** 如图1(a)，圆轴的 A 端固定于刚性壁，D 端受到扭矩 $M_t$。分别求 AB、BC、CD 各段的单位长度扭转角，并求 D 端的扭转角。
+
+**(2)** 如图1(b)，圆轴的 A、D 两端均固定于刚性壁，C 处受到扭矩 $M_t$。分别求 A、D 两端的反作用扭矩 $M_{tA},M_{tD}$，并求 C 点的扭转角。
 
 ## **Kai**
 
