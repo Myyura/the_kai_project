@@ -1,0 +1,145 @@
+---
+sidebar_label: "京都大学 情報学研究科 システム科学専攻 2026年8月実施 数学【I】"
+tags:
+  - Kyoto-University
+  - Mathematics.Linear-Algebra.Matrix-Rank
+  - Mathematics.Linear-Algebra.Kernel-and-Image
+  - Mathematics.Linear-Algebra.Affine-Solution-Space-of-Linear-System
+  - Mathematics.Linear-Algebra.Projection-Operator
+  - Mathematics.Linear-Algebra.Matrix-Trace
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+---
+# 京都大学 情報学研究科 システム科学専攻 2026年8月実施 数学【I】
+
+## **Author**
+[AnonTokyo #83056](https://github.com/cdc95-04)
+
+## **Description**
+以下の問題において，$\mathbb{R}$ は実数全体からなる集合を，行列 $A$ に対し $A^\mathsf{T}$ は $A$ の転置 (transpose) を表す。
+
+### 問題 1
+
+正方行列
+
+$$
+A=\begin{pmatrix}
+1&0&-1\\
+1&0&-1\\
+0&-1&-1
+\end{pmatrix}
+$$
+
+に関する以下の設問に答えよ。
+
+(1) $A$ の階数 (rank) を求めよ。
+
+(2) $A$ を表現行列とする線形写像 (linear mapping) の核 (kernel) $\ker A$ を求めよ。
+
+(3) $x\in\mathbb{R}^3$ を変数とする線形方程式 (linear equations)
+
+$$
+Ax=\begin{pmatrix}-1\\-1\\-1\end{pmatrix}
+$$
+
+の一般解 (general solution) を求めよ。解が存在しない場合は「存在しない」と答えよ。
+
+### 問題 2
+
+$d,n$ を $n>d>1$ なる整数とする。$i=1,2,\ldots,n$ に対して $x_i=(x_{i,1},x_{i,2},\ldots,x_{i,d})^\mathsf{T}$ とし，$d\times n$ 行列 $X$ を $X=(x_1,x_2,\ldots,x_n)$ により表す。また，$A=\frac{1}{n}\sum_{i=1}^{n}x_ix_i^\mathsf{T}$ とする。$A$ は相異なるゼロでない固有値 (eigenvalue) をもつとし，これらを降順に並べたものを $\lambda_1>\lambda_2>\cdots>\lambda_d$ とする。また対応する固有ベクトル (eigenvector) を $j=1,2,\ldots,d$ に対してそれぞれ $v_j=(v_{j,1},v_{j,2},\ldots,v_{j,d})^\mathsf{T}$ とし，これらは $\|v_j\|=1$ を満たすとする。ただし $u=(u_1,u_2,\ldots,u_d)^\mathsf{T}\in\mathbb{R}^d$ に対して $\|u\|=\sqrt{u^\mathsf{T}u}$ は $u$ のユークリッドノルムを表す。さらに $m<d$ なる正の整数 $m$ に対して $d\times m$ 行列 $V$ を $V=(v_1,v_2,\ldots,v_m)$ と定義する。以下の設問に答えよ。
+
+(1) $A$ を $n,X$ を用いて表せ。
+
+(2) $v_1,v_2,\ldots,v_m$ を基底 (basis) とする $\mathbb{R}^d$ の線形部分空間 (linear subspace) への $x_i$ の正射影 (orthogonal projection) を $z_i\in\mathbb{R}^d$ とする。$z_i$ を $V,x_i$ を用いて表せ。ただし，$v_1,v_2,\ldots,v_d$ が互いに直交する (mutually orthogonal) ことは説明なしに用いてよい。
+
+(3) 設問 (2) で定義した $z_1,z_2,\ldots,z_n$ について，射影誤差 (projection error)
+
+$$
+E=\frac{1}{n}\sum_{i=1}^{n}\|z_i-x_i\|^2
+$$
+
+を $A,V$ を用いて表せ。必要であれば単位行列 (identity matrix) $I$，行列式 (determinant) $\det$，トレース (trace) $\operatorname{tr}$ を用いてよい。
+
+(4) 設問 (3) の射影誤差 $E$ を $A$ の固有値を用いて表せ。
+
+## **Kai**
+### 問題 1
+#### (1) 階数
+
+第 2 行は第 1 行と等しく，第 1 行と第 3 行は一次独立である。行基本変形により
+
+$$
+A\sim\begin{pmatrix}1&0&-1\\0&-1&-1\\0&0&0\end{pmatrix}
+$$
+
+を得る。したがって，$\boxed{\operatorname{rank}(A)=2}$ である。
+
+#### (2) 核
+
+$x=(x_1,x_2,x_3)^\mathsf{T}$ とおくと，$Ax=0$ は
+
+$$
+x_1-x_3=0,\qquad -x_2-x_3=0
+$$
+
+に等しい。$x_3=t$ とおけば $x_1=t,\ x_2=-t$ であるから，
+
+$$
+\boxed{\ker A=\{t(1,-1,1)^\mathsf{T}\mid t\in\mathbb{R}\}}.
+$$
+
+#### (3) 線形方程式の一般解
+
+$Ax=(-1,-1,-1)^\mathsf{T}$ は
+
+$$
+x_1-x_3=-1,\qquad -x_2-x_3=-1
+$$
+
+に帰着する。$x_3=t\in\mathbb{R}$ として，$x_1=t-1,\ x_2=1-t$ である。よって解は存在し，一般解は
+
+$$
+\boxed{x=(-1,1,0)^\mathsf{T}+t(1,-1,1)^\mathsf{T}\quad(t\in\mathbb{R})}.
+$$
+
+### 問題 2
+#### (1) 行列表示
+
+$X$ の各列は $x_i$ なので，$XX^\mathsf{T}=\sum_{i=1}^n x_ix_i^\mathsf{T}$ となる。ゆえに
+
+$$
+\boxed{A=\frac1n XX^\mathsf{T}}.
+$$
+
+#### (2) 正射影
+
+$A$ は実対称行列であり，$v_1,\ldots,v_m$ は正規直交系をなす。従って $V^\mathsf{T}V=I_m$ であり，射影行列は $P=VV^\mathsf{T}$ である。したがって
+
+$$
+\boxed{z_i=VV^\mathsf{T}x_i=\sum_{j=1}^m (v_j^\mathsf{T}x_i)v_j}.
+$$
+
+#### (3) 射影誤差
+
+$P^2=P$，$P^\mathsf{T}=P$ より，$(I-P)^\mathsf{T}(I-P)=I-P$ である。このこととトレースの性質を用いると
+
+$$
+\begin{aligned}
+E&=\frac1n\sum_{i=1}^n x_i^\mathsf{T}(I-P)x_i\\
+&=\operatorname{tr}\!\left[(I-P)\frac1n\sum_{i=1}^n x_ix_i^\mathsf{T}\right]\\
+&=\operatorname{tr}[(I-VV^\mathsf{T})A].
+\end{aligned}
+$$
+
+従って
+
+$$
+\boxed{E=\operatorname{tr}(A)-\operatorname{tr}(V^\mathsf{T}AV)}.
+$$
+
+#### (4) 固有値による表示
+
+$Av_j=\lambda_jv_j$ であるから，$V^\mathsf{T}AV=\operatorname{diag}(\lambda_1,\ldots,\lambda_m)$ である。また，$\operatorname{tr}(A)=\sum_{j=1}^d\lambda_j$ なので
+
+$$
+\boxed{E=\sum_{j=m+1}^{d}\lambda_j}.
+$$
