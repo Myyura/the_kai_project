@@ -63,5 +63,65 @@
     "file": "mech_202609_II_3_p3.png",
     "sha256": "fdc0e8f0b0faee361d95b66850b919b4d01557cd2498ac962689b86334ca4f5e",
     "bytes": 228689
+  },
+  {
+    "file": "mech_202609_I_1_en_p1.png",
+    "sha256": "10f184d16a22ee254e999508518fd85a297b1d892fc9aba934ad3af7eac2d65d",
+    "bytes": 471071
+  },
+  {
+    "file": "mech_202609_I_1_en_p2.png",
+    "sha256": "67eaf23096b6f9395fb3ff0bc4cc21eeb5cadccb081779833772e0d345e9babe",
+    "bytes": 437942
+  },
+  {
+    "file": "mech_202609_I_1_en_p3.png",
+    "sha256": "d5e4e450bdc99a39c6aef4a2fefef9dffef1c48048997dd911d40f2a75198318",
+    "bytes": 234611
+  },
+  {
+    "file": "mech_202609_I_2_en_p1.png",
+    "sha256": "c68991ac1cc3b4509a6c1cc5a5762903768071990c8e055612cb3e938bb384bb",
+    "bytes": 494026
+  },
+  {
+    "file": "mech_202609_I_2_en_p2.png",
+    "sha256": "b63f505fda59ad80e8087729a0feb003be28e1f85eecb646c6a4929cc7ab7a34",
+    "bytes": 218980
+  },
+  {
+    "file": "mech_202609_II_1_en_p1.png",
+    "sha256": "6cbfcaf8c79e45e174d885807233fcfb368596cbb720b68ca834c82f2ed5c3c9",
+    "bytes": 363709
+  },
+  {
+    "file": "mech_202609_II_1_en_p2.png",
+    "sha256": "c089fcb75c044c569a56d8ce9122efaf82cf4ecc63a4f34b5b0b2c9bc0da6d73",
+    "bytes": 137639
+  },
+  {
+    "file": "mech_202609_II_2_en_p1.png",
+    "sha256": "458a2d7faae8e0fc9027bdf0c5ae5f94e0941ba478a650afee352c2e64e6f188",
+    "bytes": 426414
+  },
+  {
+    "file": "mech_202609_II_2_en_p2.png",
+    "sha256": "524ea36ee5e5a320250045eda74b659ff78a300befdfd7434fa9303a96a80056",
+    "bytes": 250378
+  },
+  {
+    "file": "mech_202609_II_3_en_p1.png",
+    "sha256": "aff43b6d6ed5a373895d4f6dd601a362c243303f97a6bd29b1c3af9b59b6b0ae",
+    "bytes": 544559
+  },
+  {
+    "file": "mech_202609_II_3_en_p2.png",
+    "sha256": "75af80e5a6b7bbadaedeb43a50b612aee5de55b534864edc9e06d1cf05a8ab78",
+    "bytes": 281194
+  },
+  {
+    "file": "mech_202609_II_3_en_p3.png",
+    "sha256": "ef3c139fa7449761e291fad544c1e5ae46386d1ced0fb8e4712ed2be2ccfeb3a",
+    "bytes": 440378
   }
 ]
