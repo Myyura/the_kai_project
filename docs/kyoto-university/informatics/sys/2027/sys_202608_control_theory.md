@@ -2,7 +2,12 @@
 sidebar_label: "京都大学 情報学研究科 システム科学専攻 2026年8月実施 制御工学"
 tags:
   - Kyoto-University
-  - Electrical-Electronic.Control-Theory.Nyquist-Stability-Criterion
+  - Mathematics.Differential-Equations.Laplace-Transform
+  - Electrical-Electronic.Control-Theory.Feedback-Control
+  - Electrical-Electronic.Control-Theory.Transfer-Function
+  - Electrical-Electronic.Control-Theory.Routh-Hurwitz-Stability
+  - Electrical-Electronic.Control-Theory.Step-Response
+  - Electrical-Electronic.Control-Theory.Bode-Plot-and-Stability-Margins
 ---
 # 京都大学 情報学研究科 システム科学専攻 2026年8月実施 制御工学
 
