@@ -308,9 +308,11 @@ function buildNewSolutionPath(payload) {
   const programPath = cleanProgramPath(doc.programId);
   if (programPath) parts.push(...programPath.split('/'));
   parts.push(String(year));
+  // CJK subjects can disappear during ASCII cleanup, leaving identical dates.
+  // Keep explicit slugs, but disambiguate automatically named submissions.
+  const automaticSlug = cleanSegment(slugFromTitle(doc.title), '') || 'submission';
   const fileSlug = cleanSegment(doc.fileSlug, '')
-    || cleanSegment(slugFromTitle(doc.title), '')
-    || `submission-${payload.submissionId.slice(0, 8)}`;
+    || `${automaticSlug}-${cleanSegment(payload.submissionId).slice(0, 8)}`;
   parts.push(`${fileSlug}.md`);
   return parts.join('/');
 }
@@ -536,7 +538,10 @@ function buildPullRequestBody({ payload, issue, relativePath, filePaths = [relat
     ...filePaths.filter((filePath) => filePath !== relativePath)
       .map((filePath) => `- Category metadata: \`${filePath}\``),
     ...(payload.submissionType === 'new_solution'
-      ? ['- The shared university catalog is regenerated from the document categories.'] : []),
+      ? [
+        '- The shared university catalog is regenerated from the document categories.',
+        '- Display-math delimiters and surrounding whitespace are normalized after signature verification.',
+      ] : []),
     `- Public author: ${payload.publicAuthor}`,
     `- CLA accepted at: ${payload.cla.acceptedAt}`,
     ...(payload.correction ? [`- Base blob: \`${payload.correction.baseBlobSha}\``] : []),

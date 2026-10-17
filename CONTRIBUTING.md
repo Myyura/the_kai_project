@@ -187,6 +187,8 @@ Signed-in users can open Personal Center → Submissions, or `/me?tab=contribute
 
 New-solution conversion creates the required directories and any missing `_category_.json` files for the university, department, nested programs, and year, and commits them alongside the solution. Existing category metadata is preserved. Year labels use the submitted year (for example, `2027年度`); other labels use shared catalog names when available and directory names otherwise. The workflow also regenerates `src/data/universities.js`. Review new category labels and the submitted year in the draft PR.
 
+When no filename is specified, generated filenames include a submission-ID suffix so Japanese subject names cannot collapse to the same ASCII date. After signature verification, the converter normalizes safely repairable `$$` delimiter lines and surrounding blank lines in the generated new-solution file, preserving the original Issue and signature. Math formatting that needs human judgment, such as double dollars inside headings or tables, remains subject to validation.
+
 All participants are expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ### 📝 Formatting guidelines

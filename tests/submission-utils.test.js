@@ -264,10 +264,37 @@ test('fills every missing nested category using canonical labels when available'
   }
 });
 
+test('automatic filenames distinguish CJK titles that share the same ASCII date', () => {
+  const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kai-submission-slugs-'));
+  try {
+    const paths = [];
+    for (const [index, subject] of ['複素関数論', '確率統計', '制御工学', '信号処理'].entries()) {
+      const payload = newSolutionPayload();
+      payload.submissionId = `${index + 1}1111111-1111-4111-8111-111111111111`;
+      payload.document.fileSlug = '';
+      payload.document.title = `京都大学 2026年8月実施 ${subject}`;
+      const result = writeSubmissionToRepo({repoRoot, payload});
+      assert.equal(result.action, 'create');
+      paths.push(result.relativePath);
+      assert.ok(result.relativePath.endsWith(`/2026-8-${payload.submissionId.slice(0, 8)}.md`));
+      // Rerunning the same submission must retain its path and conflict protection.
+      const repeated = writeSubmissionToRepo({repoRoot, payload});
+      assert.equal(repeated.relativePath, result.relativePath);
+      assert.equal(repeated.conflictKind, 'target_exists');
+    }
+    assert.equal(new Set(paths).size, 4);
+  } finally {
+    fs.rmSync(repoRoot, {recursive: true, force: true});
+  }
+});
+
 test('the signed converter and workflow stage all categories and the refreshed catalog, excluding unrelated files', () => {
   const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kai-submission-workflow-'));
   const sourceRoot = path.resolve(__dirname, '..');
-  const payload = newSolutionPayload();
+  const payload = newSolutionPayload({
+    descriptionMarkdown: 'Problem: $$x^2 + y^2 = 1$$',
+    kaiMarkdown: 'Answer:\n$$x=1, y=0$$\n\n```text\n$$leave code unchanged$$\n```',
+  });
   payload.document.programId = 'new-program/specialization';
   const secret = 'test-secret';
   const signature = crypto.createHmac('sha256', secret).update(stableStringify(payload)).digest('hex');
@@ -275,6 +302,7 @@ test('the signed converter and workflow stage all categories and the refreshed c
   try {
     for (const relativePath of [
       'scripts/convert-submission-issue.js', 'scripts/submission-utils.js',
+      'scripts/display-math-format.js',
       'scripts/generate-universities.js', 'scripts/file-utils.js',
       'src/data/universities.js', 'src/data/universityMetadata.json',
     ]) {
@@ -289,6 +317,7 @@ test('the signed converter and workflow stage all categories and the refreshed c
       fs.mkdirSync(path.dirname(target), {recursive: true});
       fs.symlinkSync(path.join(sourceRoot, relativePath), target);
     }
+    fs.symlinkSync(path.join(sourceRoot, 'node_modules'), path.join(repoRoot, 'node_modules'), 'dir');
     fs.writeFileSync(path.join(repoRoot, 'event.json'), JSON.stringify({issue: {
       number: 145, html_url: 'https://github.com/Myyura/the_kai_project/issues/145',
       body: buildIssueBody(payload, signature),
@@ -300,6 +329,13 @@ test('the signed converter and workflow stage all categories and the refreshed c
     const result = JSON.parse(fs.readFileSync(path.join(repoRoot, '.submission-result.json'), 'utf8'));
     assert.equal(result.filePaths.length, 6);
     assert.equal(result.filePath, result.filePaths[0]);
+    const markdown = fs.readFileSync(path.join(repoRoot, result.filePath), 'utf8');
+    assert.ok(markdown.includes('Problem:\n\n$$\nx^2 + y^2 = 1\n$$'));
+    assert.ok(markdown.includes('Answer:\n\n$$\nx=1, y=0\n$$'));
+    assert.ok(markdown.includes('```text\n$$leave code unchanged$$\n```'));
+    const signed = extractSubmissionFromIssueBody(JSON.parse(fs.readFileSync(path.join(repoRoot, 'event.json'), 'utf8')).issue.body);
+    assert.doesNotThrow(() => verifySubmissionSignature(signed, secret));
+    assert.deepEqual(signed.payload, payload);
     const prBody = fs.readFileSync(path.join(repoRoot, '.submission-pr-body.md'), 'utf8');
     result.filePaths.forEach((filePath) => assert.ok(prBody.includes(filePath), filePath));
 
