@@ -13,13 +13,21 @@ tags:
 
 ## **Description**
 
-図1の直角三角形の剛体板を、同じばね定数 $k$、長さ $s$ の三本の鉛直ばねで支える。板の底辺は $b$、高さは $h$、板厚は 1、単位面積当たりの重量は $q$。ばねは底辺の両端 A、C および中点 B に取り付ける。剛体板の重心の鉛直変位 $\delta_V$ を求めよ。
+図1の構造において，次の問に答えよ。（35点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-1-original.png)
+三角形の剛体板（単位面積当りの重量 $q$，板厚 $=1$）を3つの同じばね（ばね定数 $k$，長さ $s$）で支えるとき，三角形剛体板の重心の垂直方向変位 $\delta_V$ を求めよ。
+
+![原題の図1：三つのばねで支持された三角形剛体板](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_material-1-original.png)
+
+図中，直角三角形の底辺は $AC=b$，高さは $h$，ばね支持点BはACの中点である。
 
 #### 题目描述
 
-底边 $b$、高 $h$ 的直角三角形刚板，单位面积重量为 $q$，由底边两端 A、C 和中点 B 的三根相同竖直弹簧支承。弹簧刚度为 $k$、长 $s$，板厚为 1。求板重心的竖直位移。
+对于图1的结构，回答下列问题。（35分）
+
+用3根相同弹簧（弹簧常数 $k$，长度 $s$）支承单位面积重量为 $q$、板厚为1的三角形刚性板。求三角形板重心的竖直位移 $\delta_V$。
+
+图中直角三角形底边 $AC=b$，高度为 $h$，弹簧支承点B位于AC中点。
 
 ## **Kai**
 
@@ -39,8 +47,10 @@ $$
 鉛直力および B まわりのモーメントのつり合いは
 
 $$
-F_A+F_B+F_C=W,\qquad
+\begin{gathered}
+F_A+F_B+F_C=W,\\
 \frac b2(F_C-F_A)=\frac b6W.
+\end{gathered}
 $$
 
 これらを解くと
@@ -52,9 +62,11 @@ $$
 重心の鉛直変位は底辺上の $x=x_G$ と同じ一次変位であり
 
 $$
-\delta_V=v_A+\frac{2}{3}(v_C-v_A)
-=\frac{W}{6k}+\frac23\frac{W}{3k}
+\begin{gathered}
+\delta_V=v_A+\frac{2}{3}(v_C-v_A)\\
+=\frac{W}{6k}+\frac23\frac{W}{3k}\\
 =\frac{7W}{18k}.
+\end{gathered}
 $$
 
 よって

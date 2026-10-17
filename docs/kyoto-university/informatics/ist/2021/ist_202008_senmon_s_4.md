@@ -12,12 +12,16 @@ tags:
 
 ## **Description**
 
-[大学公表の原題](https://www.ist.i.kyoto-u.ac.jp/content/files/admission/ist-exam-2020Aug-specialized.pdf)
 記号の集合 $\{a,b,c,d\}$ をアルファベットとする記憶のない定常情報源 $A$ を考える。
 $A$ における各記号の生起確率 $p$ は
 
 $$
-p(a) = 3/8, \ p(b) = 1/4, \ p(c) = 1/4, \ p(d) = 1/8
+\begin{gathered}
+p(a) = 3/8, \ p(b)\\
+= 1/4, \ p(c)\\
+= 1/4, \ p(d)\\
+= 1/8
+\end{gathered}
 $$
 
 とする。
@@ -41,7 +45,6 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/ist/2021/ist_202008_senmon_s_4_p1.png" width="200" alt=""/>
 </figure>
 
-通信路の条件（要約）：$P(Y=0\mid X=0)=8/9$、$P(Y=1\mid X=0)=1/9$、$P(Y=0\mid X=1)=0$、$P(Y=1\mid X=1)=1$。
 
 **設問5** 情報源 $A$ から得られる記号を下表の符号 $C_2$ で２元符号化し、**設問4**の通信路で伝送して $C_2$ で復号することを考える。復号された記号を事象 $B$ とするとき、相互情報量 $I(A;B)$ を求めよ。
 
@@ -54,13 +57,17 @@ $$
 
 **設問6** 情報源 $A$ が生成する記号列を**設問4**の通信路で伝送する際の 2 bit の固定長２進符号として、符号 $C_2$ が最適かどうかについて論じよ。
 
-### 题目描述
+#### 题目描述
 
 考虑字母表 $\{a,b,c,d\}$ 上的平稳无记忆信源 $A$，概率为
 
 $$
-p(a)=\frac38,\quad p(b)=\frac14,\quad
-p(c)=\frac14,\quad p(d)=\frac18.
+\begin{gathered}
+p(a)=\frac38,\\
+p(b)=\frac14,\\
+p(c)=\frac14,\\
+p(d)=\frac18.
+\end{gathered}
 $$
 
 1. 求信源熵 $H(A)$。
@@ -129,7 +136,10 @@ $$
 
 $$
 \begin{aligned}
-p(X{=}0) = \frac{7}{16},\ p(X{=}1) = \frac{9}{16},\ p(Y{=}0) = \frac{7}{18},\ p(Y{=}1) = \frac{11}{18}
+&p(X{=}0) = \frac{7}{16},\ p(X{=}1)\\
+&= \frac{9}{16},\ p(Y{=}0)\\
+&= \frac{7}{18},\ p(Y{=}1)\\
+&= \frac{11}{18}
 \end{aligned}
 $$
 
@@ -137,7 +147,13 @@ $$
 
 $$
 \begin{aligned}
-p(Y{=}0|X{=}0) = \frac{8}{9},\ p(Y{=}1|X{=}0) = \frac{1}{9},\ p(Y{=}0|X{=}1) = 0,\ p(Y{=}1|X{=}1) = 1
+&p(Y{=}0|X{=}0) = \frac{8}{9},\\
+&p(Y{=}1|X{=}0)\\
+&= \frac{1}{9},\\
+&p(Y{=}0|X{=}1)\\
+&= 0,\\
+&p(Y{=}1|X{=}1)\\
+&= 1
 \end{aligned}
 $$
 
@@ -145,7 +161,13 @@ $P(X,Y)=P(Y|X)P(X)$ より、
 
 $$
 \begin{aligned}
-p(Y{=}0,X{=}0) = \frac{7}{18},\ p(Y{=}1,X{=}0) = \frac{7}{144},\ p(Y{=}0,X{=}1) = 0,\ p(Y{=}1,X{=}1) = \frac{9}{16}
+&p(Y{=}0,X{=}0) = \frac{7}{18},\\
+&p(Y{=}1,X{=}0)\\
+&= \frac{7}{144},\\
+&p(Y{=}0,X{=}1)\\
+&= 0,\\
+&p(Y{=}1,X{=}1)\\
+&= \frac{9}{16}
 \end{aligned}
 $$
 
@@ -154,8 +176,10 @@ $$
 $$
 \begin{aligned}
 I(X ; Y)
-&= \sum_{x \in X, y \in Y} P(x, y) \log \frac{P(x, y)}{P(x) P(y)} \\
-&= \frac{7}{18} \log \frac{7/18}{7/16 \cdot 7/18}+ \frac{7}{144} \log \frac{7/144}{7/16 \cdot 11/18}+0+ \frac{9}{16} \log \frac{9/16}{9/16 \cdot 11/18} \\
+&= \sum_{x \in X, y \in Y} P(x, y) \log \frac{P(x, y)}{P(x) P(y)}\\
+&= \frac{7}{18} \log \frac{7/18}{7/16 \cdot 7/18}\\
+&\quad+ \frac{7}{144} \log \frac{7/144}{7/16 \cdot 11/18}+0\\
+&\quad+ \frac{9}{16} \log \frac{9/16}{9/16 \cdot 11/18}\\
 &=\frac{13}{6} + \frac{9}{8}\log 3 - \frac{7}{18}\log 7 - \frac{11}{18}\log 11
 \end{aligned}
 $$
@@ -164,33 +188,88 @@ $$
 定常情報源 $A$ における各記号の生起確率より、
 
 $$
-p(A{=}a)=\frac{3}{8},\ p(A{=}b)=\frac{1}{4},\ p(A{=}c)=\frac{1}{4},\ p(A{=}d)=\frac{1}{8} 
+\begin{gathered}
+p(A{=}a)=\frac{3}{8},\ p(A{=}b)\\
+=\frac{1}{4},\ p(A{=}c)\\
+=\frac{1}{4},\ p(A{=}d)\\
+=\frac{1}{8}
+\end{gathered}
 $$
 
 定常情報源 $A$ において $a$ が生起するとき、$C_2$ の符号化方法を考えすると、
 
 $$
-p(B{=}a|A{=}a)=\frac{64}{81},\ p(B{=}b|A{=}a)=\frac{8}{81},\ p(B{=}c|A{=}a)=\frac{8}{81},\ p(B{=}d|A{=}a)=\frac{1}{81}
+\begin{gathered}
+\begin{gathered}
+p(B{=}a|A{=}a)=\frac{64}{81},\\
+p(B{=}b|A{=}a)\\
+=\frac{8}{81},\\
+p(B{=}c|A{=}a)\\
+=\frac{8}{81},\\
+p(B{=}d|A{=}a)\\
+=\frac{1}{81}
+\end{gathered}
+\end{gathered}
 $$
 
 同様に、
 
 $$
-p(B{=}a|A{=}b)=0,\ p(B{=}b|A{=}b)=\frac{8}{9},\ p(B{=}c|A{=}b)=0,\ p(B{=}d|A{=}b)=\frac{1}{9}
+\begin{gathered}
+\begin{gathered}
+p(B{=}a|A{=}b)=0,\\
+p(B{=}b|A{=}b)\\
+=\frac{8}{9},\\
+p(B{=}c|A{=}b)\\
+=0,\\
+p(B{=}d|A{=}b)\\
+=\frac{1}{9}
+\end{gathered}
+\end{gathered}
 $$
 
 $$
-p(B{=}a|A{=}c)=0,\ p(B{=}b|A{=}c)=0,\ p(B{=}c|A{=}c)=\frac{8}{9},\ p(B{=}d|A{=}c)=\frac{1}{9}
+\begin{gathered}
+\begin{gathered}
+p(B{=}a|A{=}c)=0,\\
+p(B{=}b|A{=}c)\\
+=0,\\
+p(B{=}c|A{=}c)\\
+=\frac{8}{9},\\
+p(B{=}d|A{=}c)\\
+=\frac{1}{9}
+\end{gathered}
+\end{gathered}
 $$
 
 $$
-p(B{=}a|A{=}d)=0,\ p(B{=}b|A{=}d)=0,\ p(B{=}c|A{=}d)=0,\ p(B{=}d|A{=}d)=1
+\begin{gathered}
+\begin{gathered}
+p(B{=}a|A{=}d)=0,\\
+p(B{=}b|A{=}d)\\
+=0,\\
+p(B{=}c|A{=}d)\\
+=0,\\
+p(B{=}d|A{=}d)\\
+=1
+\end{gathered}
+\end{gathered}
 $$
 
 よって、
 
 $$
-P(B=a) = \frac{8}{27},\ P(B=b) = \frac{7}{27},\ P(B=c) = \frac{7}{27},\ P(B=d) = \frac{5}{27}
+\begin{gathered}
+\begin{gathered}
+P(B=a) = \frac{8}{27},\\
+P(B=b)\\
+= \frac{7}{27},\\
+P(B=c)\\
+= \frac{7}{27},\\
+P(B=d)\\
+= \frac{5}{27}
+\end{gathered}
+\end{gathered}
 $$
 
 が得られる。従って、
@@ -198,7 +277,7 @@ $$
 $$
 \begin{aligned}
 I(A ; B)
-&= \sum_{a \in A, b \in B} P(A=a, B=b) \log \frac{P(A=a, B=b)}{P(A=a) P(B=b)} \\
+&= \sum_{a \in A, b \in B} P(A=a, B=b) \log \frac{P(A=a, B=b)}{P(A=a) P(B=b)}\\
 &= \frac{22}{9}+\frac{1}{2}\log 3-\frac{5}{27}\log 5-\frac{14}{27}\log 7
 \end{aligned}
 $$
@@ -207,8 +286,15 @@ $$
 設問4の通信路では入力 $1$ に誤りがないため、生起確率の最大の $a$ に $11$、最小の $d$ に $00$ を割り当てるのが有利である。24 通りの割当てについて $I(A;B)$ を比較すると、最適な割当ては
 
 $$
-a\mapsto 11,\qquad d\mapsto 00,\qquad
+\begin{gathered}
+a\mapsto 11,\\
+d\mapsto 00,\\
 (b,c)\mapsto(01,10)\ \text{または}\ (10,01)
+\end{gathered}
 $$
 
 であり、$I(A;B)\simeq1.456898$ bit となる。一方、$C_2$ では $I(A;B)\simeq1.351273$ bit なので、$C_2$ は最適ではない。
+
+## **Reference**
+
+- [大学公表の原題](https://www.ist.i.kyoto-u.ac.jp/content/files/admission/ist-exam-2020Aug-specialized.pdf)

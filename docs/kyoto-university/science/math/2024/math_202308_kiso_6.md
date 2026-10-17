@@ -29,15 +29,29 @@ $$
 
 #### 题目描述
 
-设 $S^2=\{x\in\mathbb R^3\mid\|x\|=1\}$，定义 $f:S^2\times S^2\to\mathbb R^3$ 为 $f(x,y)=x+y$。求所有临界值。这里 $q$ 是临界值，是指存在 $p\in S^2\times S^2$ 使 $f(p)=q$，且 $f$ 关于 $p$ 附近任意局部坐标的 $3\times4$ 雅可比矩阵的秩不超过 $2$。
+以 $S^2$ 表示二维球面 $\{(x_1,x_2,x_3)\in\mathbb R^3\mid x_1^2+x_2^2+x_3^2=1\}$。定义映射 $f=(f_1,f_2,f_3):S^2\times S^2\to\mathbb R^3$ 为
+
+$$
+f((x_1,x_2,x_3),(y_1,y_2,y_3))=(x_1+y_1,x_2+y_2,x_3+y_3).
+$$
+
+求该映射的全部临界值。这里，$q\in\mathbb R^3$ 为 $f$ 的临界值，是指存在 $p\in S^2\times S^2$ 使 $f(p)=q$，且 $f$ 关于 $p$ 附近 $S^2\times S^2$ 的局部坐标系 $(u_1,u_2,u_3,u_4)$ 的雅可比矩阵
+
+$$
+\left(\frac{\partial f_i}{\partial u_j}(p)\right)_{1\le i\le3,\ 1\le j\le4}
+$$
+
+的秩不超过 $2$。
 
 ## **Kai**
 
 $x\in S^2$ での接空間は $T_xS^2=x^\perp$ であり、
 
 $$
-df_{(x,y)}:x^\perp\oplus y^\perp\longrightarrow\mathbb R^3,
-\qquad (u,v)\longmapsto u+v.
+\begin{gathered}
+df_{(x,y)}:x^\perp\oplus y^\perp\longrightarrow\mathbb R^3,\\
+(u,v)\longmapsto u+v.
+\end{gathered}
 $$
 
 その像は $x^\perp+y^\perp$ であり、

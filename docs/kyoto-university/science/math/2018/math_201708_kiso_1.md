@@ -44,12 +44,12 @@ $$
 
 $$
 \begin{aligned}
-\iiint_V\frac{dx\,dy\,dz}{(1+x^2+y^2)z^{3/2}}
-&=\int_0^{2\pi}\int_0^\infty
+&\iiint_V\frac{dx\,dy\,dz}{(1+x^2+y^2)z^{3/2}}\\
+&\quad=\int_0^{2\pi}\int_0^\infty
   \frac{r}{1+r^2}\left(\int_{r^2}^\infty z^{-3/2}\,dz\right)\,dr\,d\theta\\
-&=2\pi\int_0^\infty\frac{r}{1+r^2}\frac{2}{r}\,dr\\
-&=4\pi\left[\arctan r\right]_0^\infty\\
-&=\boxed{2\pi^2}.
+&\quad=2\pi\int_0^\infty\frac{r}{1+r^2}\frac{2}{r}\,dr\\
+&\quad=4\pi\left[\arctan r\right]_0^\infty\\
+&\quad=\boxed{2\pi^2}.
 \end{aligned}
 $$
 

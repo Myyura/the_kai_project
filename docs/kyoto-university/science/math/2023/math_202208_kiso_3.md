@@ -43,7 +43,12 @@ $p(\lambda_1)=1$、$p(\lambda_j)=0\ (2\le j\le r)$ を満たす多項式 $p$ を
 $p(S)v=u_1$ である。また $ST=TS$ より $p(S)T=Tp(S)$ なので、
 
 $$
-Tu_1=Tp(S)v=p(S)Tv=\alpha p(S)v=\alpha u_1.
+\begin{gathered}
+Tu_1=Tp(S)v\\
+=p(S)Tv\\
+=\alpha p(S)v\\
+=\alpha u_1.
+\end{gathered}
 $$
 
 一方、仮定より $Tu_1=\beta u_1$ であり、$u_1\ne0$ だから $\alpha=\beta$ である。

@@ -14,15 +14,23 @@ tags:
 
 ## **Description**
 
-$a,b,c$ を正の実数とする。次の行列 $A$ が逆行列をもつために $a,b,c$ が満たすべき条件を求めよ。
+$a,b,c$ を正の実数とするとき、行列
 
 $$
-A=\begin{pmatrix}1&a&a^3\\1&b&b^3\\1&c&c^3\end{pmatrix}.
+A=\begin{pmatrix}1&a&a^3\\1&b&b^3\\1&c&c^3\end{pmatrix}
 $$
+
+が逆行列をもつための $a,b,c$ が満たすべき条件を求めよ。
 
 #### 题目描述
 
-设 $a,b,c$ 均为正实数。求上述矩阵 $A$ 可逆的充要条件。
+设 $a,b,c$ 为正实数。求使矩阵
+
+$$
+A=\begin{pmatrix}1&a&a^3\\1&b&b^3\\1&c&c^3\end{pmatrix}
+$$
+
+可逆的 $a,b,c$ 应满足的条件。
 
 ## **Kai**
 

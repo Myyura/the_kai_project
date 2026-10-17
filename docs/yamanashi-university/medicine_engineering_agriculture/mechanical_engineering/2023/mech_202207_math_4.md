@@ -13,17 +13,21 @@ tags:
 
 ## **Description**
 
-関数
+問4　次の関数の極値を求めよ。
+
+Problem 4　Find the extreme value of the following function.
 
 $$
 f(x)=\sin x+\frac13\sin3x\qquad(0\le x\le\pi)
 $$
 
-の極値を求めよ。
-
 #### 题目描述
 
-求 $f(x)=\sin x+\frac13\sin3x$ 在 $0\le x\le\pi$ 内的极值。
+问4　求下列函数的极值。
+
+$$
+f(x)=\sin x+\frac13\sin3x\qquad(0\le x\le\pi)
+$$
 
 ## **Kai**
 

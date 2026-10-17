@@ -14,27 +14,51 @@ tags:
 
 ## **Description**
 
-図の蒸気サイクル $1\to2\to3\to4\to1$ は、$1\to2,3\to4$ が等エントロピー、$2\to3,4\to1$ が等圧である。状態 2 は飽和液、3 は乾き飽和蒸気。低圧 $p_a$ と高圧 $p_b$ に対する飽和温度・比エントロピーは次のとおりである。（40 点）
+二つの圧力 $p_a,p_b$ の間で動作する $p$–$v$ 線図上に示すような蒸気サイクル（1→2→3→4→1）を考える。1→2および3→4は等エントロピー変化，2→3および4→1は等圧変化であり，2は飽和液，3は乾き飽和蒸気である。また，飽和蒸気表より以下の値が与えられている。記号は慣例に従うものとする。（40点）
 
-| 圧力 | 飽和温度 | 飽和液の比エントロピー | 飽和蒸気の比エントロピー |
-|---|---|---|---|
+| 圧力 ($\mathrm{Pa}$) | 飽和温度 ($\mathrm K$) | 飽和液の比エントロピー ($\mathrm{J/(kg\cdot K)}$) | 飽和蒸気の比エントロピー ($\mathrm{J/(kg\cdot K)}$) |
+| --- | --- | --- | --- |
 | $p_a$ | $T_a$ | $s_a'$ | $s_a''$ |
-| $p_b$ | $T_b$ | $s_b'=s_2$ | $s_b''=s_3$ |
+| $p_b$ | $T_b$ | $s_b'(=s_2)$ | $s_b''(=s_3)$ |
 
-![蒸気サイクルの p–v 図と T–s 解答図（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_thermo-2-original.png)
+![原題のp–v線図とT–s線図解答欄](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_thermo-2-original.png)
 
-$T_a,T_b,s_a',s_a'',s_b',s_b''$ を用いて答えよ。
+この時，$T_a,T_b,s_a',s_a'',s_b',s_b''$ を使って以下の問いに答えよ。
 
-1. 状態 1–4 を対応させて $T$–$s$ 線図を描け。
-2. 圧力 $p_b$ の蒸発潜熱を求めよ。
-3. 状態 1,4 の乾き度 $x_1,x_4$ を求めよ。
-4. 排熱量 $q_C$ を求めよ。
-5. 正味比仕事 $l$ を求めよ。
-6. 熱効率を求めよ。
+**(1)** このサイクルを1～4の点を対応させて，$T$–$s$ 線図上に描け。
+
+**(2)** 圧力 $p_b$ における蒸発潜熱（$\mathrm{J/kg}$）を求めよ。
+
+**(3)** 点1および4の乾き度 $x_1$ および $x_4$ を求めよ。
+
+**(4)** このサイクル中の排熱量 $q_C\,(\mathrm{J/kg})$ を求めよ。
+
+**(5)** このサイクルで得られる正味の仕事 $l\,(\mathrm{J/kg})$ を求めよ。
+
+**(6)** このサイクルの熱効率を求めよ。
 
 #### 题目描述
 
-湿蒸汽循环的压缩、膨胀等熵，高压加热从饱和液至干饱和蒸汽，低压放热仍在两相区。利用两压力对应的饱和温度、液汽熵，画 $T$–$s$ 图并求高压潜热、两低压端点的干度、排热、净功及效率。
+考虑在压力 $p_a,p_b$ 之间工作的蒸汽循环1→2→3→4→1，其 $p$–$v$ 图如图所示。1→2及3→4为等熵变化，2→3及4→1为等压变化，状态2为饱和液体，状态3为干饱和蒸汽。饱和蒸汽表给出下列数值，符号采用惯例。（40分）
+
+| 压力 ($\mathrm{Pa}$) | 饱和温度 ($\mathrm K$) | 饱和液体比熵 ($\mathrm{J/(kg\cdot K)}$) | 饱和蒸汽比熵 ($\mathrm{J/(kg\cdot K)}$) |
+| --- | --- | --- | --- |
+| $p_a$ | $T_a$ | $s_a'$ | $s_a''$ |
+| $p_b$ | $T_b$ | $s_b'(=s_2)$ | $s_b''(=s_3)$ |
+
+用 $T_a,T_b,s_a',s_a'',s_b',s_b''$ 回答下列问题。
+
+**(1)** 在 $T$–$s$ 图上画出该循环，并对应标明状态点1～4。
+
+**(2)** 求压力 $p_b$ 下的汽化潜热（$\mathrm{J/kg}$）。
+
+**(3)** 求状态点1和4的干度 $x_1,x_4$。
+
+**(4)** 求循环的排热量 $q_C\,(\mathrm{J/kg})$。
+
+**(5)** 求循环所得的净功 $l\,(\mathrm{J/kg})$。
+
+**(6)** 求循环热效率。
 
 ## **Kai**
 
@@ -45,8 +69,10 @@ $T_a,T_b,s_a',s_a'',s_b',s_b''$ を用いて答えよ。
 ![蒸気 Carnot サイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_thermo-2-carnot.svg)
 
 $$
-1=(s_b',T_a),\quad2=(s_b',T_b),\quad
+\begin{gathered}
+1=(s_b',T_a),\quad2=(s_b',T_b),\\
 3=(s_b'',T_b),\quad4=(s_b'',T_a).
+\end{gathered}
 $$
 
 ### (2)

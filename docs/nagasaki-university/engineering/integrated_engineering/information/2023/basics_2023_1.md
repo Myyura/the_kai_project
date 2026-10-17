@@ -14,14 +14,19 @@ tags:
 
 ## **Description**
 
-$f(x)=\tan x$ とし、その $n$ 次導関数を $f^{(n)}(x)$ とする。
+$f(x)=\tan x$ とし、$f(x)$ の $n$ 次導関数を $f^{(n)}(x)$ とする。以下の問いに答えよ。
 
-1. $f^{(1)}(x),f^{(2)}(x),f^{(3)}(x)$ をそれぞれ求めよ。
-2. $\lim_{x\to0}(f(x)-x)/x^3$ を求めよ。
+(1) $f^{(1)}(x)$、$f^{(2)}(x)$、$f^{(3)}(x)$ をそれぞれ求めよ。
+
+(2) $\displaystyle\lim_{x\to0}\frac{f(x)-x}{x^3}$ を求めよ。
 
 #### 题目描述
 
-设 $f(x)=\tan x$，$f^{(n)}$ 表示其 $n$ 阶导数。求一至三阶导数，以及极限 $\lim_{x\to0}(f(x)-x)/x^3$。
+设 $f(x)=\tan x$，记 $f(x)$ 的 $n$ 阶导数为 $f^{(n)}(x)$。回答以下问题。
+
+(1) 分别求 $f^{(1)}(x)$、$f^{(2)}(x)$、$f^{(3)}(x)$。
+
+(2) 求 $\displaystyle\lim_{x\to0}\frac{f(x)-x}{x^3}$。
 
 ## **Kai**
 
@@ -30,8 +35,10 @@ $f(x)=\tan x$ とし、その $n$ 次導関数を $f^{(n)}(x)$ とする。
 商の微分法と合成関数の微分法から、
 
 $$
-\boxed{f^{(1)}(x)=\frac1{\cos^2x}},\qquad
+\begin{gathered}
+\boxed{f^{(1)}(x)=\frac1{\cos^2x}},\\
 \boxed{f^{(2)}(x)=\frac{2\sin x}{\cos^3x}}.
+\end{gathered}
 $$
 
 さらに
@@ -51,7 +58,10 @@ $$
 $f(0)=0$、$f'(0)=1$、$f''(0)=0$、$f^{(3)}(0)=2$ なので、Taylor 展開は
 
 $$
-f(x)=x+\frac{2}{3!}x^3+o(x^3)=x+\frac{x^3}3+o(x^3).
+\begin{gathered}
+f(x)=x+\frac{2}{3!}x^3+o(x^3)\\
+=x+\frac{x^3}3+o(x^3).
+\end{gathered}
 $$
 
 したがって

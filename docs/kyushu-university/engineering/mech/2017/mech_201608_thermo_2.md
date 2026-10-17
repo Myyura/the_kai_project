@@ -14,23 +14,33 @@ tags:
 
 ## **Description**
 
-ヒータに接する厚さ $L$ の平板は、熱伝導率 $k$、密度 $\rho$、比熱 $c$ が温度によらず一定で、最初は一様温度 $T_i$ にある。$t=0$ で $x=0$ 面から一定熱流束 $q$ により加熱を始め、同時に $x=L$ 面を温度 $T_f>T_i$ の流体に曝す。熱伝達率は $h$ とする。（50 点）
+図1のように，ヒータと平板（厚さ $L\,(\mathrm m)$）が接している。平板の熱伝導率は $k\,(\mathrm{W/(m\cdot K)})$，密度は $\rho\,(\mathrm{kg/m^3})$，比熱は $c\,(\mathrm{J/(kg\cdot K)})$ であり，これらは温度に関わらず一定である。ヒータの電源は切られていて，平板は一様な初期温度 $T_i\,(^\circ\mathrm C)$ である。以下の問いに答えよ。（50点）
 
-![ヒータと平板（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-2-system.png)
+![原題の図1：ヒータと平板](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-2-system.png)
 
-1. $T(x,t)$ を求める熱伝導方程式、初期条件一つ、境界条件二つを書け。
-2. 定常状態における $T_0=T(0),T_w=T(L)$ を $L,k,h,T_f,q$ で表せ。
-3. 図 2 の ① は初期分布、② は少し経過した時刻の分布である。定常分布 ③ を描き、② と ③ の間の時刻における適切な分布を (a)–(d) から選んで理由を説明せよ。
+**(1)** 時刻 $t=0$ で，ヒータにより平板を熱流束 $q\,(\mathrm{W/m^2})$ で加熱開始すると同時に，$x=L$ の面で温度 $T_f\,(^\circ\mathrm C)$ の流体に曝した（ただし，$T_f>T_i$）。平板と流体の間の熱伝達率を $h\,(\mathrm{W/(m^2\cdot K)})$ とする。加熱開始後の時刻 $t$ における平板内の温度分布 $T(x,t)\,(^\circ\mathrm C)$ を求める熱伝導方程式を書け。また，これを解くための初期条件1つと境界条件2つを示せ。
 
-![温度分布の候補（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-2-choices.png)
+**(2)** 十分に時間が経過して定常状態になったとき，$x=0$ における平板温度 $T_0\,(^\circ\mathrm C)$ と $x=L$ における平板温度 $T_w\,(^\circ\mathrm C)$ をそれぞれ求めよ。ただし，$L,k,h,T_f,q$ 以外の記号を用いてはならない。導出過程も示すこと。
 
-4. $x=0$ の平板温度を熱電対で測る。図 3 の設置方法 (i)–(iv) から最も適切なものを選び、理由を述べよ。熱電対、ヒータ、平板は密着している。
+**(3)** 図2の①は $t=0$ における平板と流体の温度分布を，②は少し時間が経過した後の温度分布を示している。これにならって，十分に時間が経過して定常状態になったときの温度分布③を図示せよ。また，②と③の間の時刻における温度分布として最も適切なものを図中の(a)～(d)から選び，選んだ理由を文章で説明せよ。
 
-![熱電対の設置方法（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-2-sensors.png)
+![原題の図2：温度分布の候補](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-2-choices.png)
+
+**(4)** $x=0$ における平板の温度を熱電対で計測することにした。熱電対の設置方法として最も適切なものを図3の(i)～(iv)から選べ。また，その理由を文章で説明せよ。ただし，熱電対とヒータ，平板は密着しているものとする。
+
+![原題の図3：熱電対の設置方法](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-2-sensors.png)
 
 #### 题目描述
 
-初温 $T_i$ 的平板厚 $L$，导热率 $k$、密度 $\rho$、比热 $c$ 恒定。开始时左侧输入恒定热流 $q$，右侧与温度更高的流体 $T_f$ 对流换热，系数 $h$。写瞬态方程及初边值条件，求稳态两表面温度，画稳态温度并判断中间时刻曲线；从原图选择能准确测左表面温度的热电偶布置并解释。
+如图1，加热器与厚度为 $L\,(\mathrm m)$ 的平板相接。平板的导热系数为 $k\,(\mathrm{W/(m\cdot K)})$、密度为 $\rho\,(\mathrm{kg/m^3})$、比热为 $c\,(\mathrm{J/(kg\cdot K)})$，三者均不随温度变化。加热器尚未通电，平板初始温度均匀，为 $T_i\,(^\circ\mathrm C)$。回答下列问题。（50分）
+
+**(1)** 在 $t=0$ 时，加热器开始以热流密度 $q\,(\mathrm{W/m^2})$ 加热平板，同时使 $x=L$ 的表面暴露于温度为 $T_f\,(^\circ\mathrm C)$ 的流体，且 $T_f>T_i$。板与流体之间的换热系数为 $h\,(\mathrm{W/(m^2\cdot K)})$。写出求加热开始后时刻 $t$ 的板内温度分布 $T(x,t)\,(^\circ\mathrm C)$ 所用的导热方程，以及求解所需的1个初始条件和2个边界条件。
+
+**(2)** 经过足够长时间达到稳态后，分别求 $x=0$ 的板温 $T_0\,(^\circ\mathrm C)$ 和 $x=L$ 的板温 $T_w\,(^\circ\mathrm C)$。不得使用 $L,k,h,T_f,q$ 以外的符号，并须给出推导过程。
+
+**(3)** 图2中①表示 $t=0$ 时平板与流体的温度分布，②表示稍后时刻的分布。仿照该图画出经过足够长时间达到稳态后的温度分布③。另外，从图中(a)～(d)中选出最适合表示②与③之间某时刻温度分布的曲线，并用文字解释选择理由。
+
+**(4)** 用热电偶测量 $x=0$ 处的平板温度。从图3的(i)～(iv)中选出最合适的安装方式，并用文字解释理由。热电偶与加热器、平板均紧密接触。
 
 ## **Kai**
 
@@ -42,8 +52,10 @@ $$
 $$
 
 $$
-\boxed{-kT_x(0,t)=q,\qquad
--kT_x(L,t)=h[T(L,t)-T_f].}
+\boxed{\begin{gathered}
+-kT_x(0,t)=q,\\
+-kT_x(L,t)=h[T(L,t)-T_f].
+\end{gathered}}
 $$
 
 過渡状態では平板に熱が蓄えられるため、$x=L$ からの放熱流束が常に $q$ になるとは限らない。

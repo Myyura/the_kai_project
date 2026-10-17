@@ -12,19 +12,37 @@ tags:
 
 ## **Description**
 
-題意の要約。
-曲線 $C\subset\mathbb R^3$ を
+３次元ユークリッド空間 $\mathbb R^3$ 内の曲線
 
 $$
-\boldsymbol p(t)=\left(t^2,\ t+\frac{t^3}{3},\ t-\frac{t^3}{3}\right)
+\boldsymbol p(t)=\left(t^2,t+\frac{t^3}{3},t-\frac{t^3}{3}\right)
 \qquad(-\infty<t<\infty)
 $$
 
-で表す。
+を $C$ で表す。このとき，次の問いに答えよ。
 
-1. $C$ の単位接ベクトルを求めよ。
-2. $0\le t\le1$ に対応する部分の長さを求めよ。
-3. $C$ の曲率を求めよ。
+(1) 曲線 $C$ の単位接ベクトルを求めよ。
+
+(2) 曲線 $C$ の $0\le t\le1$ の部分の長さを求めよ。
+
+(3) 曲線 $C$ の曲率を求めよ。
+
+#### 题目描述
+
+以 $C$ 表示三维欧几里得空间 $\mathbb R^3$ 中的曲线
+
+$$
+\boldsymbol p(t)=\left(t^2,t+\frac{t^3}{3},t-\frac{t^3}{3}\right)
+\qquad(-\infty<t<\infty).
+$$
+
+请回答下列问题。
+
+(1) 求曲线 $C$ 的单位切向量。
+
+(2) 求曲线 $C$ 在 $0\le t\le1$ 部分的长度。
+
+(3) 求曲线 $C$ 的曲率。
 
 ## **Kai**
 

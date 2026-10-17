@@ -13,33 +13,45 @@ tags:
 
 ## **Description**
 
-$\mu,\nu$ を $[0,\infty)$ 上の有限 Borel 測度とし、$\mathbb N_{\mathrm{odd}}$ を正の奇数全体とする。すべての $n\in\mathbb N_{\mathrm{odd}}$ に対して
+$\mu,\nu$ を $[0,\infty)$ 上の有限Borel測度とする。また，正の奇数全体を $\mathbb N_{\mathrm{odd}}$ とする。このとき，すべての $n\in\mathbb N_{\mathrm{odd}}$ に対し
 
 $$
 \int_{[0,\infty)}e^{-nx}\,d\mu(x)
 =\int_{[0,\infty)}e^{-nx}\,d\nu(x)
 $$
 
-が成り立つならば $\mu=\nu$ であることを示せ。
+が成り立てば，2つの測度 $\mu,\nu$ は一致することを示せ。
 
 #### 题目描述
 
-设 $\mu,\nu$ 是 $[0,\infty)$ 上的有限 Borel 测度。若对每个正奇数 $n$ 都有 $\int e^{-nx}\,d\mu=\int e^{-nx}\,d\nu$，证明两测度相同。
+设 $\mu,\nu$ 为 $[0,\infty)$ 上的有限Borel测度，并记全体正奇数为 $\mathbb N_{\mathrm{odd}}$。证明：若对每个 $n\in\mathbb N_{\mathrm{odd}}$ 都有
+
+$$
+\int_{[0,\infty)}e^{-nx}\,d\mu(x)
+=\int_{[0,\infty)}e^{-nx}\,d\nu(x),
+$$
+
+则两个测度 $\mu,\nu$ 相同。
 
 ## **Kai**
 
 $[0,1]$ 上の有限測度 $\alpha,\beta$ を
 
 $$
-\alpha(E)=\int_{[0,\infty)}\mathbf1_E(e^{-2x})e^{-x}\,d\mu(x),\qquad
+\begin{gathered}
+\alpha(E)=\int_{[0,\infty)}\mathbf1_E(e^{-2x})e^{-x}\,d\mu(x),\\
 \beta(E)=\int_{[0,\infty)}\mathbf1_E(e^{-2x})e^{-x}\,d\nu(x)
+\end{gathered}
 $$
 
 で定める。仮定より、任意の整数 $k\ge0$ に対して
 
 $$
-\int_0^1s^k\,d\alpha(s)=\int e^{-(2k+1)x}\,d\mu(x)
-=\int e^{-(2k+1)x}\,d\nu(x)=\int_0^1s^k\,d\beta(s).
+\begin{gathered}
+\int_0^1s^k\,d\alpha(s)=\int e^{-(2k+1)x}\,d\mu(x)\\
+=\int e^{-(2k+1)x}\,d\nu(x)\\
+=\int_0^1s^k\,d\beta(s).
+\end{gathered}
 $$
 
 よって多項式の積分は一致する。Weierstrass の近似定理と測度の有限性により、すべての $h\in C([0,1])$ について $\int h\,d\alpha=\int h\,d\beta$。したがって有限 Borel 測度の一意性から $\alpha=\beta$ である。

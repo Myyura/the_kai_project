@@ -84,6 +84,11 @@ jobs:
       - name: Validate generated document
         if: steps.convert.outputs.skip != 'true' && steps.convert.outputs.conflict != 'true'
         run: |
+          set -euo pipefail
+          if [ "${{ steps.convert.outputs.submission_type }}" = "new_solution" ]; then
+            yarn generate:universities
+            node scripts/generate-universities.js --check
+          fi
           if [ "${{ steps.convert.outputs.submission_type }}" = "experience" ]; then
             node --test tests/experience-catalog.test.js
             yarn content:validate
@@ -99,7 +104,14 @@ jobs:
           set -euo pipefail
           git config user.name "${{ github.event.sender.login }}"
           git config user.email "${{ github.event.sender.id }}+${{ github.event.sender.login }}@users.noreply.github.com"
-          git add "${{ steps.convert.outputs.file_path }}"
+          node <<'NODE'
+          const fs = require('fs');
+          const {execFileSync} = require('child_process');
+          const result = JSON.parse(fs.readFileSync('.submission-result.json', 'utf8'));
+          const filePaths = [...result.filePaths];
+          if (result.submissionType === 'new_solution') filePaths.push('src/data/universities.js');
+          execFileSync('git', ['add', '--', ...filePaths], {stdio: 'inherit'});
+          NODE
           git commit -m "${{ steps.convert.outputs.pr_title }}"
           git push --force-with-lease origin "$BRANCH_NAME"
 

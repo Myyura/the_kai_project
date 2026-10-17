@@ -14,16 +14,25 @@ tags:
 
 ## **Description**
 
-図のように、構造 OAB-CAD が点 O と点 B で剛体壁に固定されている。点 C および点 D にそれぞれ $x$ 方向荷重 $P$ を作用させる。構造は直径 $d$、ヤング率 $E$ の丸棒からなり、$\ell\gg d$ である。図の寸法は OA $=\ell$、AB $=2\ell$、AC $=2\ell$、AD $=\ell$ とする。
+図のように、構造 OAB-CAD が点 O と点 B で剛体壁に固定されている。点 C および点 D に $x$ 方向荷重 $P$ を作用させるとき、次の各問に答えよ。ただし、構造 OAB-CAD は、直径 $d$ の丸棒からなり、$\ell\gg d$、ヤング率 $E$ とする。（40点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_material-2-original.png)
+**(1)** OAB 間のせん断力線図（SFD）、曲げモーメント線図（BMD）を描け。
 
-1. OAB 間のせん断力線図（SFD）、曲げモーメント線図（BMD）を描け。
-2. 点 C の $x$ 方向変位 $\delta_{Cx}$ を求めよ。
+**(2)** 点 C の $x$ 方向変位 $\delta_{Cx}$ を求めよ。
+
+図中、OA、AD の長さは $\ell$、AB、AC の長さは $2\ell$。$+x$ は右向き、$+y$ は下向きとする。
+
+![原題の両端固定された十字形構造](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_material-2-original.png)
 
 #### 题目描述
 
-圆杆结构 OAB-CAD 在 O、B 两端固定，C、D 两点分别受到沿 $+x$ 方向的力 $P$。圆杆直径为 $d$，杨氏模量为 $E$，且 $\ell\gg d$。各段长度为 OA $=\ell$、AB $=2\ell$、AC $=2\ell$、AD $=\ell$。画出 OAB 的剪力图与弯矩图，并求 C 点沿 $x$ 方向的位移。
+如图，结构 OAB-CAD 在 O、B 两点固定于刚性墙壁。在 C、D 两点分别施加沿 $x$ 方向的载荷 $P$ 时，回答下列问题。结构 OAB-CAD 由直径为 $d$ 的圆杆构成，$\ell\gg d$，杨氏模量为 $E$。（40分）
+
+**(1)** 绘制 OAB 段的剪力图（SFD）和弯矩图（BMD）。
+
+**(2)** 求 C 点沿 $x$ 方向的位移 $\delta_{Cx}$。
+
+图中 OA、AD 长 $\ell$，AB、AC 长 $2\ell$。$+x$ 向右，$+y$ 向下。
 
 ## **Kai**
 
@@ -80,17 +89,22 @@ $$
 C の水平変位は、A の回転による $2\ell\theta_A$ と、AC 自身の片持ちはりとしての曲げたわみの和である。
 
 $$
-\boxed{\delta_{Cx}
-=2\ell\theta_A+\frac{P(2\ell)^3}{3EI}
-=\frac{28P\ell^3}{9EI}
-=\frac{1792P\ell^3}{9\pi Ed^4}}.
+\boxed{\begin{gathered}
+\delta_{Cx}
+=2\ell\theta_A+\frac{P(2\ell)^3}{3EI}\\
+=\frac{28P\ell^3}{9EI}\\
+=\frac{1792P\ell^3}{9\pi Ed^4}
+\end{gathered}}.
 $$
 
 軸伸縮まで含める場合、A の水平移動は、OA と AB の軸剛性の和を用いて
 
 $$
+\begin{gathered}
 u_A=\frac{2P}{EA_0/\ell+EA_0/(2\ell)}
-=\frac{4P\ell}{3EA_0},\qquad A_0=\frac{\pi d^2}{4}
+=\frac{4P\ell}{3EA_0},\\
+A_0=\frac{\pi d^2}{4}
+\end{gathered}
 $$
 
 となり、上の $\delta_{Cx}$ に $u_A$ を加える。この補正は曲げ項に対して $O((d/\ell)^2)$ である。

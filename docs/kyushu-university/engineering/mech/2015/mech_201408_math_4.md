@@ -22,15 +22,35 @@ $$
 
 このとき、次の各問いに答えよ。（50点）
 
-1. $f(1)$ を求めよ。
-2. $f(x+1)=xf(x)$ を示せ。
-3. $f(n+1)$ を求めよ。ただし $n$ は自然数とする。
-4. $f(1/2)$ を求めよ。
-5. $f(n+1/2)$ を求めよ。ただし $n$ は自然数とする。
+(1) $f(1)$ を求めよ。
+
+(2) $f(x+1)=xf(x)$ を示せ。
+
+(3) $f(n+1)$ を求めよ。ただし $n$ は自然数とする。
+
+(4) $f\left(\dfrac12\right)$ を求めよ。
+
+(5) $f\left(n+\dfrac12\right)$ を求めよ。ただし $n$ は自然数とする。
 
 #### 题目描述
 
-由 Gamma 积分定义求 $f(1)$，证明递推关系，再求正整数和半整数处的值。
+函数 $f(x)$ 定义为
+
+$$
+f(x)=\int_0^\infty e^{-t}t^{x-1}\,dt.
+$$
+
+回答以下各问。（50分）
+
+(1) 求 $f(1)$。
+
+(2) 证明 $f(x+1)=xf(x)$。
+
+(3) 求 $f(n+1)$，其中 $n$ 为自然数。
+
+(4) 求 $f\left(\dfrac12\right)$。
+
+(5) 求 $f\left(n+\dfrac12\right)$，其中 $n$ 为自然数。
 
 ## **Kai**
 
@@ -47,8 +67,10 @@ $$
 $x>0$ では端点項が消えるので、部分積分により
 
 $$
-f(x+1)=\left[-e^{-t}t^x\right]_0^\infty+x\int_0^\infty e^{-t}t^{x-1}dt
+\begin{gathered}
+f(x+1)=\left[-e^{-t}t^x\right]_0^\infty+x\int_0^\infty e^{-t}t^{x-1}dt\\
 =\boxed{xf(x)}.
+\end{gathered}
 $$
 
 ### (3)
@@ -72,7 +94,9 @@ $J>0$ より $\boxed{f(1/2)=\sqrt\pi}$。
 (2) を繰り返すと
 
 $$
-\boxed{f\left(n+\frac12\right)
-=\frac{(2n-1)(2n-3)\cdots1}{2^n}\sqrt\pi
-=\frac{(2n)!}{4^nn!}\sqrt\pi}.
+\boxed{\begin{gathered}
+f\left(n+\frac12\right)
+=\frac{(2n-1)(2n-3)\cdots1}{2^n}\sqrt\pi\\
+=\frac{(2n)!}{4^nn!}\sqrt\pi
+\end{gathered}}.
 $$

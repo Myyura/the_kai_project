@@ -14,23 +14,41 @@ tags:
 
 ## **Description**
 
-実 Banach 空間 $L^1([0,\infty))$ のノルムを $\|f\|_1=\int_0^\infty|f(x)|\,dx$ とする。$f\in L^1([0,\infty))$ に対して作用素 $H_f:L^1([0,\infty))\to L^1([0,\infty))$ を
+$L^1([0,\infty))$ を $[0,\infty)$ 上の可積分関数全体のなす実 Banach 空間とし，$f\in L^1([0,\infty))$ に対して
+
+$$
+\|f\|_1=\int_0^\infty|f(x)|\,dx
+$$
+
+とする。$f\in L^1([0,\infty))$ に対して $H_f:L^1([0,\infty))\to L^1([0,\infty))$ を
 
 $$
 (H_fg)(x)=\int_0^\infty f(x+y)g(y)\,dy
 $$
 
-で定める。
+と定める。
 
-(1) 作用素ノルムについて $\|H_f\|\le\|f\|_1$ を示せ。
+(1) $\|H_f\|\le\|f\|_1$ を示せ。ここで $\|H_f\|$ は $H_f$ の作用素ノルムである。
 
-(2) $H_f$ がコンパクト作用素であることを示せ。
+(2) $H_f$ はコンパクト作用素であることを示せ。
 
 #### 题目描述
 
-在实 Banach 空间 $L^1([0,\infty))$ 上，对给定的 $f\in L^1$ 定义 $(H_fg)(x)=\int_0^\infty f(x+y)g(y)\,dy$。
+设 $L^1([0,\infty))$ 为 $[0,\infty)$ 上可积函数全体组成的实 Banach 空间，对 $f\in L^1([0,\infty))$，记
 
-(1) 证明 $\|H_f\|\le\|f\|_1$；(2) 证明 $H_f$ 是紧算子。
+$$
+\|f\|_1=\int_0^\infty|f(x)|\,dx.
+$$
+
+对于 $f\in L^1([0,\infty))$，定义 $H_f:L^1([0,\infty))\to L^1([0,\infty))$ 为
+
+$$
+(H_fg)(x)=\int_0^\infty f(x+y)g(y)\,dy.
+$$
+
+(1) 证明 $\|H_f\|\le\|f\|_1$。这里 $\|H_f\|$ 为 $H_f$ 的算子范数。
+
+(2) 证明 $H_f$ 是紧算子。
 
 ## **Kai**
 

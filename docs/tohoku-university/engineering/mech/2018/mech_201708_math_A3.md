@@ -14,9 +14,7 @@ tags:
 
 ## **Description**
 
-2017年10月・2018年4月入学対象、2017年8月実施。
-
-$n\times n$ 行列を
+3. $n\times n$ 行列 $A$ および $J$ が
 
 $$
 A=\begin{pmatrix}
@@ -25,25 +23,68 @@ a_n&a_1&a_2&\cdots&a_{n-1}\\
 a_{n-1}&a_n&a_1&\cdots&a_{n-2}\\
 \vdots&\vdots&\vdots&\ddots&\vdots\\
 a_2&a_3&a_4&\cdots&a_1
-\end{pmatrix},\qquad
+\end{pmatrix},
+\qquad
 J=\begin{pmatrix}
-0&1&0&\cdots&0\\0&0&1&\cdots&0\\
-\vdots&\vdots&\ddots&\ddots&\vdots\\0&0&\cdots&0&1\\1&0&\cdots&0&0
+0&1&0&\cdots&0&0\\
+0&0&1&\cdots&0&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+0&0&0&\cdots&0&1\\
+1&0&0&\cdots&0&0
 \end{pmatrix}
 $$
 
-とする。$a_i\ne0$（$i=1,\ldots,n$）、$I$ は $n$ 次単位行列とする。
+$(a_i\ne0,\ i=1,2,\ldots,n)$ のように与えられる。$I$ を $n$ 次の単位行列とするとき，以下の問いに答えよ。
 
-1. $n=4$ のとき $J^2,J^3$ を求めよ。
-2. $a_1I+a_2J+\cdots+a_nJ^{n-1}$ を $A$ で表せ。
-3. 行列式 $|J-\omega I|$ を求めよ。
-4. $J$ の固有値を $\omega_k$ とするとき、$A$ の固有値が $\lambda_k=a_1+a_2\omega_k+\cdots+a_n\omega_k^{n-1}$（$k=1,\ldots,n$）となることを示せ。
+**(1)** $n=4$ のとき，$J^2$ および $J^3$ を求めよ。
+
+**(2)** $a_1I+a_2J+a_3J^2+\cdots+a_nJ^{n-1}$ を $A$ を用いて表せ。
+
+**(3)** 行列式 $|J-\omega I|$ を求めよ。
+
+**(4)** $J$ の固有値を $\omega_k\ (k=1,2,\ldots,n)$ とするとき，$A$ の固有値 $\lambda_k\ (k=1,2,\ldots,n)$ が
+
+$$
+\lambda_k=a_1+a_2\omega_k+a_3\omega_k^2+\cdots+a_n\omega_k^{n-1}
+$$
+
+となることを示せ。
 
 #### 题目描述
 
-本题为2017年8月实施、面向2017年10月及2018年4月入学的考试。
+3. $n\times n$ 矩阵 $A$ 和 $J$ 给定如下：
 
-给定上列循环矩阵 $A$ 和循环移位矩阵 $J$，各 $a_i\ne0$，$I$ 为单位矩阵。（1）在 $n=4$ 时求 $J^2,J^3$。（2）用 $A$ 表示 $a_1I+a_2J+\cdots+a_nJ^{n-1}$。（3）求 $\det(J-\omega I)$。（4）证明若 $J$ 的特征值为 $\omega_k$，则 $A$ 的全部特征值为 $\lambda_k=\sum_{j=1}^na_j\omega_k^{j-1}$。
+$$
+A=\begin{pmatrix}
+a_1&a_2&a_3&\cdots&a_n\\
+a_n&a_1&a_2&\cdots&a_{n-1}\\
+a_{n-1}&a_n&a_1&\cdots&a_{n-2}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+a_2&a_3&a_4&\cdots&a_1
+\end{pmatrix},
+\qquad
+J=\begin{pmatrix}
+0&1&0&\cdots&0&0\\
+0&0&1&\cdots&0&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+0&0&0&\cdots&0&1\\
+1&0&0&\cdots&0&0
+\end{pmatrix},
+$$
+
+其中 $a_i\ne0\ (i=1,2,\ldots,n)$。设 $I$ 为 $n$ 阶单位矩阵，回答下列问题。
+
+**(1)** 当 $n=4$ 时，求 $J^2$ 和 $J^3$。
+
+**(2)** 用 $A$ 表示 $a_1I+a_2J+a_3J^2+\cdots+a_nJ^{n-1}$。
+
+**(3)** 求行列式 $|J-\omega I|$。
+
+**(4)** 设 $J$ 的特征值为 $\omega_k\ (k=1,2,\ldots,n)$，证明 $A$ 的特征值 $\lambda_k\ (k=1,2,\ldots,n)$ 满足
+
+$$
+\lambda_k=a_1+a_2\omega_k+a_3\omega_k^2+\cdots+a_n\omega_k^{n-1}.
+$$
 
 ## **Kai**
 

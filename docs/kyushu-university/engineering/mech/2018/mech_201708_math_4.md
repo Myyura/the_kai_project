@@ -13,30 +13,63 @@ tags:
 
 ## **Description**
 
-関数 $A(\omega),B(\omega),\alpha(\omega),\beta(\omega)$ が、任意の正の実数 $\omega,t$ について下記の2つの式を満たすとする。
+関数 $A(\omega),B(\omega),\alpha(\omega)$、および $\beta(\omega)$ が、任意の正の実数 $\omega$ および $t$ について下記の2つの式を満たすとする。
 
 $$
-A(\omega)\sin\{\omega t-\alpha(\omega)\}
-=\int_0^\infty e^{-\eta\tau}\sin\{\omega(t-\tau)\}\,d\tau,
+\begin{aligned}
+&A(\omega)\sin(\omega t-\alpha(\omega))\\
+&\quad=\int_0^\infty e^{-\eta\tau}\sin(\omega(t-\tau))\,d\tau,
+\end{aligned}
 $$
 
 $$
-B(\omega)\sin\{\omega t-\beta(\omega)\}
-=\int_0^\infty e^{-\eta\tau}A(\omega)\sin\{\omega(t-\tau)-\alpha(\omega)\}\,d\tau.
+\begin{aligned}
+&B(\omega)\sin(\omega t-\beta(\omega))\\
+&\quad=\int_0^\infty e^{-\eta\tau}A(\omega)\\
+&\qquad\times\sin(\omega(t-\tau)-\alpha(\omega))\,d\tau.
+\end{aligned}
 $$
 
 ここで、$\eta$ は正の定数である。以下の問いに答えよ。なお、任意の正の実数 $a,b$ および任意の実数 $c$ について下式が成立するという事実を用いてよい。（50点）
 
 $$
-\int_0^\infty e^{-at}\sin(bt+c)dt=\frac{a\sin c+b\cos c}{a^2+b^2}.
+\int_0^\infty e^{-at}\sin(bt+c)\,dt
+=\frac{a\sin c+b\cos c}{a^2+b^2}.
 $$
 
-1. $A(\omega),\sin\alpha(\omega),\cos\alpha(\omega)$ を求めよ。
-2. $B(\omega),\beta(\omega)$ を求めよ。ここで、$A(\omega),\alpha(\omega)$ のうち必要なものを用いてよい。
+(1) $A(\omega),\sin(\alpha(\omega))$、および $\cos(\alpha(\omega))$ を求めよ。
+
+(2) $B(\omega)$ および $\beta(\omega)$ を求めよ。ここで、$A(\omega)$ および $\alpha(\omega)$ のうち必要なものを用いてよい。
 
 #### 题目描述
 
-两个依次进行的指数核卷积，将正弦信号变成有振幅与相位滞后的正弦信号。求第一次的振幅和相位正余弦，以及第二次的振幅与相位。
+设函数 $A(\omega),B(\omega),\alpha(\omega),\beta(\omega)$ 对任意正实数 $\omega,t$ 满足下列两式。
+
+$$
+\begin{aligned}
+&A(\omega)\sin(\omega t-\alpha(\omega))\\
+&\quad=\int_0^\infty e^{-\eta\tau}\sin(\omega(t-\tau))\,d\tau,
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&B(\omega)\sin(\omega t-\beta(\omega))\\
+&\quad=\int_0^\infty e^{-\eta\tau}A(\omega)\\
+&\qquad\times\sin(\omega(t-\tau)-\alpha(\omega))\,d\tau.
+\end{aligned}
+$$
+
+其中 $\eta$ 为正常数。回答以下各问。可以使用下式对任意正实数 $a,b$ 和任意实数 $c$ 成立这一事实。（50分）
+
+$$
+\int_0^\infty e^{-at}\sin(bt+c)\,dt
+=\frac{a\sin c+b\cos c}{a^2+b^2}.
+$$
+
+(1) 求 $A(\omega),\sin(\alpha(\omega)),\cos(\alpha(\omega))$。
+
+(2) 求 $B(\omega)$ 和 $\beta(\omega)$。可以使用 $A(\omega)$、$\alpha(\omega)$ 中所需的量。
 
 ## **Kai**
 
@@ -52,16 +85,20 @@ $$
 $$
 
 $$
-A\cos\alpha=\frac{\eta}{\eta^2+\omega^2},\qquad
+\begin{gathered}
+A\cos\alpha=\frac{\eta}{\eta^2+\omega^2},\\
 A\sin\alpha=\frac{\omega}{\eta^2+\omega^2}.
+\end{gathered}
 $$
 
 よって
 
 $$
-\boxed{A=\frac1{\sqrt{\eta^2+\omega^2}},\quad
-\sin\alpha=\frac{\omega}{\sqrt{\eta^2+\omega^2}},\quad
-\cos\alpha=\frac{\eta}{\sqrt{\eta^2+\omega^2}}}.
+\boxed{\begin{gathered}
+A=\frac1{\sqrt{\eta^2+\omega^2}},\\
+\sin\alpha=\frac{\omega}{\sqrt{\eta^2+\omega^2}},\\
+\cos\alpha=\frac{\eta}{\sqrt{\eta^2+\omega^2}}
+\end{gathered}}.
 $$
 
 $0<\alpha<\pi/2$ と選べば $\alpha=\arctan(\omega/\eta)$。
@@ -71,6 +108,8 @@ $0<\alpha<\pi/2$ と選べば $\alpha=\arctan(\omega/\eta)$。
 (1) の計算は位相をずらしても同様である。2回目の積分により、振幅はさらに $A$ 倍、位相遅れはさらに $\alpha$ 増える。従って
 
 $$
-\boxed{B=A^2=\frac1{\eta^2+\omega^2},\qquad
-\beta=2\alpha\pmod{2\pi}}.
+\boxed{\begin{gathered}
+B=A^2=\frac1{\eta^2+\omega^2},\\
+\beta=2\alpha\pmod{2\pi}
+\end{gathered}}.
 $$

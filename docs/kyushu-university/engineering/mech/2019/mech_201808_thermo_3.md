@@ -13,23 +13,43 @@ tags:
 
 ## **Description**
 
-内管・外管の直径がそれぞれ一定の有限長二重管式熱交換器を考える。高温流体の比熱は $4\ \mathrm{kJ/(kg\,K)}$、質量流量は $0.1\ \mathrm{kg/s}$、高温・低温流体の入口温度はそれぞれ $80^\circ\mathrm C,20^\circ\mathrm C$ であり、両流体の出口温度はともに $40^\circ\mathrm C$ であった。熱通過率は $0.2\ \mathrm{kW/(m^2\,K)}$、物性値は一定、周囲への熱損失はない。必要なら $\ln2,\ln3,\ln5$ を使ってよい。（40 点）
+直径がそれぞれ一定の内管と外管からなる有限長さの二重管式熱交換器における熱交換を考える。高温流体（比熱 $4\,\mathrm{kJ/(kg\cdot K)}$）と低温流体の入口温度がそれぞれ $80^\circ\mathrm C$ と $20^\circ\mathrm C$，高温流体の質量流量が $0.1\,\mathrm{kg/s}$ のとき，いずれの流体も出口温度が $40^\circ\mathrm C$ であった。なお，熱通過率は $0.2\,\mathrm{kW/(m^2\cdot K)}$，物性値は一定とし，周囲への熱損失もないとする。以下の問いに答えよ。ただし，必要であれば，答えに $\ln2,\ln3$ ならびに $\ln5$ を使ってもよい。（40点）
 
-1. 並流型か向流型か、理由とともに答えよ。
-2. 高温流体と低温流体の温度差の分布を下図 (A)–(E) から選び、理由を述べよ。
+**(1)** この熱交換器は，並流型と向流型のいずれであるか，理由をつけて答えよ。
 
-![温度差分布の選択肢（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo-3-choices.png)
+**(2)** 高温流体と低温流体の温度差の分布は，次の(A)～(E)のうちどれか記号で答えよ。また，その理由も答えよ。
 
-3. 交換熱量を kW で求めよ。
-4. 低温流体の熱容量流量（質量流量×比熱）を kW/K で求めよ。
-5. 熱通過面積を m² で求めよ。
-6. 低温流体の質量流量だけを変え、高温側と熱容量流量を等しくした。両流体の温度分布を下の座標に図示し、新しい出口温度を求めよ。熱通過率は変わらず、ここでは $\ln2=0.7,\ln3=1.1,\ln5=1.6$ とする。
+![原題の温度差分布の選択肢(A)・(B)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo_3_figure_1.png)
 
-![温度分布の解答欄（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo-3-axes.png)
+![原題の温度差分布の選択肢(C)・(D)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo_3_figure_2.png)
+
+![原題の温度差分布の選択肢(E)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo_3_figure_3.png)
+
+**(3)** この熱交換器の交換熱量（$\mathrm{kW}$）を求めよ。
+
+**(4)** 低温流体の熱容量流量（質量流量×比熱）（$\mathrm{kW/K}$）を求めよ。
+
+**(5)** この熱交換器の熱通過面積（$\mathrm{m^2}$）を求めよ。
+
+**(6)** 次に低温流体の質量流量だけを変えて高温流体の熱容量流量と等しくしたところ，両流体の出口温度が $40^\circ\mathrm C$ から変わった。このときの高温流体と低温流体の温度分布の概略を図示せよ。また，この場合の高温流体と低温流体の出口温度（$^\circ\mathrm C$）を求めよ。ただし，ここでは $\ln2=0.7,\ln3=1.1,\ln5=1.6$ とする。なお，熱通過率は流量変更前と変わらないとする。
+
+![原題の(6)温度分布概略解答欄](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo-3-axes.png)
 
 #### 题目描述
 
-有限长双管换热器的热流体比热为 $4\ \mathrm{kJ/(kg\,K)}$、流量 $0.1\ \mathrm{kg/s}$；冷热入口分别为 80℃、20℃，出口均为 40℃。总传热系数 $0.2\ \mathrm{kW/(m^2\,K)}$，无热损失、物性恒定。判断顺逆流并选择温差分布，求换热功率、冷侧热容量流率及面积。然后仅调整冷侧流量使两侧热容量流率相等，画温度分布并求新出口温度，此问取 $\ln2=0.7$。
+考虑由直径各自恒定的内管、外管组成的有限长度套管式换热器。高温流体的比热为 $4\,\mathrm{kJ/(kg\cdot K)}$，高、低温流体入口温度分别为 $80^\circ\mathrm C$、$20^\circ\mathrm C$。高温流体质量流量为 $0.1\,\mathrm{kg/s}$ 时，两流体出口温度均为 $40^\circ\mathrm C$。总传热系数为 $0.2\,\mathrm{kW/(m^2\cdot K)}$，物性为常数，不向周围散热。回答下列问题。必要时答案可保留 $\ln2,\ln3,\ln5$。（40分）
+
+**(1)** 该换热器是顺流型还是逆流型？说明理由。
+
+**(2)** 高、低温流体的温差分布对应图中(A)～(E)中的哪一个？用字母作答并说明理由。
+
+**(3)** 求换热量（$\mathrm{kW}$）。
+
+**(4)** 求低温流体热容量流率（质量流量×比热），单位为 $\mathrm{kW/K}$。
+
+**(5)** 求换热器传热面积（$\mathrm{m^2}$）。
+
+**(6)** 随后只改变低温流体的质量流量，使其热容量流率与高温流体相等，两流体出口温度因此不再为 $40^\circ\mathrm C$。画出此时两流体温度分布的示意图，并求各自出口温度（$^\circ\mathrm C$）。本问采用 $\ln2=0.7,\ln3=1.1,\ln5=1.6$，总传热系数与流量改变前相同。
 
 ## **Kai**
 
@@ -51,7 +71,11 @@ $$
 ### (3)
 
 $$
-\boxed{\dot Q=C_h(80-40)=0.1\times4\times40=16\ \mathrm{kW}.}
+\boxed{\begin{gathered}
+\dot Q=C_h(80-40)\\
+=0.1\times4\times40\\
+=16\ \mathrm{kW}.
+\end{gathered}}
 $$
 
 ### (4)
@@ -79,15 +103,19 @@ $$
 $C_h=C_c=C=0.4\ \mathrm{kW/K}$ では両流体間の温度差が全長で一定となる。$UA=0.8\ln2=0.56\ \mathrm{kW/K}$ より
 
 $$
-\dot Q'=UA\left(60-\frac{\dot Q'}C\right),
-\qquad\dot Q'=\frac{UA\times60}{1+UA/C}=14\ \mathrm{kW}.
+\begin{gathered}
+\dot Q'=UA\left(60-\frac{\dot Q'}C\right),\\
+\dot Q'=\frac{UA\times60}{1+UA/C}=14\ \mathrm{kW}.
+\end{gathered}
 $$
 
 したがって
 
 $$
-\boxed{T_{h,\mathrm{out}}=80-\frac{14}{0.4}=45^\circ\mathrm C,\qquad
-T_{c,\mathrm{out}}=20+\frac{14}{0.4}=55^\circ\mathrm C.}
+\boxed{\begin{gathered}
+T_{h,\mathrm{out}}=80-\frac{14}{0.4}=45^\circ\mathrm C,\\
+T_{c,\mathrm{out}}=20+\frac{14}{0.4}=55^\circ\mathrm C.
+\end{gathered}}
 $$
 
 高温側入口から出口へ向かって、高温側は $80\to45^\circ\mathrm C$、低温側は $55\to20^\circ\mathrm C$ と直線的に下がり、差は常に $25\ \mathrm K$ である。

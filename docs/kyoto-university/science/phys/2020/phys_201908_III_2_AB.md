@@ -15,36 +15,79 @@ tags:
 
 ## **Description**
 
-### III-2A
+### III-2A（力学）
 
-平面を運動する物体が、進行方向に対して常に右へ $90^\circ$ の単位ベクトル $\boldsymbol n$ の向きに質量を放出する。時刻 $t$ の質量と速度を $m(t),\boldsymbol V(t)$ とし、$|\boldsymbol V(0)|=V_0$。時間 $dt$ に放出する質量は $\alpha m(t)dt$、$\alpha>0$、相対放出速度は $u\boldsymbol n$ とする。内部構造は考えない。
+平面内を運動する物体が、その進行方向に対して右 90 度向き $\boldsymbol n\ (|\boldsymbol n|=1)$ に常に質量を放出しているとする。この物体の運動の様子を調べよう。時刻 $t$ での物体の質量を $m(t)$、速度を $\boldsymbol V(t)$ とし、$|\boldsymbol V(0)|=V_0$ とする。微小時間間隔 $dt$ の間に放出される質量は $\alpha m(t)\,dt$ で、$\alpha$ は一定で正とする。物体に対して放出される速さを $u$ とする。物体の内部構造は考えない。
 
-1. 時刻 $t$ と $t+dt$ の運動量保存を書け。
-2. 運動方程式 $m\,d\boldsymbol V/dt$ を求めよ。
-3. 速さを求めよ。
-4. 軌道の曲率半径 $\rho(t)$ を求めよ。
+(1) 時刻 $t+dt$ での物体の速度を $\boldsymbol V(t)+d\boldsymbol V$ とし、運動量保存の式を書け。
 
-### III-2B
-
-図1のように、接地された導体の内部に半径 $a$ の球状真空空洞があり、その中心に電気双極子を置く。$\boldsymbol p=q\boldsymbol s=p\boldsymbol e_z$、$\boldsymbol s$ は電荷 $-q$ から $+q$ へのベクトルとする。真空の誘電率は $\varepsilon_0$。球座標の極角 $\theta$ は $+z$ 軸から測る。SI 単位系を用いる。
-
-![原題 図1：接地導体の球状空洞内の電気双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/science/phys/2020/201908-III-2B-fig1.png)
-
-1. 導体がない場合の双極子電位 $\phi_{\rm di}(r,\theta)$ を、$r\gg s$ で $s/r$ の一次まで求めよ。
-2. 空洞表面の誘導電荷が作る電位は
+(2) これより、
 
 $$
-\phi_{\rm in}=\left(A_0+\frac{B_0}r\right)+\left(A_1r+\frac{B_1}{r^2}\right)\cos\theta
+m\frac{d\boldsymbol V}{dt}=\boxed{\mathrm A}
 $$
 
-と書ける。定数を決定し、空洞内の全電位を求めよ。
-3. 空洞表面に誘起される電荷密度を求めよ。
+となる。$\boxed{\mathrm A}$ にあてはまる式を示せ。ただし、この式に $\boldsymbol n$ を残してよい。
+
+(3) 時刻 $t$ での物体の速さを求めよ。
+
+(4) 運動の軌跡の時刻 $t$ における曲率半径 $\rho(t)$ を求めよ。
+
+### III-2B（電磁気学）
+
+図 1 のように、接地された導体の内部にある球状の空洞（半径 $a$）の中心に電気双極子を置いたとき、空洞の表面に誘起される電荷分布を考えよう。なお、空洞中は真空とし、真空の誘電率を $\varepsilon_0$ とする。解答は SI 単位系を用いよ。
+
+(1) はじめに導体のない場合を考えよう。電気双極子を原点 O に置いたとき、球座標を用いて位置 $\mathrm P(r,\theta,\varphi)$ での軸対称な静電ポテンシャル $\phi_{\mathrm{di}}(r,\theta)$ を求めよ。ここで、$r$ は原点からの距離、$\theta$ は電気双極子ベクトルの方向を $z$ 軸としたとき、$\boldsymbol r$ と $z$ 軸のなす角度とする。電気双極子ベクトルは $\boldsymbol p=q\boldsymbol s$ とし、$\boldsymbol s$ は電荷 $-q$ と $+q$ を結ぶベクトル、$s=|\boldsymbol s|$、$p=|\boldsymbol p|$ である。また、$r\gg s$ で、$s/r$ の 1 次項まで計算せよ。
+
+(2) 次に電気双極子を空洞の中心に置いた場合を考える。空洞の表面に誘起された電荷がつくる静電ポテンシャルは、適切な定数 $A_0,B_0,A_1,B_1$ を用いて次の形で表せる。
+
+$$
+\phi_{\mathrm{in}}(r,\theta)=\left(A_0+\frac{B_0}{r}\right)+\left(A_1r+\frac{B_1}{r^2}\right)\cos\theta.
+$$
+
+$A_0,B_0,A_1,B_1$ を決定し、位置 $\mathrm P(r,\theta,\varphi)$ での静電ポテンシャル $\phi(r,\theta)$ を求めよ。
+
+(3) 空洞の表面に誘起される電荷密度を求めよ。
+
+![図1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/science/phys/2020/201908-III-2B-fig1.png)
 
 #### 题目描述
 
-A：平面运动物体持续向速度右侧垂直喷出物质，喷出质量率为 $\alpha m$，相对速度 $u\boldsymbol n$，初速大小 $V_0$。求动量收支、运动方程、速率和曲率半径。
+**III-2A（力学）**
 
-B：如上方图1，接地导体的半径 $a$ 球形真空空腔中心放置沿 $+z$ 的电偶极子 $\boldsymbol p=q\boldsymbol s$。(1) 求无导体时的一阶远场偶极电势；(2) 由给定轴对称形式确定诱导电势和总电势；(3) 求空腔内壁的感应面电荷密度。
+一个在平面内运动的物体，持续沿相对前进方向向右转 $90^\circ$ 的方向 $\boldsymbol n\ (|\boldsymbol n|=1)$ 排出质量。研究该物体的运动。设时刻 $t$ 的质量为 $m(t)$，速度为 $\boldsymbol V(t)$，初始速率满足 $|\boldsymbol V(0)|=V_0$。微小时间 $dt$ 内排出的质量为 $\alpha m(t)\,dt$，其中 $\alpha$ 为正常数。相对于物体的排出速率为 $u$，不考虑物体内部结构。
+
+(1) 设 $t+dt$ 时刻物体速度为 $\boldsymbol V(t)+d\boldsymbol V$，写出动量守恒方程。
+
+(2) 由此得到
+
+$$
+m\frac{d\boldsymbol V}{dt}=\boxed{\mathrm A}.
+$$
+
+写出空格 $\boxed{\mathrm A}$ 的表达式，允许保留 $\boldsymbol n$。
+
+(3) 求时刻 $t$ 的速率。
+
+(4) 求运动轨迹在时刻 $t$ 的曲率半径 $\rho(t)$。
+
+**III-2B（电磁学）**
+
+如图 1，将电偶极子放在接地导体内半径为 $a$ 的球形空腔中心，考察空腔表面的感应电荷分布。空腔内为真空，真空介电常数为 $\varepsilon_0$，答案采用 SI 单位制。
+
+(1) 先考虑没有导体的情况。将电偶极子放在原点 O，用球坐标求位置 $\mathrm P(r,\theta,\varphi)$ 处的轴对称静电势 $\phi_{\mathrm{di}}(r,\theta)$。其中 $r$ 为距原点的距离；取偶极矩方向为 $z$ 轴，$\theta$ 为 $\boldsymbol r$ 与 $z$ 轴的夹角。偶极矩为 $\boldsymbol p=q\boldsymbol s$，$\boldsymbol s$ 为连接电荷 $-q$ 和 $+q$ 的矢量，$s=|\boldsymbol s|$，$p=|\boldsymbol p|$。在 $r\gg s$ 条件下，计算至 $s/r$ 的一阶。
+
+(2) 再考虑电偶极子位于空腔中心的情况。空腔表面感应电荷产生的静电势可用适当常数 $A_0,B_0,A_1,B_1$ 表示为
+
+$$
+\phi_{\mathrm{in}}(r,\theta)=\left(A_0+\frac{B_0}{r}\right)+\left(A_1r+\frac{B_1}{r^2}\right)\cos\theta.
+$$
+
+确定这些常数，并求位置 $\mathrm P(r,\theta,\varphi)$ 处的静电势 $\phi(r,\theta)$。
+
+(3) 求空腔表面的感应电荷密度。
+
+![图1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/science/phys/2020/201908-III-2B-fig1.png)
 
 ## **Kai**
 
@@ -86,8 +129,10 @@ $$
 (2) 表面電荷だけの作る $\phi_{\rm in}$ は原点で正則なので $B_0=B_1=0$。接地条件 $\phi_{\rm di}(a,\theta)+\phi_{\rm in}(a,\theta)=0$ から
 
 $$
-\boxed{A_0=0,\quad A_1=-\frac p{4\pi\varepsilon_0a^3},\qquad
-\phi(r,\theta)=\frac p{4\pi\varepsilon_0}\left(\frac1{r^2}-\frac r{a^3}\right)\cos\theta.}
+\boxed{\begin{aligned}
+A_0&=0,\qquad A_1=-\frac p{4\pi\varepsilon_0a^3},\\
+\phi(r,\theta)&=\frac p{4\pi\varepsilon_0}\left(\frac1{r^2}-\frac r{a^3}\right)\cos\theta.
+\end{aligned}}
 $$
 
 (3) 導体から空洞へ向く法線は $-\boldsymbol e_r$ である。従って

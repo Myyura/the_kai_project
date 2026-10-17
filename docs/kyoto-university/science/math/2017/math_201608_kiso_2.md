@@ -28,9 +28,23 @@ $$
 
 について、以下の問に答えよ。
 
-(i) 連立一次方程式 $A(x_1,x_2,x_3,x_4,x_5)^{\mathsf T}=(0,0,0,0)^{\mathsf T}$ の解をすべて求めよ。
+(i) 連立1次方程式
 
-(ii) 連立一次方程式 $A(x_1,x_2,x_3,x_4,x_5)^{\mathsf T}=(0,-1,1,c)^{\mathsf T}$ が解を持つような実数 $c$ をすべて求めよ。
+$$
+A\begin{pmatrix}x_1\\x_2\\x_3\\x_4\\x_5\end{pmatrix}
+=\begin{pmatrix}0\\0\\0\\0\end{pmatrix}
+$$
+
+の解を全て求めよ。
+
+(ii) 連立1次方程式
+
+$$
+A\begin{pmatrix}x_1\\x_2\\x_3\\x_4\\x_5\end{pmatrix}
+=\begin{pmatrix}0\\-1\\1\\c\end{pmatrix}
+$$
+
+が解を持つような実数 $c$ を全て求めよ。
 
 #### 题目描述
 
@@ -46,9 +60,23 @@ A=
 \end{pmatrix}.
 $$
 
-(i) 求齐次方程组 $A(x_1,x_2,x_3,x_4,x_5)^{\mathsf T}=0$ 的全部解。
+(i) 求线性方程组
 
-(ii) 求使 $A(x_1,x_2,x_3,x_4,x_5)^{\mathsf T}=(0,-1,1,c)^{\mathsf T}$ 有解的全部实数 $c$。
+$$
+A\begin{pmatrix}x_1\\x_2\\x_3\\x_4\\x_5\end{pmatrix}
+=\begin{pmatrix}0\\0\\0\\0\end{pmatrix}
+$$
+
+的全部解。
+
+(ii) 求使线性方程组
+
+$$
+A\begin{pmatrix}x_1\\x_2\\x_3\\x_4\\x_5\end{pmatrix}
+=\begin{pmatrix}0\\-1\\1\\c\end{pmatrix}
+$$
+
+有解的全部实数 $c$。
 
 ## **Kai**
 
@@ -69,12 +97,12 @@ $$
 したがって、$x_3=s,\ x_5=t$ と置けば、解は
 
 $$
-\boxed{
+\boxed{\begin{gathered}
 \begin{pmatrix}x_1\\x_2\\x_3\\x_4\\x_5\end{pmatrix}
 =s\begin{pmatrix}-1\\-1\\1\\0\\0\end{pmatrix}
-+t\begin{pmatrix}2\\-1\\0\\-4\\1\end{pmatrix},
-\qquad s,t\in\mathbb R
-}.
++t\begin{pmatrix}2\\-1\\0\\-4\\1\end{pmatrix},\\
+s,t\in\mathbb R
+\end{gathered}}.
 $$
 
 ### (ii)

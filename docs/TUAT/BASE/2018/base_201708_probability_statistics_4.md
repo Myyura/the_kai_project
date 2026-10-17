@@ -14,26 +14,47 @@ tags:
 
 ## **Description**
 
-(1) 連続確率変数 $X$ の密度が
+(1) 連続確率変数 $X$ の確率密度関数 $f(x)$ が以下の式で与えられている。
 
 $$
-f(x)=\begin{cases}ae^{-x/2}&(x>0),\\0&(x\le0)\end{cases}
+f(x)=\begin{cases}ae^{-x/2}&(x>0),\\0&(x\leq0).\end{cases}
 $$
 
-で与えられる。(i) 確率密度となる定数 $a$ を求めよ。(ii) $X$ の平均と分散を求めよ。
+このとき，
 
-(2) 二つの連続確率変数 $X,Y$ の同時確率密度が
+(i) $f(x)$ が確率密度関数となるような定数 $a$ を求めよ。
+
+(ii) $X$ の平均と分散を求めよ。
+
+(2) $X$ と $Y$ を二つの連続確率変数とする。$X$ と $Y$ の同時確率密度関数 $f(x,y)$ が，
 
 $$
-f(x,y)=\begin{cases}\dfrac1{47}(x+y)(x+2)&(0\le x\le2,\ 0\le y\le3),\\0&\text{それ以外}\end{cases}
+f(x,y)=\begin{cases}\dfrac{1}{47}(x+y)(x+2)&(0\leq x\leq2,\ 0\leq y\leq3),\\0&\text{（その他の範囲）}\end{cases}
 $$
 
-であるとき、$X,Y$ の共分散を求めよ。
+で与えられているとき，$X$ と $Y$ の共分散を求めよ。
 
 #### 题目描述
 
-1. 连续随机变量 $X$ 的密度在 $x>0$ 时为 $ae^{-x/2}$，其他处为0。求归一化常数 $a$，再求均值与方差。
-2. $X,Y$ 的联合密度在矩形 $0\le x\le2,0\le y\le3$ 上为 $(x+y)(x+2)/47$，其他处为0。求协方差。
+(1) 连续随机变量 $X$ 的概率密度函数 $f(x)$ 如下：
+
+$$
+f(x)=\begin{cases}ae^{-x/2}&(x>0),\\0&(x\leq0).\end{cases}
+$$
+
+此时，
+
+(i) 求使 $f(x)$ 成为概率密度函数的常数 $a$。
+
+(ii) 求 $X$ 的均值和方差。
+
+(2) 设 $X$、$Y$ 为两个连续随机变量，其联合概率密度函数为
+
+$$
+f(x,y)=\begin{cases}\dfrac{1}{47}(x+y)(x+2)&(0\leq x\leq2,\ 0\leq y\leq3),\\0&\text{（其他范围）}.\end{cases}
+$$
+
+求 $X$ 与 $Y$ 的协方差。
 
 ## **Kai**
 
@@ -44,8 +65,10 @@ $$
 (ii) 部分積分を用いると、
 
 $$
-E[X]=\frac12\int_0^\infty xe^{-x/2}\,dx=2,\qquad
+\begin{gathered}
+E[X]=\frac12\int_0^\infty xe^{-x/2}\,dx=2,\\
 E[X^2]=\frac12\int_0^\infty x^2e^{-x/2}\,dx=8.
+\end{gathered}
 $$
 
 したがって $\boxed{E[X]=2,\quad\operatorname{Var}(X)=8-2^2=4}$。

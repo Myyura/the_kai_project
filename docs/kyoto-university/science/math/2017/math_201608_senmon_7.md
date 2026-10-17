@@ -15,23 +15,31 @@ tags:
 
 ## **Description**
 
-$L^2(\mathbb R)$ を $\mathbb R$ 上の2乗可積分関数全体の Hilbert 空間とする。
+$L^2(\mathbb R)$ を $\mathbb R$ 上2乗可積分な関数全体のなすHilbert空間とするとき，以下の問に答えよ。
 
-(i) $g\in L^2(\mathbb R)$ とし、$z\in\mathbb C$ に対して
+(i) $g\in L^2(\mathbb R)$ とし，$z\in\mathbb C$ に対して
 
 $$
 F(z)=\int_{-\infty}^{\infty}e^{-x^2+zx}g(x)\,dx
 $$
 
-と定める。$F$ が $\mathbb C$ 上正則であることを示せ。
+と定める。このとき，$F(z)$ は $\mathbb C$ 上正則であることを示せ。
 
-(ii) 正の整数 $n$ に対して $f_n(x)=e^{-x^2+x/n}$ とおく。$\{f_n\}_{n\ge1}$ の線型結合全体が $L^2(\mathbb R)$ で稠密であることを示せ。
+(ii) 正の整数 $n$ に対して，$\mathbb R$ 上の関数 $f_n(x)$ を $f_n(x)=e^{-x^2+x/n}$ と定める。このとき，$\{f_n\}_{n=1}^\infty$ の線型結合全体は $L^2(\mathbb R)$ で稠密であることを示せ。
 
 #### 题目描述
 
-(i) 对 $g\in L^2(\mathbb R)$，证明 $F(z)=\int_{\mathbb R}e^{-x^2+zx}g(x)\,dx$ 是整函数。
+令 $L^2(\mathbb R)$ 为 $\mathbb R$ 上全体平方可积函数构成的Hilbert空间，回答下列问题。
 
-(ii) 令 $f_n(x)=e^{-x^2+x/n}$，证明这些函数的有限线性组合在 $L^2(\mathbb R)$ 中稠密。
+(i) 对 $g\in L^2(\mathbb R)$ 和 $z\in\mathbb C$，定义
+
+$$
+F(z)=\int_{-\infty}^{\infty}e^{-x^2+zx}g(x)\,dx.
+$$
+
+证明 $F(z)$ 在 $\mathbb C$ 上全纯。
+
+(ii) 对正整数 $n$，定义 $\mathbb R$ 上的函数 $f_n(x)=e^{-x^2+x/n}$。证明 $\{f_n\}_{n=1}^\infty$ 的全体线性组合在 $L^2(\mathbb R)$ 中稠密。
 
 ## **Kai**
 
@@ -40,8 +48,11 @@ $$
 任意の $R>0$ と整数 $k\ge0$ に対して、Cauchy–Schwarz の不等式より
 
 $$
-\int_{\mathbb R}|x|^ke^{-x^2+R|x|}|g(x)|\,dx
-\le \|g\|_2\left(\int_{\mathbb R}|x|^{2k}e^{-2x^2+2R|x|}\,dx\right)^{1/2}<\infty.
+\begin{aligned}
+&\int_{\mathbb R}|x|^ke^{-x^2+R|x|}|g(x)|\,dx\\
+&\quad\le\|g\|_2\left(\int_{\mathbb R}|x|^{2k}e^{-2x^2+2R|x|}\,dx\right)^{1/2}\\
+&\quad<\infty.
+\end{aligned}
 $$
 
 これは $|z|\le R$ における被積分関数とその $z$ 微分の可積分な共通優関数を与える。したがって積分の下で微分でき、

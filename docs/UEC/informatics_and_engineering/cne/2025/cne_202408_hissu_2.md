@@ -15,34 +15,83 @@ tags:
 
 ## **Description**
 
-$$
-g(x,y)=x^2y-xy^2-2
-$$
+以下の問いに答えよ。
 
-とする。点 $(-1,-2)$ の近傍で $g(x,y)=0$ が定める陰関数の導関数と二階導関数を求め、同じ制約下で $f(x,y)=y-x$ の極値を求めよ。また、次の二重積分を計算せよ。
+**（1）** 2 変数関数 $g(x,y)=x^2y-xy^2-2$ に対して、以下の設問に答えよ。
 
-$$
-I_1=\iint_{D_1}y\cos(x-y)\,dx\,dy,
-\quad
-D_1=\left\{(x,y)\mid x,y\ge0,\ x+y\le\frac{\pi}{2}\right\},
-$$
+（i）点 $(-1,-2)$ のまわりで $g(x,y)=0$ によって定義される $C^1$ 級の陰関数を $y=\varphi(x)$ とするとき、導関数 $\varphi'(x)$ を $x,y$ の有理式で表せ。さらに、$\varphi''(-1)$ の値を求めよ。
 
-$$
-I_2=\iint_{D_2}
-\frac{dx\,dy}{\sqrt{(x^2+y^2)(1-x^2-y^2)}},
-\quad
-D_2=\left\{(x,y)\mid x,y\ge0,\ \frac14\le x^2+y^2\le\frac34\right\},
-$$
+（ii）条件 $g(x,y)=0$ の下で、関数 $f(x,y)=y-x$ の極値をすべて求めよ。
+
+**（2）** 次の 2 重積分の値を求めよ。
+
+（i）
 
 $$
-I_3=\iint_{D_3}\frac{(x-y)^4}{1+(x+y)^6}\,dx\,dy,
-\quad
-D_3=\{(x,y)\mid x,y\ge0,\ x+y\le1\}.
+\begin{aligned}
+I_1&=\iint_{D_1}y\cos(x-y)\,dx\,dy,\\
+D_1&=\{(x,y)\mid x\ge0,\ y\ge0,\ x+y\le\pi/2\}.
+\end{aligned}
 $$
 
-### 题目描述
+（ii）
 
-对给定隐函数求一、二阶导数，在约束曲线上求函数的全部极值，并通过适当的变量代换计算三个二重积分。
+$$
+\begin{aligned}
+I_2&=\iint_{D_2}\frac{dx\,dy}{\sqrt{(x^2+y^2)(1-x^2-y^2)}},\\
+D_2&=\{(x,y)\mid x\ge0,\ y\ge0,\ 1/4\le x^2+y^2\le3/4\}.
+\end{aligned}
+$$
+
+（iii）
+
+$$
+\begin{aligned}
+I_3&=\iint_{D_3}\frac{(x-y)^4}{1+(x+y)^6}\,dx\,dy,\\
+D_3&=\{(x,y)\mid x\ge0,\ y\ge0,\ x+y\le1\}.
+\end{aligned}
+$$
+
+陰関数：implicit function、有理式：rational expression、極値：extremum、2 重積分：double integral。
+
+#### 题目描述
+
+回答下列问题。
+
+**（1）** 对二元函数 $g(x,y)=x^2y-xy^2-2$，回答：
+
+（i）设 $y=\varphi(x)$ 是在点 $(-1,-2)$ 附近由 $g(x,y)=0$ 定义的 $C^1$ 类隐函数。将导函数 $\varphi'(x)$ 表示为 $x,y$ 的有理式，并求 $\varphi''(-1)$。
+
+（ii）在约束 $g(x,y)=0$ 下，求函数 $f(x,y)=y-x$ 的全部极值。
+
+**（2）** 求下列二重积分的值。
+
+（i）
+
+$$
+\begin{aligned}
+I_1&=\iint_{D_1}y\cos(x-y)\,dx\,dy,\\
+D_1&=\{(x,y)\mid x\ge0,\ y\ge0,\ x+y\le\pi/2\}.
+\end{aligned}
+$$
+
+（ii）
+
+$$
+\begin{aligned}
+I_2&=\iint_{D_2}\frac{dx\,dy}{\sqrt{(x^2+y^2)(1-x^2-y^2)}},\\
+D_2&=\{(x,y)\mid x\ge0,\ y\ge0,\ 1/4\le x^2+y^2\le3/4\}.
+\end{aligned}
+$$
+
+（iii）
+
+$$
+\begin{aligned}
+I_3&=\iint_{D_3}\frac{(x-y)^4}{1+(x+y)^6}\,dx\,dy,\\
+D_3&=\{(x,y)\mid x\ge0,\ y\ge0,\ x+y\le1\}.
+\end{aligned}
+$$
 
 ## **Kai**
 
@@ -161,3 +210,7 @@ I_3
 =\boxed{\frac{\log2}{30}}.
 \end{aligned}
 $$
+
+## **Reference**
+
+- [大学公表の原題](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_3_i_mandatory202408.pdf)

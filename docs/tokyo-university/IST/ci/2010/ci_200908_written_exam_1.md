@@ -10,7 +10,6 @@ tags:
 
 ## **Description**
 
-出典：[大学公式問題冊子の保存版](https://web.archive.org/web/20151118065627id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2009_8_ci_istmajor_ja.pdf)。
 Given a directed graph $G = (V, E)$, we would like to find _all-pairs shortest path lengths_ which are the all shortest path lengths between every pair of vertices, where the size of the set $V, |V| = n$. Let $e_{uv}$ denote a directed edge from a vertex $u$ to a vertex $v$, and $\delta_{uv}$ denote the length of the edge $e_{uv}$. The graph $G$ may have a negative length edge but does not have any negative length cycle. The length of the edge from the vertex $u$ to the same vertex $u, \delta_{uu} = 0$, and when there exists no edge from the vertex $u$ to the vertex $v$, $\delta_{uv} = \infty$.
 
 <figure style="text-align:center;">
@@ -45,36 +44,44 @@ Table 2: $D^{(0)}$ in Algorithm 2
 | $v_3$ | $\infty$ | 1 | $\infty$ | 0 | 1 |
 | $v_4$ | 1 | $\infty$ | $\infty$ | $\infty$ | 0 |
 
+**Algorithm 1**
 
-### Algorithm definitions — independent English summary
+```text
+for all v ∈ V do
+    d^(0)(v) = ∞
+end for
+d^(0)(s) = 0
 
-This is an independent summary of the algorithm definitions.
+/* Main Loop */
+for k = 1 .. n − 1 do
+    for all e_uv ∈ E do
+        d^(k)(v) = min(d^(k−1)(v), d^(k−1)(u) + δ_uv)
+    end for
+end for
+```
 
-**Algorithm 1:** initialize $d^{(0)}(s)=0$ and $d^{(0)}(v)=\infty$ for $v\ne s$, and perform $n-1$ rounds of edge relaxation. The printed assignment for each edge $e_{uv}$ is
+**Algorithm 2**
 
-$$
-d^{(k)}(v)=\min\{d^{(k-1)}(v),\ d^{(k-1)}(u)+\delta_{uv}\}.
-$$
+```text
+k = 0
+for all u ∈ V do
+    for all v ∈ V do
+        D^(k)(u,v) = δ_uv
+    end for
+end for
 
-For the shortest-path calculation below, initialize $d^{(k)}\gets d^{(k-1)}$, and for each edge accumulate
+/* Main Loop */
+for all w ∈ V do
+    for all u ∈ V do
+        for all v ∈ V do
+            D^(k+1)(u,v) = min(D^(k)(u,v), D^(k)(u,w) + D^(k)(w,v))
+        end for
+    end for
+    k = k + 1
+end for
+```
 
-$$
-d^{(k)}(v)\gets\min\{d^{(k)}(v),\ d^{(k-1)}(u)+\delta_{uv}\}.
-$$
-
-The answer below uses this accumulating relaxation.
-
-**Algorithm 2:** initialize $D^{(0)}(u,v)=\delta_{uv}$. Select each vertex $w$ once, and use the preceding matrix to form
-
-$$
-D^{(k+1)}(u,v)=\min\{D^{(k)}(u,v),\ D^{(k)}(u,w)+D^{(k)}(w,v)\}
-$$
-
-for all $u,v$, then increment $k$. The order of the selected vertices must be stated when giving intermediate matrices.
-
-
-### 题目描述
-
+#### 题目描述
 给定含 $n=|V|$ 个顶点的有向图 $G=(V,E)$，求任意两顶点之间的最短路径长度。用 $e_{uv}$ 表示从 $u$ 到 $v$ 的有向边，$\delta_{uv}$ 表示其长度。图中允许负权边，但不存在负权环；约定 $\delta_{uu}=0$，若 $u$ 到 $v$ 无边，则 $\delta_{uv}=\infty$。
 
 原文所给算法 1 求单源最短路：源点为 $s\in V$，$d(v)$ 存储 $s$ 到 $v$ 的最短距离，并用 $d^{(k)}$ 存储中间结果。算法 2 求全源最短路矩阵 $D$，其中 $D(u,v)$ 存储 $u$ 到 $v$ 的最短距离，并用 $D^{(k)}$ 存储中间结果。
@@ -103,12 +110,54 @@ for all $u,v$, then increment $k$. The order of the selected vertices must be st
    写出主循环各轮选中的 $w\in V_1$，以及相应的 $D^{(1)},D^{(2)},D^{(3)},D^{(4)},D^{(5)}$。
 3. 定义算法 1-ALL：把 $V$ 中每个顶点依次作为源点运行算法 1，以得到全源最短路。比较算法 1-ALL 与算法 2。
 
+**Algorithm 1**
+
+```text
+for all v ∈ V do
+    d^(0)(v) = ∞
+end for
+d^(0)(s) = 0
+
+/* Main Loop */
+for k = 1 .. n − 1 do
+    for all e_uv ∈ E do
+        d^(k)(v) = min(d^(k−1)(v), d^(k−1)(u) + δ_uv)
+    end for
+end for
+```
+
+**Algorithm 2**
+
+```text
+k = 0
+for all u ∈ V do
+    for all v ∈ V do
+        D^(k)(u,v) = δ_uv
+    end for
+end for
+
+/* Main Loop */
+for all w ∈ V do
+    for all u ∈ V do
+        for all v ∈ V do
+            D^(k+1)(u,v) = min(D^(k)(u,v), D^(k)(u,w) + D^(k)(w,v))
+        end for
+    end for
+    k = k + 1
+end for
+```
 
 ## **Kai**
 
 ### (1)
 
-上記の補足どおり、同じラウンド内の各入辺の候補を累積して最小値を取るBellman–Ford法として計算する。$d^{(k)}(v)$ は高々 $k$ 本の辺を使って到達する最短距離である。
+原巻の Algorithm 1 は，各辺について $d^{(k)}(v)$ を前ラウンドの値から代入する形で記されている。このままでは，同じ頂点への候補を上書きしてしまう。以下では各ラウンドを $d^{(k)}\gets d^{(k-1)}$ で初期化し，各辺について
+
+$$
+d^{(k)}(v)\gets\min\{d^{(k)}(v),d^{(k-1)}(u)+\delta_{uv}\}
+$$
+
+と候補を累積する Bellman–Ford 法として計算する。$d^{(k)}(v)$ は高々 $k$ 本の辺を使って到達する最短距離である。
 
 | $k$ | $v_0$ | $v_1$ | $v_2$ | $v_3$ | $v_4$ |
 |---|---|---|---|---|---|
@@ -126,53 +175,68 @@ for all $u,v$, then increment $k$. The order of the selected vertices must be st
 $w=v_0,v_1,v_2,v_3,v_4$ の順で選ぶ。各行・列は $v_0,\ldots,v_4$ の順である。
 
 $$
+\begin{gathered}
 D^{(1)}=\begin{pmatrix}
 0&1&\infty&5&9\\
 \infty&0&1&3&\infty\\
 \infty&\infty&0&-1&\infty\\
 \infty&1&\infty&0&1\\
 1&2&\infty&6&0
-\end{pmatrix},\qquad(w=v_0)
+\end{pmatrix},\\
+(w=v_0)
+\end{gathered}
 $$
 
 $$
+\begin{gathered}
 D^{(2)}=\begin{pmatrix}
 0&1&2&4&9\\
 \infty&0&1&3&\infty\\
 \infty&\infty&0&-1&\infty\\
 \infty&1&2&0&1\\
 1&2&3&5&0
-\end{pmatrix},\qquad(w=v_1)
+\end{pmatrix},\\
+(w=v_1)
+\end{gathered}
 $$
 
 $$
+\begin{gathered}
 D^{(3)}=\begin{pmatrix}
 0&1&2&1&9\\
 \infty&0&1&0&\infty\\
 \infty&\infty&0&-1&\infty\\
 \infty&1&2&0&1\\
 1&2&3&2&0
-\end{pmatrix},\qquad(w=v_2)
+\end{pmatrix},\\
+(w=v_2)
+\end{gathered}
 $$
 
 $$
+\begin{gathered}
 D^{(4)}=\begin{pmatrix}
 0&1&2&1&2\\
 \infty&0&1&0&1\\
 \infty&0&0&-1&0\\
 \infty&1&2&0&1\\
 1&2&3&2&0
-\end{pmatrix},\qquad(w=v_3)
+\end{pmatrix},\\
+(w=v_3)
+\end{gathered}
 $$
 
 $$
+\begin{gathered}
 \boxed{D^{(5)}=\begin{pmatrix}
 0&1&2&1&2\\
 2&0&1&0&1\\
 1&0&0&-1&0\\
 2&1&2&0&1\\
 1&2&3&2&0
-\end{pmatrix}},\qquad(w=v_4)
+\end{pmatrix}},\\
+(w=v_4)
+\end{gathered}
 $$
 
 各段では、新しく許された中継点 $w$ を通らない経路と、$u\to w\to v$ と分けられる経路の最小値を比較する。全頂点を許した $D^{(5)}$ が全点対最短距離である。
@@ -184,3 +248,7 @@ Algorithm 1は修正済みBellman–Ford法、Algorithm 2はFloyd–Warshall法�
 Algorithm 1は1始点につき $n-1$ ラウンドで全 $|E|$ 辺を調べる。各ラウンドの長さ $n$ の初期化も数えると $O(n(n+|E|))$、全始点なら $O(n^2(n+|E|))$ である。通常の $|E|\ge n$ の範囲では、それぞれ $O(n|E|)$、$O(n^2|E|)$ と書ける。Algorithm 2は中継点と始終点の三重ループにより $O(n^3)$。
 
 従って $|E|=\Theta(n^2)$ の密なグラフでは、全始点Bellman–Fordの $O(n^4)$ に対してFloyd–Warshallが $O(n^3)$ で有利である。$|E|=\Theta(n)$ の疎なグラフでは両者とも $O(n^3)$ だが、前者は辺リストを直接利用できる。作業領域はBellman–Fordが2本の距離ベクトルで $O(n)$、Floyd–Warshallが行列を再利用して $O(n^2)$。全点対の結果自体を保存するなら、いずれも $O(n^2)$ の出力領域が必要となる。
+
+## **Reference**
+
+- [大学公表の原題](https://web.archive.org/web/20151118065627id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2009_8_ci_istmajor_ja.pdf)

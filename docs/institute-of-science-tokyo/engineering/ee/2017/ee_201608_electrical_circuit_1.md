@@ -15,33 +15,75 @@ tags:
 
 ## **Description**
 
-図1.1の RLC 回路で $t=0$ にスイッチ SW を閉じる。初期コンデンサ電圧 $v_c(0)$ とインダクタ電流 $i_L(0)$ はともに $0$ とする。
+図1.1に示す RLC 回路で $t=0$ にスイッチ SW を閉じた。ここに $t=0$ におけるコンデンサ電圧 $v_c$、インダクタ電流 $i_L$ はともに $0$ とする。
+
+1) 回路方程式をもとにコンデンサ電圧 $v_c(t)$ のラプラス変換を表す式を導け。
+
+2) 1) で求めたコンデンサ電圧 $v_c(t)$ のラプラス変換について、その極が互いに共役な複素数となるために抵抗 $R$ が満たすべき条件を求めよ。
+
+3) 2) で求めた極が共役複素数となる場合に対して、ラプラス逆変換によりコンデンサ電圧 $v_c(t)$ の時間変化を表す式を求めよ。
+
+4) 3) で求めたコンデンサ電圧 $v_c(t)$ の時間変化の概形を図示せよ。また代表的な値を図中に示せ。
 
 ![抵抗と並列LCからなる回路（図1.1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_circuit1-original.png)
 
-図：東京工業大学 電気電子系 2016年実施問題、図1.1（原図）。
+［逆ラプラス変換表］$\mathcal L^{-1}$ はラプラス逆変換を表す。$\mathrm u(t)$ は単位段関数。
 
-1. 回路方程式に基づいて、コンデンサ電圧 $v_c(t)$ のラプラス変換を導け。
-2. 1) の極が互いに共役な非実複素数となるための抵抗 $R$ の条件を求めよ。
-3. 2) の条件下で、逆ラプラス変換により $v_c(t)$ を求めよ。
-4. 3) の時間変化の概形を図示し、代表的な値を図中に示せ。
-
-必要ならば以下の逆ラプラス変換を用いてよい。$\mathrm u(t)$ は単位段関数である。
+$$
+\mathcal L^{-1}\!\left[\frac1s\right]=\mathrm u(t),\qquad
+\mathcal L^{-1}\!\left[\frac1{s+a}\right]=e^{-at}
+$$
 
 $$
 \begin{aligned}
-\mathcal L^{-1}\!\left[\frac1s\right]&=\mathrm u(t),&
-\mathcal L^{-1}\!\left[\frac1{s+a}\right]&=e^{-at},\\
 \mathcal L^{-1}\!\left[\frac{\lambda s+\mu}{(s+a)^2+b^2}\right]
-&=\lambda e^{-at}\cos bt+\frac{\mu-a\lambda}{b}e^{-at}\sin bt,\\
+&=\lambda e^{-at}\cos(bt)\\
+&\quad+\frac1b(\mu-a\lambda)e^{-at}\sin(bt)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
 \mathcal L^{-1}\!\left[\frac{\lambda s+\mu}{(s+a)^2-b^2}\right]
-&=\lambda e^{-at}\cosh bt+\frac{\mu-a\lambda}{b}e^{-at}\sinh bt.
+&=\lambda e^{-at}\cosh(bt)\\
+&\quad+\frac1b(\mu-a\lambda)e^{-at}\sinh(bt)
 \end{aligned}
 $$
 
 #### 题目描述
 
-图示电路为直流电源 $E$ 经开关和电阻 $R$ 给并联电感 $L$、电容 $C$ 供电。初始电容电压和电感电流均为零，$t=0$ 合闸。1) 求电容电压的拉普拉斯变换；2) 求出现非实共轭极点的电阻条件；3) 在该条件下求电压时域表达式；4) 画出波形并标明代表值。可使用上面的逆变换表。
+图1.1所示的 RLC 电路在 $t=0$ 时闭合开关 SW。设 $t=0$ 时的电容电压 $v_c$ 和电感电流 $i_L$ 均为 $0$。
+
+1) 根据电路方程，推导表示电容电压 $v_c(t)$ 的拉普拉斯变换的表达式。
+
+2) 对 1) 求得的电容电压 $v_c(t)$ 的拉普拉斯变换，求其极点为互为共轭的复数时电阻 $R$ 应满足的条件。
+
+3) 对于 2) 中极点为共轭复数的情形，利用拉普拉斯逆变换，求表示电容电压 $v_c(t)$ 随时间变化的表达式。
+
+4) 画出 3) 中电容电压 $v_c(t)$ 随时间变化的概略图，并在图中标出代表性数值。
+
+［拉普拉斯逆变换表］$\mathcal L^{-1}$ 表示拉普拉斯逆变换，$\mathrm u(t)$ 为单位阶跃函数。
+
+$$
+\mathcal L^{-1}\!\left[\frac1s\right]=\mathrm u(t),\qquad
+\mathcal L^{-1}\!\left[\frac1{s+a}\right]=e^{-at}
+$$
+
+$$
+\begin{aligned}
+\mathcal L^{-1}\!\left[\frac{\lambda s+\mu}{(s+a)^2+b^2}\right]
+&=\lambda e^{-at}\cos(bt)\\
+&\quad+\frac1b(\mu-a\lambda)e^{-at}\sin(bt)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\mathcal L^{-1}\!\left[\frac{\lambda s+\mu}{(s+a)^2-b^2}\right]
+&=\lambda e^{-at}\cosh(bt)\\
+&\quad+\frac1b(\mu-a\lambda)e^{-at}\sinh(bt)
+\end{aligned}
+$$
 
 ## **Kai**
 

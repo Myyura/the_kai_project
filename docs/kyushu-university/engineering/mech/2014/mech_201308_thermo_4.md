@@ -13,19 +13,25 @@ tags:
 
 ## **Description**
 
-$120^\circ\mathrm C$ の燃焼ガスによって、飽和温度 $20^\circ\mathrm C$ の湿り蒸気を $40^\circ\mathrm C$ の過熱蒸気まで加熱する向流式熱交換器がある。燃焼ガスの出口温度は $40^\circ\mathrm C$ である。湿り蒸気が乾き飽和蒸気になる位置は熱交換器の中間位置で、その位置の燃焼ガス温度は $100^\circ\mathrm C$ である。燃焼ガスと過熱蒸気の定圧比熱はそれぞれ一定とする。（30点）
+$120^\circ\mathrm C$ の燃焼ガスで飽和温度 $20^\circ\mathrm C$ の湿り蒸気を $40^\circ\mathrm C$ の過熱蒸気まで加熱する向流式の熱交換器がある。燃焼ガスは出口温度 $40^\circ\mathrm C$ まで低下する。湿り蒸気が蒸発し乾き飽和蒸気になる位置は熱交換器の中間位置で，そのときの燃焼ガス温度は $100^\circ\mathrm C$ である。燃焼ガスと過熱蒸気の定圧比熱をそれぞれ一定として，以下の各問いに答えよ。（30点）
 
-![公式原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_thermo-4-original.png)
+**(1)** 燃焼ガスと蒸気の流れ方向の温度分布の概略を，それぞれ流れ方向がわかるように矢印を付し，湿り蒸気区間と過熱蒸気区間における温度差や温度変化の違いがわかるように注意して，図中に示せ。図には $20^\circ\mathrm C$ と $120^\circ\mathrm C$ の線を記載している。
 
-(1) 燃焼ガスと蒸気の流れ方向に沿う温度分布の概略を、流れ方向を示す矢印を付けて図中に示せ。湿り蒸気区間と過熱蒸気区間の温度差・温度変化の違いが分かるようにせよ。図には $20^\circ\mathrm C$ と $120^\circ\mathrm C$ の線がある。
+![原題の熱交換器温度分布解答欄](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_thermo-4-original.png)
 
-(2) 過熱蒸気区間の燃焼ガスと蒸気の熱容量流量（質量流量と定圧比熱の積）の比率を求めよ。
+**(2)** 過熱蒸気区間の燃焼ガスと蒸気の熱容量流量（質量流量×定圧比熱）の比率はいくらか。
 
-(3) 湿り蒸気区間の熱通過率は、過熱蒸気区間の何倍か。
+**(3)** 湿り蒸気区間の熱通過率は過熱蒸気区間の熱通過率の何倍か。
 
 #### 题目描述
 
-逆流换热器用 $120^\circ\mathrm C$ 的燃气将饱和温度为 $20^\circ\mathrm C$ 的湿蒸汽加热成 $40^\circ\mathrm C$ 的过热蒸汽，燃气出口为 $40^\circ\mathrm C$。蒸汽在换热器中点刚好完全汽化，此处燃气为 $100^\circ\mathrm C$。画温度分布并标出流向，求过热区两流体热容量流量之比，以及湿蒸汽区与过热区的总传热系数之比。
+一台逆流换热器用 $120^\circ\mathrm C$ 的燃烧气体，将饱和温度为 $20^\circ\mathrm C$ 的湿蒸汽加热至 $40^\circ\mathrm C$ 的过热蒸汽。燃烧气体降温至出口的 $40^\circ\mathrm C$。湿蒸汽蒸发成为干饱和蒸汽的位置位于换热器中点，该处燃烧气体的温度为 $100^\circ\mathrm C$。设燃烧气体与过热蒸汽各自的定压比热为常数，回答下列问题。（30分）
+
+**(1)** 在图中画出燃烧气体和蒸汽沿流动方向的温度分布示意图，用箭头分别标明流向，并注意体现湿蒸汽区间与过热蒸汽区间的温差及温度变化的不同。图中已标出 $20^\circ\mathrm C$ 和 $120^\circ\mathrm C$ 的水平线。
+
+**(2)** 求过热蒸汽区间中燃烧气体与蒸汽的热容量流率（质量流量×定压比热）之比。
+
+**(3)** 湿蒸汽区间的总传热系数是过热蒸汽区间的多少倍？
 
 ## **Kai**
 
@@ -70,35 +76,40 @@ $$
 湿り蒸気区間では
 
 $$
+\begin{gathered}
 \Delta T_{\mathrm{lm},w}
-=\frac{(100-20)-(40-20)}{\ln[(100-20)/(40-20)]}
+=\frac{(100-20)-(40-20)}{\ln[(100-20)/(40-20)]}\\
 =\frac{60}{\ln4}\,\mathrm K.
+\end{gathered}
 $$
 
 $\dot Q=UA\Delta T_{\mathrm{lm}}$、$A_s=A_w$ を用いて
 
 $$
-\boxed{\frac{U_w}{U_s}
+\boxed{\begin{gathered}
+\frac{U_w}{U_s}
 =\frac{\dot Q_w}{\dot Q_s}
-\frac{\Delta T_{\mathrm{lm},s}}{\Delta T_{\mathrm{lm},w}}
-=3\frac{80\ln4}{60}
-=8\ln2\simeq5.55}.
+\frac{\Delta T_{\mathrm{lm},s}}{\Delta T_{\mathrm{lm},w}}\\
+=3\frac{80\ln4}{60}\\
+=8\ln2\simeq5.55
+\end{gathered}}.
 $$
 
 このモデルで図を式にすると、$\xi=x/L$ に対して
 
 $$
+\begin{gathered}
 T_g(\xi)=
 \begin{cases}
 120-40\xi,&0\le\xi\le\tfrac12,\\
 20+80\,4^{1-2\xi},&\tfrac12\le\xi\le1,
-\end{cases}
-\qquad
+\end{cases}\\
 T_s(\xi)=
 \begin{cases}
 40-40\xi,&0\le\xi\le\tfrac12,\\
 20,&\tfrac12\le\xi\le1,
 \end{cases}
+\end{gathered}
 $$
 
 となる（温度の数値は $^\circ\mathrm C$）。中間位置では蒸気の相変化状態と熱通過率が変わるため、燃焼ガスの温度勾配は不連続になる。

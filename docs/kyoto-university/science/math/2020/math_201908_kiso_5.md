@@ -33,9 +33,11 @@ $x\to0+$ では被積分関数は $O(x^\alpha)$、$x\to\infty$ では $O(x^{\alp
 $t=x^2$ および $p=(\alpha+1)/2\in(0,1)$ と置くと、
 
 $$
+\begin{gathered}
 \int_0^\infty\frac{x^\alpha}{1+x^2}\,dx
-=\frac12\int_0^\infty\frac{t^{p-1}}{1+t}\,dt
+=\frac12\int_0^\infty\frac{t^{p-1}}{1+t}\,dt\\
 =\frac12B(p,1-p).
+\end{gathered}
 $$
 
 ベータ関数とガンマ関数の関係、および反射公式を用いて

@@ -55,8 +55,12 @@ $$
 任意の $g\in L^2(I)$ に対し $g_M=g\,\mathbf1_{\{|g|\le M\}}$ とおく。$\|g-g_M\|_2\to0$ ($M\to\infty$) であり、
 
 $$
-|(f_n,g)|\le |(f_n,g_M)|+\|f_n\|_2\|g-g_M\|_2
+\begin{gathered}
+|(f_n,g)|\\
+\le |(f_n,g_M)|+\|f_n\|_2\|g-g_M\|_2
+\\
 \le M\|f_n\|_1+\|g-g_M\|_2.
+\end{gathered}
 $$
 
 まず $n\to\infty$、次に $M\to\infty$ とすれば $(f_n,g)\to0$。よって $f_n\rightharpoonup0$ である。

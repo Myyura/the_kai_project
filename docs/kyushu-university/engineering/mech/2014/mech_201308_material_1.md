@@ -14,16 +14,25 @@ tags:
 
 ## **Description**
 
-図1の弾性棒 OA、OB、OC はすべて断面積 $A$、長さ $\ell$ で、外端 A、B、C は固定されたピンに接続されている。OA、OC のヤング率は $E_1$、OB は $E_2$。三本のなす角は $120^\circ$ で、OA は鉛直、OB は水平から右下へ $30^\circ$ 傾く。
+図1で弾性体棒OA，OB，OCの断面積を $A$，長さを $\ell$ とする。弾性体棒OA，OCのヤング率は $E_1$，弾性体棒OBのヤング率は $E_2$ である。次の問に答えよ。（35点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-1-original.png)
+**1)** ある方向 $\theta$ に荷重 $P$ をかけると，点Oは真上（点Aの方向）に変位した。弾性体棒OA，OB，OCにかかる力を $Q,R,S$ とし，$R$ と $S$，$Q$ と $S$ の関係をそれぞれ求めよ。
 
-1. 水平右向きから角度 $\theta$ の荷重 $P$ を O に加えたところ、O は真上、すなわち A の方向に変位した。OA、OB、OC の力を $Q,R,S$ として、$R$ と $S$、$Q$ と $S$ の関係を求めよ。
-2. $\theta$ を $E_1,E_2$ で表せ。
+**2)** $\theta$ を $E_1,E_2$ で表せ。
+
+![原題の図1：三本の弾性棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-1-original.png)
+
+図中の○はピン継手を表す。各棒のなす角は $120^\circ$，棒OBは右向き水平線から下方に $30^\circ$，荷重 $P$ の方向 $\theta$ は同じ水平線から上方に測る。
 
 #### 题目描述
 
-图示三根长 $\ell$、截面积 $A$ 的杆在 O 铰接，外端固定。相邻杆夹角为 $120^\circ$，OA 竖直，OB 向右下倾斜 $30^\circ$。OA、OC 的杨氏模量为 $E_1$，OB 为 $E_2$。施加方向角为 $\theta$ 的力 $P$ 后，O 恰好只向上移动。求三个轴力之间的关系及 $\theta$。
+图1中，弹性杆OA、OB、OC的截面积均为 $A$，长度均为 $\ell$。OA、OC的杨氏模量为 $E_1$，OB的杨氏模量为 $E_2$。回答下列问题。（35分）
+
+**1)** 沿某方向 $\theta$ 施加载荷 $P$ 后，O点沿正上方，即指向A的方向位移。将OA、OB、OC所受的力分别记为 $Q,R,S$，分别求 $R$ 与 $S$、$Q$ 与 $S$ 的关系。
+
+**2)** 用 $E_1,E_2$ 表示 $\theta$。
+
+图中圆圈表示铰接，各杆夹角为 $120^\circ$；OB与水平向右方向之间向下的夹角为 $30^\circ$，载荷方向 $\theta$ 从该水平线向上计量。
 
 ## **Kai**
 
@@ -39,9 +48,11 @@ $$
 したがって
 
 $$
-Q=-\frac{E_1A}{\ell}v,\qquad
-R=\frac{E_2A}{2\ell}v,\qquad
+\begin{gathered}
+Q=-\frac{E_1A}{\ell}v,\\
+R=\frac{E_2A}{2\ell}v,\\
 S=\frac{E_1A}{2\ell}v,
+\end{gathered}
 $$
 
 すなわち
@@ -57,15 +68,19 @@ OA は圧縮、OB と OC は引張りである。
 O の水平方向、鉛直方向のつり合いから
 
 $$
-P\cos\theta=\frac{\sqrt3}{2}(S-R),\qquad
+\begin{gathered}
+P\cos\theta=\frac{\sqrt3}{2}(S-R),\\
 P\sin\theta=\frac{R+S}{2}-Q.
+\end{gathered}
 $$
 
 (1) の関係を代入すると
 
 $$
-P\cos\theta=\frac{\sqrt3(E_1-E_2)}{2E_1}S,\qquad
+\begin{gathered}
+P\cos\theta=\frac{\sqrt3(E_1-E_2)}{2E_1}S,\\
 P\sin\theta=\frac{5E_1+E_2}{2E_1}S.
+\end{gathered}
 $$
 
 よって、角度の象限まで含めた答えは

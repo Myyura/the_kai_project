@@ -111,7 +111,9 @@ $$
 $$
 \sum_{\sigma=\pm\hbar/2}\alpha^*(\sigma)\alpha(\sigma)
 =\sum_{\sigma=\pm\hbar/2}\beta^*(\sigma)\beta(\sigma)=1,
-\qquad
+$$
+
+$$
 \sum_{\sigma=\pm\hbar/2}\alpha^*(\sigma)\beta(\sigma)
 =\sum_{\sigma=\pm\hbar/2}\beta^*(\sigma)\alpha(\sigma)=0.
 $$
@@ -132,10 +134,18 @@ $$
 3. 设阱内 $\psi(x)=A\sin kx+B\cos kx$，其中 $A,B$ 为实数。利用边界条件和归一化求 $A,B,k$；若用整数 $n$ 表示 $k$，须注明 $n$ 的范围。
 4. 求相应的能量本征值。
 5. 在 $-L\le x\le2L$ 上画出 $n=2$ 时的概率密度 $|\psi(x)|^2$。
-6. 对 $n=1$ 求 $\langle x\rangle,\langle x^2\rangle,\langle p\rangle,\langle p^2\rangle$。可使用题面给出的两个不定积分公式。
+6. 对 $n=1$ 的 $\psi(x)$，分别求位置 $x$ 的期望值 $\langle x\rangle$、$x^2$ 的期望值 $\langle x^2\rangle$、动量 $p$ 的期望值 $\langle p\rangle$、$p^2$ 的期望值 $\langle p^2\rangle$。可参考以下不定积分公式：
+
+$$
+\int x\sin^2x\,dx=\frac{x^2}{4}-\frac{x}{4}\sin2x-\frac18\cos2x+C,
+$$
+
+$$
+\int x^2\sin^2x\,dx=\frac{x^3}{6}-\frac{2x^2-1}{8}\sin2x-\frac{x}{4}\cos2x+C.
+$$
 7. 按 $\Delta Y=\sqrt{\langle Y^2\rangle-\langle Y\rangle^2}$ 计算 $\Delta x\,\Delta p$。
 
-**[III-B]** 氢原子的定态波函数写成 $R_{nl}(r)Y_l^m(\theta,\phi)$。质子固定在原点，电子位置用球坐标表示，取 $z$ 轴为量子化轴。轨道角动量升降算符为 $l_\pm=l_x\pm il_y$，作用规则为
+**[III-B]** 氢原子的定态波函数写成 $R_{nl}(r)Y_l^m(\theta,\phi)$。质子固定在原点，电子位置用球坐标表示，轨道角动量算符 $\boldsymbol l$ 的 $x,y,z$ 分量分别记为 $l_x,l_y,l_z$，取 $z$ 轴为量子化轴。轨道角动量升降算符为 $l_\pm=l_x\pm il_y$，作用规则为
 
 $$
 l_\pm Y_l^m=\hbar\sqrt{(l\mp m)(l\pm m+1)}Y_l^{m\pm1},
@@ -146,7 +156,7 @@ $$
 2. 用 $l_+,l_-$ 表示 $l_x^2+l_y^2$。
 3. 计算 $\boldsymbol l^2Y_l^m$。
 
-电子的自旋具有两个自由度，两个本征函数记为 $\alpha,\beta$。以 $z$ 轴为量子化轴，定义 $s_\pm=s_x\pm is_y$，有
+电子具有自旋角动量，自由度为2，两个本征函数记为 $\alpha,\beta$。自旋角动量算符 $\boldsymbol s$ 的 $x,y,z$ 分量分别记为 $s_x,s_y,s_z$。以 $z$ 轴为量子化轴，定义 $s_\pm=s_x\pm is_y$，有
 
 $$
 \begin{aligned}
@@ -158,22 +168,39 @@ s_z\alpha&=\frac{\hbar}{2}\alpha,&s_z\beta&=-\frac{\hbar}{2}\beta,\\
 \end{aligned}
 $$
 
-将 $2p$ 轨道的3个空间波函数 $R_{21}Y_1^1,R_{21}Y_1^0,R_{21}Y_1^{-1}$ 简记为 $u_1,u_0,u_{-1}$，与两种自旋态组合成6个态。
+考虑同时涉及轨道角动量与自旋角动量的算符 $\boldsymbol l\cdot\boldsymbol s$。将 $2p$ 轨道的3个本征函数 $R_{21}(r)Y_1^1(\theta,\phi)$、$R_{21}(r)Y_1^0(\theta,\phi)$、$R_{21}(r)Y_1^{-1}(\theta,\phi)$ 分别简记为 $u_1,u_0,u_{-1}$，并计入自旋，考虑 $u_1\alpha,u_0\alpha,u_{-1}\alpha,u_1\beta,u_0\beta,u_{-1}\beta$ 这6个函数。
 
-4. 利用 $\boldsymbol l\cdot\boldsymbol s=\frac12(l_+s_-+l_-s_+)+l_zs_z$，求它作用于 $u_{-1}\alpha,u_1\beta,u_0\beta,u_{-1}\beta$ 的结果，依次填入ア〜エ。已知 $(\boldsymbol l\cdot\boldsymbol s)u_1\alpha=\hbar^2u_1\alpha/2$，$(\boldsymbol l\cdot\boldsymbol s)u_0\alpha=\hbar^2u_1\beta/\sqrt2$。
+4. 利用 $\boldsymbol l\cdot\boldsymbol s=\frac12(l_+s_-+l_-s_+)+l_zs_z$，求它作用于 $u_{-1}\alpha,u_1\beta,u_0\beta,u_{-1}\beta$ 的结果，依次填入ア〜エ。题目给出的完整填空式为
+
+$$
+\begin{aligned}
+(\boldsymbol l\cdot\boldsymbol s)u_1\alpha
+&=l_zs_zu_1\alpha=\frac12\hbar^2u_1\alpha,\\
+(\boldsymbol l\cdot\boldsymbol s)u_0\alpha
+&=\frac12l_+s_-u_0\alpha=\frac1{\sqrt2}\hbar^2u_1\beta,\\
+(\boldsymbol l\cdot\boldsymbol s)u_{-1}\alpha&=\boxed{\text{ア}},\\
+(\boldsymbol l\cdot\boldsymbol s)u_1\beta&=\boxed{\text{イ}},\\
+(\boldsymbol l\cdot\boldsymbol s)u_0\beta&=\boxed{\text{ウ}},\\
+(\boldsymbol l\cdot\boldsymbol s)u_{-1}\beta&=\boxed{\text{エ}}.
+\end{aligned}
+$$
 5. 按 $u_1\alpha,u_0\alpha,u_1\beta,u_0\beta,u_{-1}\alpha,u_{-1}\beta$ 的顺序选取基底，为对角化 $\boldsymbol l\cdot\boldsymbol s$ 的 $6\times6$ 矩阵，先求 $u_0\alpha,u_1\beta$ 对应的 $2\times2$ 子矩阵的两个本征值。可使用下列正交归一关系；$\delta$ 为克罗内克符号，$\sigma$ 为自旋坐标，$*$ 表示复共轭。
 
 $$
 \int_0^\infty R_{nl}^*(r)R_{n'l}(r)r^2\,dr=\delta_{nn'},
-\qquad
-\int_0^{2\pi}\int_0^\pi Y_l^{m*}Y_{l'}^{m'}\sin\theta\,d\theta\,d\phi
+$$
+
+$$
+\int_0^{2\pi}\int_0^\pi Y_l^{m*}(\theta,\phi)Y_{l'}^{m'}(\theta,\phi)\sin\theta\,d\theta\,d\phi
 =\delta_{ll'}\delta_{mm'},
 $$
 
 $$
 \sum_{\sigma=\pm\hbar/2}\alpha^*(\sigma)\alpha(\sigma)
 =\sum_{\sigma=\pm\hbar/2}\beta^*(\sigma)\beta(\sigma)=1,
-\qquad
+$$
+
+$$
 \sum_{\sigma=\pm\hbar/2}\alpha^*(\sigma)\beta(\sigma)
 =\sum_{\sigma=\pm\hbar/2}\beta^*(\sigma)\alpha(\sigma)=0.
 $$
@@ -337,7 +364,7 @@ $$
 
 $$
 \begin{aligned}
-\boldsymbol l^2Y_l^m
+&\boldsymbol l^2Y_l^m\\
 &=\hbar^2\left\{
 \frac{(l+m)(l-m+1)+(l-m)(l+m+1)}2+m^2
 \right\}Y_l^m\\

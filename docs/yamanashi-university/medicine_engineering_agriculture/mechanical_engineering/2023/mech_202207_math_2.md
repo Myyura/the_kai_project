@@ -13,24 +13,72 @@ tags:
 
 ## **Description**
 
-線形写像 $f:\mathbb R^3\to\mathbb R^2$、$g:\mathbb R^2\to\mathbb R^2$ を
+問2　次に示す線形写像 $f$ と $g$ がある。
+
+Problem 2　Let $f$ and $g$ be linear transformations defined by:
 
 $$
-f\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
-=\begin{pmatrix}2x_1-x_2\\3x_2+2x_3\end{pmatrix},\qquad
-g\begin{pmatrix}y_1\\y_2\end{pmatrix}
-=\begin{pmatrix}y_1+3y_2\\-2y_1+y_2\end{pmatrix}
+f:\mathbb{R}^3\to\mathbb{R}^2,\qquad
+f\left(\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}\right)
+=\begin{pmatrix}2x_1-x_2\\3x_2+2x_3\end{pmatrix},
 $$
 
-と定める。
+$$
+g:\mathbb{R}^2\to\mathbb{R}^2,\qquad
+g\left(\begin{pmatrix}y_1\\y_2\end{pmatrix}\right)
+=\begin{pmatrix}y_1+3y_2\\-2y_1+y_2\end{pmatrix}.
+$$
 
-(1) $f(\boldsymbol x)=A\boldsymbol x,\ g(\boldsymbol y)=B\boldsymbol y$ を満たす表現行列を求めよ。
+(1)
+
+$$
+f\left(\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}\right)
+=A\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix},\qquad
+g\left(\begin{pmatrix}y_1\\y_2\end{pmatrix}\right)
+=B\begin{pmatrix}y_1\\y_2\end{pmatrix}
+$$
+
+となる表現行列 $A,B$ をそれぞれ求めよ。
+
+Find matrices $A$ and $B$ such that
+
+$$
+f\left(\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}\right)
+=A\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}\quad\text{and}\quad
+g\left(\begin{pmatrix}y_1\\y_2\end{pmatrix}\right)
+=B\begin{pmatrix}y_1\\y_2\end{pmatrix}.
+$$
 
 (2) 合成写像 $g\circ f$ の表現行列が $C=BA$ になることを示し、$C$ を求めよ。
 
+Show that the matrix $C=BA$ represents the composite linear transformation $g\circ f$. And find $C$.
+
 #### 题目描述
 
-线性映射 $f,g$ 如上。(1) 求满足 $f(\boldsymbol x)=A\boldsymbol x,\ g(\boldsymbol y)=B\boldsymbol y$ 的表示矩阵；(2) 证明复合映射 $g\circ f$ 的矩阵为 $C=BA$，并求 $C$。
+问2　给定线性映射
+
+$$
+f:\mathbb{R}^3\to\mathbb{R}^2,\qquad
+f\left(\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}\right)
+=\begin{pmatrix}2x_1-x_2\\3x_2+2x_3\end{pmatrix},
+$$
+
+$$
+g:\mathbb{R}^2\to\mathbb{R}^2,\qquad
+g\left(\begin{pmatrix}y_1\\y_2\end{pmatrix}\right)
+=\begin{pmatrix}y_1+3y_2\\-2y_1+y_2\end{pmatrix}.
+$$
+
+(1) 分别求使下式成立的表示矩阵 $A,B$。
+
+$$
+f\left(\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}\right)
+=A\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix},\qquad
+g\left(\begin{pmatrix}y_1\\y_2\end{pmatrix}\right)
+=B\begin{pmatrix}y_1\\y_2\end{pmatrix}.
+$$
+
+(2) 证明复合映射 $g\circ f$ 的表示矩阵为 $C=BA$，并求出 $C$。
 
 ## **Kai**
 

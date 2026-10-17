@@ -50,9 +50,11 @@ $$
 とすると $\omega(\delta)\to0\ (\delta\to0+)$ であり、
 
 $$
-\left|E_n-\frac1{2n}\sum_{k=1}^n f'\left(\frac{k}{n}\right)\right|
-\le n\omega(1/n)\sum_{k=1}^n\int_{a_k}^{b_k}(t-a_k)\,dt
-=\frac12\omega(1/n)\longrightarrow0.
+\begin{aligned}
+&\left|E_n-\frac1{2n}\sum_{k=1}^nf'\left(\frac kn\right)\right|\\
+&\quad\le n\omega(1/n)\sum_{k=1}^n\int_{a_k}^{b_k}(t-a_k)\,dt\\
+&\quad=\frac12\omega(1/n)\longrightarrow0.
+\end{aligned}
 $$
 
 右端点の Riemann 和の収束から、求める極限は

@@ -41,17 +41,30 @@ $$
 
 #### 题目描述
 
-在复 Hilbert 空间 $L^2([0,1])$ 上采用通常的 $L^2$ 范数。设可测核 $K$ 满足
+将复 Hilbert 空间 $L^2([0,1])$ 的范数记为
 
 $$
-A=\sup_x\int_0^1|K(x,y)|\,dy<\infty,
-\qquad B=\sup_y\int_0^1|K(x,y)|\,dx<\infty,
+\|f\|=\left(\int_0^1|f(x)|^2\,dx\right)^{1/2}.
 $$
 
-并定义 $(Tf)(x)=\int_0^1K(x,y)f(y)\,dy$。
+假设 $[0,1]^2$ 上的 Lebesgue 可测函数 $K$ 满足
 
-1. 证明 $\|Tf\|\le\sqrt{AB}\|f\|$。
-2. 当 $K(x,y)=|x-y|^{-1/2}$ 时，证明 $T$ 为紧算子。
+$$
+\begin{aligned}
+A&=\sup_{x\in[0,1]}\int_0^1|K(x,y)|\,dy<\infty,\\
+B&=\sup_{y\in[0,1]}\int_0^1|K(x,y)|\,dx<\infty.
+\end{aligned}
+$$
+
+定义算子 $T:L^2([0,1])\to L^2([0,1])$ 为
+
+$$
+(Tf)(x)=\int_0^1K(x,y)f(y)\,dy.
+$$
+
+(1) 证明对任意 $f\in L^2([0,1])$，有 $\|Tf\|\le\sqrt{AB}\|f\|$。
+
+(2) 当 $K(x,y)=1/\sqrt{|x-y|}$ 时，证明算子 $T$ 是紧算子。
 
 ## **Kai**
 

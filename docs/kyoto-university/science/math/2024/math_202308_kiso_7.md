@@ -17,7 +17,7 @@ tags:
 $n$ を正の整数とする。複素 $n$ 次正方行列全体の集合 $M_n(\mathbb C)$ を行列の和とスカラー倍により複素ベクトル空間とみなす。対角行列 $A\in M_n(\mathbb C)$ を
 
 $$
-A=\operatorname{diag}(1,2,\ldots,n)
+A=\begin{pmatrix}1&0&\cdots&0\\0&2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&n\end{pmatrix}
 $$
 
 と定める。このとき、ある $B\in M_n(\mathbb C)$ が存在して
@@ -30,13 +30,19 @@ $$
 
 #### 题目描述
 
-设 $n$ 为正整数，$M_n(\mathbb C)$ 是所有 $n$ 阶复方阵组成的复向量空间。令 $A=\operatorname{diag}(1,2,\ldots,n)$。证明存在 $B\in M_n(\mathbb C)$，使
+设 $n$ 为正整数，将所有 $n$ 阶复方阵的集合 $M_n(\mathbb C)$ 按矩阵加法与数乘视为复向量空间。定义对角矩阵 $A\in M_n(\mathbb C)$ 为
 
 $$
-\{A^iB^j\mid 0\le i,j\le n-1\}
+A=\begin{pmatrix}1&0&\cdots&0\\0&2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&n\end{pmatrix}.
 $$
 
-构成 $M_n(\mathbb C)$ 的一组基，其中 $A^0=B^0=E$。
+证明存在 $B\in M_n(\mathbb C)$，使
+
+$$
+\{A^iB^j\in M_n(\mathbb C)\mid i,j\in\{0,1,\ldots,n-1\}\}
+$$
+
+成为 $M_n(\mathbb C)$ 的一组基。这里 $A^0=B^0=E$，其中 $E$ 为单位矩阵。
 
 ## **Kai**
 

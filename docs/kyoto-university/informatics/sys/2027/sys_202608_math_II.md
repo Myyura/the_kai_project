@@ -1,0 +1,124 @@
+---
+sidebar_label: "京都大学 情報学研究科 システム科学専攻 2026年8月実施 数学【II】"
+tags:
+  - Kyoto-University
+  - Mathematics.Calculus.Definite-Integral
+  - Mathematics.Calculus.Double-Integral
+  - Mathematics.Calculus.Change-of-Variables-and-Jacobian
+  - Mathematics.Calculus.Extrema
+  - Mathematics.Calculus.Multivariable-Differentiation
+---
+# 京都大学 情報学研究科 システム科学専攻 2026年8月実施 数学【II】
+
+## **Author**
+[AnonTokyo #83056](https://github.com/cdc95-04)
+
+## **Description**
+$\pi$ を円周率，$\mathbb{R}$ を実数全体からなる集合とする。
+
+### 問題 1
+
+以下の設問に答えよ。
+
+(1) $\displaystyle\int_0^{\pi/2}\sin^3\theta\,d\theta$ の値を求めよ。
+
+(2) $xy$ 平面で $\{(x,y)\mid x=r\cos\theta,\ y=r\sin\theta,\ 0<\theta<\frac{\pi}{2},\ 0<r<\cos\theta\}$ の面積 (area) を求めよ。
+
+(3) $\mathbb{R}^2$ で定義された実数値関数
+
+$$
+f(x,y)=\frac{xy}{1+x^2+y^2+x^2y^2},\qquad (x,y)\in\mathbb{R}^2
+$$
+
+の最大値 (maximum value) および最小値 (minimum value) のそれぞれについて，存在するならばその値を求め，存在しないならばそのことを示せ。
+
+### 問題 2
+
+関数 $f:\mathbb{R}^2\to\mathbb{R}$ を
+
+$$
+f(x,y)=\begin{cases}
+\dfrac{x^3y-xy^3}{x^2+y^2},&(x,y)\ne(0,0),\\[6pt]
+0,&(x,y)=(0,0)
+\end{cases}
+$$
+
+とする。以下の設問に答えよ。
+
+(1) $\displaystyle\frac{\partial f}{\partial x}(0,0)$ の値を求めよ。
+
+(2) $\displaystyle\frac{\partial^2 f}{\partial y\partial x}(0,0)$ の値を求めよ。
+
+## **Kai**
+### 問題 1
+#### (1) 定積分
+
+$\sin^3\theta=\sin\theta(1-\cos^2\theta)$ と変形し，$u=\cos\theta$ と置換する。
+
+$$
+\int_0^{\pi/2}\sin^3\theta\,d\theta
+=\int_0^1(1-u^2)\,du
+=\left[u-\frac{u^3}{3}\right]_0^1
+=\boxed{\frac23}.
+$$
+
+#### (2) 面積
+
+極座標の面積要素は $r\,dr\,d\theta$ である。したがって
+
+$$
+S=\int_0^{\pi/2}\int_0^{\cos\theta}r\,dr\,d\theta
+=\frac12\int_0^{\pi/2}\cos^2\theta\,d\theta
+=\boxed{\frac\pi8}.
+$$
+
+#### (3) 最大値・最小値
+
+分母は $(1+x^2)(1+y^2)$ と因数分解できるので，
+
+$$
+f(x,y)=\frac{x}{1+x^2}\frac{y}{1+y^2}.
+$$
+
+$1+x^2\ge2|x|$ より $|x/(1+x^2)|\le1/2$，同様に $|y/(1+y^2)|\le1/2$ である。等号はそれぞれ絶対値が 1 のときに成立する。よって
+
+$$
+\boxed{\max f=\frac14,\qquad\min f=-\frac14}.
+$$
+
+最大値は $(x,y)=(1,1),(-1,-1)$ で，最小値は $(1,-1),(-1,1)$ で達成される。
+
+### 問題 2
+#### (1) 一階偏微分
+
+$f(h,0)=f(0,0)=0$ であるため，定義より
+
+$$
+\boxed{\frac{\partial f}{\partial x}(0,0)=\lim_{h\to0}\frac{f(h,0)-f(0,0)}{h}=0}.
+$$
+
+#### (2) 混合偏微分
+
+$y\ne0$ を固定すると，
+
+$$
+\begin{aligned}
+f_x(0,y)
+&=\lim_{h\to0}\frac{f(h,y)-f(0,y)}h\\
+&=\lim_{h\to0}\frac{h^2y-y^3}{h^2+y^2}=-y.
+\end{aligned}
+$$
+
+(1) より $y=0$ でも $f_x(0,0)=0$ であり，$f_x(0,y)=-y$ がすべての $y$ で成り立つ。したがって
+
+$$
+\boxed{\frac{\partial^2 f}{\partial y\partial x}(0,0)=\lim_{k\to0}\frac{-k-0}{k}=-1}.
+$$
+
+なお，偏微分の順序を交換した値は $+1$ である。二階混合偏導関数の交換可能性を仮定してはならない。
+
+$$
+\boxed{\frac{\partial^2f}{\partial y\,\partial x}(0,0)=\lim_{k\to0}\frac{f_x(0,k)-f_x(0,0)}k=-1.}
+$$
+
+**注意：** 此题不能直接假设两个混合偏导数相等；实际上按相反次序得到 $f_{yx}(0,0)=1$。

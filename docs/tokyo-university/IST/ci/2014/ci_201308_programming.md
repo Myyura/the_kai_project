@@ -12,38 +12,95 @@ tags:
 
 ## **Description**
 
-### 日本語（原巻に基づく独立した題意要約）
-
-[大学公式 PDF の保存版](https://web.archive.org/web/20151118065532id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2013-8-program.pdf)に基づく独立した題意要約（逐語転載ではない）。
-
-$d$ に対する格子点集合を $\{(dp,dq):p,q\in\mathbb Z\}$ とし、領域 $R$ 内にあるその点の個数を $A(d,R)$ とする。領域の境界も含める。
+$d$-points とは $\{(dp,dq)\mid p\in\mathbb Z,q\in\mathbb Z\}$（ここで $\mathbb Z$ は負の値を含む整数の集合）と表される点の集合である。$A(d,R)$ は領域 $R$ に含まれる $d$-points の点の個数である。今、領域 $R_0$ に含まれる点 $(x,y)$ は以下の不等式を満たすとする。
 
 $$
-R_0=\{(x,y):0\le x\le10,\ 0\le y\le10\},\qquad
-R_1=\{(x,y):(x-5)^2+(y-5)^2\le25\}.
+R_0:0\le x\le10\quad\text{and}\quad0\le y\le10.
 $$
 
-例えば $A(1,R_0)=121$ である。
+このとき図 1 に示すように $A(1,R_0)$ は 121 である。
 
-1. 浮動小数点数 $d$ を入力として、$A(d,R_0)$ を求めるプログラムを作る。
-2. 同じく $d$ を入力し、$\displaystyle \frac{A(d,R_1)}{A(d,R_0)}\times\frac14$ を計算する。
-3. 頂点 $(0,0),(10,0),(5,5\sqrt3)$ の正三角形を $K_0$ とする。各辺を三等分し、中央の三分の一を底辺とする正三角形を外側に付け、その底辺を除く操作を全辺に施す。この操作を $n$ 回行った閉領域を $K_n$ とする。$K_2$ の面積を浮動小数点数で出力する。
-4. 正整数 $n$ を入力し、$K_n$ の面積を浮動小数点数で計算する。
-5. $d$ を入力し、$A(d,K_2)$ を計算する。
-6. $d$ と正整数 $n$ を入力し、$A(d,K_n)$ を計算する。
+![図1 領域R0とR0に含まれる1-pointsの点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2014/ci_201308_programming_figure_1.png)
 
-![格子およびコッホ雪片](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2014/tokyo-ci-201308-koch.svg)
+図 1：領域 $R_0$ と $R_0$ に含まれる 1-points の点
 
-### 题目描述
+**（1）** 与えられた浮動小数点数 $d$ について、$A(d,R_0)$ を計算するプログラムを書け。
 
-令 $A(d,R)$ 表示格点集合 $\{(dp,dq):p,q\in\mathbb Z\}$ 中落在区域 $R$ 内的点数，边界上的点也计入。考虑正方形 $R_0=[0,10]\times[0,10]$ 和内切圆盘 $R_1=\{(x,y):(x-5)^2+(y-5)^2\le25\}$，例如 $A(1,R_0)=121$。
+**（2）** 領域 $R_1$ に含まれる点 $(x,y)$ は以下の不等式を満たすとする。
 
-1. 输入浮点数 $d$，编程计算 $A(d,R_0)$。
-2. 输入 $d$，计算 $\frac{A(d,R_1)}{A(d,R_0)}\times\frac14$。
-3. 以顶点 $(0,0),(10,0),(5,5\sqrt3)$ 的正三角形为 $K_0$。每次把各边三等分，在中间一段向外添加正三角形并删除其底边；操作 $n$ 次所得闭区域记为 $K_n$。用浮点数输出 $K_2$ 的面积。
-4. 输入正整数 $n$，计算 $K_n$ 的面积。
-5. 输入 $d$，计算 $A(d,K_2)$。
-6. 输入 $d$ 和正整数 $n$，计算 $A(d,K_n)$。
+$$
+R_1:(x-5)^2+(y-5)^2\le5^2.
+$$
+
+与えられた浮動小数点数 $d$ について、以下を計算するプログラムを書け。
+
+$$
+\frac{A(d,R_1)}{A(d,R_0)}\times\frac14.
+$$
+
+**（3）** コッホ雪片（図 2）は正三角形から始め、再帰的に各線分を次のように変更することで作成できる。
+
+1. 線分を三等分する。
+2. 三等分して得られた中央の線分を一辺とする正三角形を外向きに描く。
+3. ステップ 2 で描いた正三角形の底辺（三等分して得られた中央の線分）を除去する。
+
+（*Wikipedia* より，http://en.wikipedia.org/wiki/Koch_snowflake）
+
+領域 $K_n$ は、頂点 $(0,0)$、$(10,0)$、$(5,5\sqrt3)$ を結んだ正三角形から始め、上の手順を $n$ 回繰り返して得られる図形の内側である。ただし境界を含むとする。
+
+$K_2$ の面積を表示するプログラムを書け。答は浮動小数点数にせよ。
+
+![図2 コッホ雪片 K0 K1 K2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/IST/ci/2014/ci_201308_programming_figure_2.png)
+
+図 2：コッホ雪片
+
+**（4）** 与えられた正の整数 $n$ について $K_n$ の面積を計算するプログラムを書け。答は浮動小数点数にせよ。
+
+**（5）** 与えられた浮動小数点数 $d$ について $A(d,K_2)$ を計算するプログラムを書け。
+
+**（6）** 与えられた浮動小数点数 $d$ と正の整数 $n$ について $A(d,K_n)$ を計算するプログラムを書け。
+
+#### 题目描述
+
+$d$-points 表示点集 $\{(dp,dq)\mid p\in\mathbb Z,q\in\mathbb Z\}$，其中 $\mathbb Z$ 为包含负数在内的整数集合。$A(d,R)$ 是区域 $R$ 内的 $d$-points 的点数。设区域 $R_0$ 内的点 $(x,y)$ 满足
+
+$$
+R_0:0\le x\le10\quad\text{且}\quad0\le y\le10.
+$$
+
+此时如图 1 所示，$A(1,R_0)=121$。图 1 表示区域 $R_0$ 及其中的 1-points 的点。
+
+**（1）** 编写程序，对给定浮点数 $d$ 计算 $A(d,R_0)$。
+
+**（2）** 设区域 $R_1$ 内的点 $(x,y)$ 满足
+
+$$
+R_1:(x-5)^2+(y-5)^2\le5^2.
+$$
+
+编写程序，对给定浮点数 $d$ 计算
+
+$$
+\frac{A(d,R_1)}{A(d,R_0)}\times\frac14.
+$$
+
+**（3）** 科赫雪花（图 2）由正三角形出发，递归地对每条线段进行下述操作而生成：
+
+1. 将线段三等分。
+2. 以中间一段为一边，向外画一个正三角形。
+3. 删除步骤 2 中所画正三角形的底边，即三等分后中间的那条线段。
+
+（引自 *Wikipedia*，http://en.wikipedia.org/wiki/Koch_snowflake。）
+
+区域 $K_n$ 是从顶点为 $(0,0)$、$(10,0)$、$(5,5\sqrt3)$ 的正三角形开始，将上述步骤重复 $n$ 次所得图形的内部，并包括边界。图 2 示出 $K_0$、$K_1$、$K_2$。
+
+编写程序，输出 $K_2$ 的面积。答案采用浮点数。
+
+**（4）** 编写程序，对给定正整数 $n$ 计算 $K_n$ 的面积。答案采用浮点数。
+
+**（5）** 编写程序，对给定浮点数 $d$ 计算 $A(d,K_2)$。
+
+**（6）** 编写程序，对给定浮点数 $d$ 和正整数 $n$ 计算 $A(d,K_n)$。
 
 ## **Kai**
 
@@ -93,8 +150,10 @@ $$
 Summing this geometric series gives
 
 $$
-\boxed{S_n=S_0\left[1+\frac13\frac{1-(4/9)^n}{1-4/9}\right]
-=25\sqrt3\left[\frac85-\frac35\left(\frac49\right)^n\right].}
+\boxed{\begin{gathered}
+S_n=S_0\left[1+\frac13\frac{1-(4/9)^n}{1-4/9}\right]\\
+=25\sqrt3\left[\frac85-\frac35\left(\frac49\right)^n\right].
+\end{gathered}}
 $$
 
 In particular,
@@ -110,8 +169,14 @@ This formula needs constant storage and avoids generating all $3\cdot4^n$ sides 
 Generate the polygon in counterclockwise order. Replace each oriented side $AB$ by the four edges through
 
 $$
-A,\quad A+v,\quad A+v+R(-\pi/3)v,\quad A+2v,\quad B,
-\qquad v=(B-A)/3.
+\begin{gathered}
+A,\\
+A+v,\\
+A+v+R(-\pi/3)v,\\
+A+2v,\\
+B,\\
+v=(B-A)/3.
+\end{gathered}
 $$
 
 The negative 60-degree turn puts the new triangle outside a counterclockwise polygon. Enumerate lattice points in the polygon's bounding box, and test membership by a winding-number algorithm that explicitly includes points on any edge. Negative lattice indices must be included: the snowflake extends below the original triangle.
@@ -276,3 +341,7 @@ Examples from the program:
 | $A(1,K_3)$ | 67 |
 
 The lattice counts include the boundaries.
+
+## **Reference**
+
+- [大学公表の原題](https://web.archive.org/web/20151118065532id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2013-8-program.pdf)

@@ -14,19 +14,35 @@ tags:
 
 ## **Description**
 
-2017年10月・2018年4月入学対象、2017年8月実施。
+3. 関数 $u(x,y)$ は偏微分方程式
 
-$u(x,y)$ は $u_{xy}-u_{yy}=e^{x+3y}$ を満たす。相異なる実数 $s,t$ を用い、$\xi=x+sy,\eta=x+ty$ と変換する。
+$$
+\frac{\partial^2u}{\partial x\partial y}-\frac{\partial^2u}{\partial y^2}=e^{x+3y}
+$$
 
-1. $u_{xx},u_{yy},u_{xy}$ を新しい変数の偏導関数で表せ。
-2. $\xi,\eta$ に関する偏微分方程式を求めよ。
-3. $s=0,t=1$ とし、一般解 $u(x,y)$ を求めよ。
+を満足する。2つの異なる実数 $s,t$ を用いて，$\xi=x+sy,\ \eta=x+ty$ なる座標変換を考える。以下の問いに答えよ。
+
+**(1)** $\dfrac{\partial^2u}{\partial x^2},\ \dfrac{\partial^2u}{\partial y^2},\ \dfrac{\partial^2u}{\partial x\partial y}$ をそれぞれ $u,\xi,\eta$ を用いて表せ。
+
+**(2)** 関数 $u$ が満足する $\xi$ と $\eta$ に関する偏微分方程式を求めよ。
+
+**(3)** 問(2)の結果において，$s=0,t=1$ として，一般解 $u(x,y)$ を求めよ。
 
 #### 题目描述
 
-本题为2017年8月实施、面向2017年10月及2018年4月入学的考试。
+3. 函数 $u(x,y)$ 满足偏微分方程
 
-函数 $u$ 满足 $u_{xy}-u_{yy}=e^{x+3y}$。取不同实数 $s,t$，定义 $\xi=x+sy,\eta=x+ty$。（1）将三个二阶偏导 $u_{xx},u_{yy},u_{xy}$ 用新坐标偏导表示。（2）求变换后的偏微分方程。（3）取 $s=0,t=1$，求通解。
+$$
+\frac{\partial^2u}{\partial x\partial y}-\frac{\partial^2u}{\partial y^2}=e^{x+3y}.
+$$
+
+利用两个不同的实数 $s,t$，考虑坐标变换 $\xi=x+sy,\ \eta=x+ty$。回答下列问题。
+
+**(1)** 分别用 $u,\xi,\eta$ 表示 $\dfrac{\partial^2u}{\partial x^2},\ \dfrac{\partial^2u}{\partial y^2},\ \dfrac{\partial^2u}{\partial x\partial y}$。
+
+**(2)** 求函数 $u$ 所满足的关于 $\xi,\eta$ 的偏微分方程。
+
+**(3)** 在第(2)问的结果中取 $s=0,t=1$，求通解 $u(x,y)$。
 
 ## **Kai**
 
@@ -57,8 +73,9 @@ $$
 従って
 
 $$
-\boxed{s(1-s)u_{\xi\xi}+(s+t-2st)u_{\xi\eta}+t(1-t)u_{\eta\eta}
-=\exp\left(\frac{(3-t)\xi+(s-3)\eta}{s-t}\right)}.
+\boxed{\begin{aligned}&s(1-s)u_{\xi\xi}+(s+t-2st)u_{\xi\eta}+t(1-t)u_{\eta\eta}\\
+&=\exp\left(\frac{(3-t)\xi+(s-3)\eta}{s-t}\right)
+\end{aligned}}.
 $$
 
 ### (3)

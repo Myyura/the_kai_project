@@ -14,14 +14,15 @@ tags:
 Zero
 
 ## **Description**
-図 $1.1$ の回路について以下の問に答えよ。$R$ を抵抗，$L$ をインダクタンス，$C$ をキャパシタンスとする。$V_{in}$ を入力電圧，$V_{out}$ を出力電圧とする。虚数単位は $j$ を用いる。
+
+図 $1.1$ の回路について以下の問に答えよ。$R$ を抵抗，$L$ をインダクタンス，$C$ をキャパシタンスとする。$V_{in}$ を入力電圧，$V_{out}$ を出力電圧とする。虚数単位は $j$ を用いる。（100点）
 
 問 (1) ~ 問 (4)では，角周波数 $\omega$ に対して図 $1.2$ のように定義された伝達関数 $H(\omega) = \frac{V_{out}(\omega)}{V_{in}(\omega)}$ について考える。
 
 (1) 図 $1.1$ の回路の伝達関数 $H(\omega)$ を答えよ。その際，以下の形に変形して四角枠部(ア)～(ウ)を解答欄に記入せよ。
 
 $$
-H(\omega) = \frac{R}{\boxed{(ア)} + j\boxed{(イ)} + \frac{1}{j\boxed{ウ}}}
+H(\omega) = \frac{R}{\boxed{\text{ア}} + j\boxed{\text{イ}} + \frac{1}{j\boxed{\text{ウ}}}}
 $$
 
 (2) 伝達関数 $H(\omega)$ の利得 $|H(\omega)|$ が最大となる角周波数 $\omega_0$ を図中の回路素子パラメータ $R,L,C$ のうち必要なものを用いて示せ。
@@ -38,13 +39,11 @@ $$
 
 (7) 問 (6)で求めたポールが $2$ つの負の実数となる場合を考える。それらを $-\alpha_1$ と $-\alpha_2$ とし、$\alpha_1 > \alpha_2$ であるとする。回路の単位ステップ応答 $v_{out}(t)$ を求めよ。答は $R,L,C$ を用いずに $\alpha_1$ および $\alpha_2$ を用いて示せ。 
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electrical_circuit_1_p1.png" width="600" alt=""/>
-</figure>
+![図1.1 回路、図1.2 周波数伝達関数、図1.3 ラプラス伝達関数](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electrical_circuit_1_p1.png)
 
-### 题目描述
+#### 题目描述
 
-对原 Description 图 1.1 所示电路回答下列问题。$R,L,C$ 分别表示电阻、感抗元件的电感量和电容器的电容量，$V_{\mathrm{in}}$、$V_{\mathrm{out}}$ 分别为输入、输出电压，虚数单位记为 $j$。电路连接与输入、输出端定义以图 1.1 为准。
+对图1.1所示电路回答下列问题。$R,L,C$ 分别表示电阻、电感量和电容器的电容量，$V_{\mathrm{in}}$、$V_{\mathrm{out}}$ 分别为输入、输出电压，虚数单位记为 $j$。（100分）
 
 第 1 至第 4 问使用图 1.2 所定义的频率传递函数
 

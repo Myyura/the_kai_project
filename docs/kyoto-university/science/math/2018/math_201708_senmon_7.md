@@ -13,25 +13,33 @@ tags:
 
 ## **Description**
 
-$H$ を可分な無限次元実 Hilbert 空間とし、内積を $(\ ,\ )$ と書く。$\{e_n\}_{n\ge1},\{f_n\}_{n\ge1}$ はそれぞれ $H$ の正規直交基底であり、$T$ は $H$ 上のコンパクト作用素とする。
+$H$ を可分な無限次元実Hilbert空間とし，その内積を $(\ ,\ )$ で表す。$\{e_n\}_{n=1}^\infty$，$\{f_n\}_{n=1}^\infty$ をそれぞれ $H$ の正規直交基底とする。$T$ を $H$ 上のコンパクト作用素とし，正の整数 $n$ について $H$ 上の作用素 $T_n$ を
 
 $$
 T_nx=(Tx,e_n)f_n\qquad(x\in H)
 $$
 
-と定めるとき、$\sum_{n=1}^\infty T_n$ が作用素ノルムで収束することを示せ。
+と定義する。このとき，$\sum_{n=1}^\infty T_n$ は作用素ノルムに関して収束することを示せ。
 
 #### 题目描述
 
-在可分无限维实 Hilbert 空间 $H$ 中，$\{e_n\}$、$\{f_n\}$ 是两组标准正交基，$T$ 是紧算子。令 $T_nx=(Tx,e_n)f_n$，证明算子级数 $\sum_{n\ge1}T_n$ 按算子范数收敛。
+设 $H$ 为可分的无限维实Hilbert空间，其内积记为 $(\ ,\ )$。设 $\{e_n\}_{n=1}^\infty$、$\{f_n\}_{n=1}^\infty$ 分别为 $H$ 的标准正交基，$T$ 为 $H$ 上的紧算子。对正整数 $n$，定义 $H$ 上的算子 $T_n$ 为
+
+$$
+T_nx=(Tx,e_n)f_n\qquad(x\in H).
+$$
+
+证明 $\sum_{n=1}^\infty T_n$ 按算子范数收敛。
 
 ## **Kai**
 
 $Ue_n=f_n$ で定まる直交作用素を $U$ とし、$P_N$ を $\operatorname{span}\{e_1,\ldots,e_N\}$ への直交射影とする。このとき
 
 $$
-\sum_{n=1}^N T_n=UP_NT,\qquad
+\begin{gathered}
+\sum_{n=1}^N T_n=UP_NT,\\
 \left\|UT-\sum_{n=1}^NT_n\right\|=\|(I-P_N)T\|.
+\end{gathered}
 $$
 
 $K=\overline{T(\{x:\|x\|\le1\})}$ はコンパクトである。任意の $\varepsilon>0$ に対し、$K$ の有限 $\varepsilon$-ネット $y_1,\ldots,y_m$ を取る。

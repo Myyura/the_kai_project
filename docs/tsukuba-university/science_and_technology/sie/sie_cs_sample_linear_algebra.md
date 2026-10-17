@@ -14,30 +14,59 @@ tags:
 
 ## **Description**
 
-行列 $A=\begin{pmatrix}1&2\\2&1\end{pmatrix}$ について、以下の (a)～(e) を選択肢から選べ。
+行列 $A=\begin{pmatrix}1&2\\2&1\end{pmatrix}$ について，以下の (a) から (e) を選択肢から選びなさい。
 
-**問1** $A$ の固有値は $\lambda_1=(a)$ と $\lambda_2=(b)$ である。ただし $\lambda_1>\lambda_2$ とする。
+**問1** $A$ の固有値は $\lambda_1=(a)$ と $\lambda_2=(b)$ である（ただし $\lambda_1>\lambda_2$）。
 
-**問2** 直交行列
+**問2** $A$ は直交行列
 
 $$
-X=\frac1{\sqrt{(c)}}\begin{pmatrix}1&1\\(d)&(e)\end{pmatrix}
+X=\frac{1}{\sqrt{(c)}}\begin{pmatrix}1&1\\(d)&(e)\end{pmatrix}
 $$
 
-を用いて、$X^{\mathsf T}AX=\operatorname{diag}(\lambda_1,\lambda_2)$ と対角化できる。
+を用いて
 
-選択肢（複数回使用可）：① $1$、② $2$、③ $3$、④ $4$、⑤ $5$、⑥ $-1$、⑦ $-2$、⑧ $-3$、⑨ $-4$、⑩ $-5$。
+$$
+X^{\mathsf T}AX=\begin{pmatrix}\lambda_1&0\\0&\lambda_2\end{pmatrix}
+$$
+
+と対角化できる。
+
+選択肢（複数回使用しても良い。）
+
+① $1$、② $2$、③ $3$、④ $4$、⑤ $5$、⑥ $-1$、⑦ $-2$、⑧ $-3$、⑨ $-4$、⑩ $-5$
 
 #### 题目描述
 
-对于矩阵 $A=\begin{pmatrix}1&2\\2&1\end{pmatrix}$，求按大小排列的两个特征值 $\lambda_1>\lambda_2$，并补全上述正交矩阵 $X$ 中的 (c)、(d)、(e)，使 $X^{\mathsf T}AX=\operatorname{diag}(\lambda_1,\lambda_2)$。各空从日文题面的十个数值中选择，允许重复。
+对于矩阵 $A=\begin{pmatrix}1&2\\2&1\end{pmatrix}$，从选项中选择填入以下 (a) 至 (e) 的内容。
+
+**问1** $A$ 的特征值为 $\lambda_1=(a)$、$\lambda_2=(b)$，其中 $\lambda_1>\lambda_2$。
+
+**问2** 利用正交矩阵
+
+$$
+X=\frac{1}{\sqrt{(c)}}\begin{pmatrix}1&1\\(d)&(e)\end{pmatrix},
+$$
+
+可以将 $A$ 对角化为
+
+$$
+X^{\mathsf T}AX=\begin{pmatrix}\lambda_1&0\\0&\lambda_2\end{pmatrix}.
+$$
+
+选项（可以重复使用）：
+
+① $1$、② $2$、③ $3$、④ $4$、⑤ $5$、⑥ $-1$、⑦ $-2$、⑧ $-3$、⑨ $-4$、⑩ $-5$
 
 ## **Kai**
 
 ### 問1
 
 $$
-\det(\lambda I-A)=(\lambda-1)^2-4=(\lambda-3)(\lambda+1).
+\begin{gathered}
+\det(\lambda I-A)=(\lambda-1)^2-4\\
+=(\lambda-3)(\lambda+1).
+\end{gathered}
 $$
 
 したがって、$\boxed{(a)=3\text{（③）},\ (b)=-1\text{（⑥）}}$。
@@ -47,8 +76,10 @@ $$
 固有値 $3,-1$ に対応する単位固有ベクトルは、それぞれ $\frac1{\sqrt2}(1,1)^{\mathsf T}$、$\frac1{\sqrt2}(1,-1)^{\mathsf T}$ である。よって、
 
 $$
-X=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},\qquad
+\begin{gathered}
+X=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},\\
 \boxed{(c)=2\text{（②）},\ (d)=1\text{（①）},\ (e)=-1\text{（⑥）}}.
+\end{gathered}
 $$
 
 ## **Reference**

@@ -12,21 +12,39 @@ tags:
 
 ## **Description**
 
-以下は[公式問題の12ページ](https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=exam_bio_20238&key=684a39c36a0644cea000cc3c0fdeb42b.pdf&pageId=3186&prevId=&type=1)をもとにした独立要約である。
+⑦ 反応速度に関する以下の問に答えよ。
 
-逐次一次反応
+物質 A から生成物 B が生じ、それが分解して生成物 C が生じる。各ステップが1次反応であり、副生成物がなく、逆反応が無視できるとする。ただし、B と C の生成速度定数を $k_a$、$k_b$、A の初濃度を $[\mathrm A]_0$ とし、反応時刻 $t$ における A、B、C の濃度をそれぞれ $[\mathrm A]$、$[\mathrm B]$、$[\mathrm C]$ とする。温度、圧力は一定とする。
 
-$$
-A\xrightarrow{k_a}B\xrightarrow{k_b}C
-$$
+1) $[\mathrm A]_0$ を $[\mathrm A]$、$[\mathrm B]$、$[\mathrm C]$ をすべて用いた式で表せ。
+2) A の濃度の時間変化を $k_a$ および $[\mathrm A]$ を用いて表せ。
+3) B の濃度の時間変化を $[\mathrm A]$、$[\mathrm B]$、$k_a$、$k_b$ を用いて表せ。
+4) この反応において $[\mathrm C]$ は、
 
-を考える。初期条件を $[A](0)=[A]_0,[B](0)=[C](0)=0$ とし、逆反応と副反応は無視し、温度と圧力は一定とする。
+   $$
+   [\mathrm C]=\left\{1+\frac{\boxed{\text{ア}}}{k_b-k_a}\right\}[\mathrm A]_0
+   $$
 
-1. 物質収支を示せ。
-2. $[A]$ の速度式を示せ。
-3. $[B]$ の速度式を示せ。
-4. $[C]=\{1+\boxed{\text{ア}}/(k_b-k_a)\}[A]_0$ の空欄アを、$k_ae^{-k_bt}$ と $k_be^{-k_at}$ を用いて表せ。
-5. $[B]$ が最大となる時刻 $t_{\max}$ を求めよ。
+   と表すことができる。$k_a e^{-k_b t}$ と $k_b e^{-k_a t}$ を用いて、（ア）に当てはまる式を記せ。
+5) 4) の関係があるとき、B の濃度が最大になる時刻 $t_{\max}$ を $k_a$ と $k_b$ を用いて表せ。
+
+#### 题目描述
+
+⑦ 回答下列反应速率问题。
+
+物质 A 生成产物 B，B 再分解生成产物 C。每一步均为一级反应，没有副产物，逆反应可以忽略。B、C 的生成速率常数分别为 $k_a$、$k_b$，A 的初始浓度为 $[\mathrm A]_0$；反应时刻 $t$ 的 A、B、C 浓度分别记为 $[\mathrm A]$、$[\mathrm B]$、$[\mathrm C]$。温度和压力保持不变。
+
+1) 用 $[\mathrm A]$、$[\mathrm B]$、$[\mathrm C]$ 三者表示 $[\mathrm A]_0$。
+2) 用 $k_a$ 和 $[\mathrm A]$ 表示 A 浓度的时间变化率。
+3) 用 $[\mathrm A]$、$[\mathrm B]$、$k_a$、$k_b$ 表示 B 浓度的时间变化率。
+4) 本反应的 $[\mathrm C]$ 可以表示为
+
+   $$
+   [\mathrm C]=\left\{1+\frac{\boxed{\text{ア}}}{k_b-k_a}\right\}[\mathrm A]_0.
+   $$
+
+   用 $k_a e^{-k_b t}$ 和 $k_b e^{-k_a t}$ 写出空格（ア）中的表达式。
+5) 在 4) 的关系成立时，用 $k_a$、$k_b$ 表示 B 浓度达到最大值的时刻 $t_{\max}$。
 
 ## **Kai**
 

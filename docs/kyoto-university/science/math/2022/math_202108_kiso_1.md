@@ -28,8 +28,9 @@ $$
 
 $$
 \iint_D\frac{y}{(1+\sqrt{x^2+y^2}-x)^2(x^2+y^2)^a}\,dx\,dy,
-\qquad D=\{(x,y)\in\mathbb R^2\mid x\ge0,\ y\ge0,\ x^2+y^2\ge1\}.
 $$
+
+其中 $D=\{(x,y)\in\mathbb R^2\mid x\ge0,\ y\ge0,\ x^2+y^2\ge1\}$。
 
 ## **Kai**
 
@@ -43,8 +44,11 @@ $$
 となる。内側で $u=1+r-r\cos\theta$ とおけば
 
 $$
+\begin{gathered}
 \int_0^{\pi/2}\frac{\sin\theta}{(1+r-r\cos\theta)^2}\,d\theta
-=\frac1r\int_1^{1+r}u^{-2}\,du=\frac1{1+r}.
+=\frac1r\int_1^{1+r}u^{-2}\,du\\
+=\frac1{1+r}.
+\end{gathered}
 $$
 
 したがって、収束条件は $\int_1^\infty r^{2-2a}/(1+r)\,dr<\infty$ である。$r\ge1$ で

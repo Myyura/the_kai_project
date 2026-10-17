@@ -13,27 +13,61 @@ tags:
 
 ## **Description**
 
-長さ $l_1$ の質量を無視できる棒の上端を固定し、下端に質量 $m_1$ の重りを付ける。そこに長さ $l_2$ の軽い棒を連結し、その下端に質量 $m_2$ の重りを付けた2自由度系を考える。重力加速度を $g$、一般化座標を図の $\theta_1,\theta_2$ とする。$x$ 軸は右向き、$y$ 軸は上向きで、角度は鉛直下向きから測る。
+右図のように、長さ $l_1$ の質量を無視できる軽い棒の上端を支持し、下端に質量 $m_1$ の重りをつけ、さらにその下端に質量 $m_2$ の重りがついた長さ $l_2$ の質量を無視できる軽い棒が連結された2自由度系を考える。重力加速度を $g$ とし、一般化座標を $\theta_1,\theta_2$ としたとき、以下の問いに答えよ。
 
-![二重振り子と座標](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/utsunomiya-university/regional_development/mechanical_intelligence/2023/mech_202208_double_pendulum.png)
+![原題の2自由度系の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/utsunomiya-university/regional_development/mechanical_intelligence/2023/mech_202208_dynamics_control_original_figure_1.png)
 
-(1) 重りの位置 $\boldsymbol p_1=(x_1,y_1),\boldsymbol p_2=(x_2,y_2)$ を一般化座標で表せ。
+(1) 質量 $m_1$ の重りの直交座標を $\boldsymbol p_1=(x_1,y_1)$、質量 $m_2$ の重りの直交座標を $\boldsymbol p_2=(x_2,y_2)$ とする。$\boldsymbol p_1,\boldsymbol p_2$ を一般化座標を用いて表せ。
 
-(2) 運動エネルギー $T_1,T_2$ を一般化座標で表せ。
+(2) 質量 $m_1$ の重りと質量 $m_2$ の重りの運動エネルギーをそれぞれ $T_1,T_2$ とする。$T_1,T_2$ を一般化座標を用いて表せ。
 
-(3) $x$ 軸を基準とした重力による位置エネルギー $U_1,U_2$ を一般化座標で表せ。
+(3) 質量 $m_1$ の重りと質量 $m_2$ の重りの重力による位置エネルギーをそれぞれ $U_1,U_2$ とする。$U_1,U_2$ を一般化座標を用いて表せ。ただし、重力による位置エネルギーは、$x$ 軸を基準とする。
 
-(4) ラグランジアン $L$ を $T_1,T_2,U_1,U_2$ で表せ。
+(4) ラグランジアン $L$ を $T_1,T_2,U_1,U_2$ を用いて表せ。
 
-(5) $\displaystyle\frac{d}{dt}\frac{\partial L}{\partial\dot\theta_1}-\frac{\partial L}{\partial\theta_1}=0$ を、$\theta_1,\theta_2$ に関する2階微分方程式で表せ。
+(5) 次のオイラー・ラグランジュ方程式を、$\theta_1$ と $\theta_2$ に関する2階常微分方程式として表せ。
 
-(6) $\displaystyle\frac{d}{dt}\frac{\partial L}{\partial\dot\theta_2}-\frac{\partial L}{\partial\theta_2}=0$ を同様に表せ。ただし $\dot\theta_i=d\theta_i/dt$ とする。
+$$
+\frac{d}{dt}\left(\frac{\partial L}{\partial\dot\theta_1}\right)-\frac{\partial L}{\partial\theta_1}=0
+$$
+
+ただし、$\dot\theta_1=\dfrac{d\theta_1}{dt}$ とする。
+
+(6) 次のオイラー・ラグランジュ方程式を、$\theta_1$ と $\theta_2$ に関する2階常微分方程式として表せ。
+
+$$
+\frac{d}{dt}\left(\frac{\partial L}{\partial\dot\theta_2}\right)-\frac{\partial L}{\partial\theta_2}=0
+$$
+
+ただし、$\dot\theta_2=\dfrac{d\theta_2}{dt}$ とする。
 
 #### 题目描述
 
-固定长 $l_1$ 的轻杆上端，下端装有质量 $m_1$ 的重物；再连接一根长 $l_2$ 的轻杆，末端装有质量 $m_2$ 的重物，构成图示双摆。重力加速度为 $g$，$x$ 向右、$y$ 向上，两广义坐标 $\theta_1,\theta_2$ 均从竖直向下方向量起。
+如图，将一根质量可忽略、长为 $l_1$ 的轻杆上端支承，在其下端连接质量为 $m_1$ 的重物。再连接一根质量可忽略、长为 $l_2$、下端带有质量为 $m_2$ 重物的轻杆，构成二自由度系统。重力加速度为 $g$，一般化坐标取 $\theta_1,\theta_2$，回答以下问题。
 
-(1) 用广义坐标表示两个重物的位置；(2) 求各自动能 $T_1,T_2$；(3) 以 $x$ 轴为零势能面，求各自重力势能 $U_1,U_2$；(4) 用这些能量表示拉格朗日量 $L$；(5)(6) 分别将对应 $\theta_1,\theta_2$ 的欧拉—拉格朗日方程写成二阶微分方程。
+(1) 质量为 $m_1$ 的重物的直角坐标记为 $\boldsymbol p_1=(x_1,y_1)$，质量为 $m_2$ 的重物的直角坐标记为 $\boldsymbol p_2=(x_2,y_2)$。用一般化坐标表示 $\boldsymbol p_1,\boldsymbol p_2$。
+
+(2) 两个重物的动能分别记为 $T_1,T_2$，用一般化坐标表示 $T_1,T_2$。
+
+(3) 两个重物的重力势能分别记为 $U_1,U_2$，用一般化坐标表示 $U_1,U_2$。重力势能以 $x$ 轴为零势能基准。
+
+(4) 用 $T_1,T_2,U_1,U_2$ 表示拉格朗日量 $L$。
+
+(5) 将下列欧拉–拉格朗日方程写成关于 $\theta_1,\theta_2$ 的二阶常微分方程。
+
+$$
+\frac{d}{dt}\left(\frac{\partial L}{\partial\dot\theta_1}\right)-\frac{\partial L}{\partial\theta_1}=0
+$$
+
+其中 $\dot\theta_1=\dfrac{d\theta_1}{dt}$。
+
+(6) 将下列欧拉–拉格朗日方程写成关于 $\theta_1,\theta_2$ 的二阶常微分方程。
+
+$$
+\frac{d}{dt}\left(\frac{\partial L}{\partial\dot\theta_2}\right)-\frac{\partial L}{\partial\theta_2}=0
+$$
+
+其中 $\dot\theta_2=\dfrac{d\theta_2}{dt}$。
 
 ## **Kai**
 
@@ -111,10 +145,11 @@ $$
 差を取ると
 
 $$
-\boxed{(m_1+m_2)l_1^2\ddot\theta_1
-+m_2l_1l_2\ddot\theta_2\cos\delta
-+m_2l_1l_2\dot\theta_2^2\sin\delta
-+(m_1+m_2)gl_1\sin\theta_1=0}.
+\boxed{\begin{aligned}&(m_1+m_2)l_1^2\ddot\theta_1
++m_2l_1l_2\ddot\theta_2\cos\delta\\
+&\quad+m_2l_1l_2\dot\theta_2^2\sin\delta
++(m_1+m_2)gl_1\sin\theta_1=0
+\end{aligned}}.
 $$
 
 ### (6)

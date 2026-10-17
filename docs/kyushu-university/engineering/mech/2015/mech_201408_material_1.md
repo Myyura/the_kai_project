@@ -15,16 +15,25 @@ tags:
 
 ## **Description**
 
-図1の各弾性棒の軸剛性は $EA$ で、丸印はピン継手を表す。AB、ED の長さは $\ell$、斜材の角度は $45^\circ$。BC は水平、EF は鉛直である。A、C、D、F は固定されている。座標は右向きを $x$、上向きを $y$ とする。
+図1の構造において、次の各問に答えよ。（35点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-1-original.png)
+**(1)** 棒 AB、棒 BC からなる構造体の点 B に垂直方向の荷重 $P$、水平方向の荷重 $Q$ を加えたときの、点 B の垂直方向変位 $u_y$ および水平方向変位 $u_x$ を求めよ。
 
-1. AB、BC からなる構造の B に、下向き荷重 $P$ と右向き荷重 $Q$ を加えたときの $u_y,u_x$ を求めよ。
-2. B と E の間には水平方向の隙間がなく、鉛直方向に微小な隙間 $\delta_y$ がある。(1) の荷重によって両点がちょうど接したところでピン結合し、外力を取り除いた。このとき AB に作用する力を求めよ。
+**(2)** 点 B と点 E の間には微小な隙間（水平方向 $\delta_x=0$、垂直方向 $\delta_y\ne0$）がある。(1) の荷重 $P,Q$ によって点 B と点 E がちょうど接したとする。この時、点 B と点 E をピン結合した後、外力を取り除いた。その時、棒 AB に作用する力を求めよ。
+
+図中、$E$ はヤング率、$A$ は断面積、丸印はピン継手を表す。AB、ED の長さは $\ell$、斜材の角度は $45^\circ$。座標は右向きを $x$、上向きを $y$ とする。
+
+![図1：隙間をもつ二つの棒構造](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-1-original.png)
 
 #### 题目描述
 
-图示四杆的轴向刚度均为 $EA$，斜杆 AB、ED 长 $\ell$、倾角为 $45^\circ$，BC 水平、EF 竖直。A、C、D、F 固定，B、E 初始竖直错开微小间隙 $\delta_y$。先求只对上部杆系 B 加向下力 $P$、向右力 $Q$ 时的水平与竖直位移。再在加载使 B、E 恰好重合时将其铰接，卸载后求 AB 的残余轴力。
+对于图1所示结构，回答下列问题。（35分）
+
+**(1)** 在由杆 AB、BC 构成的结构的 B 点，施加图示竖直方向载荷 $P$ 和水平方向载荷 $Q$。求 B 点的竖直位移 $u_y$ 和水平位移 $u_x$。
+
+**(2)** B 点与 E 点之间存在微小间隙，水平方向 $\delta_x=0$，竖直方向 $\delta_y\ne0$。假设在 (1) 的载荷 $P,Q$ 作用下，B 点与 E 点恰好接触。此时将两点铰接，再撤去外力。求此时杆 AB 中的力。
+
+图中 $E$ 为杨氏模量，$A$ 为截面积，圆圈表示铰接。AB、ED 长度为 $\ell$，斜杆与相应水平或竖直方向的夹角为 $45^\circ$。$x$ 轴向右，$y$ 轴向上，支承与载荷方向如图。
 
 ## **Kai**
 
@@ -51,8 +60,10 @@ $$
 $$
 
 $$
-\boxed{u_y=-\frac{\partial U}{\partial P}
-=\frac{\ell}{\sqrt2EA}\{Q-(1+2\sqrt2)P\}}.
+\boxed{\begin{gathered}
+u_y=-\frac{\partial U}{\partial P}\\
+=\frac{\ell}{\sqrt2EA}\{Q-(1+2\sqrt2)P\}
+\end{gathered}}.
 $$
 
 ### (2)

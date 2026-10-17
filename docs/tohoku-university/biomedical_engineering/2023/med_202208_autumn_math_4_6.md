@@ -42,7 +42,14 @@ tags:
 4. 求下列一阶微分方程的通解：
    1. $\displaystyle y'=e^{2x-y}$；
    2. $\displaystyle x^2+y^2=xyy'$。
-5. 对日文题面给出的两个具体矩阵 $A,B$，判断 $(A+B)(A-B)=A^2-B^2$ 是否成立。
+5. 给定矩阵
+
+   $$
+   A=\begin{pmatrix}1&0&1\\-2&1&0\\2&-1&1\end{pmatrix},\qquad
+   B=\begin{pmatrix}1&-1&-1\\2&-1&-2\\0&1&1\end{pmatrix}.
+   $$
+
+   判断 $(A+B)(A-B)=A^2-B^2$ 是否成立。
 
 6. 写出下列线性方程组的增广矩阵，并求解
 
@@ -68,11 +75,13 @@ e^y dy &= e^{2x} dx
 \\
 \therefore \ \
 e^y &= \frac{1}{2} e^{2x} + C
-\ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
+\\
+&\quad ( C \text{ は積分定数 } )
 \\
 \therefore \ \
 y &= \log \left( \frac{1}{2} e^{2x} + C \right)
-\ \ \ \ \ \ \ \ \left( C \text{ は積分定数},\ \frac{1}{2}e^{2x}+C>0 \right)
+\\
+&\quad \left( C \text{ は積分定数},\ \frac{1}{2}e^{2x}+C>0 \right)
 \end{aligned}
 $$
 
@@ -103,11 +112,13 @@ z dz &= \frac{dx}{x}
 \\
 \therefore \ \
 \frac{1}{2} z^2 &= \log |x| + C_0
-\ \ \ \ \ \ \ \ \left( C_0 \text{ は積分定数 } \right)
+\\
+&\quad \left( C_0 \text{ は積分定数 } \right)
 \\
 \therefore \ \
 z &= \pm \sqrt{ 2 \log |x| + C }
-\ \ \ \ \ \ \ \ \left( C=2C_0 \right)
+\\
+&\quad \left( C=2C_0 \right)
 \end{aligned}
 $$
 
@@ -116,7 +127,8 @@ $$
 $$
 \begin{aligned}
 y &= \pm x \sqrt{ 2 \log |x| + C }
-\ \ \ \ \ \ \ \ \left( C \text{ は積分定数},\ x\ne0,\ 2\log|x|+C>0 \right)
+\\
+&\quad \left( C \text{ は積分定数},\ x\ne0,\ 2\log|x|+C>0 \right)
 \end{aligned}
 $$
 

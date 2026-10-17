@@ -58,7 +58,8 @@ $$
 |x(t)|
 &\le e^{-pt}|x(0)|
  +\int_0^T e^{-p(t-s)}|f(s)|\,ds
- +\int_T^t e^{-p(t-s)}|f(s)|\,ds\\
+\\
+&\quad+\int_T^t e^{-p(t-s)}|f(s)|\,ds\\
 &\le e^{-pt}|x(0)|
  +e^{-p(t-T)}\int_0^T|f(s)|\,ds+\varepsilon.
 \end{aligned}

@@ -14,16 +14,29 @@ tags:
 
 ## **Description**
 
-長さ $l$、断面積 $A$、密度 $\rho$、縦弾性係数 $E$ の一様な棒が $x$ 軸に沿って置かれている。左端を $x=0$、右端を $x=l$ とし、位置 $x$ における $+x$ 方向変位を $u(x,t)$ とする。棒の左端には左向きに $F_1$、右端には右向きに $F_2$ が作用する。重力の影響を無視し、微小な縦振動を考える。
+図のように、左端および右端にそれぞれ長手方向の外力 $F_1(t)$ および $F_2(t)$ が作用する長さ $l$、密度 $\rho$、ヤング率 $E$、断面積 $A$ の一様な棒の定常振動を考える。棒の左端の位置を原点 O として棒の長手方向に $x$ 軸をとり、時刻 $t$ における棒の長手方向変位を $u(x,t)$ で表す。振動は微小であり、重力の影響はないものとして、以下の問いに答えよ。（50点）
 
-1. 棒の微小部分の運動方程式から、$u(x,t)$ の偏微分方程式を導け。
-2. $F_1=0$、$F_2=F\cos\Omega t$ のとき、定常振動を $u(x,t)=U(x)\cos\Omega t$ として $U(x)$ を求めよ。
-3. $F_1=F\sin\Omega t$、$F_2=F\cos\Omega t$ のとき、定常振動 $u(x,t)$ を求めよ。
-4. (3) の定常振動で、一周期に $F_1,F_2$ がそれぞれ棒になす仕事を求めよ。
+**(1)** 棒の縦振動を表す運動方程式（波動方程式）を導出せよ。
+
+**(2)** $F_1(t)=0,\ F_2(t)=F\cos\Omega t$ のときの定常振動解を $u(x,t)=U(x)\cos\Omega t$ とする。$U(x)$ を求めよ。
+
+**(3)** $F_1(t)=F\sin\Omega t,\ F_2(t)=F\cos\Omega t$ のときの定常振動解を求めよ。
+
+**(4)** $F_1(t)=F\sin\Omega t,\ F_2(t)=F\cos\Omega t$ のときの定常振動について、外力の 1 周期の間に外力 $F_1(t)$ および $F_2(t)$ がなす仕事を求めよ。
+
+![棒の両端に作用する外力の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_dynamics_3_figure_1.png)
 
 #### 题目描述
 
-均匀直棒长 $l$、截面积 $A$、密度 $\rho$、杨氏模量 $E$，轴向坐标从左端 $0$ 到右端 $l$，位移 $u$ 向右为正。左端力 $F_1$ 向左，右端力 $F_2$ 向右，忽略重力并考虑微小纵振。① 从微元运动方程推导偏微分方程。② 当 $F_1=0,F_2=F\cos\Omega t$ 时求稳态振幅 $U(x)$。③ 当 $F_1=F\sin\Omega t,F_2=F\cos\Omega t$ 时求稳态响应。④ 求两端外力各自在一个周期内的功。
+如图，长度为 $l$、密度为 $\rho$、杨氏模量为 $E$、截面积为 $A$ 的均匀杆，其左、右端分别受到沿长度方向的外力 $F_1(t),F_2(t)$。考虑杆的稳态振动。以杆左端为原点 O，沿长度方向取 $x$ 轴，用 $u(x,t)$ 表示时刻 $t$ 杆的纵向位移。振动微小，不计重力影响。回答下列问题。（50分）
+
+**(1)** 推导描述杆纵向振动的运动方程（波动方程）。
+
+**(2)** 当 $F_1(t)=0,\ F_2(t)=F\cos\Omega t$ 时，设稳态振动解为 $u(x,t)=U(x)\cos\Omega t$，求 $U(x)$。
+
+**(3)** 当 $F_1(t)=F\sin\Omega t,\ F_2(t)=F\cos\Omega t$ 时，求稳态振动解。
+
+**(4)** 对 $F_1(t)=F\sin\Omega t,\ F_2(t)=F\cos\Omega t$ 时的稳态振动，求一个外力周期内 $F_1(t)$ 和 $F_2(t)$ 所做的功。
 
 ## **Kai**
 
@@ -32,7 +45,10 @@ tags:
 軸力 $N=EAu_x$ であるから、微小部分 $dx$ に対して
 
 $$
-\rho A\,dx\,u_{tt}=N(x+dx,t)-N(x,t)=EAu_{xx}\,dx.
+\begin{gathered}
+\rho A\,dx\,u_{tt}=N(x+dx,t)-N(x,t)\\
+=EAu_{xx}\,dx.
+\end{gathered}
 $$
 
 したがって
@@ -69,8 +85,10 @@ $$
 $K=F/(EA\beta\sin\beta l)$ とおく。左端の力は $-x$ 向きであるから
 
 $$
-W_1=\int_0^{2\pi/\Omega}[-F\sin\Omega t]u_t(0,t)\,dt
+\begin{gathered}
+W_1=\int_0^{2\pi/\Omega}[-F\sin\Omega t]u_t(0,t)\,dt\\
 =-\pi FK,
+\end{gathered}
 $$
 
 $$
@@ -81,8 +99,10 @@ $$
 よって
 
 $$
-\boxed{W_1=-\frac{\pi F^2}{EA\beta\sin\beta l},\qquad
-W_2=\frac{\pi F^2}{EA\beta\sin\beta l}}.
+\boxed{\begin{gathered}
+W_1=-\frac{\pi F^2}{EA\beta\sin\beta l},\\
+W_2=\frac{\pi F^2}{EA\beta\sin\beta l}
+\end{gathered}}.
 $$
 
 $W_1+W_2=0$ は、減衰のない定常振動の一周期でエネルギーが元に戻ることと一致する。

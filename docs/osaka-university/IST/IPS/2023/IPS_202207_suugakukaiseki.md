@@ -108,8 +108,11 @@ $$
 特性方程式は $\lambda^n-1=0$ であり、その相異なる $n$ 個の根は
 
 $$
-\lambda_k=e^{2\pi i k/n}=\cos\theta_k+i\sin\theta_k,
-\qquad \theta_k=\frac{2\pi k}{n},\quad k=0,1,\ldots,n-1
+\begin{gathered}
+\lambda_k=e^{2\pi i k/n}=\cos\theta_k+i\sin\theta_k,\\
+\theta_k=\frac{2\pi k}{n},\\
+k=0,1,\ldots,n-1
+\end{gathered}
 $$
 
 である。非実根 $\lambda_k$ と $\lambda_{n-k}=\overline{\lambda_k}$ を組にすると、対応する実数解は
@@ -125,11 +128,11 @@ $$
 **$n=2m$（$m\ge1$）の場合**、実根は $1,-1$ なので、実数値の一般解は
 
 $$
-\boxed{
-x(t)=C_1e^t+C_2e^{-t}
-+\sum_{k=1}^{m-1}e^{t\cos\theta_k}
+\boxed{\begin{aligned}
+x(t)={}&C_1e^t+C_2e^{-t}\\
+&+\sum_{k=1}^{m-1}e^{t\cos\theta_k}
 \left[A_k\cos(t\sin\theta_k)+B_k\sin(t\sin\theta_k)\right]
-}.
+\end{aligned}}.
 $$
 
 **$n=2m-1$（$m\ge1$）の場合**、実根は $1$ のみなので、

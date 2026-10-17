@@ -13,30 +13,69 @@ tags:
 
 ## **Description**
 
-$\mathcal N_5=\{0,1,2,3,4\}$ とする。正の整数 $n$ に対して、関係
+$\mathcal N_5=\{0,1,2,3,4\}$ とする。また，正の整数 $n$ に対して，関係
 
 $$
 E_n=\{\langle x,y\rangle\in\mathcal N_5\times\mathcal N_5\mid x\bmod n=y\bmod n\}
 $$
 
-を定める。ただし $x\bmod n$ は $x$ を $n$ で割った余りである。
+とする。但し，$x\bmod n$ は $x$ を $n$ で割った余りである。このとき以下の設問に答えなさい。
 
-**問1** $E_4=\{\langle0,0\rangle,\langle1,1\rangle,\langle2,2\rangle,\langle3,3\rangle,\langle4,4\rangle,\boxed{\phantom{xx}}\}$ の空欄に入る要素を選べ。
+**問1**
+
+$$
+\begin{aligned}
+E_4=\{&\langle0,0\rangle,\langle1,1\rangle,\langle2,2\rangle,\\
+&\langle3,3\rangle,\langle4,4\rangle,\boxed{\phantom{xxxxxxxx}}\}
+\end{aligned}
+$$
+
+空欄に入る適切な要素の番号を選択肢から選びなさい。
+
+選択肢：
 
 ① $\langle0,1\rangle,\langle1,0\rangle$　② $\langle1,3\rangle,\langle3,1\rangle$　③ $\langle2,4\rangle,\langle4,2\rangle$　④ $\langle0,4\rangle,\langle4,0\rangle$
 
-**問2** 次の空欄 (a)～(c) を選択肢から選べ。
+**問2** 空欄に入る適切な語句の番号を選択肢から選びなさい。
 
-関係 $R$ が同値関係であるとき $R$ は反射的、(a)、推移的である。推移的であるとは、$\langle x,y\rangle,\ (b)\in R$ ならば $(c)\in R$ となることである。
+関係 $R$ が同値関係である時 $R$ は反射的，【(a)】，推移的である。推移的であるとは，$\langle x,y\rangle$，【(b)】$\in R$ ならば【(c)】$\in R$ となることである。
+
+選択肢：
 
 ① 対称的　② 反対称的　③ $\langle x,z\rangle$　④ $\langle y,x\rangle$　⑤ $\langle y,z\rangle$　⑥ $\langle z,x\rangle$
 
 #### 题目描述
 
-在集合 $\mathcal N_5=\{0,1,2,3,4\}$ 上，用除以正整数 $n$ 的余数相同定义关系 $E_n$。
+设 $\mathcal N_5=\{0,1,2,3,4\}$。对于正整数 $n$，定义关系
 
-1. 除去五个对角有序对，求 $E_4$ 的其余元素，并从日文题面的四组候选中选择。
-2. 从上述候选中补全等价关系的定义：等价关系具有自反性、(a) 和传递性；若 $\langle x,y\rangle,(b)\in R$，则 $(c)\in R$。
+$$
+E_n=\{\langle x,y\rangle\in\mathcal N_5\times\mathcal N_5\mid x\bmod n=y\bmod n\},
+$$
+
+其中 $x\bmod n$ 为 $x$ 除以 $n$ 的余数。回答以下问题。
+
+**问1**
+
+$$
+\begin{aligned}
+E_4=\{&\langle0,0\rangle,\langle1,1\rangle,\langle2,2\rangle,\\
+&\langle3,3\rangle,\langle4,4\rangle,\boxed{\phantom{xxxxxxxx}}\}.
+\end{aligned}
+$$
+
+从选项中选择应填入空栏的元素组的编号。
+
+选项：
+
+① $\langle0,1\rangle,\langle1,0\rangle$　② $\langle1,3\rangle,\langle3,1\rangle$　③ $\langle2,4\rangle,\langle4,2\rangle$　④ $\langle0,4\rangle,\langle4,0\rangle$
+
+**问2** 从选项中选择应填入空栏的词语或表达式的编号。
+
+关系 $R$ 为等价关系时，$R$ 具有自反性、【(a)】和传递性。传递性是指：若 $\langle x,y\rangle$、【(b)】$\in R$，则【(c)】$\in R$。
+
+选项：
+
+① 对称性　② 反对称性　③ $\langle x,z\rangle$　④ $\langle y,x\rangle$　⑤ $\langle y,z\rangle$　⑥ $\langle z,x\rangle$
 
 ## **Kai**
 
@@ -53,7 +92,11 @@ $$
 同値関係の三条件は反射律・対称律・推移律である。推移律は $xRy$ かつ $yRz$ から $xRz$ が従うことであるから、
 
 $$
-\boxed{(a)=\text{対称的（①）},\quad(b)=\langle y,z\rangle\text{（⑤）},\quad(c)=\langle x,z\rangle\text{（③）}}.
+\boxed{\begin{gathered}
+(a)=\text{対称的（①）},\\
+(b)=\langle y,z\rangle\text{（⑤）},\\
+(c)=\langle x,z\rangle\text{（③）}
+\end{gathered}}.
 $$
 
 ## **Reference**

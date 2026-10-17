@@ -13,20 +13,23 @@ tags:
 
 ## **Description**
 
-2017年10月・2018年4月入学対象、2017年8月実施。
+2. 長さ $L$ の真直ばり AB が，図2に示すように，C 点で鉛直下向きに集中荷重 $W$ の作用を受けている。AC と BC の長さは，それぞれ $a$ および $b$ である。また，はりの曲げこわさは $EI$ とし，はりの自重は無視できるものとする。以下の問いに答えよ。
 
-長さ $L$、曲げ剛性 $EI$ の真直ばり AB の点 C に下向き荷重 $W$ を加える。$AC=a,CB=b,L=a+b$ とし、自重を無視する。
+**(1)** 図2(a)のように，はりが両端 A，B で単純支持されている。C 点におけるはりのたわみ $y_c$ を求めよ。
 
-1. A、Bで単純支持した場合のC点たわみ $y_C$ を求めよ。
-2. A、Bを剛体天井から、自然長が等しくばね定数がともに $k$ の鉛直ばねで吊るす。ばねの微小変形を仮定し、C点の鉛直変位 $\delta_C$ を求めよ。
+![図2(a) 両端単純支持ばり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_materials_2_original_figure_1.png)
 
-![単純支持とばね支持の二つのはり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/tohoku201708_materials2.svg)
+**(2)** 図2(b)のように，はりが両端 A，B で，剛体の天井に鉛直方向に固定された初期長さが同じ2つのばね AD と BE により支持されている。2つのばねのばね定数を $k$ とし，ばねの変形は微小であるものとする。ばねの自重は無視できるものとして，C 点の鉛直変位 $\delta_c$ を求めよ。
+
+![図2(b) ばねで支持されたはり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_materials_2_original_figure_2.png)
 
 #### 题目描述
 
-本题为2017年8月实施、面向2017年10月及2018年4月入学的考试。
+2. 长度为 $L$ 的直梁 AB 如图2所示，在 C 点受到竖直向下的集中载荷 $W$。AC、BC 的长度分别为 $a,b$。梁的抗弯刚度为 $EI$，忽略梁的自重。回答下列问题。
 
-无自重直梁 AB 长 $L$，弯曲刚度 $EI$，在C点受向下力 $W$，$AC=a,CB=b,L=a+b$。（1）两端简支时求C点挠度。（2）两端各由自然长度相同、刚度同为 $k$ 的竖直弹簧悬挂于刚性天花板，假定微小变形，求C点总竖向位移。
+**(1)** 如图2(a)，梁在 A、B 两端简支。求 C 点的挠度 $y_c$。
+
+**(2)** 如图2(b)，梁的 A、B 两端分别由初始长度相同的两根弹簧 AD、BE 支承，弹簧竖直固定于刚性天花板。两根弹簧的弹簧常数均为 $k$，弹簧变形为微小变形。忽略弹簧自重，求 C 点的竖直位移 $\delta_c$。
 
 ## **Kai**
 

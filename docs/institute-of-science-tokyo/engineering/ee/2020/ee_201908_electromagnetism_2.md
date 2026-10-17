@@ -14,112 +14,80 @@ tags:
 Zero
 
 ## **Description**
-直流電流の作る磁界に関する，以下の設問 (1) および (2)に答えよ。
 
-(1) $x-y$ 平面上で，原点 O を中心とする半径 $a$ の円周を直流電流 $I$ が流れている。 この時，$z$ 軸上の点 $P(0,0,z_1)$ における磁束密度 $\boldsymbol{B}_1$ を求めたい。その導出に関する以下の文章の空欄① $\sim$ ⑥を，適切な式または言葉で埋めよ（同一の番号には同一の式または言葉が入る）。なお，真空の透磁率を $\mu_0$ とする。本問では，ベクトルはボールド体で表記するものとする。
+直流電流の作る磁界に関する、以下の設問 1) および 2) に答えよ。（150点）
 
-「図 2.1 のように円電流の微小線素ベクトル $d\boldsymbol{s}$ が，$P$ の位置に作る磁束密度を $d\boldsymbol{B}$ とし，これを $d\boldsymbol{B}_z$ とそれに垂直な成分 $d\boldsymbol{B}_{\perp}$ に分け，$dB_z = |d\boldsymbol{B}_z|$ とする。$d\boldsymbol{B}_{\perp}$ については円電流全体からの寄与を合計すると消しあうので，積分すると $|\boldsymbol{B}_{\perp}| = (\textcircled{1})$ となる。次に $dB_z$ を求める。微小線素 $d\boldsymbol{s}$ から点 $P$ に向かうベクトルを $\boldsymbol{R}$ とし，その大きさ $R$ を $R = |\boldsymbol{R}|$ と定義すると，$(\textcircled{2})$ の法則により，外積を $\times$ で表すものとして $d\boldsymbol{B} = \frac{\mu_0}{4\pi}I\frac{d\boldsymbol{s} \times \boldsymbol{R}}{R^3}$ である。$d\boldsymbol{s}$ と $\boldsymbol{R}$ は直交しているので，$d\boldsymbol{B}$ の大きさ $dB = |d\boldsymbol{B}|$ を $\mu_0,I,a,z_1$ および $ds = |d\boldsymbol{s}|$ を用いて表すと $dB = (\textcircled{3})$ となる。一方，$d\boldsymbol{B}$ と $z$ 軸のなす角 $\varphi$ につき，$a$ および $z_1$ を用いると，$\cos\varphi = (\textcircled{4})$ となる。そこで $\mu_0,I,a,z_1$ および $ds$ を用いて $dB_z = (\textcircled{5})$ を得る。⑤ を円電流全体について積分することにより，$\mu_0,I,a,z_1$ を用いて $\boldsymbol{B}_1$ の $z$ 成分 $B_z$ を $B_z = (\textcircled{6})$ と表すことができる。よって，直交座標成分で書くと $\boldsymbol{B}_1 = (\textcircled{1}, \textcircled{1}, \textcircled{6})$ と，$\boldsymbol{B}_1$ が求められた。」
+1) $x$-$y$ 平面上で、原点 O を中心とする半径 $a$ の円周を直流電流 $I$ が流れている。この時、$z$ 軸上の点 $\mathrm P(0,0,z_1)$ における磁束密度 $\boldsymbol B_1$ を求めたい。その導出に関する以下の文章の空欄①〜⑥を、適切な式または言葉で埋めよ（同一の番号には同一の式または言葉が入る）。なお、真空の透磁率を $\mu_0$ とする。本問では、ベクトルはボールド体で表記するものとする。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electromagnetism_2_p1.png" width="300" alt=""/>
-</figure>
+![図2.1 円電流と点Pにおける磁束密度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electromagnetism_2_original_figure_1.png)
 
-(2) 図 $2.2$ のように，断面が長方形のコアに細い導線が巻かれた環状コイルがあり（図の破線部分にもコイルは存在する），その内半径は $a$ , 外半径は $b$ , 厚さは $h$ であるとする。コアの表面に沿って，導線は十分に密に巻かれており，巻き数は全体で $N$ である。このとき，以下の設問に答えよ。ただし，コアの透磁率を $\mu$ とする。
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electromagnetism_2_p2.png" width="300" alt=""/>
-</figure>
-
-- (a) コアの内側 $(a < r < b,0 \le \theta <2\pi, -h/2 < z <h/2)$ では，図 $2.2$ のような円柱座標系 $(r,\theta,z)$ を用いると，コイルに流れる直流電流 $J$ による磁界が
+「図2.1のように円電流の微小線素ベクトル $d\boldsymbol s$ が、P の位置に作る磁束密度を $d\boldsymbol B$ とし、これを $d\boldsymbol B_z$ とそれに垂直な成分 $d\boldsymbol B_\perp$ に分け、$dB_z=|d\boldsymbol B_z|$ とする。$d\boldsymbol B_\perp$ については円電流全体からの寄与を合計すると消しあうので、積分すると $|\boldsymbol B_\perp|=\boxed{\text{①}}$ となる。次に $dB_z$ を求める。微小線素 $d\boldsymbol s$ から点 P に向かうベクトルを $\boldsymbol R$ とし、その大きさ $R$ を $R=|\boldsymbol R|$ と定義すると、（②）の法則により、外積を $\times$ で表すものとして
 
 $$
-B_r = B_z = 0,B_{\theta} = \mu NJ/(2\pi r)
+d\boldsymbol B=\frac{\mu_0}{4\pi}I\frac{d\boldsymbol s\times\boldsymbol R}{R^3}
+$$
+
+である。$d\boldsymbol s$ と $\boldsymbol R$ は直交しているので、$d\boldsymbol B$ の大きさ $dB=|d\boldsymbol B|$ を $\mu_0,I,a,z_1$ および $ds=|d\boldsymbol s|$ を用いて表すと $dB=\boxed{\text{③}}$ となる。一方、$d\boldsymbol B$ と $z$ 軸のなす角 $\varphi$ につき、$a$ および $z_1$ を用いると、$\cos\varphi=\boxed{\text{④}}$ となる。そこで $\mu_0,I,a,z_1$ および $ds$ を用いて $dB_z=\boxed{\text{⑤}}$ を得る。⑤を円電流全体について積分することにより、$\mu_0,I,a,z_1$ を用いて $\boldsymbol B_1$ の $z$ 成分 $B_z$ を $B_z=\boxed{\text{⑥}}$ と表すことができる。よって、直交座標成分で書くと $\boldsymbol B_1=(\boxed{\text{①}},\boxed{\text{①}},\boxed{\text{⑥}})$ と、$\boldsymbol B_1$ が求められた。」
+
+2) 図2.2のように、断面が長方形のコアに細い導線が巻かれた環状コイルがあり（図の破線部分にもコイルは存在する）、その内半径は $a$、外半径は $b$、厚さは $h$ であるとする。コアの表面に沿って、導線は十分に密に巻かれており、巻き数は全体で $N$ である。このとき、以下の設問に答えよ。ただし、コアの透磁率を $\mu$ とする。
+
+![図2.2 環状コイルの断面と円柱座標](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electromagnetism_2_original_figure_2.png)
+
+a) コアの内側（$a<r<b$、$0\le\theta<2\pi$、$-h/2<z<h/2$）では、図2.2のような円柱座標系 $(r,\theta,z)$ を用いると、コイルに流れる直流電流 $J$ による磁界が
+
+$$
+B_r=B_z=0,\qquad B_\theta=\frac{\mu NJ}{2\pi r}
 $$
 
 となることを示せ。
 
-- (b) コアの外側では，コイルに流れる直流電流 $J$ による磁界がゼロとなることを説明せよ。
+b) コアの外側では、コイルに流れる直流電流 $J$ による磁界がゼロとなることを説明せよ。
 
-- (c) コアの断面 $(a < r < b,0 \le \theta <2\pi, -h/2 < z <h/2)$ を貫く磁束 $\Phi$ は，次式で表されることを示せ。ただし，$\ln(x)$ は $x$ の自然対数を表す。
+c) コアの断面（$a<r<b$、$-h/2<z<h/2$）を貫く磁束 $\Phi$ は、次式で表されることを示せ。ただし、$\ln(x)$ は $x$ の自然対数を表す。
 
 $$
-\Phi = \frac{\mu NJh}{2\pi}\ln\big(\frac{b}{a}\big)
+\Phi=\frac{\mu NJh}{2\pi}\ln\left(\frac ba\right)
 $$
 
-- (d) 環状コイル全体に蓄えられた磁界のエネルギー $U$ を求めよ。
+d) 環状コイル全体に蓄えられた磁界のエネルギー $U$ を求めよ。
 
-- (e) この環状コイルの自己インダクタンス $L$ を求めよ。
+e) この環状コイルの自己インダクタンス $L$ を求めよ。
 
-### 题目描述
+#### 题目描述
 
-回答下列关于直流电流磁场的两组问题。
+回答以下关于直流电流产生磁场的第 1)、2) 问。（150分）
 
-1. 在 $x$-$y$ 平面内，一圆形导线以原点 O 为圆心、半径为 $a$，其中流过直流电流 $I$。为推导 $z$ 轴上点 $P(0,0,z_1)$ 的磁感应强度 $\boldsymbol B_1$，填写下文的空格 ① 至 ⑥；同一编号处填写同一表达式或词语。真空磁导率为 $\mu_0$，矢量以粗体表示。
+1) 在 $x$-$y$ 平面内，以原点 O 为中心、半径为 $a$ 的圆周中流过直流电流 $I$。希望求 $z$ 轴上 $\mathrm P(0,0,z_1)$ 点的磁通密度 $\boldsymbol B_1$。在以下推导的空栏①～⑥中填入适当的公式或词语，相同编号填相同内容。真空磁导率为 $\mu_0$；本题以粗体表示向量。
 
-   如原 Description 图 2.1，圆电流的微小线元矢量 $\mathrm d\boldsymbol s$ 在 $P$ 处产生 $\mathrm d\boldsymbol B$，把它分解为 $z$ 方向分量 $\mathrm d\boldsymbol B_z$ 与垂直分量 $\mathrm d\boldsymbol B_\perp$，并令 $\mathrm dB_z=|\mathrm d\boldsymbol B_z|$。
+“如图2.1，圆电流中的微小线元向量 $d\boldsymbol s$ 在 P 点产生磁通密度 $d\boldsymbol B$。将其分为 $d\boldsymbol B_z$ 和与之垂直的分量 $d\boldsymbol B_\perp$，令 $dB_z=|d\boldsymbol B_z|$。对 $d\boldsymbol B_\perp$，整个圆电流的贡献相互抵消，积分得到 $|\boldsymbol B_\perp|=\boxed{\text{①}}$。接着求 $dB_z$。令从线元 $d\boldsymbol s$ 指向 P 点的向量为 $\boldsymbol R$，其大小为 $R=|\boldsymbol R|$。根据（②）定律，以 $\times$ 表示叉积，有
 
-   - 对整个圆电流积分时，$\mathrm d\boldsymbol B_\perp$ 的贡献相互抵消，故
+$$
+d\boldsymbol B=\frac{\mu_0}{4\pi}I\frac{d\boldsymbol s\times\boldsymbol R}{R^3}.
+$$
 
-     $$
-     |\boldsymbol B_\perp|=\boxed{①}.
-     $$
+由于 $d\boldsymbol s$ 与 $\boldsymbol R$ 垂直，用 $\mu_0,I,a,z_1$ 及 $ds=|d\boldsymbol s|$ 表示 $dB=|d\boldsymbol B|$，得到 $dB=\boxed{\text{③}}$。另一方面，令 $d\boldsymbol B$ 与 $z$ 轴的夹角为 $\varphi$，用 $a,z_1$ 可得 $\cos\varphi=\boxed{\text{④}}$。因此用 $\mu_0,I,a,z_1,ds$ 得到 $dB_z=\boxed{\text{⑤}}$。将⑤沿整个圆电流积分，用 $\mu_0,I,a,z_1$ 表示 $\boldsymbol B_1$ 的 $z$ 分量，得到 $B_z=\boxed{\text{⑥}}$。于是用直角坐标分量表示，即有 $\boldsymbol B_1=(\boxed{\text{①}},\boxed{\text{①}},\boxed{\text{⑥}})$。”
 
-   - 从 $\mathrm d\boldsymbol s$ 指向 $P$ 的矢量为 $\boldsymbol R$，$R=|\boldsymbol R|$。根据 $\boxed{②}$ 定律，
+2) 如图2.2，在矩形截面的芯材上绕细导线形成环形线圈（图中虚线部分也有线圈）。内半径为 $a$、外半径为 $b$、厚度为 $h$。导线沿芯材表面绕得足够密，总匝数为 $N$。回答以下问题，芯材磁导率为 $\mu$。
 
-     $$
-     \mathrm d\boldsymbol B
-     =\frac{\mu_0}{4\pi}I
-     \frac{\mathrm d\boldsymbol s\times\boldsymbol R}{R^3}.
-     $$
+a) 在芯材内部（$a<r<b$、$0\le\theta<2\pi$、$-h/2<z<h/2$），使用图2.2的柱坐标 $(r,\theta,z)$，证明线圈中直流电流 $J$ 产生的磁场满足
 
-   - 因 $\mathrm d\boldsymbol s$ 与 $\boldsymbol R$ 正交，用 $\mu_0,I,a,z_1$ 及 $\mathrm ds=|\mathrm d\boldsymbol s|$ 表示磁场元大小，得到
+$$
+B_r=B_z=0,\qquad B_\theta=\frac{\mu NJ}{2\pi r}.
+$$
 
-     $$
-     \mathrm dB=\boxed{③}.
-     $$
+b) 说明芯材外部由线圈直流电流 $J$ 产生的磁场为零。
 
-   - 若 $\mathrm d\boldsymbol B$ 与 $z$ 轴夹角为 $\varphi$，则
+c) 证明穿过芯材截面（$a<r<b$、$-h/2<z<h/2$）的磁通 $\Phi$ 为
 
-     $$
-     \cos\varphi=\boxed{④},
-     \qquad
-     \mathrm dB_z=\boxed{⑤}.
-     $$
+$$
+\Phi=\frac{\mu NJh}{2\pi}\ln\left(\frac ba\right),
+$$
 
-   - 对整个圆电流积分后，
+其中 $\ln(x)$ 表示 $x$ 的自然对数。
 
-     $$
-     B_z=\boxed{⑥},
-     \qquad
-     \boldsymbol B_1=(\boxed{①},\boxed{①},\boxed{⑥}).
-     $$
+d) 求整个环形线圈储存的磁场能量 $U$。
 
-2. 如图 2.2，一根细导线密绕在矩形截面的环形磁芯表面（图中虚线处也有绕组），内半径为 $a$、外半径为 $b$、厚度为 $h$，总匝数为 $N$，磁芯磁导率为 $\mu$。
-
-   1. 采用图示柱坐标 $(r,\theta,z)$，证明当磁芯内
-
-      $$
-      a<r<b,\quad0\leq\theta<2\pi,\quad-\frac h2<z<\frac h2
-      $$
-
-      且线圈中流过直流 $J$ 时，
-
-      $$
-      B_r=B_z=0,\qquad
-      B_\theta=\frac{\mu NJ}{2\pi r}.
-      $$
-
-   2. 说明磁芯外部由该直流电流 $J$ 产生的磁场为何为零。
-   3. 证明穿过磁芯截面的磁通为
-
-      $$
-      \Phi=\frac{\mu NJh}{2\pi}
-      \ln\left(\frac ba\right),
-      $$
-
-      其中 $\ln$ 为自然对数。
-   4. 求整个环形线圈储存的磁场能量 $U$。
-   5. 求该环形线圈的自感 $L$。
+e) 求该环形线圈的自感 $L$。
 
 ## **Kai**
 ### (1)

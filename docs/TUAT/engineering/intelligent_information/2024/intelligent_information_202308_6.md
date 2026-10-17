@@ -15,35 +15,59 @@ tags:
 
 ## **Description**
 
+以下の問いに答えよ。ただし，確率変数を大文字 $X$，実現値を小文字 $x$（$\in\mathbb{R}$）を用いて表す。また，$e$ は自然対数の底とする。解答欄には答えのみ示せ。
+
 ### [1]
 
-(1) 確率密度関数 $f(x)$ を持つ連続確率変数 $X$ の平均と分散を、$f(x)$ を用いて表せ。
+確率密度関数 $f(x)$ に従う確率変数 $X$ に関する以下の問いに答えよ。
 
-(2) $X$ の確率密度関数が次のとき、平均と分散を求めよ。
+(1) 確率変数 $X$ の平均の計算式を，$x$ と $f(x)$ を用いて表せ。また，平均が $\mu_x$ で与えられるときの分散の計算式を，$x$，$\mu_x$，$f(x)$ を用いて示せ。
+
+(2) 以下の確率密度関数 $f(x)$ に従う確率変数 $X$ の平均と分散を求めよ。
 
 $$
-f(x)=\begin{cases}|x|&(-1\le x\le1),\\0&\text{それ以外}.\end{cases}
+f(x)=\begin{cases}|x|&(|x|\leq1),\\0&(|x|>1).\end{cases}
 $$
 
 ### [2]
 
-(1) $\lambda>0$ とする。連続確率変数 $X$ の累積分布関数が
+指数分布に関する以下の問いに答えよ。
+
+(1) 指数分布の累積分布関数 $F(x)$ は以下の式で与えられる。確率密度関数 $f(x)$ を求めよ。ここで $\lambda$ は指数分布のパラメータであり，正の定数とする。
 
 $$
-F_X(x)=\begin{cases}1-e^{-\lambda x}&(x\ge0),\\0&(x<0)\end{cases}
+F(x)=P\{X\leq x\}=\begin{cases}1-e^{-\lambda x}&(x\geq0),\\0&(x<0).\end{cases}
 $$
 
-のとき、確率密度関数を求めよ。
+(2) 互いに独立な確率変数 $X_1$ と $X_2$ が同一のパラメータ $\lambda$（正の定数）の指数分布に従うとき，$X=X_1-X_2$ の確率密度関数 $h(x)$ を求めよ。
 
-(2) $X,Y$ が独立で、どちらも (1) の累積分布関数を持つとき、$X-Y$ の確率密度関数を求めよ。
-
-(3) (2) の $X-Y$ の平均と分散を求めよ。
+(3) (2)で求めた確率密度関数 $h(x)$ に従う確率変数 $X$ の平均と分散を求めよ。
 
 #### 题目描述
 
-**[1]** (1) 用连续随机变量 $X$ 的概率密度 $f(x)$ 表示其均值和方差。(2) 当 $f(x)=|x|$（$-1\le x\le1$）、区间外为0时，计算均值和方差。
+回答以下问题。用大写 $X$ 表示随机变量，小写 $x$（$\in\mathbb{R}$）表示其实现值。$e$ 为自然对数的底，答题栏只须写出答案。
 
-**[2]** (1) 设 $\lambda>0$，$X$ 的分布函数在 $x\ge0$ 时为 $1-e^{-\lambda x}$，在 $x<0$ 时为0，求概率密度。(2) 若 $X,Y$ 独立且均服从此分布，求 $X-Y$ 的密度。(3) 求 $X-Y$ 的均值和方差。
+**[1]** 对概率密度函数为 $f(x)$ 的随机变量 $X$，回答以下问题。
+
+(1) 用 $x$ 和 $f(x)$ 表示随机变量 $X$ 的均值计算式。均值为 $\mu_x$ 时，用 $x$、$\mu_x$ 和 $f(x)$ 表示方差计算式。
+
+(2) 求概率密度函数如下的随机变量 $X$ 的均值和方差：
+
+$$
+f(x)=\begin{cases}|x|&(|x|\leq1),\\0&(|x|>1).\end{cases}
+$$
+
+**[2]** 回答以下关于指数分布的问题。
+
+(1) 指数分布的累积分布函数 $F(x)$ 如下。求概率密度函数 $f(x)$。其中 $\lambda$ 为指数分布的参数，是正常数。
+
+$$
+F(x)=P\{X\leq x\}=\begin{cases}1-e^{-\lambda x}&(x\geq0),\\0&(x<0).\end{cases}
+$$
+
+(2) 相互独立的随机变量 $X_1$、$X_2$ 均服从参数为 $\lambda$（正常数）的指数分布。求 $X=X_1-X_2$ 的概率密度函数 $h(x)$。
+
+(3) 求服从第(2)问所得密度 $h(x)$ 的随机变量 $X$ 的均值和方差。
 
 ## **Kai**
 
@@ -52,9 +76,11 @@ $$
 各積分が存在するとき、
 
 $$
-\boxed{\mu=E[X]=\int_{-\infty}^{\infty}xf(x)\,dx},\qquad
-\boxed{\operatorname{Var}(X)=\int_{-\infty}^{\infty}(x-\mu)^2f(x)\,dx
-=\int_{-\infty}^{\infty}x^2f(x)\,dx-\mu^2}.
+\begin{gathered}
+\boxed{\mu_x=E[X]=\int_{-\infty}^{\infty}xf(x)\,dx},\\
+\boxed{\operatorname{Var}(X)=\int_{-\infty}^{\infty}(x-\mu_x)^2f(x)\,dx
+=\int_{-\infty}^{\infty}x^2f(x)\,dx-\mu_x^2}.
+\end{gathered}
 $$
 
 ### [1] (2)
@@ -62,7 +88,10 @@ $$
 密度は偶関数なので $E[X]=0$ である。したがって
 
 $$
-\boxed{E[X]=0,\qquad\operatorname{Var}(X)=2\int_0^1x^3\,dx=\frac12}.
+\boxed{\begin{gathered}
+E[X]=0,\\
+\operatorname{Var}(X)=2\int_0^1x^3\,dx=\frac12
+\end{gathered}}.
 $$
 
 ### [2] (1)
@@ -70,32 +99,32 @@ $$
 分布関数を微分して、
 
 $$
-\boxed{f_X(x)=\begin{cases}\lambda e^{-\lambda x}&(x\ge0),\\0&(x<0).\end{cases}}
+\boxed{f(x)=\begin{cases}\lambda e^{-\lambda x}&(x\ge0),\\0&(x<0).\end{cases}}
 $$
 
 一点 $x=0$ における密度の値は分布を変えない。
 
 ### [2] (2)
 
-$Z=X-Y$ とおく。$x=z+y\ge0$、$y\ge0$ を満たす領域で独立性を用いれば、
+$X=X_1-X_2$ とおく。$X_2$ の実現値を $u$ とすれば，$X_1$ の実現値は $x+u$ である。$x+u\geq0$，$u\geq0$ を満たす領域で独立性を用いれば，
 
 $$
 \begin{aligned}
-f_Z(z)&=\int_{\max(0,-z)}^\infty f_X(z+y)f_Y(y)\,dy\\
-&=\lambda^2e^{-\lambda z}\int_{\max(0,-z)}^\infty e^{-2\lambda y}\,dy\\
-&=\boxed{\frac\lambda2e^{-\lambda|z|}\quad(-\infty<z<\infty)}.
+h(x)&=\int_{\max(0,-x)}^\infty f(x+u)f(u)\,du\\
+&=\lambda^2e^{-\lambda x}\int_{\max(0,-x)}^\infty e^{-2\lambda u}\,du\\
+&=\boxed{\frac\lambda2e^{-\lambda|x|}\quad(-\infty<x<\infty)}.
 \end{aligned}
 $$
 
 ### [2] (3)
 
-密度の偶対称性から平均は0。分散は
+密度の偶対称性から $E[X]=0$。分散は
 
 $$
-\boxed{\operatorname{Var}(Z)=\lambda\int_0^\infty z^2e^{-\lambda z}\,dz=\frac2{\lambda^2}}.
+\boxed{\operatorname{Var}(X)=\lambda\int_0^\infty x^2e^{-\lambda x}\,dx=\frac2{\lambda^2}}.
 $$
 
-独立性より $\operatorname{Var}(X-Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$ としても同じ結果を得る。
+独立性より $\operatorname{Var}(X_1-X_2)=\operatorname{Var}(X_1)+\operatorname{Var}(X_2)$ としても同じ結果を得る。
 
 ## **Reference**
 

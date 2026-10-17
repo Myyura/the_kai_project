@@ -14,28 +14,49 @@ tags:
 
 ## **Description**
 
+問題2（解答用紙：白）
+
 以下の問いに答えなさい。
 
-1. 複素数 $z=x+iy$ の複素数値関数 $f(z)=u+iv$ を考える。ただし、$i$ は虚数単位、$x,y$ は実数、$u,v$ は $x,y$ の実数値関数である。次式が成り立つとき、$u,v$ の間に成り立つ関係を示しなさい。ただし、$\delta x,\delta y$ は実数とする。
+(1) 複素数 $z=x+iy$ の複素数値関数 $f(z)=u+iv$ を考える。ここで、$i$ は虚数単位であり、$x$ と $y$ は実数、$u$ と $v$ は $x$ と $y$ の実数値関数である。次式が成り立つとき、$u$ と $v$ の関係を示しなさい。ただし $\delta x,\delta y$ は実数とする。
 
-   $$
-   \lim_{\delta x\to0}\frac{f(z+\delta x)-f(z)}{\delta x}
-   =\lim_{\delta y\to0}\frac{f(z+i\delta y)-f(z)}{i\delta y}.
-   $$
+$$
+\lim_{\delta x\to0}\frac{f(z+\delta x)-f(z)}{\delta x}
+=\lim_{\delta y\to0}\frac{f(z+i\delta y)-f(z)}{i\delta y}
+$$
 
-2. $c$ を任意の複素数定数とするとき、$\cos cz$ が (1) で得られた関係を満たすことを示しなさい。
-3. 任意の正則関数 $f(z)$ に対して、次式を満たす関数 $g(z)$ が定数となることを示し、その定数を求めなさい。ただし、$f'(z)$ は $f(z)$ の導関数である。
+(2) $c$ を任意の複素数の定数とするとき、$\cos cz$ が小問 (1) で求めた関係式を満たすことを示しなさい。
 
-   $$
-   \left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right)|f(z)|^2
-   =g(z)|f'(z)|^2.
-   $$
+(3) 任意の正則な関数 $f(z)$ に対し、次式を満たす関数 $g(z)$ が定数となることを示しなさい。また、その定数の値を求めなさい。ただし $f'(z)$ は $f(z)$ の $z$ に関する導関数である。
+
+$$
+\frac{\partial^2(|f(z)|^2)}{\partial x^2}
++\frac{\partial^2(|f(z)|^2)}{\partial y^2}
+=g(z)|f'(z)|^2
+$$
 
 #### 题目描述
 
-1. 令 $z=x+iy$、$f(z)=u(x,y)+iv(x,y)$，其中 $x,y,u,v$ 均为实数，$i$ 为虚数单位。若沿实轴与虚轴方向计算的差商极限相等，即上式成立，求 $u,v$ 应满足的关系。
-2. 对任意复常数 $c$，证明 $\cos cz$ 满足第 (1) 问的关系。
-3. 对任意全纯函数 $f(z)$，证明使 $\left(\partial_x^2+\partial_y^2\right)|f(z)|^2=g(z)|f'(z)|^2$ 成立的公共系数 $g(z)$ 为常数，并求其值。
+问题2（使用白色答题纸）
+
+回答下列问题。
+
+(1) 考虑复数 $z=x+iy$ 的复值函数 $f(z)=u+iv$。其中 $i$ 为虚数单位，$x,y$ 为实数，$u,v$ 为 $x,y$ 的实值函数。当下式成立时，给出 $u$ 与 $v$ 的关系。$\delta x,\delta y$ 均为实数。
+
+$$
+\lim_{\delta x\to0}\frac{f(z+\delta x)-f(z)}{\delta x}
+=\lim_{\delta y\to0}\frac{f(z+i\delta y)-f(z)}{i\delta y}
+$$
+
+(2) 设 $c$ 为任意复常数，证明 $\cos cz$ 满足 (1) 所得的关系式。
+
+(3) 对任意解析函数 $f(z)$，证明满足下式的函数 $g(z)$ 为常数，并求该常数值。其中 $f'(z)$ 是 $f(z)$ 关于 $z$ 的导数。
+
+$$
+\frac{\partial^2(|f(z)|^2)}{\partial x^2}
++\frac{\partial^2(|f(z)|^2)}{\partial y^2}
+=g(z)|f'(z)|^2
+$$
 
 ## **Kai**
 

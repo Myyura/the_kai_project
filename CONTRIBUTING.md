@@ -185,6 +185,10 @@ Contributions merged into the public exam archive and public solution library be
 
 Signed-in users can open Personal Center → Submissions, or `/me?tab=contribute`, to submit a new solution or start a correction from the relevant problem page. The form records CLA acceptance in a signed payload and creates a public GitHub Issue. After a maintainer reviews the content and adds the `submission:ready-for-pr` label, the [submission-to-PR workflow](.github/workflows/submission-issue-to-pr.yml) verifies that payload and creates a draft pull request.
 
+New-solution conversion creates the required directories and any missing `_category_.json` files for the university, department, nested programs, and year, and commits them alongside the solution. Existing category metadata is preserved. Year labels use the submitted year (for example, `2027年度`); other labels use shared catalog names when available and directory names otherwise. The workflow also regenerates `src/data/universities.js`. Review new category labels and the submitted year in the draft PR.
+
+When no filename is specified, generated filenames include a submission-ID suffix so Japanese subject names cannot collapse to the same ASCII date. After signature verification, the converter normalizes safely repairable `$$` delimiter lines and surrounding blank lines in the generated new-solution file, preserving the original Issue and signature. Math formatting that needs human judgment, such as double dollars inside headings or tables, remains subject to validation.
+
 All participants are expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ### 📝 Formatting guidelines
@@ -209,7 +213,7 @@ tags:
 [Your Name](https://example.com)
 
 ## **Description**
-Problem statement, transcription, or a short summary of the question.
+Transcribe the complete original problem in its original language, including all conditions, formulas, subquestions, and answer requirements. Use text and LaTeX for ordinary content, and include necessary crops of the original figures beside the relevant questions. A summary, a source link, or a whole-page screenshot does not replace the transcription. Any translation should cover the same content in full.
 
 ## **Kai**
 Your solution, derivation, explanation, or notes.

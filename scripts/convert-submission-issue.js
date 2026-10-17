@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const {analyzeDisplayMath} = require('./display-math-format');
 const {
   buildPullRequestBody,
   extractSubmissionFromIssueBody,
@@ -21,7 +22,7 @@ function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
-function main() {
+async function main() {
   const eventPath = getArgValue('--event') || process.env.GITHUB_EVENT_PATH;
   const resultPath = getArgValue('--result', path.join(REPO_ROOT, '.submission-result.json'));
   const prBodyPath = getArgValue('--pr-body', path.join(REPO_ROOT, '.submission-pr-body.md'));
@@ -38,12 +39,19 @@ function main() {
 
   const { payload } = submission;
   const writeResult = writeSubmissionToRepo({ repoRoot: REPO_ROOT, payload });
+  if (payload.submissionType === 'new_solution' && !writeResult.conflict) {
+    // Format the derived file only, after verifying the unchanged signed payload.
+    const absolutePath = path.join(REPO_ROOT, writeResult.relativePath);
+    const formatted = await analyzeDisplayMath(fs.readFileSync(absolutePath, 'utf8'));
+    if (formatted.changed) fs.writeFileSync(absolutePath, formatted.fixedContent, 'utf8');
+  }
   const branchName = `codex/submission-${issue.number}`;
   if (writeResult.skip) {
     writeJson(resultPath, {
       action: writeResult.action,
       branchName,
       filePath: writeResult.relativePath,
+      filePaths: [],
       prTitle: '',
       prBodyPath: '',
       submissionId: payload.submissionId,
@@ -60,11 +68,13 @@ function main() {
   }
   const titlePrefix = ['new_solution', 'experience'].includes(payload.submissionType) ? 'Add submission' : 'Update submission';
   const prTitle = `${titlePrefix} from issue #${issue.number}`;
+  const filePaths = writeResult.conflict ? [] : writeResult.filePaths || [writeResult.relativePath];
   if (!writeResult.conflict) {
     const prBody = buildPullRequestBody({
       payload,
       issue,
       relativePath: writeResult.relativePath,
+      filePaths,
     });
     fs.writeFileSync(prBodyPath, `${prBody}\n`, 'utf8');
   }
@@ -72,6 +82,7 @@ function main() {
     action: writeResult.action,
     branchName,
     filePath: writeResult.relativePath,
+    filePaths,
     prTitle,
     prBodyPath,
     submissionId: payload.submissionId,
@@ -91,4 +102,7 @@ function main() {
   }
 }
 
-main();
+main().catch((error) => {
+  console.error(error.message);
+  process.exitCode = 1;
+});

@@ -15,91 +15,149 @@ tags:
 
 ## **Description**
 
-### 題意の要約
-
-出典：[九州大学 2020年度 経済数学](https://www.econ.kyushu-u.ac.jp/wp-content/uploads/2019/11/2020-1_keizaisuugaku.pdf)。
-問1・問2の両方に解答し、それぞれで (1)、(2) の一方を選ぶ。
+次の2問の両方について解答せよ。
 
 ### 問1
 
+(1)、(2) の中から1つを選んで解答せよ。
+
 #### (1)
 
-$t\in\mathbb R$ とし、
+3次元列ベクトル $\boldsymbol x_1,\boldsymbol x_2,\boldsymbol x_3$ および $\boldsymbol0_3$ を次のように定義する。
 
 $$
 \boldsymbol x_1=\begin{pmatrix}2\\0\\1\end{pmatrix},\quad
 \boldsymbol x_2=\begin{pmatrix}9\\0\\9\end{pmatrix},\quad
 \boldsymbol x_3=\begin{pmatrix}1\\t\\8\end{pmatrix},\quad
-\boldsymbol0_3=\begin{pmatrix}0\\0\\0\end{pmatrix},\quad
-X=(\boldsymbol x_1,\boldsymbol x_2,\boldsymbol x_3).
+\boldsymbol0_3=\begin{pmatrix}0\\0\\0\end{pmatrix}.
 $$
 
-- (a) 3列が線形独立となる $t$ の条件を求める。
-- (b) 任意の3次元ベクトル $\boldsymbol c$ について、$X^\top X\boldsymbol c=\boldsymbol0_3$ から $X\boldsymbol c=\boldsymbol0_3$ が従うことを、$X^\top X$ の正則性を仮定せず示す。$\top$ は転置を表す。
-- (c) $X^\top X$ が正則となる $t$ の条件を求める。
+ただし、$t$ は実数である。また、$3\times3$ 行列 $X$ を $X=(\boldsymbol x_1,\boldsymbol x_2,\boldsymbol x_3)$ によって定義する。
+
+(a) $\boldsymbol x_1,\boldsymbol x_2,\boldsymbol x_3$ が1次独立になるのは $t$ がどのような値のときか答えよ。
+
+(b) $\boldsymbol c$ を3次元列ベクトルとする。$X^{\mathsf T}$ が正則であるかどうかにかかわらず、$X^{\mathsf T}X\boldsymbol c=\boldsymbol0_3$ ならば、$X\boldsymbol c=\boldsymbol0_3$ であることを示せ。ただし、右肩の添え字 $\mathsf T$ は転置を意味する。
+
+(c) 行列 $X^{\mathsf T}X$ が正則になるのは $t$ がどのような値のときか答えよ。
 
 #### (2)
 
-$a>0$ とする。
+次の問いに答えよ。ただし、$a$ は正定数とする。
 
-- (a) $xz$ 平面内の曲線 $z=(x-a)^2$（$x\ge0$）を $z$ 軸のまわりに回転した曲面の式が $z=(\sqrt{x^2+y^2}-a)^2$ となることを示す。
-- (b) $f(x,y)=(\sqrt{x^2+y^2}-a)^2$ の極値を求める。
+(a) 3次元ユークリッド空間 $\mathbb R^3$ 内の $xz$ 平面上の曲線 $z=(x-a)^2$（$x\ge0$）を $z$ 軸の周りに回転させた曲面が次のように書けることを示せ。
+
+$$
+z=\left(\sqrt{x^2+y^2}-a\right)^2.
+$$
+
+(b) 次の関数 $f$ の極値を求めよ。
+
+$$
+f(x,y)=\left(\sqrt{x^2+y^2}-a\right)^2.
+$$
 
 ### 問2
 
+(1)、(2) の中から1つを選んで解答せよ。
+
 #### (1)
 
-三角形 $ABC$ の辺 $BC,CA,AB$ の長さを $a,b,c$、面積を $S$ とする。
-内部の点 $D$ から直線 $BC,CA,AB$ までの距離を順に $x,y,z$ とする。
+三角形 $ABC$ において、3つの辺 $BC,CA,AB$ の長さをそれぞれ $a,b,c$ とし、三角形の内部の点 $D$ から、3本の直線 $BC,CA,AB$ へ下した垂線の長さをそれぞれ $x,y,z$ とする。この三角形の面積を $S$ とおく。
 
-- (a) $(x,y)$ の取り得る範囲を求める。
-- (b) $x^2+y^2+z^2$ の極小値を求める。
-- (c) (b) の値が最小値でもあることを示す。
-- (d) $xyz$ の最大値を求める。
+(a) $x$ と $y$ の取りうる範囲を求めよ。
+
+(b) $x^2+y^2+z^2$ の極小値を求めよ。
+
+(c) (b) で求めた極小値が最小値になっていることを示せ。
+
+(d) $xyz$ の最大値を求めよ。
 
 #### (2)
 
-$n\in\mathbb N$、$0<p<1$、$t\in\mathbb R$、$\lambda>0$ とする。
+$n$ を自然数とする。また、$p\in(0,1)$、$t\in\mathbb R$ および $\lambda>0$ を定数とする。
 
-- (a) $X\sim\operatorname{Bin}(n,p)$ の確率関数は $p_X(x)=\binom nx p^x(1-p)^{n-x}$（$x=0,\ldots,n$）。$E[e^{tX}]$ を求める。
-- (b) $Y\sim\operatorname{Poisson}(\lambda)$ の確率関数は $p_Y(y)=e^{-\lambda}\lambda^y/y!$（$y=0,1,\ldots$）。$E[e^{tY}]$ を求める。
-- (c) $n>\lambda$ とし、$Z_n\sim\operatorname{Bin}(n,\lambda/n)$ について $\lim_{n\to\infty}E[e^{tZ_n}]$ を求める。
-
-### 题目描述
-
-第 1、2 题都要作答；每题在 (1)、(2) 中任选一项。
-
-**第 1 题 (1)**：令 $t\in\mathbb R$，并以
+(a) 確率変数 $X$ は2項分布 $\operatorname{Bin}(n,p)$ に従っているとする。確率関数は
 
 $$
-\boldsymbol x_1=(2,0,1)^\top,\quad
-\boldsymbol x_2=(9,0,9)^\top,\quad
-\boldsymbol x_3=(1,t,8)^\top
+p_X(x)={}_nC_xp^x(1-p)^{n-x},\qquad x=0,1,\ldots,n
 $$
 
-为列构成矩阵 $X$。
+である。期待値 $E[\exp(tX)]$ を求めよ。
 
-1. 求三个向量线性无关时 $t$ 的条件。
-2. 不假设 $X^\top X$ 可逆，证明对任意三维向量 $\boldsymbol c$，若 $X^\top X\boldsymbol c=\boldsymbol0$，则 $X\boldsymbol c=\boldsymbol0$。
-3. 求 Gram 矩阵 $X^\top X$ 可逆时 $t$ 的条件。
+(b) 確率変数 $Y$ はポアソン分布 $\operatorname{Po}(\lambda)$ に従っているとする。確率関数は
 
-**第 1 题 (2)**：设 $a>0$。
+$$
+p_Y(y)=\exp(-\lambda)\frac{\lambda^y}{y!},\qquad y=0,1,\ldots
+$$
 
-1. 将 $xz$ 平面上的曲线 $z=(x-a)^2$（$x\ge0$）绕 $z$ 轴旋转，证明所得曲面为 $z=(\sqrt{x^2+y^2}-a)^2$。
-2. 求函数 $f(x,y)=(\sqrt{x^2+y^2}-a)^2$ 的极值。
+である。期待値 $E[\exp(tY)]$ を求めよ。
 
-**第 2 题 (1)**：三角形 $ABC$ 的三边 $BC,CA,AB$ 长度依次为 $a,b,c$，面积为 $S$。内部点 $D$ 到这三条边所在直线的距离依次为 $x,y,z$。
+(c) 確率変数 $Z_n$ は2項分布 $\operatorname{Bin}(n,\lambda/n)$ に従っているとする。ただし、$n>\lambda$ とする。極限 $\lim_{n\to\infty}E[\exp(tZ_n)]$ を求めよ。
 
-1. 求 $(x,y)$ 的取值范围。
-2. 求 $x^2+y^2+z^2$ 的极小值。
-3. 证明该极小值也是最小值。
-4. 求 $xyz$ 的最大值。
+#### 题目描述
 
-**第 2 题 (2)**：设 $n\in\mathbb N$、$0<p<1$、$\lambda>0$、$t\in\mathbb R$。
+以下两大题都必须作答。
 
-1. 对 $X\sim\operatorname{Bin}(n,p)$，求矩母函数 $E(e^{tX})$。
-2. 对 $Y\sim\operatorname{Poisson}(\lambda)$，求矩母函数 $E(e^{tY})$。
-3. 当 $n>\lambda$、$Z_n\sim\operatorname{Bin}(n,\lambda/n)$ 时，求 $\lim_{n\to\infty}E(e^{tZ_n})$。
+**问1** 在 (1)、(2) 中选一题作答。
+
+**(1)** 定义三维列向量
+
+$$
+\boldsymbol x_1=\begin{pmatrix}2\\0\\1\end{pmatrix},\quad
+\boldsymbol x_2=\begin{pmatrix}9\\0\\9\end{pmatrix},\quad
+\boldsymbol x_3=\begin{pmatrix}1\\t\\8\end{pmatrix},\quad
+\boldsymbol0_3=\begin{pmatrix}0\\0\\0\end{pmatrix}.
+$$
+
+其中 $t$ 为实数，定义 $3\times3$ 矩阵 $X=(\boldsymbol x_1,\boldsymbol x_2,\boldsymbol x_3)$。
+
+(a) 求使 $\boldsymbol x_1,\boldsymbol x_2,\boldsymbol x_3$ 线性无关的 $t$ 的取值。
+
+(b) 设 $\boldsymbol c$ 为三维列向量。无论 $X^{\mathsf T}$ 是否可逆，证明若 $X^{\mathsf T}X\boldsymbol c=\boldsymbol0_3$，则 $X\boldsymbol c=\boldsymbol0_3$。右上标 $\mathsf T$ 表示转置。
+
+(c) 求使矩阵 $X^{\mathsf T}X$ 可逆的 $t$ 的取值。
+
+**(2)** 回答下列问题，$a$ 为正常数。
+
+(a) 将三维欧氏空间 $\mathbb R^3$ 中 $xz$ 平面上的曲线 $z=(x-a)^2$（$x\ge0$）绕 $z$ 轴旋转，证明所得曲面可写为
+
+$$
+z=\left(\sqrt{x^2+y^2}-a\right)^2.
+$$
+
+(b) 求函数 $f(x,y)=(\sqrt{x^2+y^2}-a)^2$ 的极值。
+
+**问2** 在 (1)、(2) 中选一题作答。
+
+**(1)** 三角形 $ABC$ 的边 $BC,CA,AB$ 的长度分别为 $a,b,c$。从三角形内部的点 $D$ 向三条直线 $BC,CA,AB$ 所作垂线的长度分别为 $x,y,z$，三角形面积记为 $S$。
+
+(a) 求 $x,y$ 的取值范围。
+
+(b) 求 $x^2+y^2+z^2$ 的极小值。
+
+(c) 证明 (b) 中求出的极小值也是最小值。
+
+(d) 求 $xyz$ 的最大值。
+
+**(2)** 设 $n$ 为自然数，$p\in(0,1)$、$t\in\mathbb R$、$\lambda>0$ 为常数。
+
+(a) 随机变量 $X$ 服从二项分布 $\operatorname{Bin}(n,p)$，概率质量函数为
+
+$$
+p_X(x)={}_nC_xp^x(1-p)^{n-x},\qquad x=0,1,\ldots,n.
+$$
+
+求期望 $E[\exp(tX)]$。
+
+(b) 随机变量 $Y$ 服从泊松分布 $\operatorname{Po}(\lambda)$，概率质量函数为
+
+$$
+p_Y(y)=\exp(-\lambda)\frac{\lambda^y}{y!},\qquad y=0,1,\ldots.
+$$
+
+求期望 $E[\exp(tY)]$。
+
+(c) 随机变量 $Z_n$ 服从二项分布 $\operatorname{Bin}(n,\lambda/n)$，其中 $n>\lambda$。求极限 $\lim_{n\to\infty}E[\exp(tZ_n)]$。
 
 ## **Kai**
 ### 問 1
@@ -166,7 +224,10 @@ $$
 回転前の座標を $\rho\ge0$ とすると、回転後の点は
 
 $$
-(x,y,z)=(\rho\cos\theta,\rho\sin\theta,(\rho-a)^2),\qquad 0\le\theta<2\pi.
+\begin{gathered}
+(x,y,z)=(\rho\cos\theta,\rho\sin\theta,(\rho-a)^2),\\
+0\le\theta<2\pi.
+\end{gathered}
 $$
 
 $\rho=\sqrt{x^2+y^2}$ より、曲面の式は
@@ -298,3 +359,7 @@ $$
 $$
 
 である。右辺は $\operatorname{Poisson}(\lambda)$ の積率母関数であり、$t=0$ の近傍で一致するので、$Z_n$ は $\operatorname{Poisson}(\lambda)$ に分布収束する。
+
+## **Reference**
+
+- [大学公式問題](https://www.econ.kyushu-u.ac.jp/wp-content/uploads/2019/11/2020-1_keizaisuugaku.pdf)

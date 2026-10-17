@@ -15,23 +15,41 @@ tags:
 
 ## **Description**
 
-図2、図3の CDB は L 字型の剛体であり、CD $=$ DB $=\ell$ である。A、C、および図3の F は固定されたピン支点、B はピン結合である。AB は水平となす角が $45^\circ$ の弾性棒、図3の FB は長さ $\ell$ の鉛直な弾性棒である。弾性棒のヤング率は $E$、直径は $d$。D に鉛直下向き荷重 $P$ を加える。
+次の各問に答えよ。（35点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_material-2-original.png)
+図2の問題について，
 
-図2について、次を求めよ。
+**1.** 棒ABに作用する力を求めよ。
 
-1. 棒 AB に作用する力。
-2. D の鉛直方向変位。
+**2.** 着力点Dの垂直方向変位を求めよ。
 
-図3について、次を求めよ。
+図3の問題について，
 
-3. 棒 AB、FB に作用する力。
-4. D の鉛直方向変位。
+**3.** 棒ABと棒FBに作用する力を求めよ。
+
+**4.** 着力点Dの垂直方向変位を求めよ。
+
+![原題の図2・図3：剛体と棒の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_material-2-original.png)
+
+図中，$E$ はヤング率，$\phi d$ は直径 $d$ を表す。CDBは剛体で，図示の長さは $\ell$，角度は $\pi/4$，点Dの下向き荷重は $P$ である。
 
 #### 题目描述
 
-图2、图3中的 CDB 为 L 形刚体，CD、DB 均长 $\ell$。C 为固定铰，AB 是与水平成 $45^\circ$ 的弹性杆；图3另加竖直弹性杆 FB，长 $\ell$。A、F 固定，各弹性杆的杨氏模量为 $E$、直径为 $d$。D 受向下力 $P$。分别求图2的 AB 轴力与 D 的竖直位移，以及图3的两杆轴力与 D 的竖直位移。
+回答下列问题。（35分）
+
+对于图2：
+
+**1.** 求杆AB所受的力。
+
+**2.** 求载荷作用点D的竖直位移。
+
+对于图3：
+
+**3.** 求杆AB与杆FB所受的力。
+
+**4.** 求载荷作用点D的竖直位移。
+
+图中 $E$ 为杨氏模量，$\phi d$ 表示直径 $d$。CDB为刚体，所示各段长度为 $\ell$，角度为 $\pi/4$，点D承受向下的载荷 $P$；各铰接及构件位置如图。
 
 ## **Kai**
 
@@ -46,8 +64,10 @@ $$
 AB の引張力を $N_{AB}$ とする。C まわりのモーメントのつり合いより
 
 $$
-\sqrt2\ell N_{AB}=P\ell,
-\qquad\boxed{N_{AB}=\frac{P}{\sqrt2}\quad\text{（引張り）}}.
+\begin{gathered}
+\sqrt2\ell N_{AB}=P\ell,\\
+\boxed{N_{AB}=\frac{P}{\sqrt2}\quad\text{（引張り）}}.
+\end{gathered}
 $$
 
 ### (2)
@@ -79,8 +99,11 @@ $$
 よって
 
 $$
-\boxed{N_{AB}=N_{FB}=\frac{P}{1+\sqrt2}
-=(\sqrt2-1)P\quad\text{（引張り）}}.
+\boxed{\begin{gathered}
+N_{AB}=N_{FB}=\frac{P}{1+\sqrt2}
+=(\sqrt2-1)P\\
+\text{（引張り）}
+\end{gathered}}.
 $$
 
 ### (4)

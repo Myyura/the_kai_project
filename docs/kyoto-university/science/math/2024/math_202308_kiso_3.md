@@ -86,11 +86,11 @@ $$
 が存在するので、
 
 $$
-\begin{aligned}
-V \subset \mathrm{Ker}(f^m) + \mathrm{Im}(f^m)
-\ \ \ \ \left( = \left\{ u+w \mid
-u \in \mathrm{Ker}(f^m), w \in \mathrm{Im}(f^m) \right\} \right)
-\end{aligned}
+\begin{gathered}
+V\subset\mathrm{Ker}(f^m)+\mathrm{Im}(f^m),\\
+\mathrm{Ker}(f^m)+\mathrm{Im}(f^m)\\
+=\left\{u+w\mid u\in\mathrm{Ker}(f^m),\ w\in\mathrm{Im}(f^m)\right\}.
+\end{gathered}
 $$
 
 がわかる。

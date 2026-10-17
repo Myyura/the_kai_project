@@ -53,7 +53,14 @@ $$
 
 (1) 求 $A$ 的秩。
 
-(2) 求使方程组 $A(x_1,x_2,x_3,x_4)^{\mathsf T}=(1,1,1)^{\mathsf T}$ 有解的全部参数 $(a,b)$。
+(2) 求使线性方程组
+
+$$
+A\begin{pmatrix}x_1\\x_2\\x_3\\x_4\end{pmatrix}
+=\begin{pmatrix}1\\1\\1\end{pmatrix}
+$$
+
+有解的全部实数 $a,b$。
 
 ## **Kai**
 

@@ -15,18 +15,29 @@ tags:
 
 ## **Description**
 
-理想気体の可逆ガスサイクル A は、断熱圧縮 $1\to2$、等積加熱 $2\to3$、断熱膨張 $3\to4$、等積放熱 $4\to5$、等圧放熱 $5\to1$ からなる。各状態の比体積を $v_i$ とし、$v_1/v_2=\varepsilon_C$、$v_4/v_3=\varepsilon_E$、$\varepsilon_C<\varepsilon_E$ とする。温度 $T_1,T_3$、一定の定積比熱 $c_v$、比熱比 $\kappa$ を用いて答えよ。（60 点）
+次の状態変化を行うガスサイクルAがある。1→2は断熱圧縮過程，2→3は等積加熱過程，3→4は断熱膨張過程，4→5は等積放熱過程，5→1は等圧放熱過程で，全ての状態変化は可逆過程である。状態1，2，3，4における作動ガスの比体積を $v_1,v_2,v_3,v_4$ とするとき，$v_1/v_2=\varepsilon_C$，$v_4/v_3=\varepsilon_E$，$\varepsilon_C<\varepsilon_E$ とする。状態1および状態3における作動ガスの温度は，それぞれ $T_1,T_3$ である。作動ガスは温度によらず比熱が一定の理想気体とし，その定積比熱を $c_v$，比熱比を $\kappa$ とする。以下の問いに答えよ。（60点）
 
-1. $T_2,T_4,T_5$ を求めよ。
-2. 各過程の比エントロピー変化 $\Delta s_{12},\Delta s_{23},\Delta s_{34},\Delta s_{45},\Delta s_{51}$ を求めよ。
-3. A の断熱膨張を $v=v_1$ の状態 4B で止め、等積放熱で 1 に戻るサイクル B を考える。A、B の $T$–$s$ 線図を同じ図に描き、熱効率を比較して理由を述べよ。
-4. 1、2 は B と同じだが、$2\to3\mathrm C$ を等圧加熱、$3\mathrm C\to4\mathrm C$ を断熱膨張、$4\mathrm C\to1$ を等積放熱とする C を考える。C の加熱量は B と同じである。同じ $T$–$s$ 図に C を描き、B と C の効率を比較して理由を述べよ。
+**(1)** 状態2，状態4，状態5における作動ガスの温度 $T_2,T_4,T_5$ を，$T_1,T_3,\varepsilon_C,\varepsilon_E,\kappa$ を用いて表せ。
 
-![T–s 線図の解答座標（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-1-original.png)
+**(2)** 作動ガスの比エントロピーを $s$ とし，1→2，2→3，3→4，4→5，5→1の各過程における作動ガスの比エントロピー変化量 $\Delta s_{12},\Delta s_{23},\Delta s_{34},\Delta s_{45},\Delta s_{51}$ を $T_1,T_3,\varepsilon_C,\varepsilon_E,c_v,\kappa$ を用いて表せ。
+
+**(3)** サイクルAの状態3からの断熱膨張過程を作動ガスの比体積が $v_1$ となる状態4Bで止め，その状態4Bから状態1に等積放熱過程により戻るサイクルBを考える。サイクルA，Bの $T$–$s$ 線図を同じ線図上に描き，サイクルAとBの熱効率のうち，どちらの方が大きいかを示し，その理由を説明せよ。
+
+**(4)** 状態1，状態2は，サイクルBと同一であるが，状態2から等圧加熱過程で状態3Cとなり，さらに状態3Cから断熱膨張過程で状態4Cとなり，状態4Cから等積放熱過程により状態1に戻るサイクルCがある。ただし，2→3Cでの加熱量は，サイクルBでの加熱量と同一である。このサイクルCの $T$–$s$ 線図を問(3)と同じ線図上に描き，サイクルBとCの熱効率のうち，どちらの方が大きいかを示し，その理由を説明せよ。
+
+![原題のT–s線図解答座標](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-1-original.png)
 
 #### 题目描述
 
-理想气体循环 A 包含等熵压缩、定容加热、等熵膨胀、定容放热、定压放热，压缩比 $\varepsilon_C$ 小于膨胀比 $\varepsilon_E$。给定 $T_1,T_3,c_v,\kappa$，求其余温度及各段熵变。将膨胀提前结束在初始体积、再定容放热得到 B；将 B 的定容加热改为等热量定压加热得到 C。画三者的 $T$–$s$ 图，比较 A 与 B、B 与 C 的效率。
+气体循环A由以下过程构成：1→2绝热压缩，2→3等容加热，3→4绝热膨胀，4→5等容放热，5→1等压放热；所有状态变化均可逆。状态1、2、3、4的比体积分别为 $v_1,v_2,v_3,v_4$，满足 $v_1/v_2=\varepsilon_C$、$v_4/v_3=\varepsilon_E$、$\varepsilon_C<\varepsilon_E$。状态1、3的温度分别为 $T_1,T_3$。工质为比热不随温度变化的理想气体，定容比热为 $c_v$，比热比为 $\kappa$。回答下列问题。（60分）
+
+**(1)** 用 $T_1,T_3,\varepsilon_C,\varepsilon_E,\kappa$ 表示状态2、4、5的温度 $T_2,T_4,T_5$。
+
+**(2)** 以 $s$ 表示工质的比熵，用 $T_1,T_3,\varepsilon_C,\varepsilon_E,c_v,\kappa$ 表示1→2、2→3、3→4、4→5、5→1各过程的比熵变化量 $\Delta s_{12},\Delta s_{23},\Delta s_{34},\Delta s_{45},\Delta s_{51}$。
+
+**(3)** 将循环A从状态3开始的绝热膨胀在比体积达到 $v_1$ 的状态4B停止，再由4B等容放热回到状态1，构成循环B。在同一张 $T$–$s$ 图中画出A、B，指出哪一个循环热效率较高并解释原因。
+
+**(4)** 循环C的状态1、2与B相同，但从状态2等压加热到状态3C，再从3C绝热膨胀到状态4C，最后由4C等容放热返回状态1。2→3C的加热量与循环B的加热量相同。在(3)的同一张 $T$–$s$ 图中画出C，指出B、C中哪一个热效率较高并解释原因。
 
 ## **Kai**
 
@@ -35,9 +46,11 @@ tags:
 断熱過程では $Tv^{\kappa-1}$ が一定、$5\to1$ では $T/v$ が一定なので
 
 $$
-\boxed{T_2=T_1\varepsilon_C^{\kappa-1},\qquad
-T_4=T_3\varepsilon_E^{1-\kappa},\qquad
-T_5=T_1\frac{\varepsilon_E}{\varepsilon_C}.}
+\boxed{\begin{gathered}
+T_2=T_1\varepsilon_C^{\kappa-1},\\
+T_4=T_3\varepsilon_E^{1-\kappa},\\
+T_5=T_1\frac{\varepsilon_E}{\varepsilon_C}.
+\end{gathered}}
 $$
 
 ### (2)
@@ -49,8 +62,10 @@ $$
 $$
 
 $$
-\boxed{\Delta s_{23}=c_v\ln\frac{T_3}{T_1\varepsilon_C^{\kappa-1}},\qquad
-\Delta s_{45}=c_v\ln\frac{T_1\varepsilon_E^\kappa}{T_3\varepsilon_C},}
+\boxed{\begin{gathered}
+\Delta s_{23}=c_v\ln\frac{T_3}{T_1\varepsilon_C^{\kappa-1}},\\
+\Delta s_{45}=c_v\ln\frac{T_1\varepsilon_E^\kappa}{T_3\varepsilon_C},
+\end{gathered}}
 $$
 
 $$
@@ -73,9 +88,11 @@ $$
 $r=\varepsilon_E/\varepsilon_C>1$、$t=T_{4B}/T_1$ とおく。A の $4\to5$ が放熱である条件 $T_4\ge T_5$ から $t\ge r^\kappa$。よって
 
 $$
-\frac{q_{\mathrm{out},B}-q_{\mathrm{out},A}}{c_vT_1}
-=t(1-r^{1-\kappa})-(\kappa-1)(r-1)
+\begin{gathered}
+\frac{q_{\mathrm{out},B}-q_{\mathrm{out},A}}{c_vT_1}\\
+=t(1-r^{1-\kappa})-(\kappa-1)(r-1)\\
 \ge r^\kappa-\kappa r+\kappa-1>0.
+\end{gathered}
 $$
 
 最後の不等式は $r^\kappa$ の凸性による。等しい加熱量に対して A の放熱が小さいので $\boxed{\eta_A>\eta_B}$。
@@ -85,8 +102,10 @@ $$
 等加熱量の条件から
 
 $$
-\kappa c_v(T_{3C}-T_2)=c_v(T_3-T_2),\qquad
+\begin{gathered}
+\kappa c_v(T_{3C}-T_2)=c_v(T_3-T_2),\\
 T_{3C}=T_2+\frac{T_3-T_2}{\kappa}.
+\end{gathered}
 $$
 
 $a=T_3/T_2>1$、$b=T_{3C}/T_2=1+(a-1)/\kappa$ とする。等圧加熱では $v_{3C}/v_2=b$ だから

@@ -1,5 +1,5 @@
 ---
-sidebar_label: '2019年8月実施 問題3 情報工学I'
+sidebar_label: '2020年8月実施 問題3 情報工学I'
 tags:
   - Tokyo-University
   - Computer-Science.Information-Theory.Channel-Capacity
@@ -8,7 +8,7 @@ tags:
   - Electrical-Electronic.Signal-Processing.Infinite-Impulse-Response-Filter-Transfer-Function-and-Realization
 ---
 
-# 東京大学 工学系研究科 電気系工学専攻 2019年8月実施 問題3 情報工学I
+# 東京大学 工学系研究科 電気系工学専攻 2020年8月実施 問題3 情報工学I
 
 
 ## **Author**
@@ -27,44 +27,63 @@ You may also use the following approximations upon necessity: $\log_23 = 1.585$,
 - (1-i) Obtain the entropies $H[X]$ and $H[Y]$ and the conditional entropy $H[Y|X]$ of $C$.
 - (1-ii) Obtain the channel capacity of $C$.
 
-(2) Assume that $Z_1$ takes either $1$ or $-1$ with equal probability and that, for $i \ge 2$, the value of $Z_i$ becomes the same as the previous output value $Y_{i-1}$ with probability $1$ as $Z_i = Y_{i-1}$.Obtain the maximum bits that can be transmitted by using this channel $n$ times.
+(2) Assume that $Z_1$ takes either $1$ or $-1$ with equal probability and that, for $i \ge 2$, the value of $Z_i$ becomes the same as the previous output value $Y_{i-1}$ with probability $1$ as $Z_i = Y_{i-1}$. Obtain the maximum bits that can be transmitted by using this channel $n$ times.
 
-(3) Assume that $Z_i$ takes either $1$ or $-1$ with equal probability when $i$ is odd and that $Z_i$ keeps its previous value with probability $1$ as $Z_i = Z_{i-1}$ when $i$ is even.Obtain the channel capacity of $C$ and show a code that can achieve the capacity.
+(3) Assume that $Z_i$ takes either $1$ or $-1$ with equal probability when $i$ is odd and that $Z_i$ keeps its previous value with probability $1$ as $Z_i = Z_{i-1}$ when $i$ is even. Obtain the channel capacity of $C$ and show a code that can achieve the capacity.
 
-(4) Assume that $Z_1 = 1$ with probability $1$ and that, for $i \ge 2$, the value of $Z_i$ becomes the same as the previous input value $X_{i-1}$ with probability $1$ as $Z_i = X_{i-1}$. Let $X_i$ be an ideally independent random variable that takes $X_i = 1$ with probability $\mu$ and $X_i = -1$ with probability $1 - \mu$.Calculate the probability $q$ that $Y_i = 1$ at the stationary state for sufficiently large $i$.
+(4) Assume that $Z_1 = 1$ with probability $1$ and that, for $i \ge 2$, the value of $Z_i$ becomes the same as the previous input value $X_{i-1}$ with probability $1$ as $Z_i = X_{i-1}$. Let $X_i$ be an ideally independent random variable that takes $X_i = 1$ with probability $\mu$ and $X_i = -1$ with probability $1 - \mu$. Calculate the probability $q$ that $Y_i = 1$ at the stationary state for sufficiently large $i$.
 
 ### II
-Answer the following questions on signal processing. Consider the two infinite impulse response systems shown in Figs. $1$ and $2$. $x_1(n)$ and $y_1(n)$  are the input and output signal sequences of system $1$ in Fig. $1$, respectively, and represent the signal values at time $nT(T > 0)$ for $n = 0,1,\cdots$.Similarly, $x_2(n)$ and $y_2(n)$ are the input and output sequences of system $2$ in Fig. $2$. The circuits consist of adders, coefficient multipliers, and delays, whose respective functions are described in Fig. $3$. 
+Answer the following questions on signal processing. Consider the two infinite impulse response systems shown in Figs. $1$ and $2$. $x_1(n)$ and $y_1(n)$  are the input and output signal sequences of system $1$ in Fig. $1$, respectively, and represent the signal values at time $nT(T > 0)$ for $n = 0,1,\cdots$. Similarly, $x_2(n)$ and $y_2(n)$ are the input and output sequences of system $2$ in Fig. $2$. The circuits consist of adders, coefficient multipliers, and delays, whose respective functions are described in Fig. $3$.
 
-(1) Obtain the impulse response of system $1$, $h_1(n)$, and its $z$-transform $H_1(z)$. 
+(1) Obtain the impulse response of system $1$, $h_1(n)$, and its $z$-transform $H_1(z)$.
 
-(2) Calculate the frequency response of system 1 and explain the filtering function of this system on the input signal. 
+(2) Calculate the frequency response of system 1 and explain the filtering function of this system on the input signal.
 
-(3) Obtain the parameter values of $a,b$ and $c$ that makes system $2$ equivalent to system $1$. 
+(3) Obtain the parameter values of $a,b$ and $c$ that makes system $2$ equivalent to system $1$.
 
-(4) Draw an equivalent circuit of system $2$ that has a smaller number of delays than the original system $2$ shown in Fig. $2$. 
+(4) Draw an equivalent circuit of system $2$ that has a smaller number of delays than the original system $2$ shown in Fig. $2$.
 
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2020/eeis_201908_3_p1.png" width="600" height="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2021/eeis_202008_3_information_I_p1.png" width="600" alt=""/>
 </figure>
 
-### 题目描述
+#### 题目描述
 
-本题分为信息论和信号处理两部分。
+**I. 信息论**
 
-I. 设离散时间通信信道 $C$ 的输入、输出均取 $\{-1,1\}$，第 $i$ 次通信满足 $Y_i=Z_iX_i$。内部状态 $Z_i\in\{-1,1\}$ 可依赖当前或过去的输入以及过去的输出，但收发双方不能直接观测它，只知道其演化规律。所有对数以 $2$ 为底，可按需使用题中给出的对数近似值。
+回答以下信息论问题。设通过离散时间通信信道 $C$ 传输信息，其输入和输出分别为 $X\in\{-1,1\}$ 和 $Y\in\{-1,1\}$。第 $i$ 次通信的输入输出关系为
 
-1. 当各 $X_i$ 独立且 $\Pr(X_i=1)=\mu$，并且 $X_i=1$ 时 $Z_i=1$、$X_i=-1$ 时 $Z_i$ 等概率取 $\pm1$，求 $H[X]$、$H[Y]$、$H[Y\mid X]$，进而求信道容量。
-2. 当 $Z_1$ 等概率取 $\pm1$，且 $i\ge2$ 时恒有 $Z_i=Y_{i-1}$，求使用该信道 $n$ 次最多能够传输的比特数。
-3. 每个奇数时刻的 $Z_i$ 等概率取 $\pm1$，每个偶数时刻保持前一时刻状态，即 $Z_i=Z_{i-1}$。求信道容量，并给出达到该容量的编码。
-4. 当 $Z_1=1$，且 $i\ge2$ 时 $Z_i=X_{i-1}$；各输入仍独立并满足 $\Pr(X_i=1)=\mu$。求充分大 $i$ 时稳态下 $\Pr(Y_i=1)=q$。
+$$
+Y_i=Z_i\times X_i\qquad(i=1,2,\ldots),
+$$
 
-II. 对图 1、图 2 所示的两个无限冲激响应离散系统，输入输出分别为 $x_1(n),y_1(n)$ 与 $x_2(n),y_2(n)$，电路由图 3 定义的加法器、系数乘法器和延时器组成。
+其中 $\times$ 表示整数乘法。$Z_i\in\{-1,1\}$ 为信道在第 $i$ 次通信时的内部状态，其值可随当前或过去的输入状态以及过去的输出状态而变化。发送方和接收方均不能直接观测 $Z_i$，但可以知道它如何随输入、输出变化。以下各问均使用以 $2$ 为底的对数，必要时可使用近似值 $\log_2 3=1.585$、$\log_2 5=2.322$、$\log_2 7=2.807$。
 
-1. 求系统 1 的冲激响应 $h_1(n)$ 及其 $z$ 变换 $H_1(z)$。
-2. 求系统 1 的频率响应，并说明它对输入信号实现何种滤波。
-3. 求使系统 2 与系统 1 等效的参数 $a,b,c$。
-4. 画出与系统 2 等效、但使用更少延时器的电路。
+(1) 令 $X_i$ 为理想独立随机变量，以概率 $\mu$ 取 $1$，以概率 $1-\mu$ 取 $-1$。假设当 $X_i=1$ 时，$Z_i$ 以概率 $1$ 取 $1$；当 $X_i=-1$ 时，$Z_i$ 等概率取 $1$ 或 $-1$。
+
+- (1-i) 求信道 $C$ 的熵 $H[X]$、$H[Y]$ 及条件熵 $H[Y\mid X]$。
+- (1-ii) 求信道 $C$ 的容量。
+
+(2) 假设 $Z_1$ 等概率取 $1$ 或 $-1$；对于 $i\ge2$，$Z_i$ 以概率 $1$ 等于上一次的输出，即 $Z_i=Y_{i-1}$。求使用该信道 $n$ 次最多能传输多少比特。
+
+(3) 假设当 $i$ 为奇数时，$Z_i$ 等概率取 $1$ 或 $-1$；当 $i$ 为偶数时，$Z_i$ 以概率 $1$ 保持上一次的值，即 $Z_i=Z_{i-1}$。求信道 $C$ 的容量，并给出达到此容量的编码。
+
+(4) 假设 $Z_1$ 以概率 $1$ 取 $1$；对于 $i\ge2$，$Z_i$ 以概率 $1$ 等于上一次的输入，即 $Z_i=X_{i-1}$。令 $X_i$ 为理想独立随机变量，以概率 $\mu$ 取 $1$，以概率 $1-\mu$ 取 $-1$。计算 $i$ 充分大、达到稳态时 $Y_i=1$ 的概率 $q$。
+
+**II. 信号处理**
+
+回答以下信号处理问题。考虑图 1、图 2 所示的两个无限冲激响应系统。$x_1(n)$ 和 $y_1(n)$ 分别为图 1 中系统 1 的输入、输出信号序列，表示时刻 $nT$（$T>0$，$n=0,1,\ldots$）的信号值。同样，$x_2(n)$ 和 $y_2(n)$ 分别为图 2 中系统 2 的输入、输出序列。电路由加法器、系数乘法器和延时器构成，其各自功能见图 3。
+
+(1) 求系统 1 的冲激响应 $h_1(n)$ 及其 $z$ 变换 $H_1(z)$。
+
+(2) 计算系统 1 的频率响应，并说明它对输入信号的滤波功能。
+
+(3) 求使系统 2 与系统 1 等效的参数 $a,b,c$。
+
+(4) 画出与系统 2 等效，但延时器数量少于图 2 中原系统 2 的电路。
+
+![图1、图2：两个系统；图3：加法器、系数乘法器、延时器](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2021/eeis_202008_3_information_I_p1.png)
 
 ## **Kai**
 ### I
@@ -80,9 +99,13 @@ $$
 $$
 \begin{aligned}
 H[Y] &= \mathcal{H}(0.5(1 - \mu)) \\
-&= -0.5(1 - \mu)\log0.5(1 - \mu) - 0.5(1 + \mu)\log0.5(1 + \mu) \\
-&= -0.5(1 - \mu)\log(1 - \mu) - 0.5(1 + \mu)\log(1 + \mu) - 0.5(1 - \mu)\log0.5 - 0.5(1 + \mu)\log0.5 \\
-&= -0.5(1 - \mu)\log(1 - \mu) - 0.5(1 + \mu)\log(1 + \mu) + 1 \\
+&= -0.5(1 - \mu)\log0.5(1 - \mu) \\
+&\quad - 0.5(1 + \mu)\log0.5(1 + \mu) \\
+&= -0.5(1 - \mu)\log(1 - \mu) \\
+&\quad - 0.5(1 + \mu)\log(1 + \mu) \\
+&\quad - 0.5(1 - \mu)\log0.5 - 0.5(1 + \mu)\log0.5 \\
+&= -0.5(1 - \mu)\log(1 - \mu) \\
+&\quad - 0.5(1 + \mu)\log(1 + \mu) + 1 \\
 \end{aligned}
 $$
 
@@ -134,7 +157,11 @@ $$
 通信路は $2$ 元対称通信路として考えられることから、奇数回目の時、
 
 $$
-C_{\text{奇数回目}} = \max I(X;Y) = \max(H[Y]) - H[Y|X] = 1 - \mathcal{H}(0.5) = 0
+\begin{aligned}
+C_{\text{奇数回目}}&=\max I(X;Y)\\
+&=\max(H[Y])-H[Y|X]\\
+&=1-\mathcal{H}(0.5)=0.
+\end{aligned}
 $$
 
 連続した奇数回目と偶数回目を一つの符号とすると、受信側は
@@ -199,7 +226,7 @@ $$
 #### (4)
 
 <figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2020/eeis_201908_3_p2.png" width="460" height="220" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2021/eeis_202008_3_information_I_p2.png" width="460" height="220" alt=""/>
 </figure>
 
 ## **Reference**

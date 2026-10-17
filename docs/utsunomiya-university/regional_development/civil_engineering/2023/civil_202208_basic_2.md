@@ -14,17 +14,27 @@ tags:
 
 ## **Description**
 
-行列
+次の行列 $A$ について，以下の問いに答えなさい。
 
 $$
 A=\begin{pmatrix}0&2&2\\1&1&1\\3&-3&1\end{pmatrix}
 $$
 
-について、(1) 逆行列、(2) 固有値を求めよ。
+(1) 行列 $A$ の逆行列を求めなさい。
+
+(2) 行列 $A$ の固有値を求めなさい。
 
 #### 题目描述
 
-对矩阵 $A=\begin{pmatrix}0&2&2\\1&1&1\\3&-3&1\end{pmatrix}$，(1) 求逆矩阵；(2) 求特征值。
+对于以下矩阵 $A$，回答问题。
+
+$$
+A=\begin{pmatrix}0&2&2\\1&1&1\\3&-3&1\end{pmatrix}
+$$
+
+(1) 求矩阵 $A$ 的逆矩阵。
+
+(2) 求矩阵 $A$ 的特征值。
 
 ## **Kai**
 
@@ -45,8 +55,10 @@ $$
 ### (2)
 
 $$
-\det(\lambda I-A)=\lambda^3-2\lambda^2-4\lambda+8
+\begin{gathered}
+\det(\lambda I-A)=\lambda^3-2\lambda^2-4\lambda+8\\
 =(\lambda+2)(\lambda-2)^2.
+\end{gathered}
 $$
 
 よって固有値は $\boxed{-2,\ 2}$ であり、$2$ の代数的重複度は $2$。

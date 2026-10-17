@@ -29,13 +29,13 @@ $$
 
 #### 题目描述
 
-在 $\mathbb R^n$ 中取欧氏距离
+设 $n$ 为正整数，在 $\mathbb R^n$ 中取两点 $x=(x_1,\ldots,x_n)$、$y=(y_1,\ldots,y_n)$ 的距离
 
 $$
 d(x,y)=\sqrt{\sum_{j=1}^n(x_j-y_j)^2}.
 $$
 
-对任意非空集合 $A\subset\mathbb R^n$，定义 $f(x)=\inf_{z\in A}d(x,z)$。证明任意 $x,y\in\mathbb R^n$ 都满足
+对任意非空集合 $A\subset\mathbb R^n$，定义函数 $f:\mathbb R^n\to\mathbb R$ 为 $f(x)=\inf_{z\in A}d(x,z)$。证明任意 $x,y\in\mathbb R^n$ 都满足
 
 $$
 |f(x)-f(y)|\le d(x,y).

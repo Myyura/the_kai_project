@@ -55,22 +55,29 @@ $$
 ### (1)
 
 $$
-F_1=x^2+y^2+z^2+w^2,\qquad F_2=xy+zw
+\begin{gathered}
+F_1=x^2+y^2+z^2+w^2,\\
+F_2=xy+zw
+\end{gathered}
 $$
 
 と置く。$q=(x,y,z,w)\in M$ では
 
 $$
-\nabla F_1=2(x,y,z,w),\qquad
+\begin{gathered}
+\nabla F_1=2(x,y,z,w),\\
 \nabla F_2=(y,x,w,z).
+\end{gathered}
 $$
 
 これらは
 
 $$
-\|\nabla F_1\|^2=4,\qquad
-\|\nabla F_2\|^2=1,\qquad
+\begin{gathered}
+\|\nabla F_1\|^2=4,\\
+\|\nabla F_2\|^2=1,\\
 \nabla F_1\cdot\nabla F_2=4(xy+zw)=0
+\end{gathered}
 $$
 
 を満たすので、一次独立である。したがって $(F_1,F_2):\mathbb R^4\to\mathbb R^2$ の微分は $M$ 上で階数 $2$ を持つ。陰関数定理より $M=(F_1,F_2)^{-1}(1,0)$ は $4-2=2$ 次元微分可能多様体である。

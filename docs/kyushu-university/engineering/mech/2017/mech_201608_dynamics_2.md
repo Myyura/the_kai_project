@@ -13,18 +13,29 @@ tags:
 
 ## **Description**
 
-図の二つの円板は中心 O₁、O₂ まわりに回転でき、軸まわりの極慣性モーメントを $I_1,I_2$、半径を $R_1,R_2$ とする。円板に巻かれたひもは、上下二つのばね定数 $k$ のばねを介してつながる。平衡状態でひもとばねはたわまずに張られており、そこからの微小回転角を $\theta_1,\theta_2$ とする。ひもは伸びず、質量は無視でき、円板との間に滑りはない。（50 点）
+図のように中心 $\mathrm{O}_1,\mathrm{O}_2$ まわりに回転でき、回転軸まわりの極慣性モーメントがそれぞれ $I_1,I_2$、半径が $R_1,R_2$ の円板がある。両円板にはひもが巻かれており、ばね定数 $k$ のばねを介してつながれている。平衡状態において、ひもとばねはたわまずに張られており、平衡状態からの各円板の回転角を $\theta_1,\theta_2$ とする。ひもは伸びずに質量を無視でき、ひもと円板は滑らないものとする。$\theta_1,\theta_2$ は微小として以下の問いに答えよ。（50点）
 
-![二円板と二つのばね（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_dynamics-2-original.png)
+**(1)** $\mathrm{O}_1,\mathrm{O}_2$ まわりの回転の運動方程式を求め、行列表示せよ。
 
-1. 両円板の回転の運動方程式を行列表示せよ。
-2. 固有角振動数 $\omega_1<\omega_2$ と固有モード $\boldsymbol X_1,\boldsymbol X_2$ を求めよ。
-3. モード座標 $\xi_1,\xi_2$ を定義し、非連成の運動方程式を導出せよ。
-4. $\xi_1,\xi_2$ の一般解を求めよ。
+**(2)** 固有角振動数 $\omega_1,\omega_2\ (\omega_1<\omega_2)$ と固有モード $\boldsymbol{X}_1,\boldsymbol{X}_2$ を求めよ。
+
+**(3)** モード座標 $\xi_1,\xi_2$ を定義し、各モード座標に関する非連成の方程式を導出せよ。
+
+**(4)** $\xi_1,\xi_2$ の一般解を求めよ。
+
+![二円板と二つのばねの原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_dynamics-2-original.png)
 
 #### 题目描述
 
-两圆盘的转动惯量为 $I_1,I_2$、半径为 $R_1,R_2$，绕固定中心转动。上下两条不可伸长的轻绳各串联一根刚度 $k$ 的弹簧，平衡时绳与弹簧张紧，绳盘无滑动。以图示同向角度求线性运动方程、两个固有频率和模态、模态解耦方程及通解。
+如图，两个圆盘分别可绕中心 $\mathrm{O}_1,\mathrm{O}_2$ 转动，绕转轴的极转动惯量分别为 $I_1,I_2$，半径分别为 $R_1,R_2$。两个圆盘上缠绕细绳，并通过弹簧常数为 $k$ 的弹簧相连。平衡时细绳和弹簧均绷紧、不松弛。两圆盘相对平衡状态的转角为 $\theta_1,\theta_2$。细绳不可伸长、质量可忽略，绳与圆盘之间不滑动。设 $\theta_1,\theta_2$ 微小，回答下列问题。（50分）
+
+**(1)** 求绕 $\mathrm{O}_1,\mathrm{O}_2$ 转动的运动方程，并用矩阵表示。
+
+**(2)** 求固有角频率 $\omega_1,\omega_2\ (\omega_1<\omega_2)$ 和固有振型 $\boldsymbol{X}_1,\boldsymbol{X}_2$。
+
+**(3)** 定义模态坐标 $\xi_1,\xi_2$，推导各模态坐标的解耦方程。
+
+**(4)** 求 $\xi_1,\xi_2$ 的通解。
 
 ## **Kai**
 
@@ -64,8 +75,10 @@ $$
 質量正規化したベクトルを
 
 $$
-\boldsymbol\phi_1=\frac{(R_2,R_1)^T}{\sqrt{I_1R_2^2+I_2R_1^2}},\qquad
+\begin{gathered}
+\boldsymbol\phi_1=\frac{(R_2,R_1)^T}{\sqrt{I_1R_2^2+I_2R_1^2}},\\
 \boldsymbol\phi_2=\frac{(R_1/I_1,-R_2/I_2)^T}{\sqrt D}
+\end{gathered}
 $$
 
 とし、$\Phi=(\boldsymbol\phi_1\ \boldsymbol\phi_2)$、$\boldsymbol\theta=\Phi\boldsymbol\xi$ と定義する。$\Phi^TM\Phi=I$、$\Phi^TK\Phi=\operatorname{diag}(0,2kD)$ だから
@@ -77,8 +90,10 @@ $$
 ### (4)
 
 $$
-\boxed{\xi_1=A+Bt,\qquad
-\xi_2=C\cos\omega_2t+D_0\sin\omega_2t.}
+\boxed{\begin{gathered}
+\xi_1=A+Bt,\\
+\xi_2=C\cos\omega_2t+D_0\sin\omega_2t.
+\end{gathered}}
 $$
 
 なお、平衡張力が厳密にゼロで、ひもが圧縮力を伝えず片側がたるむ別の条件では、張力を $k\max(\delta,0)$ と $k\max(-\delta,0)$ とする。この場合の張力差は $k\delta$ となり、上式の $2k$ を $k$ に置き換える。固有モードは変わらず、非零固有角振動数は $\sqrt{kD}$ となる。

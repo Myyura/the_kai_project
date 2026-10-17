@@ -14,30 +14,79 @@ tags:
 
 ## **Description**
 
-測度空間 $(X,\mathcal F,\mu)$ 上の非負実数値可積分関数の集合 $\mathcal C$ が次を満たすとする。
+$(X,\mathcal F,\mu)$ を測度空間とする。$X$ 上の非負実数値可積分関数を要素とする集合 $\mathcal C$ が次の(A)，(B)，(C)を満たすと仮定する。
 
-- $\mathcal C\ne\varnothing$。
-- $f,g\in\mathcal C$ ならば $\max\{f,g\}\in\mathcal C$。
-- $M=\sup\{\int_X f\,d\mu:f\in\mathcal C\}<\infty$。
+(A) 集合 $\mathcal C$ は空でない。
 
-(i) 非負実数値可積分関数 $\varphi$ で、各 $f\in\mathcal C$ に対して $f\le\varphi$ が $\mu$-ほとんど至る所で成り立ち、$\int_X\varphi\,d\mu=M$ となるものが存在することを示せ。
+(B) $f,g\in\mathcal C$ ならば，$h(x)=\max\{f(x),g(x)\},\ (x\in X)$ により定まる関数 $h$ も $\mathcal C$ に属する。
 
-(ii) この $\varphi$ について、$\mu(A)>0$ なる任意の $A\in\mathcal F$ に対し
+(C) $M=\sup\left\{\int_X f\,d\mu\mid f\in\mathcal C\right\}$ とするとき，$M$ は有限値。
+
+このとき，以下の問に答えよ。
+
+(i) 次の2条件(1)，(2)を同時に満たす $X$ 上の非負実数値可積分関数 $\varphi$ が存在することを示せ。
+
+(1) すべての $f\in\mathcal C$ に対して，$f(x)\le\varphi(x)$ が $\mu$ に関してほとんどすべての $x$ について成り立つ。
+
+(2) $\displaystyle\int_X\varphi\,d\mu=M$。
+
+(ii) (i)における $\varphi$ は次の性質(*)を持つことを示せ。
+
+(*) $\mu(A)>0$ なる任意の $A\in\mathcal F$ に対して，
 
 $$
-\sup_{f\in\mathcal C}\operatorname*{ess\,sup}_{A}f
-=\operatorname*{ess\,sup}_{A}\varphi
+\sup\left\{\operatorname*{ess\,sup}_{A}f\mid f\in\mathcal C\right\}
+=\operatorname*{ess\,sup}_{A}\varphi.
 $$
 
-を示せ。ここで $\operatorname*{ess\,sup}_A g=\inf\{\alpha\in\mathbb R:\mu(\{x\in A:g(x)>\alpha\})=0\}$、$\inf\varnothing=\infty$ とする。
+ここで，$\mu(A)>0$ なる $A\in\mathcal F$ と $X$ 上の非負実数値可測関数 $g$ に対して
+
+$$
+\begin{aligned}
+\operatorname*{ess\,sup}_{A}g
+=\inf\bigl\{\alpha\in\mathbb R\mid {}&\mu(\{x\in A\mid g(x)>\alpha\})=0\bigr\}
+\end{aligned}
+$$
+
+である。ただし $\inf\varnothing=\infty$ とする。
 
 #### 题目描述
 
-在测度空间 $(X,\mathcal F,\mu)$ 上，非空非负实值可积函数族 $\mathcal C$ 对逐点取最大值封闭，且 $M=\sup_{f\in\mathcal C}\int_X f\,d\mu<\infty$。
+设 $(X,\mathcal F,\mu)$ 为测度空间。假设以 $X$ 上非负实值可积函数为元素的集合 $\mathcal C$ 满足下列(A)、(B)、(C)。
 
-(i) 证明存在非负实值可积函数 $\varphi$，使每个 $f\in\mathcal C$ 都满足 $f\le\varphi$ 几乎处处，且 $\int_X\varphi\,d\mu=M$。
+(A) $\mathcal C$ 非空。
 
-(ii) 对任意正测度可测集 $A$，证明 $\sup_{f\in\mathcal C}\operatorname*{ess\,sup}_A f=\operatorname*{ess\,sup}_A\varphi$。本质上确界定义为 $\inf\{\alpha\in\mathbb R:\mu(\{x\in A:g(x)>\alpha\})=0\}$，空集的下确界取 $\infty$。
+(B) 若 $f,g\in\mathcal C$，则由 $h(x)=\max\{f(x),g(x)\},\ (x\in X)$ 定义的函数 $h$ 也属于 $\mathcal C$。
+
+(C) 令 $M=\sup\left\{\int_X f\,d\mu\mid f\in\mathcal C\right\}$，则 $M$ 为有限值。
+
+回答下列问题。
+
+(i) 证明存在 $X$ 上的非负实值可积函数 $\varphi$，同时满足下列两个条件(1)、(2)。
+
+(1) 对每个 $f\in\mathcal C$，$f(x)\le\varphi(x)$ 关于 $\mu$ 对几乎所有 $x$ 成立。
+
+(2) $\displaystyle\int_X\varphi\,d\mu=M$。
+
+(ii) 证明(i)中的 $\varphi$ 具有下列性质(*)。
+
+(*) 对任意满足 $\mu(A)>0$ 的 $A\in\mathcal F$，
+
+$$
+\sup\left\{\operatorname*{ess\,sup}_{A}f\mid f\in\mathcal C\right\}
+=\operatorname*{ess\,sup}_{A}\varphi.
+$$
+
+这里，对满足 $\mu(A)>0$ 的 $A\in\mathcal F$ 和 $X$ 上的非负实值可测函数 $g$，定义
+
+$$
+\begin{aligned}
+\operatorname*{ess\,sup}_{A}g
+=\inf\bigl\{\alpha\in\mathbb R\mid {}&\mu(\{x\in A\mid g(x)>\alpha\})=0\bigr\}.
+\end{aligned}
+$$
+
+约定 $\inf\varnothing=\infty$。
 
 ## **Kai**
 

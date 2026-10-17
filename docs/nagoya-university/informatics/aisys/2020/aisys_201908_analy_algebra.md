@@ -14,63 +14,85 @@ tags:
 
 ## **Description**
 
-題意の要約。出典：[名古屋大学・令和2年度知能システム学専攻入試問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/a1edf5b3be858fab9a477015f01cb618.pdf)、解析・線形代数。導出過程も示す。
+（解の導出過程も書くこと）
 
-### 1
+### [1]
 
-$n$ を実数、$i$ を虚数単位とし、$z=(1+i)^n=u+vi$ と表す。
+複素数 $z=(1+i)^n$（$n$ は実数，$i$ は虚数単位）について，$z=u+vi$ と表すことにする．このとき，以下の問いに答えよ．
 
-(a) $n=8$ の場合の $u,v$ を求める。
+(a) $n=8$ のとき，$u,v$ を求めよ．
 
-(b) $|z|=8$ の場合の $u,v$ を求める。
+(b) $|z|=8$ のとき，$u,v$ を求めよ．
 
-### 2
+### [2]
 
-次の二つの行列を考える。
-
-$$
-P=\frac15\begin{pmatrix}7&4\\4&13\end{pmatrix},\qquad
-Q=\begin{pmatrix}2&0\\0&2\end{pmatrix}.
-$$
-
-(a) $P$ の固有値と、それぞれに対応する単位固有ベクトルを求める。
-
-(b) $\boldsymbol q=(x,y)^T$ として、$\boldsymbol q^TP\boldsymbol q<1<\boldsymbol q^TQ\boldsymbol q$ を満たす $(x,y)$ の領域を図示する。$T$ は転置を表す。
-
-### 3
-
-時刻 $t$ における動点 $P$ の座標を $x=\sin^3t,\ y=\cos^3t$ とする。
-
-(a) $0\le t\le2\pi$ の間に描く軌跡の長さを求める。
-
-(b) $0<t<\pi/2$ の範囲で、速さが最大になるときの $P$ の座標を求める。
-
-### 题目描述
-
-**[1]** 回答下列复数问题。
-
-1. 将 $z=(1+i)^8$ 写成 $u+iv$ 的形式，并求实数 $u,v$。
-2. 设 $n$ 为实数，$z=(1+i)^n=u+iv$，且 $|z|=8$，求 $n,u,v$。
-
-**[2]** 给定
+次の二つの行列 $P,Q$ について，以下の問いに答えよ．
 
 $$
-P=\frac15\begin{pmatrix}7&4\\4&13\end{pmatrix},\qquad Q=\begin{pmatrix}2&0\\0&2\end{pmatrix}.
+P=\frac15\begin{pmatrix}7&4\\4&13\end{pmatrix},\qquad Q=\begin{pmatrix}2&0\\0&2\end{pmatrix}
 $$
 
-1. 求 $P$ 的特征值及各自的单位特征向量。
-2. 令 $\boldsymbol q=(x,y)^T$，画出满足 $\boldsymbol q^TP\boldsymbol q<1<\boldsymbol q^TQ\boldsymbol q$ 的区域。
+(a) $P$ の固有値と単位固有ベクトルを求めよ．
 
-**[3]** 点 $P=(x,y)$ 按参数方程
+(b) $\boldsymbol q=(x,y)^t$ とするとき，
 
 $$
-x=\sin^3t,\qquad y=\cos^3t,\qquad0\le t\le2\pi
+\boldsymbol q^tP\boldsymbol q<1<\boldsymbol q^tQ\boldsymbol q
 $$
 
-运动。求：
+を満たす座標平面上の点 $(x,y)$ の領域を図示せよ．ただし，$\boldsymbol q^t$ は $\boldsymbol q$ の転置を表す．
 
-1. 点 $P$ 走完该闭曲线一周的路程，即曲线的弧长；
-2. 在 $0<t<\pi/2$ 内，点 $P$ 的速度大小取得最大值时的 $t$，以及此时 $P$ 的坐标。
+### [3]
+
+座標平面上の動点 P の時刻 $t$ における座標が次の式で与えられているとき，以下の問いに答えよ．
+
+$$
+\begin{cases}x=\sin^3t\\y=\cos^3t\end{cases}
+$$
+
+(a) P の軌跡の長さを求めよ．ただし，$0\le t\le2\pi$ とする．
+
+(b) P の速度の大きさが最大となるときの P の座標を求めよ．ただし，$0<t<\dfrac\pi2$ とする．
+
+**Translation of technical terms**
+
+複素数 complex number，実数 real number，虚数単位 imaginary unit，行列 matrix，固有値 eigenvalue，単位固有ベクトル unit eigenvector，座標平面 coordinate plane，領域 region，転置 transpose，動点 moving point，座標 coordinates，軌跡 trajectory，速度 velocity，最大 maximum．
+
+#### 题目描述
+
+须写出解的推导过程。
+
+**[1]** 对复数 $z=(1+i)^n$（$n$ 为实数，$i$ 为虚数单位），记 $z=u+vi$。回答下列问题。
+
+(a) 当 $n=8$ 时，求 $u,v$。
+
+(b) 当 $|z|=8$ 时，求 $u,v$。
+
+**[2]** 对下列两个矩阵 $P,Q$，回答下列问题。
+
+$$
+P=\frac15\begin{pmatrix}7&4\\4&13\end{pmatrix},\qquad Q=\begin{pmatrix}2&0\\0&2\end{pmatrix}
+$$
+
+(a) 求 $P$ 的特征值和单位特征向量。
+
+(b) 令 $\boldsymbol q=(x,y)^t$，画出坐标平面内满足
+
+$$
+\boldsymbol q^tP\boldsymbol q<1<\boldsymbol q^tQ\boldsymbol q
+$$
+
+的点 $(x,y)$ 所构成的区域。其中 $\boldsymbol q^t$ 表示 $\boldsymbol q$ 的转置。
+
+**[3]** 坐标平面内的动点 P 在时刻 $t$ 的坐标由下式给出，回答下列问题。
+
+$$
+\begin{cases}x=\sin^3t,\\y=\cos^3t.\end{cases}
+$$
+
+(a) 求 P 的轨迹长度，其中 $0\le t\le2\pi$。
+
+(b) 求 P 的速度大小达到最大时的坐标，其中 $0<t<\dfrac\pi2$。
 
 ## **Kai**
 ### 1
@@ -225,3 +247,7 @@ $$
 $$
 
 である。
+
+## **Reference**
+
+- [公式問題（PDF）](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/a1edf5b3be858fab9a477015f01cb618.pdf)

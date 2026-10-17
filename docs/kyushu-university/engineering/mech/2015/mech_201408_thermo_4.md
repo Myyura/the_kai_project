@@ -13,18 +13,29 @@ tags:
 
 ## **Description**
 
-質量流量 $W_A$、入口温度 $T_A$ の流体 A により、質量流量 $W_B$ の流体 B を入口温度 $T_B$ から $\Delta T_B$ だけ加熱する。直径 $d$ の伝熱管を用いた向流二重管式熱交換器とし、管壁の厚さは無視する。A、B 側の熱伝達率を $h_A,h_B$、比熱を $C_A,C_B$、入口温度差を $\Delta T_{AB}=T_A-T_B$ とする。熱容量流量比は $n=W_BC_B/(W_AC_A)<1$ である。（30 点）
+質量流量 $W_A\,(\mathrm{kg/s})$，温度 $T_A\,(\mathrm K)$ の流体Aを用いた加熱によって，質量流量 $W_B\,(\mathrm{kg/s})$ の流体Bを温度 $T_B\,(\mathrm K)$ から $\Delta T_B\,(\mathrm K)$ だけ温度上昇させる二重管式熱交換器を製作したい。この熱交換器を直径 $d\,(\mathrm m)$ の伝熱管を用いた向流式とする場合に以下の問いに答えよ。流体Aと流体Bの温度差 $T_A-T_B$ を $\Delta T_{AB}\,(\mathrm K)$，流体A側の熱伝達率を $h_A\,(\mathrm{W/(m^2\cdot K)})$，管内を流れる流体Bの熱伝達率を $h_B\,(\mathrm{W/(m^2\cdot K)})$ とし，円管の肉厚は無視してよい。なお，流体BとAの熱容量流量比 $W_BC_B/(W_AC_A)$ を $n$（ただし $n<1$）と定義する。ここに $C_A$ と $C_B$ はそれぞれの流体の比熱（$\mathrm{J/(kg\cdot K)}$）である。（30点）
 
-![向流熱交換器の温度分布記入欄（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_thermo-4-original.png)
+**(1)** 流体AとBの熱交換器内温度分布を温度勾配の変化に注意して図に示せ。ただし，温度 $T_A$ と $T_B$ は図中に示してある。
 
-1. 温度勾配の変化に注意して、熱交換器内の A、B の温度分布を図示せよ。
-2. A、B の出口温度を等しくするとき、$\Delta T_B$ と $\Delta T_{AB}$ の比を $n$ で表せ。
-3. この場合の対数平均温度差 $\Delta T_{\rm lm}$ を $\Delta T_{AB},n$ で表せ。
-4. 必要長さ $L$ を $W_B,C_B,h_A,h_B,d,n$ で表せ。
+![原題の向流熱交換器温度分布記入欄](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_thermo-4-original.png)
+
+**(2)** 流体Aの出口温度と流体Bの出口温度を等しくしたい。この場合の流体Bの温度変化 $\Delta T_B$ と流体AとBの入口温度差 $\Delta T_{AB}$ の比を $n$ を用いて表せ。
+
+**(3)** この時の流体Aと流体Bの間の対数平均温度差 $\Delta T_{lm}$ を $\Delta T_{AB}$ と $n$ を用いて表せ。
+
+**(4)** 熱交換器の必要長さ $L$ を求めよ（$W_B,C_B,h_A,h_B$，および $n$ を用いて表せ）。
 
 #### 题目描述
 
-忽略管壁热阻的逆流套管换热器，用热流体 A 加热管内 B。两者热容量流率比 $n=W_BC_B/(W_AC_A)<1$。画出沿 A 流向的温度分布并体现梯度变化；当两流体各自的出口温度相等时，求 B 的温升与入口温差之比、对数平均温差和所需管长。
+拟制造一台套管式换热器，用质量流量为 $W_A\,(\mathrm{kg/s})$、温度为 $T_A\,(\mathrm K)$ 的流体A，将质量流量为 $W_B\,(\mathrm{kg/s})$ 的流体B从温度 $T_B\,(\mathrm K)$ 加热，使其升温 $\Delta T_B\,(\mathrm K)$。换热器采用直径为 $d\,(\mathrm m)$ 的传热管，按逆流方式工作，回答下列问题。将流体A、B的温差 $T_A-T_B$ 记作 $\Delta T_{AB}\,(\mathrm K)$，A侧换热系数为 $h_A\,(\mathrm{W/(m^2\cdot K)})$，管内流动的B侧换热系数为 $h_B\,(\mathrm{W/(m^2\cdot K)})$，可忽略管壁厚度。定义B与A的热容量流率之比为 $n=W_BC_B/(W_AC_A)$，其中 $n<1$；$C_A,C_B$ 分别是两种流体的比热（$\mathrm{J/(kg\cdot K)}$）。（30分）
+
+**(1)** 注意温度梯度的变化，在图中画出流体A、B在换热器内的温度分布。图中已标出 $T_A,T_B$。
+
+**(2)** 希望流体A的出口温度与流体B的出口温度相等。用 $n$ 表示此时流体B的温升 $\Delta T_B$ 与两流体入口温差 $\Delta T_{AB}$ 之比。
+
+**(3)** 用 $\Delta T_{AB},n$ 表示此时两流体间的对数平均温差 $\Delta T_{lm}$。
+
+**(4)** 求换热器所需长度 $L$（用 $W_B,C_B,h_A,h_B,n$ 表示）。
 
 ## **Kai**
 
@@ -33,8 +44,10 @@ tags:
 $x$ を A の入口からの距離、$\mathcal C_A=W_AC_A$、$\mathcal C_B=W_BC_B=n\mathcal C_A$、$U=(h_A^{-1}+h_B^{-1})^{-1}$ とする。局所温度を $t_A(x),t_B(x)$ とすれば
 
 $$
-\frac{dt_A}{dx}=-\frac{U\pi d}{\mathcal C_A}(t_A-t_B),\qquad
+\begin{gathered}
+\frac{dt_A}{dx}=-\frac{U\pi d}{\mathcal C_A}(t_A-t_B),\\
 \frac{dt_B}{dx}=-\frac{U\pi d}{\mathcal C_B}(t_A-t_B).
+\end{gathered}
 $$
 
 両曲線とも右下がりで、B の勾配の絶対値は A の $1/n$ 倍となる。また
@@ -68,9 +81,11 @@ $$
 よって
 
 $$
-\boxed{\Delta T_{\rm lm}
-=\frac{\Delta T_2-\Delta T_1}{\ln(\Delta T_2/\Delta T_1)}
-=\frac{n-1}{(1+n)\ln n}\Delta T_{AB}.}
+\boxed{\begin{gathered}
+\Delta T_{\rm lm}
+=\frac{\Delta T_2-\Delta T_1}{\ln(\Delta T_2/\Delta T_1)}\\
+=\frac{n-1}{(1+n)\ln n}\Delta T_{AB}.
+\end{gathered}}
 $$
 
 ### (4)

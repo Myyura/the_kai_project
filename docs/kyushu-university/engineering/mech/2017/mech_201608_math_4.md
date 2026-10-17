@@ -19,17 +19,38 @@ tags:
 ![原題のカージオイド](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_math-4-original.png)
 
 $$
-x=(1+\cos\theta)\cos\theta,\qquad y=(1+\cos\theta)\sin\theta.
+\begin{cases}
+x=(1+\cos\theta)\cos\theta,\\
+y=(1+\cos\theta)\sin\theta.
+\end{cases}
 $$
 
-1. $r=f(\theta)$ で表される極方程式を求めよ。
-2. この図形が囲む面積を求めよ。
-3. この図形を $x$ 軸まわりに1回転して得られる回転体の体積を求めよ。
-4. この図形の周長を求めよ。
+(1) $r=f(\theta)$ で表される極方程式を求めよ。
+
+(2) この図形が囲む面積を求めよ。
+
+(3) この図形を $x$ 軸まわりに1回転して得られる回転体の体積を求めよ。
+
+(4) この図形の周長を求めよ。
 
 #### 题目描述
 
-给定心形线的参数方程，求极坐标方程、围成面积、绕 $x$ 轴旋转所得体积以及周长。
+对于上图及下列函数表示的图形，回答以下各问。（50分）
+
+$$
+\begin{cases}
+x=(1+\cos\theta)\cos\theta,\\
+y=(1+\cos\theta)\sin\theta.
+\end{cases}
+$$
+
+(1) 求写成 $r=f(\theta)$ 形式的极坐标方程。
+
+(2) 求该图形所围区域的面积。
+
+(3) 求将该图形绕 $x$ 轴旋转一周得到的旋转体的体积。
+
+(4) 求该图形的周长。
 
 ## **Kai**
 
@@ -64,7 +85,10 @@ $$
 $r'= -\sin\theta$ より
 
 $$
-\sqrt{r^2+(r')^2}=\sqrt{2+2\cos\theta}=2|\cos(\theta/2)|.
+\begin{gathered}
+\sqrt{r^2+(r')^2}=\sqrt{2+2\cos\theta}\\
+=2|\cos(\theta/2)|.
+\end{gathered}
 $$
 
 従って $\boxed{L=\int_0^{2\pi}2|\cos(\theta/2)|\,d\theta=8}$。

@@ -13,83 +13,129 @@ tags:
 
 ## **Description**
 
-題意の要約。
-
 ### [A-I]
 
-一次元一質点系のラグランジアン $L(q,\dot q)$ は時刻に陽に依存しない。$t_1<t_2$ とし、$S[q]=\int_{t_1}^{t_2}L(q,\dot q)\,dt$、$\delta\dot q=d(\delta q)/dt$ とおく。$q(t_1),q(t_2)$ を固定して作用を停留させる。
+1次元の1質点系を考える。この系のラグランジアンを $L(q,\dot q)$ とし，$L(q,\dot q)$ は時刻 $t$ に陽に依存しないとする。ここで，$q$ は一般化座標であり，時刻 $t$ の関数である。時刻 $t=t_1,t_2$（$t_1<t_2$）に対して，作用 $S[q]$ を次式で定義する。
 
-1. 端点での $\delta q$ の条件を求める。
-2. $L(q+\delta q,\dot q+\delta\dot q)$ を変分の一次まで展開する。
-3. $\delta S=S[q+\delta q]-S[q]$ を $\delta\dot q$ を含まない形で表し、Euler–Lagrange 方程式を導く。
+$$
+S[q]=\int_{t_1}^{t_2}dt\,L(q,\dot q)
+$$
+
+変分原理（または，最小作用の原理）により，$q(t_1)$ と $q(t_2)$ を固定すれば，この系の時刻 $t$（$t_1<t<t_2$）の運動は，$S[q]$ が停留値をとるように決まる。$q$ の任意の微小な仮想変位を $\delta q$ と表す。また，対応する $\dot q$ の微小な仮想変位は，$\delta\dot q=d(\delta q)/dt$ である。
+
+(1) $q$ を $S[q]$ に対して変分原理を満たす関数とする。$\delta q(t_1)$ と $\delta q(t_2)$ が満たす条件を書きなさい。
+
+(2) $L(q+\delta q,\dot q+\delta\dot q)$ を $\delta q,\delta\dot q$ でべき展開し，$\delta q,\delta\dot q$ の2次以上の項を無視した表式を求めなさい。
+
+(3) $S[q]$ の変分 $\delta S[q]$ を $\delta S[q]=S[q+\delta q]-S[q]$ で定義する。問（1）と問（2）の結果を用い，$\delta S[q]$ の表式を求めなさい。ただし，この表式は $\delta\dot q$ を含まない形とする。また，この結果を用いて，オイラー・ラグランジュ方程式を導きなさい。
 
 ### [A-II]
 
-一端を壁に固定したばね（ばね定数 $k$）の他端に質量 $m$ の質点をつなぐ。運動方向にはばねの力だけが働き、自然長からの伸びを $q$ とする。
+図1に示すように，バネの一端に質点がつながれており，他端は壁に固定されている。質点は1次元運動をし，その運動方向にはバネから受ける力のみが働くとする。質点の質量を $m$，バネのバネ定数を $k$ とする。質点の時刻 $t$ の位置をバネの自然長からの伸び $q$ で表し，この1質点系の一般化座標とする。
 
-1. ラグランジアンを求める。
-2. Euler–Lagrange 方程式を求める。
-3. $E(t)=(\partial L/\partial\dot q)\dot q-L$ を求め、その保存を示す。
-4. $q(t)$ の一般解を求める。
+![図1 バネと質点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/science/phys/2020/phys_201908_phys_I_figure_1.png)
+
+(1) この系のラグランジアン $L(q,\dot q)$ を書きなさい。
+
+(2) 問（1）の $L(q,\dot q)$ に対するオイラー・ラグランジュ方程式を求めなさい。
+
+(3) $E(t)$ を次式で定義する。
+
+$$
+E(t)=\frac{\partial L(q,\dot q)}{\partial\dot q}\dot q-L(q,\dot q)
+$$
+
+問（1）の $L(q,\dot q)$ を用いて，$E(t)$ の表式を求めなさい。また，$E(t)$ が保存量であることを示しなさい。
+
+(4) $q$ の一般解を求めなさい。
 
 ### [B]
 
-質量 $M$、軸の長さ $\ell$、軸まわりの慣性モーメント $I$ の軸対称なコマを考える。軸の下端を固定点 $O$ とし、静止直交座標系の原点とする。
+軸対称なコマを考える。コマの質量を $M$，軸の長さを $\ell$，軸のまわりの慣性モーメントを $I$ とする。コマの軸の下端を原点 O とし，静止直交 $xyz$ 座標系を考える。
 
-最初は軸が $+z$ 方向で、上端から見て反時計回りに角速度 $\omega_1$ で高速回転している。
+図2に示すように，コマの軸が $z$ 軸上にあり，コマの軸の上端から見て反時計回りに角速度 $\omega_1$ で高速回転している場合を考える。ただし，コマの軸の下端は，原点 O から動かないとする。
 
-1. 角運動量ベクトルを求める。
-2. 軸の上端に $+x$ 方向の撃力を加えるとき、$O$ まわりの力のモーメントの向きを答える。
-3. 撃力の時間平均を $F$、作用時間を微小な $\Delta t$ とし、直後の角運動量を求める。
-4. 直後に軸が $z$ 軸となす角を $\theta$ として、$\theta$ と $\omega_1$ の関係を求める。
+![図2 軸がz軸上にあるコマ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/science/phys/2020/phys_201908_phys_I_figure_2.png)
 
-次に、軸と $+z$ 軸の角度 $\alpha$ を一定に保ち、軸の上端から見て反時計回りに $\omega_2$ で高速自転しながら歳差運動をする。重心 $(X,Y,Z)$ は軸上で $O$ から距離 $R$ にあり、重力加速度は $-g\boldsymbol e_z$ である。
+(1) コマの角運動量ベクトルを求めなさい。
 
-5. 重力の $O$ まわりのモーメントを求める。
-6. 角運動量の大きさを $I\omega_2$、向きを $O$ から重心への向きとし、回転の運動方程式を立てる。
-7. $t=0$ で重心が $xz$ 平面内の $x>0$ にあるとき、$(X,Y,Z)$ を求める。
-8. 重心の回転角速度 $\Omega$ を求める。
+(2) コマの軸の上端に $x$ 軸の正の方向の撃力を加える。撃力の原点 O のまわりのモーメントの方向を答えなさい。
 
-出典：[九州大学 令和2年度 物理学I](https://pr.phys.kyushu-u.ac.jp/graduate/pdf/R2_inshi.pdf#page=2)。
+(3) 撃力は，短い時間 $\Delta t$ の間のみ働き，その大きさは時間平均で $F$ であったとする。撃力を受けた直後のコマの角運動量ベクトルを求めなさい。
 
-![ばね振動子とコマの配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/science/phys/2020/kyushu-phys-201908-mechanics.svg)
+(4) 撃力を受けた直後，コマの軸が $z$ 軸となす角を $\theta$ とする。問（3）の結果を用いて，角 $\theta$ と角速度 $\omega_1$ が満たす関係式を求めなさい。
 
-### 题目描述
+図3に示すように，コマの軸が $z$ 軸と一定の角度 $\alpha$ を保って，コマの軸の上端から見て反時計回りに角速度 $\omega_2$ で高速回転しており，コマの軸の上端が水平面内で円運動をしている場合を考える。この運動は歳差運動と呼ばれる。ただし，コマの軸の下端は，原点 O から動かないとする。コマの重心の座標を $(X,Y,Z)$ とし，重心はコマの軸上で下端から距離 $R$ の位置にあるとする。また，重力加速度の大きさを $g$ とする。
 
-**A-I（Hamilton 原理）**：一维单质点系统的 Lagrangian 为 $L(q,\dot q)$，不显含时间。对作用量
+![図3 歳差運動するコマ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/science/phys/2020/phys_201908_phys_I_figure_3.png)
+
+(5) コマの重心に働く重力の原点 O のまわりのモーメントを求めなさい。
+
+(6) コマの角運動量の大きさは，問（1）の結果で $\omega_1$ を $\omega_2$ に置き換えたものと同じであるとする。また，コマの角運動量の向きは，原点 O から重心の方向であるとする。コマの重心が従う回転の運動方程式を求めなさい。
+
+(7) 問（6）の結果から，重心の座標 $(X,Y,Z)$ を時刻 $t$ の関数として求めなさい。ただし，重心は $t=0$ で $xz$ 平面内の $x>0$ の位置にあったとする。
+
+(8) 重心の回転運動の角速度 $\Omega$ を求めなさい。
+
+#### 题目描述
+
+**[A-I]**
+
+考虑一维单质点系统。系统的拉格朗日量为 $L(q,\dot q)$，假设它不显含时间 $t$。其中 $q$ 是广义坐标，也是时间 $t$ 的函数。对于时刻 $t=t_1,t_2$（$t_1<t_2$），将作用量 $S[q]$ 定义为
 
 $$
-S[q]=\int_{t_1}^{t_2}L(q,\dot q)\,dt
+S[q]=\int_{t_1}^{t_2}dt\,L(q,\dot q).
 $$
 
-作固定端点的变分，其中 $\delta\dot q=d(\delta q)/dt$。
+根据变分原理（或最小作用量原理），固定 $q(t_1)$ 和 $q(t_2)$ 后，系统在时刻 $t$（$t_1<t<t_2$）的运动由使 $S[q]$ 取驻值的条件决定。将 $q$ 的任意微小虚位移记作 $\delta q$，对应的 $\dot q$ 的微小虚位移为 $\delta\dot q=d(\delta q)/dt$。
 
-1. 写出端点处 $\delta q$ 的条件。
-2. 将 $L(q+\delta q,\dot q+\delta\dot q)$ 展开到变分的一阶。
-3. 将 $\delta S$ 改写成不含 $\delta\dot q$ 的形式，由驻值条件推导 Euler–Lagrange 方程。
+(1) 设函数 $q$ 对作用量 $S[q]$ 满足变分原理。写出 $\delta q(t_1)$ 和 $\delta q(t_2)$ 所满足的条件。
 
-**A-II（简谐振子）**：质量为 $m$ 的质点连接到弹性系数为 $k$、另一端固定的弹簧，运动方向上只受弹力。以相对自然长度的伸长量为 $q$。
+(2) 将 $L(q+\delta q,\dot q+\delta\dot q)$ 按 $\delta q,\delta\dot q$ 作幂级数展开，忽略二次及更高次项，求其表达式。
 
-1. 写出 Lagrangian。
-2. 写出 Euler–Lagrange 运动方程。
-3. 求 $E(t)=(\partial L/\partial\dot q)\dot q-L$ 并证明能量守恒。
-4. 求 $q(t)$ 的通解。
+(3) 定义 $S[q]$ 的变分为 $\delta S[q]=S[q+\delta q]-S[q]$。利用（1）、（2）的结果，求不含 $\delta\dot q$ 的 $\delta S[q]$ 表达式，并由此推导欧拉–拉格朗日方程。
 
-**B（陀螺进动）**：轴对称陀螺质量为 $M$，轴长为 $\ell$，绕轴转动惯量为 $I$，轴下端固定于坐标原点 $O$。
+**[A-II]**
 
-开始时轴沿 $+z$ 方向，从轴上端看以角速度 $\omega_1$ 逆时针高速自转。
+如图1，弹簧的一端连接质点，另一端固定于墙上。质点作一维运动，沿运动方向只受到弹簧的力。质点质量为 $m$，弹簧劲度系数为 $k$。用弹簧相对于自然长度的伸长量 $q$ 表示质点在时刻 $t$ 的位置，并将它作为此单质点系统的广义坐标。
 
-1. 求初始角动量向量。
-2. 轴上端受到沿 $+x$ 方向的冲击力，判断相对于 $O$ 的力矩方向。
-3. 设作用时间为微小的 $\Delta t$，平均力为 $F$，求作用后的角动量。
-4. 求作用后陀螺轴与 $z$ 轴夹角 $\theta$ 和 $\omega_1$ 的关系。
+(1) 写出系统的拉格朗日量 $L(q,\dot q)$。
 
-再考虑陀螺轴与 $+z$ 轴保持夹角 $\alpha$，从轴上端看以 $\omega_2$ 逆时针高速自转，同时发生进动。重心 $(X,Y,Z)$ 位于轴上，距 $O$ 为 $R$，重力加速度为 $-g\boldsymbol e_z$。
+(2) 求（1）中的 $L(q,\dot q)$ 对应的欧拉–拉格朗日方程。
 
-5. 求重力相对于 $O$ 的力矩。
-6. 将角动量大小取为 $I\omega_2$、方向取为从 $O$ 指向重心，建立转动方程。
-7. 已知 $t=0$ 时重心在 $xz$ 平面内且 $X>0$，求 $X(t),Y(t),Z(t)$。
-8. 求进动角速度 $\Omega$。
+(3) 定义
+
+$$
+E(t)=\frac{\partial L(q,\dot q)}{\partial\dot q}\dot q-L(q,\dot q).
+$$
+
+利用（1）中的 $L(q,\dot q)$，求 $E(t)$ 的表达式，并证明 $E(t)$ 是守恒量。
+
+(4) 求 $q$ 的通解。
+
+**[B]**
+
+考虑一个轴对称陀螺。其质量为 $M$，轴长为 $\ell$，绕自身轴的转动惯量为 $I$。以陀螺轴的下端为原点 O，建立静止直角坐标系 $xyz$。
+
+如图2，陀螺轴位于 $z$ 轴上，从轴的上端看，陀螺以角速度 $\omega_1$ 沿逆时针方向高速旋转。假设轴的下端固定在原点 O。
+
+(1) 求陀螺的角动量矢量。
+
+(2) 在轴的上端沿 $x$ 轴正方向施加冲击力。回答此冲击力对原点 O 的力矩方向。
+
+(3) 冲击力仅作用很短的时间 $\Delta t$，其大小的时间平均值为 $F$。求受到冲击后瞬间陀螺的角动量矢量。
+
+(4) 设受到冲击后瞬间陀螺轴与 $z$ 轴的夹角为 $\theta$。利用（3）的结果，求角 $\theta$ 与角速度 $\omega_1$ 满足的关系式。
+
+如图3，陀螺轴与 $z$ 轴保持固定夹角 $\alpha$，从轴的上端看，陀螺以角速度 $\omega_2$ 沿逆时针方向高速旋转，而轴的上端在水平面内作圆周运动。这种运动称为进动。假设轴的下端固定在原点 O。设质心坐标为 $(X,Y,Z)$，质心位于陀螺轴上、距轴下端 $R$ 处。重力加速度的大小为 $g$。
+
+(5) 求作用于质心的重力对原点 O 的力矩。
+
+(6) 假设陀螺的角动量大小等于将（1）的结果中 $\omega_1$ 换成 $\omega_2$ 所得的值，方向沿原点 O 指向质心。求质心所满足的转动运动方程。
+
+(7) 根据（6）的结果，求质心坐标 $(X,Y,Z)$ 关于时间 $t$ 的函数。假设 $t=0$ 时质心位于 $xz$ 平面内 $x>0$ 的位置。
+
+(8) 求质心转动的角速度 $\Omega$。
 
 ## **Kai**
 ### \[A-I\]
@@ -105,11 +151,13 @@ $$
 
 $$
   \begin{aligned}
-  L \left( q + \delta q, \dot{q} + \delta \dot{q} \right)
-  \simeq
+  &L \left( q + \delta q, \dot{q} + \delta \dot{q} \right)
+  \\
+  &\simeq
   L \left( q, \dot{q} \right)
   + \frac{\partial L \left( q, \dot{q} \right)}{\partial q} \delta q
-  + \frac{\partial L \left( q, \dot{q} \right)}{\partial \dot{q}} \delta \dot{q}
+  \\
+  &\quad+ \frac{\partial L \left( q, \dot{q} \right)}{\partial \dot{q}} \delta \dot{q}
   \end{aligned}
 $$
 
@@ -251,9 +299,10 @@ $$
 
 $$
   \begin{aligned}
-  \left( X \boldsymbol{i} + Y \boldsymbol{j} + Z \boldsymbol{k} \right)
+  &\left( X \boldsymbol{i} + Y \boldsymbol{j} + Z \boldsymbol{k} \right)
   \times \left( - Mg \boldsymbol{k} \right)
-  = Mg \left( - Y \boldsymbol{i} + X \boldsymbol{j} \right)
+  \\
+  &= Mg \left( - Y \boldsymbol{i} + X \boldsymbol{j} \right)
   \end{aligned}
 $$
 
@@ -270,9 +319,10 @@ $$
 
 $$
   \begin{aligned}
-  \frac{I \omega_2}{R}
+  &\frac{I \omega_2}{R}
   \left( \dot{X} \boldsymbol{i} + \dot{Y} \boldsymbol{j} + \dot{Z} \boldsymbol{k} \right)
-  = Mg \left( - Y \boldsymbol{i} + X \boldsymbol{j} \right)
+  \\
+  &= Mg \left( - Y \boldsymbol{i} + X \boldsymbol{j} \right)
   \end{aligned}
 $$
 
@@ -344,3 +394,7 @@ $$
 &= \frac{MgR}{I \omega_2}
 \end{aligned}
 $$
+
+## **Reference**
+
+- [大学公表の原題](https://pr.phys.kyushu-u.ac.jp/graduate/pdf/R2_inshi.pdf#page=2)

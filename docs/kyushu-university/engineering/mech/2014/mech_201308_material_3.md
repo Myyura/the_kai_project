@@ -15,16 +15,25 @@ tags:
 
 ## **Description**
 
-図3の半径 $a$ の半円形弾性丸棒は、両端が固定されている。断面直径は $d$、ヤング率は $E$、ポアソン比は $\nu$。半円の中央 A に長さ $\ell$ の剛体棒 AB が半径方向へ接続され、B に鉛直下向き荷重 $P$ が作用する。半円と AB は $xy$ 平面内にあり、$a,\ell\gg d$ とする。
+図3の構造において，次の問に答えよ。（40点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-3-original.png)
+**1)** 点Aの変位を求めよ。
 
-1. A の変位を求めよ。
-2. B の変位を求めよ。
+**2)** 点Bの変位を求めよ。
+
+![原題の図3：半円弧丸棒と剛体AB](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_material-3-original.png)
+
+図中，$E$ はヤング率，$\nu$ はポアソン比，$\phi d$ は直径 $d$ を表す。両端が固定された丸棒は半径 $a$ の半円弧をなし，その中央Aに長さ $\ell$ の剛体ABが接続されている。$a,\ell\gg d$ とし，点Bに下向き荷重 $P$ が作用する。座標の向きは図に示す。
 
 #### 题目描述
 
-半径 $a$ 的半圆形弹性圆杆两端固定，截面直径 $d$，材料参数为 $E,\nu$。半圆中点 A 沿径向连接长 $\ell$ 的刚臂 AB，B 受竖直向下力 $P$，且 $a,\ell\gg d$。求 A、B 的位移。
+对于图3的结构，回答下列问题。（40分）
+
+**1)** 求A点的位移。
+
+**2)** 求B点的位移。
+
+图中 $E$ 为杨氏模量，$\nu$ 为泊松比，$\phi d$ 表示直径 $d$。两端固定的圆杆构成半径为 $a$ 的半圆弧，在中点A连接长 $\ell$ 的刚体AB。$a,\ell\gg d$，B点承受向下载荷 $P$，坐标方向如图。
 
 ## **Kai**
 
@@ -87,9 +96,11 @@ $$
 よって、$T_0$ を独立に保って $p$ で微分し、最後に実荷重を代入して
 
 $$
-\boxed{\delta_A=\frac{\partial U_{\rm red}}{\partial p}
-=\frac{Pa^2}{2EI}\left(a\mathcal A+\ell\mathcal B\right)
-\quad\text{（下向き）}}.
+\boxed{\begin{gathered}
+\delta_A=\frac{\partial U_{\rm red}}{\partial p}
+=\frac{Pa^2}{2EI}\left(a\mathcal A+\ell\mathcal B\right)\\
+\text{（下向き）}
+\end{gathered}}.
 $$
 
 ### (2)
@@ -104,10 +115,12 @@ $$
 剛体棒 AB の回転による B の下向き変位は $\ell\phi_A$ だから
 
 $$
-\boxed{\delta_B=\delta_A+\ell\phi_A
+\boxed{\begin{gathered}
+\delta_B=\delta_A+\ell\phi_A
 =\frac{Pa}{2EI}
-\left(a^2\mathcal A+2a\ell\mathcal B+\ell^2\mathcal C\right)
-\quad\text{（下向き）}}.
+\left(a^2\mathcal A+2a\ell\mathcal B+\ell^2\mathcal C\right)\\
+\text{（下向き）}
+\end{gathered}}.
 $$
 
 $x,y$ 方向の一次変位はいずれも 0 である。

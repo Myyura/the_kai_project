@@ -13,57 +13,95 @@ tags:
 
 ## **Description**
 
-[原題：2022年度専門科目（午前）](https://www.aerospace.t.u-tokyo.ac.jp/g_education/pdf/pastpaper2022am.pdf)。図の条件は以下に文章で明記する。
+[原題：2022年度専門科目（午前）](https://www.aerospace.t.u-tokyo.ac.jp/g_education/pdf/pastpaper2022am.pdf)
 
-微小変形の球対称問題を考える。中心からの距離を $r$、半径方向・周方向の応力を $\sigma_r,\sigma_\theta$、ひずみを $\varepsilon_r,\varepsilon_\theta$、半径方向の変位を $u$ とする。体積力を無視すると
+固体力学（午前）
 
-$$
-\frac{d\sigma_r}{dr}+\frac{2(\sigma_r-\sigma_\theta)}r=0,\qquad
-\varepsilon_r=\frac{du}{dr},\quad\varepsilon_\theta=\frac ur.
-$$
-
-**第1問** $\varepsilon_r,\varepsilon_\theta$ の適合条件式を求めよ。
-
-**第2問** ヤング率 $E$、ポアソン比 $\nu$ の弾性体について球対称のフックの法則を書き、任意定数 $A,B$ を用いた一般解
+当問題では微小変形の球対称問題を考える。平衡方程式は体積力を無視できる場合、
 
 $$
-\sigma_r=A+\frac{2B}{r^3},\qquad\sigma_\theta=A-\frac B{r^3}
+\frac{d\sigma_r}{dr}+\frac{2(\sigma_r-\sigma_\theta)}{r}=0\tag{1}
 $$
 
-が第1問の適合条件を満たすことを示せ。
-
-以下では半径 $a$ の球形空孔を有する物体を考える。$a$ は物体の大きさに比べ十分小さい。材料はミーゼスの降伏条件に従う弾完全塑性体で、弾性定数を $E,\nu$、単軸引張時の降伏応力を $Y$ とする。主応力 $\sigma_1,\sigma_2,\sigma_3$ に対し
+ひずみと変位の関係は、
 
 $$
-\sigma_{\rm eq}=\frac1{\sqrt2}\sqrt{(\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2+(\sigma_3-\sigma_1)^2}
+\varepsilon_r=\frac{du}{dr},\qquad \varepsilon_\theta=\frac ur\tag{2}
 $$
 
-が $Y$ に達すると降伏し、塑性域で $\sigma_{\rm eq}=Y$ となる。
+と表すことができる。ここに、$r$ は中心からの距離、$\sigma_r,\sigma_\theta$ はそれぞれ半径方向、周方向の応力、$\varepsilon_r,\varepsilon_\theta$ はそれぞれ半径方向、周方向のひずみ、$u$ は半径方向の変位である。
 
-**第3問** 空孔内に内圧 $p$ が働くときの弾性応力分布と、圧力を徐々に増加させた際の降伏開始圧力 $p_Y$ を求めよ。
+**第1問** $\varepsilon_r,\varepsilon_\theta$ が満足すべき適合条件式を求めよ。
 
-**第4問** $p>p_Y$ で弾塑性境界を $r=c$ とする。$a\le r\le c$ は塑性域、$r\ge c$ は弾性域である。$\sigma_r(c)$ を求めよ。
+**第2問** フックの法則が成り立つ弾性体では、$A,B$ を任意の定数として、応力の一般解が次式で表されることが知られている。
 
-**第5問** $p=Y$ のときの $c$ と両領域の応力分布を求めよ。
+$$
+\sigma_r=A+\frac{2B}{r^3},\qquad \sigma_\theta=A-\frac B{r^3}\tag{3}
+$$
 
-**第6問** $p=Y$ から $p=0$ にしたときの残留応力を求めよ。バウシンガー効果は考慮しなくてよい。
+この式が (1) 式の平衡方程式を満足することは明らかである。いま、ヤング率を $E$、ポアソン比を $\nu$ として、球対称問題におけるフックの法則を書き下し、(3) 式が第1問で求めた適合条件式を満足することを示せ。
 
-**第7問** 材料がトレスカの降伏条件に従う場合、第3～6問の結果はどうなるか。理由とともに簡潔に述べよ。
+以下では半径 $a$ の球形の空孔を有する物体を考える。この物体はミーゼスの降伏条件に従う弾完全塑性体で、弾性変形時のヤング率を $E$、ポアソン比を $\nu$、単軸引張時の降伏応力を $Y$ とする。また、$a$ は物体の大きさと比べて十分に小さいとする。ここに、「ミーゼスの降伏条件に従う弾完全塑性体」とは、相当応力 $\sigma_{\mathrm{eq}}$ が $Y$ になると降伏し、塑性変形域内では $\sigma_{\mathrm{eq}}=Y$（一定値）となることを意味する。なお、相当応力 $\sigma_{\mathrm{eq}}$ は、3つの主応力を $\sigma_1,\sigma_2,\sigma_3$ として、次式で定義される。
+
+$$
+\sigma_{\mathrm{eq}}=\frac1{\sqrt2}
+\sqrt{(\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2+(\sigma_3-\sigma_1)^2}\tag{4}
+$$
+
+**第3問** 空孔内で $p$ なる内圧が作用するとき、弾性変形時における応力分布を求めよ。また、$p$ を徐々に大きくする場合、降伏が始まるときの $p$ の値（$p_Y$ とおく）を求めよ。
+
+**第4問** $p>p_Y$ のとき、弾塑性境界を $r=c$ とすると、$a\le r\le c$ の領域は塑性変形域、$r\ge c$ の領域は弾性変形域となる。$r=c$ における $\sigma_r$ の値を求めよ。
+
+**第5問** 第4問で $p=Y$ のとき、$c$ の値、および、$a\le r\le c$ と $r\ge c$ の各領域における応力分布を求めよ。
+
+**第6問** $p=Y$ の状態から $p$ を零にしたときの残留応力分布を求めよ。ただし、バウシンガー効果は考慮しなくてよい。
+
+**第7問** この物体がトレスカの降伏条件に従う弾完全塑性体の場合、第3問～第6問の結果はどうなるかを理由とともに簡単に述べよ。
 
 #### 题目描述
 
-考虑无体积力、微小变形的球对称问题。半径方向位移为 $u$，应力和应变分别为 $\sigma_r,\sigma_\theta$ 与 $\varepsilon_r=u',\varepsilon_\theta=u/r$，平衡式为 $\sigma_r'+2(\sigma_r-\sigma_\theta)/r=0$。
+固体力学（上午）
 
-1. 求应变相容条件。
-2. 写出弹性常数为 $E,\nu$ 时的胡克定律，证明 $\sigma_r=A+2B/r^3,\sigma_\theta=A-B/r^3$ 满足相容条件。
+考虑微小变形的球对称问题。忽略体积力时，平衡方程为
 
-以下考虑含半径 $a$ 球形空孔的大物体，$a$ 远小于物体尺度。材料为服从 Mises 条件的理想弹塑性体，单轴屈服应力为 $Y$；等效应力按日文题面公式定义，塑性区满足 $\sigma_{\rm eq}=Y$。
+$$
+\frac{d\sigma_r}{dr}+\frac{2(\sigma_r-\sigma_\theta)}{r}=0.\qquad(1)
+$$
 
-3. 求内压 $p$ 下的弹性应力分布和首次屈服压力 $p_Y$。
-4. 设 $p>p_Y$，塑性区为 $a\le r\le c$，弹性区为 $r\ge c$，求界面上的 $\sigma_r$。
-5. 当 $p=Y$ 时，求 $c$ 及两区域的应力分布。
-6. 从 $p=Y$ 卸载到零，求残余应力，忽略包辛格效应。
-7. 若改用 Tresca 屈服条件，第3～6问的结果如何变化？说明理由。
+应变与位移的关系为
+
+$$
+\varepsilon_r=\frac{du}{dr},\qquad \varepsilon_\theta=\frac ur.\qquad(2)
+$$
+
+其中 $r$ 为到中心的距离；$\sigma_r,\sigma_\theta$ 分别为径向、周向应力；$\varepsilon_r,\varepsilon_\theta$ 分别为径向、周向应变；$u$ 为径向位移。
+
+**第1问** 求 $\varepsilon_r,\varepsilon_\theta$ 应满足的相容条件。
+
+**第2问** 对满足胡克定律的弹性体，已知应力通解为
+
+$$
+\sigma_r=A+\frac{2B}{r^3},\qquad \sigma_\theta=A-\frac B{r^3},\qquad(3)
+$$
+
+其中 $A,B$ 是任意常数。显然它满足平衡方程 (1)。设杨氏模量为 $E$，泊松比为 $\nu$，写出球对称问题的胡克定律，并证明式 (3) 满足第1问的相容条件。
+
+以下考虑含半径 $a$ 的球形空孔的物体。材料是遵从 Mises 屈服准则的弹性理想塑性体，弹性阶段杨氏模量为 $E$，泊松比为 $\nu$，单轴拉伸屈服应力为 $Y$。$a$ 远小于物体尺寸。“遵从 Mises 屈服准则的弹性理想塑性体”指等效应力 $\sigma_{\mathrm{eq}}$ 达到 $Y$ 时屈服，且在塑性区内恒有 $\sigma_{\mathrm{eq}}=Y$。三个主应力为 $\sigma_1,\sigma_2,\sigma_3$，等效应力定义为
+
+$$
+\sigma_{\mathrm{eq}}=\frac1{\sqrt2}
+\sqrt{(\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2+(\sigma_3-\sigma_1)^2}.\qquad(4)
+$$
+
+**第3问** 空孔内承受压力 $p$ 时，求弹性变形阶段的应力分布。若逐渐增大 $p$，求开始屈服时的压力 $p_Y$。
+
+**第4问** 当 $p>p_Y$ 时，设弹塑性分界为 $r=c$，则 $a\le r\le c$ 是塑性区，$r\ge c$ 是弹性区。求 $r=c$ 处的 $\sigma_r$。
+
+**第5问** 第4问中，取 $p=Y$，求 $c$ 及 $a\le r\le c$、$r\ge c$ 两区域的应力分布。
+
+**第6问** 从 $p=Y$ 卸载到 $p=0$，求残余应力分布。不必考虑包辛格效应。
+
+**第7问** 若材料改为遵从 Tresca 屈服准则的弹性理想塑性体，第3～6问的结果会如何变化？简述结果及理由。
 
 ## **Kai**
 
@@ -85,8 +123,10 @@ $$
 一般解を代入すると
 
 $$
-\varepsilon_r=\frac{(1-2\nu)A+2(1+\nu)B/r^3}{E},\quad
+\begin{gathered}
+\varepsilon_r=\frac{(1-2\nu)A+2(1+\nu)B/r^3}{E},\\
 \varepsilon_\theta=\frac{(1-2\nu)A-(1+\nu)B/r^3}{E}.
+\end{gathered}
 $$
 
 したがって $\varepsilon_\theta'=3(1+\nu)B/(Er^4)$、$(\varepsilon_\theta-\varepsilon_r)/r=-3(1+\nu)B/(Er^4)$ であり、適合条件を満たす。対応する変位は

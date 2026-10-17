@@ -54,33 +54,43 @@ $$
 
 #### 题目描述
 
-记 $\|g\|=(\int_0^1|g(x)|^2\,dx)^{1/2}$。设实值 $C^2$ 函数 $u:[0,\infty)\times[0,1]\to\mathbb R$ 满足热方程与齐次 Dirichlet 边界条件：
+对区间 $[0,1]$ 上的平方可积函数 $g$，记
 
 $$
-u_t=u_{xx}\quad(t>0,\ 0<x<1),\qquad
-u(t,0)=u(t,1)=0\quad(t>0).
+\|g\|=\left(\int_0^1|g(x)|^2\,dx\right)^{1/2}.
 $$
 
-令 $f(x)=u(0,x)$。
-
-(1) 证明
+假设 $C^2$ 函数 $u:[0,\infty)\times[0,1]\to\mathbb R$ 满足
 
 $$
-V(t)=\|u(t,\cdot)\|^2+2\int_0^t\|u_x(s,\cdot)\|^2\,ds
+\begin{cases}
+\displaystyle\frac{\partial u}{\partial t}(t,x)
+=\frac{\partial^2u}{\partial x^2}(t,x),
+&t>0,\ x\in(0,1),\\
+u(t,0)=u(t,1)=0,&t>0.
+\end{cases}
 $$
 
-与 $t\ge0$ 无关。
+令 $f(x)=u(0,x)$，回答下列问题。
 
-(2) 固定 $t>0$，记 $h(x)=u(t,x)$，证明对任意 $x\in[0,1]$，
-
-$$
-|h(x)|^2\le2\|h\|\|h'\|.
-$$
-
-(3) 证明
+(1) 证明下列 $V(t)$ 是与 $t\ge0$ 无关的常数。
 
 $$
-\int_0^\infty\sup_{x\in[0,1]}|u(t,x)|^4\,dt\le2\|f\|^4.
+V(t)=\|u(t,\cdot)\|^2
++2\int_0^t\left\|\frac{\partial u}{\partial x}(s,\cdot)\right\|^2\,ds.
+$$
+
+(2) 固定 $t>0$，令 $h(x)=u(t,x)$。证明对任意 $x\in[0,1]$，下列不等式成立。
+
+$$
+|h(x)|^2\le2\|h\|\left\|\frac{dh}{dx}\right\|.
+$$
+
+(3) 证明下列不等式成立。
+
+$$
+\int_0^\infty\left(\sup_{x\in[0,1]}|u(t,x)|^4\right)\,dt
+\le2\|f\|^4.
 $$
 
 ## **Kai**
@@ -116,10 +126,14 @@ $$
 $h(0)=0$ であるから、Cauchy–Schwarz の不等式により
 
 $$
+\begin{gathered}
 |h(x)|^2
 =2\int_0^x h(s)h'(s)\,ds
+\\
 \le2\int_0^1|h(s)h'(s)|\,ds
+\\
 \le\boxed{2\|h\|\|h'\|}.
+\end{gathered}
 $$
 
 ### (3)

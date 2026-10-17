@@ -14,18 +14,29 @@ tags:
 
 ## **Description**
 
-ばね定数 $12k$ のばねで基礎に支持された質量 $12m$ の振動体（主系）が、調和外力 $f_0\cos\Omega t$ により非常に大きな振動を生じている。$f_0$ は一定値、主系の変位を $x_0$ とする。（50 点）
+ばね定数 $12k$ のばねで基礎に支持された質量 $12m$ の振動体があり、$f_0\cos\Omega t$（$f_0$ は一定値）の調和外力で加振され、非常に大きな振動を生じている。この振動体を主系と呼ぶ。主系の変位を $x_0$ とする。（50点）
 
-![従系 A、B の取り付け（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_dynamics-2-original.png)
+**(1)** 図 (a) に示すように、主系に質量 $m$ の質点とばねからなる振動体（従系 A）を取り付けて主系の振動を抑えたい。従系 A のばね定数はどのように設定すべきか。また、従系 A の変位を $x_A$ としてそのときの運動方程式を示し、主系および従系 A の振幅を求めよ。
 
-1. 図 (a) のように質量 $m$ とばねからなる従系 A を取り付け、主系の振動を抑えたい。ばね定数の設定、従系の変位を $x_A$ とした運動方程式、および両系の振幅を求めよ。
-2. 従系 A を取り付けた系の固有角振動数と固有モードを求めよ。
-3. A のばね定数が当初の $\alpha$ 倍（$0<\alpha<1$）に変化したとき、両系の振幅を求めよ。
-4. (3) の状態からさらに図 (b) の質量 $m$ の従系 B を取り付けたい。B のばね定数の設定、$x_B$ を用いた運動方程式、および三系の振幅を求めよ。
+**(2)** 主系に従系 A を取り付けたときの固有角振動数と固有モードを求めよ。
+
+**(3)** 従系 A のばね定数が経年変化により当初の値から $\alpha$ 倍（$0<\alpha<1$）となった。このときの主系および従系 A の振幅を求めよ。
+
+**(4)** (3) の状態において、さらに図 (b) に示すように質量 $m$ の従系 B を取り付けて主系の振動を抑えたい。従系 B のばね定数はどのように設定すべきか。従系 B の変位を $x_B$ として運動方程式を示し、主系、従系 A および従系 B の振幅をそれぞれ求めよ。
+
+![従系 A、B の取り付けの原図 (a), (b)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_dynamics-2-original.png)
 
 #### 题目描述
 
-质量 $12m$、刚度 $12k$ 的主振子受 $f_0\cos\Omega t$ 激励，振动很大。先加装质量 $m$ 的吸振器 A，求消振所需刚度、运动方程、稳态振幅、固有频率及模态。A 的刚度退化为原来的 $\alpha$ 倍后求振幅，再加装质量 $m$ 的 B 恢复主系消振，求 B 的刚度、三自由度方程和各振幅。
+一个质量为 $12m$ 的振动体通过弹簧常数为 $12k$ 的弹簧支承于基础，受到简谐外力 $f_0\cos\Omega t$ 的激励而发生非常大的振动，其中 $f_0$ 为常数。将此振动体称为主系统，位移记为 $x_0$。（50分）
+
+**(1)** 如图 (a)，在主系统上安装由质量为 $m$ 的质点和弹簧组成的振动体（从系统 A），希望抑制主系统的振动。应如何设置 A 的弹簧常数？以 $x_A$ 表示 A 的位移，写出此时的运动方程，并求主系统和 A 的振幅。
+
+**(2)** 求安装从系统 A 后系统的固有角频率和固有振型。
+
+**(3)** 由于老化，A 的弹簧常数变为初始值的 $\alpha$ 倍，其中 $0<\alpha<1$。求此时主系统和 A 的振幅。
+
+**(4)** 在 (3) 的状态下，再如图 (b) 安装质量为 $m$ 的从系统 B，希望抑制主系统的振动。应如何设置 B 的弹簧常数？以 $x_B$ 表示 B 的位移，写出运动方程，并分别求主系统、A、B 的振幅。
 
 ## **Kai**
 
@@ -62,19 +73,23 @@ $$
 したがって
 
 $$
-\boxed{\omega_\pm^2=
-\frac{12k+13s\pm\sqrt{(12k+13s)^2-576ks}}{24m},\qquad
+\boxed{\begin{gathered}
+\omega_\pm^2=
+\frac{12k+13s\pm\sqrt{(12k+13s)^2-576ks}}{24m},\\
 \boldsymbol\phi_\pm\propto
-\begin{pmatrix}1\\s/(s-m\omega_\pm^2)\end{pmatrix}.}
+\begin{pmatrix}1\\s/(s-m\omega_\pm^2)\end{pmatrix}.
+\end{gathered}}
 $$
 
 特に $s=k$ では
 
 $$
-\boxed{\omega_- =\sqrt{\frac{3k}{4m}},\quad
-\boldsymbol\phi_-\propto\begin{pmatrix}1\\4\end{pmatrix},\qquad
-\omega_+=\sqrt{\frac{4k}{3m}},\quad
-\boldsymbol\phi_+\propto\begin{pmatrix}1\\-3\end{pmatrix}.}
+\boxed{\begin{gathered}
+\omega_- =\sqrt{\frac{3k}{4m}},\\
+\boldsymbol\phi_-\propto\begin{pmatrix}1\\4\end{pmatrix},\\
+\omega_+=\sqrt{\frac{4k}{3m}},\\
+\boldsymbol\phi_+\propto\begin{pmatrix}1\\-3\end{pmatrix}.
+\end{gathered}}
 $$
 
 ### (3)
@@ -104,14 +119,16 @@ $$
 B を $\boxed{k_B=s=m\Omega^2}$ に設定する。運動方程式は
 
 $$
+\begin{gathered}
 \begin{pmatrix}12m&0&0\\0&m&0\\0&0&m\end{pmatrix}
-\begin{pmatrix}\ddot x_0\\\ddot x_A\\\ddot x_B\end{pmatrix}
+\begin{pmatrix}\ddot x_0\\\ddot x_A\\\ddot x_B\end{pmatrix}\\
 +\begin{pmatrix}
 12k+(\alpha+1)s&-\alpha s&-s\\
 -\alpha s&\alpha s&0\\-s&0&s
 \end{pmatrix}
-\begin{pmatrix}x_0\\x_A\\x_B\end{pmatrix}
+\begin{pmatrix}x_0\\x_A\\x_B\end{pmatrix}\\
 =\begin{pmatrix}f_0\cos\Omega t\\0\\0\end{pmatrix}.
+\end{gathered}
 $$
 
 第 3 行から $X_0=0$、第 2 行と $\alpha\ne1$ から $X_A=0$、第 1 行から $X_B=-f_0/s$。したがって振幅は

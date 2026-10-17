@@ -13,18 +13,28 @@ tags:
 
 ## **Description**
 
-実数 $\lambda,a,b,c,d,e,f,g,h,i$ に対して
+問1　次に示す $3\times3$ 行列 $A,X$ がある。ここで $\lambda$ と $a,b,c,d,e,f,g,h,i$ は実数である。$AX=XA$ を満たすとき、$a,b,c,d,e,f,g,h,i$ の中から0になるものを全て答えよ。
+
+Problem 1　Let $A$ and $X$ be $3\times3$ matrices
 
 $$
 A=\begin{pmatrix}\lambda&0&1\\0&\lambda&0\\1&1&\lambda\end{pmatrix},\qquad
 X=\begin{pmatrix}a&b&c\\d&e&f\\g&h&i\end{pmatrix}
 $$
 
-とおく。$AX=XA$ を満たすとき、$a,b,c,d,e,f,g,h,i$ のうち必ず $0$ になるものをすべて答えよ。
+where $\lambda$ and $a,b,c,d,e,f,g,h,i$ are real numbers.
+Choose all entries, from $a,b,c,d,e,f,g,h,i$, that will be zero, in case the matrix multiplication is commutative such that $AX=XA$.
 
 #### 题目描述
 
-给定实数矩阵 $A,X$ 如上。在 $AX=XA$ 条件下，求 $a,b,c,d,e,f,g,h,i$ 中所有必为零的元素。
+问1　给定两个 $3\times3$ 矩阵
+
+$$
+A=\begin{pmatrix}\lambda&0&1\\0&\lambda&0\\1&1&\lambda\end{pmatrix},\qquad
+X=\begin{pmatrix}a&b&c\\d&e&f\\g&h&i\end{pmatrix},
+$$
+
+其中 $\lambda$ 与 $a,b,c,d,e,f,g,h,i$ 均为实数。当 $AX=XA$ 时，找出 $a,b,c,d,e,f,g,h,i$ 中所有必定为0的元素。
 
 ## **Kai**
 

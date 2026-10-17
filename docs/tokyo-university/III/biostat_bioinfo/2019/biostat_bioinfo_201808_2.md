@@ -14,38 +14,55 @@ tags:
 
 ## **Description**
 
-### 題意の要約
-
-[公式問題 PDF](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2019/06/f774c2437f9325b07575786cce17f10a.pdf)
-
-既知の $\lambda>0$ と未知の $\mu\ge0$ に対し $f_\mu(x)=\frac\lambda2e^{-\lambda|x-\mu|}$（$x\in\mathbb R$）。
-
-1. 平均と分散。
-2. 累積分布関数。
-3. 上側 $100\alpha\%$ 点（$0<\alpha\le.1$）。
-4. $H_0:\mu=0$ 対 $H_1:\mu>0$ について、水準 $\alpha$ で第二種過誤を最小にする棄却域。
-5. その検出力関数 $\beta_\lambda(\mu)$（$\mu\ge0$）。
-
-### 题目描述
-
-已知 $\lambda>0$，未知参数 $\mu\geq0$。随机变量 $X$ 的密度为
+既知のパラメータ $\lambda>0$ と未知のパラメータ $\mu\ge0$ によって定まる確率分布 $P_{\lambda,\mu}$ に従う確率変数 $X$ を考える。確率分布 $P_{\lambda,\mu}$ の確率密度関数は次のように与えられている：
 
 $$
-f(x)=\frac{\lambda}{2}\exp(-\lambda|x-\mu|),
-\qquad x\in\mathbb R.
+f(x)=\frac\lambda2\exp(-\lambda|x-\mu|)\qquad(x\in\mathbb R).
 $$
 
-1. 求 $X$ 的期望与方差。
-2. 求累积分布函数 $F(x)$。
-3. 求该分布的上侧 $100\alpha\%$ 分位点，其中 $0<\alpha\leq0.1$。
-4. 对
+このとき，以下の問いに答えよ。
 
-   $$
-   H_0:\mu=0\qquad\text{vs.}\qquad H_1:\mu>0
-   $$
+(2-1) 確率変数 $X$ の期待値と分散を求めよ。
 
-   以 $X$ 为检验统计量，在显著性水平 $\alpha$ 下构造使第二类错误概率最小的拒绝域。
-5. 求第 4 问检验的功效函数 $\beta_\lambda(\mu)$。
+(2-2) 確率分布 $P_{\lambda,\mu}$ の累積分布関数 $F(x)$（$x\in\mathbb R$）を求めよ。
+
+(2-3) 確率分布 $P_{\lambda,\mu}$ の上側 $100\alpha\%$ 点を求めよ。ただし，$0<\alpha\le0.1$ とする。
+
+(2-4) 未知パラメータ $\mu$ について，次の仮説検定を考える：
+
+$$
+H_0:\mu=0\quad\mathrm{vs.}\quad H_1:\mu>0.
+$$
+
+検定統計量を $X$，有意水準を $\alpha$（$0<\alpha\le0.1$）として，第2種の過誤確率が最も小さくなるような棄却域を構成せよ。
+
+(2-5) (2-4) の検定における検出力関数 $\beta_\lambda(\mu)$（$\mu\ge0$）を求めよ。
+
+#### 题目描述
+
+考虑服从概率分布 $P_{\lambda,\mu}$ 的随机变量 $X$，该分布由已知参数 $\lambda>0$ 和未知参数 $\mu\ge0$ 确定。其概率密度函数为
+
+$$
+f(x)=\frac\lambda2\exp(-\lambda|x-\mu|)\qquad(x\in\mathbb R).
+$$
+
+回答下列问题。
+
+(2-1) 求随机变量 $X$ 的期望和方差。
+
+(2-2) 求概率分布 $P_{\lambda,\mu}$ 的累积分布函数 $F(x)$（$x\in\mathbb R$）。
+
+(2-3) 求概率分布 $P_{\lambda,\mu}$ 的上侧 $100\alpha\%$ 分位点，其中 $0<\alpha\le0.1$。
+
+(2-4) 对未知参数 $\mu$ 考虑假设检验
+
+$$
+H_0:\mu=0\quad\mathrm{vs.}\quad H_1:\mu>0.
+$$
+
+以 $X$ 为检验统计量，以 $\alpha$（$0<\alpha\le0.1$）为显著性水平，构造使第二类错误概率最小的拒绝域。
+
+(2-5) 求 (2-4) 中检验的功效函数 $\beta_\lambda(\mu)$（$\mu\ge0$）。
 
 ## **Kai**
 ### (2-1)
@@ -54,39 +71,28 @@ $$
 $$
 \begin{aligned}
 E(X)
-&= \int_{- \infty}^\infty x f(x) dx
-\\
-&= \frac{\lambda}{2} \int_{- \infty}^\infty x e^{- \lambda |x - \mu| } dx
-\\
+&= \int_{- \infty}^\infty x f(x) dx\\
+&= \frac{\lambda}{2} \int_{- \infty}^\infty x e^{- \lambda |x - \mu| } dx\\
 &= \frac{\lambda}{2} \int_{- \infty}^\infty (y + \mu) e^{- \lambda |y| } dy
-\ \ \ \ \ \ \ \ ( y = x - \mu )
-\\
-&= \mu
-\\
+\ \ \ \ \ \ \ \ ( y = x - \mu )\\
+&= \mu\\
 E(X^2)
-&= \int_{- \infty}^\infty x^2 f(x) dx
-\\
-&= \frac{\lambda}{2} \int_{- \infty}^\infty x^2 e^{- \lambda |x - \mu| } dx
-\\
+&= \int_{- \infty}^\infty x^2 f(x) dx\\
+&= \frac{\lambda}{2} \int_{- \infty}^\infty x^2 e^{- \lambda |x - \mu| } dx\\
 &= \frac{\lambda}{2} \int_{- \infty}^\infty
 (y^2 + 2 \mu y + \mu^2) e^{- \lambda |y| } dy
-\ \ \ \ \ \ \ \ ( y = x - \mu )
-\\
-&= \lambda \int_0^\infty y^2 e^{- \lambda y } dy + \mu^2
-\\
+\ \ \ \ \ \ \ \ ( y = x - \mu )\\
+&= \lambda \int_0^\infty y^2 e^{- \lambda y } dy + \mu^2\\
 \int_0^\infty y^2 e^{- \lambda y } dy
-&= \frac{1}{\lambda^3}\int_0^\infty u^2e^{-u}\,du
-\qquad (u=\lambda y)
-\\
-&= \frac{2}{\lambda^3}
-\\
+&= \frac{1}{\lambda^3}\int_0^\infty u^2e^{-u}\,du\\
+&(u=\lambda y)\\
+&= \frac{2}{\lambda^3}\\
 E(X^2)
-&= \lambda \cdot \frac{2}{\lambda^3} + \mu^2
-= \frac{2}{\lambda^2} + \mu^2
-\\
-V(X) &= E(X^2) - E(X)^2
-= \frac{2}{\lambda^2} + \mu^2 - \mu^2
-= \frac{2}{\lambda^2}
+&= \lambda \cdot \frac{2}{\lambda^3} + \mu^2\\
+&= \frac{2}{\lambda^2} + \mu^2\\
+V(X) &= E(X^2) - E(X)^2\\
+&= \frac{2}{\lambda^2} + \mu^2 - \mu^2\\
+&= \frac{2}{\lambda^2}
 \end{aligned}
 $$
 
@@ -96,9 +102,9 @@ $$
 $$
 \begin{aligned}
 F(x)
-&= \frac{\lambda}{2} \int_{- \infty}^x e^{ \lambda (z - \mu) } dz
-= \frac{1}{2} \left[ e^{ \lambda (z - \mu) } \right]_{- \infty}^x
-= \frac{1}{2} e^{ \lambda (x - \mu) }
+&= \frac{\lambda}{2} \int_{- \infty}^x e^{ \lambda (z - \mu) } dz\\
+&= \frac{1}{2} \left[ e^{ \lambda (z - \mu) } \right]_{- \infty}^x\\
+&= \frac{1}{2} e^{ \lambda (x - \mu) }
 \end{aligned}
 $$
 
@@ -107,9 +113,9 @@ $$
 $$
 \begin{aligned}
 F(x)
-&= \frac{1}{2} + \frac{\lambda}{2} \int_\mu^x e^{ - \lambda (z - \mu) } dz
-= \frac{1}{2} - \frac{1}{2} \left[ e^{ - \lambda (z - \mu) } \right]_\mu^x
-= 1 - \frac{1}{2} e^{ - \lambda (x - \mu) }
+&= \frac{1}{2} + \frac{\lambda}{2} \int_\mu^x e^{ - \lambda (z - \mu) } dz\\
+&= \frac{1}{2} - \frac{1}{2} \left[ e^{ - \lambda (z - \mu) } \right]_\mu^x\\
+&= 1 - \frac{1}{2} e^{ - \lambda (x - \mu) }
 \end{aligned}
 $$
 
@@ -118,6 +124,7 @@ $$
 
 $$
 \begin{aligned}
+&
 F(x_0)
 = 1 - \frac{1}{2} e^{ - \lambda (x_0 - \mu) }
 = 1 - \alpha
@@ -142,6 +149,7 @@ $$
 
 $$
 \begin{aligned}
+&
 x \gt - \frac{\log 2 \alpha}{\lambda}
 \end{aligned}
 $$
@@ -164,6 +172,7 @@ $$
 
 $$
 \begin{aligned}
+&
 x_1 = - \frac{\log 2 \alpha}{\lambda}
 \end{aligned}
 $$
@@ -172,6 +181,7 @@ $$
 
 $$
 \begin{aligned}
+&
 e^{\lambda x_1} = \frac{1}{2 \alpha}
 , \ \ \ \ 
 e^{- \lambda x_1} = 2 \alpha
@@ -213,3 +223,7 @@ $$
 $$
 
 特に $\beta_\lambda(0)=\alpha$ であり、二つの式は $\mu=x_1$ でともに $1/2$ となる。
+
+## **Reference**
+
+- [大学公表の原題](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2019/06/f774c2437f9325b07575786cce17f10a.pdf)

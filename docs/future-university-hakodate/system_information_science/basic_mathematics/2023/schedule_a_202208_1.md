@@ -13,20 +13,31 @@ tags:
 
 ## **Description**
 
-$\mathbb R^4$ の部分空間 $V,W$ を次のように定める。
+$\mathbb{R}^4$ の部分空間 $V,W$ を以下のように定める。
 
 $$
-\begin{aligned}
-V&=\{(x,y,z,w)^{\mathsf T}\in\mathbb R^4\mid x+2y+z+3w=0,\ x+3y+2z=0\},\\
-W&=\{(x,y,z,w)^{\mathsf T}\in\mathbb R^4\mid2x+y-z-4w=0,\ x+y-3w=0\}.
-\end{aligned}
+V=\left\{\begin{pmatrix}x\\y\\z\\w\end{pmatrix}\in\mathbb{R}^4\ \middle|\ \begin{aligned}x+2y+z+3w&=0\\x+3y+2z&=0\end{aligned}\right\}
 $$
 
-$V,W,V+W,V\cap W$ の基底をそれぞれ求めよ。
+$$
+W=\left\{\begin{pmatrix}x\\y\\z\\w\end{pmatrix}\in\mathbb{R}^4\ \middle|\ \begin{aligned}2x+y-z-4w&=0\\x+y-3w&=0\end{aligned}\right\}
+$$
+
+このとき，$V,W,V+W$，および $V\cap W$ の基底をそれぞれ求めよ。（配点 25 点）
 
 #### 题目描述
 
-在 $\mathbb R^4$ 中，子空间 $V$ 与 $W$ 分别由上述两组齐次线性方程定义。分别求 $V$、$W$、和空间 $V+W$ 以及交空间 $V\cap W$ 的一组基。
+如下定义 $\mathbb{R}^4$ 的子空间 $V,W$：
+
+$$
+V=\left\{\begin{pmatrix}x\\y\\z\\w\end{pmatrix}\in\mathbb{R}^4\ \middle|\ \begin{aligned}x+2y+z+3w&=0\\x+3y+2z&=0\end{aligned}\right\}
+$$
+
+$$
+W=\left\{\begin{pmatrix}x\\y\\z\\w\end{pmatrix}\in\mathbb{R}^4\ \middle|\ \begin{aligned}2x+y-z-4w&=0\\x+y-3w&=0\end{aligned}\right\}.
+$$
+
+分别求 $V,W,V+W$ 及 $V\cap W$ 的一组基。（25 分）
 
 ## **Kai**
 
@@ -35,15 +46,19 @@ $V,W,V+W,V\cap W$ の基底をそれぞれ求めよ。
 各連立方程式を解くと、次の基底を得る。
 
 $$
-\boxed{\mathcal B_V=\{v_1,v_2\}},\qquad
-v_1=\begin{pmatrix}-9\\3\\0\\1\end{pmatrix},\quad
+\begin{gathered}
+\boxed{\mathcal B_V=\{v_1,v_2\}},\\
+v_1=\begin{pmatrix}-9\\3\\0\\1\end{pmatrix},\\
 v_2=\begin{pmatrix}-6\\0\\3\\1\end{pmatrix},
+\end{gathered}
 $$
 
 $$
-\boxed{\mathcal B_W=\{w_1,w_2\}},\qquad
-w_1=\begin{pmatrix}-1\\1\\-1\\0\end{pmatrix},\quad
+\begin{gathered}
+\boxed{\mathcal B_W=\{w_1,w_2\}},\\
+w_1=\begin{pmatrix}-1\\1\\-1\\0\end{pmatrix},\\
 w_2=\begin{pmatrix}3\\0\\2\\1\end{pmatrix}.
+\end{gathered}
 $$
 
 例えば $V$ の一般元は $\frac y3v_1+\frac z3v_2$、$W$ の一般元は $yw_1+ww_2$ と表される。
@@ -59,7 +74,11 @@ $$
 ### $V\cap W$
 
 $$
-\dim(V\cap W)=\dim V+\dim W-\dim(V+W)=2+2-3=1.
+\begin{gathered}
+\dim(V\cap W)=\dim V+\dim W-\dim(V+W)\\
+=2+2-3\\
+=1.
+\end{gathered}
 $$
 
 $w_1=(v_1-v_2)/3\in V\cap W$ は非零だから、

@@ -12,70 +12,105 @@ tags:
 
 ## **Description**
 
-### 原題に基づく要約（日本語）
-
-[公式原題](https://www.me.es.osaka-u.ac.jp/msb/pdf/bio/r4_2.pdf)
-
-平面内の光路を $y=y(x)$ とし、屈折率を $n(x,y)$、真空中の光速を $c$ とする。光は $P_1=(x_1,y_1)$ から $P_2=(x_2,y_2)$ へ進む。
+フェルマーの原理によると、2点を通る光はその間の可能な経路のうち要する時間が最短となる経路を通るという。この原理を用いて、媒質中における光路を導出することを考える。真空中の光速を $c$ とし、以下の問に答えよ。
 
 ### 問1
 
-1. 微小弧長 $dl=\sqrt{1+y'^2}\,dx$ を用い、伝播時間が
+図1に示すように、$x$-$y$ 平面上の各点 $(x,y)$ に非一様な屈折率 $n(x,y)$ の媒質が分布し、光が媒質中の点 $\mathrm P_1(x_1,y_1)$ から出発し点 $\mathrm P_2(x_2,y_2)$ に至るとする。ただし、関数 $y(x)$ の導関数を $y'=dy/dx$ とする。
 
-   $$
-   T[y]=\int_{x_1}^{x_2}\frac{n(x,y)}c\sqrt{1+y'^2}\,dx=\int_{x_1}^{x_2}L(x,y,y')\,dx
-   $$
+![図1：屈折率が非一様な媒質中における光路の例](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering_sciences/bio/2022/bio_sys_202108_II_1_fig1.png)
 
-   と書けることを示す。
-2. 端点固定の変分 $y=\bar y+\varepsilon h$ から、停留条件 $\partial L/\partial y-d(\partial L/\partial y')/dx=0$ を導く。
-3. $n=n_0$ が定数ならば、この式が $y''=0$ となり、光路が両端点を結ぶ直線となることを示す。
+(ア) 光が曲線 $y=y(x)$ 上を通るのに要する時間を $T$ とする。$T$ は、
+
+$$
+T=\int_{x_1}^{x_2}L(x,y,y')\,dx\tag{1}
+$$
+
+の形で表すことができる。このとき
+
+$$
+L(x,y,y')=\frac{n(x,y)}c\sqrt{1+y'^2}\tag{2}
+$$
+
+であることを示せ。
+
+(イ) フェルマーの原理により $T$ が最小となるときの光路を $y=\bar y(x)$ とする。ここで、$h(x_1)=0$ および $h(x_2)=0$ を満たす任意の関数 $h(x)$、微小量 $\epsilon$ を用いて、光路を $y(x)=\bar y(x)+\epsilon h(x)$ と表すとき、$\epsilon$ の微小変化に対して $T$ は停留値を取る。
+
+$$
+\int_{x_1}^{x_2}h(x)\left\{\frac d{dx}\left(\frac{\partial L}{\partial y'}\right)-\frac{\partial L}{\partial y}\right\}dx=0\tag{3}
+$$
+
+が成り立つことを示せ。
+
+(ウ) 任意の関数 $h(x)$ に対して式 (3) が恒等的に成り立つためには、オイラー・ラグランジュ方程式
+
+$$
+\frac d{dx}\left(\frac{\partial L}{\partial y'}\right)-\frac{\partial L}{\partial y}=0\tag{4}
+$$
+
+が成立しなければならない。屈折率を一様、すなわち $n(x,y)=n_0$（定数）とするとき、本問におけるオイラー・ラグランジュ方程式を解き、その解が点 $\mathrm P_1$、$\mathrm P_2$ を通る直線となることを示せ。
 
 ### 問2
 
-$x=x_0$ を境界とする屈折率 $n_1,n_2$ の一様媒質を考える。光は $P_1$ から $(x_0,0)$ を経て $P_2$ へ進み、$x_1<x_0<x_2,\ y_1>0>y_2$ とする。入射角 $\theta_1$ と屈折角 $\theta_2$ は水平方向の法線から測る。
+図2のように、$x$-$y$ 平面上の各点 $(x,y)$ に一様な屈折率をもつ2種類の媒質1および媒質2が、$x=x_0$ を境にして分布しているとする。光は媒質1中の点 $\mathrm P_1(x_1,y_1)$ から出発し、境界上の点 $(x_0,0)$ で屈折し、媒質2中の点 $\mathrm P_2(x_2,y_2)$ に至るとする。この光路を $y=y(x)$ とし、関数 $y(x)$ の導関数を $y'=dy/dx$ とする。媒質1および媒質2の屈折率は、それぞれ $n_1$（定数）および $n_2$（定数）であり、入射角を $\theta_1$、屈折角を $\theta_2$ とする。ただし、$x_1<x_0<x_2$、$y_1>0$、$y_2<0$ とする。
 
-1. 光路の傾きを用いて $\sin\theta_1$ を表す。
-2. 全伝播時間を各媒質での時間の和で表す。
-3. Euler–Lagrange 方程式と界面での変分条件から $n_1\sin\theta_1=n_2\sin\theta_2$ を導く。
+![図2：一様な屈折率をもつ2種類の媒質中の光路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering_sciences/bio/2022/bio_sys_202108_II_1_fig2.png)
 
-### 题目描述
+(ア) $\sin\theta_1$ を $x_1<x<x_0$ における $y'$ を用いて表わせ。
 
-设平面内光路写作 $y=y(x)$，介质折射率为 $n(x,y)$，真空光速为 $c$，光从 $P_1=(x_1,y_1)$ 传播到 $P_2=(x_2,y_2)$。
+(イ) 光が点 $\mathrm P_1$ から点 $\mathrm P_2$ に至るまでに要する時間を $T$ とする。$T$ を $c,n_1,n_2,x_0,x_1,x_2,x,y'$ を用いて表わせ。
 
-【问题 1：Fermat 原理与变分法】
+(ウ) オイラー・ラグランジュ方程式からスネルの法則
 
-1. 从微小弧长
+$$
+n_1\sin\theta_1=n_2\sin\theta_2\tag{5}
+$$
 
-   $$
-   dl=\sqrt{1+y'^2}\,dx
-   $$
+を導出せよ。
 
-   出发，证明传播时间可写为
+#### 题目描述
 
-   $$
-   T[y]=\int_{x_1}^{x_2}\frac{n(x,y)}c\sqrt{1+y'^2}\,dx
-   =\int_{x_1}^{x_2}L(x,y,y')\,dx.
-   $$
+根据费马原理，经过两点的光在两点间所有可能路径中选择所需时间最短的路径。现利用该原理推导介质中的光路。设真空光速为 $c$，回答下列问题。
 
-2. 对端点固定的变分 $y=\bar y+\varepsilon h$，推导传播时间取驻值所满足的 Euler–Lagrange 方程
+### 问1
 
-   $$
-   \frac{\partial L}{\partial y}-\frac d{dx}\frac{\partial L}{\partial y'}=0.
-   $$
+如图1，$x$-$y$ 平面各点 $(x,y)$ 分布着折射率不均匀、为 $n(x,y)$ 的介质。光从介质中的点 $\mathrm P_1(x_1,y_1)$ 出发，到达点 $\mathrm P_2(x_2,y_2)$。记函数 $y(x)$ 的导数为 $y'=dy/dx$。
 
-3. 当折射率为常数 $n_0$ 时，证明该方程化为 $y''=0$，所以光路是连接 $P_1,P_2$ 的直线。
+(ア) 设光沿曲线 $y=y(x)$ 传播所需时间为 $T$，它可写为
 
-【问题 2：折射定律】
+$$
+T=\int_{x_1}^{x_2}L(x,y,y')\,dx.
+$$
 
-两均匀介质折射率分别为 $n_1,n_2$，界面为 $x=x_0$。光从 $P_1$ 经 $(x_0,0)$ 到达 $P_2$，且 $x_1<x_0<x_2,\ y_1>0>y_2$。入射角与折射角 $\theta_1,\theta_2$ 从水平方向的法线量起。
+证明
 
-1. 用光路线段斜率表示 $\sin\theta_1$；
-2. 将总传播时间写成光在两介质中传播时间之和；
-3. 利用 Euler–Lagrange 方程及界面处的变分条件推导 Snell 定律
+$$
+L(x,y,y')=\frac{n(x,y)}c\sqrt{1+y'^2}.
+$$
 
-   $$
-   n_1\sin\theta_1=n_2\sin\theta_2.
-   $$
+(イ) 根据费马原理，设使 $T$ 最小的光路为 $y=\bar y(x)$。取满足 $h(x_1)=h(x_2)=0$ 的任意函数 $h(x)$ 及微小量 $\epsilon$，将光路写为 $y(x)=\bar y(x)+\epsilon h(x)$；对于 $\epsilon$ 的微小变化，$T$ 取驻值。证明
+
+$$
+\int_{x_1}^{x_2}h(x)\left\{\frac d{dx}\left(\frac{\partial L}{\partial y'}\right)-\frac{\partial L}{\partial y}\right\}dx=0.
+$$
+
+(ウ) 要使上式对任意 $h(x)$ 恒成立，必须满足欧拉—拉格朗日方程
+
+$$
+\frac d{dx}\left(\frac{\partial L}{\partial y'}\right)-\frac{\partial L}{\partial y}=0.
+$$
+
+若折射率均匀，即 $n(x,y)=n_0$（常数），求解该方程并证明其解是通过 $\mathrm P_1,\mathrm P_2$ 的直线。
+
+### 问2
+
+如图2，$x$-$y$ 平面上以 $x=x_0$ 为界分布着两种各自具有均匀折射率的介质1、2。光从介质1中的点 $\mathrm P_1(x_1,y_1)$ 出发，在边界点 $(x_0,0)$ 折射，最后到达介质2中的点 $\mathrm P_2(x_2,y_2)$。记光路为 $y=y(x)$、导数为 $y'=dy/dx$。介质1、2的折射率分别为常数 $n_1,n_2$，入射角和折射角分别为 $\theta_1,\theta_2$，且 $x_1<x_0<x_2$、$y_1>0$、$y_2<0$。
+
+(ア) 用 $x_1<x<x_0$ 区间中的 $y'$ 表示 $\sin\theta_1$。
+
+(イ) 设光从 $\mathrm P_1$ 到 $\mathrm P_2$ 的传播时间为 $T$，用 $c,n_1,n_2,x_0,x_1,x_2,x,y'$ 表示 $T$。
+
+(ウ) 从欧拉—拉格朗日方程推导斯涅尔定律 $n_1\sin\theta_1=n_2\sin\theta_2$。
 
 ## **Kai**
 ### (問 1)
@@ -128,41 +163,44 @@ $$
 #### (イ)
 
 $$
-\begin{aligned}
-L \left( x, \bar{y} + \epsilon h, \bar{y}' + \epsilon h' \right)
-\simeq
-L \left( x, \bar{y}, \bar{y}' \right)
-+ \epsilon h(x) \frac{\partial L}{\partial y} (x,\bar{y},\bar{y}')
-+ \epsilon h'(x) \frac{\partial L}{\partial y'} (x,\bar{y},\bar{y}')
-\end{aligned}
+\begin{gathered}
+L\left(x,\bar y+\epsilon h,\bar y'+\epsilon h'\right)
+\\
+\simeq L\left(x,\bar y,\bar y'\right)
++\epsilon h(x)\frac{\partial L}{\partial y}(x,\bar y,\bar y')
+\\
+{}+\epsilon h'(x)\frac{\partial L}{\partial y'}(x,\bar y,\bar y')
+\end{gathered}
 $$
 
 である。端点固定より $h(x_1)=h(x_2)=0$ であり、
 
 $$
+\begin{gathered}
+\int_{x_1}^{x_2}L\left(x,\bar y(x)+\epsilon h(x),\bar y'(x)+\epsilon h'(x)\right)\,dx
+\\
+{}-\int_{x_1}^{x_2}L\left(x,\bar y(x),\bar y'(x)\right)\,dx
+\\
+=\epsilon\int_{x_1}^{x_2}\left\{
 \begin{aligned}
-&\int_{x_1}^{x_2}
-L \left( x, \bar{y}(x) + \epsilon h(x), \bar{y}'(x) + \epsilon h'(x) \right) dx
-- \int_{x_1}^{x_2} L \left( x, \bar{y}(x), \bar{y}'(x) \right) dx
+&h(x)\frac{\partial L}{\partial y}(x,\bar y(x),\bar y'(x))\\
+&{}+h'(x)\frac{\partial L}{\partial y'}(x,\bar y(x),\bar y'(x))
+\end{aligned}\right\}\,dx+o(\epsilon)
 \\
-&= \epsilon \int_{x_1}^{x_2}
-\left\{ h(x) \frac{\partial L}{\partial y} (x,\bar{y}(x),\bar{y}'(x))
-+ h'(x) \frac{\partial L}{\partial y'} (x,\bar{y}(x),\bar{y}'(x)) \right\} dx+o(\epsilon)
+=\epsilon\left[h(x)\frac{\partial L}{\partial y'}(x,\bar y(x),\bar y'(x))\right]_{x_1}^{x_2}
 \\
-&= \epsilon \left[ h(x)
-\frac{\partial L}{\partial y'} (x,\bar{y}(x),\bar{y}'(x)) \right]_{x_1}^{x_2}
-+ \epsilon \int_{x_1}^{x_2}
-\left\{ h(x) \frac{\partial L}{\partial y} (x,\bar{y}(x),\bar{y}'(x))
-- h(x) \frac{d}{dx}
-\frac{\partial L}{\partial y'} (x,\bar{y}(x),\bar{y}'(x)) \right\} dx
-+o(\epsilon)
+{}+\epsilon\int_{x_1}^{x_2}\left\{
+\begin{aligned}
+&h(x)\frac{\partial L}{\partial y}(x,\bar y(x),\bar y'(x))\\
+&{}-h(x)\frac d{dx}\frac{\partial L}{\partial y'}(x,\bar y(x),\bar y'(x))
+\end{aligned}\right\}\,dx+o(\epsilon)
 \\
-&=
-\epsilon \int_{x_1}^{x_2} h(x)
-\left\{ \frac{\partial L}{\partial y} (x,\bar{y}(x),\bar{y}'(x))
-- \frac{d}{dx}
-\frac{\partial L}{\partial y'} (x,\bar{y}(x),\bar{y}'(x)) \right\} dx+o(\epsilon)
-\end{aligned}
+=\epsilon\int_{x_1}^{x_2}h(x)\left\{
+\begin{aligned}
+&\frac{\partial L}{\partial y}(x,\bar y(x),\bar y'(x))\\
+&{}-\frac d{dx}\frac{\partial L}{\partial y'}(x,\bar y(x),\bar y'(x))
+\end{aligned}\right\}\,dx+o(\epsilon)
+\end{gathered}
 $$
 
 である。$T$ の停留性と $h$ の任意性より、Euler–Lagrange 方程式が成り立つ。

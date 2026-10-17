@@ -14,19 +14,33 @@ tags:
 
 ## **Description**
 
-大気中において、鉛直面から角度 $\theta$ だけ傾いた斜面を、密度 $\rho$、粘度 $\mu$ の水が厚さ $h$ を保った十分発達した層流として自然流下する。図のように $x$ を斜面下向き、$y$ を斜面から外向きにとり、二次元流れとする。重力加速度は $g$ である。（50点）
+図に示すように，大気中において鉛直面から角度 $\theta$ だけ傾いた斜面を，密度 $\rho$，粘度 $\mu$ の水が水膜厚さ $h$ を保ったまま十分に発達した層流状態で自然流下している。図のように $x$–$y$ 座標系を設定し，流れが二次元的であるとして，以下の問いに答えよ。重力加速度を $g$ とする。（50点）
 
-1. 流下方向の断面平均速度 $u_m$ を代表速度として、現象を支配する無次元数をすべて求めよ。
-2. 水膜内 $0<y<h$ の圧力分布 $p(y)$ をゲージ圧で求めよ。
-3. $x$ 方向流速を $u(y)$ として、$x$ 方向の力の釣り合い式を導出せよ。
-4. $u(y)$ を求めよ。大気の粘度は水の粘度より十分小さい。
-5. $\theta$ を (1) の無次元数で表せ。
+**(1)** 水が流下する方向（$x$ 方向）の水の流速の断面平均速度 $u_m$ を代表速度とし，現象を支配する無次元数を全て求めよ。
 
-![原題の図（九州大学 2011年度 流体工学 問3）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2011/mech_201008_fluids-3-original.png)
+**(2)** 水面に垂直な方向（$y$ 方向）の水膜内 $(0<y<h)$ の圧力分布 $p(y)$ をゲージ圧で求めよ。
+
+**(3)** 水の $x$ 方向流速の分布を $u(y)$（ただし，$0<y<h$）として，$x$ 方向の力の釣り合い式を導出せよ。
+
+**(4)** 水の $x$ 方向流速の分布 $u(y)$ を求めよ。なお，大気の粘度は水の粘度に比べて無視できるほど小さいものとする。
+
+**(5)** 傾斜角 $\theta$ を(1)で求めた無次元数で表せ。
+
+![原題の図：傾斜面上を流下する水膜と座標系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2011/mech_201008_fluids-3-original.png)
 
 #### 题目描述
 
-密度 $\rho$、黏度 $\mu$ 的水沿与竖直成角 $\theta$ 的斜面，以厚度 $h$ 的充分发展二维层流自然下落。$x$ 沿斜面向下，$y$ 沿壁面法向向外。以平均流速 $u_m$ 为代表速度，求无量纲数、表压分布、流向力平衡方程、速度分布，以及倾角与无量纲数的关系；忽略空气黏度。
+如图所示，在大气中，密度为 $\rho$、动力黏度为 $\mu$ 的水沿与竖直面夹角为 $\theta$ 的斜面自然向下流动，保持水膜厚度 $h$，且处于充分发展的层流状态。按图建立 $x$–$y$ 坐标系，设流动为二维流动，回答下列问题。重力加速度为 $g$。（50分）
+
+**(1)** 以水流下方向（$x$ 方向）的截面平均流速 $u_m$ 为特征速度，求支配该现象的全部无量纲数。
+
+**(2)** 求沿垂直水面的方向（$y$ 方向），水膜内部 $(0<y<h)$ 的压力分布 $p(y)$，以表压表示。
+
+**(3)** 将水在 $x$ 方向的速度分布记作 $u(y)$，其中 $0<y<h$，推导 $x$ 方向的力平衡方程。
+
+**(4)** 求水在 $x$ 方向的速度分布 $u(y)$。设大气的黏度相对于水的黏度足够小，可以忽略。
+
+**(5)** 用(1)求得的无量纲数表示倾斜角 $\theta$。
 
 ## **Kai**
 
@@ -46,8 +60,11 @@ $$
 $\theta$ は鉛直から測るので、壁面に向かう重力成分は $g\sin\theta$。したがって
 
 $$
-\frac{dp}{dy}=-\rho g\sin\theta,\qquad p(h)=0,
-\qquad \boxed{p(y)=\rho g\sin\theta\,(h-y)}.
+\begin{gathered}
+\frac{dp}{dy}=-\rho g\sin\theta,\\
+p(h)=0,\\
+\boxed{p(y)=\rho g\sin\theta\,(h-y)}.
+\end{gathered}
 $$
 
 ### (3)
@@ -55,9 +72,11 @@ $$
 十分発達した流れでは $\partial p/\partial x=0$ である。微小要素の流下方向の釣り合いから
 
 $$
-\frac{d\tau}{dy}+\rho g\cos\theta=0,\qquad
-\tau=\mu\frac{du}{dy},\qquad
+\begin{gathered}
+\frac{d\tau}{dy}+\rho g\cos\theta=0,\\
+\tau=\mu\frac{du}{dy},\\
 \boxed{\mu\frac{d^2u}{dy^2}+\rho g\cos\theta=0}.
+\end{gathered}
 $$
 
 ### (4)
@@ -78,9 +97,11 @@ $$
 ゆえに
 
 $$
-\boxed{\cos\theta=\frac{3\mathrm{Fr}^2}{\mathrm{Re}}
-=\frac{3\Pi_1}{\Pi_2},\qquad
-\theta=\arccos\!\left(\frac{3\mathrm{Fr}^2}{\mathrm{Re}}\right)}.
+\boxed{\begin{gathered}
+\cos\theta=\frac{3\mathrm{Fr}^2}{\mathrm{Re}}
+=\frac{3\Pi_1}{\Pi_2},\\
+\theta=\arccos\!\left(\frac{3\mathrm{Fr}^2}{\mathrm{Re}}\right)
+\end{gathered}}.
 $$
 
 自然流下の範囲では $0\le3\mathrm{Fr}^2/\mathrm{Re}\le1$ である。

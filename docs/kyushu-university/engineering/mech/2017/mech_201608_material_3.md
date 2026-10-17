@@ -15,28 +15,48 @@ tags:
 
 ## **Description**
 
-図の弾性丸棒 AB、BC と剛体棒 CD、DF からなる構造物が A で壁に固定されている。弾性棒のヤング率は $E$、ポアソン比は $\nu$、直径は $d$ である。AB は $x$ 方向に長さ $a$、BC は $y$ 方向に長さ $b$、CD は $x$ 方向に長さ $c$、DF は $z$ 方向に長さ $e$ を持ち、$a,b,c,e\gg d$ とする。F に $+y$ 方向の荷重 $P$ を加える。
+図のように、ヤング率 $E$、ポアソン比 $\nu$ の弾性体棒 AB、BC と剛体棒 CD、DF が接合された構造体が点 A で壁に固定されている。いずれの弾性体棒も、直径は $d$ である。また、点 F に $y$ 方向に荷重 $P$ が作用している。次の各問いに答えよ。（40点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-3-original.png)
+**(1)** 丸棒の断面二次モーメント $I$、断面二次極モーメント $I_p$ および横弾性係数 $G$ を記述せよ。
 
-1. 丸棒の断面二次モーメント $I$、断面二次極モーメント $I_p$、横弾性係数 $G$ を記述せよ。
-2. AB のせん断力線図（SFD）と曲げモーメント線図（BMD）を描け。
-3. B の $x,y,z$ 方向変位を求めよ。
-4. C の $x,y,z$ 方向変位を求めよ。
-5. F の $x,y,z$ 方向変位を求めよ。
+**(2)** AB 間のせん断力線図（SFD）と曲げモーメント線図（BMD）を描け。
+
+**(3)** 点 B の $x$ 方向変位 $\delta_{Bx}$、$y$ 方向変位 $\delta_{By}$、$z$ 方向変位 $\delta_{Bz}$ を求めよ。
+
+**(4)** 点 C の $x$ 方向変位 $\delta_{Cx}$、$y$ 方向変位 $\delta_{Cy}$、$z$ 方向変位 $\delta_{Cz}$ を求めよ。
+
+**(5)** 点 F の $x$ 方向変位 $\delta_{Fx}$、$y$ 方向変位 $\delta_{Fy}$、$z$ 方向変位 $\delta_{Fz}$ を求めよ。
+
+図中、AB は $x$ 方向に長さ $a$、BC は $y$ 方向に長さ $b$、CD は $x$ 方向に長さ $c$、DF は $z$ 方向に長さ $e$ をもち、$a,b,c,e\gg d$ である。
+
+![原題の弾性丸棒と剛体棒の三次元構造](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-3-original.png)
 
 #### 题目描述
 
-图示空间折杆由弹性杆 AB、BC 和刚臂 CD、DF 组成，A 固定。AB 沿 $x$ 轴长 $a$，BC 沿 $y$ 轴长 $b$，CD 沿 $x$ 轴长 $c$，DF 沿 $z$ 轴长 $e$。弹性杆参数为 $E,\nu,d$，且各段长度远大于直径。F 受沿 $+y$ 的力 $P$。求 $I,I_p,G$，画 AB 的剪力与弯矩图，并求 B、C、F 三点各自的三方向位移。
+如图，由杨氏模量为 $E$、泊松比为 $\nu$ 的弹性杆 AB、BC 与刚杆 CD、DF 连接成的结构，在 A 点固定于墙壁。两根弹性杆的直径均为 $d$。F 点受到沿 $y$ 方向的载荷 $P$。回答下列问题。（40分）
+
+**(1)** 写出圆杆的截面二次矩 $I$、截面极二次矩 $I_p$ 以及剪切模量 $G$。
+
+**(2)** 绘制 AB 段的剪力图（SFD）和弯矩图（BMD）。
+
+**(3)** 求 B 点沿 $x,y,z$ 方向的位移 $\delta_{Bx},\delta_{By},\delta_{Bz}$。
+
+**(4)** 求 C 点沿 $x,y,z$ 方向的位移 $\delta_{Cx},\delta_{Cy},\delta_{Cz}$。
+
+**(5)** 求 F 点沿 $x,y,z$ 方向的位移 $\delta_{Fx},\delta_{Fy},\delta_{Fz}$。
+
+图中 AB 沿 $x$ 方向长 $a$，BC 沿 $y$ 方向长 $b$，CD 沿 $x$ 方向长 $c$，DF 沿 $z$ 方向长 $e$，且 $a,b,c,e\gg d$。
 
 ## **Kai**
 
 ### (1)
 
 $$
-\boxed{I=\frac{\pi d^4}{64},\qquad
-I_p=\frac{\pi d^4}{32}=2I,\qquad
-G=\frac{E}{2(1+\nu)}}.
+\boxed{\begin{gathered}
+I=\frac{\pi d^4}{64},\\
+I_p=\frac{\pi d^4}{32}=2I,\\
+G=\frac{E}{2(1+\nu)}
+\end{gathered}}.
 $$
 
 以下 $A_0=\pi d^2/4$ とし、曲げ・ねじりによる一次の変位を求める。BC の軸伸び $Pb/(EA_0)$ も併記する。
@@ -52,8 +72,10 @@ $$
 したがって、断面の先の荷重を正に取る符号規約では
 
 $$
-\boxed{V_y(s)=P,\qquad M_z(s)=P(a+c-s)}
-\quad(0<s<a).
+\begin{gathered}
+\boxed{V_y(s)=P,\qquad M_z(s)=P(a+c-s)}\\
+(0<s<a).
+\end{gathered}
 $$
 
 SFD は高さ $P$ の一定値、BMD は A の $P(a+c)$ から B の $Pc$ へ直線的に減少する。ねじりモーメントは別に $T_x=-Pe$ で一定である。
@@ -65,9 +87,11 @@ SFD は高さ $P$ の一定値、BMD は A の $P(a+c)$ から B の $Pc$ へ直
 AB は $y$ 方向の端力 $P$ と $z$ 軸まわりの端偶力 $Pc$ を受けるので
 
 $$
-\boxed{\delta_{Bx}=0,\qquad
-\delta_{By}=\frac{P}{EI}\left(\frac{a^3}{3}+\frac{ca^2}{2}\right),\qquad
-\delta_{Bz}=0}.
+\boxed{\begin{gathered}
+\delta_{Bx}=0,\\
+\delta_{By}=\frac{P}{EI}\left(\frac{a^3}{3}+\frac{ca^2}{2}\right),\\
+\delta_{Bz}=0
+\end{gathered}}.
 $$
 
 B の回転ベクトルは
@@ -95,8 +119,10 @@ $$
 $$
 
 $$
-\boxed{\delta_{Cz}=-\frac{Peab}{GI_p}-\frac{Peb^2}{2EI}
-=-\frac{Peb}{2EI}\{2(1+\nu)a+b\}}.
+\boxed{\begin{gathered}
+\delta_{Cz}=-\frac{Peab}{GI_p}-\frac{Peb^2}{2EI}\\
+=-\frac{Peb}{2EI}\{2(1+\nu)a+b\}
+\end{gathered}}.
 $$
 
 BC の軸伸びを無視する近似では、$\delta_{Cy}$ の最後の項を省く。

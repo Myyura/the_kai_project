@@ -15,107 +15,125 @@ tags:
 
 ## **Description**
 
-### 問題の要約
-
-[公式問題・第3問](https://www.k.u-tokyo.ac.jp/materials/wp-content/uploads/2024/10/R2-mondai.pdf)の独立した要約。
-
-質量 $m$、角振動数 $\omega$ の一次元調和振動子について、
+1 次元調和振動子型のポテンシャル中にある質量 $m$ の粒子を考える。このとき、ハミルトニアン $H$ は、次のように書ける。
 
 $$
-H=\frac{p^2}{2m}+\frac12m\omega^2x^2,\qquad
-[x,p]=i\hbar,\qquad H\varphi_n=E_n\varphi_n
+H=\frac{p^2}{2m}+\frac12m\omega^2x^2
 $$
 
-とする。$\varphi_n$ は規格化され、$n=0,1,\ldots$、$\varphi_0$ は基底状態である。演算子と状態の関係は
+ここで、$x$、$p$、$\omega$ は、それぞれ、位置演算子、運動量演算子、角振動数である。規格化された波動関数 $\varphi_n(x)$、固有エネルギー $E_n$ は、次のシュレーディンガー方程式を満たす。
 
 $$
-A=\sqrt{\frac{m\omega}{2\hbar}}\left(x+\frac{ip}{m\omega}\right),\qquad
-A^\dagger=\sqrt{\frac{m\omega}{2\hbar}}\left(x-\frac{ip}{m\omega}\right),
+H\varphi_n(x)=E_n\varphi_n(x)
 $$
 
-$$
-\varphi_{n+1}=\frac{A^\dagger\varphi_n}{\sqrt{n+1}},\qquad
-\varphi_n=\frac{A\varphi_{n+1}}{\sqrt{n+1}},\qquad A\varphi_0=0
-$$
-
-で与えられる。
-
-1. $A^\dagger A$ から $H$ を $A,A^\dagger$ で表す。
-2. $E_0$ を求める。
-3. $[A,A^\dagger]$ を計算し、$E_1$ を求める。
-4. 各状態の位置期待値 $\langle\varphi_n|x|\varphi_n\rangle$ を求める。
-
-$t<0$ では基底状態にあり、$t\ge0$ で $V(x)=Fx$（$F>0$）を加える。$F$ は十分小さく、一次摂動で
+ここで、$n$ は負でない整数（$n=0,1,2,\ldots$）であり、$n=0$ は基底状態に対応する。次の演算子 $A$、$A^\dagger$ を定義する。
 
 $$
-\psi=e^{-iE_0t/\hbar}\varphi_0+c_1(t)e^{-iE_1t/\hbar}\varphi_1,\qquad
-c_1(t)=\frac1{i\hbar}\int_0^t\langle\varphi_1|V|\varphi_0\rangle e^{i\omega t'}dt'
+\begin{aligned}
+A&=\sqrt{\frac{m\omega}{2\hbar}}\left(x+\frac{ip}{m\omega}\right),\\
+A^\dagger&=\sqrt{\frac{m\omega}{2\hbar}}\left(x-\frac{ip}{m\omega}\right).
+\end{aligned}
 $$
 
-とする。
+ここで、$\hbar$ はプランク定数を $2\pi$ で割った値である。このとき、次のような関係式が成り立つ。
 
-5. $c_1(t)$ と、時刻 $t\ge0$ に状態 $\varphi_1$ を観測する確率を $m,\omega,\hbar,F$ で表す。
-6. 位置期待値を $m,\omega,F$ で表し、$0\le t\le2\pi/\omega$ のグラフを描く。
+$$
+\begin{aligned}
+\varphi_{n+1}(x)&=\frac1{\sqrt{n+1}}A^\dagger\varphi_n(x),\\
+\varphi_n(x)&=\frac1{\sqrt{n+1}}A\varphi_{n+1}(x).
+\end{aligned}
+$$
 
-### 题目描述
+以下の問いに答えよ。
 
-1. 使用正则对易关系 $[x,p]=i\hbar$ 以及
+**（1）** $A^\dagger A$ を計算することによって、$H$ を $A^\dagger$ と $A$ を用いて表せ。ただし、交換関係 $[x,p]=i\hbar$ が成り立つことに注意せよ。
 
-   $$
-   A=\sqrt{\frac{m\omega}{2\hbar}}
-   \left(x+\frac{ip}{m\omega}\right),\qquad
-   A^\dagger=\sqrt{\frac{m\omega}{2\hbar}}
-   \left(x-\frac{ip}{m\omega}\right),
-   $$
+**（2）** $E_0$ を求めよ。ただし、$A\varphi_0=0$ であることに注意せよ。
 
-   推导谐振子 Hamilton 算符
+**（3）** 交換関係 $[A,A^\dagger]$ を計算することによって、$E_1$ を求めよ。
 
-   $$
-   H=\frac{p^2}{2m}+\frac12m\omega^2x^2
-   =\hbar\omega\left(A^\dagger A+\frac12\right).
-   $$
+**（4）** 状態 $\varphi_n$ における $x$ の期待値 $\langle\varphi_n|x|\varphi_n\rangle$ を求めよ。
 
-2. 对满足 $A\varphi_0=0$ 的基态，求其能量 $E_0$。
-3. 证明 $[A,A^\dagger]=1$，并对 第一激发态
+時刻 $t<0$ で、状態 $\varphi_0$ であるとする。$t\ge0$ で、$V(x)=Fx$ の摂動ポテンシャルが加わっている状況を考える。ここで、$F$ は力を表す正の定数である。$F$ が十分小さいとし、1 次摂動の範囲で考えることができるものとする。このとき、時刻 $t$ における波動関数は、
 
-   $$
-   \varphi_1=A^\dagger\varphi_0
-   $$
+$$
+\psi(x,t)=e^{-iE_0t/\hbar}\varphi_0(x)
++c_1(t)e^{-iE_1t/\hbar}\varphi_1(x)
+$$
 
-   求能量 $E_1$。
-4. 用归纳法证明对 $n=0,1,2,\ldots$，
+と書ける。ここで、係数 $c_1(t)$ は、
 
-   $$
-   \langle\varphi_n|A|\varphi_n\rangle
-   =\langle\varphi_n|A^\dagger|\varphi_n\rangle=0,
-   $$
+$$
+c_1(t)=\frac1{i\hbar}\int_0^t
+\langle\varphi_1|V|\varphi_0\rangle e^{i\omega t'}\,dt'
+$$
 
-   再由
+と書ける。
 
-   $$
-   x=\sqrt{\frac{\hbar}{2m\omega}}(A+A^\dagger)
-   $$
+**（5）** $c_1(t)$ を計算して、時刻 $t\ (\ge0)$ において粒子が状態 $\varphi_1$ に見いだされる確率を $m$、$\omega$、$\hbar$、$F$ を用いて表せ。
 
-   求各能量本征态中的位置期望。归一化态满足
-   $\varphi_{n+1}=(n+1)^{-1/2}A^\dagger\varphi_n$。
-5. 在 $t<0$ 时处于基态，$t\ge0$ 时加上位置型扰动 $V=Fx$（$F>0$ 且充分小），按一阶微扰计算到第一激发态的一阶振幅
+**（6）** 時刻 $t\ (\ge0)$ における $x$ の期待値 $\langle\psi|x|\psi\rangle$ を $m$、$\omega$、$F$ を用いて表せ。また、$\langle\psi|x|\psi\rangle$ を $0\le t\le2\pi/\omega$ の範囲で $t$ の関数として図示せよ。
 
-   $$
-   c_1(t)=\frac{F}{\sqrt{2\hbar\omega^3m}}
-   (1-e^{i\omega t}),
-   $$
+#### 题目描述
 
-   并进一步计算时刻 $t$ 在 $\varphi_1$ 中被发现的概率的最低非零阶。一阶近似态为 $\psi=e^{-iE_0t/\hbar}\varphi_0+c_1(t)e^{-iE_1t/\hbar}\varphi_1$。
-6. 对 使用的两态近似波函数 $\psi$，结合
+考虑处于一维谐振子势中的质量为 $m$ 的粒子，其哈密顿算符为
 
-   $$
-   \langle\varphi_0|x|\varphi_1\rangle
-   =\langle\varphi_1|x|\varphi_0\rangle
-   =\sqrt{\frac{\hbar}{2m\omega}},
-   $$
+$$
+H=\frac{p^2}{2m}+\frac12m\omega^2x^2.
+$$
 
-   计算位置期望 $\langle\psi|x|\psi\rangle$；其结果为
-   $F(\cos\omega t-1)/(m\omega^2)$ ，并画出 $0\le t\le2\pi/\omega$ 内的图像。
+这里 $x$、$p$、$\omega$ 分别为位置算符、动量算符和角频率。归一化波函数 $\varphi_n(x)$ 及能量本征值 $E_n$ 满足薛定谔方程
+
+$$
+H\varphi_n(x)=E_n\varphi_n(x).
+$$
+
+$n$ 为非负整数（$n=0,1,2,\ldots$），$n=0$ 对应基态。定义算符
+
+$$
+\begin{aligned}
+A&=\sqrt{\frac{m\omega}{2\hbar}}\left(x+\frac{ip}{m\omega}\right),\\
+A^\dagger&=\sqrt{\frac{m\omega}{2\hbar}}\left(x-\frac{ip}{m\omega}\right).
+\end{aligned}
+$$
+
+其中 $\hbar$ 为普朗克常数除以 $2\pi$。有以下关系：
+
+$$
+\begin{aligned}
+\varphi_{n+1}(x)&=\frac1{\sqrt{n+1}}A^\dagger\varphi_n(x),\\
+\varphi_n(x)&=\frac1{\sqrt{n+1}}A\varphi_{n+1}(x).
+\end{aligned}
+$$
+
+回答下列问题。
+
+**（1）** 计算 $A^\dagger A$，将 $H$ 用 $A^\dagger$ 和 $A$ 表示。注意对易关系 $[x,p]=i\hbar$ 成立。
+
+**（2）** 求 $E_0$。注意 $A\varphi_0=0$。
+
+**（3）** 计算对易关系 $[A,A^\dagger]$，求 $E_1$。
+
+**（4）** 求状态 $\varphi_n$ 中位置 $x$ 的期望值 $\langle\varphi_n|x|\varphi_n\rangle$。
+
+设 $t<0$ 时处于状态 $\varphi_0$。考虑在 $t\ge0$ 时加入微扰势 $V(x)=Fx$ 的情形，其中 $F$ 为表示力的正数。假设 $F$ 足够小，可采用一阶微扰近似。此时时刻 $t$ 的波函数可写为
+
+$$
+\psi(x,t)=e^{-iE_0t/\hbar}\varphi_0(x)
++c_1(t)e^{-iE_1t/\hbar}\varphi_1(x),
+$$
+
+其中系数为
+
+$$
+c_1(t)=\frac1{i\hbar}\int_0^t
+\langle\varphi_1|V|\varphi_0\rangle e^{i\omega t'}\,dt'.
+$$
+
+**（5）** 计算 $c_1(t)$，用 $m$、$\omega$、$\hbar$、$F$ 表示在时刻 $t\ (\ge0)$ 发现粒子处于状态 $\varphi_1$ 的概率。
+
+**（6）** 用 $m$、$\omega$、$F$ 表示时刻 $t\ (\ge0)$ 的位置期望值 $\langle\psi|x|\psi\rangle$，并画出其在 $0\le t\le2\pi/\omega$ 范围内随 $t$ 变化的图像。
 
 ## **Kai**
 ### (1)
@@ -206,19 +224,16 @@ $$
 \left\langle \varphi_{n+1} \right| A \left| \varphi_{n+1} \right\rangle
 &=
 \frac{1}{n+1}
-\left\langle \varphi_n \right| A A A^\dagger \left| \varphi_n \right\rangle
-\\
+\left\langle \varphi_n \right| A A A^\dagger \left| \varphi_n \right\rangle\\
 &=
 \frac{1}{n+1}
 \left\langle \varphi_n \right|
-A ( A^\dagger A + 1 ) \left| \varphi_n \right\rangle
-\\
+A ( A^\dagger A + 1 ) \left| \varphi_n \right\rangle\\
 &=
 \frac{1}{n+1}
 \left\langle \varphi_n \right|
 A \left( \frac{H}{\hbar \omega} - \frac{1}{2} + 1 \right)
-\left| \varphi_n \right\rangle
-\\
+\left| \varphi_n \right\rangle\\
 &=
 \frac{1}{n+1}
 \left( \frac{E_n}{\hbar \omega} + \frac{1}{2} \right)
@@ -230,6 +245,7 @@ $$
 
 $$
 \begin{aligned}
+&
 \left\langle \varphi_n \right| A \left| \varphi_n \right\rangle = 0
 \end{aligned}
 $$
@@ -240,6 +256,7 @@ $$
 
 $$
 \begin{aligned}
+&
 \left\langle \varphi_n \right| A^\dagger \left| \varphi_n \right\rangle = 0
 \end{aligned}
 $$
@@ -250,6 +267,7 @@ $$
 
 $$
 \begin{aligned}
+&
 x = \sqrt{\frac{\hbar}{2m \omega}} \left( A + A^\dagger \right)
 \end{aligned}
 $$
@@ -258,6 +276,7 @@ $$
 
 $$
 \begin{aligned}
+&
 \left\langle \varphi_n \right| x \left| \varphi_n \right\rangle = 0
 \end{aligned}
 $$
@@ -271,22 +290,18 @@ $$
 \begin{aligned}
 \left\langle \varphi_1 \right| V \left| \varphi_0 \right\rangle
 &=
-F \left\langle \varphi_0 \right| A x \left| \varphi_0 \right\rangle
-\\
+F \left\langle \varphi_0 \right| A x \left| \varphi_0 \right\rangle\\
 &=
 F \sqrt{\frac{\hbar}{2m \omega}}
 \left\langle \varphi_0 \right| A \left( A + A^\dagger \right)
-\left| \varphi_0 \right\rangle
-\\
+\left| \varphi_0 \right\rangle\\
 &=
 F \sqrt{\frac{\hbar}{2m \omega}}
-\left\langle \varphi_0 \right| A A^\dagger \left| \varphi_0 \right\rangle
-\\
+\left\langle \varphi_0 \right| A A^\dagger \left| \varphi_0 \right\rangle\\
 &=
 F \sqrt{\frac{\hbar}{2m \omega}}
 \left\langle \varphi_0 \right| \left(A^\dagger A + 1 \right)
-\left| \varphi_0 \right\rangle
-\\
+\left| \varphi_0 \right\rangle\\
 &=
 F \sqrt{\frac{\hbar}{2m \omega}}
 \end{aligned}
@@ -322,14 +337,12 @@ $$
 $$
 \begin{aligned}
 \left| e^{-i \frac{E_0}{\hbar} t} \right|^2
-&= 1
-\\
+&= 1\\
 \left| c_1(t) e^{-i \frac{E_1}{\hbar} t} \right|^2
 &=
 \frac{F^2}{2 \hbar \omega^3 m}
 \left( 1 - e^{i \omega t} \right)
-\left( 1 - e^{- i \omega t} \right)
-\\
+\left( 1 - e^{- i \omega t} \right)\\
 &=
 \frac{F^2}{\hbar \omega^3 m}
 \left( 1 - \cos \omega t \right)
@@ -367,28 +380,26 @@ $$
 
 $$
 \begin{aligned}
-\left\langle \psi \right| x \left| \psi \right\rangle
+&
+\left\langle \psi \right| x \left| \psi \right\rangle\\
 &=
 c_1^\ast (t) e^{-i \frac{E_0-E_1}{\hbar} t}
-\left\langle \varphi_1 \right| x \left| \varphi_0 \right\rangle
-+
+\left\langle \varphi_1 \right| x \left| \varphi_0 \right\rangle\\
+&\quad+
 c_1 (t) e^{-i \frac{E_1-E_0}{\hbar} t}
-\left\langle \varphi_0 \right| x \left| \varphi_1 \right\rangle
-\\
+\left\langle \varphi_0 \right| x \left| \varphi_1 \right\rangle\\
 &=
 \frac{F}{\sqrt{2 \hbar \omega^3 m}}
 \left( 1 - e^{- i \omega t} \right)
-e^{i \omega t} \sqrt{\frac{\hbar}{2m \omega}}
-+
+e^{i \omega t} \sqrt{\frac{\hbar}{2m \omega}}\\
+&\quad+
 \frac{F}{\sqrt{2 \hbar \omega^3 m}} \left( 1 - e^{i \omega t} \right)
 e^{- i \omega t} 
-\sqrt{\frac{\hbar}{2m \omega}}
-\\
+\sqrt{\frac{\hbar}{2m \omega}}\\
 &=
 \frac{F}{2 m \omega^2} \left\{
 \left( e^{i \omega t} - 1 \right) + \left( e^{- i \omega t} - 1 \right)
-\right\}
-\\
+\right\}\\
 &=
 \frac{F}{m \omega^2} \left( \cos \omega t - 1 \right)
 \end{aligned}
@@ -400,3 +411,7 @@ $$
 $t=0,2\pi/\omega$ で期待値は $0$、$t=\pi/\omega$ で最小値 $-2F/(m\omega^2)$ をとる。
 
 ![Position expectation over one oscillation period](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/frontier_sciences/materials/2020/tokyo-materials-201908-position.svg)
+
+## **Reference**
+
+- [大学公表の原題](https://www.k.u-tokyo.ac.jp/materials/wp-content/uploads/2024/10/R2-mondai.pdf)

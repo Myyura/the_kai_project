@@ -15,48 +15,57 @@ tags:
 
 ## **Description**
 
-図1に示すように、断熱壁で覆われた容積 $V_2$ の容器内に断熱の仕切板があり、空間1と空間2に区切られている。空間1の容積は $V_1$ で、$N_1\ \mathrm{mol}$ の気体が封入され、空間2は真空である。平衡状態での空間1の温度は $T_1$ であり、これを状態 $\alpha$ とする。
+図1に示すように、断熱壁で覆われた容積 $V_2$ の容器内に断熱の仕切板が設置されており、空間1と空間2の $2$ つに区切られている。空間1の容積は $V_1$ であり、$N_1\,\mathrm{mol}$ の気体が封入されている一方で、空間2は真空に保たれている。平衡状態における空間1の温度は $T_1$ であり、これを状態 $\alpha$ とする。状態 $\alpha$ から、気体に力を及ぼさないように仕切板を容器から引き抜き、気体を膨張させたところ、やがて系は平衡状態に達し、温度は $T_2$ となった。この平衡状態を状態 $\beta$ とする。封入されている気体が、式 (1) の状態方程式に従う van der Waals 気体であるとき、状態 $\alpha$ から状態 $\beta$ への遷移に関する以下の問いに答えよ。
 
 ![図1 状態α](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/chemical-engineering/2023/kyoto_chemeng_202208_special2_1_fig1.png)
 
-状態 $\alpha$ から、気体に力を及ぼさないように仕切板を引き抜いて気体を膨張させると、やがて温度 $T_2$ の平衡状態 $\beta$ に達した。気体は次の van der Waals 状態方程式に従う。
+$$
+\left(P+\frac{aN^2}{V^2}\right)(V-bN)=NRT\tag{1}
+$$
+
+ここで、$P$：圧力、$V$：体積、$N$：物質量、$R$：気体定数、$T$：温度、$a,b$：正の定数である。また、仕切板の体積は無視でき、この操作によって相変化は起こらないものとする。
+
+**問1** 状態 $\alpha$ から状態 $\beta$ への変化に伴い、気体が吸収した熱量 $Q$ と容器内の内部エネルギー変化 $\Delta U$ を求めよ。
+
+**問2** 式 (2) で表される熱力学状態方程式を用いて、状態 $\alpha$ から状態 $\beta$ への変化に伴う温度変化 $\Delta T$ を、$V_1,V_2,N_1,a$、定容モル熱容量 $C_{v,m}$ を用いて表せ。なお、$C_{v,m}$ は定数とみなして良い。
+
+$$
+\left(\frac{\partial U}{\partial V}\right)_T
+=T\left(\frac{\partial P}{\partial T}\right)_V-P\tag{2}
+$$
+
+**問3** $\left(\dfrac{\partial S}{\partial V}\right)_U$ を評価することで、状態 $\alpha$ から状態 $\beta$ への変化が不可逆過程であることを示せ。
+
+**問4** 状態 $\alpha$ から状態 $\beta$ への変化に伴うエントロピー変化 $\Delta S$ を求めよ。
+
+**問5** 封入されている気体が理想気体である場合、同様の操作により生じる温度変化 $\Delta'T$ を $\Delta T$ と比較し、その違いの原因について、理想気体と van der Waals 気体の性質に基づいて説明せよ。
+
+#### 题目描述
+
+如图1所示，体积为 $V_2$、外覆绝热壁的容器内设有绝热隔板，将容器分为区域1和区域2。区域1的体积为 $V_1$，装有 $N_1\,\mathrm{mol}$ 气体；区域2保持真空。平衡时区域1的温度为 $T_1$，将此状态记为 $\alpha$。从状态 $\alpha$ 出发，以不对气体施力的方式抽出隔板，使气体膨胀。系统最终达到温度为 $T_2$ 的平衡态，将其记为状态 $\beta$。若气体为服从式 (1) 的范德瓦耳斯气体，回答有关从状态 $\alpha$ 到状态 $\beta$ 的以下问题。
+
+![图1 状态α](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/chemical-engineering/2023/kyoto_chemeng_202208_special2_1_fig1.png)
 
 $$
 \left(P+\frac{aN^2}{V^2}\right)(V-bN)=NRT.\tag{1}
 $$
 
-$P,V,N,R,T$ は圧力、体積、物質量、気体定数、温度であり、$a,b$ は正の定数である。仕切板の体積は無視でき、この操作で相変化は起こらない。
+其中 $P$ 为压强，$V$ 为体积，$N$ 为物质的量，$R$ 为气体常数，$T$ 为温度，$a,b$ 为正常数。隔板体积可忽略，且此操作不引起相变。
 
-問1　状態 $\alpha$ から $\beta$ への変化で気体が吸収した熱量 $Q$ と、容器内の内部エネルギー変化 $\Delta U$ を求めよ。
+**问1** 求从状态 $\alpha$ 到状态 $\beta$ 的过程中气体吸收的热量 $Q$ 和容器内的内能变化 $\Delta U$。
 
-問2　次式を用い、温度変化 $\Delta T=T_2-T_1$ を $V_1,V_2,N_1,a$、定容モル熱容量 $C_{\mathrm{v,m}}$ で表せ。$C_{\mathrm{v,m}}$ は定数とみなしてよい。
+**问2** 利用式 (2) 的热力学状态方程，用 $V_1,V_2,N_1,a$ 和定容摩尔热容 $C_{v,m}$ 表示此过程的温度变化 $\Delta T$。可将 $C_{v,m}$ 视为常数。
 
 $$
 \left(\frac{\partial U}{\partial V}\right)_T
 =T\left(\frac{\partial P}{\partial T}\right)_V-P.\tag{2}
 $$
 
-問3　$(\partial S/\partial V)_U$ を評価することで、この変化が不可逆過程であることを示せ。
+**问3** 通过计算 $\left(\dfrac{\partial S}{\partial V}\right)_U$，证明从状态 $\alpha$ 到状态 $\beta$ 的变化为不可逆过程。
 
-問4　エントロピー変化 $\Delta S$ を求めよ。
+**问4** 求此过程的熵变 $\Delta S$。
 
-問5　気体が理想気体である場合に同じ操作で生じる温度変化 $\Delta T'$ を $\Delta T$ と比較し、その違いの原因を両気体の性質に基づいて説明せよ。
-
-#### 题目描述
-
-一个体积为 $V_2$ 的绝热容器被绝热隔板分成两室。第一室体积为 $V_1$，装有 $N_1\ \mathrm{mol}$、温度为 $T_1$ 的气体；第二室体积为 $V_2-V_1$，为真空。此平衡状态记为 $\alpha$。不对气体施力地抽掉隔板，气体自由膨胀，最终达到温度 $T_2$ 的平衡状态 $\beta$。
-
-气体满足范德瓦耳斯方程 $(P+aN^2/V^2)(V-bN)=NRT$，其中 $a,b>0$。忽略隔板体积，过程不发生相变。
-
-问1：求吸热量 $Q$ 和内部能变化 $\Delta U$。
-
-问2：利用 $(\partial U/\partial V)_T=T(\partial P/\partial T)_V-P$，用 $V_1,V_2,N_1,a$ 和恒定的定容摩尔热容 $C_{\mathrm{v,m}}$ 表示 $\Delta T=T_2-T_1$。
-
-问3：通过计算 $(\partial S/\partial V)_U$ 证明该过程不可逆。
-
-问4：求熵变 $\Delta S$。
-
-问5：比较理想气体在相同操作下的温度变化 $\Delta T'$ 与上述 $\Delta T$，并从两种气体的性质解释差别。
+**问5** 若容器内为理想气体，将同样操作引起的温度变化 $\Delta'T$ 与 $\Delta T$ 比较，并根据理想气体与范德瓦耳斯气体的性质解释差异的原因。
 
 ## **Kai**
 
@@ -112,9 +121,11 @@ $$
 状態関数の微分を用いて
 
 $$
-dS=\frac{dU+P\,dV}{T}
+\begin{gathered}
+dS=\frac{dU+P\,dV}{T}\\
 =N_1C_{\mathrm{v,m}}\frac{dT}{T}
 +\frac{N_1R}{V-bN_1}\,dV.
+\end{gathered}
 $$
 
 したがって

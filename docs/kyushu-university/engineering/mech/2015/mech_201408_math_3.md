@@ -15,13 +15,39 @@ tags:
 
 次の各問いに答えよ。（50点）
 
-1. 領域 $D=\{(x,y)\mid1\le x^2+y^2\le4,\ x\ge0,\ y\ge0\}$ を図示せよ。
-2. 上記領域 $D$ において、$0\le x\le1$ を満たす領域を $D_1$ とする。このとき $\iint_{D_1}xy\,dx\,dy$ を計算せよ。
-3. 積分領域を $D$ とし、$\iint_D(x^2+y^2)^{-1}\,dx\,dy$ を計算せよ。
+(1) 領域 $D=\{(x,y)\mid1\le x^2+y^2\le4,\ x\ge0,\ y\ge0\}$ を図示せよ。
+
+(2) 上記領域 $D$ において、$0\le x\le1$ を満たす領域を $D_1$ とする。このとき
+
+$$
+\iint_{D_1}xy\,dx\,dy
+$$
+
+を計算せよ。
+
+(3) 積分領域を $D$ とし、以下の積分を計算せよ。
+
+$$
+\iint_D\frac1{x^2+y^2}\,dx\,dy.
+$$
 
 #### 题目描述
 
-画第一象限的四分之一圆环，计算其左侧 $0\le x\le1$ 子区域上的 $xy$ 积分，以及整个圆环上的 $(x^2+y^2)^{-1}$ 积分。
+回答以下各问。（50分）
+
+(1) 画出区域 $D=\{(x,y)\mid1\le x^2+y^2\le4,\ x\ge0,\ y\ge0\}$。
+
+(2) 将上述区域 $D$ 中满足 $0\le x\le1$ 的部分记为 $D_1$，计算
+
+$$
+\iint_{D_1}xy\,dx\,dy.
+$$
+
+(3) 以 $D$ 为积分区域，计算下列积分。
+
+$$
+\iint_D\frac1{x^2+y^2}\,dx\,dy.
+$$
 
 ## **Kai**
 
@@ -47,7 +73,9 @@ $$
 $x=\rho\cos\theta,y=\rho\sin\theta$ と変換すると
 
 $$
+\begin{gathered}
 \iint_D\frac{dx\,dy}{x^2+y^2}
-=\int_0^{\pi/2}\int_1^2\frac{\rho\,d\rho\,d\theta}{\rho^2}
+=\int_0^{\pi/2}\int_1^2\frac{\rho\,d\rho\,d\theta}{\rho^2}\\
 =\boxed{\frac\pi2\log2}.
+\end{gathered}
 $$

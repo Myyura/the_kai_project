@@ -13,26 +13,71 @@ tags:
 
 ## **Description**
 
-2017年10月・2018年4月入学対象、2017年8月実施。
-
-実関数 $f(x)$ の複素フーリエ級数を
+1. 実関数 $f(x)$ の複素フーリエ級数は次のように与えられる。
 
 $$
-f(x)=\sum_{n=-\infty}^{\infty}c_ne^{inx},\qquad
+f(x)=\sum_{n=-\infty}^{\infty}c_ne^{inx}
+$$
+
+ただし，
+
+$$
 c_n=\frac1{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}\,dx
 $$
 
-とする。
+である。以下の問いに答えよ。
 
-1. 実形式 $f(x)=a_0/2+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)$ の $a_n,b_n$ を $c_n,c_{-n}$ で表せ。
-2. 整数 $m,n$ について $(2\pi)^{-1}\int_{-\pi}^\pi e^{imx}e^{-inx}\,dx=\delta_{mn}$ を示せ。
-3. $f(x)=\sum_{k=1}^4\cos^k x$ をフーリエ級数に展開せよ。
+**(1)** $f(x)$ のフーリエ級数は以下のように与えられる。
+
+$$
+f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)
+$$
+
+このとき，$a_n$ と $b_n$ をそれぞれ $c_n$ および $c_{-n}$ を用いて表せ。
+
+**(2)** 次の関係を示せ。
+
+$$
+\frac1{2\pi}\int_{-\pi}^{\pi}e^{imx}e^{-inx}\,dx=
+\begin{cases}1&(m=n),\\0&(m\ne n).\end{cases}
+$$
+
+ただし，$m$ と $n$ は整数である。
+
+**(3)** $f(x)=\displaystyle\sum_{k=1}^4\cos^k x$ をフーリエ級数に展開せよ。
 
 #### 题目描述
 
-本题为2017年8月实施、面向2017年10月及2018年4月入学的考试。
+1. 实函数 $f(x)$ 的复数形式傅里叶级数为
 
-实函数的复傅里叶系数和展开如上。（1）以 $c_n,c_{-n}$ 表示三角形式的 $a_n,b_n$。（2）证明整数 $m,n$ 的复指数正交关系，即该积分在 $m=n$ 时为1，否则为0。（3）将 $\cos x+\cos^2x+\cos^3x+\cos^4x$ 展开为傅里叶级数。
+$$
+f(x)=\sum_{n=-\infty}^{\infty}c_ne^{inx},
+$$
+
+其中
+
+$$
+c_n=\frac1{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}\,dx.
+$$
+
+回答下列问题。
+
+**(1)** $f(x)$ 的傅里叶级数也可表示为
+
+$$
+f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx).
+$$
+
+分别用 $c_n$ 和 $c_{-n}$ 表示 $a_n$ 和 $b_n$。
+
+**(2)** 证明下列关系，其中 $m,n$ 为整数。
+
+$$
+\frac1{2\pi}\int_{-\pi}^{\pi}e^{imx}e^{-inx}\,dx=
+\begin{cases}1&(m=n),\\0&(m\ne n).\end{cases}
+$$
+
+**(3)** 将 $f(x)=\displaystyle\sum_{k=1}^4\cos^k x$ 展开为傅里叶级数。
 
 ## **Kai**
 
@@ -70,9 +115,11 @@ $$
 倍角・三倍角の関係から
 
 $$
-\cos^2x=\frac{1+\cos2x}2,\quad
-\cos^3x=\frac{3\cos x+\cos3x}4,\quad
+\begin{gathered}
+\cos^2x=\frac{1+\cos2x}2,\\
+\cos^3x=\frac{3\cos x+\cos3x}4,\\
 \cos^4x=\frac{3+4\cos2x+\cos4x}8.
+\end{gathered}
 $$
 
 これらを足して

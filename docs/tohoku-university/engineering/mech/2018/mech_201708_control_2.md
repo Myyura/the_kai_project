@@ -14,27 +14,91 @@ tags:
 
 ## **Description**
 
-2017年10月・2018年4月入学対象、2017年8月実施。
+2. 以下の問いに答えよ。
 
-次の状態方程式で表されるシステムを考える。
+**(1)** 次式で表されるシステムを考える。
 
 $$
-\dot{\boldsymbol x}=A\boldsymbol x+bu,\quad y=c\boldsymbol x,\qquad
-A=\begin{pmatrix}-2&0\\1&-1\end{pmatrix},\quad b=\begin{pmatrix}1\\0\end{pmatrix},\quad c=\begin{pmatrix}0&1\end{pmatrix}.
+\begin{pmatrix}\dot x_1(t)\\\dot x_2(t)\end{pmatrix}
+=\begin{pmatrix}-2&0\\1&-1\end{pmatrix}
+\begin{pmatrix}x_1(t)\\x_2(t)\end{pmatrix}
++\begin{pmatrix}1\\0\end{pmatrix}u(t)
 $$
 
-1. 可制御性と可観測性を調べよ。
-2. 入力 $u$ から出力 $y$ までの伝達関数を求めよ。
-3. $\boldsymbol x=T\boldsymbol z$ により、$\widetilde A=\begin{pmatrix}0&1\\-a_1&-a_2\end{pmatrix}$、$\widetilde b=(0,1)^{\mathsf T}$、$\widetilde c=(c_1,c_2)$ の可制御正準形に変換する。$a_1,a_2,c_1,c_2,T$ を求めよ。
-4. (3)のシステムのブロック線図を描け。入力 $u$、出力 $y$、状態変数 $z_1,z_2$ を明示せよ。
-5. 状態フィードバック $u=-k_1x_1-k_2x_2$ により特性多項式を $s^2+\alpha s+\beta$ とする $k_1,k_2$ を求めよ。
-6. 状態フィードバック系が漸近安定になる $k_1,k_2$ の条件を求めよ。
+$$
+y(t)=\begin{pmatrix}0&1\end{pmatrix}
+\begin{pmatrix}x_1(t)\\x_2(t)\end{pmatrix}
+$$
+
+ただし，$u(t)$ は入力，$y(t)$ は出力，$\boldsymbol x(t)=\begin{pmatrix}x_1(t)&x_2(t)\end{pmatrix}^{T}$ は状態ベクトルである。このシステムの可制御性と可観測性を判定せよ。
+
+**(2)** 問(1)のシステムの入力から出力までの伝達関数を求めよ。
+
+**(3)** 問(1)のシステムを可制御正準形
+
+$$
+\begin{pmatrix}\dot z_1(t)\\\dot z_2(t)\end{pmatrix}
+=\begin{pmatrix}0&1\\-a_1&-a_2\end{pmatrix}
+\begin{pmatrix}z_1(t)\\z_2(t)\end{pmatrix}
++\begin{pmatrix}0\\1\end{pmatrix}u(t)
+$$
+
+$$
+y(t)=\begin{pmatrix}c_1&c_2\end{pmatrix}
+\begin{pmatrix}z_1(t)\\z_2(t)\end{pmatrix}
+$$
+
+にする座標変換 $\boldsymbol x(t)=T\boldsymbol z(t)$ を考える。ただし $\boldsymbol z(t)=\begin{pmatrix}z_1(t)&z_2(t)\end{pmatrix}^{T}$ である。変換行列 $T$ と定数 $a_1,a_2,c_1,c_2$ を定めよ。
+
+**(4)** 問(3)のシステムをブロック線図で表せ。図中に $u,y,z_1,z_2$ を明示すること。
+
+**(5)** 問(1)のシステムに状態フィードバック $u(t)=-\begin{pmatrix}k_1&k_2\end{pmatrix}\boldsymbol x(t)$ を適用することを考える。閉ループ系の特性方程式が $s^2+\alpha s+\beta=0$ となるとき，フィードバックゲイン $k_1,k_2$ を定数 $\alpha,\beta$ を用いて表せ。
+
+**(6)** 問(5)において，状態フィードバックを適用した制御系が漸近安定となるための $k_1,k_2$ の条件を求めよ。
 
 #### 题目描述
 
-本题为2017年8月实施、面向2017年10月及2018年4月入学的考试。
+2. 回答下列问题。
 
-给定 $A=[-2,0;1,-1]$、$b=(1,0)^{\mathsf T}$、$c=(0,1)$ 的单输入单输出状态空间系统。（1）判断可控与可观；（2）求传递函数；（3）以 $x=Tz$ 化为题定的可控标准形；（4）画出包含两状态的框图；（5）求令闭环特征多项式为 $s^2+\alpha s+\beta$ 的反馈增益；（6）求渐近稳定条件。
+**(1)** 考虑由下式表示的系统。
+
+$$
+\begin{pmatrix}\dot x_1(t)\\\dot x_2(t)\end{pmatrix}
+=\begin{pmatrix}-2&0\\1&-1\end{pmatrix}
+\begin{pmatrix}x_1(t)\\x_2(t)\end{pmatrix}
++\begin{pmatrix}1\\0\end{pmatrix}u(t)
+$$
+
+$$
+y(t)=\begin{pmatrix}0&1\end{pmatrix}
+\begin{pmatrix}x_1(t)\\x_2(t)\end{pmatrix}
+$$
+
+其中 $u(t)$ 为输入，$y(t)$ 为输出，$\boldsymbol x(t)=\begin{pmatrix}x_1(t)&x_2(t)\end{pmatrix}^{T}$ 为状态向量。判断该系统的可控性和可观测性。
+
+**(2)** 求第(1)问中系统从输入到输出的传递函数。
+
+**(3)** 考虑坐标变换 $\boldsymbol x(t)=T\boldsymbol z(t)$，将第(1)问中的系统变为下列可控标准形。
+
+$$
+\begin{pmatrix}\dot z_1(t)\\\dot z_2(t)\end{pmatrix}
+=\begin{pmatrix}0&1\\-a_1&-a_2\end{pmatrix}
+\begin{pmatrix}z_1(t)\\z_2(t)\end{pmatrix}
++\begin{pmatrix}0\\1\end{pmatrix}u(t)
+$$
+
+$$
+y(t)=\begin{pmatrix}c_1&c_2\end{pmatrix}
+\begin{pmatrix}z_1(t)\\z_2(t)\end{pmatrix}
+$$
+
+其中 $\boldsymbol z(t)=\begin{pmatrix}z_1(t)&z_2(t)\end{pmatrix}^{T}$。确定变换矩阵 $T$ 和常数 $a_1,a_2,c_1,c_2$。
+
+**(4)** 用方框图表示第(3)问中的系统，图中必须明确标出 $u,y,z_1,z_2$。
+
+**(5)** 考虑对第(1)问中的系统施加状态反馈 $u(t)=-\begin{pmatrix}k_1&k_2\end{pmatrix}\boldsymbol x(t)$。当闭环系统的特征方程为 $s^2+\alpha s+\beta=0$ 时，用常数 $\alpha,\beta$ 表示反馈增益 $k_1,k_2$。
+
+**(6)** 对第(5)问，求施加状态反馈后的控制系统渐近稳定所需的 $k_1,k_2$ 的条件。
 
 ## **Kai**
 
@@ -58,8 +122,12 @@ $$
 分母と分子を比較して $\boxed{a_1=2,\ a_2=3,\ c_1=1,\ c_2=0}$。変換行列は
 
 $$
-\boxed{T=\begin{pmatrix}1&1\\1&0\end{pmatrix}},\quad
-T^{-1}AT=\begin{pmatrix}0&1\\-2&-3\end{pmatrix},\quad T^{-1}b=\begin{pmatrix}0\\1\end{pmatrix},\quad cT=\begin{pmatrix}1&0\end{pmatrix}.
+\begin{gathered}
+\boxed{T=\begin{pmatrix}1&1\\1&0\end{pmatrix}},\\
+T^{-1}AT=\begin{pmatrix}0&1\\-2&-3\end{pmatrix},\\
+T^{-1}b=\begin{pmatrix}0\\1\end{pmatrix},\\
+cT=\begin{pmatrix}1&0\end{pmatrix}.
+\end{gathered}
 $$
 
 ### (4)

@@ -23,16 +23,24 @@ $$
 
 #### 题目描述
 
-设 $a\in\mathbb C$，$A=\begin{pmatrix}1&0&1\\-1&1&0\\1&a-1&a\end{pmatrix}$。求 $A$ 的全部特征值，以及每个特征值对应的特征空间维数。
+设 $a$ 为复数，定义 $3$ 阶复方阵 $A$ 如下：
+
+$$
+A=\begin{pmatrix}1&0&1\\-1&1&0\\1&a-1&a\end{pmatrix}.
+$$
+
+求 $A$ 的全部特征值，以及各特征值对应的特征空间维数。
 
 ## **Kai**
 
 特性多項式は
 
 $$
+\begin{gathered}
 \det(\lambda I-A)
-=(\lambda-1)^2(\lambda-a)+(a-\lambda)
+=(\lambda-1)^2(\lambda-a)+(a-\lambda)\\
 =\lambda(\lambda-2)(\lambda-a).
+\end{gathered}
 $$
 
 したがって固有値は $0,2,a$ である。ただし $a=0$ のとき $0$、$a=2$ のとき $2$ の代数的重複度が $2$ となる。

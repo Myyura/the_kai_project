@@ -11,7 +11,9 @@ tags:
 
 ## **Description**
 
-2つの変数対 $(x, y)$ に関して $n=3$ のデータが表1に与えられている。相関係数(correlation coefficient)を求めよ。
+解答に至る途中の計算過程も解答用紙に示すこと。
+
+2つの変数対 $(x,y)$ に関して $n=3$ のデータが表1に与えられている。相関係数（correlation coefficient）を求めよ。
 
 表1 データ
 
@@ -22,7 +24,11 @@ tags:
 
 #### 题目描述
 
-对于变量对 $(x,y)$，有如下 $n=3$ 组数据，求相关系数。
+在答题纸上写出得到答案的计算过程。
+
+对于变量对 $(x,y)$，表1给出了 $n=3$ 组数据。求相关系数（correlation coefficient）。
+
+表1 数据
 
 | 编号 | 1 | 2 | 3 |
 |---|---:|---:|---:|
@@ -74,7 +80,14 @@ $$
 相関係数 $r$ を計算します。
 
 $$
-r = \frac{6}{\sqrt{8} \sqrt{6}} = \frac{6}{\sqrt{48}} = \frac{6}{4\sqrt{3}} = \frac{3}{2\sqrt{3}} = \frac{3\sqrt{3}}{2 \times 3} = \frac{\sqrt{3}}{2} \approx 0.866
+\begin{gathered}
+r = \frac{6}{\sqrt{8} \sqrt{6}}\\
+= \frac{6}{\sqrt{48}}\\
+= \frac{6}{4\sqrt{3}}\\
+= \frac{3}{2\sqrt{3}}\\
+= \frac{3\sqrt{3}}{2 \times 3}\\
+= \frac{\sqrt{3}}{2} \approx 0.866
+\end{gathered}
 $$
 
 したがって、相関係数は $\frac{\sqrt{3}}{2}$ です。

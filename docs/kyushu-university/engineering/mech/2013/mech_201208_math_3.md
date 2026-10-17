@@ -16,14 +16,25 @@ tags:
 
 次の各問いに答えよ。（50点）
 
-1. $D=\{(x,y)\mid x^2+4y^2\le4,\ x\ge0,\ y\ge0\}$ とするとき、領域 $D$ を図示せよ。
-2. $z=x+y$ とする。領域 $D$ における $z$ の最大値と、そのときの座標値 $(x,y)$ を求めよ。
-3. $V=\iint_D(x+y)\,dx\,dy$ を計算せよ。
-4. $V$ は領域 $D$ を底面とする立体の体積を表す。この立体の形状を3次元的に分かりやすく図示せよ。図には $x,y,z$ 軸と主要な座標値を記入せよ。
+(1) $D=\{(x,y)\mid x^2+4y^2\le4,\ x\ge0,\ y\ge0\}$ とするとき、領域 $D$ を図示せよ。
+
+(2) $z=x+y$ とする。領域 $D$ における $z$ の最大値と、そのときの座標値 $(x,y)$ を求めよ。
+
+(3) $V=\displaystyle\iint_D(x+y)\,dx\,dy$ を計算せよ。
+
+(4) $V$ は領域 $D$ を底面とする立体の体積を表す。このときの立体の形状を3次元的に分かりやすく図示せよ。図には $x,y,z$ 軸と主要な座標値を記入せよ。
 
 #### 题目描述
 
-画出第一象限中的四分之一椭圆域，求 $x+y$ 在其中的最大值及最大点，计算该函数在域上的积分，并画出对应立体及主要坐标。
+回答以下各问。（50分）
+
+(1) 设 $D=\{(x,y)\mid x^2+4y^2\le4,\ x\ge0,\ y\ge0\}$，画出区域 $D$。
+
+(2) 设 $z=x+y$。求 $z$ 在区域 $D$ 上的最大值，以及取得最大值时的坐标 $(x,y)$。
+
+(3) 计算 $V=\displaystyle\iint_D(x+y)\,dx\,dy$。
+
+(4) $V$ 表示以区域 $D$ 为底面的立体的体积。用清楚的三维图画出该立体，并在图中标出 $x,y,z$ 轴和主要坐标值。
 
 ## **Kai**
 
@@ -31,7 +42,9 @@ tags:
 
 $D$ は $x^2/4+y^2\le1$ の第一象限部分で、境界を含む。軸との交点は $(2,0)$、$(0,1)$ である。
 
-![楕円領域とその上の立体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_math-3-region-solid.svg)
+![解答図 1（既存図の局部表示）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_math_3_answer_layout_1.svg)
+
+![解答図 2（既存図の局部表示）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_math_3_answer_layout_2.svg)
 
 ### (2)
 
@@ -52,9 +65,12 @@ $$
 $x=2\rho\cos\theta$、$y=\rho\sin\theta$ とおくと、$0\le\rho\le1$、$0\le\theta\le\pi/2$、Jacobian は $2\rho$ である。
 
 $$
-\boxed{V=\int_0^{\pi/2}\int_0^1
-(2\rho\cos\theta+\rho\sin\theta)2\rho\,d\rho\,d\theta
-=\frac23(2+1)=2}.
+\boxed{\begin{gathered}
+V=\int_0^{\pi/2}\int_0^1
+(2\rho\cos\theta+\rho\sin\theta)2\rho\,d\rho\,d\theta\\
+=\frac23(2+1)\\
+=2
+\end{gathered}}.
 $$
 
 ### (4)

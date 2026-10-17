@@ -14,22 +14,49 @@ tags:
 
 ## **Description**
 
-$\operatorname{erf}(x)=\frac2{\sqrt\pi}\int_0^x e^{-\xi^2}\,d\xi$ と定義される関数はガウスの誤差関数と呼ばれ、$\lim_{x\to\infty}\operatorname{erf}(x)=1$ が知られている。次の各問いに答えよ。（50点）
+$\operatorname{erf}(x)=\dfrac2{\sqrt\pi}\displaystyle\int_0^x e^{-\xi^2}\,d\xi$ と定義される関数 $\operatorname{erf}(x)$ は、ガウスの誤差関数と呼ばれる関数である。$\displaystyle\lim_{x\to\infty}\operatorname{erf}(x)=1$ であることが知られている。次の各問いに答えよ。（50点）
 
-1. $\frac2{\sqrt\pi}\int_0^{3x}e^{-\xi^2}\,d\xi$ をガウスの誤差関数を用いてあらわせ。
-2. $\frac2{\sqrt\pi}\int_0^x e^{-3\xi^2}\,d\xi$ をガウスの誤差関数を用いてあらわせ。
-3. $R>0$、$D=\{(x,y)\mid x^2+y^2\le R\}$ とする。$\frac4\pi\iint_D e^{-(x^2+y^2)}\,dx\,dy$ を、誤差関数を用いずに求めよ。
-4. $R>0$ とする。$\frac{32}{\sqrt\pi}\int_0^R r^2e^{-r^2}\,dr$ をガウスの誤差関数を用いてあらわせ。
-5. 次の極限を求めよ。
+(1) $\dfrac2{\sqrt\pi}\displaystyle\int_0^{3x}e^{-\xi^2}\,d\xi$ をガウスの誤差関数を用いてあらわせ。
+
+(2) $\dfrac2{\sqrt\pi}\displaystyle\int_0^xe^{-3\xi^2}\,d\xi$ をガウスの誤差関数を用いてあらわせ。
+
+(3) $R$ を正の定数とし、2次元平面における領域 $D$ を $D=\{(x,y)\mid x^2+y^2\le R\}$ とする。このとき、$\dfrac4\pi\displaystyle\iint_D e^{-(x^2+y^2)}\,dx\,dy$ を求めよ。（ここではガウスの誤差関数を用いないこと。）
+
+(4) $R$ を正の定数とする。$\dfrac{32}{\sqrt\pi}\displaystyle\int_0^R r^2e^{-r^2}\,dr$ をガウスの誤差関数を用いてあらわせ。
+
+(5) 次の極限を求めよ。
 
 $$
-\lim_{R\to\infty}\left[\left(\frac2{\sqrt\pi}\right)^n
-\int_0^R\cdots\int_0^R e^{-(\xi_1^2+\cdots+\xi_n^2)}\,d\xi_1\cdots d\xi_n\right].
+\lim_{R\to\infty}\Biggl[
+\begin{aligned}
+&\left(\frac2{\sqrt\pi}\right)^n\int_0^R\!\cdots\!\int_0^R\!\int_0^R\\
+&\quad e^{-(\xi_1^2+\xi_2^2+\cdots+\xi_n^2)}\,d\xi_1\,d\xi_2\cdots d\xi_n
+\end{aligned}
+\Biggr].
 $$
 
 #### 题目描述
 
-利用误差函数定义计算五个积分或极限。第 (3) 问的圆域为 $x^2+y^2\le R$，半径是 $\sqrt R$；第 (4) 问的整体系数为 $32/\sqrt\pi$。
+由 $\operatorname{erf}(x)=\dfrac2{\sqrt\pi}\displaystyle\int_0^x e^{-\xi^2}\,d\xi$ 定义的函数称为高斯误差函数。已知 $\displaystyle\lim_{x\to\infty}\operatorname{erf}(x)=1$。回答以下各问。（50分）
+
+(1) 用高斯误差函数表示 $\dfrac2{\sqrt\pi}\displaystyle\int_0^{3x}e^{-\xi^2}\,d\xi$。
+
+(2) 用高斯误差函数表示 $\dfrac2{\sqrt\pi}\displaystyle\int_0^xe^{-3\xi^2}\,d\xi$。
+
+(3) 设 $R$ 为正常数，二维平面上的区域为 $D=\{(x,y)\mid x^2+y^2\le R\}$。求 $\dfrac4\pi\displaystyle\iint_D e^{-(x^2+y^2)}\,dx\,dy$。本问不得使用高斯误差函数。
+
+(4) 设 $R$ 为正常数，用高斯误差函数表示 $\dfrac{32}{\sqrt\pi}\displaystyle\int_0^R r^2e^{-r^2}\,dr$。
+
+(5) 求下列极限。
+
+$$
+\lim_{R\to\infty}\Biggl[
+\begin{aligned}
+&\left(\frac2{\sqrt\pi}\right)^n\int_0^R\!\cdots\!\int_0^R\!\int_0^R\\
+&\quad e^{-(\xi_1^2+\xi_2^2+\cdots+\xi_n^2)}\,d\xi_1\,d\xi_2\cdots d\xi_n
+\end{aligned}
+\Biggr].
+$$
 
 ## **Kai**
 
@@ -42,9 +69,11 @@ $$
 $u=\sqrt3\xi$ とおけば
 
 $$
+\begin{gathered}
 \frac2{\sqrt\pi}\int_0^xe^{-3\xi^2}d\xi
-=\frac2{\sqrt{3\pi}}\int_0^{\sqrt3x}e^{-u^2}du
+=\frac2{\sqrt{3\pi}}\int_0^{\sqrt3x}e^{-u^2}du\\
 =\boxed{\frac1{\sqrt3}\operatorname{erf}(\sqrt3x)}.
+\end{gathered}
 $$
 
 ### (3)

@@ -18,24 +18,24 @@ tags:
 1. 次の関数の Maclaurin 展開を第三項まで求めよ。
    1. $f(x)=\log_e(e^x+1)$
    2. $f(x)=\sin(3x+\pi/2)$
-2. 次の不定積分を求めよ。積分定数を $C$ とする。
+2. 次の積分を求めよ。
    1. $\displaystyle\int\frac{4}{x^2+2x-3}\,dx$
    2. $\displaystyle\int\frac{e^x}{e^x+2}\,dx$
    3. $\displaystyle\int xe^{2x}\,dx$
    4. $\displaystyle\int\frac{\sin x}{\cos x}\,dx$
-3. $-1\le x\le1$ において曲線 $y=-3x^2+3$ と $x$ 軸が囲む領域を、$x$ 軸の周りに回転して得られる立体の体積を求めよ。
+3. 曲線 $y=-3x^2+3$ と $x$ 軸とで囲まれた図形を $x$ 軸周りに回転させてできる回転体の体積を求めよ。
 
 #### 题目描述
 
 1. 求下列函数的 Maclaurin 展开至第三项：
    1. $f(x)=\log_e(e^x+1)$；
    2. $f(x)=\sin(3x+\pi/2)$。
-2. 计算下列不定积分（积分常数记为 $C$）：
+2. 计算下列积分：
    1. $\displaystyle\int\frac{4}{x^2+2x-3}\,dx$；
    2. $\displaystyle\int\frac{e^x}{e^x+2}\,dx$；
    3. $\displaystyle\int xe^{2x}\,dx$；
    4. $\displaystyle\int\frac{\sin x}{\cos x}\,dx$。
-3. 曲线 $y=-3x^2+3$ 在 $-1\le x\le1$ 上与 $x$ 轴围成区域，绕 $x$ 轴旋转，求所得旋转体的体积。
+3. 将曲线 $y=-3x^2+3$ 与 $x$ 轴所围成的图形绕 $x$ 轴旋转，求所得旋转体的体积。
 
 ## **Kai**
 ### 問題1
@@ -104,8 +104,8 @@ $$
 $$
 \begin{aligned}
 f(x)
-&= f(0) + f'(0) x + \frac{1}{2}f''(0) x^2
-+ \frac{1}{6} f^{(3)}(0) x^3 + \frac{1}{24} f^{(4)}(0) x^4 + \cdots
+&= f(0) + f'(0) x + \frac{1}{2}f''(0) x^2\\
+&\quad+ \frac{1}{6} f^{(3)}(0) x^3 + \frac{1}{24} f^{(4)}(0) x^4 + \cdots
 \\
 &= 1 - \frac{9}{2} x^2 + \frac{27}{8} x^4 + \cdots
 \end{aligned}

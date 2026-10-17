@@ -1,0 +1,185 @@
+---
+sidebar_label: "京都大学 情報学研究科 システム科学専攻 2026年8月実施 複素関数論"
+tags:
+  - Kyoto-University
+  - Mathematics.Complex-Analysis.Laurent-Series
+  - Mathematics.Complex-Analysis.Maximum-Modulus-Principle
+  - Mathematics.Complex-Analysis.Complex-Logarithm-and-Powers
+  - Mathematics.Complex-Analysis.Residue-Theorem
+  - Mathematics.Complex-Analysis.Real-Integral-by-Residues
+---
+# 京都大学 情報学研究科 システム科学専攻 2026年8月実施 複素関数論
+
+## **Author**
+[AnonTokyo #83056](https://github.com/cdc95-04)
+
+## **Description**
+
+以下の問題において $i$ は虚数単位 (imaginary unit)，$e$ はネイピア数（自然対数の底）(Napier's constant, base of natural logarithm)，$\pi$ は円周率，$\mathbb{C}$ は複素数の集合を表す。また，複素数 $z$ に対して $|z|,\operatorname{Re}z,\operatorname{Im}z$ は $z$ の絶対値 (absolute value)，実部 (real part)，虚部 (imaginary part) をそれぞれ表す。
+
+### 問題 1
+
+以下の設問に答えよ。
+
+(1) 複素変数 $z$ の関数を
+
+$$
+f(z)=\frac{1}{(z^3-1)(z^5-1)(z^6-1)}
+$$
+
+と与える。$\{z\in\mathbb{C}\mid 0<|z-1|<1\}$ の領域において，$f(z)$ の $z=1$ を中心としたローラン展開 (Laurent expansion)
+
+$$
+f(z)=\sum_{n=0}^{\infty}a_n(z-1)^n+\sum_{n=1}^{\infty}b_n(z-1)^{-n}
+$$
+
+を考える。このとき，$b_3$ の値を求めよ。
+
+(2) 原点対称 (symmetric with respect to the origin) な領域 $\Omega$ 上で正則 (regular) な複素関数 $f(z)$ が与えられたとする。また，領域 $\Omega$ は，閉円板 $D=\{z\in\mathbb{C}\mid |z|\le1\}$ を含むものとする。いま，集合 $\partial D_r,\partial D_l$ を $\partial D_r=\{z\in\mathbb{C}\mid |z|=1,\operatorname{Re}z\ge0\}$，$\partial D_l=\{z\in\mathbb{C}\mid |z|=1,\operatorname{Re}z<0\}$ と定義する。また，任意の $z\in\partial D_r$ に対して $|f(z)|\le3$ が成り立ち，任意の $z\in\partial D_l$ に対して $|f(z)|\le5$ が成り立つとする。このとき，
+
+$$
+|f(0)|\le\sqrt{15}
+$$
+
+が常に満たされるか否かを示せ。
+
+### 問題 2
+
+複素数 $z=re^{i\theta}$（$r>0,-\frac{\pi}{2}\le\theta<\frac{3\pi}{2}$）に対する関数 $\operatorname{Log}z$ を，$\operatorname{Log}z=\log r+i\theta$ により定義する。また，
+
+$$
+g(z)=\frac{\operatorname{Log}z}{z^2+a^2}
+$$
+
+とする。ただし，$a>0$ である。以下の設問に答えよ。
+
+(1) 図に示す積分路 (contour) を $C$ とした際の
+
+$$
+\oint_C g(z)\,dz
+$$
+
+を留数の定理 (residue theorem) により求めよ。ただし，$R>a,\ 0<\epsilon<a$ とする。
+
+**図：積分路 $C$（原図の向きを文章で再現）**
+
+実軸上を $-R\to-\epsilon$，原点を避ける半径 $\epsilon$ の上半円を $-\epsilon\to\epsilon$（時計回り），実軸上を $\epsilon\to R$，半径 $R$ の上半円を $R\to-R$（反時計回り）に進む閉曲線。
+
+(2) 設問 (1) の結果を用いて
+
+$$
+\int_0^{\infty}\frac{1}{x^2+a^2}\,dx=\frac{\pi}{2a},\qquad
+\int_0^{\infty}\frac{\log x}{x^2+a^2}\,dx=\frac{\pi}{2a}\log a
+$$
+
+を示せ。
+
+(3) 次式を求めよ。
+
+$$
+\int_0^{\infty}\frac{(\log x)^2}{x^2+a^2}\,dx
+$$
+
+## **Kai**
+### 問題 1
+#### (1) ローラン係数 $b_3$
+
+$z^3-1,z^5-1,z^6-1$ はいずれも $z=1$ で一位の零点を持つため，$f$ は $z=1$ で三位の極を持つ。従って
+
+$$
+\begin{aligned}
+b_3&=\lim_{z\to1}(z-1)^3f(z)\\
+&=\lim_{z\to1}\frac{z-1}{z^3-1}\,
+\lim_{z\to1}\frac{z-1}{z^5-1}\,
+\lim_{z\to1}\frac{z-1}{z^6-1}\\
+&=\frac13\cdot\frac15\cdot\frac16
+=\boxed{\frac1{90}}.
+\end{aligned}
+$$
+
+#### (2) 不等式の証明
+
+$\Omega$ は原点対称であるので，$F(z)=f(z)f(-z)$ は閉単位円板を含む領域で正則である。$|z|=1$ ならば，$z$ と $-z$ は左右の半円に属する。虚軸上の端点では両方とも右半円側の条件 $|f|\le3$ が適用でき，それ以外では $|f|\le3$ と $|f|\le5$ を一回ずつ適用できる。従って円周上で
+
+$$
+|F(z)|=|f(z)f(-z)|\le15
+$$
+
+が成り立つ。最大値の原理より $|F(0)|\le15$ であり，$F(0)=f(0)^2$ である。よって
+
+$$
+\boxed{|f(0)|\le\sqrt{15}}
+$$
+
+は常に成り立つ。
+
+### 問題 2
+#### (1) 留数定理
+
+積分路 $C$ の内部の極は $z=ia$ のみであり，$z=-ia$ は外部にある。留数は
+
+$$
+\operatorname{Res}(g,ia)=\frac{\operatorname{Log}(ia)}{2ia}
+=\frac{\log a+i\pi/2}{2ia}.
+$$
+
+$C$ は正の向きに内部を囲むので，留数定理から
+
+$$
+\boxed{\oint_Cg(z)\,dz
+=2\pi i\operatorname{Res}(g,ia)
+=\frac\pi a\left(\log a+\frac{i\pi}{2}\right)}.
+$$
+
+#### (2) 二つの広義積分
+
+$R\to\infty$，$\epsilon\to0^+$ とする。大円弧上の $g$ は $O(\log R/R^2)$ であり，小円弧上の積分は $O(\epsilon|\log\epsilon|)$ だから，いずれも円弧積分は 0 に収束する。
+
+正の実軸で $\operatorname{Log}x=\log x$，負の実軸の上側では $\operatorname{Log}(-x)=\log x+i\pi$ である。よって積分路上の和は
+
+$$
+\lim\oint_Cg(z)\,dz
+=2I_1+i\pi I_0,
+$$
+
+ただし
+
+$$
+I_0=\int_0^\infty\frac{dx}{x^2+a^2},\qquad
+I_1=\int_0^\infty\frac{\log x}{x^2+a^2}\,dx.
+$$
+
+(1) の結果と実部・虚部を比較すると
+
+$$
+2I_1+i\pi I_0=\frac\pi a\log a+\frac{i\pi^2}{2a}
+$$
+
+となり，
+
+$$
+\boxed{I_0=\frac\pi{2a},\qquad I_1=\frac\pi{2a}\log a}
+$$
+
+を得る。
+
+#### (3) 対数二乗の積分
+
+同じ積分路に $h(z)=(\operatorname{Log}z)^2/(z^2+a^2)$ を用いると，
+
+$$
+\oint_Ch(z)\,dz=\frac\pi a\left(\log a+\frac{i\pi}{2}\right)^2.
+$$
+
+$\operatorname{Log}(-x)=\log x+i\pi$ に注意して実軸上の積分をまとめる。$I_2=\int_0^\infty (\log x)^2/(x^2+a^2)\,dx$ とおけば
+
+$$
+2I_2+2i\pi I_1-\pi^2I_0
+=\frac\pi a\left[(\log a)^2+i\pi\log a-\frac{\pi^2}{4}\right].
+$$
+
+(2) の $I_0,I_1$ を代入して整理すると
+
+$$
+\boxed{I_2=\frac\pi{2a}\left[(\log a)^2+\frac{\pi^2}{4}\right]}.
+$$

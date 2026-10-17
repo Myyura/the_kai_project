@@ -13,53 +13,65 @@ tags:
 
 ## **Description**
 
-題意の要約。
+2．プランクの熱放射式に関する以下の問に答えよ。答えは解答欄に記入すること。（40点）
 
-プランクの分布関数
-
-$$
-\rho(\lambda,T)=\frac{8\pi hc}{\lambda^5\{\exp(hc/(\lambda kT))-1\}}
-$$
-
-について、$\lambda$ は波長、$T$ は温度、$c$ は光速、$k$ はボルツマン定数、$h$ はプランク定数とする。
-
-1. 短波長での近似式を求める。
-2. 長波長での近似式を求める。
-3. 温度による変化を示すグラフを描く。
-4. 最大放射波長 $\lambda_{\max}$ に対する関係 $hc/(\lambda_{\max}kT)=5$ から、$T$ と $\lambda_{\max}$ の反比例関係の名称を答える。
-5. (4) を用い、太陽の $\lambda_{\max}=490\,\mathrm{nm}$ から温度を求める。$h=6.63\times10^{-34}\,\mathrm{J\,s}$、$k=1.38\times10^{-23}\,\mathrm{J\,K^{-1}}$、$c=3.00\times10^8\,\mathrm{m\,s^{-1}}$ とする。
-6. アインシュタイン模型のモル振動エネルギー
-
-   $$
-   U_{\mathrm m}=\frac{3N_Ah\nu}{e^{h\nu/(kT)}-1}
-   $$
-
-   から $C_{V,\mathrm m}=(\partial U_{\mathrm m}/\partial T)_V$ を導く。$kT\gg h\nu$ と $kT\ll h\nu$ の近似式も求める。$\nu$ は振動数、$N_A$ はアボガドロ定数である。
-
-出典：[九州大学 令和5年度 機能物質化学系科目試験 物理化学2](https://www.cstf.kyushu-u.ac.jp/burger_editor/burger_editor/dl/2__5Luk5ZKM77yV5bm05bqm5L_u5aOr5YWl5a2m6Kmm6aiT5ZWP6aGM.pdf)。
-
-### 题目描述
-
-考虑 Planck 黑体辐射分布
+量子論誕生前の19世紀に「黒体放射の問題」に多くの研究者が取り組んでいた。「黒体放射の問題」とは一口で言えば、「ある温度に熱せられた物体はどういう色の光を出すか」ということである。物体を熱したときに出る光は、温度の低いときには赤い色をしているが、温度が上がるにつれて次第に白くなる。プランクは、観測される全波長領域において満足するエネルギー分布関数 $\rho(\lambda,T)$ を見出した。プランクの分布関数は次式で表される。
 
 $$
-\rho(\lambda,T)=\frac{8\pi hc}{\lambda^5\{\exp(hc/(\lambda kT))-1\}},
+\rho(\lambda,T)=\frac{8\pi hc}{\lambda^5(e^{hc/(\lambda kT)}-1)}.
 $$
 
-其中 $\lambda,T,c,k,h$ 分别表示波长、温度、光速、Boltzmann 常数和 Planck 常数。
+ここで、$\lambda$ は波長、$T$ は温度、$c$ は光の速度、$k$ はボルツマン定数、$h$ はプランク定数である。
 
-1. 在 $hc/(\lambda kT)\gg1$ 时求短波近似。
-2. 在 $hc/(\lambda kT)\ll1$ 时求长波近似。
-3. 画图说明分布随温度的变化。
-4. 根据题设关系 $hc/(\lambda_{\max}kT)=5$，说出温度与峰值波长成反比所对应的定律名称。
-5. 采用第 4 问关系及太阳的峰值波长 $\lambda_{\max}=490\,\mathrm{nm}$ 估算温度。取 $h=6.63\times10^{-34}\,\mathrm{J\,s}$、$k=1.38\times10^{-23}\,\mathrm{J\,K^{-1}}$、$c=3.00\times10^8\,\mathrm{m\,s^{-1}}$。
-6. 对 Einstein 固体模型的摩尔振动能
+(1) 波長が極めて短い領域で、$\rho(\lambda,T)$ はどのように表されるか答えよ。
+
+(2) 波長が十分に長い領域で、$\rho(\lambda,T)$ はどのように表されるか答えよ。
+
+(3) 温度依存性がわかるように、$\rho(\lambda,T)$ を描け。
+
+![設問 (3) の解答欄の座標軸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/ac/2023/ac_cstf_202208_phys_chem_2_plot_axes.png)
+
+(4) $\rho(\lambda,T)$ は、$hc/(\lambda kT)=5$ のときに最大値をとることがわかっている。この式から、温度と最大放射波長（$\lambda_{\max}$）が反比例することがわかる。この関係式は何と呼ばれるか答えよ。
+
+(5) 太陽の $\lambda_{\max}$ は $490\,\mathrm{nm}$ である。(4) の関係式から太陽の温度 $[\mathrm K]$ を求めよ。ただし、$h=6.63\times10^{-34}\,\mathrm{J\,s}$、$k=1.38\times10^{-23}\,\mathrm{J\,K^{-1}}$、$c=3.00\times10^8\,\mathrm{m\,s^{-1}}$ とする。
+
+(6) この分布関数から、アインシュタインは固体のモル振動エネルギー $U_{\mathrm m}$ を次式で表した。
 
 $$
-U_{\mathrm m}=\frac{3N_Ah\nu}{e^{h\nu/(kT)}-1},
+U_{\mathrm m}=\frac{3N_{\mathrm A}h\nu}{e^{h\nu/(kT)}-1}.
 $$
 
-求定容摩尔热容 $C_{V,\mathrm m}=(\partial U_{\mathrm m}/\partial T)_V$，并求 $kT\gg h\nu$、$kT\ll h\nu$ 时的近似式。$\nu$ 为振动频率，$N_A$ 为 Avogadro 常数。
+モル定容比熱 $C_{V,\mathrm m}=(\partial U_{\mathrm m}/\partial T)_V$ を導出せよ。さらに、温度が高いとき（$kT\gg h\nu$）と低いとき（$kT\ll h\nu$）の近似式を求めよ。ここで、$\nu$ は振動数、$N_{\mathrm A}$ はアボガドロ定数である。
+
+#### 题目描述
+
+2．回答以下有关普朗克热辐射公式的问题，将答案写在答题栏内。（40分）
+
+在量子论诞生前的19世纪，许多研究者致力于“黑体辐射问题”。简单来说，这个问题就是“加热至某一温度的物体会发出什么颜色的光”。物体受热后发出的光在低温时呈红色，随温度升高逐渐变白。普朗克找到了能够描述全部观测波长范围的能量分布函数 $\rho(\lambda,T)$，其表达式为
+
+$$
+\rho(\lambda,T)=\frac{8\pi hc}{\lambda^5(e^{hc/(\lambda kT)}-1)}.
+$$
+
+其中 $\lambda$ 为波长、$T$ 为温度、$c$ 为光速、$k$ 为玻尔兹曼常数、$h$ 为普朗克常数。
+
+(1) 在波长极短的区域，$\rho(\lambda,T)$ 可以怎样表示？
+
+(2) 在波长充分长的区域，$\rho(\lambda,T)$ 可以怎样表示？
+
+(3) 画出 $\rho(\lambda,T)$，使其温度依赖关系清楚可见。答题栏的坐标轴见上图。
+
+(4) 题目给定 $\rho(\lambda,T)$ 在 $hc/(\lambda kT)=5$ 时取最大值。由此可知温度与最大辐射波长 $\lambda_{\max}$ 成反比。这一关系称为什么？
+
+(5) 太阳的 $\lambda_{\max}=490\,\mathrm{nm}$，用 (4) 的关系式求太阳的温度，单位为 $\mathrm K$。取 $h=6.63\times10^{-34}\,\mathrm{J\,s}$、$k=1.38\times10^{-23}\,\mathrm{J\,K^{-1}}$、$c=3.00\times10^8\,\mathrm{m\,s^{-1}}$。
+
+(6) 爱因斯坦由这一分布函数将固体的摩尔振动能 $U_{\mathrm m}$ 表示为
+
+$$
+U_{\mathrm m}=\frac{3N_{\mathrm A}h\nu}{e^{h\nu/(kT)}-1}.
+$$
+
+推导定容摩尔热容 $C_{V,\mathrm m}=(\partial U_{\mathrm m}/\partial T)_V$，并求高温（$kT\gg h\nu$）和低温（$kT\ll h\nu$）下的近似式。$\nu$ 为振动频率，$N_{\mathrm A}$ 为阿伏伽德罗常数。
 
 ## **Kai**
 ### (1)
@@ -159,9 +171,13 @@ $$
 (i) $kT\gg h\nu$ のとき、$\xi=h\nu/(kT)\to0$ とおくと
 
 $$
+\begin{gathered}
 C_{V,\mathrm m}=3N_Ak\frac{\xi^2e^\xi}{(e^\xi-1)^2}
+\\
 =3N_Ak\left(1-\frac{\xi^2}{12}+O(\xi^4)\right)
+\\
 \simeq3N_Ak=3R.
+\end{gathered}
 $$
 
 (ii) $kT \ll h \nu$ のとき、
@@ -182,3 +198,8 @@ $$
 $$
 
 と近似できる。
+
+## **Reference**
+
+- [大学公式問題](https://www.cstf.kyushu-u.ac.jp/burger_editor/burger_editor/dl/2__5Luk5ZKM77yV5bm05bqm5L_u5aOr5YWl5a2m6Kmm6aiT5ZWP6aGM.pdf)
+- [公式問題の公開アーカイブ](https://web.archive.org/web/20260511052501id_/https://www.cstf.kyushu-u.ac.jp/burger_editor/burger_editor/dl/2__5Luk5ZKM77yV5bm05bqm5L_u5aOr5YWl5a2m6Kmm6aiT5ZWP6aGM.pdf)

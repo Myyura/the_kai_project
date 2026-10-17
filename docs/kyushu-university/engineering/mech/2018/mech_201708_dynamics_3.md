@@ -14,20 +14,37 @@ tags:
 
 ## **Description**
 
-長さ $l$、張力 $T$、線密度 $\rho$ の弦の両端が壁に固定されている。左端を原点、長手方向を $x$ とし、横変位を $u(x,t)$ とする。弦は空気中で単位長さ当たり $\nu(\partial u/\partial t)$ の抵抗力を受け、張力は一定である。$c=\sqrt{T/\rho}$、$\mu=\nu/\rho$ を用いてよい。（50 点）
+図のように、長さ $l$、張力 $T$、線密度 $\rho$ の弦があり、両端は壁に固定されている。左端を原点とし弦の長手方向に座標 $x$ をとり、座標 $x$ における弦の横方向変位を $u(x,t)$ とする。弦は空気中にあり、単位長さあたり $\nu(\partial u/\partial t)$ の抵抗力を受けるものとする。張力 $T$ は常に一定とする。$c=\sqrt{T/\rho},\ \mu=\nu/\rho$ を使用してよい。（50点）
 
-![両端固定の弦（公式原図）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_dynamics-3-original.png)
+**(1)** 弦の運動方程式を導出せよ。
 
-1. 運動方程式を導出せよ。
-2. 自由振動解を $u(x,t)=U(x)W(t)$ と仮定し、$U,W$ の微分方程式を求めよ。
-3. $U$ の一般解を求めよ。
-4. 振動するための $\nu$ または $\mu$ の条件と、そのときの $W$ の一般解を求めよ。
-5. 境界条件から $r$ 次の固有モード $U_r$ を求めよ。
-6. 自由振動の一般解と $r$ 次の減衰固有角振動数 $\omega_{dr}$ を求めよ。
+**(2)** 弦の自由振動解を $u(x,t)=U(x)\cdot W(t)$ と仮定したとき、$U$ と $W$ が満たす微分方程式をそれぞれ求めよ。
+
+**(3)** $U$ の一般解を求めよ。
+
+**(4)** 弦が振動するときの $\nu$ もしくは $\mu$ に関する条件と、振動するときの $W$ の一般解を求めよ。
+
+**(5)** 境界条件を考慮して、$r$ 次の固有モード $U_r$ を求めよ。
+
+**(6)** 弦の自由振動の一般解と $r$ 次の減衰固有角振動数 $\omega_{dr}$ を求めよ。
+
+![両端固定の弦の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_dynamics-3-original.png)
 
 #### 题目描述
 
-两端固定弦长 $l$、张力 $T$、线密度 $\rho$，单位长度受到与横向速度相反的黏性阻力 $\nu u_t$。推导阻尼波动方程，以乘积分离变量，求空间与时间方程、振荡条件、固有模态、一般自由响应及各模态阻尼频率。
+如图，长度为 $l$、张力为 $T$、线密度为 $\rho$ 的弦两端固定于墙壁。以左端为原点，沿弦长度方向取坐标 $x$；坐标 $x$ 处的横向位移为 $u(x,t)$。弦处于空气中，单位长度受到大小为 $\nu(\partial u/\partial t)$ 的阻力。张力 $T$ 始终恒定。可使用 $c=\sqrt{T/\rho},\ \mu=\nu/\rho$。（50分）
+
+**(1)** 推导弦的运动方程。
+
+**(2)** 假设自由振动解为 $u(x,t)=U(x)\cdot W(t)$，分别求 $U,W$ 满足的微分方程。
+
+**(3)** 求 $U$ 的通解。
+
+**(4)** 求弦发生振动时 $\nu$ 或 $\mu$ 应满足的条件，以及发生振动时 $W$ 的通解。
+
+**(5)** 考虑边界条件，求第 $r$ 阶固有振型 $U_r$。
+
+**(6)** 求弦自由振动的通解和第 $r$ 阶阻尼固有角频率 $\omega_{dr}$。
 
 ## **Kai**
 
@@ -36,8 +53,10 @@ tags:
 微小要素の力のつり合いから
 
 $$
-\rho u_{tt}\,dx=T u_{xx}\,dx-\nu u_t\,dx,
-\qquad\boxed{u_{tt}+\mu u_t=c^2u_{xx}.}
+\begin{gathered}
+\rho u_{tt}\,dx=T u_{xx}\,dx-\nu u_t\,dx,\\
+\boxed{u_{tt}+\mu u_t=c^2u_{xx}.}
+\end{gathered}
 $$
 
 ### (2)
@@ -51,8 +70,10 @@ $$
 よって
 
 $$
-\boxed{U''+\frac{\omega^2}{c^2}U=0,\qquad
-\ddot W+\mu\dot W+\omega^2W=0.}
+\boxed{\begin{gathered}
+U''+\frac{\omega^2}{c^2}U=0,\\
+\ddot W+\mu\dot W+\omega^2W=0.
+\end{gathered}}
 $$
 
 ### (3)
@@ -72,9 +93,10 @@ $$
 その場合
 
 $$
-\boxed{W(t)=e^{-\mu t/2}
-\left[C\cos\left(\sqrt{\omega^2-\mu^2/4}\,t\right)
-+D\sin\left(\sqrt{\omega^2-\mu^2/4}\,t\right)\right].}
+\boxed{W(t)=e^{-\mu t/2}\left[\begin{gathered}
+C\cos\left(\sqrt{\omega^2-\mu^2/4}\,t\right)\\
++D\sin\left(\sqrt{\omega^2-\mu^2/4}\,t\right)
+\end{gathered}\right].}
 $$
 
 ### (5)

@@ -24,7 +24,19 @@ $$
 
 #### 题目描述
 
-设 $S^2=\{u\in\mathbb R^3:\|u\|=1\}$，令 $X=\{(u,v)\in S^2\times S^2:u\cdot v=0\}$，其中 $u\cdot v$ 为通常的欧氏内积。证明 $X$ 是紧致可微流形。
+对于二维球面 $S^2=\{(x,y,z)\in\mathbb R^3\mid x^2+y^2+z^2=1\}$，考虑 $S^2\times S^2$ 的子空间
+
+$$
+X=\{(u,v)\in S^2\times S^2\mid u\cdot v=0\}.
+$$
+
+这里，对 $u=(u_1,u_2,u_3),v=(v_1,v_2,v_3)\in\mathbb R^3$，定义
+
+$$
+u\cdot v=u_1v_1+u_2v_2+u_3v_3.
+$$
+
+证明 $X$ 是紧致可微流形。
 
 ## **Kai**
 

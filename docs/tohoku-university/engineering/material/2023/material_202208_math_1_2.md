@@ -15,33 +15,61 @@ tags:
 
 ## **Description**
 
-### 原題に基づく要約（日本語）
+### 数学－1
 
-[公式原題](https://www.material.tohoku.ac.jp/media/files/admission/daigakuin_r5.pdf)
+以下の問に答えよ．
 
-### 数学1
+**問1**
 
-1. $A=\begin{pmatrix}2&4&3\\1&5&1\\3&4&5\end{pmatrix}$ の逆行列を求める。
-2. $\boldsymbol f=(x^2,2xz,z^2)$ とする。平面 $x=0,y=0,z=0,y=1,z=3-x$ に囲まれた領域 $V$ 上で $\iiint_V\operatorname{div}\boldsymbol f\,dV$ を計算する。
+$$
+A=\begin{pmatrix}2&4&3\\1&5&1\\3&4&5\end{pmatrix}
+$$
 
-### 数学2
+の逆行列 $A^{-1}$ を，公式 $A^{-1}=\dfrac1{|A|}\widetilde A$（ただし，$\widetilde A$ は $A$ の余因子行列），もしくは掃き出し法で求めよ．
 
-1. $\sqrt3/4-i/4$ の4乗根をすべて求め、複素平面に図示する。
-2. $f(z)=1/(z+1)$ を $z=1$ のまわりで Taylor 展開し、収束半径を求める。
-3. 任意の単一閉曲線 $C$ に沿う $\displaystyle\oint_C(4-3z)/(z^2-z)\,dz$ を求める。曲線が囲む特異点により場合分けする。
+**問2**
 
-### 题目描述
+空間ベクトル場 $\boldsymbol f=(x^2,2xz,z^2)$ において，図1に示すように $x=0,y=0,z=0$ の三つの座標平面と，平面 $y=1$ と平面 $z=3-x$ とで囲まれる領域を $V$ とおく．$\displaystyle\iiint_V\operatorname{div}\boldsymbol f\,dV$ を求めよ．
 
-【数学 1】
+![図1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/material/2023/material_202208_math_1_2_figure_1.png)
 
-1. 求矩阵 $A=\begin{pmatrix}2&4&3\\1&5&1\\3&4&5\end{pmatrix}$ 的逆矩阵。
-2. 向量场为 $\boldsymbol f=(x^2,2xz,z^2)$，区域 $V$ 由平面 $x=0,y=0,z=0,y=1,z=3-x$ 围成，计算 $\iiint_V\operatorname{div}\boldsymbol f\,dV$。
+### 数学－2
 
-【数学 2】
+以下の問に答えよ．ただし，$z$ は複素数とし，$i=\sqrt{-1}$ は虚数単位である．
 
-1. 求 $\sqrt3/4-i/4$ 的全部四次方根，并在复平面上表示。
-2. 将 $f(z)=1/(z+1)$ 在 $z=1$ 处展开为 Taylor 级数，求收敛半径。
-3. 对简单闭曲线 $C$，按其围住的奇点分类，求 $\oint_C(4-3z)/(z^2-z)\,dz$。
+**問1** $\displaystyle\sqrt[4]{\frac{\sqrt3}{4}-\frac14i}$ のべき乗根を全て求め，複素平面上に図示せよ．
+
+**問2** $f(z)=\dfrac1{z+1}$ を，$z=1$ を中心にテイラー展開せよ．また，収束半径を求めよ．
+
+**問3** 次の積分を求めよ．ただし，$C$ は任意の単一閉曲線とする．
+
+$$
+I=\int_C\frac{4-3z}{z^2-z}\,dz
+$$
+
+#### 题目描述
+
+**数学－1** 回答下列问题。
+
+**问1** 用公式 $A^{-1}=\dfrac1{|A|}\widetilde A$（其中 $\widetilde A$ 为 $A$ 的伴随矩阵）或消元法，求下列矩阵的逆矩阵。
+
+$$
+A=\begin{pmatrix}2&4&3\\1&5&1\\3&4&5\end{pmatrix}
+$$
+
+**问2** 在空间向量场 $\boldsymbol f=(x^2,2xz,z^2)$ 中，如上方图1所示，将由三个坐标平面 $x=0,y=0,z=0$、平面 $y=1$ 和平面 $z=3-x$ 围成的区域记作 $V$。求 $\displaystyle\iiint_V\operatorname{div}\boldsymbol f\,dV$。
+
+**数学－2** 回答下列问题。其中 $z$ 为复数，$i=\sqrt{-1}$ 为虚数单位。
+
+**问1** 求 $\displaystyle\frac{\sqrt3}{4}-\frac14i$ 的全部四次方根，并在复平面上画出。
+
+**问2** 将 $f(z)=\dfrac1{z+1}$ 在 $z=1$ 处展开成泰勒级数，并求收敛半径。
+
+**问3** 求下列积分，其中 $C$ 为任意简单闭曲线。
+
+$$
+I=\int_C\frac{4-3z}{z^2-z}\,dz
+$$
 
 ## **Kai**
 ### 【数学-1】
@@ -134,7 +162,7 @@ $$
 
 であり、収束半径は $2$ である。
 
-### 【数学-2】問 3
+#### 問 3
 
 $$
 \frac{4-3z}{z^2-z}=-\frac4z+\frac1{z-1}.

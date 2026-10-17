@@ -308,9 +308,11 @@ function buildNewSolutionPath(payload) {
   const programPath = cleanProgramPath(doc.programId);
   if (programPath) parts.push(...programPath.split('/'));
   parts.push(String(year));
+  // CJK subjects can disappear during ASCII cleanup, leaving identical dates.
+  // Keep explicit slugs, but disambiguate automatically named submissions.
+  const automaticSlug = cleanSegment(slugFromTitle(doc.title), '') || 'submission';
   const fileSlug = cleanSegment(doc.fileSlug, '')
-    || cleanSegment(slugFromTitle(doc.title), '')
-    || `submission-${payload.submissionId.slice(0, 8)}`;
+    || `${automaticSlug}-${cleanSegment(payload.submissionId).slice(0, 8)}`;
   parts.push(`${fileSlug}.md`);
   return parts.join('/');
 }
@@ -426,6 +428,37 @@ function ensureWithinRepo(repoRoot, relativePath) {
   return absolutePath;
 }
 
+function writeMissingSolutionCategories(repoRoot, relativePath) {
+  const segments = relativePath.split('/').slice(1, -1);
+  const university = universities.find((item) => item.id === segments[0]);
+  const department = university?.departments.find((item) => item.id === segments[1]);
+  const createdPaths = [];
+
+  for (let index = 0; index < segments.length; index += 1) {
+    const categorySegments = segments.slice(0, index + 1);
+    const categoryPath = `docs/${categorySegments.join('/')}/_category_.json`;
+    const absolutePath = ensureWithinRepo(repoRoot, categoryPath);
+    const isYear = index === segments.length - 1;
+    const knownCategory = index === 0 ? university : index === 1 ? department
+      : department?.programs?.find((item) => item.id === categorySegments.slice(2).join('/'));
+    const key = categorySegments.join('-');
+    const category = {
+      label: isYear ? `${segments[index]}年度` : knownCategory?.name || segments[index],
+      ...(isYear ? {position: Number(segments[index])} : {}),
+      link: {type: 'generated-index', slug: `/category/${key}`},
+      key,
+    };
+    // Exclusive creation preserves all existing labels, ordering, links and aliases.
+    try {
+      fs.writeFileSync(absolutePath, `${JSON.stringify(category, null, 2)}\n`, {encoding: 'utf8', flag: 'wx'});
+      createdPaths.push(categoryPath);
+    } catch (error) {
+      if (error?.code !== 'EEXIST') throw error;
+    }
+  }
+  return createdPaths;
+}
+
 function writeSubmissionToRepo({ repoRoot, payload }) {
   validateSubmissionPayload(payload);
   if (payload.submissionType === 'experience') return writeExperienceToRepo(repoRoot, payload);
@@ -458,7 +491,8 @@ function writeSubmissionToRepo({ repoRoot, payload }) {
         conflictKind: 'target_exists',
       };
     }
-    return { relativePath, action: 'create' };
+    const categoryPaths = writeMissingSolutionCategories(repoRoot, relativePath);
+    return { relativePath, action: 'create', filePaths: [relativePath, ...categoryPaths] };
   }
 
   const relativePath = targetPathForCorrection(payload);
@@ -488,7 +522,7 @@ function writeSubmissionToRepo({ repoRoot, payload }) {
   return { relativePath, action: 'update', conflict: false };
 }
 
-function buildPullRequestBody({ payload, issue, relativePath }) {
+function buildPullRequestBody({ payload, issue, relativePath, filePaths = [relativePath] }) {
   if (payload.submissionType === 'admission_data') {
     throw new Error('Admission-data submissions require manual review and cannot be converted automatically.');
   }
@@ -501,6 +535,13 @@ function buildPullRequestBody({ payload, issue, relativePath }) {
     `- Type: ${kind}`,
     `- Source issue: ${issue.html_url}`,
     `- File: \`${relativePath}\``,
+    ...filePaths.filter((filePath) => filePath !== relativePath)
+      .map((filePath) => `- Category metadata: \`${filePath}\``),
+    ...(payload.submissionType === 'new_solution'
+      ? [
+        '- The shared university catalog is regenerated from the document categories.',
+        '- Display-math delimiters and surrounding whitespace are normalized after signature verification.',
+      ] : []),
     `- Public author: ${payload.publicAuthor}`,
     `- CLA accepted at: ${payload.cla.acceptedAt}`,
     ...(payload.correction ? [`- Base blob: \`${payload.correction.baseBlobSha}\``] : []),

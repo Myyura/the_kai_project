@@ -13,54 +13,81 @@ tags:
 
 ## **Description**
 
-[原題：2022年度専門科目（午後）](https://www.aerospace.t.u-tokyo.ac.jp/g_education/pdf/pastpaper2022pm.pdf)。図の条件は以下に文章で明記する。
+[原題：2022年度専門科目（午後）](https://www.aerospace.t.u-tokyo.ac.jp/g_education/pdf/pastpaper2022pm.pdf)
 
-理想気体を用いる3段圧縮・2回中間冷却の理想ガスタービンサイクル $\mathrm O\to\mathrm A\to\mathrm B\to\mathrm C\to\mathrm D\to\mathrm E\to\mathrm F\to\mathrm G\to\mathrm O$ を考える。圧力・絶対温度・単位質量当たりのエントロピーを $P,T,S$ とし、比熱 $C_P,C_V$ は一定、$\kappa=C_P/C_V$ とする。すべての状態変化は準静的である。
+推進工学（午後）
 
-| 過程 | 状態変化 |
-|---|---|
-| $\mathrm O\to\mathrm A$ | 断熱圧縮 |
-| $\mathrm A\to\mathrm B$ | 定圧冷却 |
-| $\mathrm B\to\mathrm C$ | 断熱圧縮 |
-| $\mathrm C\to\mathrm D$ | 定圧冷却 |
-| $\mathrm D\to\mathrm E$ | 断熱圧縮 |
-| $\mathrm E\to\mathrm F$ | 定圧加熱 |
-| $\mathrm F\to\mathrm G$ | 断熱膨張 |
-| $\mathrm G\to\mathrm O$ | 定圧冷却 |
+図1の模式図および図2の $T$-$S$ 線図で表される理想的な熱サイクル $\mathrm{O\to A\to B\to C\to D\to E\to F\to G\to O}$（中間冷却ガスタービンサイクル）を考える。作動流体は、理想気体の状態方程式に従うものとし、作動流体の圧力を $P$、絶対温度を $T$、単位質量あたりのエントロピーを $S$ と表す。また、定圧比熱 $C_P$、定積比熱 $C_V$ を共に定数とし、比熱比を $\kappa=C_P/C_V$ と定義する。全ての状態変化は準静的であるとする。
 
-圧力は $P_F=P_E\ge P_D=P_C\ge P_B=P_A\ge P_O=P_G$。中間冷却は理想的で $T_O=T_B=T_D$ とする。最高・最低温度比、全体圧力比、前2段の圧縮温度比を
+![原題の図1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/aero/2022/aero_202108_pm_propulsion_original_figure_1.png)
 
-$$
-\theta=\frac{T_F}{T_O},\qquad\pi=\frac{P_E}{P_O},\qquad
-\alpha=\frac{T_A}{T_O},\qquad\beta=\frac{T_C}{T_B}
-$$
+作動流体の $P$ と $T$ は、
 
-と定義する。
+- 状態 O $(P_O,T_O)$ から、断熱圧縮過程を経て、状態 A $(P_A,T_A)$ へ、
+- 状態 A $(P_A,T_A)$ から、定圧冷却過程を経て、状態 B $(P_B,T_B)$ へ、
+- 状態 B $(P_B,T_B)$ から、断熱圧縮過程を経て、状態 C $(P_C,T_C)$ へ、
+- 状態 C $(P_C,T_C)$ から、定圧冷却過程を経て、状態 D $(P_D,T_D)$ へ、
+- 状態 D $(P_D,T_D)$ から、断熱圧縮過程を経て、状態 E $(P_E,T_E)$ へ、
+- 状態 E $(P_E,T_E)$ から、定圧加熱過程を経て、状態 F $(P_F,T_F)$ へ、
+- 状態 F $(P_F,T_F)$ から、断熱膨張過程を経て、状態 G $(P_G,T_G)$ へ、
+- 状態 G $(P_G,T_G)$ から、定圧冷却過程を経て、状態 O $(P_O,T_O)$ へ変化する。
 
-**第1問** $P_A$ を $P_O,\kappa,\alpha$ で表せ。
+ただし、$P_F=P_E\ge P_D=P_C\ge P_B=P_A\ge P_O=P_G$ である。また、行程 $\mathrm{A\to B}$ と行程 $\mathrm{C\to D}$（中間冷却過程）では理想的な熱交換が行われるとして $T_O=T_B=T_D$ とする。サイクル最高最低温度比を $\theta=T_F/T_O$、全体圧力比を $\pi=P_E/P_O$、行程 $\mathrm{O\to A}$ と行程 $\mathrm{B\to C}$ における温度比をそれぞれ $\alpha=T_A/T_O$、$\beta=T_C/T_B$ とする。以下の問いに答えよ。
 
-**第2問** $T_E$ を $T_O,\kappa,\alpha,\beta,\pi$ で表せ。
+![原題の図2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/aero/2022/aero_202108_pm_propulsion_original_figure_2.png)
 
-**第3問** $T_G$ を $T_O,\kappa,\theta,\pi$ で表せ。
+**第1問** $P_A$ を、$P_O,\kappa,\alpha$ を用いて表せ。
 
-**第4問** 単位質量の作動流体が1サイクルに行う仕事（比出力）$W$ を $C_P,T_O,\kappa,\theta,\alpha,\beta,\pi$ で表せ。
+**第2問** $T_E$ を、$T_O,\kappa,\alpha,\beta,\pi$ を用いて表せ。
 
-**第5問** $T_O,\theta$ を固定して $W$ を最大にする $\alpha,\beta,\pi$ を求め、$\kappa,\theta$ で表せ。また最大の $W$ を $C_P,T_O,\theta$ で表せ。
+**第3問** $T_G$ を、$T_O,\kappa,\theta,\pi$ を用いて表せ。
 
-**第6問** $W$ が最大となるときの熱効率 $\eta$ を $\theta$ で表せ。
+このサイクルの、比出力（単位質量の作動流体が1サイクルあたりにする仕事）を $W$、熱効率を $\eta$ と表す。
+
+**第4問** $W$ を、$C_P,T_O,\kappa,\theta,\alpha,\beta,\pi$ を用いて表せ。
+
+**第5問** $T_O$ と $\theta$ を固定したとき、$W$ を最大にする $\alpha,\beta,\pi$ を求め、$\alpha,\beta,\pi$ を $\kappa$ と $\theta$ を用いてそれぞれ表せ。また、その時の $W$ を、$C_P,T_O,\theta$ を用いて表せ。
+
+**第6問** $W$ が最大となるときの $\eta$ を $\theta$ を用いて表せ。
 
 #### 题目描述
 
-考虑理想气体的三级压缩、两次中间冷却燃气轮机循环：$\mathrm O\to\mathrm A$、$\mathrm B\to\mathrm C$、$\mathrm D\to\mathrm E$ 为绝热压缩，$\mathrm A\to\mathrm B$、$\mathrm C\to\mathrm D$ 为等压中间冷却，$\mathrm E\to\mathrm F$ 等压加热，$\mathrm F\to\mathrm G$ 绝热膨胀，$\mathrm G\to\mathrm O$ 等压冷却。过程均准静态，比热恒定，$\kappa=C_P/C_V$。
+推进工学（下午）
 
-压力满足 $P_F=P_E\ge P_D=P_C\ge P_B=P_A\ge P_O=P_G$，理想中冷使 $T_O=T_B=T_D$。定义 $\theta=T_F/T_O$、$\pi=P_E/P_O$、$\alpha=T_A/T_O$、$\beta=T_C/T_B$。
+考虑图1装置示意图、图2温熵图所表示的理想热力循环 $\mathrm{O\to A\to B\to C\to D\to E\to F\to G\to O}$，即带中间冷却的燃气轮机循环。工质服从理想气体状态方程，压力、绝对温度、单位质量熵分别记为 $P,T,S$。定压比热 $C_P$、定容比热 $C_V$ 均为常数，比热比 $\kappa=C_P/C_V$。所有状态变化均为准静态。
 
-1. 用 $P_O,\kappa,\alpha$ 表示 $P_A$。
-2. 用 $T_O,\kappa,\alpha,\beta,\pi$ 表示 $T_E$。
-3. 用 $T_O,\kappa,\theta,\pi$ 表示 $T_G$。
-4. 求每单位质量工质每循环的净功 $W$。
-5. 固定 $T_O,\theta$，求使 $W$ 最大的 $\alpha,\beta,\pi$，及此时的最大净功。
-6. 求净功最大时的热效率。
+工质的压力与温度按下列过程变化：
+
+- 从状态 O $(P_O,T_O)$ 经绝热压缩到状态 A $(P_A,T_A)$；
+- 从状态 A $(P_A,T_A)$ 经等压冷却到状态 B $(P_B,T_B)$；
+- 从状态 B $(P_B,T_B)$ 经绝热压缩到状态 C $(P_C,T_C)$；
+- 从状态 C $(P_C,T_C)$ 经等压冷却到状态 D $(P_D,T_D)$；
+- 从状态 D $(P_D,T_D)$ 经绝热压缩到状态 E $(P_E,T_E)$；
+- 从状态 E $(P_E,T_E)$ 经等压加热到状态 F $(P_F,T_F)$；
+- 从状态 F $(P_F,T_F)$ 经绝热膨胀到状态 G $(P_G,T_G)$；
+- 从状态 G $(P_G,T_G)$ 经等压冷却回到状态 O $(P_O,T_O)$。
+
+各状态压力满足
+
+$$
+P_F=P_E\ge P_D=P_C\ge P_B=P_A\ge P_O=P_G.
+$$
+
+中间冷却过程 $\mathrm{A\to B}$、$\mathrm{C\to D}$ 进行理想换热，满足 $T_O=T_B=T_D$。定义循环最高温度与最低温度之比 $\theta=T_F/T_O$，总压比 $\pi=P_E/P_O$，前两级压缩温度比分别为 $\alpha=T_A/T_O$、$\beta=T_C/T_B$。回答下列问题。
+
+**第1问** 用 $P_O,\kappa,\alpha$ 表示 $P_A$。
+
+**第2问** 用 $T_O,\kappa,\alpha,\beta,\pi$ 表示 $T_E$。
+
+**第3问** 用 $T_O,\kappa,\theta,\pi$ 表示 $T_G$。
+
+将循环的比输出，即单位质量工质每一循环所做的功，记为 $W$，热效率记为 $\eta$。
+
+**第4问** 用 $C_P,T_O,\kappa,\theta,\alpha,\beta,\pi$ 表示 $W$。
+
+**第5问** 固定 $T_O,\theta$，求使 $W$ 最大的 $\alpha,\beta,\pi$，分别用 $\kappa,\theta$ 表示；再用 $C_P,T_O,\theta$ 表示此时的 $W$。
+
+**第6问** 用 $\theta$ 表示 $W$ 最大时的热效率 $\eta$。
 
 ## **Kai**
 

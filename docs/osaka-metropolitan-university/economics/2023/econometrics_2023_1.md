@@ -13,32 +13,101 @@ tags:
 
 ## **Description**
 
-回帰式 $Y_i=\alpha+\beta x_i+u_i$（$i=1,\ldots,n$）を考える。$x_i$ は非確率的、$u_i$ は平均0、分散 $\sigma^2$ の確率変数である。最小二乗推定量を $\hat\alpha,\hat\beta$、残差を $\hat u_i$、標本平均を $\bar x=n^{-1}\sum_i x_i$、$\bar y=n^{-1}\sum_i y_i$ とする。
+回帰式 $Y_i=\alpha+\beta x_i+u_i$（$i=1,2,\ldots,n$）において $\alpha,\beta$ は係数であり、$x_i$ は確率変数ではない。また、誤差項 $u_i$ は平均 $0$、分散 $\sigma^2$ の確率変数である。
 
-(1-1) $\sum_i(x_i-\bar x)\hat u_i=0$ を証明せよ。
+**(1-1)** この回帰式を最小二乗法で推定したときの $\alpha,\beta$ の最小二乗推定量を $\hat\alpha,\hat\beta$、最小二乗残差を $\hat u_i$、$\bar x=\dfrac1n\sum_{i=1}^n x_i$、$\bar y=\dfrac1n\sum_{i=1}^n y_i$ としたとき、
 
-(1-2) $\sum_i(y_i-\bar y)^2=\hat\beta^2\sum_i(x_i-\bar x)^2+\sum_i\hat u_i^2$ を証明せよ。
+$$
+\sum_{i=1}^n(x_i-\bar x)\hat u_i=0
+$$
 
-(1-3) $0\le1-\sum_i\hat u_i^2/\sum_i(y_i-\bar y)^2\le1$ を証明せよ。
+が成り立つことを証明せよ。
 
-次に、切片のない回帰式 $Y_i=\beta'x_i+u_i'$ を考える。$x_i$ は非確率的、$u_i'$ は平均0、分散 $\sigma^2$ とする。最小二乗推定量を $\hat\beta'$、残差を $\hat u_i'$ とする。
+**(1-2)** 以下の式
 
-(1-4) $\sum_i(x_i-\bar x)\hat u_i'=0$ は必ず成立するか。理由を示せ。
+$$
+\sum_{i=1}^n(y_i-\bar y)^2
+=\hat\beta^2\sum_{i=1}^n(x_i-\bar x)^2+\sum_{i=1}^n\hat u_i^2
+$$
 
-(1-5) $\sum_i(y_i-\bar y)^2=(\hat\beta')^2\sum_i(x_i-\bar x)^2+\sum_i(\hat u_i')^2$ は成立するか。理由を示せ。
+が成り立つことを証明せよ。
 
-(1-6) $0\le1-\sum_i(\hat u_i')^2/\sum_i(y_i-\bar y)^2\le1$ は必ず成立するか。成立しない場合、どちらの不等号が成立しないか。理由を示せ。
+**(1-3)** 以下の式
+
+$$
+0\le1-\frac{\sum_{i=1}^n\hat u_i^2}{\sum_{i=1}^n(y_i-\bar y)^2}\le1
+$$
+
+を証明せよ。
+
+**(1-4)** 回帰式を $Y_i=\beta'x_i+u_i'$（$i=1,2,\ldots,n$）とする。ただし、$\beta'$ は係数であり、$x_i$ は確率変数ではない。また、誤差項 $u_i'$ は平均 $0$、分散 $\sigma^2$ の確率変数で、最小二乗法で推定したときの $\beta'$ の最小二乗推定量を $\hat\beta'$、最小二乗残差を $\hat u_i'$、$\bar x=\dfrac1n\sum_{i=1}^n x_i$、$\bar y=\dfrac1n\sum_{i=1}^n y_i$ とする。
+
+$$
+\sum_{i=1}^n(x_i-\bar x)\hat u_i'=0
+$$
+
+は必ず成立するか。理由を示して答えよ。
+
+**(1-5)** 回帰式を $Y_i=\beta'x_i+u_i$ とした (1-4) の状況で、
+
+$$
+\sum_{i=1}^n(y_i-\bar y)^2
+=(\hat\beta')^2\sum_{i=1}^n(x_i-\bar x)^2+\sum_{i=1}^n(\hat u_i')^2
+$$
+
+は成立するか。理由を示して答えよ。
+
+**(1-6)** 回帰式を $Y_i=\beta x_i+u_i$ とした (1-4) の状況で、以下の式
+
+$$
+0\le1-\frac{\sum_{i=1}^n(\hat u_i')^2}{\sum_{i=1}^n(y_i-\bar y)^2}\le1
+$$
+
+は必ず成立するか。もし、成立しないなら上記式のどちらの不等号が成立しないのか。理由を示して答えよ。
 
 #### 题目描述
 
-有截距回归为 $Y_i=\alpha+\beta x_i+u_i$，解释变量非随机，误差均值0、方差 $\sigma^2$。最小二乘估计及残差记为 $\hat\alpha,\hat\beta,\hat u_i$，样本均值记为 $\bar x,\bar y$。
+在回归式 $Y_i=\alpha+\beta x_i+u_i$（$i=1,2,\ldots,n$）中，$\alpha,\beta$ 为系数，$x_i$ 不是随机变量。误差项 $u_i$ 为均值 $0$、方差 $\sigma^2$ 的随机变量。
 
-1. 证明中心化解释变量与残差正交。
-2. 证明总离差平方和等于回归平方和与残差平方和之和，具体公式如上。
-3. 证明 $0\le1-\mathrm{SSE}/\mathrm{SST}\le1$。
-4. 改为无截距回归 $Y_i=\beta'x_i+u_i'$，判断第1问的正交关系是否恒成立并说明理由。
-5. 判断第2问的中心化平方和分解是否仍成立并说明理由。
-6. 判断第3问的两个不等式是否都成立；若不成立，指出失效的一侧并说明理由。
+**(1-1)** 用最小二乘法估计该回归式，记 $\alpha,\beta$ 的最小二乘估计量为 $\hat\alpha,\hat\beta$，最小二乘残差为 $\hat u_i$，并令 $\bar x=\dfrac1n\sum_{i=1}^n x_i$、$\bar y=\dfrac1n\sum_{i=1}^n y_i$。证明
+
+$$
+\sum_{i=1}^n(x_i-\bar x)\hat u_i=0.
+$$
+
+**(1-2)** 证明下式成立。
+
+$$
+\sum_{i=1}^n(y_i-\bar y)^2
+=\hat\beta^2\sum_{i=1}^n(x_i-\bar x)^2+\sum_{i=1}^n\hat u_i^2.
+$$
+
+**(1-3)** 证明下式。
+
+$$
+0\le1-\frac{\sum_{i=1}^n\hat u_i^2}{\sum_{i=1}^n(y_i-\bar y)^2}\le1.
+$$
+
+**(1-4)** 设回归式为 $Y_i=\beta'x_i+u_i'$（$i=1,2,\ldots,n$）。其中 $\beta'$ 为系数，$x_i$ 不是随机变量。误差项 $u_i'$ 为均值 $0$、方差 $\sigma^2$ 的随机变量。用最小二乘法估计时，记 $\beta'$ 的最小二乘估计量为 $\hat\beta'$，最小二乘残差为 $\hat u_i'$，并令 $\bar x=\dfrac1n\sum_{i=1}^n x_i$、$\bar y=\dfrac1n\sum_{i=1}^n y_i$。下式是否一定成立？说明理由。
+
+$$
+\sum_{i=1}^n(x_i-\bar x)\hat u_i'=0.
+$$
+
+**(1-5)** 在 (1-4) 的情形下，回归式为 $Y_i=\beta'x_i+u_i$ 时，下式是否成立？说明理由。
+
+$$
+\sum_{i=1}^n(y_i-\bar y)^2
+=(\hat\beta')^2\sum_{i=1}^n(x_i-\bar x)^2+\sum_{i=1}^n(\hat u_i')^2.
+$$
+
+**(1-6)** 在 (1-4) 的情形下，回归式为 $Y_i=\beta x_i+u_i$ 时，下式是否一定成立？若不成立，指出哪一侧不等号不成立，并说明理由。
+
+$$
+0\le1-\frac{\sum_{i=1}^n(\hat u_i')^2}{\sum_{i=1}^n(y_i-\bar y)^2}\le1.
+$$
+
+原卷 (1-5)、(1-6) 的回归式省略了部分撇号；两问均明确引用 (1-4) 的无截距回归情形，以上保留原卷记号。
 
 ## **Kai**
 
@@ -87,9 +156,11 @@ $$
 両辺を中心化すると、設問の右辺と左辺の差は $n\{\bar y^2-(\hat\beta')^2\bar x^2\}$ となり、一般にはゼロでない。上の反例では、
 
 $$
-\mathrm{SST}=\frac12,\qquad
+\begin{gathered}
+\mathrm{SST}=\frac12,\\
 (\hat\beta')^2\sum_i(x_i-\bar x)^2+\mathrm{SSE}
 =\frac{16}{25}\frac12+\frac95=\frac{53}{25}\ne\frac12.
+\end{gathered}
 $$
 
 よって**必ずしも成立しない**。

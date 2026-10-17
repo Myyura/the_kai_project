@@ -14,13 +14,19 @@ tags:
 
 ## **Description**
 
-領域
+$\mathbb R^3$ の部分集合 $D$ を
 
 $$
-D=\left\{(x,y,z)\in\mathbb R^3:\frac14\le x^2+y^2-2yz+4z^2\le1\right\}
+D=\left\{(x,y,z)\in\mathbb R^3\mid\frac14\le x^2+y^2-2yz+4z^2\le1\right\}
 $$
 
-について、$\iiint_D\log(x^2+y^2-2yz+4z^2)\,dx\,dy\,dz$ を計算する。
+で定める。積分
+
+$$
+\iiint_D\log(x^2+y^2-2yz+4z^2)\,dx\,dy\,dz
+$$
+
+の値を求めよ。
 
 #### 题目描述
 
@@ -36,10 +42,10 @@ $u=x,\ v=y-z,\ w=\sqrt3z$ と置くと、二次形式は $u^2+v^2+w^2$ となり
 
 $$
 \begin{aligned}
-\iiint_D\log(x^2+y^2-2yz+4z^2)\,dx\,dy\,dz
-&=\frac{4\pi}{\sqrt3}\int_{1/2}^1r^2\log r^2\,dr\\
-&=\frac{4\pi}{\sqrt3}\left[\frac23r^3\log r-\frac29r^3\right]_{1/2}^1\\
-&=\frac{\pi}{9\sqrt3}(3\log2-7).
+&\iiint_D\log(x^2+y^2-2yz+4z^2)\,dx\,dy\,dz\\
+&\quad=\frac{4\pi}{\sqrt3}\int_{1/2}^1r^2\log r^2\,dr\\
+&\quad=\frac{4\pi}{\sqrt3}\left[\frac23r^3\log r-\frac29r^3\right]_{1/2}^1\\
+&\quad=\frac{\pi}{9\sqrt3}(3\log2-7).
 \end{aligned}
 $$
 

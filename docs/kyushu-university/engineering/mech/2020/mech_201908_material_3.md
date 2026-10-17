@@ -14,19 +14,21 @@ tags:
 
 ## **Description**
 
-同一平面内で二本の直線状の丸棒 AOC、BOD が中点 O で直交して剛結された十字構造を考える。OA、OB、OC、OD の長さはすべて $\ell$。点 B、C、D は剛体壁に完全固定され、点 A は自由である。A に面外の $z$ 方向荷重 $P$ を作用させたとき、A の $z$ 方向変位 $\delta_{AZ}$ を求めよ。
-
-各丸棒の直径を $d$ とし、$\ell\gg d$、縦弾性係数 $E$、横弾性係数 $G=E/2$ とする。断面二次モーメントと断面二次極モーメントは
+図のように、構造 AOC-BOD が、点 B、点 C、点 D の各点で剛体壁に完全に固定されている。点 A に $z$ 方向荷重 $P$ を作用させるとき、点 A の $z$ 方向変位 $\delta_{AZ}$ を求めよ。ただし、構造 AOC-BOD は、直径 $d$ の丸棒からなり、$\ell\gg d$、ヤング率 $E$、横弾性係数 $G$ とし、$G=E/2$ とする。なお、丸棒の断面二次モーメント（$I$）と断面二次極モーメント（$I_p$）は、以下の式で与えられる。（50点）
 
 $$
-I=\frac{\pi d^4}{64},\qquad I_p=\frac{\pi d^4}{32}
+I=\frac{\pi d^4}{64},\qquad I_p=\frac{\pi d^4}{32}.
 $$
 
-である。
+図中、OA、OB、OC、OD の長さはすべて $\ell$ である。
+
+![原題の三端固定された十字形丸棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_material_3_figure_1.png)
 
 #### 题目描述
 
-两根直圆杆 AOC、BOD 在中点 O 正交刚接，四臂长均为 $\ell$。B、C、D 完全固定，A 自由。在 A 施加垂直于两杆平面的力 $P$，求 A 沿力方向的位移。各杆直径 $d$、$\ell\gg d$，材料参数为 $E,G=E/2$，且 $I=\pi d^4/64,I_p=\pi d^4/32$。
+如图，结构 AOC-BOD 在 B、C、D 三点完全固定于刚性墙壁。当 A 点受到沿 $z$ 方向的载荷 $P$ 时，求 A 点沿 $z$ 方向的位移 $\delta_{AZ}$。结构 AOC-BOD 由直径为 $d$ 的圆杆构成，$\ell\gg d$，杨氏模量为 $E$，剪切模量为 $G$，且 $G=E/2$。圆杆的截面二次矩 $I$ 和截面极二次矩 $I_p$ 由上式给出。（50分）
+
+图中 OA、OB、OC、OD 的长度均为 $\ell$，连接方式、坐标和荷载方向如图。
 
 ## **Kai**
 
@@ -43,9 +45,10 @@ $$
 OB、OD は曲げによってそれぞれ $12EIw/\ell^3$ のせん断力を負担する。また $\varphi$ に対してはねじり抵抗 $GI_p\varphi/\ell$ を生じる。$GI_p=EI$ より、O のつり合いは
 
 $$
-\frac{36EI}{\ell^3}w-\frac{6EI}{\ell^2}\varphi=P,
-\qquad
+\begin{gathered}
+\frac{36EI}{\ell^3}w-\frac{6EI}{\ell^2}\varphi=P,\\
 -\frac{6EI}{\ell^2}w+\frac{6EI}{\ell}\varphi=P\ell.
+\end{gathered}
 $$
 
 これを解いて
@@ -58,9 +61,11 @@ $$
 A の変位は、O の並進、O の回転による変位、OA 自身の曲げたわみの和である。
 
 $$
-\delta_{AZ}=w+\ell\varphi+\frac{P\ell^3}{3EI}
+\begin{gathered}
+\delta_{AZ}=w+\ell\varphi+\frac{P\ell^3}{3EI}\\
 =\boxed{\frac{19P\ell^3}{30EI}
 =\frac{608P\ell^3}{15\pi Ed^4}}.
+\end{gathered}
 $$
 
 ## **Reference**

@@ -30,7 +30,7 @@ $$
 
 #### 题目描述
 
-设 $C([0,1])$ 为复值连续函数组成的 Banach 空间，$L^2([0,1])$ 为复值平方可积函数组成的 Hilbert 空间。定义
+设 $C([0,1])$ 为复值连续函数组成的 Banach 空间，$L^2([0,1])$ 为复值平方可积函数组成的 Hilbert 空间。对 $u\in L^2([0,1])$，定义
 
 $$
 (Tu)(t)=\int_0^t u(s)\,ds,\qquad t\in[0,1].
@@ -53,10 +53,15 @@ $$
 であり、$0\le s\le t\le1$ に対して
 
 $$
+\begin{gathered}
 |(Tu)(t)-(Tu)(s)|
+\\
 \le\int_s^t|u(r)|\,dr
+\\
 \le\sqrt{t-s}\,\|u\|_2
+\\
 \le\sqrt{t-s}.
+\end{gathered}
 $$
 
 したがって、$T$ は $L^2$ の単位球を一様有界かつ同程度連続な関数族に写す。Arzelà–Ascoli の定理より、この像は $C([0,1])$ の一様ノルムで相対コンパクトである。よって $T:L^2\to C$ はコンパクト作用素である。
@@ -76,9 +81,10 @@ $$
 したがって
 
 $$
-(T^*v)(t)=\int_t^1v(s)\,ds,
-\qquad
+\begin{gathered}
+(T^*v)(t)=\int_t^1v(s)\,ds,\\
 (T^*Tu)(t)=\int_t^1\int_0^s u(r)\,dr\,ds.
+\end{gathered}
 $$
 
 $K=T^*T$ と書く。$Tu=0$ なら、その絶対連続な代表元を微分して $u=0$ を得るので、$T$ は単射である。このため $u\ne0$ に対して
@@ -92,8 +98,12 @@ $$
 $Ku=\lambda u$（$u\ne0,\lambda>0$）とする。$q=Ku$ は
 
 $$
-q'(t)=-(Tu)(t),\qquad q''(t)=-u(t),\qquad
-q'(0)=0,\quad q(1)=0
+\begin{gathered}
+q'(t)=-(Tu)(t),\\
+q''(t)=-u(t),\\
+q'(0)=0,\\
+q(1)=0
+\end{gathered}
 $$
 
 を満たす。初め第二式はほとんど至る所で成立するが、$u=q/\lambda$ が連続となるので $q,u$ は $C^2$ 級になり、
@@ -111,9 +121,11 @@ $$
 逆に、これらの $\omega$ について
 
 $$
+\begin{gathered}
 K(\cos(\omega t))
-=\frac{\cos(\omega t)-\cos\omega}{\omega^2}
+=\frac{\cos(\omega t)-\cos\omega}{\omega^2}\\
 =\frac{\cos(\omega t)}{\omega^2}.
+\end{gathered}
 $$
 
 したがって、求める固有値は

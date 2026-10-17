@@ -14,17 +14,29 @@ tags:
 
 ## **Description**
 
-弾性はり AB と CD は、図の剛体棒 JG によって接合されている。JG は両はりと固定接合され、その直径ははりの長さに比べて十分小さい。両はりの曲げ剛性は $EI$ で、AF $=$ FG $=$ GH $=$ HB $=\ell$、CJ $=$ JD $=\ell$、JG $=\ell$ である。J に下向き荷重 $P$ を加える。A、C、F における支点反力をそれぞれ $R_A,R_C,R_F$、剛体棒 JG にかかる力を $Q$ とする。
+弾性体のはり AB とはり CD は、剛体棒を介して下図の様に繋がれている。剛体棒 JG とはり AB、はり CD は、それぞれ固定されている。なお、剛体棒 JG の直径は、はり AB とはり CD の長さに比べて充分に小さいものとする。点 A、点 C、点 F における支点反力をそれぞれ $R_A,R_C,R_F$、剛体棒 JG にかかる力を $Q$ とし、次の問いに答えよ。（35点）
 
-![公式原題の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-2-original.png)
+**(1)** $R_A,R_F,Q$ の関係を示せ。
 
-1. $R_A,R_F,Q$ の関係を示せ。
-2. $Q$ を用いて J の変位を表せ。
-3. $Q$ を求めよ。
+**(2)** $Q$ を用いて点 J の変位を表せ。
+
+**(3)** $Q$ を求めよ。
+
+図中、$E$ はヤング率、$I$ は断面二次モーメントである。AF、FG、GH、HB、CJ、JD、JG の長さはいずれも $\ell$。J に下向きの荷重 $P$ が作用し、各支点は図示のとおりである。
+
+![原題の剛体棒で接続された二本のはりと支承](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-2-original.png)
 
 #### 题目描述
 
-弯曲刚度均为 $EI$ 的梁 AB、CD 由刚杆 JG 固接。下梁 A、F、H、B 处设支承，上梁 C、D 处设支承；AF、FG、GH、HB、CJ、JD、JG 长度均为 $\ell$。在 J 向下施加力 $P$。求 A、F 支反力与刚杆传力 $Q$ 的关系，用 $Q$ 表示 J 的位移，并求 $Q$。
+弹性梁 AB 与 CD 通过刚杆连接，如图所示。刚杆 JG 与梁 AB、CD 分别为固定连接。刚杆 JG 的直径相对于两根梁的长度充分小。设 A、C、F 点的支承反力分别为 $R_A,R_C,R_F$，刚杆 JG 中的力为 $Q$，回答下列问题。（35分）
+
+**(1)** 给出 $R_A,R_F,Q$ 之间的关系。
+
+**(2)** 用 $Q$ 表示 J 点的位移。
+
+**(3)** 求 $Q$。
+
+图中 $E$ 为杨氏模量，$I$ 为截面二次矩。AF、FG、GH、HB、CJ、JD、JG 的长度均为 $\ell$。J 点承受向下的载荷 $P$，各支承形式如图。
 
 ## **Kai**
 
