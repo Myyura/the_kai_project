@@ -2,7 +2,11 @@
 sidebar_label: "京都大学 情報学研究科 システム科学専攻 2026年8月実施 数学【II】"
 tags:
   - Kyoto-University
-  - Mathematics.Calculus
+  - Mathematics.Calculus.Definite-Integral
+  - Mathematics.Calculus.Double-Integral
+  - Mathematics.Calculus.Change-of-Variables-and-Jacobian
+  - Mathematics.Calculus.Extrema
+  - Mathematics.Calculus.Multivariable-Differentiation
 ---
 # 京都大学 情報学研究科 システム科学専攻 2026年8月実施 数学【II】
 
@@ -113,6 +117,7 @@ $$
 
 なお，偏微分の順序を交換した値は $+1$ である。二階混合偏導関数の交換可能性を仮定してはならない。
 
+$$
 \boxed{\frac{\partial^2f}{\partial y\,\partial x}(0,0)=\lim_{k\to0}\frac{f_x(0,k)-f_x(0,0)}k=-1.}
 $$
 
