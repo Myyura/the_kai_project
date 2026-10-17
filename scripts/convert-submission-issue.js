@@ -44,6 +44,7 @@ function main() {
       action: writeResult.action,
       branchName,
       filePath: writeResult.relativePath,
+      filePaths: [],
       prTitle: '',
       prBodyPath: '',
       submissionId: payload.submissionId,
@@ -60,11 +61,13 @@ function main() {
   }
   const titlePrefix = ['new_solution', 'experience'].includes(payload.submissionType) ? 'Add submission' : 'Update submission';
   const prTitle = `${titlePrefix} from issue #${issue.number}`;
+  const filePaths = writeResult.conflict ? [] : writeResult.filePaths || [writeResult.relativePath];
   if (!writeResult.conflict) {
     const prBody = buildPullRequestBody({
       payload,
       issue,
       relativePath: writeResult.relativePath,
+      filePaths,
     });
     fs.writeFileSync(prBodyPath, `${prBody}\n`, 'utf8');
   }
@@ -72,6 +75,7 @@ function main() {
     action: writeResult.action,
     branchName,
     filePath: writeResult.relativePath,
+    filePaths,
     prTitle,
     prBodyPath,
     submissionId: payload.submissionId,

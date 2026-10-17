@@ -168,6 +168,8 @@ unset SUPABASE_SERVICE_ROLE_KEY
 
 登录用户可打开“个人中心 → 我的投稿”，或访问 `/me?tab=contribute`，提交新题解；纠错也可以从对应题解页直接发起。表单会将 CLA 确认写入带签名的 payload，并创建公开 GitHub Issue。维护者审核内容并添加 `submission:ready-for-pr` 标签后，[投稿转 PR 工作流](.github/workflows/submission-issue-to-pr.yml)会验证该 payload 并创建 Draft Pull Request。
 
+新题解转换时会创建所需目录，补齐学校、研究科、各级专攻和年度目录中缺失的 `_category_.json`，并与题解一起提交；已有分类配置保持不变。年度分类使用投稿表单填写的年份（如 `2027年度`），其他分类优先使用共享目录中的名称，未知分类暂用目录名。工作流还会重新生成 `src/data/universities.js`；维护者应在草稿 PR 中核对新分类的显示名及年度。
+
 所有参与者都应遵守[社区行为准则](CODE_OF_CONDUCT.md)。
 
 ### 📝 格式规范

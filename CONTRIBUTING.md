@@ -185,6 +185,8 @@ Contributions merged into the public exam archive and public solution library be
 
 Signed-in users can open Personal Center → Submissions, or `/me?tab=contribute`, to submit a new solution or start a correction from the relevant problem page. The form records CLA acceptance in a signed payload and creates a public GitHub Issue. After a maintainer reviews the content and adds the `submission:ready-for-pr` label, the [submission-to-PR workflow](.github/workflows/submission-issue-to-pr.yml) verifies that payload and creates a draft pull request.
 
+New-solution conversion creates the required directories and any missing `_category_.json` files for the university, department, nested programs, and year, and commits them alongside the solution. Existing category metadata is preserved. Year labels use the submitted year (for example, `2027年度`); other labels use shared catalog names when available and directory names otherwise. The workflow also regenerates `src/data/universities.js`. Review new category labels and the submitted year in the draft PR.
+
 All participants are expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ### 📝 Formatting guidelines
