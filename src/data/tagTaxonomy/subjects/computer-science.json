@@ -3057,6 +3057,24 @@
       "relatedSubjects": [
         "Discrete-Mathematics"
       ]
+    },
+    "Computer-Science.Graphics.Triangle-Rasterization": {
+      "subsubject": "Computer-Science.Graphics",
+      "labelZh": "三角形光栅化",
+      "labelJa": "三角形のラスタライズ",
+      "labelEn": "Triangle Rasterization"
+    },
+    "Computer-Science.Computer-Architecture.SRT-Division": {
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "SRT 除法",
+      "labelJa": "SRT 除算",
+      "labelEn": "SRT Division"
+    },
+    "Computer-Science.Algorithm-Design.Randomized-Algorithm": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "labelZh": "随机算法",
+      "labelJa": "乱択アルゴリズム",
+      "labelEn": "Randomized Algorithm"
     }
   }
 }

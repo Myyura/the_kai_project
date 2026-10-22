@@ -2422,6 +2422,30 @@ const universities = [
     ]
   },
   {
+    "id": "chuo-university",
+    "name": "中央大学",
+    "aliases": [],
+    "archiveUrl": "/docs/category/chuo-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "science_and_engineering",
+        "name": "理工学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/chuo-university-science_and_engineering",
+        "programs": [
+          {
+            "id": "information_engineering",
+            "name": "情報工学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/chuo-university-science_and_engineering-information_engineering"
+          }
+        ],
+        "websiteUrl": "https://www.chuo-u.ac.jp/admission/gschool/exam/science/"
+      }
+    ]
+  },
+  {
     "id": "naist",
     "name": "奈良先端科学技術大学院大学",
     "aliases": [

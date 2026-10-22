@@ -441,5 +441,15 @@
         "总研大"
       ]
     }
+  },
+  "Chuo-University": {
+    "universityId": "chuo-university",
+    "aliases": [
+      "chuo-university",
+      "中央大学"
+    ],
+    "labelZh": "中央大学",
+    "labelJa": "中央大学",
+    "labelEn": "Chuo University"
   }
 }

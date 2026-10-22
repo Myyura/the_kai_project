@@ -160,6 +160,10 @@
   label: "Graduate-University-for-Advanced-Studies"
   permalink: "/school/graduate-university-for-advanced-studies"
   description: "The Graduate University for Advanced Studies"
+"Chuo-University":
+  label: "Chuo-University"
+  permalink: "/school/chuo-university"
+  description: "Chuo University"
 "Mathematics.Calculus":
   label: "Mathematics.Calculus"
   permalink: "/subsubject/mathematics/calculus"
@@ -1004,6 +1008,10 @@
   label: "Computer-Science.Algorithm-Design.Radix-Sort"
   permalink: "/topic/computer-science/algorithm-design/radix-sort"
   description: "Computer-Science / Algorithm-Design / Radix-Sort"
+"Computer-Science.Algorithm-Design.Randomized-Algorithm":
+  label: "Computer-Science.Algorithm-Design.Randomized-Algorithm"
+  permalink: "/topic/computer-science/algorithm-design/randomized-algorithm"
+  description: "Computer-Science / Algorithm-Design / Randomized-Algorithm"
 "Computer-Science.Algorithm-Design.Randomized-Quickselect":
   label: "Computer-Science.Algorithm-Design.Randomized-Quickselect"
   permalink: "/topic/computer-science/algorithm-design/randomized-quickselect"
@@ -1200,6 +1208,10 @@
   label: "Computer-Science.Computer-Architecture.Snooping-Cache-Coherence"
   permalink: "/topic/computer-science/computer-architecture/snooping-cache-coherence"
   description: "Computer-Science / Computer-Architecture / Snooping-Cache-Coherence"
+"Computer-Science.Computer-Architecture.SRT-Division":
+  label: "Computer-Science.Computer-Architecture.SRT-Division"
+  permalink: "/topic/computer-science/computer-architecture/srt-division"
+  description: "Computer-Science / Computer-Architecture / SRT-Division"
 "Computer-Science.Computer-Architecture.Structural-Hazard":
   label: "Computer-Science.Computer-Architecture.Structural-Hazard"
   permalink: "/topic/computer-science/computer-architecture/structural-hazard"
@@ -1616,6 +1628,10 @@
   label: "Computer-Science.Graphics.Robot-Camera-Extrinsic-Calibration"
   permalink: "/topic/computer-science/graphics/robot-camera-extrinsic-calibration"
   description: "Computer-Science / Graphics / Robot-Camera-Extrinsic-Calibration"
+"Computer-Science.Graphics.Triangle-Rasterization":
+  label: "Computer-Science.Graphics.Triangle-Rasterization"
+  permalink: "/topic/computer-science/graphics/triangle-rasterization"
+  description: "Computer-Science / Graphics / Triangle-Rasterization"
 "Computer-Science.Information-Theory.Additive-Binary-Channel":
   label: "Computer-Science.Information-Theory.Additive-Binary-Channel"
   permalink: "/topic/computer-science/information-theory/additive-binary-channel"
@@ -4504,6 +4520,10 @@
   label: "Mathematics.Linear-Algebra.Vandermonde-Determinant"
   permalink: "/topic/mathematics/linear-algebra/vandermonde-determinant"
   description: "Mathematics / Linear-Algebra / Vandermonde-Determinant"
+"Mathematics.Linear-Algebra.Vector-Norm":
+  label: "Mathematics.Linear-Algebra.Vector-Norm"
+  permalink: "/topic/mathematics/linear-algebra/vector-norm"
+  description: "Mathematics / Linear-Algebra / Vector-Norm"
 "Mathematics.Linear-Algebra.Vector-Space-and-Subspace":
   label: "Mathematics.Linear-Algebra.Vector-Space-and-Subspace"
   permalink: "/topic/mathematics/linear-algebra/vector-space-and-subspace"

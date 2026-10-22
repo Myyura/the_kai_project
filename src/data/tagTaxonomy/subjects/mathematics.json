@@ -2962,6 +2962,12 @@
       "labelZh": "伯格斯方程",
       "labelJa": "Burgers方程式",
       "labelEn": "Burgers Equation"
+    },
+    "Mathematics.Linear-Algebra.Vector-Norm": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "向量范数",
+      "labelJa": "ベクトルノルム",
+      "labelEn": "Vector Norm"
     }
   }
 }
