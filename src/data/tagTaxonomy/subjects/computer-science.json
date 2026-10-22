@@ -3075,6 +3075,18 @@
       "labelZh": "随机算法",
       "labelJa": "乱択アルゴリズム",
       "labelEn": "Randomized Algorithm"
+    },
+    "Computer-Science.Graphics.Line-Segment-Intersection": {
+      "subsubject": "Computer-Science.Graphics",
+      "labelZh": "线段相交",
+      "labelJa": "線分交差",
+      "labelEn": "Line Segment Intersection"
+    },
+    "Computer-Science.Distributed-Systems.Blockchain": {
+      "subsubject": "Computer-Science.Distributed-Systems",
+      "labelZh": "区块链",
+      "labelJa": "ブロックチェーン",
+      "labelEn": "Blockchain"
     }
   }
 }

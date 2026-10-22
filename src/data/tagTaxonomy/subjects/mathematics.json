@@ -2968,6 +2968,22 @@
       "labelZh": "向量范数",
       "labelJa": "ベクトルノルム",
       "labelEn": "Vector Norm"
+    },
+    "Mathematics.Calculus.Legendre-Polynomials": {
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "勒让德多项式",
+      "labelJa": "ルジャンドル多項式",
+      "labelEn": "Legendre Polynomials"
+    },
+    "Mathematics.Geometry.Point-Set-Triangulation": {
+      "subsubject": "Mathematics.Geometry",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Discrete-Mathematics"
+      ],
+      "labelZh": "点集三角剖分",
+      "labelJa": "点集合の三角形分割",
+      "labelEn": "Point-Set Triangulation"
     }
   }
 }

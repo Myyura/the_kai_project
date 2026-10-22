@@ -631,6 +631,26 @@
       "labelZh": "等价关系",
       "labelJa": "同値関係",
       "labelEn": "Equivalence Relations"
+    },
+    "Discrete-Mathematics.Graph-Algorithms.Critical-Path-Method": {
+      "subsubject": "Discrete-Mathematics.Graph-Algorithms",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "labelZh": "关键路径法",
+      "labelJa": "クリティカルパス法",
+      "labelEn": "Critical Path Method",
+      "searchAliases": {
+        "en": [
+          "CPM"
+        ],
+        "zh": [
+          "关键路径"
+        ],
+        "ja": [
+          "クリティカルパス"
+        ]
+      }
     }
   }
 }

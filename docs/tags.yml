@@ -1360,6 +1360,10 @@
   label: "Computer-Science.Databases.Schema-Design-and-Aggregation"
   permalink: "/topic/computer-science/databases/schema-design-and-aggregation"
   description: "Computer-Science / Databases / Schema-Design-and-Aggregation"
+"Computer-Science.Distributed-Systems.Blockchain":
+  label: "Computer-Science.Distributed-Systems.Blockchain"
+  permalink: "/topic/computer-science/distributed-systems/blockchain"
+  description: "Computer-Science / Distributed-Systems / Blockchain"
 "Computer-Science.Distributed-Systems.Client-Server-and-Peer-to-Peer-Comparison":
   label: "Computer-Science.Distributed-Systems.Client-Server-and-Peer-to-Peer-Comparison"
   permalink: "/topic/computer-science/distributed-systems/client-server-and-peer-to-peer-comparison"
@@ -1596,6 +1600,10 @@
   label: "Computer-Science.Graphics.Invariant-Image-Features"
   permalink: "/topic/computer-science/graphics/invariant-image-features"
   description: "Computer-Science / Graphics / Invariant-Image-Features"
+"Computer-Science.Graphics.Line-Segment-Intersection":
+  label: "Computer-Science.Graphics.Line-Segment-Intersection"
+  permalink: "/topic/computer-science/graphics/line-segment-intersection"
+  description: "Computer-Science / Graphics / Line-Segment-Intersection"
 "Computer-Science.Graphics.Optical-Flow":
   label: "Computer-Science.Graphics.Optical-Flow"
   permalink: "/topic/computer-science/graphics/optical-flow"
@@ -2432,6 +2440,10 @@
   label: "Discrete-Mathematics.Graph-Algorithms.Breadth-First-Search"
   permalink: "/topic/discrete-mathematics/graph-algorithms/breadth-first-search"
   description: "Discrete-Mathematics / Graph-Algorithms / Breadth-First-Search"
+"Discrete-Mathematics.Graph-Algorithms.Critical-Path-Method":
+  label: "Discrete-Mathematics.Graph-Algorithms.Critical-Path-Method"
+  permalink: "/topic/discrete-mathematics/graph-algorithms/critical-path-method"
+  description: "Discrete-Mathematics / Graph-Algorithms / Critical-Path-Method"
 "Discrete-Mathematics.Graph-Algorithms.Depth-First-Search":
   label: "Discrete-Mathematics.Graph-Algorithms.Depth-First-Search"
   permalink: "/topic/discrete-mathematics/graph-algorithms/depth-first-search"
@@ -3632,6 +3644,10 @@
   label: "Mathematics.Calculus.Intermediate-Value-Theorem"
   permalink: "/topic/mathematics/calculus/intermediate-value-theorem"
   description: "Mathematics / Calculus / Intermediate-Value-Theorem"
+"Mathematics.Calculus.Legendre-Polynomials":
+  label: "Mathematics.Calculus.Legendre-Polynomials"
+  permalink: "/topic/mathematics/calculus/legendre-polynomials"
+  description: "Mathematics / Calculus / Legendre-Polynomials"
 "Mathematics.Calculus.LHopital-Rule":
   label: "Mathematics.Calculus.LHopital-Rule"
   permalink: "/topic/mathematics/calculus/l-hopital-rule"
@@ -4152,6 +4168,10 @@
   label: "Mathematics.Geometry.Periodic-Line-Coverage-by-Equally-Spaced-Receivers"
   permalink: "/topic/mathematics/geometry/periodic-line-coverage-by-equally-spaced-receivers"
   description: "Mathematics / Geometry / Periodic-Line-Coverage-by-Equally-Spaced-Receivers"
+"Mathematics.Geometry.Point-Set-Triangulation":
+  label: "Mathematics.Geometry.Point-Set-Triangulation"
+  permalink: "/topic/mathematics/geometry/point-set-triangulation"
+  description: "Mathematics / Geometry / Point-Set-Triangulation"
 "Mathematics.Geometry.Pullback-and-Exterior-Derivative-of-Differential-Forms":
   label: "Mathematics.Geometry.Pullback-and-Exterior-Derivative-of-Differential-Forms"
   permalink: "/topic/mathematics/geometry/pullback-and-exterior-derivative-of-differential-forms"
