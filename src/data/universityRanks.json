@@ -3,7 +3,7 @@
     "name": "日本の学歴 · 学歴ランク（文理合同）",
     "url": "https://gakurekirank.com/gakurekiranking/",
     "rankingDate": "2026-04-01",
-    "checkedAt": "2026-10-16"
+    "checkedAt": "2026-10-23"
   },
   "ranks": {
     "tokyo-university": "S+",
@@ -22,6 +22,7 @@
     "hiroshima-university": "B",
     "TUAT": "B+",
     "hosei-university": "B-",
+    "chuo-university": "B-",
     "kanazawa-university": "B-",
     "saitama-university": "C+",
     "meiji-university": "B",

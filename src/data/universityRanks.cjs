@@ -18,8 +18,10 @@ function sortUniversitiesByRank(items, getSchoolId = (item) => item.id) {
     const index = rankOrder.indexOf(getUniversityRank(getSchoolId(item)));
     return index === -1 ? rankOrder.length : index;
   };
-  // Copy before sorting; equal subdivisions (and unlisted schools) stay in catalog order.
-  return [...items].sort((a, b) => position(a) - position(b));
+  // Use canonical directory IDs for ties so cards, sidebars and peer links agree.
+  // Ignore case: acronym directories such as TUAT and UEC still follow A–Z.
+  return [...items].sort((a, b) => position(a) - position(b)
+    || String(getSchoolId(a)).localeCompare(String(getSchoolId(b)), 'en', {sensitivity: 'base'}));
 }
 
 function getSameRankUniversities(university, universities) {

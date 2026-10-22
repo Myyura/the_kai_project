@@ -54,19 +54,20 @@ test('sorts real default-generator category links by rank without moving non-sch
   ]);
 });
 
-test('uses detailed ranks within a major rank and preserves equal-rank school order', () => {
+test('uses detailed ranks then directory A–Z regardless of input order or display label', () => {
   const input = [
     school('kobe-university'),
-    school('nagoya-university'),
     school('tohoku-university'),
+    {...school('nagoya-university'), label: '名古屋大学'},
     school('osaka-university'),
   ];
-  assert.deepEqual(sortSidebarItems(input).map((item) => item.label), [
-    'osaka-university',
-    'nagoya-university',
-    'tohoku-university',
-    'kobe-university',
+  assert.deepEqual(sortSidebarItems(input).map((item) => item.link.slug), [
+    '/category/osaka-university',
+    '/category/nagoya-university',
+    '/category/tohoku-university',
+    '/category/kobe-university',
   ]);
+  assert.deepEqual(sortSidebarItems([...input].reverse()), sortSidebarItems(input));
 });
 
 test('preserves departments, programs and non-year slots while sorting years recursively without mutation', () => {

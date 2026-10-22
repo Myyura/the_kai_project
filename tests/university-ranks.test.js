@@ -33,6 +33,7 @@ test('display distinguishes upper, middle and lower subdivisions, with quasi-A s
   assert.equal(getUniversityRank('tsukuba-university'), 'B+');
   assert.equal(getUniversityRank('UEC'), 'B+');
   assert.equal(getUniversityRank('hosei-university'), 'B-');
+  assert.equal(getUniversityRank('chuo-university'), 'B-');
 });
 
 test('peer groups ignore subdivisions, including quasi-A in the B group', () => {
@@ -66,22 +67,24 @@ test('same-rank links exclude the current school and schools without an archive'
   assert.equal(getSameRankUniversities(tsukuba, universities).some(({id}) => id === 'kyoto-institute-of-technology'), true);
 });
 
-test('school sorting uses subdivisions, preserves ties and places unlisted schools last without mutation', () => {
+test('school sorting uses rank then directory A–Z, placing unlisted schools last without mutation', () => {
   const ids = [
     'naist', 'kobe-university', 'tohoku-university', 'UEC', 'kyoto-university',
     'tsukuba-university', 'osaka-university', 'tokyo-university', 'nagoya-university',
-    'not-in-source', 'institute-of-science-tokyo', 'ryukyu-university', 'hosei-university',
+    'not-in-source', 'institute-of-science-tokyo', 'ryukyu-university', 'hosei-university', 'TUAT',
+    'chuo-university',
   ];
   const records = Object.freeze(ids.map((id) => Object.freeze({id})));
   const sorted = sortUniversitiesByRank(records);
   assert.deepEqual(sorted.map(({id}) => id), [
     'tokyo-university', 'kyoto-university', 'institute-of-science-tokyo',
-    'osaka-university', 'tohoku-university', 'nagoya-university', 'kobe-university',
-    'UEC', 'tsukuba-university', 'hosei-university', 'ryukyu-university',
+    'osaka-university', 'nagoya-university', 'tohoku-university', 'kobe-university',
+    'tsukuba-university', 'TUAT', 'UEC', 'chuo-university', 'hosei-university', 'ryukyu-university',
     'naist', 'not-in-source',
   ]);
   assert.deepEqual(records.map(({id}) => id), ids);
   assert.equal(sorted[0], records[7]);
   assert.deepEqual(sortUniversitiesByRank([]), []);
   assert.deepEqual(sortUniversitiesByRank(ids, (id) => id), sorted.map(({id}) => id));
+  assert.deepEqual(sortUniversitiesByRank([...records].reverse()), sorted);
 });
