@@ -91,18 +91,19 @@
   background-clip: text;
 }
 
-[data-theme='dark'] .heroTagline {
-  color: var(--kai-cyan);
+/* 品牌标语：跟随主题使用柔和金色，长句自然换行。 */
+.heroTagline {
+  width: min(100%, 38rem);
+  font-size: clamp(1.125rem, 1.8vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #8c5d12;
+  margin: 0 auto 1rem !important;
+  text-wrap: balance;
 }
 
-/* 标语 */
-.heroTagline {
-  font-size: clamp(1.4rem, 3.5vw, 2.1rem);
-  font-weight: 600;
-  color: var(--ifm-color-primary);
-  margin: 0 0 1rem !important;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
+[data-theme='dark'] .heroTagline {
+  color: var(--kai-gold-text);
 }
 
 .heroDescription {
@@ -879,7 +880,7 @@
   }
 
   .heroTagline {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .heroDescription {

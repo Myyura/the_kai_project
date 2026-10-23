@@ -40,8 +40,8 @@ const HeroSection = ({ t }) => {
           {siteConfig.title}
         </Heading>
         
-        {/* 标语 */}
-        <p className={styles.heroTagline}>{t.heroTagline}</p>
+        {/* 复用站点配置中的英文品牌标语，与 README 保持一致 */}
+        <p className={styles.heroTagline} lang="en">{siteConfig.tagline}</p>
         <p className={styles.heroDescription}>{t.heroDescription}</p>
 
         {/* CTA按钮 */}

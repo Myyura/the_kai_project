@@ -94,7 +94,6 @@ export const UI_MESSAGES = {
 
   home: {
     zh: {
-      heroTagline: '破除信息之壁',
       heroDescription: '开源的日本大学院入试过去问与公开题解共享平台',
       viewPastExams: '浏览过去问',
       browseBySchool: '按学校找题',
@@ -106,7 +105,7 @@ export const UI_MESSAGES = {
       statsPrograms: '个专攻',
       highlightTitle: '为什么选择我们',
       highlights: [
-        {title: '完全开源', description: '核心题库与公开题解持续开放访问，降低备考信息壁垒'},
+        {title: '完全开源', description: '持续开放核心题库与公开题解，破除信息之壁'},
         {title: '海量真题', description: '汇集东大、京大、阪大等名校历年真题与解析'},
         {title: '社区驱动', description: '加入 Discord 或 QQ 群，与考生和前辈交流备考经验'},
       ],
@@ -131,7 +130,6 @@ export const UI_MESSAGES = {
       progressBannerReviewing: '待复习',
     },
     ja: {
-      heroTagline: '情報の壁を打ち破る',
       heroDescription: 'オープンソースの大学院入試過去問・公開解答共有プラットフォーム',
       viewPastExams: '過去問を見る',
       browseBySchool: '大学から探す',
@@ -143,7 +141,7 @@ export const UI_MESSAGES = {
       statsPrograms: 'の専攻',
       highlightTitle: '選ばれる理由',
       highlights: [
-        {title: '完全オープンソース', description: '中核的な過去問と公開解答を継続的にオープンアクセスで提供'},
+        {title: '完全オープンソース', description: '中核的な過去問と公開解答を継続的に公開し、情報の壁を打ち破る'},
         {title: '豊富な過去問', description: '東大・京大・阪大など有名大学の過去問と解答を収録'},
         {title: 'コミュニティ主導', description: 'DiscordまたはQQグループで受験生同士の情報交換ができます'},
       ],
@@ -168,7 +166,6 @@ export const UI_MESSAGES = {
       progressBannerReviewing: '要復習',
     },
     en: {
-      heroTagline: 'Break the information barrier',
       heroDescription: 'An open-source platform for Japanese graduate school entrance exam archives and public solutions',
       viewPastExams: 'Browse Past Exams',
       browseBySchool: 'By university',
@@ -180,7 +177,7 @@ export const UI_MESSAGES = {
       statsPrograms: 'programs',
       highlightTitle: 'Why Use Kai',
       highlights: [
-        {title: 'Open Source', description: 'Core exam archives and public solutions remain openly accessible.'},
+        {title: 'Open Source', description: 'Break the information barrier. Core exam archives and public solutions remain openly accessible.'},
         {title: 'Large Exam Archive', description: 'Past exams and solutions from UTokyo, Kyoto, Osaka, and more.'},
         {title: 'Community Driven', description: 'Join Discord or QQ to share notes, solutions, and preparation experience.'},
       ],
