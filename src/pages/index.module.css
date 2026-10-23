@@ -91,9 +91,9 @@
   background-clip: text;
 }
 
-/* 品牌标语：跟随主题使用柔和金色，长句自然换行。 */
+/* 标语单独放宽行宽，让桌面端完整显示一行；窄屏仍自然换行。 */
 .heroTagline {
-  width: min(100%, 38rem);
+  width: min(100%, 52rem);
   font-size: clamp(1.125rem, 1.8vw, 1.25rem);
   font-weight: 400;
   line-height: 1.6;
