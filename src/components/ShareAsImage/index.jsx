@@ -295,7 +295,7 @@ export default function ShareAsImage({ docId, title: docTitle }) {
 
       const logoImg = document.createElement('img');
       logoImg.src = '/img/kai-icon.png';
-      logoImg.style.cssText = 'width: 48px; height: 48px; border-radius: 10px;';
+      logoImg.style.cssText = 'width: 48px; height: 48px;';
       logoImg.crossOrigin = 'anonymous';
       header.appendChild(logoImg);
 

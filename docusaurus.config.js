@@ -316,8 +316,8 @@ const config = {
         title: 'The Kai Project',
         logo: {
           alt: 'Kai icon',
-          src: 'img/kai-icon.png',
-          srcDark: 'img/kai-icon.png',
+          src: 'img/kai-icon.svg',
+          srcDark: 'img/kai-icon.svg',
         },
         items: [
           {

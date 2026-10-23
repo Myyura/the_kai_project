@@ -178,10 +178,6 @@
   min-width: 0;
 }
 
-.navbar__logo img {
-  border-radius: 8px;
-}
-
 /* 顶部导航栏：毛玻璃效果，半透明背景 + 背景模糊。
    注意：半透明背景与 blur 放在 ::before 伪元素上，而不是 .navbar 本身——
    .navbar 上的 backdrop-filter 会使其成为 fixed 定位后代

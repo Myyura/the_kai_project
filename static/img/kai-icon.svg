@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1254 1254" fill="none" role="img" aria-labelledby="kai-title kai-description">
+  <title id="kai-title">Kai — 42</title>
+  <desc id="kai-description">Editable vector logo. The gold edge of the lowercase a and keyhole suggest 4; a continuous river of light suggests 2. Ink-navy rounded square with transparent exterior corners. All shapes are vector paths and gradients; no embedded raster or fonts.</desc>
+  <defs>
+    <linearGradient id="blue-k" x1="168" y1="884" x2="586" y2="347" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B67C9"/><stop offset=".48" stop-color="#1B90D0"/><stop offset="1" stop-color="#35C6D9"/>
+    </linearGradient>
+    <linearGradient id="blue-k-lower" x1="292" y1="690" x2="632" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#095DB6"/><stop offset="1" stop-color="#35C6D9"/>
+    </linearGradient>
+    <linearGradient id="blue-a" x1="650" y1="884" x2="746" y2="455" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B67C9"/><stop offset=".48" stop-color="#1B90D0"/><stop offset="1" stop-color="#35C6D9"/>
+    </linearGradient>
+    <linearGradient id="blue-i" x1="1030" y1="884" x2="1030" y2="343" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B67C9"/><stop offset=".55" stop-color="#1B90D0"/><stop offset="1" stop-color="#35C6D9"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="701" y1="572" x2="701" y2="1130" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5CE7A"/><stop offset=".46" stop-color="#F0B84A"/><stop offset=".76" stop-color="#F5CE7A"/><stop offset="1" stop-color="#F5CE7A"/>
+    </linearGradient>
+    <linearGradient id="bowl-gold" x1="505" y1="720" x2="700" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0B84A" stop-opacity="0"/>
+      <stop offset=".2" stop-color="#F0B84A" stop-opacity="0"/>
+      <stop offset=".46" stop-color="#F0B84A" stop-opacity=".6"/>
+      <stop offset=".72" stop-color="#F0B84A"/>
+    </linearGradient>
+    <linearGradient id="bowl-fade" x1="0" y1="590" x2="0" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0"/><stop offset=".3" stop-color="white" stop-opacity="0"/><stop offset="1" stop-color="white"/>
+    </linearGradient>
+    <mask id="bowl-soft-transition" x="490" y="570" width="260" height="320" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" style="mask-type:alpha">
+      <rect x="490" y="570" width="260" height="320" fill="url(#bowl-fade)"/>
+    </mask>
+    <linearGradient id="river-fade" x1="0" y1="990" x2="0" y2="1085" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/><stop offset=".28" stop-color="white" stop-opacity=".96"/><stop offset=".58" stop-color="white" stop-opacity=".56"/><stop offset=".84" stop-color="white" stop-opacity=".09"/><stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="river-dissolve" x="80" y="570" width="1080" height="600" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" style="mask-type:alpha">
+      <rect x="80" y="570" width="1080" height="600" fill="url(#river-fade)"/>
+    </mask>
+  </defs>
+  <rect id="kai-background" width="1254" height="1254" rx="236" fill="#061A36"/>
+  <g id="kai-letterforms">
+    <path id="kai-k-lower-arm" d="M333 627 C411 704 477 795 538 837 C566 860 600 874 632 880 C559 892 493 881 448 848 C418 823 355 756 278 703 V699 C278 693 280 689 286 683 Z" fill="url(#blue-k-lower)"/>
+    <path id="kai-k" d="M180 347 H267 C274 347 278 351 278 359 V559 L451 351 C454 348 457 347 462 347 H585 C589 347 591 349 586 354 L286 684 C280 690 278 694 278 702 V809 C278 856 252 884 213 884 H179 C172 884 168 880 168 873 V359 C168 351 172 347 180 347 Z" fill="url(#blue-k)"/>
+    <path id="kai-a-main" d="M558 566 C565 511 641 455 722 455 C836 452 909 519 909 652 V782 C909 825 916 849 946 877 C950 880 948 883 941 883 C882 886 820 865 796 829 C789 818 786 804 786 787 V624 C786 565 759 529 715 529 C677 527 641 548 615 577 C604 590 594 596 581 593 C565 591 556 581 558 566 Z" fill="url(#blue-a)"/>
+    <path id="kai-a-bowl" d="M648 578 C656 575 664 578 661 586 C659 591 650 597 641 605 C609 634 590 665 590 695 C588 739 610 770 653 783 C670 788 687 790 703 790 L715 838 L728 872 C710 867 695 867 678 867 C622 867 569 848 537 812 C507 778 500 736 512 695 C524 652 553 625 596 603 C616 591 636 582 648 578 Z" fill="url(#blue-a)"/>
+    <circle id="kai-i-dot" cx="1030" cy="405" r="62" fill="url(#blue-i)"/>
+    <path id="kai-i-stem" d="M983 491 H1075 C1082 491 1085 494 1085 501 V874 C1085 881 1081 884 1075 884 H995 C981 884 974 876 974 862 V501 C974 494 977 491 983 491 Z" fill="url(#blue-i)"/>
+  </g>
+  <g id="kai-answer-motif">
+    <path id="kai-a-gold-bend" d="M648 578 C656 575 664 578 661 586 C659 591 650 597 641 605 C609 634 590 665 590 695 C588 739 610 770 653 783 C670 788 687 790 703 790 L715 838 L728 872 C710 867 695 867 678 867 C622 867 569 848 537 812 C507 778 500 736 512 695 C524 652 553 625 596 603 C616 591 636 582 648 578 Z" fill="url(#bowl-gold)" mask="url(#bowl-soft-transition)"/>
+    <path id="kai-keyhole-and-river" fill="url(#gold)" mask="url(#river-dissolve)" d="M714 636 L700 790 C682 789 666 786 653 782 L647 842 C671 859 696 865 714 869 C738 878 718 889 686 900 C572 940 271 990 98 1103 C305 1157 878 1173 1150 1130 C1026 1067 879 1021 746 1017 C667 1015 613 1009 613 997 C614 984 661 973 710 956 C774 934 839 914 839 887 C839 865 803 850 778 838 C756 826 750 819 748 793 L736 637 Z"/>
+    <circle id="kai-keyhole-head" cx="724" cy="607" r="36" fill="url(#gold)"/>
+  </g>
+</svg>
