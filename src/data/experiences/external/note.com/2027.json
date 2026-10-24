@@ -55,7 +55,7 @@
         "admissionYear": 2027
       },
       {
-        "scope": "nagoya-university/mathematics",
+        "scope": "nagoya-university/mathematics/math",
         "examYear": 2026,
         "season": "summer",
         "admissionYear": 2027
@@ -86,7 +86,7 @@
         "admissionYear": 2027
       },
       {
-        "scope": "nagoya-university/mathematics",
+        "scope": "nagoya-university/mathematics/math",
         "examYear": 2026,
         "season": "summer",
         "admissionYear": 2027

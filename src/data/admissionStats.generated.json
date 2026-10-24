@@ -7492,7 +7492,7 @@
     "kyoto-university/informatics/cce": {
       "entityId": "kyoto-university/informatics/cce",
       "slug": "/category/kyoto-university-informatics-cce",
-      "label": "通信情報システム専攻",
+      "label": "通信情報システムコース",
       "scope": "course",
       "series": [
         {
@@ -20811,7 +20811,7 @@
     "tokyo-university/IST/suuri": {
       "entityId": "tokyo-university/IST/suuri",
       "slug": "/category/tokyo-university-IST-suuri",
-      "label": "数理情報学",
+      "label": "数理情報学専攻",
       "scope": "program",
       "series": [
         {

@@ -1,5 +1,5 @@
 {
-  "label": "通信情報システム専攻",
+  "label": "通信情報システムコース",
   "position": 3,
   "link": {
     "type": "generated-index",
@@ -8,6 +8,7 @@
   "key": "kyoto-university-informatics-cce",
   "customProps": {
     "aliases": [
+      "通信情報システム専攻",
       "通情",
       "通信信息系统",
       "CCE"

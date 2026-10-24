@@ -176,7 +176,7 @@ const universities = [
           },
           {
             "id": "suuri",
-            "name": "数理情報学",
+            "name": "数理情報学専攻",
             "aliases": [
               "数理信息"
             ],
@@ -365,8 +365,9 @@ const universities = [
           },
           {
             "id": "cce",
-            "name": "通信情報システム専攻",
+            "name": "通信情報システムコース",
             "aliases": [
+              "通信情報システム専攻",
               "通情",
               "通信信息系统",
               "CCE"
@@ -936,6 +937,16 @@ const universities = [
         "name": "多元数理科学研究科",
         "aliases": [],
         "archiveUrl": "/docs/category/nagoya-university-mathematics",
+        "programs": [
+          {
+            "id": "math",
+            "name": "多元数理科学専攻",
+            "aliases": [
+              "多元数理",
+              "名大多元数理"
+            ]
+          }
+        ],
         "websiteUrl": "https://www.math.nagoya-u.ac.jp/ja/admission/"
       },
       {
@@ -1516,6 +1527,15 @@ const universities = [
               "情报理工",
               "情报通信",
               "Computer Science and Communications Engineering"
+            ]
+          },
+          {
+            "id": "english_ao",
+            "name": "英語学位プログラム（AO入試）",
+            "aliases": [
+              "基干理工AO",
+              "英语学位项目",
+              "AO Admission to English-based Graduate Program"
             ]
           }
         ],
