@@ -4,6 +4,7 @@
   --ifm-h1-font-size: 1.85rem;
   --ifm-h2-font-size: 1rem;
 }
+.embedded { width: 100%; min-width: 0; }
 .primaryButton { composes: btnPrimary from '../../styles/kai-ui.module.css'; }
 .secondaryButton { composes: btnSecondary from '../../styles/kai-ui.module.css'; }
 .successPanel {
@@ -36,9 +37,9 @@
 .header { margin: 0 0 1.5rem; }
 .header h1 { margin: 0 0 .5rem; font-size: 1.85rem; line-height: 1.3; letter-spacing: -.025em; }
 .header p { margin: 0; color: var(--ifm-color-emphasis-700); font-size: .95rem; line-height: 1.65; }
-.panel { composes: panel from '../ContributeContent/styles.module.css'; }
+.panel { composes: panel from '../ContributeContent/styles.module.css'; min-width: 0; }
 .fields { composes: formGrid from '../ContributeContent/styles.module.css'; grid-template-columns: minmax(0, 1fr); display: grid; gap: 1.2rem; border: 0; padding: 0; margin: 0; min-width: 0; }
-.fields label { display: flex; flex-direction: column; gap: .4rem; font-size: .86rem; font-weight: 500; line-height: 1.5; min-width: 0; }
+.fields label { display: flex; flex-direction: column; gap: .4rem; font-size: .875rem; font-weight: 600; line-height: 1.5; min-width: 0; }
 .fields input:focus, .fields select:focus, .fields textarea:focus { outline: 2px solid var(--ifm-color-primary); outline-offset: 1px; }
 .fields input:disabled, .fields select:disabled { opacity: .55; }
 .fields small { display: block; color: var(--ifm-color-emphasis-600); font-size: .78rem; font-weight: 400; line-height: 1.6; }
@@ -70,6 +71,8 @@
 .footerLinks a { color: var(--ifm-color-emphasis-600); }
 .footerLinks a:hover { color: var(--ifm-color-primary); }
 .error { color: var(--ifm-color-danger); font-size: .85rem; margin: 0; }
+.authorLine { margin: 0; color: var(--ifm-color-emphasis-600); font-size: .875rem; line-height: 1.6; }
+.authorLine strong { color: var(--ifm-font-color-base); font-weight: 600; }
 .preview { --ifm-h1-font-size: 1.5rem; --ifm-h2-font-size: 1.2rem; min-height: 10rem; padding: 1rem; margin-top: .7rem; border: 1px solid var(--ifm-color-emphasis-200); border-radius: var(--custom-border-radius-xs); overflow-wrap: anywhere; }
 .preview h1 { font-size: 1.5rem; }
 .preview h2 { font-size: 1.2rem; margin: 1rem 0 .6rem; }
@@ -86,5 +89,6 @@
   .sourceGrid { grid-template-columns: 1fr; }
   .sectionHeading { align-items: flex-start; flex-direction: column; gap: .25rem; }
   .actions { align-items: flex-start; flex-direction: column; }
+  .fields input, .fields select, .fields textarea { font-size: 1rem; }
 }
 @media (max-width: 440px) { .grid { grid-template-columns: 1fr; } }

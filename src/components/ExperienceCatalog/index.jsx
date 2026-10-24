@@ -9,6 +9,7 @@ import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
 import {useUiText} from '@site/src/i18n/useUiText';
 import {PAGE_SIZE, readFilters, filterSearch, filterEntries} from './model.cjs';
 import styles from './styles.module.css';
+import {experienceContributionHref} from '@site/src/utils/contributionRoutes';
 
 export default function ExperienceCatalog({catalog}) {
   const t = useUiText('blogPage');
@@ -59,7 +60,7 @@ export default function ExperienceCatalog({catalog}) {
                 <div><strong>{catalog.programs.filter((scope) => scope.level === 'program').length}</strong><span>{t.programs}</span></div>
                 <div><strong>{catalog.entries.length}</strong><span>{t.stories}</span></div>
               </div>
-              <Link className={styles.submitLink} to={`/submit-experience${filters.program || filters.school ? `?scope=${encodeURIComponent(filters.program || filters.school)}` : ''}`}>
+              <Link className={styles.submitLink} to={experienceContributionHref(filters.program || filters.school)}>
                 {experienceText.title}<FiArrowRight aria-hidden="true" />
               </Link>
             </div>

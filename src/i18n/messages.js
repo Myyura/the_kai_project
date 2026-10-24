@@ -788,6 +788,10 @@ export const UI_MESSAGES = {
   contributions: {
     zh: {
       pageTitle: '站内投稿',
+      centerIntro: '分享题解或备考经验，在这里查看投稿审核进度。',
+      chooseType: '选择投稿类型',
+      solutionTab: '题解',
+      experienceTab: '备考经验',
       correctionTitle: '题解纠错/补充',
       notConfigured: '当前站点尚未配置 Supabase，投稿功能暂不可用。',
       loginRequired: '请先登录，再提交新题解或从题解页发起纠错。投稿会被创建为公开 GitHub Issue。',
@@ -888,6 +892,10 @@ export const UI_MESSAGES = {
     },
     ja: {
       pageTitle: 'サイト内投稿',
+      centerIntro: '解答や受験体験記を投稿し、審査の進捗をここで確認できます。',
+      chooseType: '投稿の種類を選択',
+      solutionTab: '解答',
+      experienceTab: '受験体験記',
       correctionTitle: '解答の訂正・補足',
       notConfigured: 'Supabase が設定されていないため、投稿機能は利用できません。',
       loginRequired: '新規解答の投稿、または問題ページからの訂正にはログインが必要です。投稿は公開 GitHub Issue として作成されます。',
@@ -988,6 +996,10 @@ export const UI_MESSAGES = {
     },
     en: {
       pageTitle: 'Site Submission',
+      centerIntro: 'Share a solution or admission story and follow your submissions here.',
+      chooseType: 'Choose a submission type',
+      solutionTab: 'Solutions',
+      experienceTab: 'Admission stories',
       correctionTitle: 'Correct or Supplement a Solution',
       notConfigured: 'Supabase is not configured, so submissions are unavailable for now.',
       loginRequired: 'Log in to submit new solutions or start corrections from a solution page. Submissions are created as public GitHub Issues.',

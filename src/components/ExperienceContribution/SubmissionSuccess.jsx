@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 import {FiArrowLeft, FiCheck, FiExternalLink} from 'react-icons/fi';
 import styles from './styles.module.css';
 
-export default function SubmissionSuccess({title, kind, issueUrl, t}) {
+export default function SubmissionSuccess({title, kind, issueUrl, t, recordsHref = '/me?tab=contribute'}) {
   const headingRef = useRef(null);
   useEffect(() => { headingRef.current?.focus(); }, []);
 
@@ -21,7 +21,7 @@ export default function SubmissionSuccess({title, kind, issueUrl, t}) {
     </div>
     <div className={styles.successActions}>
       <div className={styles.successButtons}>
-        <Link className={styles.primaryButton} to="/me?tab=contribute">{t.records}</Link>
+        <Link className={styles.primaryButton} to={recordsHref}>{t.records}</Link>
         <a className={styles.secondaryButton} href={issueUrl} target="_blank" rel="noreferrer">{t.viewIssue}<FiExternalLink aria-hidden="true" /></a>
       </div>
       <Link className={styles.backLink} to="/blog"><FiArrowLeft aria-hidden="true" />{t.back}</Link>

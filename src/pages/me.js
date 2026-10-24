@@ -743,21 +743,21 @@ function MePageInner() {
   const {search} = useLocation();
   const activeTab = getActivePersonalTab(search, problemSetsEnabled);
 
+  if (activeTab === 'contribute') {
+    return (
+      <div className={styles.page}>
+        <PersonalCenterHeader activeTab="contribute" />
+        <ContributeContent />
+      </div>
+    );
+  }
+
   if (isConfigured && isLoggedIn) {
     if (activeTab === 'sets') {
       return (
         <div className={styles.page}>
           <PersonalCenterHeader activeTab="sets" />
           <ProblemSetsContent />
-        </div>
-      );
-    }
-
-    if (activeTab === 'contribute') {
-      return (
-        <div className={styles.page}>
-          <PersonalCenterHeader activeTab="contribute" />
-          <ContributeContent />
         </div>
       );
     }

@@ -18,9 +18,10 @@ import styles from './styles.module.css';
 const scopes = catalogScopes(universities);
 const emptyAttempt = () => ({school: '', department: '', program: '', admissionYear: '', examYear: '', season: ''});
 
-export default function ExperienceContribution() {
+export default function ExperienceContribution({embedded = false, onSubmitted, recordsHref = '/me?tab=contribute'}) {
   const t = useUiText('experienceSubmission');
   const location = useLocation();
+  const scopeId = new URLSearchParams(location.search).get('scope');
   const {isConfigured, isLoggedIn, authReady} = useAuth();
   const {profile} = usePublicProfile();
   const [kind, setKind] = useState('external');
@@ -38,14 +39,13 @@ export default function ExperienceContribution() {
   const previewRef = useRef(null);
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const scope = scopes.get(params.get('scope'));
+    const scope = scopes.get(scopeId);
     if (!scope) return;
     const school = universities.find(u => u.id === scope.school);
     const department = school.departments.find(d => `${school.id}/${d.id}` === scope.departmentId || `${school.id}/${d.id}` === scope.id);
     const program = department?.programs.find(p => `${school.id}/${department.id}/${p.id}` === scope.id);
     setAttempts([{...emptyAttempt(), school: school.id, department: department?.id || '', program: program?.id || ''}]);
-  }, [location.search]);
+  }, [scopeId]);
 
   useEffect(() => {
     if (!preview || !previewRef.current || kind !== 'internal') return;
@@ -113,6 +113,8 @@ export default function ExperienceContribution() {
       if (data?.error) throw new Error(data.error.message || t.failed);
       if (!data?.submission?.issueUrl) throw new Error(t.failed);
       setIssueUrl(data.submission.issueUrl);
+      // Refreshing history must not turn an accepted submission into a form error.
+      void Promise.resolve().then(() => onSubmitted?.(data.submission)).catch(() => {});
     } catch (failure) {
       setError(failure.message || t.failed);
     } finally {
@@ -120,12 +122,15 @@ export default function ExperienceContribution() {
     }
   };
 
-  return <main className={styles.page}>
-    <header className={styles.header}>
+  const Container = embedded ? 'div' : 'main';
+
+  return <Container className={embedded ? styles.embedded : styles.page}>
+    {!embedded && <header className={styles.header}>
       <h1>{t.title}</h1><p>{t.intro}</p>
-    </header>
-    {issueUrl ? <SubmissionSuccess title={title} kind={kind} issueUrl={issueUrl} t={t} /> : <form className={styles.panel} onSubmit={submit}>
+    </header>}
+    {issueUrl ? <SubmissionSuccess title={title} kind={kind} issueUrl={issueUrl} t={t} recordsHref={recordsHref} /> : <form className={styles.panel} onSubmit={submit}>
       <fieldset disabled={submitting} className={styles.fields}>
+        {embedded && <p className={styles.hint}>{t.intro}</p>}
         <div className={styles.modes} role="group" aria-label={t.title}>
           {['external', 'internal'].map(value => <button type="button" key={value} className={kind === value ? styles.activeMode : ''} aria-pressed={kind === value}
             onClick={() => {setKind(value); setConsent(false); setError('');}}>{t[value]}</button>)}
@@ -180,15 +185,15 @@ export default function ExperienceContribution() {
           <span>{t.consent} <a href="https://github.com/Myyura/the_kai_project/blob/main/CLA.md" target="_blank" rel="noreferrer">{t.cla}</a>。<small>{kind === 'external' ? t.externalConsent : t.internalConsent}</small></span>
         </label>
         <p className={styles.hint}>{t.publicNotice}</p>
-        {profile?.displayName && <p>{t.author}：{profile.displayName}</p>}
+        {profile?.displayName && <p className={styles.authorLine}>{t.author}：<strong>{profile.displayName}</strong></p>}
         {error && <p role="alert" className={styles.error}>{error}</p>}
         {isLoggedIn && !profile?.nicknameConfirmed && <p><Link to="/me">{t.nickname}</Link></p>}
         <div className={styles.actions}>
           {isLoggedIn ? <button className={styles.primaryButton} type="submit" disabled={submitting || !authReady || !isConfigured}>{submitting ? t.submitting : t.submit}</button>
             : <Link className={styles.primaryButton} to="/login" onClick={prepareLogin}>{t.login}</Link>}
-          <div className={styles.footerLinks}><Link to="/me?tab=contribute">{t.records}</Link><Link to="/blog">{t.back}</Link></div>
+          <div className={styles.footerLinks}>{(!embedded || isLoggedIn) && <Link to={recordsHref}>{t.records}</Link>}<Link to="/blog">{t.back}</Link></div>
         </div>
       </fieldset>
     </form>}
-  </main>;
+  </Container>;
 }

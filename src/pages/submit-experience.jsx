@@ -1,9 +1,9 @@
 import React from 'react';
-import Layout from '@theme/Layout';
-import ExperienceContribution from '@site/src/components/ExperienceContribution';
-import {useUiText} from '@site/src/i18n/useUiText';
+import {Redirect, useLocation} from '@docusaurus/router';
+import {experienceContributionHref} from '@site/src/utils/contributionRoutes';
 
 export default function SubmitExperiencePage() {
-  const t = useUiText('experienceSubmission');
-  return <Layout title={t.title} description={t.intro}><ExperienceContribution /></Layout>;
+  const {search, hash} = useLocation();
+  const scope = new URLSearchParams(search).get('scope') || '';
+  return <Redirect to={experienceContributionHref(scope) + hash} />;
 }

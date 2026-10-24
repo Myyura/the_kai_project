@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from '@docusaurus/Link';
+import {useLocation} from '@docusaurus/router';
 import {
   FaCheck,
   FaClipboardList,
@@ -30,6 +31,9 @@ import {
 import { universities } from '@site/src/data/universities';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import AdmissionDataContribution from '@site/src/components/AdmissionDataContribution';
+import ExperienceContribution from '@site/src/components/ExperienceContribution';
+import {getContributionMode} from '@site/src/utils/contributionRoutes';
+import {saveAuthReturnIntent, consumeAuthReturnIntent} from '@site/src/services/authReturn';
 import styles from './styles.module.css';
 
 const CUSTOM_OPTION = '__custom__';
@@ -101,6 +105,9 @@ function statusText(status, t) {
 
 export function ContributeContent() {
   const language = useCurrentLanguage();
+  const location = useLocation();
+  const contributionMode = getContributionMode(location.search);
+  const isExperienceMode = contributionMode === 'experience';
   const colorMode = useDocumentColorMode();
   const t = useUiText('contributions');
   const experienceText = useUiText('experienceSubmission');
@@ -122,11 +129,13 @@ export function ContributeContent() {
   const [newSolutionView, setNewSolutionView] = useState('edit');
   const newSolutionPreviewRef = useRef(null);
   const admissionDataEntityId = useMemo(() => {
-    if (typeof window === 'undefined') return null;
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(location.search);
     if (params.get('type') !== 'admission_data') return null;
     return String(params.get('entityId') || '').trim();
-  }, []);
+  }, [location.search]);
+  useEffect(() => {
+    if (isLoggedIn) consumeAuthReturnIntent({intent: 'contribute'});
+  }, [isLoggedIn]);
   const isCorrectionMode = form.submissionType === 'correction';
   const newSolutionMarkdownLength = normalizedMarkdownLength(form.descriptionMarkdown)
     + normalizedMarkdownLength(form.kaiMarkdown);
@@ -236,8 +245,7 @@ export function ContributeContent() {
   }, [authReady, isLoggedIn, loadSubmissions]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(location.search);
     const type = params.get('type');
     const docId = params.get('docId');
     const title = params.get('title');
@@ -253,7 +261,7 @@ export function ContributeContent() {
     } else if (type === 'correction') {
       setMessage({ type: 'error', text: t.enterFromDocPage });
     }
-  }, [t.enterFromDocPage]);
+  }, [location.search, t.enterFromDocPage]);
 
   const loadCorrectionSource = async () => {
     if (!isCorrectionMode || !form.targetDocId || !isLoggedIn) return;
@@ -434,68 +442,53 @@ export function ContributeContent() {
     }
   };
 
-  if (!isConfigured) {
-    return (
-      <div className={styles.shell}>
-        <section className={styles.noticePanel}>
-          <FaExclamationTriangle className={styles.noticeIcon} />
-          <h1>{t.pageTitle}</h1>
-          <p>{t.notConfigured}</p>
-        </section>
-      </div>
-    );
-  }
+  const login = () => saveAuthReturnIntent({
+    returnTo: location.pathname + location.search + location.hash,
+    intent: 'contribute',
+  });
+  const solutionHref = (() => {
+    const params = new URLSearchParams(location.search);
+    params.set('tab', 'contribute');
+    params.set('type', form.submissionType);
+    return `${location.pathname}?${params}`;
+  })();
+  const experienceHref = (() => {
+    const params = new URLSearchParams(location.search);
+    params.set('tab', 'contribute');
+    params.set('type', 'experience');
+    return `${location.pathname}?${params}`;
+  })();
+  const canSubmit = isConfigured && authReady && isLoggedIn;
+  const loginNotice = (
+    <section className={styles.noticePanel}>
+      {!isConfigured ? <><FaExclamationTriangle className={styles.noticeIcon} /><p>{t.notConfigured}</p></>
+        : !authReady ? <FaRedo className={styles.spin} />
+          : <><FaClipboardList className={styles.noticeIcon} /><p>{t.loginRequired}</p>
+            <Link to="/login" onClick={login} className={styles.primaryButton}><FaSignInAlt /> {t.login}</Link></>}
+    </section>
+  );
 
-  if (!authReady) {
-    return (
-      <div className={styles.shell}>
-        <div className={styles.loadingPanel}>
-          <FaRedo className={styles.spin} />
-        </div>
-      </div>
-    );
-  }
-
-  if (!isLoggedIn) {
-    return (
-      <div className={styles.shell}>
-        <section className={styles.noticePanel}>
-          <FaClipboardList className={styles.noticeIcon} />
-          <h1>{t.pageTitle}</h1>
-          <p>{t.loginRequired}</p>
-          <Link to="/login" className={styles.primaryButton}>
-            <FaSignInAlt /> {t.login}
-          </Link>
-        </section>
-      </div>
-    );
-  }
-
-  if (admissionDataEntityId !== null) {
-    return (
-      <AdmissionDataContribution
-        entityId={admissionDataEntityId}
-        profile={profile}
-      />
-    );
+  if (admissionDataEntityId !== null && canSubmit) {
+    return <AdmissionDataContribution entityId={admissionDataEntityId} profile={profile} />;
   }
 
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
         <div>
-          <h1>{isCorrectionMode ? t.correctionTitle : t.pageTitle}</h1>
-          <Link to="/submit-experience">{experienceText.title} ↗</Link>
-          <p>
-            {isCorrectionMode
-              ? t.headerCorrection
-              : t.headerNew}
-          </p>
+          <h2>{t.pageTitle}</h2>
+          <p>{t.centerIntro}</p>
         </div>
-        <button type="button" className={styles.secondaryButton} onClick={loadSubmissions} disabled={loading}>
-          <FaRedo className={loading ? styles.spin : ''} /> {t.refreshRecords}
-        </button>
       </header>
+
+      <nav className={styles.contributionModes} aria-label={t.chooseType}>
+        <Link to={solutionHref} className={!isExperienceMode ? styles.activeMode : ''} aria-current={!isExperienceMode ? 'page' : undefined}>
+          {isCorrectionMode ? t.modeCorrection : t.solutionTab}
+        </Link>
+        <Link to={experienceHref} className={isExperienceMode ? styles.activeMode : ''} aria-current={isExperienceMode ? 'page' : undefined}>
+          {t.experienceTab}
+        </Link>
+      </nav>
 
       {message && (
         <div className={`${styles.message} ${message.type === 'error' ? styles.messageError : styles.messageSuccess}`}>
@@ -509,8 +502,17 @@ export function ContributeContent() {
         </div>
       )}
 
-      <div className={styles.layoutGrid}>
-        <form className={styles.panel} onSubmit={handleSubmit}>
+      <div className={`${styles.layoutGrid} ${!canSubmit ? styles.singleColumn : ''}`}>
+        <div className={styles.formColumn}>
+          <div hidden={!isExperienceMode} className={styles.modePanel}>
+            <ExperienceContribution
+              embedded
+              onSubmitted={loadSubmissions}
+              recordsHref={`${location.pathname}${location.search}#contribution-history`}
+            />
+          </div>
+          <div hidden={isExperienceMode} className={styles.modePanel}>
+        {canSubmit ? <form className={styles.panel} onSubmit={handleSubmit}>
           <div className={styles.modeNotice}>
             {isCorrectionMode ? <FaEdit /> : <FaPaperPlane />}
             <div>
@@ -844,11 +846,16 @@ export function ContributeContent() {
           <datalist id="submission-tag-options">
             {tagOptions.map((tag) => <option key={tag} value={tag} label={getTagLabel(tag, language)} />)}
           </datalist>
-        </form>
+        </form> : loginNotice}
+          </div>
+        </div>
 
-        <aside className={`${styles.panel} ${styles.historyPanel}`}>
+        {canSubmit && <aside id="contribution-history" tabIndex={-1} className={`${styles.panel} ${styles.historyPanel}`}>
           <div className={styles.sectionHeader}>
-            <h2><FaCodeBranch /> {t.recentSubmissions}</h2>
+            <h2><FaCodeBranch aria-hidden="true" /> {t.recentSubmissions}</h2>
+            <button type="button" className={styles.refreshButton} onClick={loadSubmissions} disabled={loading} title={t.refreshRecords} aria-label={t.refreshRecords}>
+              <FaRedo className={loading ? styles.spin : ''} aria-hidden="true" />
+            </button>
           </div>
           {submissions.length === 0 ? (
             <p className={styles.emptyText}>{t.noSubmissions}</p>
@@ -856,7 +863,7 @@ export function ContributeContent() {
             <div className={styles.submissionList}>
               {submissions.map((item) => (
                 <div key={item.id} className={styles.submissionItem}>
-                  <strong>{getDocumentTitle(item.targetDocId, item.title || item.id)}</strong>
+                  <strong title={getDocumentTitle(item.targetDocId, item.title || item.id)}>{getDocumentTitle(item.targetDocId, item.title || item.id)}</strong>
                   <div className={styles.submissionMeta}>
                     <span className={`${styles.statusBadge} ${statusClass(item.status)}`}>{statusText(item.status, t)}</span>
                     {item.correctionConflict && (
@@ -869,8 +876,8 @@ export function ContributeContent() {
                           ? t.modeAdmission
                           : t.modeCorrection}
                     </span>
-                    <span>{formatDate(item.createdAt, language)}</span>
                   </div>
+                  <time className={styles.submissionDate} dateTime={item.createdAt}>{formatDate(item.createdAt, language)}</time>
                   <div className={styles.submissionLinks}>
                     {item.issueUrl && (
                       <a className={styles.submissionLink} href={item.issueUrl} target="_blank" rel="noreferrer">
@@ -887,7 +894,7 @@ export function ContributeContent() {
               ))}
             </div>
           )}
-        </aside>
+        </aside>}
       </div>
     </div>
   );
