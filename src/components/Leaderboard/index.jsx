@@ -10,6 +10,20 @@ import {getUiMessages} from '@site/src/i18n/messages';
 import styles from './styles.module.css';
 
 const PERIODS = ['half_month', 'six_months'];
+const PERIOD_COPY = {
+  zh: {
+    description: '仅统计所选期间练习过的题目，同一题重复练习只计一次。',
+    myActivity: '我的本期练习',
+  },
+  ja: {
+    description: '選択した期間に取り組んだ問題を集計。同じ問題は1問として数えます。',
+    myActivity: 'この期間の学習',
+  },
+  en: {
+    description: 'Counts distinct problems practiced in this period. Repeats count once.',
+    myActivity: 'My practice this period',
+  },
+};
 
 const formatPeriodRange = (start, end, language) => {
   if (!start || !end) return '';
@@ -25,11 +39,13 @@ export default function Leaderboard({language = 'zh'}) {
   const {isConfigured, isLoggedIn} = useAuth();
   const {profile} = usePublicProfile();
   const t = getUiMessages('leaderboard', language);
+  const periodCopy = PERIOD_COPY[language] || PERIOD_COPY.zh;
   const [period, setPeriod] = useState('half_month');
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [fetched, setFetched] = useState(false);
+  const [loadedPeriod, setLoadedPeriod] = useState(null);
   const [error, setError] = useState(null);
   const requestSeqRef = useRef(0);
 
@@ -45,6 +61,7 @@ export default function Leaderboard({language = 'zh'}) {
       if (requestSeqRef.current === seq) {
         setData(next);
         setFetched(true);
+        setLoadedPeriod(period);
       }
     } catch (loadError) {
       if (requestSeqRef.current === seq) setError(loadError.message || 'Error');
@@ -70,11 +87,12 @@ export default function Leaderboard({language = 'zh'}) {
   const topRows = useMemo(() => data.filter((item) => item.is_top_ten), [data]);
   const currentUser = useMemo(() => data.find((item) => item.is_current_user) || null, [data]);
   const maxCount = topRows[0]?.problem_count || 1;
-  const periodRange = formatPeriodRange(
+  const showingCurrentPeriod = fetched && loadedPeriod === period;
+  const periodRange = showingCurrentPeriod ? formatPeriodRange(
     currentUser?.period_start || topRows[0]?.period_start,
     currentUser?.period_end || topRows[0]?.period_end,
     language,
-  );
+  ) : '';
 
   if (!isConfigured || !isLoggedIn) return null;
 
@@ -86,16 +104,13 @@ export default function Leaderboard({language = 'zh'}) {
   const currentOutsideTop = currentUser && !currentUser.is_top_ten && currentCount > 0 && currentRank;
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} aria-label={t.title}>
       <div className={styles.header}>
         <div className={styles.titleGroup}>
           <h2 className={styles.sectionTitle}>
-            <FaTrophy className={styles.sectionTitleIcon} />
+            <FaTrophy className={styles.sectionTitleIcon} aria-hidden="true" />
             {t.title}
           </h2>
-          <span className={styles.periodRange}>
-            {periodRange}{periodRange ? ` · ${t.japanTime}` : ''}
-          </span>
         </div>
         <button
           type="button"
@@ -105,7 +120,7 @@ export default function Leaderboard({language = 'zh'}) {
           aria-label={t.refresh}
           title={t.refresh}
         >
-          <FaSyncAlt className={loading || refreshing ? styles.spin : ''} />
+          <FaSyncAlt className={loading || refreshing ? styles.spin : ''} aria-hidden="true" />
         </button>
       </div>
 
@@ -123,28 +138,42 @@ export default function Leaderboard({language = 'zh'}) {
         ))}
       </div>
 
-      {loading && !fetched && (
-        <div className={styles.loading}><FaSyncAlt className={styles.spin} /> {t.loading}</div>
+      <div className={styles.periodDetails}>
+        {periodRange && <p className={styles.periodRange}>{periodRange} · {t.japanTime}</p>}
+        <p className={styles.periodDescription}>{periodCopy.description}</p>
+      </div>
+
+      {loading && !showingCurrentPeriod && (
+        <div className={styles.loading} role="status"><FaSyncAlt className={styles.spin} aria-hidden="true" /> {t.loading}</div>
       )}
       {error && !loading && (
         <button type="button" className={styles.errorState} onClick={() => load()}>{t.error}</button>
       )}
 
-      {!error && fetched && (
+      {!error && showingCurrentPeriod && (
         <>
           <div className={styles.mySummary}>
-            <div className={styles.summaryIdentity}>
-              <span className={styles.summaryAvatar}><FaUser /></span>
-              <div>
-                <span className={styles.summaryEyebrow}>{t.myPerformance}</span>
-                <strong>{currentUser?.display_name || profile?.displayName || t.you}</strong>
+            {currentCount === 0 ? (
+              <div className={styles.emptySummary}>
+                <span>{periodCopy.myActivity}</span>
+                <strong>0 <span>{t.unit}</span></strong>
               </div>
-            </div>
-            <div className={styles.summaryMetrics}>
-              <div><strong>{currentRank ? `#${currentRank}` : '–'}</strong><span>{t.rank}</span></div>
-              <div><strong>{currentCount}</strong><span>{t.problemCount}</span></div>
-              <div><strong>{`${percentile}%`}</strong><span>{t.surpassed}</span></div>
-            </div>
+            ) : (
+              <>
+                <div className={styles.summaryIdentity}>
+                  <span className={styles.summaryAvatar}><FaUser aria-hidden="true" /></span>
+                  <div className={styles.summaryName}>
+                    <span className={styles.summaryEyebrow}>{periodCopy.myActivity}</span>
+                    <strong>{currentUser?.display_name || profile?.displayName || t.you}</strong>
+                  </div>
+                </div>
+                <div className={styles.summaryMetrics}>
+                  <div><strong>{currentRank ? `#${currentRank}` : '–'}</strong><span>{t.rank}</span></div>
+                  <div><strong>{currentCount}</strong><span>{t.problemCount}</span></div>
+                  <div><strong>{`${percentile}%`}</strong><span>{t.surpassed}</span></div>
+                </div>
+              </>
+            )}
             <div className={styles.summaryMessage}>
               {currentCount === 0 ? (
                 <Link to="/docs/intro">{t.startPracticing}</Link>

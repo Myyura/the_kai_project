@@ -1,3 +1,4 @@
+import MarkdownIt from 'markdown-it';
 import tagTaxonomy from '../data/tagTaxonomy';
 import {resolveTagBrowseTarget} from '../utils/tags';
 import {resolveDocumentMetadata} from './documentMetadata';
@@ -11,6 +12,36 @@ const SCHOOL_TAGS = new Set(
   ])
 );
 const SUBJECT_TAGS = new Set(Object.keys(tagTaxonomy.subjects || {}));
+
+const noteMarkdown = new MarkdownIt({html: false, linkify: false, typographer: false});
+// Keep TeX intact: Markdown escapes and emphasis would otherwise alter \{ or a_b.
+noteMarkdown.inline.ruler.before('escape', 'note_math', (state, silent) => {
+  const start = state.pos;
+  const delimiter = ['$$', '$', '\\(', '\\['].find((value) => state.src.startsWith(value, start));
+  if (!delimiter) return false;
+  const closing = delimiter === '\\(' ? '\\)' : delimiter === '\\[' ? '\\]' : delimiter;
+  let end = start + delimiter.length;
+  while ((end = state.src.indexOf(closing, end)) !== -1 && end < state.posMax) {
+    let backslashes = 0;
+    for (let i = end - 1; i >= start && state.src[i] === '\\'; i--) backslashes += 1;
+    if (backslashes % 2 === 0) break;
+    end += closing.length;
+  }
+  if (end < 0 || end >= state.posMax || end === start + delimiter.length) return false;
+  const content = state.src.slice(start, end + closing.length);
+  if (delimiter === '$' && content.includes('\n')) return false;
+  if (!silent) state.push('note_math', '', 0).content = content;
+  state.pos = end + closing.length;
+  return true;
+});
+
+const tokensToPlainText = (tokens) => tokens.map((token) => {
+  if (token.children) return tokensToPlainText(token.children);
+  if (['text', 'code_inline', 'note_math'].includes(token.type)) return token.content;
+  if (token.type === 'fence' || token.type === 'code_block') return `${token.content} `;
+  if (token.type === 'softbreak' || token.type === 'hardbreak' || (token.block && token.nesting < 0)) return ' ';
+  return '';
+}).join('');
 
 const timestamp = (value) => {
   const number = Number(value);
@@ -30,7 +61,7 @@ const summarizeNote = (note) => {
   return {
     content: note.content,
     updatedAt: timestamp(note.updatedAt),
-    excerpt: normalized.replace(/\s+/g, ' ').slice(0, 180),
+    excerpt: tokensToPlainText(noteMarkdown.parse(normalized, {})).replace(/\s+/g, ' ').trim().slice(0, 180),
     charCount: normalized.length,
     annotationCount: annotations.length,
   };

@@ -98,7 +98,7 @@ function PersonalCenterHeader({ activeTab = 'overview' }) {
 }
 
 // 热力图组件 —— 纯 CSS 自适应，不需要 JS 测量
-const StudyHeatmap = ({ entries, t, language }) => {
+const StudyHeatmap = ({ entries, t, centerT, language }) => {
   const MONTHS = language === 'en' ? MONTHS_EN : MONTHS_CJK;
 
   const activityMap = React.useMemo(() => {
@@ -141,6 +141,8 @@ const StudyHeatmap = ({ entries, t, language }) => {
       d.setDate(gridStart.getDate() + w * 7);
       const m = d.getMonth();
       if (m !== lastMonth) {
+        // Avoid crowded labels when the first visible month has only one week.
+        if (monthLabels.length && w - monthLabels[monthLabels.length - 1].col < 3) monthLabels.pop();
         monthLabels.push({ col: w, label: MONTHS[m] });
         lastMonth = m;
       }
@@ -148,18 +150,19 @@ const StudyHeatmap = ({ entries, t, language }) => {
     return { cells, monthLabels };
   }, [activityMap, MONTHS]);
 
-  const totalActivity = Object.values(activityMap).reduce((a, b) => a + b, 0);
+  const totalActivity = cells.reduce((total, cell) => total + (cell.isFuture ? 0 : cell.count), 0);
 
   return (
     <section className={styles.section}>
       <div className={styles.heatmapHeader}>
         <h2 className={styles.sectionTitle}>
           <FaFire className={styles.sectionTitleIcon} style={{ color: 'var(--kai-danger)' }} />
-          {t.heatmap}
+          {centerT.recordHeatmap}
         </h2>
-        <span className={styles.heatmapTotalCount}>{totalActivity} {t.activitiesUnit}</span>
+        <span className={styles.heatmapTotalCount}>{centerT.recordCount(totalActivity)}</span>
       </div>
-      <div className={styles.heatmapWrap}>
+      <p className={styles.sectionDescription}>{centerT.heatmapExplanation}</p>
+      <div className={styles.heatmapWrap} tabIndex={0} role="region" aria-label={centerT.recordHeatmap}>
         <div className={styles.heatmapMonthRow}>
           {monthLabels.map(({ col, label }) => (
             <span
@@ -176,7 +179,7 @@ const StudyHeatmap = ({ entries, t, language }) => {
             <div
               key={i}
               className={`${styles.heatmapCell} ${styles[`heatmapL${cell.level}`]}`}
-              title={cell.isFuture ? '' : `${cell.key}：${cell.count} ${t.activitiesUnit}`}
+              title={cell.isFuture ? '' : `${cell.key}：${centerT.recordCount(cell.count)}`}
             />
           ))}
         </div>
@@ -395,20 +398,36 @@ const CenterLoadingState = ({ t }) => (
 );
 
 const PublicProfileSettings = ({ t, profileState }) => {
-  const {profile, loading, saveNickname} = profileState;
+  const {profile, loading, error, refresh, saveNickname} = profileState;
   const [editing, setEditing] = React.useState(false);
+  const [saving, setSaving] = React.useState(false);
   const [draft, setDraft] = React.useState('');
   const [message, setMessage] = React.useState(null);
+  const editButton = React.useRef(null);
+  const wasEditing = React.useRef(false);
+
+  React.useEffect(() => {
+    if (editing) wasEditing.current = true;
+    else if (wasEditing.current && !saving && !loading) {
+      editButton.current?.focus();
+      wasEditing.current = false;
+    }
+  }, [editing, saving, loading]);
 
   React.useEffect(() => {
     setDraft(profile?.nickname || '');
   }, [profile?.nickname]);
 
+  const finishEditing = () => {
+    setEditing(false);
+  };
   const handleSave = async () => {
+    if (saving) return;
+    setSaving(true);
     setMessage(null);
     try {
-      await saveNickname(draft);
-      setEditing(false);
+      await saveNickname(draft.trim());
+      finishEditing();
       setMessage({type: 'success', text: t.nicknameSaved});
     } catch (error) {
       const raw = error?.message || '';
@@ -416,36 +435,48 @@ const PublicProfileSettings = ({ t, profileState }) => {
         : (raw.includes('characters') || raw.includes('length')) ? t.nicknameCharacters
           : t.nicknameSaveError;
       setMessage({type: 'error', text});
+    } finally {
+      setSaving(false);
     }
   };
 
   return (
     <div className={styles.profileSettings}>
+      <span className={styles.profileLabel}>{t.publicNickname}</span>
       <div className={styles.profileIdentityRow}>
-        <div>
-          <span className={styles.profileLabel}>{t.publicNickname}</span>
-          {!profile?.nicknameConfirmed && <small className={styles.profileWarning}>{t.nicknameNeedsConfirmation}</small>}
-        </div>
-        <button type="button" className={styles.profileButton} aria-expanded={editing} aria-controls="profile-editor" onClick={() => setEditing((value) => !value)}>
-          <FaEdit /> {t.editNickname}
+        <strong className={styles.accountNickname}>{profile?.displayName || (error ? t.nicknameUnavailable : t.loadingShort)}</strong>
+        <button ref={editButton} type="button" className={styles.profileButton}
+          disabled={loading || !profile || saving || editing} aria-expanded={editing} aria-controls="profile-editor"
+          onClick={() => {
+            setDraft(profile?.nickname || '');
+            setMessage(null);
+            setEditing((value) => !value);
+          }}>
+          <FaEdit aria-hidden="true" /> {t.editNickname}
         </button>
       </div>
+      <p className={styles.profileHint}>{t.nicknameUsage}</p>
+      {profile && !profile.nicknameConfirmed && <p className={styles.profileWarning}>{t.nicknameNeedsConfirmation}</p>}
+      {!profile && error && <p className={styles.profileMessageError} role="alert">
+        {t.nicknameLoadError} <button type="button" className={styles.textButton} disabled={loading} onClick={() => void refresh()}>{t.retry}</button>
+      </p>}
       {editing && (
         <form id="profile-editor" className={styles.profileEditor} onSubmit={(event) => { event.preventDefault(); void handleSave(); }}>
           <label>
             <span>{t.nicknameNamePart}</span>
-            <input
-              autoFocus
-              value={draft}
-              maxLength={24}
-              onChange={(event) => setDraft(event.target.value)}
-              placeholder={t.nicknamePlaceholder}
-            />
+            <input autoFocus required minLength={2} maxLength={24} disabled={saving}
+              value={draft} aria-describedby="profile-nickname-rule"
+              onChange={(event) => setDraft(event.target.value)} placeholder={t.nicknamePlaceholder} />
           </label>
-          <button type="submit" className={styles.profileSaveButton} disabled={loading}>
-            <FaSave /> {loading ? t.saving : t.saveNickname}
-          </button>
-          <small>{t.nicknameRule}</small>
+          <small id="profile-nickname-rule">{t.nicknameRule} {t.nicknameCooldown}</small>
+          <div className={styles.profileEditorActions}>
+            <button type="submit" className={styles.profileSaveButton} disabled={saving || !draft.trim()}>
+              <FaSave aria-hidden="true" /> {saving ? t.saving : t.saveNickname}
+            </button>
+            <button type="button" className={styles.profileButton} disabled={saving} onClick={() => {
+              setDraft(profile?.nickname || ''); setMessage(null); finishEditing();
+            }}>{t.cancel}</button>
+          </div>
         </form>
       )}
       {message && (
@@ -457,47 +488,65 @@ const PublicProfileSettings = ({ t, profileState }) => {
   );
 };
 
-const AccountOverview = ({ user, stats, reputation, reputationLoading, t, progressT }) => {
+const AccountOverview = ({ user, reputation, reputationLoading, reputationError, t }) => {
   const profileState = usePublicProfile();
-  const {profile} = profileState;
   const levelKey = reputation?.levelKey || 'newcomer';
-  const levelLabel = reputationLoading
-    ? t.reputationLoading
+  const levelLabel = reputationLoading ? t.reputationLoading : reputationError ? '—'
     : (t.reputationLevels?.[levelKey] || t.reputationLevels?.newcomer || levelKey);
 
   return (
-    <section className={styles.accountPanel}>
-      <div className={styles.accountIdentity}>
-        <FaUserCircle className={styles.accountAvatar} />
-        <div className={styles.accountIdentityText}>
-          <h2 className={styles.accountTitle}>{t.accountTitle}</h2>
-          <strong className={styles.accountNickname}>{profile?.displayName || t.loadingShort}</strong>
-          <p className={styles.accountEmail}>{user?.email || t.loggedIn}</p>
+    <section className={styles.accountPanel} aria-labelledby="account-heading">
+      <h2 id="account-heading" className={styles.accountTitle}>{t.accountTitle}</h2>
+      <div className={styles.accountBody}>
+        <div className={styles.accountIdentity}>
+          <FaUserCircle className={styles.accountAvatar} aria-hidden="true" />
+          <div className={styles.accountIdentityText}>
+            <PublicProfileSettings t={t} profileState={profileState} />
+            <p className={styles.accountEmail}><span>{t.loginEmail}</span> {user?.email || t.loggedIn}</p>
+          </div>
+        </div>
+        <div className={styles.communitySummary}>
           <div className={styles.reputationSummary}>
             <span className={styles.reputationLabel}>{t.communityLevel}</span>
             <span className={styles.reputationBadge}>{levelLabel}</span>
           </div>
+          <dl className={styles.contributionStats}>
+            {[
+              {id: 'solutions', value: reputation?.acceptedSolutionCount || 0, label: t.acceptedSolutions},
+              {id: 'corrections', value: reputation?.acceptedCorrectionCount || 0, label: t.acceptedCorrections},
+            ].map(({id, value, label}) => (
+              <div key={id}><dt>{label}</dt><dd>{reputationLoading || reputationError ? '—' : value}</dd></div>
+            ))}
+          </dl>
+          {reputationError && <p className={styles.profileMessageError} role="status">{t.reputationUnavailable}</p>}
+          <Link to="/me?tab=contribute" className={styles.accountLink}>{t.tabs.contribute} <FaArrowRight aria-hidden="true" /></Link>
         </div>
       </div>
-      <div className={styles.accountStats}>
-        {[
-          {id: 'tracked', value: stats.total, label: progressT.totalTracked},
-          {id: 'completed', value: stats.completed, label: t.completed},
-          {id: 'reviewing', value: stats.reviewing, label: t.reviewing},
-          {id: 'notes', value: stats.notes, label: t.notes},
-          {id: 'solutions', value: reputation?.acceptedSolutionCount || 0, label: t.acceptedSolutions},
-          {id: 'corrections', value: reputation?.acceptedCorrectionCount || 0, label: t.acceptedCorrections},
-        ].map(({id, value, label}) => (
-          <div className={styles.accountStat} key={id}>
-            <span>{value}</span>
-            <small>{label}</small>
-          </div>
-        ))}
-      </div>
-      <PublicProfileSettings t={t} profileState={profileState} />
     </section>
   );
 };
+
+const StudySummary = ({stats, t, progressT, progressLoading, notesLoading, progressError, notesError, onRetry}) => (
+  <section className={styles.studySummary} aria-labelledby="study-summary-heading">
+    <h2 id="study-summary-heading" className={styles.sectionTitle}>{t.studySummary}</h2>
+    <p className={styles.sectionDescription}>{t.studySummaryHint}</p>
+    <dl className={styles.studyStats}>
+      {[
+        {id: 'tracked', value: stats.total, label: t.trackedProblems, unavailable: progressLoading || progressError},
+        {id: 'completed', value: stats.completed, label: progressT.completed, unavailable: progressLoading || progressError},
+        {id: 'reviewing', value: stats.reviewing, label: progressT.reviewing, unavailable: progressLoading || progressError},
+        {id: 'notes', value: stats.notes, label: t.notedProblems, unavailable: notesLoading || notesError},
+      ].map(({id, value, label, unavailable}) => (
+        <div className={styles.studyStat} key={id}><dt>{label}</dt><dd>{unavailable ? '—' : value}</dd></div>
+      ))}
+    </dl>
+    {(progressLoading || notesLoading) && <p className={styles.dataNotice} role="status">{t.studyLoading}</p>}
+    {(progressError || notesError) && <p className={styles.dataNotice} role="alert">
+      {progressError && t.progressLoadError}{' '}{notesError && t.notesLoadError}{' '}
+      <button type="button" className={styles.textButton} disabled={progressLoading || notesLoading} onClick={onRetry}>{t.retry}</button>
+    </p>}
+  </section>
+);
 
 const NotesSection = ({ noteEntries, t, language }) => {
   const [query, setQuery] = React.useState('');
@@ -512,12 +561,13 @@ const NotesSection = ({ noteEntries, t, language }) => {
           note.title,
           note.university,
           note.excerpt,
+          note.content,
         ].some((value) => String(value || '').toLowerCase().includes(normalizedQuery));
       });
   }, [noteEntries, query]);
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="study-notes">
       <div className={styles.sectionHeader}>
         <h2 className={styles.sectionTitle}>
           <FaStickyNote className={styles.sectionTitleIcon} style={{ color: 'var(--kai-violet)' }} />
@@ -568,9 +618,9 @@ function PersonalCenterDashboard({ user }) {
   const language = useCurrentLanguage();
   const t = useUiText('progress');
   const centerT = useUiText('personalCenter');
-  const {entries: rawProgressEntries, clearAll} = useAllProgress();
-  const {entries: rawNoteEntries} = useAllNotes();
-  const { reputation, loading: reputationLoading } = useReputation({ enabled: Boolean(user?.id) });
+  const {entries: rawProgressEntries, clearAll, loading: progressLoading, error: progressError, refresh: refreshProgress} = useAllProgress();
+  const {entries: rawNoteEntries, loading: notesLoading, error: notesError, refresh: refreshNotes} = useAllNotes();
+  const { reputation, loading: reputationLoading, error: reputationError } = useReputation({ enabled: Boolean(user?.id) });
   const personalData = React.useMemo(() => buildPersonalCenterData({
     progressEntries: rawProgressEntries,
     noteEntries: rawNoteEntries,
@@ -588,12 +638,19 @@ function PersonalCenterDashboard({ user }) {
     hasAnyData: hasAnyPersonalData,
   } = personalData;
 
+  const [clearing, setClearing] = React.useState(false);
+  const [clearError, setClearError] = React.useState(false);
   const handleClear = async () => {
+    if (clearing) return;
     if (!window.confirm(t.confirmClear)) return;
+    setClearing(true);
+    setClearError(false);
     try {
       await clearAll();
     } catch (error) {
-      console.error('Failed to clear progress', error);
+      setClearError(true);
+    } finally {
+      setClearing(false);
     }
   };
 
@@ -606,52 +663,32 @@ function PersonalCenterDashboard({ user }) {
 
       <AccountOverview
         user={user}
-        stats={stats}
         reputation={reputation}
         reputationLoading={reputationLoading}
+        reputationError={reputationError}
         t={centerT}
-        progressT={t}
       />
 
-      {/* 总进度条 */}
-      {total > 0 && (
-        <div className={styles.progressOverview}>
-          <div className={styles.progressBarContainer}>
-            <div className={styles.progressBar} role="progressbar" aria-label={t.completed} aria-valuenow={stats.completed} aria-valuemin={0} aria-valuemax={total}>
-              <div
-                className={`${styles.progressFill} ${styles.progressFillCompleted}`}
-                style={{ width: `${(stats.completed / total) * 100}%` }}
-              />
-              <div
-                className={`${styles.progressFill} ${styles.progressFillReviewing}`}
-                style={{ width: `${(stats.reviewing / total) * 100}%` }}
-              />
-            </div>
-            <span className={styles.progressLabel}>
-              {stats.completed}/{total}
-            </span>
-          </div>
-          <button onClick={() => void handleClear()} className={styles.clearBtn}>
-            <FaTrashAlt style={{ marginRight: '0.35rem' }} />{t.clearAll}
-          </button>
-        </div>
-      )}
+      <StudySummary stats={stats} t={centerT} progressT={t}
+        progressLoading={progressLoading} notesLoading={notesLoading}
+        progressError={progressError} notesError={notesError}
+        onRetry={() => { void refreshProgress(); void refreshNotes(); }} />
 
       <div className={styles.dashboardGrid}>
         <div className={styles.dashboardMain}>
-          {!hasAnyPersonalData ? (
+          {!hasAnyPersonalData ? (progressLoading || notesLoading || progressError || notesError ? null : (
             <div className={styles.emptyState}>
               <FaFileAlt className={styles.emptyIcon} />
               <p className={styles.emptyText}>{t.noData}</p>
               <Link to="/docs/intro" className={styles.goBtn}>{t.goExam} <FaArrowRight style={{ fontSize: '0.8em' }} /></Link>
             </div>
-          ) : (
+          )) : (
             <>
           {/* 优先展示下一步可执行的学习任务 */}
           {total > 0 && <ReviewReminderSection entries={entries} t={t} />}
           {total > 0 && <RecentPracticeSection entries={entries} t={t} language={language} />}
-          <NotesSection noteEntries={noteEntries} t={centerT} language={language} />
-          {activityItems.length > 0 && <StudyHeatmap entries={activityItems} t={t} language={language} />}
+          {(noteEntries.length > 0 || (!notesLoading && !notesError)) && <NotesSection noteEntries={noteEntries} t={centerT} language={language} />}
+          {activityItems.length > 0 && <StudyHeatmap entries={activityItems} t={t} centerT={centerT} language={language} />}
 
           {/* 按知识点统计 */}
           {tagGroups.length > 0 && (
@@ -665,9 +702,9 @@ function PersonalCenterDashboard({ user }) {
                   <Link key={tag} to={data.permalink} className={styles.tagCard}>
                     <div className={styles.tagName}>{getTagLabel(tag, language)}</div>
                     <div className={styles.univStats}>
-                      <span className={styles.univDone}><FaCheckCircle style={{ marginRight: '0.25rem' }} />{data.completed}</span>
-                      <span className={styles.univReview}><FaRedo style={{ marginRight: '0.25rem' }} />{data.reviewing}</span>
-                      <span className={styles.univTotal}><FaClipboardList style={{ marginRight: '0.25rem' }} />{data.total}</span>
+                      <span className={styles.univDone}><FaCheckCircle style={{ marginRight: '0.25rem' }} />{t.completed} {data.completed}</span>
+                      <span className={styles.univReview}><FaRedo style={{ marginRight: '0.25rem' }} />{t.reviewing} {data.reviewing}</span>
+                      <span className={styles.univTotal}><FaClipboardList style={{ marginRight: '0.25rem' }} />{centerT.trackedProblems} {data.total}</span>
                     </div>
                     <div className={styles.univBar}>
                       <div
@@ -693,9 +730,9 @@ function PersonalCenterDashboard({ user }) {
                   <div key={univ} className={styles.univCard}>
                     <div className={styles.univName}>{univ}</div>
                     <div className={styles.univStats}>
-                      <span className={styles.univDone}><FaCheckCircle style={{ marginRight: '0.25rem' }} />{data.completed}</span>
-                      <span className={styles.univReview}><FaRedo style={{ marginRight: '0.25rem' }} />{data.reviewing}</span>
-                      <span className={styles.univTotal}><FaClipboardList style={{ marginRight: '0.25rem' }} />{data.items.length}</span>
+                      <span className={styles.univDone}><FaCheckCircle style={{ marginRight: '0.25rem' }} />{t.completed} {data.completed}</span>
+                      <span className={styles.univReview}><FaRedo style={{ marginRight: '0.25rem' }} />{t.reviewing} {data.reviewing}</span>
+                      <span className={styles.univTotal}><FaClipboardList style={{ marginRight: '0.25rem' }} />{centerT.trackedProblems} {data.items.length}</span>
                     </div>
                     <div className={styles.univBar}>
                       <div
@@ -713,7 +750,7 @@ function PersonalCenterDashboard({ user }) {
             {id: 'reviewing', items: reviewingEntries, title: t.sectionReviewing, Icon: FaRedo, className: styles.sectionTitleReviewing},
             {id: 'completed', items: completedEntries, title: t.sectionCompleted, Icon: FaCheckCircle, className: styles.sectionTitleCompleted},
           ].filter(({items}) => items.length > 0).map(({id, items, title, Icon, className}) => (
-            <section className={styles.section} key={id}>
+            <section className={styles.section} id={`study-${id}`} key={id}>
               <h2 className={`${styles.sectionTitle} ${className}`}>
                 <Icon className={styles.sectionTitleIcon} aria-hidden="true" />
                 {title}
@@ -726,6 +763,14 @@ function PersonalCenterDashboard({ user }) {
           ))}
             </>
           )}
+          {total > 0 && <details className={styles.studyManagement}>
+            <summary>{centerT.manageProgress}</summary>
+            <p>{centerT.clearProgressHint}</p>
+            <button type="button" disabled={clearing} onClick={() => void handleClear()} className={styles.clearBtn}>
+              <FaTrashAlt aria-hidden="true" /> {clearing ? centerT.clearing : t.clearAll}
+            </button>
+            {clearError && <p className={styles.profileMessageError} role="alert">{centerT.clearProgressError}</p>}
+          </details>}
         </div>
         <aside className={styles.dashboardSidebar}>
           <Leaderboard language={language} />

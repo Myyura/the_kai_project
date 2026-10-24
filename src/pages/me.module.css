@@ -99,51 +99,6 @@
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.24);
 }
 
-/* 总进度条 */
-.progressOverview {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.progressBarContainer {
-  display: flex;
-  min-width: 0;
-  flex: 1;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.progressBar {
-  flex: 1;
-  height: 8px;
-  border-radius: 999px;
-  background: var(--ifm-color-emphasis-200);
-  overflow: hidden;
-  display: flex;
-}
-
-.progressFill {
-  height: 100%;
-  transition: width 0.4s ease;
-}
-
-.progressFillCompleted {
-  background: var(--kai-success);
-}
-
-.progressFillReviewing {
-  background: var(--kai-warning);
-}
-
-.progressLabel {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--ifm-color-emphasis-600);
-  white-space: nowrap;
-}
-
 .dashboardGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;
@@ -208,6 +163,7 @@
 
 .sectionHeader {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
@@ -263,6 +219,10 @@
 
 /* 清除按钮 */
 .clearBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 40px;
   font-size: 0.8rem;
   padding: 0.35rem 0.85rem;
   border-radius: var(--custom-border-radius-xs);
@@ -276,7 +236,7 @@
   flex-shrink: 0;
 }
 
-.clearBtn:hover {
+.clearBtn:hover:not(:disabled) {
   background: var(--kai-danger-solid);
   border-color: var(--kai-danger-solid);
   color: #fff;
@@ -330,7 +290,7 @@
 }
 
 .univTotal {
-  color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700);
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
@@ -421,7 +381,7 @@
 
 .entryUniv {
   font-size: 0.72rem;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700);
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -536,7 +496,7 @@
 
 .heatmapTotalCount {
   font-size: 0.8rem;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700);
   flex-shrink: 0;
 }
 
@@ -570,8 +530,8 @@
 
 .heatmapMonthLabel {
   position: absolute;
-  font-size: 0.65rem;
-  color: var(--ifm-color-emphasis-500);
+  font-size: 0.7rem;
+  color: var(--ifm-color-emphasis-700);
   white-space: nowrap;
   top: 0;
 }
@@ -634,8 +594,8 @@
   align-items: center;
   gap: 4px;
   margin-top: 6px;
-  font-size: 0.72rem;
-  color: var(--ifm-color-emphasis-500);
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-700);
 }
 
 /* ================= 遗忘曲线提醒 ================= */
@@ -679,7 +639,7 @@
 
 .reminderSub {
   font-size: 0.75rem;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700);
 }
 
 .urgencyBadge {
@@ -779,18 +739,6 @@
 
   .centerTab {
     padding: 0.6rem 0.4rem;
-  }
-
-  /* 进度条 */
-  .progressOverview {
-    align-items: stretch;
-    flex-direction: column;
-    gap: .65rem;
-    margin-bottom: 1.75rem;
-  }
-
-  .progressOverview .clearBtn {
-    align-self: flex-end;
   }
 
   /* 区块间距 */
@@ -985,55 +933,91 @@
 }
 
 .accountPanel {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-  padding: 1rem 1.1rem;
+  margin-bottom: 1.75rem;
+  padding: 1.25rem 1.5rem;
   border: 1px solid var(--custom-card-border);
   border-radius: var(--custom-border-radius-sm);
   background: var(--custom-card-bg);
 }
 
-.accountNickname {
-  display: block;
-  margin-top: 0.25rem;
+.accountTitle {
+  margin: 0 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
   font-size: 1rem;
-  overflow-wrap: anywhere;
+  font-weight: 600;
+}
+
+.accountBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.accountIdentity {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.accountIdentityText {
+  flex: 1;
+  min-width: 0;
+}
+
+.accountAvatar {
+  flex-shrink: 0;
+  margin-top: 1.5rem;
+  font-size: 2.25rem;
+  color: var(--ifm-color-primary);
 }
 
 .profileSettings {
-  flex: 1 0 100%;
-  width: 100%;
-  margin-top: 0.9rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
+  min-width: 0;
 }
 
 .profileIdentityRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: 0.5rem 0.75rem;
   flex-wrap: wrap;
-  padding: 0.45rem 0;
+  margin: 0.15rem 0 0.3rem;
 }
 
-.profileIdentityRow > div {
-  display: grid;
-  gap: 0.15rem;
-  min-width: 0;
+.accountNickname {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
-.profileLabel {
+.profileLabel,
+.reputationLabel {
   color: var(--ifm-color-emphasis-700);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+}
+
+.profileHint,
+.accountEmail,
+.profileWarning {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.profileHint,
+.accountEmail {
+  color: var(--ifm-color-emphasis-700);
+}
+
+.accountEmail span {
+  margin-right: 0.3rem;
 }
 
 .profileWarning {
-  color: var(--kai-warning);
+  color: var(--kai-warning-strong);
 }
 
 .profileButton,
@@ -1044,35 +1028,51 @@
   gap: 0.35rem;
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: var(--custom-border-radius-xs);
-  padding: 0.5rem 0.7rem;
-  min-height: 44px;
+  padding: 0.45rem 0.65rem;
+  min-height: 40px;
   background: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-base);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
   cursor: pointer;
+}
+
+.profileButton:hover:not(:disabled) {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
 }
 
 .profileSaveButton {
   border-color: var(--ifm-color-primary);
   background: var(--kai-action);
-  color: #fff;
+  color: var(--kai-action-foreground);
+}
+
+.profileButton:disabled,
+.profileSaveButton:disabled,
+.textButton:disabled,
+.clearBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .profileEditor {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 0.55rem;
-  margin: 0.45rem 0;
-  padding: 0.75rem;
-  border-radius: var(--custom-border-radius-sm);
-  background: var(--ifm-color-emphasis-100);
+  gap: 0.65rem;
+  max-width: 480px;
+  margin: 0.8rem 0;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  background: var(--ifm-background-surface-color);
 }
 
 .profileEditor label {
   display: grid;
-  gap: 0.25rem;
-  font-size: 0.78rem;
-  font-weight: 700;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .profileEditor input {
@@ -1082,117 +1082,168 @@
   color: var(--ifm-font-color-base);
   background: var(--ifm-background-color);
   min-width: 0;
+  min-height: 44px;
   width: 100%;
+  font: inherit;
   font-size: 1rem;
 }
 
 .profileEditor > small {
-  grid-column: 1 / -1;
   color: var(--ifm-color-emphasis-700);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.profileEditorActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .profileMessage {
-  margin: 0.4rem 0 0;
+  margin: 0.5rem 0 0;
   color: var(--kai-success-strong);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
 }
 
 .profileMessageError {
   color: var(--kai-danger-strong);
-}
-
-.accountIdentity {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  min-width: 0;
-}
-
-.accountIdentityText {
-  min-width: 0;
-}
-
-.accountAvatar {
-  flex-shrink: 0;
-  font-size: 2rem;
-  color: var(--ifm-color-primary);
-}
-
-.accountTitle {
-  margin: 0 0 0.2rem;
-  font-size: 1rem;
-}
-
-.accountEmail {
-  margin: 0;
-  color: var(--ifm-color-emphasis-600);
   font-size: 0.85rem;
-  overflow-wrap: anywhere;
+  margin: 0.5rem 0 0;
+}
+
+.communitySummary {
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .reputationSummary {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.45rem;
-}
-
-.reputationLabel {
-  color: var(--ifm-color-emphasis-600);
-  font-size: 0.72rem;
-  font-weight: 600;
+  gap: 0.4rem;
 }
 
 .reputationBadge {
   display: inline-flex;
   align-items: center;
-  min-height: 1.45rem;
-  padding: 0.18rem 0.5rem;
+  padding: 0.2rem 0.5rem;
   border: 1px solid var(--ifm-color-primary-lightest);
   border-radius: 999px;
-  background: var(--ifm-color-emphasis-100);
   color: var(--ifm-color-primary);
   font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1.1;
+  font-weight: 600;
 }
 
-.accountStats {
+.contributionStats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.6rem;
-  flex: 1 1 420px;
-  min-width: 0;
-  max-width: 540px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0.85rem 0 0.5rem;
 }
 
-.accountStat {
-  min-width: 0;
-  padding: 0.55rem 0.75rem;
+.contributionStats dt,
+.studyStat dt {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.contributionStats dd {
+  margin: 0.1rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.accountLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 36px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.accountLink svg {
+  font-size: 0.75em;
+}
+
+.studySummary {
+  margin-bottom: 2rem;
+}
+
+.studySummary .sectionTitle {
+  margin-bottom: 0.4rem;
+}
+
+.sectionDescription {
+  margin: 0 0 1rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.studyStats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.studyStat {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: var(--custom-border-radius-xs);
-  background: var(--ifm-color-emphasis-100);
-  text-align: center;
+  background: var(--ifm-background-surface-color);
 }
 
-.accountStat span {
-  display: block;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--ifm-heading-color);
-  line-height: 1;
+.studyStat dd {
+  margin: 0.25rem 0 0;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
-.accountStat small {
-  display: block;
-  margin-top: 0.25rem;
-  font-size: 0.72rem;
-  color: var(--ifm-color-emphasis-600);
-  line-height: 1.15;
+.dataNotice {
+  margin: 0.75rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.85rem;
+}
+
+.textButton {
+  padding: 0.25rem 0.35rem;
+  border: 0;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.studyManagement {
+  margin-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: 0.75rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.85rem;
+}
+
+.studyManagement summary {
+  width: fit-content;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+
+.studyManagement p {
+  margin: 0.5rem 0 0.75rem;
 }
 
 .noteSearch {
   display: inline-flex;
+  max-width: 100%;
+  width: 250px;
   align-items: center;
   gap: 0.45rem;
   min-width: 220px;
@@ -1200,7 +1251,7 @@
   padding: 0.4rem 0.65rem;
   border-radius: var(--custom-border-radius-xs);
   border: 1px solid var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700);
   background: var(--ifm-background-surface-color);
 }
 
@@ -1216,7 +1267,7 @@
 
 .notesList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.75rem;
 }
 
@@ -1260,6 +1311,11 @@
 }
 
 .noteExcerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
   margin: 0;
   color: var(--ifm-color-emphasis-600);
   font-size: 0.82rem;
@@ -1289,6 +1345,10 @@
   color: var(--ifm-color-emphasis-700);
 }
 
+.textButton:focus-visible,
+.studyManagement summary:focus-visible,
+.heatmapWrap:focus-visible,
+.accountLink:focus-visible,
 .centerTab:focus-visible,
 .profileButton:focus-visible,
 .profileSaveButton:focus-visible,
@@ -1316,15 +1376,32 @@
   }
 
   .accountPanel {
-    flex-direction: column;
-    align-items: stretch;
+    padding: 1rem;
   }
 
-  .accountStats {
-    width: 100%;
-    flex-basis: auto;
-    max-width: none;
+  .accountBody {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .accountAvatar {
+    display: none;
+  }
+
+  .communitySummary {
+    border-left: 0;
+    border-top: 1px solid var(--ifm-color-emphasis-200);
+    padding: 1rem 0 0;
+  }
+
+  .studyStats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .profileButton,
+  .profileSaveButton {
+    min-height: 44px;
   }
 
   .noteSearch {

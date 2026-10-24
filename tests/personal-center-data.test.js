@@ -50,6 +50,9 @@ const {
 const {buildPersonalCenterData, getLearningTagPermalink} = loadSourceModule(
   path.join(repoRoot, 'src/services/personalCenterData.js')
 );
+const {serializeNoteDocument, stripAnnotationMetadata} = loadSourceModule(
+  path.join(repoRoot, 'src/services/noteAnnotations.js')
+);
 
 test('canonical metadata replaces a stored file-path title', () => {
   const [docId, title] = Object.entries(documentTitles)
@@ -97,6 +100,55 @@ test('note-only documents remain visible and malformed progress is ignored', () 
   assert.equal(result.progressItems.length, 0);
   assert.equal(result.noteItems.length, 1);
   assert.equal(result.hasAnyData, true);
+});
+
+test('note cards summarize Markdown as readable text without changing stored content or counts', () => {
+  const content = '# 关键思路\n\n> **分部积分**，参考[原题](https://example.com/paper)。\n\n- 第一步\n- 第二步\n\n![积分区域](https://example.com/figure.png)';
+  const {noteItems} = buildPersonalCenterData({noteEntries: [{id: 'test/note', content}]});
+
+  assert.equal(noteItems[0].excerpt, '关键思路 分部积分，参考原题。 第一步 第二步 积分区域');
+  assert.equal(noteItems[0].content, content);
+  assert.equal(noteItems[0].charCount, content.length);
+});
+
+test('annotation-only notes retain annotation titles, quotations and explanations without metadata', () => {
+  const content = serializeNoteDocument({annotations: [{
+    id: 'ann-1', title: '注释 1', exact: '型構造を安定に保つ',
+    bodyMarkdown: '**重要**：先考虑边界条件。', createdAt: 1000, updatedAt: 2000,
+  }]});
+  const {noteItems} = buildPersonalCenterData({noteEntries: [{id: 'test/note', content}]});
+
+  assert.equal(noteItems[0].excerpt, '文中注释 注释 1 型構造を安定に保つ 重要：先考虑边界条件。');
+  assert.equal(noteItems[0].annotationCount, 1);
+  assert.equal(noteItems[0].charCount, stripAnnotationMetadata(content).length);
+});
+
+test('plain-text summaries preserve TeX, literal code, escaped punctuation and comparison signs', () => {
+  const content = String.raw`公式 $a_b+c_d$，\(\{x_i\}_{i=1}^n\)，以及
+
+$$
+\sum_{i=1}^n a_i
+$$
+
+\[x_i + y_j\]
+
+文字 \*不是强调\*，5 < 7。
+
+\`\`\`text
+const a_b = "$not_math$";
+\`\`\`
+`.replaceAll('\\`', '`');
+  const {noteItems} = buildPersonalCenterData({noteEntries: [{id: 'test/note', content}]});
+
+  assert.equal(noteItems[0].excerpt, String.raw`公式 $a_b+c_d$，\(\{x_i\}_{i=1}^n\)，以及 $$ \sum_{i=1}^n a_i $$ \[x_i + y_j\] 文字 *不是强调*，5 < 7。 const a_b = "$not_math$";`);
+});
+
+test('note excerpt truncation applies to visible text after removing Markdown decoration', () => {
+  const content = `# ${'**内容** '.repeat(100)}`;
+  const {noteItems} = buildPersonalCenterData({noteEntries: [{id: 'test/note', content}]});
+
+  assert.equal(noteItems[0].excerpt, '内容 '.repeat(100).trim().slice(0, 180));
+  assert.equal(noteItems[0].excerpt.length, 180);
 });
 
 test('namespaced learning tags use the canonical in-site browse targets', () => {
