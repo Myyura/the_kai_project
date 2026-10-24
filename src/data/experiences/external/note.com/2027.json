@@ -153,5 +153,18 @@
         "admissionYear": 2027
       }
     ]
+  },
+  {
+    "title": "2027年入学 東京大学大学院 情報理工学系研究科 数理情報学専攻 外部合格体験記",
+    "url": "https://note.com/aufheben_politcs/n/na0576e70f93b",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "admissionYear": 2027,
+        "examYear": 2026,
+        "scope": "tokyo-university/IST/suuri",
+        "season": "summer"
+      }
+    ]
   }
 ]
