@@ -1,0 +1,38 @@
+{
+  "id": "Literature",
+  "subject": {
+    "labelZh": "文学",
+    "labelJa": "文学",
+    "labelEn": "Literature",
+    "descriptionZh": "研究文学作品、文学史、文学理论及文学与文化社会的关系。",
+    "descriptionJa": "文学作品、文学史、文学理論、および文学と文化・社会の関係を研究する分野。",
+    "descriptionEn": "The study of literary works, literary history, literary theory, and the relations of literature to culture and society."
+  },
+  "subsubjects": {
+    "Literature.Literary-Theory": {
+      "subject": "Literature",
+      "labelZh": "文学理论",
+      "labelJa": "文学理論",
+      "labelEn": "Literary Theory",
+      "descriptionZh": "研究文学文本的阐释方法，以及叙事、主体、表象和文化意义。",
+      "descriptionJa": "文学テクストの解釈方法、物語、主体、表象、文化的意味を扱う。",
+      "descriptionEn": "Methods of interpreting literary texts, including narrative, subjectivity, representation, and cultural meaning."
+    }
+  },
+  "subsubjectOrder": [
+    "Literature.Literary-Theory"
+  ],
+  "topics": {
+    "Literature.Literary-Theory.Embodiment": {
+      "subsubject": "Literature.Literary-Theory",
+      "labelZh": "身体性",
+      "labelJa": "身体性",
+      "labelEn": "Embodiment",
+      "searchAliases": {
+        "zh": ["身体"],
+        "ja": ["身体"],
+        "en": ["corporeality", "the body"]
+      }
+    }
+  }
+}
