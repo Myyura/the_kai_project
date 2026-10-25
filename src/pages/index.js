@@ -161,10 +161,16 @@ const CommunitySupportSection = memo(({ t }) => {
               {t.supportTitle}
             </Heading>
             <p className={styles.communitySupportDescription}>{t.supportDescription}</p>
-            <Link className={styles.communitySupportCta} to="/support">
-              {t.supportCta}
-              <FaArrowRight aria-hidden="true" />
-            </Link>
+            <div className={styles.communitySupportActions}>
+              <Link className={styles.communitySupportCta} to="/support">
+                {t.supportCta}
+                <FaArrowRight aria-hidden="true" />
+              </Link>
+              <Link className={styles.communitySupportPrinciples} to="/support#principles">
+                <FaShieldAlt aria-hidden="true" />
+                {t.supportPrinciples}
+              </Link>
+            </div>
           </div>
 
           <div className={styles.communitySupportDetails}>
@@ -190,14 +196,20 @@ const CommunitySupportSection = memo(({ t }) => {
                 </span>
               ))}
             </Link>
-            <Link className={styles.communitySupportTile} to="/support#contributors">
-              <span className={styles.communitySupportIcon}><FaUsers aria-hidden="true" /></span>
-              <strong>{t.supportContributors}</strong>
+            <Link className={`${styles.communitySupportTile} ${styles.coffeeSupportTile}`} to="/support#sponsor">
+              <span className={styles.communitySupportIcon}><FaCoffee aria-hidden="true" /></span>
+              <span className={styles.communitySupportTileCopy}>
+                <strong>{t.supportCoffee}</strong>
+                <small>{t.supportCoffeeHint}</small>
+              </span>
               <FaArrowRight aria-hidden="true" />
             </Link>
-            <Link className={styles.communitySupportTile} to="/support#principles">
-              <span className={styles.communitySupportIcon}><FaShieldAlt aria-hidden="true" /></span>
-              <strong>{t.supportPrinciples}</strong>
+            <Link className={styles.communitySupportTile} to="/support#contributors">
+              <span className={styles.communitySupportIcon}><FaUsers aria-hidden="true" /></span>
+              <span className={styles.communitySupportTileCopy}>
+                <strong>{t.supportContributors}</strong>
+                <small>{t.supportContributorsHint}</small>
+              </span>
               <FaArrowRight aria-hidden="true" />
             </Link>
           </div>

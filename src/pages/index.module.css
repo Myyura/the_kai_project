@@ -583,7 +583,7 @@
   opacity: 0.65;
 }
 
-/* ===== 社区共建：合作伙伴、贡献者与原则 ===== */
+/* ===== 社区共建：合作伙伴、咖啡支持与贡献者 ===== */
 .communitySupportSection {
   padding: 0 2rem 4rem;
   background: #ffffff;
@@ -655,12 +655,32 @@
   overflow-wrap: break-word;
 }
 
+.communitySupportActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem 1.1rem;
+  margin-top: 1.35rem;
+}
+
+.communitySupportPrinciples {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: .4rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .8rem;
+}
+
+.communitySupportPrinciples svg {
+  flex-shrink: 0;
+}
+
 .communitySupportCta {
   display: inline-flex;
   min-height: 42px;
   align-items: center;
   gap: .5rem;
-  margin-top: 1.35rem;
   border-radius: 999px;
   background: var(--kai-action);
   box-shadow: 0 8px 20px rgba(var(--theme-accent-rgb), .22);
@@ -709,13 +729,53 @@
 }
 
 .communitySupportTile {
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto 1fr;
+}
+
+.communitySupportTileCopy {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  align-self: start;
+}
+
+.communitySupportTileCopy strong,
+.communitySupportTileCopy small {
+  display: block;
+}
+
+.communitySupportTileCopy small {
+  margin-top: .3rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .72rem;
+  line-height: 1.5;
+}
+
+.communitySupportTile > svg {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.coffeeSupportTile {
+  border-color: rgba(var(--kai-gold-rgb), .45);
+  background: rgba(var(--kai-gold-rgb), .13);
+}
+
+.coffeeSupportTile .communitySupportIcon {
+  background: rgba(var(--kai-gold-rgb), .22);
+  color: var(--kai-gold-text);
 }
 
 .featuredPartnerTile:hover,
 .communitySupportTile:hover {
   transform: translateY(-2px);
   border-color: rgba(var(--theme-accent-rgb), .35);
+}
+
+.coffeeSupportTile:hover {
+  border-color: rgba(var(--kai-gold-rgb), .7);
+  background: rgba(var(--kai-gold-rgb), .2);
 }
 
 .communitySupportIcon {
@@ -958,6 +1018,17 @@
 
   .communitySupportDetails {
     grid-template-columns: 1fr;
+  }
+
+  .communitySupportTile {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto;
+  }
+
+  .communitySupportTileCopy,
+  .communitySupportTile > svg {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .featuredPartnerTile {
