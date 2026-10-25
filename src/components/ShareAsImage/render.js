@@ -57,6 +57,8 @@ export async function cloneArticleContent(article, scope, signal) {
   const root = article.cloneNode(false);
   root.classList.add('share-markdown');
   const stack = [{source: article, target: root, index: 0}];
+  const excludedSection = scope === 'problem' ? 'solution' : scope === 'solution' ? 'problem' : null;
+  let currentSection = null;
   let processed = 0;
   while (stack.length) {
     checkAborted(signal);
@@ -68,16 +70,23 @@ export async function cloneArticleContent(article, scope, signal) {
     }
     if (++processed % 200 === 0) await yieldToMain(signal);
     if (processed > MAX_SHARE_NODES) throw new ShareImageLimitError();
+    let isStudyContent = false;
     if (source.nodeType === 1) {
       const panel = source.getAttribute('data-kai-study-panel');
       const section = source.getAttribute('data-kai-study-section');
-      const excludedSection = scope === 'problem' ? 'solution' : scope === 'solution' ? 'problem' : null;
+      // Match the tab controller's flat sections. Code/diagram components can
+      // consume their marker, so unmarked siblings inherit the last section.
+      if (frame.source === article && (section === 'problem' || section === 'solution')) {
+        currentSection = section;
+      }
+      const contentSection = panel || section || (frame.source === article ? currentSection : null);
+      isStudyContent = contentSection === 'problem' || contentSection === 'solution';
       const svgStyle = source.tagName.toLowerCase() === 'style' && source.closest('svg');
-      if ((!svgStyle && source.matches(EXCLUDED)) || (excludedSection && (panel === excludedSection || section === excludedSection))) continue;
+      if ((!svgStyle && source.matches(EXCLUDED)) || (excludedSection && (panel === excludedSection || contentSection === excludedSection))) continue;
     }
     const target = source.cloneNode(false);
     if (source.nodeType === 1) {
-      if (source.hasAttribute('data-kai-study-panel')) target.removeAttribute('hidden');
+      if (source.hasAttribute('data-kai-study-panel') || isStudyContent) target.removeAttribute('hidden');
       if (source.tagName === 'IMG') {
         // The off-screen export must also load images from the inactive tab.
         target.loading = 'eager';

@@ -85,8 +85,9 @@
   display: none !important;
 }
 
-.studyContentHidden {
+.studyContentHidden[hidden] {
   /* Infima's explicit table display rule can override the browser's [hidden]. */
+  /* Export clones remove hidden to show the requested sections. */
   display: none !important;
 }
 

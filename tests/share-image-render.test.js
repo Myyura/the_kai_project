@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 const loadSource = require('./helpers/load-source.cjs');
@@ -161,4 +162,50 @@ test('sharing excludes learning tools and private notes while retaining the sele
     assert.ok(result.childNodes.every((node) => !node.hasAttribute('hidden')));
   }
   assert.equal(article.childNodes[3].hasAttribute('hidden'), true, 'original solution visibility is unchanged');
+});
+
+test('flat study content exports the chosen scope regardless of the active tab', async () => {
+  const postcss = require('postcss');
+  const stylesheet = postcss.parse(fs.readFileSync(path.resolve(__dirname,
+    '../src/theme/DocItem/Footer/styles.module.css'), 'utf8'));
+  const hiddenSelectors = [];
+  stylesheet.walkRules(rule => {
+    if (rule.nodes.some(node => node.prop === 'display' && node.value === 'none')) {
+      hiddenSelectors.push(rule.selector);
+    }
+  });
+
+  for (const activeTab of ['problem', 'solution', 'notes']) {
+    const hidden = section => activeTab === section ? '' : ' hidden class="studyContentHidden"';
+    const article = articleFixture('<article>'
+      + '<h1>Title</h1>'
+      + '<section data-kai-study-panel="problem"></section>'
+      + `<h2 data-kai-study-section="problem"${hidden('problem')}>Description</h2>`
+      + `<p data-kai-study-section="problem"${hidden('problem')}>Question</p>`
+      + '<section data-kai-study-panel="solution" hidden></section>'
+      + `<h2 data-kai-study-section="solution"${hidden('solution')}>Kai</h2>`
+      + `<p data-kai-study-section="solution"${hidden('solution')}>Answer</p>`
+      // Code/diagram components may consume the compiler's section attribute.
+      + `<div${hidden('solution')}><pre>Solution code</pre><span hidden></span></div>`
+      + `<table data-kai-study-section="solution"${hidden('solution')}><tr><td>Answer table</td></tr></table>`
+      + '<section data-kai-study-panel="notes"><p>Private note</p></section>'
+      + '</article>');
+    const originalHidden = article.childNodes.map(node => node.hasAttribute('hidden'));
+    for (const scope of ['all', 'problem', 'solution']) {
+      const result = await render.cloneArticleContent(article, scope);
+      const visible = result.childNodes.filter(node => !node.hasAttribute('hidden')
+        && !hiddenSelectors.some(selector => node.matches(selector)));
+      const expected = 'Title'
+        + (scope !== 'solution' ? 'DescriptionQuestion' : '')
+        + (scope !== 'problem' ? 'KaiAnswerSolution codeAnswer table' : '');
+      assert.equal(visible.map(node => node.textContent).join(''), expected, `${activeTab}/${scope}`);
+      assert.equal(result.textContent, expected, 'unselected content and private notes are excluded');
+      if (scope !== 'problem') {
+        const code = result.childNodes.find(node => node.tagName === 'div');
+        assert.equal(code.childNodes[1].hasAttribute('hidden'), true, 'nested hidden content is preserved');
+      }
+      assert.deepEqual(article.childNodes.map(node => node.hasAttribute('hidden')), originalHidden,
+        'sharing does not switch or reveal content in the source page');
+    }
+  }
 });
