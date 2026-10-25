@@ -164,11 +164,11 @@ function sanitizeFileNameLocal(raw) {
 
 function computeWatermarkLayout({
   height,
-  rowGap = 160,
-  colGap = 260,
-  offsetX = 130,
+  rowGap = 180,
+  colGap = 360,
+  offsetX = 180,
   maxRows = 32,
-  maxCols = 4,
+  maxCols = 3,
 }) {
   const rows = Math.max(1, Math.min(Math.ceil(height / rowGap), maxRows));
   const cols = Math.max(1, Math.min(maxCols, 10));
@@ -390,9 +390,9 @@ export default function ShareAsImage({ docId, title: docTitle }) {
         watermarkOverlay.style.cssText = 'position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1;';
         for (const pos of computeWatermarkLayout({height: wrapper.scrollHeight})) {
           const span = document.createElement('span');
-          span.textContent = 'runjp.com';
+          span.textContent = L.watermark;
           span.style.cssText = `position: absolute; top: ${pos.top}px; left: ${pos.left}px;
-            font-size: 18px; font-weight: 700; color: rgba(var(--kai-blue-rgb), 0.08);
+            font-size: 22px; font-weight: 700; color: rgba(var(--kai-blue-rgb), 0.08);
             transform: rotate(-30deg); white-space: nowrap; letter-spacing: 2px;`;
           watermarkOverlay.appendChild(span);
         }
