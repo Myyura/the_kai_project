@@ -9,6 +9,15 @@
     "descriptionEn": "The study of fundamental questions about existence, knowledge, value, and reasoning through examination of concepts, assumptions, and arguments."
   },
   "subsubjects": {
+    "Philosophy.Ethics": {
+      "subject": "Philosophy",
+      "labelZh": "伦理学",
+      "labelJa": "倫理学",
+      "labelEn": "Ethics",
+      "descriptionZh": "研究行为、制度和生活方式的道德评价，以及权利、责任与价值。",
+      "descriptionJa": "行為、制度、生き方の道徳的評価、および権利、責任、価値を扱う。",
+      "descriptionEn": "Moral evaluation of actions, institutions, and ways of life, including rights, responsibilities, and values."
+    },
     "Philosophy.General-Philosophy": {
       "subject": "Philosophy",
       "labelZh": "哲学概论",
@@ -30,9 +39,16 @@
   },
   "subsubjectOrder": [
     "Philosophy.General-Philosophy",
+    "Philosophy.Ethics",
     "Philosophy.Philosophy-of-Science"
   ],
   "topics": {
+    "Philosophy.Ethics.Animal-Ethics": {
+      "subsubject": "Philosophy.Ethics",
+      "labelZh": "动物伦理",
+      "labelJa": "動物倫理",
+      "labelEn": "Animal Ethics"
+    },
     "Philosophy.General-Philosophy.Truth-Goodness-and-Beauty": {
       "subsubject": "Philosophy.General-Philosophy",
       "labelZh": "真善美",

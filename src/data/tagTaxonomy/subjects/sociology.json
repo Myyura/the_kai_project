@@ -73,6 +73,12 @@
     "Sociology.Culture-and-Media"
   ],
   "topics": {
+    "Sociology.Culture-and-Media.Media-Experience": {
+      "subsubject": "Sociology.Culture-and-Media",
+      "labelZh": "媒介体验",
+      "labelJa": "メディア経験",
+      "labelEn": "Media Experience"
+    },
     "Sociology.Culture-and-Media.Individualism-and-Collectivism": {
       "subsubject": "Sociology.Culture-and-Media",
       "relatedSubjects": [

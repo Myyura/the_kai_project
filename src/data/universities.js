@@ -933,6 +933,20 @@ const universities = [
         "websiteUrl": "https://www.i.nagoya-u.ac.jp/gs/entranceexamination/"
       },
       {
+        "id": "humanities",
+        "name": "人文学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/nagoya-university-humanities",
+        "programs": [
+          {
+            "id": "transdisciplinary_humanities/japanese_culture",
+            "name": "日本文化学",
+            "aliases": [],
+            "archiveUrl": "/docs/category/nagoya-university-humanities-transdisciplinary_humanities-japanese_culture"
+          }
+        ]
+      },
+      {
         "id": "mathematics",
         "name": "多元数理科学研究科",
         "aliases": [],
@@ -1227,6 +1241,20 @@ const universities = [
         "aliases": [],
         "archiveUrl": "/docs/category/hokkaido-university-public_policy",
         "websiteUrl": "https://www.hops.hokudai.ac.jp/admission/"
+      },
+      {
+        "id": "imcts",
+        "name": "国際広報メディア・観光学院",
+        "aliases": [],
+        "archiveUrl": "/docs/category/hokkaido-university-imcts",
+        "programs": [
+          {
+            "id": "international_media_communication",
+            "name": "国際広報メディア研究コース",
+            "aliases": [],
+            "archiveUrl": "/docs/category/hokkaido-university-imcts-international_media_communication"
+          }
+        ]
       },
       {
         "id": "science",

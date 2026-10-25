@@ -608,6 +608,10 @@
   label: "Law.Administrative-Law"
   permalink: "/subsubject/law/administrative-law"
   description: "Law / Administrative-Law"
+"Philosophy.Ethics":
+  label: "Philosophy.Ethics"
+  permalink: "/subsubject/philosophy/ethics"
+  description: "Philosophy / Ethics"
 "Philosophy.General-Philosophy":
   label: "Philosophy.General-Philosophy"
   permalink: "/subsubject/philosophy/general-philosophy"
@@ -616,6 +620,10 @@
   label: "Philosophy.Philosophy-of-Science"
   permalink: "/subsubject/philosophy/philosophy-of-science"
   description: "Philosophy / Philosophy-of-Science"
+"Literature.Literary-Theory":
+  label: "Literature.Literary-Theory"
+  permalink: "/subsubject/literature/literary-theory"
+  description: "Literature / Literary-Theory"
 "Bioinformatics.Bioinformatics.Molecular-Phylogenetics":
   label: "Bioinformatics.Bioinformatics.Molecular-Phylogenetics"
   permalink: "/topic/bioinformatics/bioinformatics/molecular-phylogenetics"
@@ -3444,6 +3452,10 @@
   label: "Law.Civil-Law.Creditors-Subrogation-Right"
   permalink: "/topic/law/civil-law/creditors-subrogation-right"
   description: "Law / Civil-Law / Creditors-Subrogation-Right"
+"Literature.Literary-Theory.Embodiment":
+  label: "Literature.Literary-Theory.Embodiment"
+  permalink: "/topic/literature/literary-theory/embodiment"
+  description: "Literature / Literary-Theory / Embodiment"
 "Mathematics.Abstract-Algebra.Burnside-Lemma-and-Derangement-Proportion":
   label: "Mathematics.Abstract-Algebra.Burnside-Lemma-and-Derangement-Proportion"
   permalink: "/topic/mathematics/abstract-algebra/burnside-lemma-and-derangement-proportion"
@@ -5076,6 +5088,10 @@
   label: "Operations-Research.Queueing-Theory.Packet-Loss"
   permalink: "/topic/operations-research/queueing-theory/packet-loss"
   description: "Operations-Research / Queueing-Theory / Packet-Loss"
+"Philosophy.Ethics.Animal-Ethics":
+  label: "Philosophy.Ethics.Animal-Ethics"
+  permalink: "/topic/philosophy/ethics/animal-ethics"
+  description: "Philosophy / Ethics / Animal-Ethics"
 "Philosophy.General-Philosophy.Truth-Goodness-and-Beauty":
   label: "Philosophy.General-Philosophy.Truth-Goodness-and-Beauty"
   permalink: "/topic/philosophy/general-philosophy/truth-goodness-and-beauty"
@@ -6472,6 +6488,10 @@
   label: "Sociology.Culture-and-Media.Individualism-and-Collectivism"
   permalink: "/topic/sociology/culture-and-media/individualism-and-collectivism"
   description: "Sociology / Culture-and-Media / Individualism-and-Collectivism"
+"Sociology.Culture-and-Media.Media-Experience":
+  label: "Sociology.Culture-and-Media.Media-Experience"
+  permalink: "/topic/sociology/culture-and-media/media-experience"
+  description: "Sociology / Culture-and-Media / Media-Experience"
 "Sociology.Family-and-Gender.Gendered-Division-of-Labor":
   label: "Sociology.Family-and-Gender.Gendered-Division-of-Labor"
   permalink: "/topic/sociology/family-and-gender/gendered-division-of-labor"

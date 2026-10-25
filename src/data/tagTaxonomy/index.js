@@ -12,6 +12,7 @@ const economics = require('./subjects/economics.json');
 const electricalElectronic = require('./subjects/electrical-electronic.json');
 const engineering = require('./subjects/engineering.json');
 const law = require('./subjects/law.json');
+const literature = require('./subjects/literature.json');
 const mathematics = require('./subjects/mathematics.json');
 const operationsResearch = require('./subjects/operations-research.json');
 const philosophy = require('./subjects/philosophy.json');
@@ -33,6 +34,7 @@ const subjectFiles = [
   electricalElectronic,
   engineering,
   law,
+  literature,
   mathematics,
   operationsResearch,
   philosophy,
