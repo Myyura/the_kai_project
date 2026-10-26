@@ -23,7 +23,7 @@ tags:
 
 ![原題の三本の丸棒と剛体円板](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 回答以下问题。（40分）
 

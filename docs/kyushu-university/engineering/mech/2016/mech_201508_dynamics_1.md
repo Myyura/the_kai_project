@@ -25,7 +25,7 @@ tags:
 
 ![原題の鉛直ばね系と重ねた物体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_dynamics-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，质量为 $2m$ 的物体 A 和质量为 $m$ 的物体 B 通过弹簧常数为 $6k$、$4k$ 的无质量弹簧沿竖直方向连接。B 上固定有质量为 $m$ 的物体 C，与 B 一起运动。从静平衡状态将 A 向下压 $d$、B 向下压 $2d$，保持静止后轻轻释放，使其自由振动。A、B 相对静平衡位置的位移分别为 $x_1,x_2$，均以竖直向下为正。重力加速度为 $g$，各物体只沿竖直方向运动。回答下列问题。（50分）
 

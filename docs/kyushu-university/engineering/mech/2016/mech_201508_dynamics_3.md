@@ -27,7 +27,7 @@ tags:
 
 ![原題の両端固定された変断面丸棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_dynamics-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，有一密度为 $\rho$、纵向弹性模量为 $E$、长度为 $l$、两端固定的弹性圆杆。以左端为原点，沿杆轴向取坐标 $x$，考虑纵振动。截面积 $A(x)$ 随 $x$ 变化，坐标 $x$、时刻 $t$ 处的轴向位移为 $u(x,t)$。回答下列问题，可使用 $c=\sqrt{E/\rho}$。（50分）
 

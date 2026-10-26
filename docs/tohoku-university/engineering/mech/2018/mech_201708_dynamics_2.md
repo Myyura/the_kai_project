@@ -24,7 +24,7 @@ tags:
 
 ![図2 3台車と5ばねからなる振動系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_dynamics_2_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 2. 考虑图2所示由三辆小车和五根弹簧组成的振动系统。质量为 $m_1$ 的小车1放置在水平面上，通过弹簧常数为 $k_1$ 的弹簧与墙壁连接。质量为 $m_2$ 的小车2放置在小车1上，通过两根弹簧常数均为 $k_2$ 的弹簧与小车1连接。质量为 $m_3$ 的小车3放置在小车2上，通过两根弹簧常数均为 $k_3$ 的弹簧与小车2连接，同时受到水平方向的激振力 $F(t)=P\sin\omega t$。其中 $P$ 为激振力振幅，$\omega$ 为角频率，$t$ 为时间。三辆小车均无摩擦地仅沿水平方向运动。小车1、2、3相对静态平衡位置 O 的绝对位移分别为 $x_1,x_2,x_3$。忽略弹簧质量。当振动系统处于稳态时，回答下列问题。
 

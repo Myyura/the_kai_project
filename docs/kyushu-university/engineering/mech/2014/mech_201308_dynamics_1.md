@@ -25,7 +25,7 @@ tags:
 
 ![原題の滑車・ばね・二つの物体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_dynamics-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，质量可忽略的绳绕在半径为 $r$ 的圆盘形滑轮上。绳的一端经弹簧常数为 $k$ 的弹簧连接质量为 $2m$ 的物体 A，另一端直接连接质量为 $m$ 的物体 B。滑轮绕转动中心的转动惯量为 $I=mr^2$，绳与滑轮间不打滑，绳不伸缩。先分别支承 A、B，使绳无松弛、弹簧处于原长且两物体静止。在 $t=0$ 时轻轻撤去支承，系统开始运动。将运动开始后 A 竖直向下的位移记为 $x_A$、B 竖直向上的位移记为 $x_B$，重力加速度为 $g$。回答下列问题。（50分）
 

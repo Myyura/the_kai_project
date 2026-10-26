@@ -24,7 +24,7 @@ tags:
 
 ![原題の棒と四分円剛体の構造図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 对于图示结构，回答下列问题。各杆的伸长与其自身长度相比充分小。（40分）
 

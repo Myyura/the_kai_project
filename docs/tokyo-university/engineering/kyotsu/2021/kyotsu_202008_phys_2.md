@@ -30,7 +30,7 @@ II. 導線の $\beta\beta'$ 部分に容量 $C$ のコンデンサーを入れ�
 3. $v(0)=v_0$ のとき、$I(t)$ を求めよ。
 ![一様磁場中で動く導体棒とコンデンサー付き回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2021/kyotsu_202008_phys_2_rod_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 在真空中沿 $+z$ 方向的均匀磁场 $B$ 内，水平放置宽度为 $d$ 的 U 形长导轨 $\alpha\beta\beta'\alpha'$。两条平行导轨沿 $y$ 方向，连接段 $\beta\beta'$ 与其垂直。质量为 $m$ 的金属棒 $\lambda\mu$ 横跨导轨，在 $\lambda',\mu'$ 接触，始终与连接段平行。导轨无电阻，棒两接触点之间长度为 $d$、电阻为 $R$。忽略棒的粗细、摩擦、接触电阻和电流自身产生的磁场。
 

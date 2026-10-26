@@ -23,7 +23,7 @@ tags:
 
 ![図1(b) 両端固定の段付き丸軸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_materials_1_original_figure_2.png)
 
-#### 题目描述
+### 题目描述
 
 1. 考虑图1所示的阶梯圆轴 ABCD。该轴由三部分组成：AB 段为长 $L$、外径 $2d$、内径 $d$ 的空心轴；BC 段为长 $L$、直径 $2d$ 的实心轴；CD 段为长 $L$、直径 $d$ 的实心轴。该阶梯圆轴的剪切模量为 $G$。回答下列问题。
 

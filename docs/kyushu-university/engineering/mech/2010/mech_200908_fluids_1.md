@@ -24,7 +24,7 @@ tags:
 
 ![原題の図a・b：ディフューザ内の流れと液柱計](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2010/mech_200908_fluids-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图a所示，水平放置的二维上游通道（宽度 $B_1$）和下游通道（宽度 $B_2>B_1$）由平滑扩张的二维扩散管连接，密度为 $\rho$ 的水在其中流动而不发生分离。在扩散管足够远的上游截面I、下游通道内的截面II和足够远的下游截面III处，分别装有测压管，各测压管上端均与大气相通。设截面I和III的流动均匀，回答下列问题。重力加速度为 $g$，忽略通道壁面摩擦。（50分）
 

@@ -26,7 +26,7 @@ tags:
 
 ![従系 A、B の取り付けの原図 (a), (b)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_dynamics-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 一个质量为 $12m$ 的振动体通过弹簧常数为 $12k$ 的弹簧支承于基础，受到简谐外力 $f_0\cos\Omega t$ 的激励而发生非常大的振动，其中 $f_0$ 为常数。将此振动体称为主系统，位移记为 $x_0$。（50分）
 

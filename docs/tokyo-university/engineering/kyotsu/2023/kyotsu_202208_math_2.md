@@ -34,7 +34,7 @@ III. この不等式が任意の非零実ベクトルに対して成り立つた
 
 IV. III の条件のもとで、$\boldsymbol b=(a,0,-1)^T$ に対する $f(\boldsymbol x)=\boldsymbol x^TA\boldsymbol x-\boldsymbol b^T\boldsymbol x$ の最小値を $a$ で表す。
 
-#### 题目描述
+### 题目描述
 
 给定实参数 $a$ 和矩阵
 

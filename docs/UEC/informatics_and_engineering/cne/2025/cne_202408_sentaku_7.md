@@ -74,7 +74,7 @@ $$
 
 最大値ノルム：maximum norm，無限大ノルム：infinity norm，固有値：eigenvalue，固有ベクトル：eigenvector，線形結合：linear combination
 
-#### 题目描述
+### 题目描述
 
 矩阵
 

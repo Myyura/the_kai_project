@@ -47,7 +47,7 @@ G から機軸に沿って後方に距離 $\ell_2$ の末端にエンジンが�
 3. $\delta=\alpha\theta$ と制御するとき、$t\to\infty$ で $\theta\to0$ となる定数 $\alpha$ の条件を求めよ。
 4. $\delta=\alpha\theta+\beta\,d\theta/dt$ と制御するとき、$t\to\infty$ で $\theta\to0$ となる定数 $\alpha,\beta$ の条件を求めよ。
 
-#### 题目描述
+### 题目描述
 
 I. 火箭沿竖直向上 $+z$ 方向飞行，向反方向以相对于火箭恒定的速度 $u$ 喷气产生推力。忽略重力、空气阻力等推力以外的力。
 

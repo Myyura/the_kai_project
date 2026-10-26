@@ -26,7 +26,7 @@ $|w-1/4|>1/4,\ |w|<1$ に写す。$\alpha,\beta$ を求めよ。
 
 ![図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_math_3_contour.svg)
 
-#### 题目描述
+### 题目描述
 
 I. 用留数定理求 $\displaystyle\int_0^\pi\frac{\cos4\theta}{1+\cos^2\theta}\,d\theta$。
 

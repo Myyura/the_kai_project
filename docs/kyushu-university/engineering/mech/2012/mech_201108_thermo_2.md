@@ -39,7 +39,7 @@ $$
 
 ![原題の図：内部発熱する平板と両側流体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_thermo-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，一块厚度为 $L$、导热系数为 $k$ 的平板内部均匀发热，两侧均由温度为 $T_f$ 的流体冷却。左右两侧的对流换热系数分别为 $h_1,h_2$，单位时间、单位体积的发热量为 $G$。回答下列问题。设导热系数和对流换热系数均不随温度变化，热量仅沿 $x$ 方向传递，并可假定为稳态。（50分）
 

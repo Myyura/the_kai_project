@@ -36,7 +36,7 @@ $$
 
 **(2-5)** $\displaystyle E\!\left[\left\{c\sum_{i=1}^n(X_i-\bar X)^2-\sigma^2\right\}^2\right]$ を最小とする $c$ を求めよ。ただし、$n$ は $2$ 以上とする。
 
-#### 题目描述
+### 题目描述
 
 设 $X_i$ 为服从均值 $\mu$、方差 $\sigma^2$ 的正态分布的随机变量，且当 $i\ne j$ 时，$X_i$ 与 $X_j$ 相互独立。已知 $\displaystyle\sum_{i=1}^n\left(\frac{X_i-\bar X}{\sigma}\right)^2$ 的期望为 $(n-1)$、方差为 $2(n-1)$，回答以下问题。
 

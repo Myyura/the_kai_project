@@ -28,7 +28,7 @@ tags:
 
 ![原図 (b)：動滑車と慣性をもつ定滑車](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_dynamics_1_figure_2.png)
 
-#### 题目描述
+### 题目描述
 
 回答下列问题。忽略滑轮转动摩擦，重力加速度为 $g$。（50分）
 

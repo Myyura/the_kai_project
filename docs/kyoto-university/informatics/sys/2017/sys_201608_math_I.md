@@ -49,7 +49,7 @@ C. $\operatorname{rank}(P)=\operatorname{rank}([P,q])$。ここで $[P,q]$ は $
 
 (iii) $U=\begin{pmatrix}a&1\\b&2\end{pmatrix}$ が $\operatorname{rank}(U)>\operatorname{rank}(U^2)$ を満たす実数 $a,b$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 用 $E$ 表示单位矩阵，$\operatorname{trace}(A)$ 表示方阵对角元素之和，$\operatorname{rank}(A)$ 表示秩。
 

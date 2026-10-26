@@ -37,7 +37,7 @@ tags:
 
 ![図2 壁に接して滑る棒の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/waseda-university/FSE/denshibutsuri/2024/denshibutsuri_202308_1_original_figure_2.png)
 
-#### 题目描述
+### 题目描述
 
 **问1**
 

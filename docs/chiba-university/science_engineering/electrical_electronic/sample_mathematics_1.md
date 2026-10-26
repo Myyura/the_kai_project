@@ -32,7 +32,7 @@ f:\mathbb R^2\to\mathbb R^3,\qquad
 f\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}xe^y+\cos y\\x\\x+e^y\end{pmatrix}.
 $$
 
-#### 题目描述
+### 题目描述
 
 回答以下问题。
 

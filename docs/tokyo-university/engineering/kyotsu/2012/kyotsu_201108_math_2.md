@@ -24,7 +24,7 @@ II. $\alpha>0$ とし、固有値を $\lambda_1,\lambda_2,\lambda_3$ とする�
 
 III. $\alpha=0$ のとき $A^n$ の全成分を求めよ。$n$ は正の整数とする。
 
-#### 题目描述
+### 题目描述
 
 设 $A=\begin{pmatrix}0&-1&-1\\-1&0&-1\\-1&-1&\alpha\end{pmatrix}$，$\alpha\ge0$。
 

@@ -73,7 +73,7 @@ Keywords：確率変数 random variable、互いに独立 independently with eac
 
 Keywords：製品 product、生産 produce、工場 factory、生産設備 production facility、必要 required、単位 unit、利益 profit、単位あたりの生産時間 production hours per unit、1 週間の生産可能時間 available production hours per week、生産量 production quantity、総利益 total profit、生産計画問題 production planning problem、線形計画問題 linear programming problem、定式化 formulate、スラック変数 slack variable、最適解 optimal solution、シンプレックス法 Simplex method、表 table、主問題 primal problem、双対問題 dual problem。
 
-#### 题目描述
+### 题目描述
 
 本科目“概率与运筹学”中，问题 1 必答，问题 2、3 只选其中一题作答。
 

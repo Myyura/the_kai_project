@@ -21,7 +21,7 @@ $$
 
 とするとき、$G$ の位数 $12$ の部分群 $K$ で $G=K+H$ となるものの数を求めよ。ただし $K+H=\{\alpha+\beta\mid\alpha\in K,\ \beta\in H\}$ である。
 
-#### 题目描述
+### 题目描述
 
 设阿贝尔群 $G=\mathbb Z/2\mathbb Z\times\mathbb Z/3\mathbb Z\times\mathbb Z/3\mathbb Z\times\mathbb Z/4\mathbb Z$，其子群为
 

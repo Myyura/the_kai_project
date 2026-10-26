@@ -36,7 +36,7 @@ $N\ge1$ 個の製品を順に観測する。各製品は互いに独立に確率
 
 ここで $\operatorname{Beta}_{a,b}(x)=x^{a-1}(1-x)^{b-1}/B(a,b)$（$0\le x\le1$）、$B(a,b)=\int_0^1t^{a-1}(1-t)^{b-1}dt$。ベイズの公式 $\pi(\phi\mid\boldsymbol v)=\pi(\phi)Q(\boldsymbol v\mid\phi)/Q_{a,b}(\boldsymbol v)$ を利用する。
 
-#### 题目描述
+### 题目描述
 
 I. (1) 计算 $f(z)=z/[(z-i)(z-1)]$ 沿闭路 $C$ 的积分，其中 $C$ 逆时针绕 $1$ 一周、顺时针绕 $i$ 一周。
 (2) 对 $I_2=\int_0^{2\pi}d\theta/(10+8\cos\theta)$，将它化为单位圆的逆时针积分 $\oint G(z)dz$ 并求 $G$；求全部奇点；用留数计算 $I_2$。

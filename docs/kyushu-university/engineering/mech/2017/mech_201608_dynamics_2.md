@@ -25,7 +25,7 @@ tags:
 
 ![二円板と二つのばねの原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_dynamics-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，两个圆盘分别可绕中心 $\mathrm{O}_1,\mathrm{O}_2$ 转动，绕转轴的极转动惯量分别为 $I_1,I_2$，半径分别为 $R_1,R_2$。两个圆盘上缠绕细绳，并通过弹簧常数为 $k$ 的弹簧相连。平衡时细绳和弹簧均绷紧、不松弛。两圆盘相对平衡状态的转角为 $\theta_1,\theta_2$。细绳不可伸长、质量可忽略，绳与圆盘之间不滑动。设 $\theta_1,\theta_2$ 微小，回答下列问题。（50分）
 

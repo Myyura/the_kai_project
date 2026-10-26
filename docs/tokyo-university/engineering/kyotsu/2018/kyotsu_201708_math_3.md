@@ -33,15 +33,15 @@ $g(z)=z/[(z^2+1)(z-1)]$ とする。反時計回りの閉曲線 $C$ は、次の
 1. $\displaystyle\oint_Cg(z)\,dz$ を求めよ。
 2. $\displaystyle\lim_{\varepsilon\to0^+}\left[\int_{-\infty}^{1-\varepsilon}g(x)\,dx+\int_{1+\varepsilon}^{\infty}g(x)\,dx\right]$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
-##### I.
+#### I.
 设 $a>0$，$f(z)=z/[(z^2+1)(z-1-ia)]$。
 
 1. 求全部极点及其留数。
 2. 用留数定理计算 $\displaystyle\int_{-\infty}^{\infty}\frac{x}{(x^2+1)(x-1-ia)}\,dx$。
 
-##### II.
+#### II.
 设 $g(z)=z/[(z^2+1)(z-1)]$。闭曲线 $C$ 依次由下列各段组成，方向为逆时针；$r>0$、$r\ne\sqrt2$、$R>1+r$：
 
 - $C_1:z=Re^{i\theta}$，$0\le\theta\le\pi$；

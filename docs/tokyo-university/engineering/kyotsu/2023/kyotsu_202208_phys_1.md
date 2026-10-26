@@ -32,7 +32,7 @@ II. 蝶番を水平方向にのみ伸縮するばねの先端に固定する。�
 III. $t=0$ から蝶番を水平方向に $\xi=A\sin\omega t$ で強制的に動かす。$A,\omega$ は実定数で、$\omega\ne\sqrt{g/l}$ とする。$t<0$ では蝶番は O、おもりは $(0,l)$ で静止していた。I.2 の微小角近似のもとで、$t\ge0$ の $\theta(t)$ を求めよ。
 ![固定支点、ばね付き支点、強制的に動く支点の単振り子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2023/kyotsu_202208_phys_1_pendulum_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 质量及粗细可忽略、长为 $l$ 的刚杆下端连接质量为 $m$ 的质点，组成单摆。取水平向右为 $x$、竖直向下为 $y$。杆上端由铰链支撑，摆在 $xy$ 平面内无摩擦转动。杆与 $y$ 轴的夹角为 $\theta$，角速度、角加速度为 $\dot\theta,\ddot\theta$，重力加速度为 $g$，忽略空气阻力。
 

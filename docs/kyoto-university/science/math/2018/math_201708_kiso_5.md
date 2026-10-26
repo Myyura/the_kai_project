@@ -24,7 +24,7 @@ $$
 
 で定める。このとき、$G$ から乗法群 $\mathbb C^\times=\mathbb C\setminus\{0\}$ への準同型写像の個数を求めよ。
 
-#### 题目描述
+### 题目描述
 
 设 $p$ 为素数，$\mathbb F_p=\mathbb Z/p\mathbb Z$ 为阶数为 $p$ 的有限域。对矩阵乘法构成的群
 

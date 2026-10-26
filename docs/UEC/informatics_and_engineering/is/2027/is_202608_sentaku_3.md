@@ -163,11 +163,11 @@ $$
 
 正の整数：positive integer，等式：equality，不等式：inequality，数学的帰納法：mathematical induction
 
-#### 题目描述
+### 题目描述
 
 **注意：** 离散数学的问1、问2须在答题卡上作答。从选项中选择最合适的内容，填入 $\boxed{1}$ 至 $\boxed{20}$。
 
-##### 问1
+#### 问1
 
 现要查阅某数据库，并使用如下定义的谓词 $P(x,y),\ Q(x,y)$ 整理信息。
 
@@ -224,7 +224,7 @@ $$
 
 术语：谓词（predicate），企业（company），历史订单记录（record of past orders），商品（commodity），逻辑公式（logic expression）。
 
-##### 问2
+#### 问2
 
 阅读下面的文字，从选项中选择最合适的内容填入空白。
 
@@ -248,7 +248,7 @@ $$
 
 选项：⓪ 总是成立，① 不总是成立，② $a$，③ $b$，④ $c$
 
-##### 问3
+#### 问3
 
 回答下列 (1) 至 (4)。
 
@@ -287,7 +287,7 @@ $$
 
 术语：复合映射（composite map），满射（surjection），单射（injection），双射（bijection），元素（element），幂集（power set），差集（set difference），偶数（even number），奇数（odd number），空集（empty set）。
 
-##### 问4
+#### 问4
 
 回答下列 (1)、(2)。
 

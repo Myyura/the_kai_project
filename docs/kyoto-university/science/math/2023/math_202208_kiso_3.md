@@ -25,7 +25,7 @@ $$
 さらに $v$ は固有値 $\alpha$ に属する $T$ の固有ベクトルであり、$u_1$ は固有値 $\beta$ に属する $T$ の固有ベクトルとする．
 このとき $\alpha = \beta$ が成り立つことを示せ．
 
-#### 题目描述
+### 题目描述
 
 设 $V$ 为有限维复向量空间，$S,T:V\to V$ 是可对角化且满足 $ST=TS$ 的线性映射。令整数 $r\geq2$，$\alpha,\beta\in\mathbb C$，且 $\lambda_1,\ldots,\lambda_r\in\mathbb C$ 两两不同。非零向量 $v,u_1,\ldots,u_r\in V$ 满足
 

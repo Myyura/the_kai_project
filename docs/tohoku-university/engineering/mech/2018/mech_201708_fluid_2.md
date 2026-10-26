@@ -26,7 +26,7 @@ tags:
 
 ![図1 車輪付き水槽の噴流と傾斜水面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_fluid_2_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 2. 如图1，密度为 $\rho$ 的水从带轮水槽的侧孔水平喷出，其反作用使水槽在水平路面上以恒定加速度 $\alpha$ 运动。重力加速度 $g$ 竖直向下，水面相对水平面倾斜角为 $\theta$。侧孔截面积为 $A$，沿右侧壁测量，侧孔位于水面下深度 $H$ 处。相对侧孔观察，水的喷出速度为恒定值 $U$。水槽足够大，水槽及槽内水的总质量 $M$、水面的形状与高度随时间的变化均可忽略。水槽周围的压力为大气压，忽略水的黏性和对水槽运动的摩擦阻力。回答下列问题。
 

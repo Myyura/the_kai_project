@@ -36,7 +36,7 @@ IV. 以下では $\alpha=4$ とする。
 2. $\boldsymbol y^T\boldsymbol y=1$、$y_1-y_2-2y_3=0$ のとき、$\boldsymbol y^TA\boldsymbol y$ の値域を求めよ。
 3. $\boldsymbol z^T\boldsymbol z=1$、$z_1+z_2+z_3=0$ のとき、$\boldsymbol z^TA\boldsymbol z$ の値域を求めよ。
 
-#### 题目描述
+### 题目描述
 
 设 $\alpha$ 为实数，
 

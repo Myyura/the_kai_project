@@ -27,7 +27,7 @@ tags:
 
 ![原題の定滑車・おもり・円筒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_dynamics-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，将线跨过半径为 $a$、转动惯量为 $J$ 的定滑轮，线的一端连接质量为 $M$ 的重物，另一端连接质量为 $m$、半径为 $r$、转动惯量为 $I=mk^2$ 的圆筒，其中 $k$ 为圆筒的回转半径。线绕在圆筒上，随圆筒转动无松弛地展开，过程中圆筒半径保持不变。滑轮光滑转动，线与滑轮之间没有滑动。重力加速度为 $g$。解答中若使用题目未给出的物理量，须先定义再使用。（50分）
 

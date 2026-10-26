@@ -30,7 +30,7 @@ tags:
 
 ![原題の図2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2014/mech_201308_materials_1_original_figure_2.png)
 
-#### 题目描述
+### 题目描述
 
 问题1（使用红色答题纸）
 

@@ -31,7 +31,7 @@ tags:
 
 ![原題の図1-3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/mech/2014/mech_201308_dynamics_1_2_original_figure_3.png)
 
-#### 题目描述
+### 题目描述
 
 1-2　考虑图1-1至图1-3所示、重力加速度为 $g$ 的场中纸面内的微小振动。
 

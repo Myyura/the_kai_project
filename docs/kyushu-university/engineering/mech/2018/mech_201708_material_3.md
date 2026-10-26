@@ -27,7 +27,7 @@ tags:
 
 ![原題の半円形弾性棒と二本の剛体はり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_material-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 半径为 $a$ 的半圆形圆杆 AB，其一端如图焊接于墙壁，另一端与长度为 $a$ 的梁 BC 垂直焊接。梁 BC 又与同样长 $a$ 的梁 CD 垂直焊接。杆 AB 为杨氏模量为 $E$、剪切模量为 $G$ 的弹性体，梁 BC、CD 为刚体。D 点受到垂直于纸面、从纸面正面指向背面的载荷 $P$。所有杆的直径相对于杆长均充分小。回答下列问题。（35分）
 

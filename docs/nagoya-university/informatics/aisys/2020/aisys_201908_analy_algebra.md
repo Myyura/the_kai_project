@@ -58,7 +58,7 @@ $$
 
 複素数 complex number，実数 real number，虚数単位 imaginary unit，行列 matrix，固有値 eigenvalue，単位固有ベクトル unit eigenvector，座標平面 coordinate plane，領域 region，転置 transpose，動点 moving point，座標 coordinates，軌跡 trajectory，速度 velocity，最大 maximum．
 
-#### 题目描述
+### 题目描述
 
 须写出解的推导过程。
 

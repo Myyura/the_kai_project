@@ -41,7 +41,7 @@ $f(x)=\exp(-x-e^{-x})$ ($-\infty<x<\infty$) とする。
 
 (iii) 実定数 $a,b$ に対し $\int_{-\infty}^{\infty}F(x-b)f(x-a)\,dx$ を計算せよ。
 
-#### 题目描述
+### 题目描述
 
 令 $e$ 为自然对数的底，$\exp(x)=e^x$。
 

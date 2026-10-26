@@ -41,7 +41,7 @@ $$
 
 (2) $B(\omega)$ および $\beta(\omega)$ を求めよ。ここで、$A(\omega)$ および $\alpha(\omega)$ のうち必要なものを用いてよい。
 
-#### 题目描述
+### 题目描述
 
 设函数 $A(\omega),B(\omega),\alpha(\omega),\beta(\omega)$ 对任意正实数 $\omega,t$ 满足下列两式。
 

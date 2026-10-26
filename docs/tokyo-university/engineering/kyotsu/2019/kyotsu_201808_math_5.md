@@ -41,7 +41,7 @@ $\displaystyle(f*g)(x)=\int_{-\infty}^{\infty}f(y)g(x-y)\,dy$。
 1. $\mathcal F[f*g]$ を $\widehat f,\widehat g$ で表せ。
 2. 前問を用いて、$h_t=h_{xx}$、$h(x,0)=g(x)$ の解を積分表示せよ。ただし $t>0$ とする。
 
-#### 题目描述
+### 题目描述
 
 设 $f$ 连续可微，$f(x)\to0$（$|x|\to\infty$），且 $f,f',xf$ 均绝对可积。采用 Fourier 变换
 

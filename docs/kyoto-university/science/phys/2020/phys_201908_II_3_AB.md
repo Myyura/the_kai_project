@@ -80,7 +80,7 @@ $$
 
 ![図2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/science/phys/2020/201908-II-3B-fig2.png)
 
-#### 题目描述
+### 题目描述
 
 **II-3A（数学物理）**
 

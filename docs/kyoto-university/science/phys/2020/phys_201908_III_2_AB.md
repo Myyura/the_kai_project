@@ -51,7 +51,7 @@ $A_0,B_0,A_1,B_1$ を決定し、位置 $\mathrm P(r,\theta,\varphi)$ での静�
 
 ![図1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/science/phys/2020/201908-III-2B-fig1.png)
 
-#### 题目描述
+### 题目描述
 
 **III-2A（力学）**
 

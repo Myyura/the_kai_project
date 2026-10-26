@@ -31,7 +31,7 @@ tags:
 
 ![図1.1 抵抗ラダー回路、図1.2 等価電圧源](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2019/ee_201808_circuit1-fig1-1-2.png)
 
-#### 题目描述
+### 题目描述
 
 图1.1所示电路由直流电压源 $E_1,E_2,E_3$、开关 $S_0,S_1,S_2,S_3$、由 $R$ 和 $2R$ 组成的电阻网络以及外部电阻 $R_L$ 构成。以地为参考电势，A 点电压为 $V_A$。回答以下问题。1)～6) 中开关 $S_0$ 断开，A 点不与外部电阻 $R_L$ 连接。
 

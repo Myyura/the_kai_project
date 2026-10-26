@@ -28,7 +28,7 @@ tags:
 
 ![原題の図：傾斜面上を流下する水膜と座標系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2011/mech_201008_fluids-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，在大气中，密度为 $\rho$、动力黏度为 $\mu$ 的水沿与竖直面夹角为 $\theta$ 的斜面自然向下流动，保持水膜厚度 $h$，且处于充分发展的层流状态。按图建立 $x$–$y$ 坐标系，设流动为二维流动，回答下列问题。重力加速度为 $g$。（50分）
 

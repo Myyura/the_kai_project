@@ -29,7 +29,7 @@ tags:
 
 ![原題の図3-3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/mech/2024/mech_202308_senmon_3_3_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 3. 对由均质、线性、各向同性弹性体构成的构件回答以下问题。其杨氏模量为 $E$，剪切模量为 $G$。假设变形微小，忽略自重影响。
 

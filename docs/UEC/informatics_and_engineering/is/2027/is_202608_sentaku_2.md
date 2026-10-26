@@ -128,11 +128,11 @@ $$
 Keywords：最大化問題：maximization problem，シンプレックス法：simplex method，制約：constraints，スラック変数：slack variable，人為変数：artificial variable，等式制約：equality constraints，非基底変数：non basic variable，実行基底解：basic feasible solution，非負：non-negative，目的関数：objective function，係数：coefficient，表：table，罰金：penalty，最適解：optimal solution，完成：complete
 
 
-#### 题目描述
+### 题目描述
 
 报考本科目（概率与运筹学）时，问1为必答题，问2与问3只能选择其中一题作答。
 
-##### 问1
+#### 问1
 
 考虑相互独立的随机变量 $X_1,X_2,\ldots,X_n$，它们服从期望为 $\mu=100$、标准差为 $\sigma=20$ 的分布。定义它们的样本均值为 $\bar{X}_n=\frac{1}{n}\sum_{i=1}^{n}X_i$。
 
@@ -168,7 +168,7 @@ $$
 
 关键词：期望：expected value，标准差：standard deviation，相互独立：mutually independent，随机变量：random variable，样本均值：sample mean，方差：variance，概率：probability，最小：smallest，中心极限定理：central limit theorem，近似：approximation，正态分布：normal distribution，标准正态分布表：standard normal distribution table，大约：approximately，向上取整：round up，切比雪夫不等式：Chebyshev's inequality
 
-##### 问2
+#### 问2
 
 选择本题时，不得作答问3。
 
@@ -200,7 +200,7 @@ $$
 
 关键词：二项分布：binomial distribution，概率质量函数：probability mass function，事件：event，不适当：inappropriate，矩母函数：moment generating function，一阶矩：first moment，二阶矩：second moment，生产线：production line，不良率：defective product rate，组：pair，小于：less than，出货：ship，报废：discard，损失：loss
 
-##### 问3
+#### 问3
 
 选择本题时，不得作答问2。
 

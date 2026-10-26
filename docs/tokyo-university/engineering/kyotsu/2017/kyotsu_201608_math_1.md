@@ -41,7 +41,7 @@ x^2 \frac{\text{d}^2y}{\text{d}x^2} - x \frac{\text{d}y}{\text{d}x} - 8y = x^2 \
 \end{align}
 $$
 
-#### 题目描述
+### 题目描述
 
 完成以下三问：
 

@@ -23,7 +23,7 @@ tags:
 
 ① $1$、② $\dfrac13$、③ $\dfrac14$、④ $0$、⑤ $\dfrac\pi4$、⑥ $\dfrac{\pi^2}4$、⑦ $\pi$、⑧ $2\pi$、⑨ $\pi^2$
 
-#### 题目描述
+### 题目描述
 
 **问1** 从以下选项中选择 $\displaystyle\lim_{x\to0}\frac{x^3}{x-\sin x}$ 的答案。
 

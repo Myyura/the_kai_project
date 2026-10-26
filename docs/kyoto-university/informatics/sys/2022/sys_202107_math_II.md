@@ -94,7 +94,7 @@ $$
 
 ![楕円体 E と接点の楕円 R、中心 T](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2022/sys_202107_math_II_ellipsoid.svg)
 
-#### 题目描述
+### 题目描述
 
 1. 令 $\mathbb R$ 为实数集，$e$ 为自然对数的底。对实数 $M>0$，在 $xy$ 平面上定义区域
 

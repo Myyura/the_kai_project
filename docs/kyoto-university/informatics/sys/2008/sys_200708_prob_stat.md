@@ -43,9 +43,9 @@ $$
 
 (iv) $\operatorname{Var}(\widehat\sigma_2)$ を求め、$N$ が大きいときの近似式および両推定量の優劣を述べよ。$\Gamma(z)\simeq\sqrt{2\pi}e^{-z}z^{z-1/2}$ を用いてよい。
 
-#### 题目描述
+### 题目描述
 
-### 问1
+#### 问1
 设 $F(x)=\Pr(Z\le x)$，$E[Z]=0$，$\operatorname{Var}(Z)=\sigma^2>0$。
 
 (i) 将 $E[(tX+Y)^2]$ 看作 $t$ 的二次式，证明 $(E[XY])^2\le E[X^2]E[Y^2]$。
@@ -56,7 +56,7 @@ $$
 
 (iv) 证明 $x\ge0$ 时 $F(x)\ge x^2/(x^2+\sigma^2)$。
 
-### 问2
+#### 问2
 从 $N(0,\sigma^2)$ 取得 $N$ 个独立样本，$\sigma$ 未知。
 
 (i) 求 $c_1$ 使 $\widehat\sigma_1=c_1\sum_i|X_i|$ 无偏。(ii) 求其方差。

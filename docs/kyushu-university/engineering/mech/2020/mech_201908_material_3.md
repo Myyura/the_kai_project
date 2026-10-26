@@ -24,7 +24,7 @@ $$
 
 ![原題の三端固定された十字形丸棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_material_3_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 如图，结构 AOC-BOD 在 B、C、D 三点完全固定于刚性墙壁。当 A 点受到沿 $z$ 方向的载荷 $P$ 时，求 A 点沿 $z$ 方向的位移 $\delta_{AZ}$。结构 AOC-BOD 由直径为 $d$ 的圆杆构成，$\ell\gg d$，杨氏模量为 $E$，剪切模量为 $G$，且 $G=E/2$。圆杆的截面二次矩 $I$ 和截面极二次矩 $I_p$ 由上式给出。（50分）
 

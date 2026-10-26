@@ -25,7 +25,7 @@ tags:
 
 ![原題の二本の棒と連結ばね](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_dynamics-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 有一根质量为 $3m$、长度为 $l$ 的均匀杆 A，及一根质量为 $m$、长度为 $l$ 的均匀杆 B。杆 A 以 $O_A$ 为转动中心向竖直下方悬挂，杆 B 以 $O_B$ 为转动中心向竖直上方支承。两杆相对竖直轴的转角如图记为 $\theta_A,\theta_B$。在 $\theta_A=\theta_B=0$ 时，A 的下端与 B 的上端等高。这两端由弹簧常数为 $k_1$ 的弹簧连接，A 的下端还由弹簧常数为 $k_2$ 的弹簧水平连接至基础。在两转角均为零时，两根弹簧均处于原长。杆作微小运动，重力加速度为 $g$。回答下列问题。（50分）
 

@@ -58,11 +58,11 @@ $$
 
 ![図1 積分路（R > 1）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/UEC/informatics_and_engineering/mise/2021/mise_202008_sentaku_8_fig1.png)
 
-#### 题目描述
+### 题目描述
 
 用 $z$ 表示复变量，$i$ 表示虚数单位。回答下列问题。
 
-### 第1题
+#### 第1题
 
 计算下列各式，并分别表示为复数 $a+ib$ 的形式，其中 $a,b$ 为实数。
 
@@ -72,7 +72,7 @@ $$
 
 (3) $\displaystyle\int_0^{\pi i}z\cos z^2\,dz$
 
-### 第2题
+#### 第2题
 
 对满足柯西–黎曼方程的复函数 $f(z,\bar z)$，证明
 
@@ -82,7 +82,7 @@ $$
 
 其中 $\bar z$ 为 $z$ 的共轭复数，可适当定义证明所需的变量与函数。
 
-### 第3题
+#### 第3题
 
 从复线积分 $\displaystyle\oint_C\frac{ze^{iz}}{z^2+1}\,dz$ 推导 $\displaystyle\int_{-\infty}^{\infty}\frac{x\cos x}{x^2+1}\,dx$ 和 $\displaystyle\int_{-\infty}^{\infty}\frac{x\sin x}{x^2+1}\,dx$ 的值。路径 $C$ 为图1定义的 $C=C_1+C_2$，通过解答下列小问完成推导。
 

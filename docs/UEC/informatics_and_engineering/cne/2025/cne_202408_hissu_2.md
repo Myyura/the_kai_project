@@ -54,7 +54,7 @@ $$
 
 陰関数：implicit function、有理式：rational expression、極値：extremum、2 重積分：double integral。
 
-#### 题目描述
+### 题目描述
 
 回答下列问题。
 

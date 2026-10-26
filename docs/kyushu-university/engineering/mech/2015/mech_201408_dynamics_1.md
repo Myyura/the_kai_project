@@ -25,7 +25,7 @@ tags:
 
 ![原題の水平円板と二つのおもり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_dynamics-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，一均匀圆盘水平放置，可以绕通过其中心的竖直轴光滑转动。在距圆盘中心 $r$ 处放置质量为 $m_1$ 的物体 A。圆盘侧面绕有不可伸缩的线，线经过质量可忽略的滑轮，末端悬挂质量为 $m_2$ 的物体 B。圆盘质量为 $M$、半径为 $R$。起初使圆盘静止，在 $t=0$ 时轻轻释放；到 $t=t_1\;(>0)$ 时，A 开始相对圆盘滑动。线随圆盘转动无松弛地展开，线的质量可忽略。圆盘转角为 $\theta$，B 向下的位移为 $x$，重力加速度为 $g$。回答下列问题。（50分）
 

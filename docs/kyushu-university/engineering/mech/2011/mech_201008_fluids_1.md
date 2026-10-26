@@ -22,7 +22,7 @@ tags:
 
 ![原題の図：二つの流入管と合流部・弁](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2011/mech_201008_fluids-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 一个上部与大气相通、足够大的容器中装满水，设水流出时水位不变。在距水面深度分别为 $h$ 和 $H\ (h<H)$ 的侧壁处，按图安装细圆管。下方圆管水平放置，上方圆管中途设有阀门，并与下方圆管汇合。上、下两管从入口至汇合点的长度分别为 $L_1$ 和 $L_2$，从汇合点至管出口的长度为 $L_2$。各管的内径 $D$ 和管摩擦系数 $\lambda$ 均相同，入口损失、弯管损失和汇合损失均可忽略。设重力加速度为 $g$，回答下列问题。（50分）
 

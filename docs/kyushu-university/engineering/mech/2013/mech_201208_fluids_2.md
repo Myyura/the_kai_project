@@ -24,7 +24,7 @@ tags:
 
 ![原題の図：移動する傾斜平板と衝突噴流](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_fluids-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，宽度为 $A$、速度均匀且为 $V$ 的二维射流，撞击一块以恒定速度 $v$ 沿射流方向运动的平板，其中 $V>v$。射流撞击后分成方向相反的两股流动，分别以均匀速度沿平板流出。平板表面相对于入射射流倾斜，射流与平板表面法线的夹角为 $\theta$。流体密度为 $\rho$，流动位于水平面内，且流体黏性可以忽略。回答下列问题。（50分）
 

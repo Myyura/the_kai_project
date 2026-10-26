@@ -25,7 +25,7 @@ tags:
 
 (4) (3)で求めた $B$ について、$xy$ 平面上の任意の点 $\boldsymbol x=[x,y]^{\mathsf T}$ の $B$ による $XY$ 平面への写像を $\boldsymbol X=[X,Y]^{\mathsf T}$ とするとき、$\boldsymbol X$ は $XY$ 平面上でどのような図形を描くか。式および図で示せ。
 
-#### 题目描述
+### 题目描述
 
 对于矩阵 $A=\begin{bmatrix}a&-1\\0&1\end{bmatrix}$，回答以下各问。实数 $a$ 满足 $0<a<1$。（50分）
 

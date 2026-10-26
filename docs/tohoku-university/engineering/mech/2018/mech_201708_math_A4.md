@@ -55,7 +55,7 @@ $$
 
 ![図1 デカルト座標系と円筒座標系の基本ベクトル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_math_A4_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 4. 如图1，设笛卡尔坐标系 $(x,y,z)$ 的基向量为 $\boldsymbol i,\boldsymbol j,\boldsymbol k$，柱坐标系 $(r,\theta,z)$ 的基向量为 $\boldsymbol e_r,\boldsymbol e_\theta,\boldsymbol e_z$。这些基向量的模均为1。曲面 $S$ 在笛卡尔坐标系中表示为
 

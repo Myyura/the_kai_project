@@ -24,7 +24,7 @@ tags:
 
 ![図2：固定・単純支持された二本のはり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 图2所示结构在 A、E 两点固定于墙壁，并在 D 点简支。回答下列问题。（40分）
 

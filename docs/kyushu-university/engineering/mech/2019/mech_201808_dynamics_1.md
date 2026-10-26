@@ -35,7 +35,7 @@ $$
 
 ![二円板と回転座標系の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_dynamics-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，无摩擦水平面上有一个刚体，由两个半径为 $R$、质量为 $m$、厚度可忽略的均质圆盘 A、B，以及垂直、刚性连接于两盘中心之间的无质量长 $d$ 轴组成。两圆盘始终与水平面接触，刚体绕连接轴以恒定角速度 $\alpha$ 转动，同时绕通过重心 G 的竖直轴以恒定角速度 $\beta$ 转动。建立以 G 为原点的正交坐标系 G–$xyz$：$z$ 轴水平并通过 B 中心，$x$ 轴竖直向上，$y$ 轴水平且与另外两轴垂直。该坐标系绕 $x$ 轴以角速度 $\beta$ 转动。重力加速度为 $g$。所有向量和张量均须用 G–$xyz$ 各轴方向的分量作答；需要时，可用 $\boldsymbol e_x,\boldsymbol e_y,\boldsymbol e_z$ 表示各轴的单位向量。（50分）
 

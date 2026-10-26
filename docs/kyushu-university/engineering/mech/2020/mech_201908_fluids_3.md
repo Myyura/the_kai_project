@@ -24,7 +24,7 @@ tags:
 
 ![原題の図：二液体を入れた回転U字管](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_fluids_3_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，一根内径恒定、两端向大气开放的U形管内，左侧装有液体A，右侧装有液体B，二者互不混溶。U形管水平段的水平长度为 $2L$，以其中点为原点O，回答下列问题。重力加速度为 $g$。可认为U形管内径足够小，但忽略表面张力的影响。（50分）
 

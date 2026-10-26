@@ -28,7 +28,7 @@ tags:
 
 ![原題の図：理論オットーサイクルのp–v線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_thermo-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 某理想奥托循环的 $p$–$v$ 图如图所示，其中 $p$ 为工质气体的压力，$v$ 为比体积。回答下列问题。工质为比热不随温度变化的理想气体，比热比为 $\kappa$。图中状态1、2的压力分别为 $p_1,p_2$，比体积分别为 $v_1,v_2$。（70分）
 

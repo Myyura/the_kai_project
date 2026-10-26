@@ -31,7 +31,7 @@ tags:
 
 ![図1-1 丸棒と剛体板に作用する集中外力](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kobe-university/engineering/mech/2019/materials_201808_1_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 问题[1]、[2]须分别在不同的答题纸上作答。
 

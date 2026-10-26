@@ -52,7 +52,7 @@ III. 体積がいずれも $V_0$ の容器 A、B を弁でつなぐ。初め A �
 3. この過程の不可逆性を理由とともに説明せよ。
 ![ピストンによる膨張と真空への自由膨張](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2020/kyotsu_201908_phys_3_expansion_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 理想气体和 van der Waals 气体分别满足 $PV=nRT$ 和 $(P+an^2/V^2)(V-nb)=nRT$。$P,V,n,R,T$ 依次为压强、体积、物质的量、气体常数和绝对温度，$a,b$ 为常数。准静态过程满足 $dU=T\,dS-P\,dV$，摩尔定容热容 $C_V=\frac1n(\partial U/\partial T)_V$ 恒定。
 

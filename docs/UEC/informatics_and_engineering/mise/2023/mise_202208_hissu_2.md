@@ -57,7 +57,7 @@ $$
 
 キーワード：次元 dimension、実数空間 real space、線形写像 linear mapping、定義 definition、核 kernel、像 image、基底 basis、正規化 normalization、連立 1 次方程式 simultaneous linear equations、一意解 unique solution、定数 constant、条件 condition、解 solution、行列 matrix、固有値 eigenvalue、固有ベクトル eigenvector、任意定数 arbitrary constant、対角化可能 diagonalizable、対角化 diagonalization、対角要素 diagonal element、正則行列 regular matrix。
 
-#### 题目描述
+### 题目描述
 
 回答下列问题。
 

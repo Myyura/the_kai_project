@@ -41,7 +41,7 @@ $$
 
 ![図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2012/kyotsu_201108_math_3_contour.svg)
 
-#### 题目描述
+### 题目描述
 
 I. 设 $\zeta=f(z)=(1+z)/(1-z)$。证明它把 $|z|<1$ 映为 $\operatorname{Re}\zeta>0$，并求单位圆上 $z=e^{i\varphi}$（$0<\varphi<2\pi$）的像。
 

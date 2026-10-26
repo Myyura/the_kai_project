@@ -42,7 +42,7 @@ $$
 6. 透過率 $T=|\boldsymbol S_T|_{\rm ave}/|\boldsymbol S_0|_{\rm ave}$、反射率 $R=|\boldsymbol S_R|_{\rm ave}/|\boldsymbol S_0|_{\rm ave}$ を求めよ。添字 ave は時間平均を表す。
 ![帯電円柱と金属円筒、および電磁波の垂直入射](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2023/kyotsu_202208_phys_2_fields_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 I. 真空中半径为 $a$、无限长的圆柱区域内，均匀分布体电荷密度 $\rho>0$，真空介电常数为 $\varepsilon_0$。
 

@@ -94,7 +94,7 @@ $$
 
 (4) $r=a$ における磁場の $\theta$ 成分の境界条件 $H_\theta^{\mathrm{II}}-H_\theta^{\mathrm I}=j(\theta)$ を利用して，表面電流密度 $j(\theta)$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 以下设真空介电常数为 $\varepsilon_0$，真空磁导率为 $\mu_0$。直角坐标系 $(x,y,z)$ 的单位矢量分别为 $\boldsymbol e_x,\boldsymbol e_y,\boldsymbol e_z$，极坐标系 $(r,\theta,\phi)$ 的单位矢量分别为 $\boldsymbol e_r,\boldsymbol e_\theta,\boldsymbol e_\phi$。
 

@@ -121,7 +121,7 @@ $$
 6. 水素原子内の電子にはスピン軌道相互作用がはたらき、その相互作用エネルギー演算子は $\zeta(\boldsymbol l\cdot\boldsymbol s)$（$\zeta>0$）と表される。この相互作用によって $2p$ 軌道の縮退した6つの準位は2つのエネルギー準位に分裂する。各準位の縮退度とスピン軌道相互作用エネルギーを求めよ。
 7. 全角運動量 $\boldsymbol j=\boldsymbol l+\boldsymbol s$ について、$\boldsymbol j^2=\boldsymbol l^2+\boldsymbol s^2+2(\boldsymbol l\cdot\boldsymbol s)$ を用い、問6の各エネルギー準位における $\langle\boldsymbol j^2\rangle$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 考试日期：2017年8月30日。
 

@@ -41,7 +41,7 @@ $$
 
 (2) は日本語題文の関数を採用する。原問題の英語題文では第2項が $\sin2y$ となっているため、その場合の近似式も解答に付記する。
 
-#### 题目描述
+### 题目描述
 
 (1) 求下列函数的二阶偏导数 $\dfrac{\partial^2f}{\partial x^2},\dfrac{\partial^2f}{\partial x\partial y},\dfrac{\partial^2f}{\partial y^2}$。
 

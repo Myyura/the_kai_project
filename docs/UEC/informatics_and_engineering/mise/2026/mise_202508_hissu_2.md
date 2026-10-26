@@ -34,7 +34,7 @@ $$
 
 キーワード：連立 1 次方程式 simultaneous linear equations、行列 matrix、正則行列 regular matrix、対角化 diagonalization、対角行列 diagonal matrix、3 次元座標 three dimensional coordinate、3 次元単位ベクトル three dimensional unit vector、方向ベクトル direction vector、内積 inner product。
 
-#### 题目描述
+### 题目描述
 
 回答下列问题。
 

@@ -49,7 +49,7 @@ $$
 \alpha^2+\beta^2+\gamma^2=\alpha\beta+\beta\gamma+\gamma\alpha.
 $$
 
-#### 题目描述
+### 题目描述
 
 **问题1** 对 $z=x+yi$ 的函数 $g(z)=\sqrt{|xy|}$ 和 $h(z)=1/(x-yi)$，求所有复可微点及该点的导数，并证明其他点不可微。$x,y$ 为实数，$i$ 为虚数单位。
 

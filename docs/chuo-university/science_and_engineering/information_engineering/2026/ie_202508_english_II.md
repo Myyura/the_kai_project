@@ -43,7 +43,7 @@ The Unicode Standard began with a simple goal: to unify the many hundreds of con
 
    (2) その欠点はどのような問題を引き起こしていたか，日本語で説明せよ。
 
-#### 题目描述
+### 题目描述
 
 以下英文摘自字符编码标准 Unicode 标准的规范文档《The Unicode Standard, Version 15》，并做了部分修改。阅读文章，回答各问。
 

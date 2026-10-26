@@ -38,7 +38,7 @@ $xy$ 平面に、内半径 $a$、外半径 $b$、中心 O の穴あき円板が�
 
 ![帯電円環板、軸方向・周方向磁化、および環状ソレノイド](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2019/kyotsu_201808_phys_2_annulus_torus_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 考虑真空中电荷、磁化和电流产生的电磁场。真空介电常数为 $\varepsilon_0$，磁导率为 $\mu_0$，忽略重力。
 

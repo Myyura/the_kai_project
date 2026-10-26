@@ -24,7 +24,7 @@ tags:
 
 ![原題の両端固定された十字形構造](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_material-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，结构 OAB-CAD 在 O、B 两点固定于刚性墙壁。在 C、D 两点分别施加沿 $x$ 方向的载荷 $P$ 时，回答下列问题。结构 OAB-CAD 由直径为 $d$ 的圆杆构成，$\ell\gg d$，杨氏模量为 $E$。（40分）
 

@@ -26,7 +26,7 @@ tags:
 
 ![弦と右端支持の剛体棒の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_dynamics-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，长度为 $l$、线密度为 $\rho$、张力为 $T$ 的均匀弦，与质量为 $m$、长度为 $2l$、粗细可忽略的均匀刚性杆共线连接。考虑系统在水平面内的微小振动。弦左端和刚性杆右端分别安装于墙壁，杆右端与墙壁之间可无摩擦自由转动。以弦左端 O 为原点，沿弦的长度方向取 $x$ 轴，以 $u(x,t)$ 表示时刻 $t$ 的弦位移。如图，在杆重心处沿垂直于 $x$ 轴的方向施加周期外力 $f\cos\omega t$。忽略重力及张力 $T$ 的变化，回答下列问题。（50分）
 

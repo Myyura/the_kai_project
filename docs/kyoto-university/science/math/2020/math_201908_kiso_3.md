@@ -22,7 +22,7 @@ $V,W$ を有限次元複素ベクトル空間、$f:V\to W$、$g:W\to V$ を線�
 
 (iii) 任意の $v\in V_1$ に対し、$g(f(v))=v$。
 
-#### 题目描述
+### 题目描述
 
 设 $V,W$ 为有限维复向量空间，线性映射 $f:V\to W$、$g:W\to V$ 满足 $f\circ g=\operatorname{id}_W$。证明存在子空间 $V_0,V_1\subset V$，使得：
 

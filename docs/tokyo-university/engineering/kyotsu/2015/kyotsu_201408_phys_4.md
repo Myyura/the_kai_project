@@ -31,16 +31,16 @@ tags:
 
 ![平面波の屈折、直角プリズム、微小プリズム回折格子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2015/kyotsu_201408_phys_4_optics_audited.svg)
 
-#### 题目描述
+### 题目描述
 
-### I
+#### I
 
 真空中的平面光波以入射角 $\theta_i$ 射入折射率为 $n$ 的均匀介质，折射角为 $\theta_r$。真空和介质中的光速分别为 $c,v$。角度均相对于界面法线测量。
 
 1. 用惠更斯原理推导 $\theta_i,\theta_r,n$ 之间的斯涅尔折射定律。
 2. 光子的能量、动量分别为 $\hbar\omega,\hbar k$，其中 $\omega$ 为角频率，$k$ 为波数，$\hbar=h/(2\pi)$，$h$ 为普朗克常数。用 $\theta_i,\theta_r,c,v$ 中的全部或部分量表示真空中动量 $\hbar k_0$ 与介质中动量 $\hbar k_1$ 的关系。
 
-### II
+#### II
 
 真空中的直角棱镜折射率为 $n$，顶角为 $\alpha$。波长 $\lambda$ 的光如图从竖直面以入射角 $\theta_i$ 入射，从斜边以出射角 $\theta_o$ 射出。另将折射率 $n$、顶角 $\beta$、宽度 $d$ 的微小棱镜无间隙地周期排列成衍射光栅，使光垂直入射。
 

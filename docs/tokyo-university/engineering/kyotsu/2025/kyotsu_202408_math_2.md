@@ -46,7 +46,7 @@ $$
 2. $C=Be^A$ とする。非零実ベクトル $\boldsymbol y$ に対する $\boldsymbol y^TC\boldsymbol y/(\boldsymbol y^T\boldsymbol y)$ の最大値と最小値を求めよ。
 3. $f(\boldsymbol z)=\frac12\boldsymbol z^TC\boldsymbol z-\boldsymbol a^T\boldsymbol z$ とする。$\partial f/\partial z_1=\partial f/\partial z_2=\partial f/\partial z_3=0$ を満たす実ベクトル $\boldsymbol z$ に対し、$\sqrt{z_1^2+z_2^2+z_3^2}$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 对方阵 $A$，定义 $e^A=I+\sum_{k=1}^{\infty}A^k/k!$。
 

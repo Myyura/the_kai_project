@@ -32,7 +32,7 @@ $$
 
 ![曲線・接線と法線 PN](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2015/tokyo-kyotsu-201408-normal.svg)
 
-#### 题目描述
+### 题目描述
 
 I. 令 $p=y'$，求微分方程
 

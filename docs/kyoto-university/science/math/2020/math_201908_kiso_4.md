@@ -18,7 +18,7 @@ tags:
 1. 任意の $x\in(0,\infty)$ に対して $f(x)\ge0$ となることを示せ。
 2. $\displaystyle\lim_{x\to+0}xf(x)=\lim_{x\to\infty}xf(x)=0$ を示せ。
 
-#### 题目描述
+### 题目描述
 
 设连续函数 $f:(0,\infty)\to\mathbb R$ 广义单调递减，即 $0<x\le y$ 时 $f(x)\ge f(y)$。进一步假设反常积分 $\int_0^\infty f(x)\,dx$ 收敛。
 

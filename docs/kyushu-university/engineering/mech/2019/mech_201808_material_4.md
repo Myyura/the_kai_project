@@ -23,7 +23,7 @@ tags:
 
 ![原題の薄肉断面と重心座標軸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_material-4-original.png)
 
-#### 题目描述
+### 题目描述
 
 有一根截面如图所示的薄壁长柱，由厚度为 $t$、杨氏模量为 $E$ 的薄板连接而成，轴向长度为 $\ell$。长柱上下两端分别通过铰链与刚体连接，只能沿轴向发生位移。即绕 $x$ 轴，上下两端均为允许转动的转动端；绕 $y$ 轴，两端均为不允许转动的固定端。现令上方刚体下降，对柱施加轴向压缩载荷。各薄板不会单独发生局部屈曲。设薄板宽度为 $a$，且 $\ell\gg a\gg t$，回答下列问题。（30分）
 

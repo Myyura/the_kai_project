@@ -21,7 +21,7 @@ $$
 
 ただし、$D=\{(x,y,z)\in\mathbb R^3\mid x^2+y^2+z^2\le1,\ x\ge0,\ y\ge0,\ z\ge0\}$ とする。
 
-#### 题目描述
+### 题目描述
 
 设 $D=\{(x,y,z)\in\mathbb R^3:x^2+y^2+z^2\le1,\ x,y,z\ge0\}$。计算 $\displaystyle\iiint_D xyz\,dx\,dy\,dz$。
 

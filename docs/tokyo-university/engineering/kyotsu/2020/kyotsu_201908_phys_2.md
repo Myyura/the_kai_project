@@ -64,7 +64,7 @@ $$
 
 ![導体平板と電場振幅分布](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2020/kyotsu_201908_phys_2_skin_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 真空中 $-h\le y\le h$（$h>0$）为电导率 $\sigma$ 的导体，在 $x,z$ 方向无限延伸，介电常数与磁导率分别为 $\varepsilon_0,\mu_0$。沿 $z$ 方向施加电场 $E_z$，产生 $j_z=\sigma E_z$。磁感应强度仅有 $x$ 分量 $B_x(y)$；两者正方向分别为 $+z,+x$。
 

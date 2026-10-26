@@ -27,7 +27,7 @@ tags:
 
 ![原題のばね支持直方体と物理振り子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_dynamics-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，质量为 $m$ 的长方体左右两侧由两根弹簧常数均为 $k$ 的弹簧支承，在光滑水平面上运动。长方体上安装有可绕 O 点转动的物理摆。摆的质量为 $M$，绕重心 G 的转动惯量为 $I$，O 点至 G 点的距离为 $L$。左侧支承以位移 $u(t)=A\sin\Omega t$ 激振，右侧支承固定。取水平方向坐标 $x$ 和竖直方向坐标 $y$，OG 与竖直方向的夹角为 $\theta$。O 点坐标为 $(x,0)$，在 $u=0,x=0,\theta=0$ 时系统处于平衡状态。坐标正方向如图。回答下列问题。（50分）
 

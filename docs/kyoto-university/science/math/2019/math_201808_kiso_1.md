@@ -22,7 +22,7 @@ $$
 
 を計算せよ。ただし、$D=\{(x,y)\in\mathbb R^2\mid x\ge0,\ y\ge0\}$ とする。
 
-#### 题目描述
+### 题目描述
 
 设常数 $0<\alpha\le\pi/2$，$D=\{(x,y)\in\mathbb R^2\mid x\ge0,\ y\ge0\}$。计算反常二重积分
 

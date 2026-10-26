@@ -33,7 +33,7 @@ $$
 
 (4) $\displaystyle\lim_{n\to\infty}\frac{1}{n\lambda^{n-1}}A^n$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 实数 $\lambda$ 满足 $\lambda\ne0$。对于三个矩阵
 

@@ -39,7 +39,7 @@ $V>0$ および $c>0$ は定数、重力加速度の大きさを $g$ とする�
 
 ![原題の図2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2017/mech_201608_dynamics_1_original_figure_2.png)
 
-#### 题目描述
+### 题目描述
 
 问题1（使用红色答题纸）
 

@@ -126,7 +126,7 @@ Node *insertB(int x, Node *p) // 平衡木への挿入
 
 二分探索木（Binary Search Tree）、部分木（Sub-tree）、ノード（Node）、配列（Array）、根（Root）、木の高さ（Tree height）、前順（Pre-order）、中順（In-order）、なぞり（Traverse）、平衡木（Balanced Tree）。
 
-#### 题目描述
+### 题目描述
 
 参照上方 C 语言代码，回答关于二叉搜索树的问题。结构体 `Node` 中，`d` 是数据元素，`l`、`r` 分别指向左、右子树；`NewNode()` 创建新节点，`insertA()` 将元素插入二叉搜索树。
 

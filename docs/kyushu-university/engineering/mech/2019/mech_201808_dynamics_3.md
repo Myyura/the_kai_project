@@ -28,7 +28,7 @@ tags:
 
 ![静止座標系と移動座標系の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_dynamics-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，长度为 $l$、张力为 $T$、线密度为 $\rho$ 的弦两端固定于墙面。墙面沿竖直方向按 $w=W\sin\Omega t$ 振动。取 $w=0$ 时弦左端为原点 O，沿弦长度方向取 $x$，建立静止坐标系 O–$xy$；以弦左端为原点 $\mathrm O'$，建立固定于墙面的移动坐标系 $\mathrm O'$–$\xi\eta$。静止坐标系中弦沿 $y$ 方向的位移为 $u(x,t)$，移动坐标系中沿 $\eta$ 方向的位移为 $v(\xi,t)$。张力 $T$ 始终恒定，忽略重力影响。可使用 $c=\sqrt{T/\rho}$。（50分）
 

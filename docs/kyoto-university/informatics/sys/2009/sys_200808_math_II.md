@@ -44,16 +44,16 @@ $$
 I_2=\iint_{D_2}\frac{xy}{\sqrt{x^2+y^2}}\,dx\,dy.
 $$
 
-#### 题目描述
+### 题目描述
 
-### 问1
+#### 问1
 $f$ 在 $[0,1]$ 上连续。
 
 (i) 证明 $\int_0^\pi xf(\sin x)\,dx=(\pi/2)\int_0^\pi f(\sin x)\,dx$，并求 $\int_0^\pi x\sin x/(4-\cos^2x)\,dx$。
 
 (ii) 对正整数 $n$，证明 $\lim_{n\to\infty}\int_0^1xf(|\sin(n\pi x)|)\,dx=(2\pi)^{-1}\int_0^\pi f(\sin x)\,dx$。
 
-### 问2
+#### 问2
 (i) 令 $D_1=\{(x,y):x^2+y^2<1,x>0,y>0\}$，用极坐标求 $I_1=\iint_{D_1}xy/(x^2+y^2)^s\,dx\,dy$，其中 $s<3/2$。
 
 (ii) $a,b>0$，令 $D_2=\{(x,y):x^2/a^2+y^2/b^2<1,x>0,y>0\}$，通过 $x^2=a^2u(1-v),y^2=b^2uv$ 求 $I_2=\iint_{D_2}xy/\sqrt{x^2+y^2}\,dx\,dy$。

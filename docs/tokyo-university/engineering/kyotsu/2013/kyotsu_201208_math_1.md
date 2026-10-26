@@ -21,7 +21,7 @@ I. 次の微分方程式の一般解をそれぞれ求めよ。
 
 II. $\displaystyle\int_0^{\pi/2}\cos(2\theta)\log(\cos\theta)\,d\theta$ を計算せよ。
 
-#### 题目描述
+### 题目描述
 
 I. 分别求下列微分方程的通解：
 

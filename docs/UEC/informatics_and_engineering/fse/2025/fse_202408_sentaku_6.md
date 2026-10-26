@@ -76,7 +76,7 @@ $$
 
 行列：matrix、1 次結合：linear combination、行列式：determinant、固有値：eigenvalue、曲面：curved surface、単位直交ベクトル：orthogonal unit vector、曲線：curve、単位法線ベクトル：unit normal vector、線積分：line integral、ストークスの定理：Stokes' theorem、周期関数：periodic function、フーリエ係数：Fourier coefficient。
 
-#### 题目描述
+### 题目描述
 
 **（1）** 对矩阵
 

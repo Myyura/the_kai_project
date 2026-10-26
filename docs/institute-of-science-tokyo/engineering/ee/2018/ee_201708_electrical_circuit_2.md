@@ -28,7 +28,7 @@ tags:
 
 ![図2.1 直列の抵抗・インダクタと並列のコンデンサ・負荷抵抗](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2018/ee_201708_electrical_circuit_2_original_fig2-1.png)
 
-#### 题目描述
+### 题目描述
 
 图2.1表示由交流电压源、电感、电容、电阻组成的电路。设电感为 $L$、电容为 $C$，两电阻分别为 $R_S,R_L$。交流电压源的电压相量为 $\dot E$，其角频率 $\omega$ 可任意调节。回答以下问题。
 

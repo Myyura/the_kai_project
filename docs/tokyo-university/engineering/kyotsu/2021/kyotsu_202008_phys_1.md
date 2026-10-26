@@ -36,7 +36,7 @@ $$
 2. $e$ を求めよ。
 ![ばねにつながれた物体との衝突と等質量の場合の位置グラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2021/kyotsu_202008_phys_1_collision_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 质量为 $m$ 的物体 A 沿 $x$ 轴以速度 $v>0$ 运动，质量为 $M$ 的 B 静止，并通过劲度系数为 $k$ 的弹簧连接右侧墙壁。A 在 $t=0$ 与 B 碰撞，取 B 的初始位置为 $x=0$。B 不会撞墙，忽略物体大小及摩擦等外力。
 

@@ -34,7 +34,7 @@ $$
 
 ![図1 フィードバック制御系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_control_1_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 1. 考虑图1所示的反馈控制系统，其中
 

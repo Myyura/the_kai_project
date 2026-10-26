@@ -39,7 +39,7 @@ IV. $\boldsymbol P$ の曲率 $\kappa_P(\theta)$ を求めよ。ただし $0<\th
 
 V. $\boldsymbol Q$ の曲率 $\kappa_Q$ を $\kappa_P$ と $\alpha$ で表せ。ただし $0<\theta<\pi$ とする。
 
-#### 题目描述
+### 题目描述
 
 在三维直角坐标系中，以 $\theta\in[0,\pi]$ 为参数定义
 

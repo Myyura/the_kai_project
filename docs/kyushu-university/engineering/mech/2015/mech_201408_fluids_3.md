@@ -23,7 +23,7 @@ tags:
 
 ![原題の図：同心円筒容器と水面を記入する図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_fluids-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，有两个敞口圆筒容器，内圆筒的底面比外圆筒底面高 $h$，且二者固定为同轴。内、外圆筒的内半径分别为 $R$ 和 $2R$，内圆筒壁厚可忽略。向两容器注水，使内、外容器的水面分别高于各自底面 $h$ 和 $3h$。两个圆筒容器作为整体绕中心轴以恒定角速度 $\omega$ 转动，回答下列问题。距中心轴的径向距离为 $r$，重力加速度为 $g$。假设水不溢出、容器底面不露出水面，而且水中不产生气泡。（50分）
 

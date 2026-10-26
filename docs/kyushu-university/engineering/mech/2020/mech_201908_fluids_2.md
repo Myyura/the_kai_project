@@ -27,7 +27,7 @@ tags:
 
 ![原題の図A–C：注射器の構造・吸入・放出](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_fluids_2_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 考虑图A所示的手掌大小的注射器，由内径为 $D\ (\gg d)$ 的针筒和质量可忽略的活塞构成；针筒底面中央连接一根长度为 $L$、内径为 $d$ 的细圆管针头。针头的管摩擦系数为常量 $\lambda$，针筒内流体的管摩擦可忽略。大气压为 $P_a$，重力加速度为 $g$，针筒与活塞之间无泄漏，二者之间的摩擦力也可忽略。回答下列问题。（50分）
 

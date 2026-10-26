@@ -34,7 +34,7 @@ $$
 
 (4) $\begin{bmatrix}x_0\\y_0\end{bmatrix}=\begin{bmatrix}1\\2\end{bmatrix}$ のとき、$\boldsymbol a_n=\begin{bmatrix}x_n\\y_n\end{bmatrix}$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 对于联立递推关系
 

@@ -22,7 +22,7 @@ tags:
 
 ![原題の図a・b：ポンプによる揚水と管路形状](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_fluids-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图a所示，放置两个盛满水且足够大的水槽，其水面高度差为 $H$。上下两槽由一根总长为 $L_1$、具有两处弯曲段的圆管连接。管道入口之后紧接着装有压升为 $\Delta p$ 的泵，用于将水从下槽抽至上槽。圆管内径为 $D$，入口损失系数为 $\zeta_{in}$，两处弯曲段的损失系数均为 $\zeta_e$，管摩擦系数为 $\lambda$。设重力加速度为 $g$、水的密度为 $\rho$，回答下列问题。$D$ 远小于 $L_1$，整个过程中槽内水位可视为不变，泵的压升可近似视为不随流量变化的常量。（50分）
 

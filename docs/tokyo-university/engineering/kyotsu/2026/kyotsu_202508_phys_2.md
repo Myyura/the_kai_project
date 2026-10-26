@@ -93,7 +93,7 @@ $$
 
 ![円形電流と磁気双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2026/kyotsu_202508_phys_2_loop_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 真空介电常数为 $\varepsilon_0$，磁导率为 $\mu_0$。
 

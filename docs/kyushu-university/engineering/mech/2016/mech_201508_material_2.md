@@ -26,7 +26,7 @@ tags:
 
 ![原題の浮きと片持ちはり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 回答下列问题。（35分）
 

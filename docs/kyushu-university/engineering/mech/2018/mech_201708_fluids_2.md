@@ -27,7 +27,7 @@ tags:
 
 ![原題の図：水槽A・B・Cと弁付き管路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_fluids-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，盛有密度为 $\rho$ 的水的水槽A、B、C水平放置，各槽底面位于同一基准高度。水槽A与大气相通，水槽B的水面上放置质量为 $M$ 的物体，水槽C密闭。水槽A、C的截面积足够大，相对于基准面的水位分别恒为 $H_1,H_3$。水槽B的截面积为有限值 $S$，其相对于基准面的水位 $H$ 可以变化。A与B、B与C分别由长度为 $L$、内径为 $d$、管摩擦系数为 $\lambda$ 的圆管连接，A–B管中途设有长度可忽略的阀门。忽略入口损失，且管出口不发生收缩，回答下列问题。水槽B内除管入口和出口附近外，流动近乎停滞，动压足够小；水不会从物体和槽壁之间漏出，物体与槽壁之间的摩擦可以忽略。重力加速度为 $g$。（50分）
 

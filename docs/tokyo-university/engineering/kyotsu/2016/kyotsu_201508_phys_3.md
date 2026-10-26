@@ -41,7 +41,7 @@ tags:
 
 ![隔膜で区切られた容器とカルノーサイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2016/kyotsu_201508_phys_3_diagram_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 考虑以理想气体为工质的热过程，气体常数为 $R$，摩尔定容、定压热容 $C_V,C_P$ 均为常数。题面总述要求将状态变化视为准静态，并写出计算过程。
 

@@ -23,7 +23,7 @@ tags:
 
 ![図2(b) ばねで支持されたはり](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_materials_2_original_figure_2.png)
 
-#### 题目描述
+### 题目描述
 
 2. 长度为 $L$ 的直梁 AB 如图2所示，在 C 点受到竖直向下的集中载荷 $W$。AC、BC 的长度分别为 $a,b$。梁的抗弯刚度为 $EI$，忽略梁的自重。回答下列问题。
 

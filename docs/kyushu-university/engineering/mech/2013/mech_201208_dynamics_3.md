@@ -28,7 +28,7 @@ tags:
 
 ![原題の両端加振](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2013/mech_201208_dynamics-3-excitation.png)
 
-#### 题目描述
+### 题目描述
 
 线密度为 $\rho$、长度为 $l$ 的均匀弦，以张力 $T$ 张紧于两墙之间。沿弦长方向取坐标 $x$，横向位移记为 $u(x,t)$，坐标与位移正方向如图。回答下列问题，张力 $T$ 始终保持不变。（50分）
 

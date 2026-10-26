@@ -32,7 +32,7 @@ $$
 
 ![図4：内圧・軸荷重・ねじりを受ける薄肉円筒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-4-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图4，薄壁圆筒承受内压 $q_0$。回答下列问题。（35分）
 

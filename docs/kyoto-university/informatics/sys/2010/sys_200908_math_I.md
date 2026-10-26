@@ -46,9 +46,9 @@ $$
 \exp(tA)=\lim_{n\to\infty}\left(I+\frac{t}{n}A\right)^n.
 $$
 
-#### 题目描述
+### 题目描述
 
-### 问1
+#### 问1
 设 $A,B$ 为 $n$ 阶实矩阵，证明：
 
 (i) 若 $A+B$ 可逆，则 $A(A+B)^{-1}B=B(A+B)^{-1}A$。
@@ -57,14 +57,14 @@ $$
 
 (iii) 若 $A,B,A+B$ 都可逆，则 $(A^{-1}+B^{-1})^{-1}=A(A+B)^{-1}B$。
 
-### 问2
+#### 问2
 $n\ge2$。三对角矩阵 $A_n$ 的主对角线除最后一项为 $1$ 外均为 $2$，紧邻主对角线两侧的元素均为 $-1$，其余为 $0$。
 
 (i) 求 $A_2=\begin{pmatrix}2&-1\\-1&1\end{pmatrix}$ 和 $A_3=\begin{pmatrix}2&-1&0\\-1&2&-1\\0&-1&1\end{pmatrix}$ 的逆矩阵。
 
 (ii) 求一般的 $A_n^{-1}$，并验证其确为逆矩阵。
 
-### 问3
+#### 问3
 设 $A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$。
 
 (i) 求 $\lambda_1\ge\lambda_2$ 和一个可逆矩阵 $P$，使 $A=P\operatorname{diag}(\lambda_1,\lambda_2)P^{-1}$。

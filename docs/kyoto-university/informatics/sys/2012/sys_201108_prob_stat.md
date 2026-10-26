@@ -51,7 +51,7 @@ $X_1,\ldots,X_n$ は独立に $N(\mu,\sigma^2)$ に従い、$\sigma^2$ は既知
 
 (v) 右片側検定で $H_0:\mu\le\mu_0$、左片側検定で $H_0:\mu\ge\mu_0$ としても、(iii) の手続きの有意水準が $\alpha$ 以下であることを示せ。
 
-#### 题目描述
+### 题目描述
 
 **问题1** (i) 若 $X\sim N(0,\sigma^2)$，求 $X\operatorname{sgn}X=|X|$ 的期望和方差。(ii) 对密度
 

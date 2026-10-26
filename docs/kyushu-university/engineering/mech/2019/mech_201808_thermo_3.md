@@ -35,7 +35,7 @@ tags:
 
 ![原題の(6)温度分布概略解答欄](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_thermo-3-axes.png)
 
-#### 题目描述
+### 题目描述
 
 考虑由直径各自恒定的内管、外管组成的有限长度套管式换热器。高温流体的比热为 $4\,\mathrm{kJ/(kg\cdot K)}$，高、低温流体入口温度分别为 $80^\circ\mathrm C$、$20^\circ\mathrm C$。高温流体质量流量为 $0.1\,\mathrm{kg/s}$ 时，两流体出口温度均为 $40^\circ\mathrm C$。总传热系数为 $0.2\,\mathrm{kW/(m^2\cdot K)}$，物性为常数，不向周围散热。回答下列问题。必要时答案可保留 $\ln2,\ln3,\ln5$。（40分）
 

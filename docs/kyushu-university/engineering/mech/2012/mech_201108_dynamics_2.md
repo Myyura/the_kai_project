@@ -24,7 +24,7 @@ tags:
 
 ![原題の直交ガイドに拘束された棒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_dynamics-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 有一质量为 $m$、长度为 $2l$ 的均匀杆，两端 A、B 装有质量可忽略的滚轮。A、B 分别受到光滑导轨约束，只能沿竖直方向和水平方向移动，杆在竖直平面内运动。A 点由弹簧常数 $2k$ 的弹簧沿竖直方向支承，B 点由弹簧常数 $k$ 的弹簧沿水平方向支承，且 $mg/(8l)<k<mg/(4l)$。设杆相对竖直轴的倾角为 $\theta$，在 $\theta=0$ 时两根弹簧均为原长。杆绕重心的转动惯量为 $I_G=ml^2/3$。（50分）
 

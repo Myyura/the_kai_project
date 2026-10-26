@@ -41,7 +41,7 @@ $$
 
 ![図1・図2・図3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2023/mech_202208_math_A2_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 给定 $n$ 个点 $P_1,P_2,\ldots,P_n$，其中某些点之间用线段连接。与之对应的 $n\times n$ 矩阵元素定义为
 

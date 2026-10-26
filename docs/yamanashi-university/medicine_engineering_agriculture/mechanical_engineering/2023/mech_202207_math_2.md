@@ -53,7 +53,7 @@ $$
 
 Show that the matrix $C=BA$ represents the composite linear transformation $g\circ f$. And find $C$.
 
-#### 题目描述
+### 题目描述
 
 问2　给定线性映射
 

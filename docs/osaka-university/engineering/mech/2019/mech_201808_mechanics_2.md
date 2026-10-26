@@ -33,7 +33,7 @@ tags:
 ![原題の図2・図3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/engineering/mech/2019/mech_201808_mechanics_2_original_figure_2.png)
 
 
-#### 题目描述
+### 题目描述
 
 问题2（使用白色答题纸）
 

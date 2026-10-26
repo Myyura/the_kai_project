@@ -40,7 +40,7 @@ $$
 
 (4) $b=c=0$ が満たされるとき、$\|A\boldsymbol z-\boldsymbol p\|^2+\lambda\|\boldsymbol z\|^2$ を最小化する $\boldsymbol z$ を $a,r,\lambda$ のうち必要なものを用いて表せ。
 
-#### 题目描述
+### 题目描述
 
 $a,b,c,r,\lambda$ 均为正常数，$x,y$ 为实数。定义矩阵 $A$ 和向量 $\boldsymbol z,\boldsymbol p$ 为
 

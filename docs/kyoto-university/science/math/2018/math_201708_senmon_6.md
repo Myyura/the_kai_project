@@ -22,7 +22,7 @@ $$
 
 が成り立てば，2つの測度 $\mu,\nu$ は一致することを示せ。
 
-#### 题目描述
+### 题目描述
 
 设 $\mu,\nu$ 为 $[0,\infty)$ 上的有限Borel测度，并记全体正奇数为 $\mathbb N_{\mathrm{odd}}$。证明：若对每个 $n\in\mathbb N_{\mathrm{odd}}$ 都有
 

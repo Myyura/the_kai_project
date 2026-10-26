@@ -41,7 +41,7 @@ $$
 
 ![図1.1 回路、図1.2 周波数伝達関数、図1.3 ラプラス伝達関数](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2022/ee_202108_electrical_circuit_1_p1.png)
 
-#### 题目描述
+### 题目描述
 
 对图1.1所示电路回答下列问题。$R,L,C$ 分别表示电阻、电感量和电容器的电容量，$V_{\mathrm{in}}$、$V_{\mathrm{out}}$ 分别为输入、输出电压，虚数单位记为 $j$。（100分）
 

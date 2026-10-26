@@ -57,7 +57,7 @@ SRT 除算アルゴリズム（段落①）と Pentium の FP 除算バグ（段
    - [ウ] Pentium の FP 除算演算器は radix-4 SRT アルゴリズムを使用している。
    - [エ] Pentium の FP 平方根演算器は radix-4 SRT アルゴリズムを使用している。
 
-#### 题目描述
+### 题目描述
 
 阅读以下关于 SRT 除法算法（第①段）与 Pentium 浮点除法缺陷（第②～⑤段）的英文，回答各问。Pentium 是 Intel 开发的一款微处理器的名称。FP 是 floating-point 的缩写，意为浮点。
 

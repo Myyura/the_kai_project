@@ -23,7 +23,7 @@ III. 正定値行列の固有値がすべて正であることを示し、これ
 
 IV. $\boldsymbol b\in\mathbb R^m$ が与えられたとき、$\|A\boldsymbol x'-\boldsymbol b\|^2$ を最小にする $\boldsymbol x'$ を $A,\boldsymbol b$ で表せ。
 
-#### 题目描述
+### 题目描述
 
 设 $m>n$ 为正整数，实矩阵 $A\in\mathbb R^{m\times n}$ 的秩为 $n$。
 

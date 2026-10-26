@@ -26,7 +26,7 @@ tags:
 
 ![棒の両端に作用する外力の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_dynamics_3_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 如图，长度为 $l$、密度为 $\rho$、杨氏模量为 $E$、截面积为 $A$ 的均匀杆，其左、右端分别受到沿长度方向的外力 $F_1(t),F_2(t)$。考虑杆的稳态振动。以杆左端为原点 O，沿长度方向取 $x$ 轴，用 $u(x,t)$ 表示时刻 $t$ 杆的纵向位移。振动微小，不计重力影响。回答下列问题。（50分）
 

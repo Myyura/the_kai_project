@@ -36,7 +36,7 @@ $$
 
 ![原題のひずみ測定方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_material-4-coordinates-original.png)
 
-#### 题目描述
+### 题目描述
 
 回答下列问题。（35分）
 

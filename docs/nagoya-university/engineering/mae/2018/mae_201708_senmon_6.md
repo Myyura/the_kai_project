@@ -51,7 +51,7 @@ tags:
 
 ![図6 四端子回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-university/engineering/mae/2018/mae_201708_senmon_6_original_figure_6.png)
 
-#### 题目描述
+### 题目描述
 
 **问题6.** 回答下列问题。变量上方的“・”表示复数形式。
 
