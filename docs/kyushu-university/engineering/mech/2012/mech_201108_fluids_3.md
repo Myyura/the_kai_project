@@ -27,7 +27,7 @@ $$
 
 ![原題の図：円形レール上を運動する水槽](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_fluids-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，在竖直面内半径为 $R$ 的圆形轨道上，放置一个宽度为 $L$、深度为 $H$ 的长方体水槽。槽中装有水，水槽静止时的水深为 $h$，且 $h<H$。水槽以恒定角速度 $\omega$ 沿轨道逆时针运动，在 $t=0$ 时通过轨道最低点。设水面形状变化足够快，可以假定为准定常状态，回答下列问题。重力加速度为 $g$；轨道半径 $R$ 远大于 $L,H,h$，且离心力大于重力。（50分）
 

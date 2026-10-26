@@ -27,7 +27,7 @@ tags:
 
 ![原題の折れ曲がり丸棒と移動支点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_material-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，结构 ABCD 在 A 点固定于刚性墙壁。D 点可自由沿 $x$ 方向移动，但不能沿 $y$ 方向移动，能够承受该方向的反力。在 C 点施加沿 $y$ 方向的载荷 $P$ 时，回答下列问题。结构 ABCD 由直径为 $d$ 的圆杆构成，且 $a,b,c\gg d$。（40分）
 

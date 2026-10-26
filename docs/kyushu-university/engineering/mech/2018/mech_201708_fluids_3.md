@@ -22,7 +22,7 @@ tags:
 
 ![原題の図：非圧縮性流体中で回転する軸](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_fluids-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，在充满无限广空间的不可压缩流体中，放置一根直径为 $d$、无限长的轴，流体的动力黏度为 $\mu$。假设轴的转动不会引起流体温度和黏度的变化，回答下列问题。（50分）
 

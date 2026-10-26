@@ -30,7 +30,7 @@ tags:
 
 ![両端固定の弦の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_dynamics-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，长度为 $l$、张力为 $T$、线密度为 $\rho$ 的弦两端固定于墙壁。以左端为原点，沿弦长度方向取坐标 $x$；坐标 $x$ 处的横向位移为 $u(x,t)$。弦处于空气中，单位长度受到大小为 $\nu(\partial u/\partial t)$ 的阻力。张力 $T$ 始终恒定。可使用 $c=\sqrt{T/\rho},\ \mu=\nu/\rho$。（50分）
 

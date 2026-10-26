@@ -29,7 +29,7 @@ tags:
 
 ![原題の三本の弾性棒とL型剛体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_material-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 三根直径为 $d$、杨氏模量为 $E$ 的弹性杆与一个 L 形刚性构件组合成图示结构。逐渐在 G 点施力，力达到 $P$ 时，G 点的竖直位移为 $\delta_y$，水平位移为 $\delta_x$。$\delta_x,\delta_y$ 的正方向分别取图中 $x,y$ 轴的箭头方向。
 

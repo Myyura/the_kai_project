@@ -25,7 +25,7 @@ tags:
 
 ![図1：隙間をもつ二つの棒構造](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 对于图1所示结构，回答下列问题。（35分）
 

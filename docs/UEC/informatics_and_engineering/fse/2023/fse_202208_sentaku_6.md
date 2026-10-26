@@ -55,7 +55,7 @@ $$
 
 実数：real number、固有値：eigenvalue、固有空間：eigenspace、基底：basis、対角化可能：diagonalizable、極値：extremum、重積分：multiple integral、微分方程式：differential equation、一般解：general solution。
 
-#### 题目描述
+### 题目描述
 
 **（1）** 对实数 $a$，考虑矩阵
 

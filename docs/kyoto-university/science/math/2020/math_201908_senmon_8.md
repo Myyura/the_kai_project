@@ -29,7 +29,7 @@ $$
 2. $\displaystyle E(t)=\int_0^1(u_x(x,t))^2\,dx$ と置くとき、$\displaystyle\lim_{t\to\infty}E(t)=0$ を示せ。
 3. $\displaystyle\lim_{t\to\infty}\max_{x\in[0,1]}|\alpha-u(x,t)|=0$ を示せ。
 
-#### 题目描述
+### 题目描述
 
 假设 $C^2$ 函数 $u:[0,1]\times[0,\infty)\to\mathbb R$ 满足
 

@@ -63,7 +63,7 @@ tags:
 - 17行目において，$\mathrm{dist}\leftarrow\infty$ を $\mathrm{dist}\leftarrow-\infty$ とする。
 - 20行目の，`node` の更新条件を，$\operatorname{distance}[q]>\mathrm{dist}$ とする。
 
-#### 题目描述
+### 题目描述
 
 **II**　在带权简单无向图 $G=(V,E)$ 中，图1给出从指定起点 $s\ (\in V)$ 求各顶点最短距离的算法伪代码。$V$ 为顶点集合，伪代码中各顶点 $v\in V$ 用自然数 $1,2,\ldots$ 表示。$E$ 为边集合，伪代码用二维数组 `E[][]` 表示各边，$E[i][j]$ 与 $E[j][i]$ 存储连接顶点 $i,j$ 的边长。边长非负；若顶点 $i,j$ 之间没有边，则令 $E[i][j]=\infty$ 且 $E[j][i]=\infty$。回答以下 (1) 至 (4) 问。
 

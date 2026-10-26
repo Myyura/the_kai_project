@@ -48,7 +48,7 @@ Answer the following questions on signal processing. Consider the two infinite i
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/eeis/2021/eeis_202008_3_information_I_p1.png" width="600" alt=""/>
 </figure>
 
-#### 题目描述
+### 题目描述
 
 **I. 信息论**
 

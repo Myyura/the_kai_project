@@ -29,7 +29,7 @@ $$
 
 で定める。ただし $I_m,I_n$ は単位行列、$0$ は零ベクトルを表す。このとき $\dim V=\dim W$ であることを示せ。
 
-#### 题目描述
+### 题目描述
 
 设 $m,n$ 为正整数，$A\in M_{n,m}(\mathbb C)$、$B\in M_{m,n}(\mathbb C)$，且 $\lambda\in\mathbb C\setminus\{0\}$。
 

@@ -26,7 +26,7 @@ tags:
    4. $\displaystyle\int\frac{1}{3x^2+2x-1}\,dx$
 3. $xy$ 平面上で曲線 $y=2\sqrt{x}-x^2$ と直線 $y=x$ とで囲まれた図形の面積を求めよ。
 
-#### 题目描述
+### 题目描述
 
 1. 计算下列极限：
    1. $\displaystyle\lim_{x\to0}\frac{x^2}{1-\cos x}$；

@@ -31,15 +31,15 @@ tags:
 4. $a=b=0$ のとき、$S'$ の周の長さを求めよ。
 5. $a=b=0$ のとき、点 $(0,1/4,-1/8)$ における $S$ の Gauss 曲率を求めよ。
 
-#### 题目描述
+### 题目描述
 
-##### I.
+#### I.
 在三维直角坐标系中，消去实参数 $u,v$，求下列曲面的方程并画出概形；$a,b,c$ 为非零实常数。
 
 1. $x=au\cosh v$，$y=bu\sinh v$，$z=u^2$。
 2. $\displaystyle x=a\frac{u-v}{u+v}$，$\displaystyle y=b\frac{uv+1}{u+v}$，$\displaystyle z=c\frac{uv-1}{u+v}$。
 
-##### II.
+#### II.
 设 $S:z=x^2-2y^2+ax+by$，$a,b$ 为实常数。
 
 1. 求 $S$ 在 $(x,y,z)$ 的法向量。

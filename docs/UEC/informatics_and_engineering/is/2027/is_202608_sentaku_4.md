@@ -107,16 +107,16 @@ $L_1,\ L_2,\ L_3,\ L_4$ のうち，正則言語であるものをすべて書�
 
 問4：文脈自由文法：context-free grammar，非終端記号：nonterminal symbol，終端記号：terminal symbol，生成規則：production，開始記号：start symbol，生成：generate，終端記号列：terminal string，導出木：derivation tree，和集合：union，共通集合：intersection，正則言語：regular language
 
-#### 题目描述
+### 题目描述
 
-##### 问1
+#### 问1
 
 回答下列问题。
 
 1. 将八进制小数 $0.26$ 表示为十进制分数。
 2. 设 $x$ 是一个 32 位无符号整数，将其高 16 位和低 16 位互换后得到的值记为 $y$。用含 $x$ 的表达式表示 $y$。允许使用的运算仅为按位 OR $\lor$、逻辑左移 `<<` 和逻辑右移 `>>`。
 
-##### 问2
+#### 问2
 
 某非流水线处理器 A 执行一条指令需要 $20\,\mathrm{ns}$。为加快指令处理，将处理器 A 的组合逻辑电路均匀划分为 $k$ 级，设计成流水线处理器 B。相邻各级之间均插入流水线寄存器。
 
@@ -146,7 +146,7 @@ $$
 
 问2术语：非流水线处理器（non-pipelined processor），指令处理（instruction execution），组合逻辑电路（combinational circuit），级（stage），均匀划分（equal partitioning），流水线寄存器（pipeline register），总执行时间（total execution time），延迟（delay），流水线冒险（pipeline hazard），总延迟（total delay），同步电路（synchronous circuit），时钟频率（clock frequency），不等式（inequality），数据冒险（data hazard），分支冒险（branch hazard），停顿（stall），模型（model），平均处理时间（average processing time）。
 
-##### 问3
+#### 问3
 
 设 $\Sigma=\{0,1\}$。语言 $L$ 是 $\Sigma$ 上所有不含连续 3 个或更多个 1 的字符串构成的集合。回答下列问题。
 
@@ -166,7 +166,7 @@ $$
 
 写出 $M$ 的全部状态转移函数 $\delta$，并写出 $M$ 的接受状态集合 $F$。
 
-##### 问4
+#### 问4
 
 给定如下上下文无关文法 $G_1$，回答下列问题。
 

@@ -35,7 +35,7 @@ $$
 
 ![台車と内部のばね・減衰器の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_dynamics-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 在可沿水平方向移动的质量为 $M$ 的小车上，质量为 $m$ 的质点由弹簧常数为 $k$ 的弹簧和黏性阻尼系数为 $c$ 的阻尼器沿小车移动方向支承。静止坐标系中小车的位置为 $x$，弹簧相对静平衡状态的伸长量为 $\xi$。取 $x,\xi$ 为广义坐标。（50分）
 

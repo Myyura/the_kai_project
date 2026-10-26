@@ -102,7 +102,7 @@ These are precisely the same rotation formulas we derived earlier using vector d
 1. Part 1 及び Part 2 の説明によく適合する図をそれぞれ1枚描け。図には説明で用いている軸名、座標、角度を必ず記すこと。
 2. 説明に基づいて行列 $A$ の逆行列を導出する説明文を、日本語、英語の2通りで作成せよ。但し、説明文の内容は日本語、英語で同一にすること。
 
-#### 题目描述
+### 题目描述
 
 阅读以下英文，并根据文章内容回答问题。
 

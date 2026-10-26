@@ -26,7 +26,7 @@ tags:
 
 ![原題の図：二水槽間の並列管路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_fluids-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，两个足够大的水槽放在水平地面上，均向大气开放并储有水，二者由内径为 $D$ 的细水平圆管连接，管路中间包含两条并联支管。两条支管的总长均为 $2L$，支管左、右两侧直管的长度均为 $L$。管摩擦系数为常量 $\lambda$，与流量无关。下方支管安装一个长度可忽略的阀门，其全开时的损失系数为 $\zeta_v$。左侧水槽液面高度为 $H_1$，右侧水槽液面高度为 $H_2$，且 $H_1>H_2$。回答下列问题。重力加速度大小为 $g$；管入口损失、分流和汇流损失以及弯管损失均可忽略。（50分）
 

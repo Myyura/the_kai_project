@@ -19,7 +19,7 @@ $f$ は $\mathbb R$ 上の実数値 $C^1$ 級関数で、任意の $x\in\mathbb 
 - (A) 広義積分 $\displaystyle\int_1^\infty\frac{1}{x^{1+f(x)^2}}\,dx$ が収束する。
 - (B) $f(x)=0$ となる $x\in\mathbb R$ が存在しない。
 
-#### 题目描述
+### 题目描述
 
 设实值函数 $f\in C^1(\mathbb R)$ 满足 $f(x+1)=f(x)$。证明以下两条件等价：
 

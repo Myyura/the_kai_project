@@ -34,7 +34,7 @@ $$
 2. $f,g\in\mathcal L$ とする。$f-g\in\mathcal L$ であることと、$\|f-g\|\le\|f\|+\|g\|$ が成り立つことを示せ。
 3. $\mathcal L$ の元からなる列 $\{f_m\}_{m=1}^\infty$ が、任意の $\varepsilon>0$ に対してある正整数 $N$ が存在して、$m,n\ge N$ のとき $\|f_m-f_n\|<\varepsilon$ を満たすとする。このとき $\lim_{m\to\infty}\|f_m-f\|=0$ を満たす $f\in\mathcal L$ が存在することを示せ。
 
-#### 题目描述
+### 题目描述
 
 设 $\Phi$ 是区间 $[0,\infty)$ 上单调递增的连续凸函数，并满足 $\Phi(0)=0$ 及 $\Phi(t)\ge t$（$t\in[0,\infty)$）。定义 $\mathcal L$ 为所有满足以下条件的 $\mathbb R$ 上实值勒贝格可测函数 $f$ 组成的集合：存在 $\lambda>0$ 使得
 

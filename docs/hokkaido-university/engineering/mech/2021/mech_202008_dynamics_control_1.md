@@ -32,7 +32,7 @@ tags:
 
 ![図2 ばねの取付点を円板上端へ移した場合](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/hokkaido-university/engineering/mech/2021/mech_202008_dynamics_control_1_original_figure_2.png)
 
-#### 题目描述
+### 题目描述
 
 如图1(a)，半径为 $R$、质量为 $M$ 的均匀圆盘绕转轴 O 转动。转轴经过圆盘中心 O，且垂直于圆盘。自 O 点正上方距离 $a$ 的 E 点以及 O 点，分别水平设置弹簧常数为 $k_1,k_2$ 的弹簧，在 A、B 两点与墙连接。此时弹簧均为自然长度，圆盘静止。圆盘下端与地面接触，假定圆盘相对地面做无滑动的纯滚动，圆盘与地面间的摩擦力记为 $F$。如图1(b)，将圆盘向右水平移动微小位移 $x$，圆盘顺时针转过微小角 $\theta$。此时轻轻松手，圆盘保持与地面接触并开始水平振动。回答下列问题。
 

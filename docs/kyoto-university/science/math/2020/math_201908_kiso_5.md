@@ -22,7 +22,7 @@ $$
 
 を求めよ。
 
-#### 题目描述
+### 题目描述
 
 设 $0<\alpha<1$。求反常积分 $\displaystyle\int_0^\infty\frac{x^\alpha}{1+x^2}\,dx$。
 

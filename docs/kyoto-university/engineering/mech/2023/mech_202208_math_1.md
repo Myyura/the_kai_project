@@ -86,7 +86,7 @@ $$
 
 が最小となるように $\alpha_0,\alpha_k,\beta_k\ (k=1,\ldots,n)$ を決定する。このとき $\alpha_0,\alpha_k,\beta_k\ (k=1,\ldots,n)$ はフーリエ係数となっている。$\alpha_0,\alpha_k,\beta_k\ (k=1,\ldots,n)$ を計算するとともに、$\displaystyle\lim_{n\to\infty}(g_n(x),g_n(x))$ の値がいくらになるかを計算し、その過程を簡潔に説明せよ。
 
-#### 题目描述
+### 题目描述
 
 1. 实函数的内积定义为
 

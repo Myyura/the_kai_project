@@ -95,7 +95,7 @@ tags:
 
 ![図2：決定木](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/nagoya-institute-of-technology/engineering/ie/2025/ie_202408_computer_software_data_structures_figure_2.png)
 
-#### 题目描述
+### 题目描述
 
 **I**　回答以下 (1) 至 (3) 问。
 

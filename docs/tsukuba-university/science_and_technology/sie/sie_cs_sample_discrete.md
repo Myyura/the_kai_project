@@ -44,7 +44,7 @@ $$
 
 ① 対称的　② 反対称的　③ $\langle x,z\rangle$　④ $\langle y,x\rangle$　⑤ $\langle y,z\rangle$　⑥ $\langle z,x\rangle$
 
-#### 题目描述
+### 题目描述
 
 设 $\mathcal N_5=\{0,1,2,3,4\}$。对于正整数 $n$，定义关系
 

@@ -41,7 +41,7 @@ $$
 
 (4) 領域 $D=\{(x,y)\mid|x|\le2R,\ |y|\le2R\}$ とするとき、$\displaystyle\iint_D\Gamma(x,y)\,dx\,dy$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 设二维空间中沿 $x,y$ 方向的单位向量分别为 $\boldsymbol i,\boldsymbol j$，定义算子 $\nabla=\boldsymbol i\dfrac\partial{\partial x}+\boldsymbol j\dfrac\partial{\partial y}$。设 $R$ 为正实数，定义标量函数 $\Phi(r)$、向量函数 $\boldsymbol A(x,y)$ 和标量函数 $\Gamma(x,y)$ 如下。
 

@@ -70,7 +70,7 @@ $$
 2. 透過波の $|\overline{\boldsymbol S}_T|$ を $b,\alpha,E_2,z$ で表し、$\alpha$ の物理的意味を述べよ。
 3. 反射率 $|\overline{\boldsymbol S}_R|/|\overline{\boldsymbol S}_{\rm IN}|$ と透過率を $\eta$ の関数として求めよ。
 
-#### 题目描述
+### 题目描述
 
 平面电磁波从无损介质 1（$\varepsilon_1,\mu_1,\sigma_1=0$）沿 $+z$ 方向垂直入射到导体 2（$\varepsilon_2,\mu_2,\sigma_2$），界面为 $z=0$，导体占据 $z\ge0$。电场只有 $E_x$，磁场只有 $H_y$，角频率为 $\omega$。入射波为
 

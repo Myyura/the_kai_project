@@ -27,7 +27,7 @@ tags:
 
 ![原題のT–s線図解答座標](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 气体循环A由以下过程构成：1→2绝热压缩，2→3等容加热，3→4绝热膨胀，4→5等容放热，5→1等压放热；所有状态变化均可逆。状态1、2、3、4的比体积分别为 $v_1,v_2,v_3,v_4$，满足 $v_1/v_2=\varepsilon_C$、$v_4/v_3=\varepsilon_E$、$\varepsilon_C<\varepsilon_E$。状态1、3的温度分别为 $T_1,T_3$。工质为比热不随温度变化的理想气体，定容比热为 $c_v$，比热比为 $\kappa$。回答下列问题。（60分）
 

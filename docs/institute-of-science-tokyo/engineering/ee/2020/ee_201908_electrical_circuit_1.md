@@ -31,7 +31,7 @@ Zero
 
 ![図1.1 回路、図1.2および図1.3 入力電圧](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2020/ee_201908_electrical_circuit_1_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 对于图1.1的电路，回答以下问题。电阻为 $R$，电容为 $C$，$t=0$ 时电容电荷为 $0$。图1.2、图1.3的时间轴上，实心圆表示包含区间端点，空心圆表示不包含端点。（100分）
 

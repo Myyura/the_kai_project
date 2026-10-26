@@ -26,7 +26,7 @@ tags:
 
 ![原題の弾性棒・加振力・付加振動体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_dynamics-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，考虑密度为 $\rho$、纵向弹性模量为 $E$、截面积为 $A$、长度为 $l$ 的均匀弹性杆的纵振动。左端固定于墙壁，右端受力 $f(t)=f_0\cos\Omega t$。以左端为原点，沿杆长取坐标 $x$，坐标 $x$、时刻 $t$ 处的轴向位移为 $u(x,t)$。可使用杆内声速 $c=\sqrt{E/\rho}$。回答下列问题。（50分）
 

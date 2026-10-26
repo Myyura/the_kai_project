@@ -47,7 +47,7 @@ $$
 
 ![図2 粉末セリア試料の2次元X線回折パターン撮影](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/ehime-university/science_and_engineering/natural_science_foundation_earth_science/2023/earth_science_202210_5_fig2.png)
 
-#### 题目描述
+### 题目描述
 
 回答问1和问2。
 

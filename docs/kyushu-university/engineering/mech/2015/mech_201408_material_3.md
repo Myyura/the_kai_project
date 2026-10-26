@@ -27,7 +27,7 @@ tags:
 
 ![図3：弾性丸棒と剛体棒の平面構造](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2015/mech_201408_material-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图3，杨氏模量为 $E$、剪切模量为 $G$ 的弹性杆 AB、CD、EF，与刚杆 BC、DE、FG 均在 $x$-$y$ 平面内连接。每根弹性杆的直径为 $d$、长度为 $a$。G 点受沿 $z$ 方向的载荷 $P$。回答下列问题。（40分）
 

@@ -26,7 +26,7 @@ tags:
 
 ![原題の図：開放タンクI・IIIと密閉タンクIIの接続](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_fluids-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，两个足够大的敞口水槽I和III通过密闭水槽II连接。水以体积流量 $Q$ 从水槽I经过连接在水深 $H$ 处侧壁上的水平管流入水槽II，该管内径为 $D$、长度为 $L$。密闭水槽中的水面距管轴的高度与水槽I相同，为 $H$，水面上方封有压力为 $p_G$ 的气体。水槽II中的水通过两根内径为 $d$、长度为 $l$ 的水平管流入水槽III。通往水槽III的两根连接管中，上管的轴线高度与连接水槽I、II的管轴高度相同，流量为 $Q/2$ 的水从水槽III水面上方高度 $h$ 处流入大气；下管的轴线在水槽III水面以下，中途设有阀门，余下流量为 $Q/2$ 的水流入水槽III的水中。各管的管摩擦系数均为 $\lambda$，阀门损失系数为 $\zeta$。设除管摩擦、阀门及出口损失外没有其他损失，回答下列问题。重力加速度为 $g$，水的密度为 $\rho$，空气以及水槽II内气体的密度均可忽略。（50分）
 

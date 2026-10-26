@@ -34,7 +34,7 @@ $$
 
 ![図2 電流が流れる円形コイル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_electromagnetism_1_original_figure_2.png)
 
-#### 题目描述
+### 题目描述
 
 1. 如图1所示，大小相等、符号相反的两个点磁荷 $+q_m$ 和 $-q_m$ 相距微小距离 $s$ 时，称为磁偶极子。磁偶极矩定义为 $m=q_ms$。回答下列问题，磁导率用 $\mu_0$ 表示。
 

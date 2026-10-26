@@ -41,16 +41,16 @@ $$
 
 ![球殻の微小円輪と滑らず転がる二つの球殻](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_phys_1_shells_audited.svg)
 
-#### 题目描述
+### 题目描述
 
-### I
+#### I
 
 考虑面密度均匀、厚度与形变可忽略的球壳，半径为 $a$、质量为 $M$。轴 $l$ 通过球心 O，球面半径与该轴夹角为 $\varphi$。
 
 1. 求夹在 $\varphi$ 与 $\varphi+d\varphi$（$d\varphi\ll1$）之间的微小圆环质量 $dM$，用 $a,\varphi,d\varphi$ 及面密度 $\sigma$ 表示。
 2. 证明绕轴 $l$ 的转动惯量为 $I=2Ma^2/3$。
 
-### II
+#### II
 
 取 $x$ 水平向右、$y$ 竖直向上。固定球壳 A（质量 $M$、半径 $a$）的球心，使其可绕垂直于 $xy$ 平面的中心轴自由转动。在静止的 A 顶部放置球壳 B（质量 $m<M$、半径 $b<a$），从静止轻轻向右滚下，直到 B 脱离 A。脱离前接触处始终不滑动，两球心始终位于 $xy$ 平面，B 的自转轴也垂直于该平面。两球壳均匀，厚度、形变均忽略。
 

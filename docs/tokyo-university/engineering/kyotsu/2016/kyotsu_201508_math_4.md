@@ -36,7 +36,7 @@ II. 三平面が一直線で交わるとき、$\operatorname{rank}A,\operatornam
 
 III. 三平面が球の互いに異なる3点で接するとする。三平面と球の可能な位置関係をすべて図示し、それぞれの $\operatorname{rank}A,\operatorname{rank}B$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 三维空间中有三个平面
 

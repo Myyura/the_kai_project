@@ -25,7 +25,7 @@ II. 傾斜角 $\theta$ の斜面 PQ は粗く、水平面 QR は摩擦がない�
    - (ii) 水平面に達した直後の速度を $v_Q,\omega_{TQ},\omega_{CQ}$ とする。やがて円筒と円柱の角速度が等しくなった。① このときの重心速度 $v_R$ と共通角速度 $\omega_R$ を求めよ。② 水平面上での動摩擦によるエネルギー損失を求めよ。
 ![同軸円筒と円柱、および斜面と水平面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2020/kyotsu_201908_phys_1_rolling_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 物体 A 由外半径 $2r$、内半径 $r$、质量 $3m$ 的圆筒及嵌入其中的半径 $r$、质量 $m$ 的圆柱组成。二者为同种均匀材料制成的刚体，共轴且间隙可忽略，圆柱可在圆筒内转动。
 

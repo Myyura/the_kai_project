@@ -55,7 +55,7 @@ $$
 
 ![不可逆熱機関と可逆ヒートポンプ、光子気体のサイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2018/kyotsu_201708_phys_3_diagram_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 I. 两固体 a、b 的热容均为常数 $C$，初温分别为 $T_1,T_2$，在与外界隔绝的条件下接触。忽略体积变化，求最终平衡温度 $T_f$ 和全系统熵变 $\Delta S$，证明熵增加。
 

@@ -26,7 +26,7 @@ tags:
 
 ![原題の空間構造とナイフエッジ支持](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_material-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，结构 OABCD 在 O 点固定于刚性墙壁，在 D 点与刀口支承接触，沿 $z$ 方向的位移受到约束，初始状态的反力为零。在 C 点施加沿 $z$ 方向的载荷 $P$ 时，回答下列问题。OA、CD 为杨氏模量 $E$、泊松比 $\nu$、直径 $d$ 的弹性圆杆，L 形构件 ABC 为刚体。弹性杆 OA、CD 分别在 A、C 点焊接于 L 形构件 ABC。刀口与弹性杆 CD 之间无摩擦，且 $a,b,c,e\gg d$。（40分）
 

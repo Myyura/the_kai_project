@@ -56,7 +56,7 @@ $$
 
 (v) 予測区間 $[\overline X-k\widehat\sigma,\overline X+k\widehat\sigma]$ が $X_{n+1}$ を含む確率が $1-\alpha$（$0<\alpha<1$）となる $k$ を求めよ。(iv) の分布の分位点を定義して用いてよい。
 
-#### 题目描述
+### 题目描述
 
 **问题1** 设 $n>2$ 个实随机变量 $X_i$ 独立同分布，共同分布函数 $F$ 可微、密度为 $f$；令 $Y=\max_iX_i$、$Z=\min_iX_i$。(i) 证明 $Y\le y$ 等价于所有 $X_i\le y$，$Z\ge z$ 等价于所有 $X_i\ge z$，并写出相应概率等式。(ii) 证明联合分布函数在 $y>z$ 时为 $F(y)^n-[F(y)-F(z)]^n$，在 $y\le z$ 时为 $F(y)^n$，并求联合密度。(iii) 证明极差 $W=Y-Z$ 在 $w\ge0$ 时的分布函数为
 

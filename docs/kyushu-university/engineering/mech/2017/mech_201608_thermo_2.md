@@ -30,7 +30,7 @@ tags:
 
 ![原題の図3：熱電対の設置方法](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_thermo-2-sensors.png)
 
-#### 题目描述
+### 题目描述
 
 如图1，加热器与厚度为 $L\,(\mathrm m)$ 的平板相接。平板的导热系数为 $k\,(\mathrm{W/(m\cdot K)})$、密度为 $\rho\,(\mathrm{kg/m^3})$、比热为 $c\,(\mathrm{J/(kg\cdot K)})$，三者均不随温度变化。加热器尚未通电，平板初始温度均匀，为 $T_i\,(^\circ\mathrm C)$。回答下列问题。（50分）
 

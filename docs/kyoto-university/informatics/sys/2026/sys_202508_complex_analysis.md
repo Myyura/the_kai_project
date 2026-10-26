@@ -41,7 +41,7 @@ $$
 
 (4) $\int_{-\infty}^\infty f(x)\,dx$ を求めよ。$C_2,C_4$ 上の積分は $R\to\infty$ で $0$ となることを導出なしに用いてよい。
 
-#### 题目描述
+### 题目描述
 
 $i$ 为虚数单位，$e$ 为自然对数的底，$\pi$ 为圆周率，$\mathbb Z$ 为整数集，$\operatorname{Re}z,\operatorname{Im}z$ 分别为实部与虚部。
 

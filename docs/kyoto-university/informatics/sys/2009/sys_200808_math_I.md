@@ -37,9 +37,9 @@ $n\times m$ 実行列 $A$ について $A^TA$ は正則とし、$R$ は $n\times
 
 (ii) $b\in\mathbb R^n$ を定数、$x\in\mathbb R^m$ を変数とするとき、$(Ax-b)^TR(Ax-b)$ の最小値を与える $x$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
-### 问1
+#### 问1
 $A$ 为 $n\times m$ 实矩阵，$B$ 为 $m\times n$ 实矩阵，$I_n+AB$ 可逆。$I_k$ 表示 $k$ 阶单位矩阵。证明：
 
 (i) $(I_n+AB)^{-1}=I_n-(I_n+AB)^{-1}AB$。
@@ -48,12 +48,12 @@ $A$ 为 $n\times m$ 实矩阵，$B$ 为 $m\times n$ 实矩阵，$I_n+AB$ 可逆�
 
 (iii) $(I_n+AB)^{-1}=I_n-A(I_m+BA)^{-1}B$。
 
-### 问2
+#### 问2
 (i) $n\ge2$，$a_j$ 的第 $j$ 个分量为 $b$，其余均为 $1$。求使 $a_1,\ldots,a_n$ 线性相关的全部实数 $b$。
 
 (ii) 实方阵 $A,B$ 满足 $A^TA=BA=BB^T$。证明 $A=B^T$。可用 $\operatorname{Tr}(C^TC)=\sum_{i,j}c_{ij}^2$。
 
-### 问3
+#### 问3
 $A$ 是 $n\times m$ 实矩阵，$A^TA$ 可逆，$R$ 是 $n$ 阶实对称正定矩阵。
 
 (i) 证明 $A^TRA$ 可逆。(ii) 对固定 $b\in\mathbb R^n$，求使 $(Ax-b)^TR(Ax-b)$ 最小的 $x\in\mathbb R^m$。

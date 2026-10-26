@@ -33,7 +33,7 @@ tags:
 
 ![原題の図1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/aero/2022/aero_202108_am_propulsion_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 推进工学（上午）
 

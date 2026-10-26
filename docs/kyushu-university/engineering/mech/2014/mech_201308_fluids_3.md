@@ -23,7 +23,7 @@ tags:
 
 ![原題の図a–c：静止・加速・等速運動する台車上の容器](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_fluids-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 在与水平面夹角为 $\theta$ 的很长斜面上，一辆载有容器的小车由上方绳索固定而静止，见图a。容器内的水量为：当容器底面水平时，水位达到 $h$。在某时刻切断绳索后，小车沿斜面向下加速，见图b；随后，作用在小车和容器上的空气阻力增大，小车最终以恒定速度 $V$ 运动，见图c。设重力加速度为 $g$，回答下列问题。（50分）
 

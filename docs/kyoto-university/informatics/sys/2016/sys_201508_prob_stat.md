@@ -41,7 +41,7 @@ tags:
 
 ![円弧上の二点と直線 AB](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/informatics/sys/2016/sys_201508_prob_stat_chord.svg)
 
-#### 题目描述
+### 题目描述
 
 **问题1** 从随机变量 $(X,Y)$ 所表示的总体中取得容量为 $n$ 的随机样本 $\{(X_i,Y_i)\}_{i=1}^n$。$X,Y$ 相互独立，且均值分别为 $\mu_x,\mu_y$，方差分别为 $v_x,v_y$。
 

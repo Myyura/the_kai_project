@@ -35,7 +35,7 @@ $$
 
 (ii) $\lim_{\varepsilon\downarrow0}\|u_\varepsilon-f\|_{L^2(\Omega)}=0$ を示せ。
 
-#### 题目描述
+### 题目描述
 
 设 $n$ 为不小于 $2$ 的整数，$\Omega=\{x\in\mathbb R^n\mid |x|<1\}$，$\overline\Omega$ 为其闭包。$C^2(\overline\Omega)$ 表示在 $\Omega$ 上为 $C^2$、且二阶及以下的各偏导数均可延拓为 $\overline\Omega$ 上连续函数的实值函数全体。设 $f\in C^2(\overline\Omega)$。对每个 $\varepsilon>0$，设 $u_\varepsilon\in C^2(\overline\Omega)$ 为下列方程的解：
 

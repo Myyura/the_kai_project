@@ -53,7 +53,7 @@ $$
 
 (2) 収束半径が $\infty$ とする。ある非負定数 $a,b,m$ が存在し、$|z|>b$ で $|f(z)|\le a|z|^m$ が成り立つなら、$f$ は次数が $m$ 以下の多項式であることを示せ。
 
-#### 题目描述
+### 题目描述
 
 $i$ 为虚数单位，$e$ 为自然对数的底，$\pi$ 为圆周率，$\mathbb C,\mathbb R$ 为复数、实数集；$\overline z,|z|,\operatorname{Re}z,\operatorname{Im}z$ 分别表示共轭、模、实部、虚部。
 

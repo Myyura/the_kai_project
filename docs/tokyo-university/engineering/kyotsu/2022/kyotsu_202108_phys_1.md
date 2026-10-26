@@ -35,7 +35,7 @@ III. 棒だけが最下位置で静止している。質量 $m$ の点状物体 
 2. Q が棒に付着する場合、E がちょうど O と同じ高さまで上がるための入射速度 $v_0$ を $y$ で表せ。
 ![一様な棒の剛体振り子、付加質点、および衝突](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2022/kyotsu_202108_phys_1_pendulum_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 质量为 $m$、长度为 $L$ 的均匀细杆以端点 O 为支点，在竖直面内无摩擦转动。另一端为 E，杆与竖直向下方向的夹角为 $\theta$，重力加速度为 $g$，忽略空气阻力。
 

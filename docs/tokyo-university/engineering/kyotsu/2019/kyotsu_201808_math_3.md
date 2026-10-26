@@ -28,15 +28,15 @@ $a>0$、$\displaystyle f(z)=\frac{(\log z)^2}{(z+a)^2}$、$R>a>r>0$ とする。
 1. 留数定理を用いて $\displaystyle\oint_C f(z)\,dz$ を求めよ。
 2. 前問を用いて $\displaystyle\int_0^\infty\frac{\log x}{(x+a)^2}\,dx$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
-##### I.
+#### I.
 
 1. 用极坐标形式求 $z^5=1$ 的全部解，并在复平面上画出。
 2. 映射 $f(z)=e^{iz}$ 下，画出区域 $D=\{z:\operatorname{Re}z\ge0,\ 0\le\operatorname{Im}z\le1\}$ 的像。
 3. 求 $z^2e^{1/z}$ 在 $z=0$ 的留数。
 
-##### II.
+#### II.
 设 $a>0$，$\displaystyle f(z)=\frac{(\log z)^2}{(z+a)^2}$，$R>a>r>0$。积分路径 $C=C_++C_R+C_-+C_r$ 为绕正实轴割线的钥匙孔路径：上岸 $C_+$ 从 $r$ 到 $R$，外圆 $C_R$ 逆时针，下岸 $C_-$ 从 $R$ 到 $r$，内圆 $C_r$ 顺时针；在 $C_+$ 上 $\log z$ 取主值。
 
 1. 用留数定理计算 $\displaystyle\oint_C f(z)\,dz$。

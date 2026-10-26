@@ -25,7 +25,7 @@ $$
 where $\lambda$ and $a,b,c,d,e,f,g,h,i$ are real numbers.
 Choose all entries, from $a,b,c,d,e,f,g,h,i$, that will be zero, in case the matrix multiplication is commutative such that $AX=XA$.
 
-#### 题目描述
+### 题目描述
 
 问1　给定两个 $3\times3$ 矩阵
 

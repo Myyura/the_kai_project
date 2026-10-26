@@ -28,7 +28,7 @@ tags:
 
 ![図1 ばねと剛体棒の振動系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_dynamics_1_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 1. 考虑图1所示由两根弹簧和两根均匀刚杆 AB、CD 构成的平面内振动系统。刚杆在 E 点和 D 点铰支，B、C 两点通过无质量的刚性连杆连接。两根刚杆的质量均为 $m$、长度均为 $L$，两根弹簧的弹簧常数均为 $k$。刚杆绕静态平衡位置作微小转动振动。设刚杆 AB 在时刻 $t$ 相对平衡位置的转角为 $\theta(t)$。忽略弹簧质量及水平方向的变形，回答下列问题。
 

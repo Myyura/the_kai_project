@@ -86,7 +86,7 @@ $$
 
 命題：proposition、変数：variable、述語論理式：predicate logic expression、論理式：logic expression、真理値表：truth table、真：true、偽：false、集合：set、関係：relation、同値関係：equivalence relation、同値類：equivalence class、半順序：partial order、半順序集合：partially ordered set、ハッセ図：Hasse diagram、言語：language、正則：regular、受理：accept、有限オートマトン：finite automaton、入力記号集合：input alphabet set、語：word、偶数：even number。
 
-#### 题目描述
+### 题目描述
 
 **1.** $\alpha,\beta$ 表示命题，$P(x)$ 表示以 $x$ 为变量的谓词逻辑式。
 

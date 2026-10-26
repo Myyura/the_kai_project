@@ -24,7 +24,7 @@ tags:
 
 ![原題の回転ばね付き倒立振り子と移動物体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_dynamics-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，质量为 $m_1$ 的物体在光滑水平面上运动，通过弹簧常数为 $k_1$ 的弹簧连接至基础。物体上通过一转动弹簧连接长度为 $l$、质量可忽略的刚杆，杆端有质量为 $m_2$ 的质点。转动弹簧的弹簧常数为 $k_2$，产生与杆相对竖直方向转角 $\theta$ 成正比的扭矩，在 $\theta=0$ 时扭矩为零。使用静止坐标系，以 $k_1$ 弹簧处于原长时杆的支点为原点 O；$x$ 轴正向水平向右，$y$ 轴正向竖直向上。广义坐标为 $\boldsymbol{x}=[x\ \theta]^{\mathsf T}$，重力加速度为 $g$。回答下列问题。（50分）
 

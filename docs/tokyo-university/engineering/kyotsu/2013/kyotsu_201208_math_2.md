@@ -27,7 +27,7 @@ $$
 \boldsymbol x^T\boldsymbol x=\frac3{(\lambda-1)^2}+\frac2{(\lambda-2)^2}+\frac6{(\lambda-4)^2}.
 $$
 
-#### 题目描述
+### 题目描述
 
 设 $A=\begin{pmatrix}2&-1&0\\-1&3&-1\\0&-1&2\end{pmatrix}$。
 

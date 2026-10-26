@@ -28,7 +28,7 @@ $$
 
 (3) $f(x)$ が $x=0$ で微分可能で $f(0)=0$ を満たすとき，$\displaystyle\lim_{r\to\infty}r\int_{-\infty}^{\infty}f(x)\rho_r(x)\,dx=0$ を示せ。
 
-#### 题目描述
+### 题目描述
 
 设 $r$ 为正实数，定义 $\mathbb R$ 上的函数 $\rho_r(x)$ 为
 

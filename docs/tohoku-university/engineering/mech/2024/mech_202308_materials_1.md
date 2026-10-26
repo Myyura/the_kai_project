@@ -25,7 +25,7 @@ tags:
 
 ![原題の図1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2024/mech_202308_materials_1_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 1. 如图1，考虑外径 $3d$、内径 $2d$ 的空心圆轴 AB，以及直径 $d$ 的实心圆轴 CD。AB 的左端 A 和 CD 的右端 D 分别固定在刚性墙上。两根轴均在距各自固定端为 $L$ 的位置 E 处开有销接孔。初始状态下，CD 的孔与穿过 AB 孔的直线夹角为 $\beta$。两根轴的剪切模量均为 $G$。回答以下问题。
 

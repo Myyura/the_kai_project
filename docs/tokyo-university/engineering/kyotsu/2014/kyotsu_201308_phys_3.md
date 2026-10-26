@@ -87,11 +87,11 @@ $$
 
 ![中間冷却ガスタービンサイクルの温度エントロピー線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_phys_3_cycle_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 考虑以气体为工作流体的热过程。压力为 $P$，每摩尔体积为 $V$，绝对温度为 $T$，气体常数为 $R$，摩尔内能为 $U$，摩尔熵为 $S$。定义摩尔焓 $H=U+PV$、定容热容 $C_V=(\partial U/\partial T)_V$、定压热容 $C_P=(\partial H/\partial T)_P$、热容比 $\kappa=C_P/C_V$。全部状态变化均为准静态，可假设 $dU=T\,dS-P\,dV$ 成立。
 
-### I
+#### I
 
 不依赖具体状态方程，分别推导
 
@@ -124,14 +124,14 @@ $$
 \left(\frac{\partial P}{\partial S}\right)_T=-1.
 $$
 
-### II
+#### II
 
 对于满足 $PV=RT$ 的理想气体，设 $R,C_P$ 均为常数。
 
 1. 用 I 的热容差公式证明 $\kappa$ 为常数。
 2. 用 I 的等熵与等温压力偏导关系证明绝热过程中 $PV^\kappa$ 不变。
 
-### III
+#### III
 
 考虑图示的理想中间冷却燃气轮机循环 O→A→B→C→D→E→O，工作流体为 II 的理想气体。各过程为：O$(P_0,T_0)$→A$(P_A,T_A)$ 绝热压缩，A→B$(P_B,T_B)$ 等压冷却，B→C$(P_C,T_C)$ 绝热压缩，C→D$(P_D,T_D)$ 等压加热，D→E$(P_E,T_E)$ 绝热膨胀，E→O 等压冷却。已知
 

@@ -94,7 +94,7 @@ $$
 
 (c) 確率変数 $Z_n$ は2項分布 $\operatorname{Bin}(n,\lambda/n)$ に従っているとする。ただし、$n>\lambda$ とする。極限 $\lim_{n\to\infty}E[\exp(tZ_n)]$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 以下两大题都必须作答。
 

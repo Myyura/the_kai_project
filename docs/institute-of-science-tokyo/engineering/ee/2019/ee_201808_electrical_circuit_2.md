@@ -41,7 +41,7 @@ $$
 
 ![図2.1 スイッチで駆動するRL直列回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2019/ee_201808_circuit2-fig2-1.png)
 
-#### 题目描述
+### 题目描述
 
 对图2.1的电路回答以下问题。电感为 $L$，电阻为 $R$，电源电压为 $E_0$。以 $t$ 表示时间、地为参考电势，按图2.1定义电压 $v_E(t),v_R(t)$。在 $t<0$ 时开关 S 接 B 侧，且 $v_R(t)=0$。在 $t=0$ 时将 S 接至 A 侧，在 $t=a$ 时接回 B 侧。$u(t)$ 为单位阶跃函数。对时间函数 $f(t)$ 的拉普拉斯变换 $F(s)=\mathcal L[f(t)]$，可使用关系
 

@@ -20,7 +20,7 @@ tags:
 
 (2) « Entia non sunt multiplicnda praeter necessitate » という考え方（通称「オッカムの剃刀」）について論評しなさい。
 
-#### 题目描述
+### 题目描述
 
 从以下两个主题中选择一个进行论述。（务必在开头写明所选主题的编号。）
 

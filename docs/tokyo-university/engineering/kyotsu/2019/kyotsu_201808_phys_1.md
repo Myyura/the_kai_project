@@ -32,7 +32,7 @@ tags:
 
 ![慣性を持つ滑車と、回転する中空円筒](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2019/kyotsu_201808_phys_1_pulley_rolling_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 I. 半径为 $a$、质量为 $M$、密度均匀的滑轮可绕固定点 O 无摩擦转动。将质量分别为 $m_1,m_2\ (m_2>m_1)$ 的重物 1、2 用跨过滑轮的细绳悬挂，从静止状态释放。忽略绳的质量、粗细和伸长以及重物尺寸，绳与滑轮之间无滑动。重力加速度为 $g$，竖直向上为 $y$ 正方向。
 

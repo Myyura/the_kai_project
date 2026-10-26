@@ -27,7 +27,7 @@ tags:
 
 ![MOSソース接地回路とトランジスタ小信号モデル（図2.1、2.2）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2017/ee_201608_circuit2-original.png)
 
-#### 题目描述
+### 题目描述
 
 对于图2.1中使用 MOS 晶体管的共源电路的频率特性，回答以下问题。设晶体管工作在饱和区，其小信号等效电路如图2.2所示，跨导为 $g_m$。
 

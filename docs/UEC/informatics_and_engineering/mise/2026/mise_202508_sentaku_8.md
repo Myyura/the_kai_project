@@ -39,7 +39,7 @@ $$
 
 キーワード：虚数単位 imaginary unit、自然対数の底 base of natural logarithm、複素数 complex number、変数 variable、実数 real number、関数 function、極形式 polar form、コーシー・リーマンの方程式 Cauchy-Riemann equations、任意の点 arbitrary point、正則 regular、導関数 derivative function、平面 plane、曲線 curved line、交点 point of intersection、像 image、接線 tangent line、角 angle、積分路 integral path、反時計回り counterclockwise、1 周線積分 one round line integral、値 value、自然数 natural number、定積分 definite integral。
 
-#### 题目描述
+### 题目描述
 
 以 $i$ 表示虚数单位，回答问题 1、2。
 

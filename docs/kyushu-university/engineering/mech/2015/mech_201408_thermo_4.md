@@ -25,7 +25,7 @@ tags:
 
 **(4)** 熱交換器の必要長さ $L$ を求めよ（$W_B,C_B,h_A,h_B$，および $n$ を用いて表せ）。
 
-#### 题目描述
+### 题目描述
 
 拟制造一台套管式换热器，用质量流量为 $W_A\,(\mathrm{kg/s})$、温度为 $T_A\,(\mathrm K)$ 的流体A，将质量流量为 $W_B\,(\mathrm{kg/s})$ 的流体B从温度 $T_B\,(\mathrm K)$ 加热，使其升温 $\Delta T_B\,(\mathrm K)$。换热器采用直径为 $d\,(\mathrm m)$ 的传热管，按逆流方式工作，回答下列问题。将流体A、B的温差 $T_A-T_B$ 记作 $\Delta T_{AB}\,(\mathrm K)$，A侧换热系数为 $h_A\,(\mathrm{W/(m^2\cdot K)})$，管内流动的B侧换热系数为 $h_B\,(\mathrm{W/(m^2\cdot K)})$，可忽略管壁厚度。定义B与A的热容量流率之比为 $n=W_BC_B/(W_AC_A)$，其中 $n<1$；$C_A,C_B$ 分别是两种流体的比热（$\mathrm{J/(kg\cdot K)}$）。（30分）
 

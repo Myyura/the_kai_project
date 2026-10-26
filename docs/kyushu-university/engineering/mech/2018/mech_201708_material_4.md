@@ -36,7 +36,7 @@ $$
 
 ![原題の薄肉円筒・荷重・測定座標](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_material-4-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，包含两端封闭薄壁圆筒容器的结构承受未知内压 $q$、未知载荷 $P$ 和 $Q$。在容器中央外表面，以 A 点为原点、以容器轴向为 $x$ 方向建立 $xy$ 直角坐标系，再将该坐标系在 $xy$ 平面内旋转 $\theta=\pi/4$，建立 $\xi\eta$ 直角坐标系。测量 A 点沿 $x,y,\xi$ 方向的正应变，得到 $\varepsilon_x=\varepsilon_y=\varepsilon_0$、$\varepsilon_\xi=2\varepsilon_0$。回答下列问题。需要时可使用上面的应变变换式，其中 $\gamma_{xy}$ 为 $x$ 轴与 $y$ 轴间的剪应变。（35分）
 

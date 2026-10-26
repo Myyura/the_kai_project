@@ -32,7 +32,7 @@ tags:
 
 ![図6-3：曲率半径と中立面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/mech_2020_II_6_original_fig3.png)
 
-#### 题目描述
+### 题目描述
 
 如图6-1所示，将杨氏模量为 $E$ 的构件 A 与杨氏模量为 $2E$ 的构件 B、B′ 粘合成长度为 $l$ 的组合梁，其左端固定于墙面。构件 A 的高度为 $2h$、宽度为 $b$；构件 B、B′ 的高度均为 $h$、宽度均为 $b$。弯曲时各构件在接合面上不发生相对滑动，忽略梁的自重。梁右端（自由端）受到弯矩 $M$，回答下列问题。
 

@@ -40,7 +40,7 @@ $$
 
 ![原題の図：振動翼と下流断面Iの全圧分布](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2019/mech_201808_fluids-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，在密度为 $\rho$ 的不可压缩流体主流中，平行放置一个二维对称翼，使其沿垂直于主流的方向振动，翼上便产生指向上游的推力。主流速度均匀且为 $U$。测量翼下游截面的总压分布，得到图示的时间平均总压分布 $p_t(y)$。其中 $p_\infty$ 为远处静压，$y$ 轴从翼的振动中心出发，垂直于主流方向。在下游截面，静压均匀并等于 $p_\infty$，流速仅具有主流方向的分量。虽然流动随时间波动，但假设其时间平均状态可视为定常流动，回答下列问题。（50分）
 

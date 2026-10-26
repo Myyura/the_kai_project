@@ -23,7 +23,7 @@ tags:
 
 ![原題の図a・b：静止時と回転時の水面および円錐体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2010/mech_200908_fluids-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图a所示，半径为 $R$ 的圆筒容器内装有密度为 $\rho$ 的水，水面上浮着一个顶角为 $\pi/2$ 的正圆锥体。圆锥顶点在水面下深度 $h$ 处，中心轴沿竖直方向。水面距容器底部的高度为 $H$。设重力加速度为 $g$，回答下列问题。（50分）
 

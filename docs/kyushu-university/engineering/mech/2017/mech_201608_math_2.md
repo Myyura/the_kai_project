@@ -37,7 +37,7 @@ $$
 
 (5) $K$ のランクを求めよ。
 
-#### 题目描述
+### 题目描述
 
 设 $\boldsymbol a,\boldsymbol b,\boldsymbol c$ 为非零的 $n$ 维列向量。定义 $n\times n$ 矩阵 $K=\boldsymbol a\boldsymbol a^{\mathsf T}$，以及标量
 

@@ -80,7 +80,7 @@ Keywords：製品 product、故障 failure、確率分布 probability distributi
 
 Keywords：ナス eggplant、トマト tomato、ピーマン bell pepper、作物 crop、栽培 cultivate、費用 cost、売値 price、収穫高 harvest、制約条件 constraints、総利益 total profit、最大化 maximize、生産計画問題 production planning problem、作付面積 crop acreage、非負 non-negative、線形計画問題 linear programming problem、定式化 formulate、不等式制約 inequality constraints、記述 describe、スラック変数 slack variable、等式制約 equality constraints、最適 optimal、シンプレックス法 simplex method、求める obtain、完成 complete、初期 initial、更新 update、定数項 constant term、要素 element、積 product、和 sum。
 
-#### 题目描述
+### 题目描述
 
 本科目“概率与运筹学”中，问题 1 必答，问题 2、3 只选其中一题作答。
 

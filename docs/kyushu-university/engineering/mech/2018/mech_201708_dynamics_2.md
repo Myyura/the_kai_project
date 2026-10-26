@@ -36,7 +36,7 @@ $$
 
 ![上向き・下向きの剛体棒の結合の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_dynamics-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 细长均匀刚性杆 1 的质量为 $3m$、长度为 $2l$，下端在 $\mathrm P_1$ 点可自由转动地支承于地板；杆 2 的质量为 $9m$、长度为 $2l$，上端在 $\mathrm P_2$ 点可自由转动地支承于天花板。两杆中心之间用弹簧常数为 $k$ 的水平弹簧连接。杆 1 上端受到水平外力 $F_1\cos\Omega t$，杆 2 下端受到水平外力 $F_2\cos\Omega t$。如图，杆 1 转角为 $\theta_1$，顺时针为正；杆 2 转角为 $\theta_2$，逆时针为正。$\theta_1=\theta_2=0$ 时弹簧为自然长度。两转角微小，可认为弹簧始终保持水平。重力加速度为 $g$，忽略摩擦，回答下列问题。（50分）
 

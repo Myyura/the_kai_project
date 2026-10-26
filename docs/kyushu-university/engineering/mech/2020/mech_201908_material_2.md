@@ -26,7 +26,7 @@ tags:
 
 ![原題の弾性はり・剛体CDF・分布荷重](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_material_2_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 如图，有一长度为 $6a$ 的弹性杆 AB，杨氏模量为 $E$、截面二次矩为 $I$，在 $x=4a$ 的 C 点焊接刚体 CDF。F 点受到集中载荷 $P$，从 $x=a$ 至 $x=5a$ 的区间受到恒定分布载荷 $q$。梁的截面尺寸相对于 $a$ 充分小，刚体和弹性杆的自重可以忽略。回答下列问题。（50分）
 

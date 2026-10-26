@@ -35,7 +35,7 @@ $$
 
 ![図1.1 非反転増幅回路、図1.2 RCフィルタ、図1.3 両者の接続](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2018/ee_201708_electrical_circuit_1_original_fig1-1_1-3.png)
 
-#### 题目描述
+### 题目描述
 
 对于图1.1～图1.3的电路，回答以下问题。设运算放大器的电压增益足够高、输入阻抗足够高、输出阻抗足够低。以下只考虑电压振幅；$v_A,v_B,v_C$ 为电压振幅，$j$ 为虚数单位。
 

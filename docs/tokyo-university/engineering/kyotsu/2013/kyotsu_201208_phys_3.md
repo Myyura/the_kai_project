@@ -72,7 +72,7 @@ III の熱効率を求め、理想気体を作動流体にした場合と比較�
 
 ![カルノーサイクル、定容加熱サイクルと微小サイクルの T–S 図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2013/kyotsu_201208_phys_3_cycles_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 1 摩尔气体满足范德瓦耳斯方程
 

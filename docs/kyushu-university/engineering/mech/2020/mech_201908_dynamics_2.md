@@ -28,7 +28,7 @@ tags:
 
 ![二つの円柱とトルク・変位の正方向の原図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2020/mech_201908_dynamics_2_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 如图，圆柱 1、2 均有质量 $m$、半径 $r$、绕中心轴的转动惯量 $mr^2/2$，置于水平地面上，两中心轴由弹簧常数为 $k$ 的弹簧连接。$t=0$ 时弹簧为自然长度，$t>0$ 时圆柱 1 受到转矩 $N=N_0+\bar N\sin\Omega t$，其中 $N_0,\bar N$ 为常数。圆柱 1 的水平位移和转角分别为 $x_1,\theta_1$，圆柱 2 的水平位移和转角分别为 $x_2,\theta_2$。圆柱与地面不滑动。回答下列问题。（50分）
 

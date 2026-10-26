@@ -30,7 +30,7 @@ tags:
 
 ![図3 同軸ソレノイドと外部回路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tohoku-university/engineering/mech/2018/mech_201708_electromagnetism_2_original_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 2. 如图3所示，两个螺线管线圈 $\mathrm C_1,\mathrm C_2$ 同轴放置，两者的长度均为 $L$，匝数均为 $N$。线圈 $\mathrm C_1,\mathrm C_2$ 的半径分别为 $r_1,r_2$，且 $r_1>r_2$。线圈 $\mathrm C_1$ 接有交流电源，流过电流 $I=I_0\sin(\omega t)$。线圈 $\mathrm C_2$ 接有电阻 $R$ 和开关，开关处于断开状态。回答下列问题。磁导率为 $\mu_0$，忽略线圈端部效应和线圈本身的电阻。
 

@@ -40,7 +40,7 @@ d) 上下2つの鉄心間に働く力の大きさを求めよ。
 
 ![図3.1 閉じた鉄心、図3.2 二つの空隙を持つ鉄心](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/institute-of-science-tokyo/engineering/ee/2019/ee_201808_em3-fig3-1-2.png)
 
-#### 题目描述
+### 题目描述
 
 如图3.1、3.2，磁导率为 $\mu$、截面积为 $S$ 的铁芯与线圈相连。一次、二次线圈的匝数分别为 $N_1,N_2$，其中流过的交流电流分别为 $i_1,i_2$。忽略线圈电阻，且 $i_1,i_2$ 的振幅始终保持恒定。回答以下问题，并写出推导过程。
 

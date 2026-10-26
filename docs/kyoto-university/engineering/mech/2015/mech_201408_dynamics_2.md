@@ -50,7 +50,7 @@ $$
 
 ![原題の図2-2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyoto-university/engineering/mech/2015/mech_201408_dynamics_2_original_figure_2.png)
 
-#### 题目描述
+### 题目描述
 
 2. 如图2-1，一根柔软、均质且均匀的弦沿 $x$ 轴方向以张力 $T$ 张紧，单位长度质量为 $\rho$。弦长为 $L$，两端固定。$y$ 轴垂直于 $x$ 轴，弦在 $xy$ 平面内作稳定振动。时刻 $t$、位置 $x$ 处的弦位移 $y$ 是 $x,t$ 的二元函数。假设振动微小，张力 $T$ 不变，回答以下问题。
 

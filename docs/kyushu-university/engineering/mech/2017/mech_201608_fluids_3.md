@@ -28,7 +28,7 @@ tags:
 
 ![原題の図：傾斜平板上の水と座標系](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_fluids-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图所示，一块相对于水平面倾斜 $\theta$、无限宽广的平板，以恒定速度 $U$ 沿板面向左上方运动。密度为 $\rho$、动力黏度为 $\mu$ 的水沿平板流动，水层厚度恒定但未知，流动为充分发展的层流。水层上方和平板下方均为大气，大气的黏度相对于水可以忽略。驱动平板所需的功率，按平板沿流动方向的单位长度和垂直纸面方向的单位宽度计，为 $L$。回答下列问题。不能假设水层厚度足够薄。流动为定常流动，且沿垂直纸面的方向均匀。坐标系按图设置，重力加速度为 $g$。（50分）
 

@@ -37,9 +37,9 @@ tags:
 
 (5) $\sum_{n=1}^\infty r^nz^n$。
 
-#### 题目描述
+### 题目描述
 
-### 问题1
+#### 问题1
 (1) 用 $z=x+iy$ 和 $\bar z=x-iy$ 表示 $w=2x^2-2y^2$。
 
 (2) $C$ 是以原点为圆心、半径 $r>0$，从 $r$ 逆时针至 $-r$ 的上半圆弧。求 $|\int_Cdz/z|$。
@@ -48,7 +48,7 @@ tags:
 
 (4) 用复积分求 $\int_{-\infty}^0dx/(ax^2+1)$，其中 $a>0$。
 
-### 问题2
+#### 问题2
 $x=\operatorname{Re}z,y=\operatorname{Im}z$，$a,b,c,q,r$ 为实常数。求下列函数全纯的条件及对应导数：
 
 (1) $x(x^2-ay^2)+iy(bx^2-y^2)$；(2) $(x-iy)/(x^2+y^2)$；(3) $z^2+c\bar z^2$；(4) $e^{-y}(\cos qx+i\sin qx)$；(5) $\sum_{n=1}^\infty r^nz^n$。

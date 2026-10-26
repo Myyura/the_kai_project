@@ -27,7 +27,7 @@ IV. $\phi_n(\theta)=\log_e\sum_{k=0}^ne^{\theta k}P_n(k)$（$\theta\in\mathbb R$
 さらに $\phi(\theta)=\lim_{n\to\infty}\phi_n(\theta)/n$ とし、$0<\eta<1$ に対して
 $\phi^*(\eta)=\max_{\theta\in\mathbb R}[\eta\theta-\phi(\theta)]$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 独立掷同一枚硬币 $n$ 次，每次正面概率 $p\in(0,1)$。令 $P_n(k)$ 为恰好 $k$ 次正面的概率，$0\le k\le n$。
 

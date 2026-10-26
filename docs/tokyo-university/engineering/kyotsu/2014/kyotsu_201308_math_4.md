@@ -25,7 +25,7 @@ IV. 曲面 $D(v,w)=T_v(w)$ を考える。(1) $w\ne0$ のときの法線ベク�
 
 ![常螺面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_math_4_helicoid.svg)
 
-#### 题目描述
+### 题目描述
 
 I. 直线 $L_v(u)=(u\cos v,u\sin v,v)$ 扫过常螺面 $S(u,v)=L_v(u)$。求 $S$ 在 $(u,v)$ 处的法向量。
 

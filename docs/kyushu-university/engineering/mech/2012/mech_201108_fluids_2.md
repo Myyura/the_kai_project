@@ -22,7 +22,7 @@ tags:
 
 ![原題の図a–c：分岐管と主管・枝管の流れモデル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2012/mech_201108_fluids-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 通常，分支管道中的流动会产生压力损失。这里考察图a所示分支管道内水流的压力损失：在宽度为 $A$ 的二维通道（主管）侧面，垂直连接一条宽度为 $A/2$ 的二维通道（支管）。分流前水以速度 $V$ 在主管内流动，分流后主管与支管中的水的体积流量比为 $4:1$。按下列问题求分支管道的损失系数。设壁面摩擦可忽略，主管足够远的上游、下游以及支管足够远的下游处，流动均匀。（50分）
 

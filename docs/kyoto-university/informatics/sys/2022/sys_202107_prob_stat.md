@@ -126,7 +126,7 @@ $$
 と等しいと置き、$\hat{m}_k = m_k(\theta_1, \theta_2, \ldots, \theta_K)$
 $(k = 1, \ldots, K)$ なる $K$ 個の連立方程式を $\theta_1, \theta_2, \ldots, \theta_K$ について解くことで、推定値 $\theta_1, \theta_2, \ldots, \theta_K$ を得る方法である。
 
-#### 题目描述
+### 题目描述
 
 1. 随机变量 $X$ 服从密度为
 

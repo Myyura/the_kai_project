@@ -34,7 +34,7 @@ tags:
 
 ![センサの構造と振幅の周波数応答](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2019/kyotsu_201808_phys_4_diagram_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 刚性空心箱内，质量为 $m$ 的物体通过劲度系数为 $k$ 的弹簧和阻尼系数为 $c$ 的阻尼器与箱连接。箱和物体只作上下平动，不转动，忽略重力。取向下为正，箱的绝对坐标为 $x$，以弹簧自然长度位置为原点，物体相对箱的坐标为 $y$，时间为 $t$。
 

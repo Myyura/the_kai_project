@@ -33,7 +33,7 @@ tags:
 
 ![図1-3 点Aより上が滑らかな場合](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kobe-university/engineering/mech/2019/dynamics_201808_1_original_figure_3.png)
 
-#### 题目描述
+### 题目描述
 
 问题[1]、[2]须分别在不同的答题纸上作答。
 

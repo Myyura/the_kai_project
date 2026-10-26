@@ -48,11 +48,11 @@ $$
 
 ![接地平面の像電荷と二方向の像双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2014/kyotsu_201308_phys_2_images_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 在真空中设置接地的无限导体平板，其表面为 $yz$ 平面（$x=0$）。在 $(a,0,0)$（$a>0$）放置点电荷或电偶极子，观察点为 A$(x,y,z)$（$x>0$）。真空介电常数为 $\varepsilon_0$，各问均须给出推导。
 
-### I
+#### I
 
 在 B$(a,0,0)$ 放置 $+q$。$x>0$ 的电场等同于撤去平板、在 C$(-a,0,0)$ 放置像电荷 $-q$ 的电场。AB、AC 距离分别为 $r_{AB},r_{AC}$。平板上以原点为圆心、半径在 $r'$ 与 $r'+dr'$ 之间的微小圆环面积为 $dS$，诱导电荷为 $dQ$。
 
@@ -62,7 +62,7 @@ $$
 4. 求 $dQ$。
 5. 求平板上的总诱导电荷 $Q$。
 
-### II
+#### II
 
 将偶极子中心放在 $(a,0,0)$。它由相距 $b$ 的 $+q,-q$ 构成，偶极矩为 $\boldsymbol p$，其大小 $p=qb$。从偶极子中心指向 A 的位置矢量为 $\boldsymbol r$，假设 $b\ll r=|\boldsymbol r|$。无导体板时，其电势近似为
 

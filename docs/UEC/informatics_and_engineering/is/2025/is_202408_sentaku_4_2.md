@@ -53,7 +53,7 @@ $$
 
 10 進数：decimal number、2 進数：binary number、ビット：bit、符号つき整数：signed integer、2 の補数：two's complement、一意：unique、コード化：encoding、論理式：logical expression、変形：transform、簡単化：simplification、否定：negation、論理関数：logical function、実現：implementation、プログラム：program、浮動小数点：floating-point、命令：instruction、整数：integer、クロック周波数：clock frequency、サイクル：cycle、CPI：cycles per instruction、バイトアドレッシング：byte addressing、ダイレクトマップ：direct-mapped、キャッシュ：cache、主記憶：main memory、容量：capacity、ブロック：block、アドレス：address、インデックス：index、初期状態：initial state、メモリユニット：memory unit、読み出す：read out。
 
-#### 题目描述
+### 题目描述
 
 **1.** 回答下列问题。
 

@@ -35,7 +35,7 @@ $$
 \Biggr].
 $$
 
-#### 题目描述
+### 题目描述
 
 由 $\operatorname{erf}(x)=\dfrac2{\sqrt\pi}\displaystyle\int_0^x e^{-\xi^2}\,d\xi$ 定义的函数称为高斯误差函数。已知 $\displaystyle\lim_{x\to\infty}\operatorname{erf}(x)=1$。回答以下各问。（50分）
 

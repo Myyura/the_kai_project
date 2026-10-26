@@ -48,18 +48,18 @@ $$
 
 $R_1,R_2$ および $r\ge3$ に対する $R_r$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 对 $t\ge0$ 的函数，定义 Laplace 变换
 $\displaystyle F(s)=\mathcal L[f](s)=\int_0^\infty f(t)e^{-st}\,dt$。
 
-##### I.
+#### I.
 设 $\displaystyle g(t)=\int_0^\infty\frac{\sin^2(tx)}{x^2}\,dx$。
 
 1. 求 $G(s)=\mathcal L[g](s)$（$\operatorname{Re}s>0$）。
 2. 利用前问求 $\displaystyle\int_{-\infty}^\infty\frac{\sin^2x}{x^2}\,dx$。
 
-##### II.
+#### II.
 在 $0<x<1,t>0$ 上，函数 $u$ 满足
 
 $$

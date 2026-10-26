@@ -32,7 +32,7 @@ IV. $\boldsymbol y=U^T\boldsymbol x$ とおく。$f$ を $y_i,\lambda_i$ で表�
 
 V. $\|\boldsymbol x\|=1$ の条件の下で、I の2次形式の最大値と、それを与えるすべての $\boldsymbol x$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 对 $n$ 个实变量组成的列向量 $\boldsymbol x$，二次型写成 $f=\boldsymbol x^TA\boldsymbol x$，其中 $A$ 为实对称矩阵。
 

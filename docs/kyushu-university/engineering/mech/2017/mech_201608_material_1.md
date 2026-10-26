@@ -28,7 +28,7 @@ tags:
 
 ![原題の四本の棒の構造と荷重方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 对于图示结构，回答下列问题。（40分）
 

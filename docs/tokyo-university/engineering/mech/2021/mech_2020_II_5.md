@@ -31,7 +31,7 @@ tags:
 
 ![図5-3：並列棒と拘束された剛体](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/mech/2021/mech_2020_II_5_original_fig2.png)
 
-#### 题目描述
+### 题目描述
 
 考虑用载荷 $F$ 拉伸图5-1所示的阶梯杆①。阶梯杆①的上、下段宽均为 $2w$、长均为 $l/4$，中段宽为 $w$、长为 $l/2$，沿纵深方向的厚度均为 $d$。纵深方向不受约束，假设可采用 $xy$ 平面内的平面应力近似。杨氏模量为 $E$，泊松比为 $\nu$。
 

@@ -53,7 +53,7 @@ $$
 2. $\omega=\omega_1$ の場合の近似解を求めよ。
 3. $\omega\simeq0.1\omega_0$ の場合の近似解を求め、時間変化を図示せよ。
 
-#### 题目描述
+### 题目描述
 
 质量为 $m$ 的质点受到外力 $mf\cos\omega t$，满足 $m\ddot x+2m\mu\dot x+m\omega_0^2x=mf\cos\omega t$，其中 $f,\mu>0$，$\omega_0$ 为固有角频率。经过足够长时间后的定常解为
 

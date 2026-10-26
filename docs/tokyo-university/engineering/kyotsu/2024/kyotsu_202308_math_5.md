@@ -48,7 +48,7 @@ $$
 Q=\sum_{n=1}^N\left(\overline{c_n}c_{n+1}+\overline{c_{n+1}}c_n\right).
 $$
 
-#### 题目描述
+### 题目描述
 
 I. 设连续函数 $f(t)$ 绝对可积，其傅里叶变换为
 

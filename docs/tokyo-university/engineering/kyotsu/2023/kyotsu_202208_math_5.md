@@ -52,7 +52,7 @@ $$
 
 ![電圧Vの周期波形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2023/kyotsu_202208_math5-voltage.svg)
 
-#### 题目描述
+### 题目描述
 
 I. 对满足 $f(x+\pi)=f(x-\pi)$ 的周期函数，分别求下列情形的傅里叶级数。
 

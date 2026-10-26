@@ -27,7 +27,7 @@ tags:
 
 ![原題の薄肉円筒と両端の剛体円板](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-4-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，有一长度为 $L$、内径为 $d_0$、壁厚为 $w$ 的薄壁圆筒，两端由刚性圆板封闭。当圆筒承受内压 $p$ 时，回答下列问题。（35分）
 

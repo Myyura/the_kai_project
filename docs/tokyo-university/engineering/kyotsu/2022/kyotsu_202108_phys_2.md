@@ -37,7 +37,7 @@ V. IV の二媒質の抵抗率が十分高く、いずれも絶縁体とみな�
 
 ![接地前後の電界と電荷の緩和](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2022/kyotsu_202108_phys_2_graphs_audited.svg)
 
-#### 题目描述
+### 题目描述
 
 两个同轴薄圆筒导体 A、B 位于真空中，长度均为 $L$，半径分别为 $a,b$（$a<b$），且 $L\gg a,b$。真空介电常数为 $\varepsilon_0$。
 

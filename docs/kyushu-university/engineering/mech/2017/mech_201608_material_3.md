@@ -31,7 +31,7 @@ tags:
 
 ![原題の弾性丸棒と剛体棒の三次元構造](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，由杨氏模量为 $E$、泊松比为 $\nu$ 的弹性杆 AB、BC 与刚杆 CD、DF 连接成的结构，在 A 点固定于墙壁。两根弹性杆的直径均为 $d$。F 点受到沿 $y$ 方向的载荷 $P$。回答下列问题。（40分）
 

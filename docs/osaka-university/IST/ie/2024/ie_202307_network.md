@@ -37,7 +37,7 @@ CSMA 方式では，端末は，送信したいフレーム (frame) が発生す
 
 ![図1：無線通信環境](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/osaka-university/IST/ie/2024/ie_202307_network_figure_1.png)
 
-#### 题目描述
+### 题目描述
 
 **【选答题】网络**
 

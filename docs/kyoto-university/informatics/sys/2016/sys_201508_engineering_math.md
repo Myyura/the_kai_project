@@ -48,7 +48,7 @@ $$
 
 (2) $\int_{-\pi}^{\pi}e^{e^{i\theta}}\,d\theta$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 以下 $i$ 为虚数单位、$e$ 为自然对数的底，$\operatorname{Re}z,\operatorname{Im}z$ 表示实部和虚部。
 

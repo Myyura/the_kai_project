@@ -25,7 +25,7 @@ tags:
 
 ![原題の図1・図2：片持ちはりと剛体棒の取付け方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2016/mech_201508_dynamics-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图1，两个质量均为 $m$ 的质点由长度为 $2l/\sqrt5$ 的刚杆连接。刚杆中心与一根长为 $l$、弯曲刚度为 $EI$、圆形截面的悬臂弹性梁端部刚性连接，刚杆与梁轴向垂直。刚杆和弹性梁的质量均可忽略。回答下列问题，使用题目中没有给出的符号时，必须说明其意义。（50分）
 

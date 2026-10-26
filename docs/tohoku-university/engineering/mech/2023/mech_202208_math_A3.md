@@ -48,7 +48,7 @@ $$
 \int_{\partial S'}\boldsymbol A\cdot d\boldsymbol r
 $$
 
-#### 题目描述
+### 题目描述
 
 在笛卡尔坐标系 $(x,y,z)$ 中，向量场为
 

@@ -28,7 +28,7 @@ $$
 
 であることを証明せよ。ここで、行列 $X$ に対し $\operatorname{rk}(X)$ は $X$ の階数を表す。
 
-#### 题目描述
+### 题目描述
 
 设 $A$ 为实方阵，$k$ 为正整数，且 $\operatorname{rank}(A^{k+1})=\operatorname{rank}(A^k)$。证明对任意整数 $m\ge k$，都有
 

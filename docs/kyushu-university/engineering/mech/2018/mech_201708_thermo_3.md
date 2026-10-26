@@ -43,7 +43,7 @@ tags:
 
 ![原題の図1・図2：温度–比エントロピー線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2018/mech_201708_thermo-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 回答下列问题。（40分）
 

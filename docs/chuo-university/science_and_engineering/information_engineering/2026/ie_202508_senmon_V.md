@@ -19,7 +19,7 @@ tags:
 
 多値の論理値をとる何らかの原子論理式（atomic formulas）の集合および否定（negation）$\lnot$，論理積（conjunction）$\land$，論理和（disjunction）$\lor$ の三演算から成るブール論理系において，あるものが白馬（white horse）であるときそれは馬であることを，構文論的に（syntactically），すなわち根拠を添えつつ論理式を逐次に書き換える様式にて示せ。その際に，否定と選言から定義される含意（implication）$\to$ および論理的含意（logical implication）$\Rightarrow$ を用いてもよい。
 
-#### 题目描述
+### 题目描述
 
 问题 I 必答。从问题 II～V 中选择两题作答。
 

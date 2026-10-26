@@ -34,7 +34,7 @@ $0<\beta<1$、$f(z)=z^\beta/(z^2+1)^2$ とする。$0<r<1<R$ に対し、閉路�
 
 ![上半圆环积分围道及方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/tokyo-university/engineering/kyotsu/2021/kyotsu_202008_math_3_contour.svg)
 
-#### 题目描述
+### 题目描述
 
 I. 设 $|m|=1,m\ne1$，$M(z)=mz/(mz-z+1)$。
 (1) 求全部不动点。(2) 求 $M'(0)$。(3) 求使圆 $|z-(1-i)/2|=1/\sqrt2$ 映到实轴的 $m$。

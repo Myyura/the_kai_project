@@ -38,7 +38,7 @@ $$
 ### III.
 $m\ge3$ とし、$\boldsymbol a_1,\ldots,\boldsymbol a_m$ は一次独立とする。循環的な和 $\boldsymbol a_1+\boldsymbol a_2,\ldots,\boldsymbol a_m+\boldsymbol a_1$ が一次独立となる $m$ の条件を求める。
 
-#### 题目描述
+### 题目描述
 
 I. 对 $A=\begin{pmatrix}0&3&0\\-3&0&4\\0&-4&0\end{pmatrix}$，依次求全部特征值；满足 $A^3+aA^2+bA+cI=0$ 的系数；$A^{2n+1}$（整数 $n\ge0$）；以及 $e^{tA}=pA^2+qA+rI$ 的实系数 $p,q,r$（$t\in\mathbb R$）。
 

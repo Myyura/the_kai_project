@@ -55,7 +55,7 @@ b）問 1d）と同様に、D 型フリップフロップと論理ゲートを�
 
 クロック同期式論理回路：synchronous logic circuit、ミーリーマシン：Mealy machine、論理変数：logical variable、順序回路：sequential circuit、クロック周期：clock cycle、組み合わせ回路：combination circuit、順序回路：sequential circuit、論理式：logic equation、加法標準形：disjunctive normal form、論理和：OR、論理積：AND、論理否定：NOT、状態数：number of states、状態遷移図：state transition diagram、D 型フリップフロップ：D flip-flop、論理ゲート：logic gate。
 
-#### 题目描述
+### 题目描述
 
 某餐厅的一张桌子有 A、B、C、D 四把椅子，每把椅子上的传感器都能每隔固定时间判断是否有人就座。为判定长时间密集就座，需要将时钟同步逻辑电路 $M,N$ 设计为 Mealy 机，即输出由当前状态和输入共同决定的电路。椅子布局及 $M,N$ 的结构见上方原图。
 

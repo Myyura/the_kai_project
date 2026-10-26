@@ -41,7 +41,7 @@ $$
 
 (iv) $\lim_{x\to\infty}e^xf(x)=0$ を追加条件とする。$f(x)+f'(x)=0$ の実数解の個数を $k$ とすると、(ii),(iii) を用いて $k\ge\ell$ を示せ。
 
-#### 题目描述
+### 题目描述
 
 **问1** (i) 求 $\int_0^{\pi/2}\log(\sin\theta)d\theta$。(ii) 已知 $\int_0^\infty ye^{-x^2y^2}dx$ 在 $1\le y\le2$ 上一致收敛，利用这一事实求 $\int_0^\infty(e^{-t^2}-e^{-4t^2})/t^2\,dt$。$e$ 为自然对数的底。
 

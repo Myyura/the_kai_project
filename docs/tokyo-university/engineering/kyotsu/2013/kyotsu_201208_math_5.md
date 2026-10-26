@@ -27,7 +27,7 @@ III. $f$ が $KT_0$ を周期とする場合、$f_d$ のフーリエ係数 $d_n$
 
 IV. $K=6$、$a=e^{-2\pi i/6}$ とする。$\boldsymbol d=(d_0,\ldots,d_{L-1})^T$、$\boldsymbol f=(f(0),\ldots,f(5T_0))^T$ に対し $\boldsymbol d=W\boldsymbol f$ を満たす行列 $W$ を求め、各成分を $a^m$（$m=0,1,2$）と $T_0$ で表せ。
 
-#### 题目描述
+### 题目描述
 
 采用 $F(\omega)=\int_{-\infty}^\infty f(t)e^{-i\omega t}\,dt$、
 $f(t)=(2\pi)^{-1}\int_{-\infty}^\infty F(\omega)e^{i\omega t}\,d\omega$。

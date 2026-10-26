@@ -29,7 +29,7 @@ $$
 
 を満たすとする。このとき，$t\to\infty$ で $u(x,t)/t$ はある関数 $g(x)$ に $\mathbb R$ 上で一様収束することを示し，その関数 $g(x)$ を求めよ。
 
-#### 题目描述
+### 题目描述
 
 假设 $C^\infty$ 函数 $u:\mathbb R\times[0,\infty)\to\mathbb R$ 满足偏微分方程
 

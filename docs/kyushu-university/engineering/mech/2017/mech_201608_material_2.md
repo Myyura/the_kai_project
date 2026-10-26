@@ -26,7 +26,7 @@ tags:
 
 ![原題の剛体棒で接続された二本のはりと支承](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_material-2-original.png)
 
-#### 题目描述
+### 题目描述
 
 弹性梁 AB 与 CD 通过刚杆连接，如图所示。刚杆 JG 与梁 AB、CD 分别为固定连接。刚杆 JG 的直径相对于两根梁的长度充分小。设 A、C、F 点的支承反力分别为 $R_A,R_C,R_F$，刚杆 JG 中的力为 $Q$，回答下列问题。（35分）
 

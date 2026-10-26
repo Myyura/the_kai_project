@@ -63,7 +63,7 @@ $$
 
 [公式問題 PDF・8ページ](https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=exam_ee_20218&key=cd5c2ecd3d4dc49c5c29e8de8374f19b.pdf&pageId=3186&prevId=&type=1)
 
-#### 题目描述
+### 题目描述
 
 如图2.1，把含两个不同频率分量的电压
 

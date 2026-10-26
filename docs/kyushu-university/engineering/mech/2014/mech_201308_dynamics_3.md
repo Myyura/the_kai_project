@@ -27,7 +27,7 @@ tags:
 
 ![原題の左端固定・右端リング付き弦](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2014/mech_201308_dynamics-3-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图，有一长度为 $l$、张力为 $T$、线密度为 $\rho$ 的弦。左端固定于墙壁，右端连接一圆环，圆环可沿固定刚杆无摩擦地竖直移动。以弦左端为原点 O，沿弦长取坐标 $x$，弦在坐标 $x$ 处的横向位移为 $u(x,t)$。张力 $T$ 恒定，位移 $u(x,t)$ 为微小量。忽略圆环大小，以及重力对弦和圆环的影响。回答下列问题，可使用波速 $c=\sqrt{T/\rho}$。（50分）
 

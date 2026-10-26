@@ -28,7 +28,7 @@ tags:
 
 ![支持位置を変える剛体棒の原図 (a), (b)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomon/kyushu-university/engineering/mech/2017/mech_201608_dynamics-1-original.png)
 
-#### 题目描述
+### 题目描述
 
 如图 (a)，质量为 $m$、长度为 $2l$、粗细可忽略的均匀刚性杆可绕 O 点自由转动。杆绕通过重心（中心）G 且垂直于杆的轴的转动惯量为 $I_G=ml^2/3$。O 与 G 重合。杆右端由弹簧常数为 $k$ 的弹簧和黏性阻尼系数为 $c$ 的阻尼器沿垂直于杆的方向支承；弹簧处于自然长度时，杆水平。杆绕 O 的角位移微小，右端向上位移记为 $x$。重力加速度为 $g$。回答下列问题。（50分）
 
