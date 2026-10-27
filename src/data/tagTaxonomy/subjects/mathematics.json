@@ -2984,6 +2984,12 @@
       "labelZh": "点集三角剖分",
       "labelJa": "点集合の三角形分割",
       "labelEn": "Point-Set Triangulation"
+    },
+    "Mathematics.Real-Analysis.Uniform-Continuity": {
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "一致连续性",
+      "labelJa": "一様連続性",
+      "labelEn": "Uniform Continuity"
     }
   }
 }

@@ -4692,6 +4692,10 @@
   label: "Mathematics.Real-Analysis.Stirling-Formula"
   permalink: "/topic/mathematics/real-analysis/stirling-formula"
   description: "Mathematics / Real-Analysis / Stirling-Formula"
+"Mathematics.Real-Analysis.Uniform-Continuity":
+  label: "Mathematics.Real-Analysis.Uniform-Continuity"
+  permalink: "/topic/mathematics/real-analysis/uniform-continuity"
+  description: "Mathematics / Real-Analysis / Uniform-Continuity"
 "Mathematics.Real-Analysis.Uniqueness-of-Measures-from-Laplace-Moments":
   label: "Mathematics.Real-Analysis.Uniqueness-of-Measures-from-Laplace-Moments"
   permalink: "/topic/mathematics/real-analysis/uniqueness-of-measures-from-laplace-moments"

@@ -13,6 +13,8 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
+
+問題は $4$ 題ある。全問に解答すること。
 $V = M_3(\mathbb{R})$ を３次実正方行列全体のなす実ベクトル空間とし、$V$ の部分空間 $W$ を 
 
 $$
@@ -23,13 +25,15 @@ $$
 
 (1) $W$ の基底を含むような $V$ の基底を $1$ 組求めよ。
 
-(2) $R \in M_3(\mathbb{R})$ を固定して、線形写像  $f: V \rightarrow V$ を $f(x) = R^TXR$ と定める。このとき、$f(W) \subset W$ であることを示せ。
+(2) $R \in M_3(\mathbb{R})$ を固定して、線形写像  $f: V \rightarrow V$ を $f(X) = R^TXR$ と定める。このとき、$f(W) \subset W$ であることを示せ。
 
 (3) $R = \begin{pmatrix} -1 & 3 & 2 \\ 2 & 0 & -1 \\ -1 & 1 & 2 \end{pmatrix}$ とする。この $R$ に対して (2) で定めた写像 $f$ の $W$ への制限を $g$ とする。このとき、(1)で求めた $W$ の基底に関する $g$ の表現行列 $S$ を求めよ。
 
 (4) (3)で求めた行列 $S$ の固有値を全て求めよ。
 
 ### 题目描述
+
+试卷共 $4$ 道题，全部作答。
 
 令 $V=M_3(\mathbb R)$ 为全体三阶实方阵构成的实向量空间，并定义子空间
 
@@ -137,7 +141,18 @@ $$
 ### (4)
 
 $$
-\begin{aligned}
--3, -1 \pm \sqrt{13}
-\end{aligned}
+\det(tI-S)=t^3+5t^2-6t-36=(t+3)(t^2+2t-12).
 $$
+
+したがって、固有値は
+
+$$
+-3,\qquad -1\pm\sqrt{13}.
+$$
+
+
+## **Reference**
+
+- [東北大学公式問題（2023年度・共通問題、PDF 2ページ）](https://www.math.tohoku.ac.jp/exam/questions/2023_R5_kyotsu.pdf#page=2)
+- [Miyake：大学院入試の解答](https://miyake.github.io/exams/index.html)
+- [L^2：2023年度の解答](https://note.com/normalmath/n/n89152917de11#4558765b-9889-47c2-8c95-c94e1868c861)
