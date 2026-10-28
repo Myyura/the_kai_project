@@ -13,8 +13,6 @@ tags:
 
 ## **Description**
 
-問題は $8$ 題ある。$3$ 題を選択して解答すること。
-
 $6$ 次元ユークリッド空間 $\mathbb R^6$ の標準内積を $\langle\cdot,\cdot\rangle$ とする。以下の問いに答えよ。
 
 (1) $\mathbb R^6$ の部分空間 $X$ を
@@ -35,8 +33,6 @@ $$
 と定める。$Y$ は $\mathbb R^6\times\mathbb R^6$ の $C^\infty$ 部分多様体であるかどうか、理由とともに答えよ。
 
 ### 题目描述
-
-本卷共 $8$ 道题，请选择其中 $3$ 道作答。
 
 用 $\langle\cdot,\cdot\rangle$ 表示六维欧氏空间 $\mathbb R^6$ 的标准内积。回答下列问题。
 

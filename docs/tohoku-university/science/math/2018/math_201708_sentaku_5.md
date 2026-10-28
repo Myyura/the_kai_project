@@ -13,8 +13,6 @@ tags:
 
 ## **Description**
 
-問題は8題ある。3題を選択して解答すること。
-
 $(X,\mathcal M,\mu)$ を測度空間とし、$\mu$ は有限測度とする（すなわち、$\mu(X)<\infty$）。また、$f$ を $(X,\mathcal M)$ 上の実数値可測関数とする。以下の問いに答えよ。
 
 (1) $\displaystyle\int_Xe^{|f|}d\mu<\infty$ とする。
@@ -30,8 +28,6 @@ $(X,\mathcal M,\mu)$ を測度空間とし、$\mu$ は有限測度とする（�
 (b) $\displaystyle\int_Xe^{|f|}d\mu<\infty$ を示せ。
 
 ### 题目描述
-
-试卷共8题，选择其中3题作答。
 
 设 $(X,\mathcal M,\mu)$ 为测度空间，$\mu$ 为有限测度，即 $\mu(X)<\infty$，$f$ 为 $(X,\mathcal M)$ 上的实值可测函数。回答下列问题。
 

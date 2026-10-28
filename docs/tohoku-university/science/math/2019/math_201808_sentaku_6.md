@@ -14,8 +14,6 @@ tags:
 
 ## **Description**
 
-問題は8題ある。3題を選択して解答すること。
-
 $H$ を実ヒルベルト空間とし、$\langle\cdot,\cdot\rangle$ をその内積、$\|\cdot\|=\sqrt{\langle\cdot,\cdot\rangle}$ をノルムとする。空でない集合 $A\subset H$ に対して
 
 $$
@@ -39,8 +37,6 @@ $$
 で定義する。このとき $A^\perp=(A')^\perp$ が成り立つことを示せ。ただし、$\mathop{\mathrm{w}\text{-}\lim}_{n\to\infty}a_n=x$ とは $a_n$ が $n\to\infty$ のときに $x$ に弱収束することとする。
 
 ### 题目描述
-
-试卷共8题，选择其中3题作答。
 
 设 $H$ 为实希尔伯特空间，内积为 $\langle\cdot,\cdot\rangle$，范数为 $\|x\|=\sqrt{\langle x,x\rangle}$。对非空集合 $A\subset H$，定义
 

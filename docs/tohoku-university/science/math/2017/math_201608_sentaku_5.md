@@ -14,8 +14,6 @@ tags:
 
 ## **Description**
 
-問題は9題ある。3題を選択して解答すること。
-
 $\mu$ を $\mathbb R^n$ 上のルベーグ測度とし、可測集合 $\Omega\subset\mathbb R^n$ が $\mu(\Omega)<\infty$ を満たし、$f_k$（$k=1,2,3,\ldots$）と $f$ は $\Omega$ 上の2乗可積分関数であるとする。また、
 
 $$
@@ -45,8 +43,6 @@ $$
 (3) $\displaystyle\lim_{k\to\infty}\int_\Omega|f_k-f|d\mu=0$ が成り立つことを示せ。
 
 ### 题目描述
-
-试卷共9题，选择其中3题作答。
 
 设 $\mu$ 为 $\mathbb R^n$ 上的勒贝格测度，可测集 $\Omega\subset\mathbb R^n$ 满足 $\mu(\Omega)<\infty$，函数 $f_k$（$k=1,2,3,\ldots$）与 $f$ 均在 $\Omega$ 上平方可积。存在常数 $M>0$，使
 

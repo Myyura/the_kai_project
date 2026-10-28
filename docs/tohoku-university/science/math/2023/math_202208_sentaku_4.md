@@ -13,8 +13,6 @@ tags:
 
 ## **Description**
 
-問題は $8$ 題ある。$3$ 題を選択して解答すること。
-
 $3$ 次元ユークリッド空間 $\mathbb R^3$ からそれ自身への写像 $f:\mathbb R^3\to\mathbb R^3$ を次で定義する。
 
 $$
@@ -31,8 +29,6 @@ $$
 (3) $f$ を $2$ 次元球面 $S^2=\{(x,y,z)\in\mathbb R^3\mid x^2+y^2+z^2=1\}$ に制限して得られる写像 $g=f|_{S^2}:S^2\to\mathbb R^3$ を考える。集合 $\{p\in S^2\mid\operatorname{rank}dg_p=2\}$ を求めよ。ただし、$dg_p:T_p(S^2)\to T_{f(p)}(\mathbb R^3)$ は点 $p\in S^2$ における $g$ の微分写像を表す。
 
 ### 题目描述
-
-本卷共 $8$ 道题，请选择其中 $3$ 道作答。
 
 定义三维欧氏空间上的映射 $f:\mathbb R^3\to\mathbb R^3$：
 

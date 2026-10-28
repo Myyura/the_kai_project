@@ -18,8 +18,6 @@ shank (co-authored with GPT 6.1 SOL)
 
 ## **Description**
 
-この科目（確率・オペレーションズリサーチ）を受験する場合には，問1は必ず解答し，問2と問3はいずれか一方のみを選択して解答すること。
-
 ### 問1
 
 期待値が $\mu=100$，標準偏差が $\sigma=20$ の分布に従う互いに独立な確率変数 $X_1,X_2,\ldots,X_n$ を考える。また，これらの標本平均を $\bar{X}_n=\frac{1}{n}\sum_{i=1}^{n}X_i$ とする。
@@ -62,8 +60,6 @@ Keywords：期待値：expected value，標準偏差：standard deviation，互�
 
 ### 問2
 
-この問題を選択する場合には問3に解答してはいけない。
-
 二項分布 $B(n,p)$ に従う確率変数 $X$ についての問いに答えよ。ただし，確率関数（確率質量関数）は下記で与えられるものとする。
 
 $$
@@ -93,8 +89,6 @@ $$
 Keywords：二項分布：binomial distribution，確率質量関数：probability mass function，事象：event，不適切：inappropriate，モーメント母関数：moment generating function，1 次モーメント：first moment，2 次モーメント：second moment，製造ライン：production line，不良率：defective product rate，組：pair，未満：less than，出荷：ship，廃棄：discard，損失：loss
 
 ### 問3
-
-この問題を選択する場合には，問2に解答してはいけない。
 
 以下の式 (1)–(5) からなる最大化問題をシンプレックス法で解くことを考える：
 
@@ -129,8 +123,6 @@ Keywords：最大化問題：maximization problem，シンプレックス法：s
 
 
 ### 题目描述
-
-报考本科目（概率与运筹学）时，问1为必答题，问2与问3只能选择其中一题作答。
 
 #### 问1
 
@@ -170,8 +162,6 @@ $$
 
 #### 问2
 
-选择本题时，不得作答问3。
-
 对于服从二项分布 $B(n,p)$ 的随机变量 $X$，回答下列问题。其概率函数（概率质量函数）如下：
 
 $$
@@ -201,8 +191,6 @@ $$
 关键词：二项分布：binomial distribution，概率质量函数：probability mass function，事件：event，不适当：inappropriate，矩母函数：moment generating function，一阶矩：first moment，二阶矩：second moment，生产线：production line，不良率：defective product rate，组：pair，小于：less than，出货：ship，报废：discard，损失：loss
 
 #### 问3
-
-选择本题时，不得作答问2。
 
 考虑用单纯形法求解由下列式 (1)–(5) 构成的最大化问题：
 

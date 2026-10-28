@@ -15,8 +15,6 @@ tags:
 
 ## **Description**
 
-問題は $4$ 題ある。全問に解答すること。
-
 $n\in\mathbb Z_{>0}$ と $b\in\mathbb Z$ に対し、
 
 $$
@@ -32,8 +30,6 @@ $$
 (3) $f:(\mathbb Z,\mathcal O)\to(\mathbb Z,\mathcal O)$ を以下で定める。$x\in\mathbb Z$ に対し、$x\in A_{1,0}$ のとき $f(x)=x/5$、それ以外のとき $f(x)=x$。このとき、$f$ が連続であるかどうか、理由とともに答えよ。
 
 ### 题目描述
-
-试卷共 $4$ 道题，全部作答。
 
 对正整数 $n\in\mathbb Z_{>0}$ 和整数 $b\in\mathbb Z$，令
 

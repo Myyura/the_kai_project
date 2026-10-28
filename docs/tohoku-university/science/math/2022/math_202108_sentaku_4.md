@@ -13,8 +13,6 @@ tags:
 
 ## **Description**
 
-問題は $8$ 題ある。$3$ 題を選択して解答すること。
-
 $3$ 次元ユークリッド空間 $\mathbb R^3$ の標準内積を $\langle\cdot,\cdot\rangle$ とし、写像 $f:\mathbb R^6=\mathbb R^3\times\mathbb R^3\to\mathbb R^3$ を
 
 $$
@@ -37,8 +35,6 @@ $$
 (3) $V$ は $2$ 次元トーラス $T=S^1\times S^1$ と同相であることを示せ。ここで $S^1$ は単位円周である。
 
 ### 题目描述
-
-本卷共 $8$ 道题，请选择其中 $3$ 道作答。
 
 用 $\langle\cdot,\cdot\rangle$ 表示三维欧氏空间 $\mathbb R^3$ 的标准内积，定义映射 $f:\mathbb R^6=\mathbb R^3\times\mathbb R^3\to\mathbb R^3$ 为
 

@@ -15,7 +15,7 @@ tags:
 
 ## **Description**
 
-問題は $4$ 題ある。全問に解答すること。$\mathbb R$ は実数全体のなす集合を表す。
+$\mathbb R$ は実数全体のなす集合を表す。
 
 $(\mathbb R,\mathcal O)$ を $\mathbb R$ のユークリッド距離から定まる通常の位相 $\mathcal O$ をもつ位相空間とする。また、$\mathbb R$ の部分集合 $V$ で差集合 $\mathbb R-V$ が有限集合であるもの全体を $\mathcal Z$ とし
 
@@ -35,7 +35,7 @@ $$
 
 ### 题目描述
 
-试卷共 $4$ 道题，全部作答。$\mathbb R$ 表示实数集。
+$\mathbb R$ 表示实数集。
 
 设 $(\mathbb R,\mathcal O)$ 为实数集上赋予欧几里得距离所确定的通常拓扑 $\mathcal O$ 的拓扑空间。令 $\mathcal Z$ 为所有满足差集 $\mathbb R-V$ 有限的子集 $V\subset\mathbb R$ 组成的集合族，并定义
 

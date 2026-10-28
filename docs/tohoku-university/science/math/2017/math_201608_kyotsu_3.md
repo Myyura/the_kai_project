@@ -16,8 +16,6 @@ tags:
 
 ## **Description**
 
-問題は4題ある．全問に解答すること．
-
 $p>2$ とする．$D=\{(x,y,z)\in\mathbb{R}^3\mid x,y,z\ge0\}$ 上の関数
 
 $$
@@ -37,8 +35,6 @@ m\sqrt{x^2+y^2+z^2}\le(x^p+y^p+z^p)^{1/p}\le M\sqrt{x^2+y^2+z^2}.
 $$
 
 ### 题目描述
-
-本卷共有4题，全部作答。
 
 设 $p>2$。在 $D=\{(x,y,z)\in\mathbb{R}^3\mid x,y,z\ge0\}$ 上定义
 

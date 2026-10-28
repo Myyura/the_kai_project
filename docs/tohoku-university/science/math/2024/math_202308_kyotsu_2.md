@@ -15,8 +15,6 @@ tags:
 
 ## **Description**
 
-問題は $4$ 題ある。全問に解答すること。
-
 $(\mathbb R,\mathcal O)$ を $\mathbb R$ 上の通常のユークリッド距離から定まる位相 $\mathcal O$ をもつ位相空間とする。また $X=\{x\in\mathbb R\mid x\notin\mathbb Q,\ x^2\le2\}$ とし、$\mathcal O_X$ を $\mathcal O$ から定まる $X$ 上の相対位相とする。以下の問いに答えよ。
 
 (1) $X$ の部分集合 $U=\{x\in X\mid0<x<1\}$ は位相空間 $(X,\mathcal O_X)$ の開集合かつ閉集合であることを示せ。
@@ -28,8 +26,6 @@ $(\mathbb R,\mathcal O)$ を $\mathbb R$ 上の通常のユークリッド距離
 (4) 位相空間 $(X,\mathcal O_X)$ はコンパクトであるか、理由とともに答えよ。
 
 ### 题目描述
-
-试卷共 $4$ 道题，全部作答。
 
 设 $(\mathbb R,\mathcal O)$ 为由 $\mathbb R$ 上通常的欧几里得距离确定的拓扑空间。令
 

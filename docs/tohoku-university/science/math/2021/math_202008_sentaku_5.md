@@ -13,8 +13,6 @@ tags:
 
 ## **Description**
 
-問題は8題ある。3題を選択して解答すること。
-
 $1$ より真に大きい二つの実数 $p,q$ が
 
 $$
@@ -38,8 +36,6 @@ $$
 (3) $\displaystyle\lim_{n\to\infty}\int_{\mathbb R}f(x)g_n(x)m(dx)=\int_{\mathbb R}f(x)g(x)m(dx)$ が成り立つことを示せ。
 
 ### 题目描述
-
-试卷共8题，选择其中3题作答。
 
 设实数 $p,q>1$ 满足 $1/p+1/q=1$。$\mathbb R$ 上的勒贝格可测函数 $f,g$ 及可测函数列 $\{g_n\}_{n=1}^\infty$ 满足以下所有条件，其中 $m$ 为 $\mathbb R$ 上的勒贝格测度。
 

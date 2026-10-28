@@ -14,8 +14,6 @@ tags:
 
 ## **Description**
 
-問題は $4$ 題ある。全問に解答すること。
-
 $\mathbb R$ のユークリッド位相の開集合系を $\mathcal O_{\mathbb R}$ とおく。閉区間 $I=[0,1]$ の部分集合族 $\mathcal W$ と $\mathcal W'$ をそれぞれ
 
 $$
@@ -34,8 +32,6 @@ $$
 (4) 写像 $g:(I,\mathcal O)\to(I,\mathcal O)$、$g(x)=x^2$ は連続写像であるかどうか、理由とともに答えよ。
 
 ### 题目描述
-
-试卷共 $4$ 道题，全部作答。
 
 设 $\mathcal O_{\mathbb R}$ 为 $\mathbb R$ 的欧几里得拓扑的开集族。对闭区间 $I=[0,1]$，定义其子集族
 

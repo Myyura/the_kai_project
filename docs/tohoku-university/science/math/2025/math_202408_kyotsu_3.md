@@ -15,8 +15,6 @@ tags:
 
 ## **Description**
 
-問題は4題ある．全問に解答すること．
-
 以下の問いに答えよ．ただし，$\mathbb{Z}_{>0}$ は正の整数全体のなす集合を表す．
 
 (1) $\{a_n\}_{n=1}^{\infty}$ は正の実数からなる数列とし，$a_n\ge a_{n+1}$ $(n=1,2,\ldots)$ かつ $\displaystyle\sum_{n=1}^{\infty}a_n<\infty$ を満たすとする．このとき，$\displaystyle\lim_{n\to\infty}na_n=0$ が成り立つことを示せ．
@@ -24,8 +22,6 @@ tags:
 (2) $n\in\mathbb{Z}_{>0}$ に対して，$a_n=\dfrac{1}{(n+1)\log(n+1)}$ で与えられる $\{a_n\}_{n=1}^{\infty}$ は，$\displaystyle\lim_{n\to\infty}na_n=0$ を満たすことを示せ．また，$\displaystyle\sum_{n=1}^{\infty}a_n=\infty$ であることを示せ．
 
 ### 题目描述
-
-本卷共有4题，全部作答。
 
 回答下列问题，其中 $\mathbb{Z}_{>0}$ 表示正整数集合。
 

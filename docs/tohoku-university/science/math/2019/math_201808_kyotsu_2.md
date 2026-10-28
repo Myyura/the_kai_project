@@ -15,7 +15,7 @@ tags:
 
 ## **Description**
 
-問題は $4$ 題ある。全問に解答すること。$\mathbb R$ は実数全体のなす集合を表す。
+$\mathbb R$ は実数全体のなす集合を表す。
 
 $\mathbb R^2=\mathbb R\times\mathbb R$ の点 $x=(x_0,x_1)\in\mathbb R^2$ に対し、$\sqrt{x_0^2+x_1^2}$ を $|x|$ で表す。関数 $d:\mathbb R^2\times\mathbb R^2\to\mathbb R$ を
 
@@ -33,7 +33,7 @@ $$
 
 ### 题目描述
 
-试卷共 $4$ 道题，全部作答。$\mathbb R$ 表示实数集。
+$\mathbb R$ 表示实数集。
 
 对于 $\mathbb R^2=\mathbb R\times\mathbb R$ 中的点 $x=(x_0,x_1)$，以 $|x|$ 表示 $\sqrt{x_0^2+x_1^2}$。定义函数 $d:\mathbb R^2\times\mathbb R^2\to\mathbb R$ 为
 

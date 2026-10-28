@@ -13,8 +13,6 @@ tags:
 
 ## **Description**
 
-問題は8題ある。3題を選択して解答すること。
-
 $1\le p<\infty$ とし、$\mu$ を $\mathbb R^n$ 上のルベーグ測度とする。関数 $f:\mathbb R^n\to\mathbb R$ はルベーグ可測であり、$\int_{\mathbb R^n}|f(x)|^p\,d\mu(x)<\infty$ を満たすものとする。さらに $f$ の分布関数を
 
 $$
@@ -45,8 +43,6 @@ $$
 $$
 
 ### 题目描述
-
-试卷共8题，选择其中3题作答。
 
 设 $1\le p<\infty$，$\mu$ 为 $\mathbb R^n$ 上的勒贝格测度，可测函数 $f:\mathbb R^n\to\mathbb R$ 满足 $\int_{\mathbb R^n}|f(x)|^p\,d\mu(x)<\infty$。定义 $f$ 的分布函数
 

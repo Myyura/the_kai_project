@@ -13,8 +13,6 @@ tags:
 
 ## **Description**
 
-問題は $8$ 題ある。$3$ 題を選択して解答すること。
-
 
 写像 $f:\mathbb R^3\to\mathbb R^4$ を
 
@@ -33,8 +31,6 @@ $$
 (4) 写像 $g:S\to\mathbb R^4$ を $f$ の $S$ への制限で定める。点 $q\in S$ における $g$ の微分 $dg_q:T_qS\to T_{g(q)}\mathbb R^4$ が単射とならない点を求めよ。
 
 ### 题目描述
-
-本卷共 $8$ 道题，请选择其中 $3$ 道作答。
 
 
 定义映射 $f:\mathbb R^3\to\mathbb R^4$ 为

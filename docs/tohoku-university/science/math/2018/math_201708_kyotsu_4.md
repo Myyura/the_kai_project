@@ -13,8 +13,6 @@ tags:
 
 ## **Description**
 
-問題は4題ある．全問に解答すること．
-
 $\alpha$ を実数とする．単調増加な実数列 $\{a_n\}_{n=1}^\infty$ が
 
 $$
@@ -30,8 +28,6 @@ $$
 (3) $\displaystyle\lim_{n\to\infty}\frac1n\sum_{k=1}^n k(a_{k+1}-a_k)=0$ を示せ．
 
 ### 题目描述
-
-本卷共有4题，全部作答。
 
 设 $\alpha$ 是实数，单调递增的实数列 $\{a_n\}_{n=1}^\infty$ 满足
 

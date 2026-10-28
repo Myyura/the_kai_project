@@ -14,8 +14,6 @@ tags:
 
 ## **Description**
 
-問題は4題ある．全問に解答すること．
-
 実数列 $\{a_n\}_{n=1}^{\infty}$ に対して
 
 $$
@@ -31,8 +29,6 @@ $$
 (3) 正の整数 $n$ に対して $c_n=a_n-a_{n-1}$ とおく．ただし，$a_0=0$ とする．$\displaystyle\lim_{n\to\infty}b_n=\alpha$ かつ $\displaystyle\lim_{n\to\infty}nc_n=0$ ならば，$\displaystyle\lim_{n\to\infty}a_n=\alpha$ であることを示せ．
 
 ### 题目描述
-
-本卷共有4题，全部作答。
 
 对实数列 $\{a_n\}_{n=1}^{\infty}$，令
 

@@ -13,8 +13,6 @@ tags:
 
 ## **Description**
 
-問題は $8$ 題ある。$3$ 題を選択して解答すること。
-
 
 写像 $f:\mathbb R^4\to\mathbb R^2$ と $g:\mathbb R^4\to\mathbb R$ を
 
@@ -34,8 +32,6 @@ $$
 (3) $M$ が $\mathbb R^4$ の $C^\infty$ 級部分多様体であることを示し、その次元を求めよ。
 
 ### 题目描述
-
-本卷共 $8$ 道题，请选择其中 $3$ 道作答。
 
 
 定义映射 $f:\mathbb R^4\to\mathbb R^2$ 与 $g:\mathbb R^4\to\mathbb R$ 为
