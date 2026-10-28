@@ -680,6 +680,18 @@
   label: "Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management"
   permalink: "/topic/business-administration/marketing/tourism-marketing-and-destination-management"
   description: "Business-Administration / Marketing / Tourism-Marketing-and-Destination-Management"
+"Business-Administration.Strategy.Dynamic-Capabilities":
+  label: "Business-Administration.Strategy.Dynamic-Capabilities"
+  permalink: "/topic/business-administration/strategy/dynamic-capabilities"
+  description: "Business-Administration / Strategy / Dynamic-Capabilities"
+"Business-Administration.Strategy.Positioning-Approach":
+  label: "Business-Administration.Strategy.Positioning-Approach"
+  permalink: "/topic/business-administration/strategy/positioning-approach"
+  description: "Business-Administration / Strategy / Positioning-Approach"
+"Business-Administration.Strategy.Resource-Based-View":
+  label: "Business-Administration.Strategy.Resource-Based-View"
+  permalink: "/topic/business-administration/strategy/resource-based-view"
+  description: "Business-Administration / Strategy / Resource-Based-View"
 "Chemistry.Inorganic-Chemistry.Coordination-Compound-Composition":
   label: "Chemistry.Inorganic-Chemistry.Coordination-Compound-Composition"
   permalink: "/topic/chemistry/inorganic-chemistry/coordination-compound-composition"

@@ -83,6 +83,36 @@
     "Business-Administration.Management-Science"
   ],
   "topics": {
+    "Business-Administration.Strategy.Positioning-Approach": {
+      "subsubject": "Business-Administration.Strategy",
+      "labelZh": "战略定位理论",
+      "labelJa": "ポジショニング・アプローチ",
+      "labelEn": "Positioning Approach"
+    },
+    "Business-Administration.Strategy.Resource-Based-View": {
+      "subsubject": "Business-Administration.Strategy",
+      "labelZh": "资源基础观",
+      "labelJa": "資源ベース論",
+      "labelEn": "Resource-Based View",
+      "searchAliases": {
+        "zh": [
+          "资源基础理论"
+        ],
+        "ja": [
+          "リソース・ベースト・ビュー"
+        ],
+        "en": [
+          "RBV",
+          "VRIN"
+        ]
+      }
+    },
+    "Business-Administration.Strategy.Dynamic-Capabilities": {
+      "subsubject": "Business-Administration.Strategy",
+      "labelZh": "动态能力",
+      "labelJa": "ダイナミック・ケイパビリティ",
+      "labelEn": "Dynamic Capabilities"
+    },
     "Business-Administration.Finance.Efficient-Market-Hypothesis": {
       "subsubject": "Business-Administration.Finance",
       "relatedSubjects": [

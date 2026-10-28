@@ -1602,6 +1602,20 @@ const universities = [
         "aliases": [],
         "archiveUrl": "/docs/category/keio-university-business",
         "websiteUrl": "https://www.kbs.keio.ac.jp/graduate/mba/admission/"
+      },
+      {
+        "id": "commerce",
+        "name": "商学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/keio-university-commerce",
+        "programs": [
+          {
+            "id": "management",
+            "name": "経営学",
+            "aliases": [],
+            "archiveUrl": "/docs/category/keio-university-commerce-management"
+          }
+        ]
       }
     ]
   },
