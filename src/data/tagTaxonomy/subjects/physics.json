@@ -487,6 +487,17 @@
       "labelJa": "正準交換関係",
       "labelEn": "Canonical Commutation Relations"
     },
+    "Physics.Quantum-Mechanics.Heisenberg-Picture": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "海森堡绘景",
+      "labelJa": "ハイゼンベルク描像",
+      "labelEn": "Heisenberg Picture",
+      "searchAliases": {
+        "zh": ["海森堡运动方程"],
+        "ja": ["ハイゼンベルク方程式"],
+        "en": ["Heisenberg equation of motion"]
+      }
+    },
     "Physics.Quantum-Mechanics.Rectangular-Barrier-Tunneling": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [

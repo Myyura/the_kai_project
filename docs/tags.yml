@@ -5556,6 +5556,10 @@
   label: "Physics.Quantum-Mechanics.Harmonic-Oscillator-Ground-State"
   permalink: "/topic/physics/quantum-mechanics/harmonic-oscillator-ground-state"
   description: "Physics / Quantum-Mechanics / Harmonic-Oscillator-Ground-State"
+"Physics.Quantum-Mechanics.Heisenberg-Picture":
+  label: "Physics.Quantum-Mechanics.Heisenberg-Picture"
+  permalink: "/topic/physics/quantum-mechanics/heisenberg-picture"
+  description: "Physics / Quantum-Mechanics / Heisenberg-Picture"
 "Physics.Quantum-Mechanics.Heisenberg-Uncertainty-and-Minimum-Uncertainty-Gaussian":
   label: "Physics.Quantum-Mechanics.Heisenberg-Uncertainty-and-Minimum-Uncertainty-Gaussian"
   permalink: "/topic/physics/quantum-mechanics/heisenberg-uncertainty-and-minimum-uncertainty-gaussian"
