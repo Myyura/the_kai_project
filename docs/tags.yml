@@ -664,10 +664,26 @@
   label: "Business-Administration.Finance.Put-Call-Parity"
   permalink: "/topic/business-administration/finance/put-call-parity"
   description: "Business-Administration / Finance / Put-Call-Parity"
+"Business-Administration.Human-Resource-Management.Achievement-Motivation":
+  label: "Business-Administration.Human-Resource-Management.Achievement-Motivation"
+  permalink: "/topic/business-administration/human-resource-management/achievement-motivation"
+  description: "Business-Administration / Human-Resource-Management / Achievement-Motivation"
+"Business-Administration.Human-Resource-Management.Expectancy-Theory":
+  label: "Business-Administration.Human-Resource-Management.Expectancy-Theory"
+  permalink: "/topic/business-administration/human-resource-management/expectancy-theory"
+  description: "Business-Administration / Human-Resource-Management / Expectancy-Theory"
+"Business-Administration.Human-Resource-Management.Goal-Setting-Theory":
+  label: "Business-Administration.Human-Resource-Management.Goal-Setting-Theory"
+  permalink: "/topic/business-administration/human-resource-management/goal-setting-theory"
+  description: "Business-Administration / Human-Resource-Management / Goal-Setting-Theory"
 "Business-Administration.Human-Resource-Management.Nursing-Workforce":
   label: "Business-Administration.Human-Resource-Management.Nursing-Workforce"
   permalink: "/topic/business-administration/human-resource-management/nursing-workforce"
   description: "Business-Administration / Human-Resource-Management / Nursing-Workforce"
+"Business-Administration.Human-Resource-Management.Work-Engagement":
+  label: "Business-Administration.Human-Resource-Management.Work-Engagement"
+  permalink: "/topic/business-administration/human-resource-management/work-engagement"
+  description: "Business-Administration / Human-Resource-Management / Work-Engagement"
 "Business-Administration.Management-Science.Industrial-Engineering":
   label: "Business-Administration.Management-Science.Industrial-Engineering"
   permalink: "/topic/business-administration/management-science/industrial-engineering"
@@ -680,6 +696,14 @@
   label: "Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management"
   permalink: "/topic/business-administration/marketing/tourism-marketing-and-destination-management"
   description: "Business-Administration / Marketing / Tourism-Marketing-and-Destination-Management"
+"Business-Administration.Organization.Interactional-Justice":
+  label: "Business-Administration.Organization.Interactional-Justice"
+  permalink: "/topic/business-administration/organization/interactional-justice"
+  description: "Business-Administration / Organization / Interactional-Justice"
+"Business-Administration.Organization.Lewin-Change-Model":
+  label: "Business-Administration.Organization.Lewin-Change-Model"
+  permalink: "/topic/business-administration/organization/lewin-change-model"
+  description: "Business-Administration / Organization / Lewin-Change-Model"
 "Business-Administration.Strategy.Dynamic-Capabilities":
   label: "Business-Administration.Strategy.Dynamic-Capabilities"
   permalink: "/topic/business-administration/strategy/dynamic-capabilities"

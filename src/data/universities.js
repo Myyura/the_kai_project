@@ -822,6 +822,20 @@ const universities = [
           }
         ],
         "websiteUrl": "https://www.sci.osaka-u.ac.jp/ja/admissions/admissions_d/"
+      },
+      {
+        "id": "economics",
+        "name": "経済学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/osaka-university-economics",
+        "programs": [
+          {
+            "id": "management",
+            "name": "経営学系専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/osaka-university-economics-management"
+          }
+        ]
       }
     ]
   },

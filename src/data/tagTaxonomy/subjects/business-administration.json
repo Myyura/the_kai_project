@@ -210,6 +210,109 @@
       "labelZh": "丰田生产方式",
       "labelJa": "トヨタ生産方式",
       "labelEn": "Toyota Production System"
+    },
+    "Business-Administration.Organization.Interactional-Justice": {
+      "subsubject": "Business-Administration.Organization",
+      "labelZh": "互动公平",
+      "labelJa": "相互作用的公正",
+      "labelEn": "Interactional Justice",
+      "searchAliases": {
+        "zh": [
+          "交互公平",
+          "互动公正"
+        ],
+        "ja": [
+          "相互作用公正"
+        ]
+      },
+      "relatedSubjects": [
+        "Psychology"
+      ]
+    },
+    "Business-Administration.Human-Resource-Management.Goal-Setting-Theory": {
+      "subsubject": "Business-Administration.Human-Resource-Management",
+      "labelZh": "目标设定理论",
+      "labelJa": "目標設定理論",
+      "labelEn": "Goal-Setting Theory",
+      "searchAliases": {
+        "zh": [
+          "目标设置理论"
+        ],
+        "en": [
+          "Locke and Latham"
+        ]
+      },
+      "relatedSubjects": [
+        "Psychology"
+      ]
+    },
+    "Business-Administration.Human-Resource-Management.Expectancy-Theory": {
+      "subsubject": "Business-Administration.Human-Resource-Management",
+      "labelZh": "期望理论",
+      "labelJa": "期待理論",
+      "labelEn": "Expectancy Theory",
+      "searchAliases": {
+        "zh": [
+          "弗鲁姆期望理论"
+        ],
+        "en": [
+          "Vroom"
+        ]
+      },
+      "relatedSubjects": [
+        "Psychology"
+      ]
+    },
+    "Business-Administration.Human-Resource-Management.Achievement-Motivation": {
+      "subsubject": "Business-Administration.Human-Resource-Management",
+      "labelZh": "成就动机",
+      "labelJa": "達成動機づけ",
+      "labelEn": "Achievement Motivation",
+      "searchAliases": {
+        "ja": [
+          "達成動機"
+        ],
+        "en": [
+          "Atkinson"
+        ]
+      },
+      "relatedSubjects": [
+        "Psychology"
+      ]
+    },
+    "Business-Administration.Human-Resource-Management.Work-Engagement": {
+      "subsubject": "Business-Administration.Human-Resource-Management",
+      "labelZh": "工作投入",
+      "labelJa": "ワーク・エンゲージメント",
+      "labelEn": "Work Engagement",
+      "searchAliases": {
+        "zh": [
+          "工作敬业度"
+        ],
+        "ja": [
+          "ワークエンゲージメント"
+        ]
+      },
+      "relatedSubjects": [
+        "Psychology"
+      ]
+    },
+    "Business-Administration.Organization.Lewin-Change-Model": {
+      "subsubject": "Business-Administration.Organization",
+      "labelZh": "勒温三阶段变革模型",
+      "labelJa": "レヴィンの組織変革モデル",
+      "labelEn": "Lewin's Three-Stage Change Model",
+      "searchAliases": {
+        "zh": [
+          "解冻、变革、再冻结"
+        ],
+        "ja": [
+          "解凍・変革・再凍結"
+        ],
+        "en": [
+          "unfreezing, changing, refreezing"
+        ]
+      }
     }
   }
 }
