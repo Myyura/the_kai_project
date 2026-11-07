@@ -1,4 +1,3 @@
-import { serve } from 'https://deno.land/std@0.224.0/http/server.ts';
 import { createClient } from 'npm:@supabase/supabase-js@2.98.0';
 import {
   defaultCorsHeaders,
@@ -602,7 +601,7 @@ async function handleRequest(req: Request, ctx: AgentContext) {
   return errorResponse(404, 'not_found', 'Agent context route was not found.');
 }
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: defaultCorsHeaders });
   }

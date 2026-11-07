@@ -1,4 +1,3 @@
-import { serve } from 'https://deno.land/std@0.224.0/http/server.ts';
 import { createClient } from 'npm:@supabase/supabase-js@2.98.0';
 import {
   corsHeadersFor,
@@ -794,7 +793,7 @@ async function markSubmissionConverted(body: Record<string, unknown>) {
   return jsonResponse({ submission: publicSubmission(data) });
 }
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     const status = isAllowedOrigin(req) ? 200 : 403;
     return new Response(status === 200 ? 'ok' : 'forbidden', { status, headers: corsHeadersFor(req) });

@@ -18,13 +18,12 @@ function loadTS(relativePath, extra = '') {
   const code = babel.transformSync(source, {filename, plugins: [require('@babel/plugin-transform-typescript'), require('@babel/plugin-transform-modules-commonjs')]}).code;
   const loaded = {exports: {}};
   const resolve = name => {
-    if (name.startsWith('https:')) return {serve() {}};
     if (name.startsWith('npm:')) return {createClient() {}};
     if (name === './http.ts') return {errorResponse: (status, code, message) => ({status, code, message})};
     if (name.endsWith('.ts')) return loadTS(path.relative(path.resolve(__dirname, '..'), path.resolve(path.dirname(filename), name)));
     return require(name);
   };
-  Function('module', 'exports', 'require', 'Deno', code)(loaded, loaded.exports, resolve, {env: {get: () => ''}});
+  Function('module', 'exports', 'require', 'Deno', code)(loaded, loaded.exports, resolve, {env: {get: () => ''}, serve() {}});
   return loaded.exports;
 }
 const {normalizeExperienceRequest} = loadTS('supabase/functions/content-submissions/experience.ts');

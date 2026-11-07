@@ -1,4 +1,3 @@
-import { serve } from 'https://deno.land/std@0.224.0/http/server.ts';
 import { createClient } from 'npm:@supabase/supabase-js@2.98.0';
 import {
   errorResponse,
@@ -393,7 +392,7 @@ async function proxyChat(user: User, call: AgentCall, wantStream = false) {
   return jsonResponse(text ? JSON.parse(text) : {}, res.status);
 }
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     const status = isAllowedOrigin(req) ? 200 : 403;
     return withCors(req, new Response(status === 200 ? 'ok' : 'forbidden', { status }));

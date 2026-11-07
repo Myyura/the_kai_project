@@ -1,4 +1,3 @@
-import { serve } from 'https://deno.land/std@0.224.0/http/server.ts';
 import { createClient } from 'npm:@supabase/supabase-js@2.98.0';
 import {
   corsHeaders,
@@ -519,7 +518,7 @@ async function handleApiRequest(req: Request, ctx: RequestContext) {
   }), 404);
 }
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }
