@@ -1,5 +1,8 @@
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 const test = require('node:test');
+const matter = require('gray-matter');
 
 const {
   FORMAT,
@@ -63,6 +66,9 @@ test('exported documents keep stable identity, parsed metadata, frontmatter, and
   assert.equal(typeof document.tags, 'object');
   assert.equal(typeof document.markdown, 'string');
   assert.equal(typeof document.sections, 'object');
+  const parsed = matter(fs.readFileSync(path.resolve(__dirname, '..', document.sourcePath), 'utf8'));
+  assert.deepEqual(document.frontmatter, JSON.parse(JSON.stringify(parsed.data)));
+  assert.equal(document.markdown, parsed.content.trim());
 });
 
 test('relative document images are embedded as content-addressed assets', async () => {

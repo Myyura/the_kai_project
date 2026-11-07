@@ -34,7 +34,24 @@ function resolveDocumentUuid(docId, overrides = loadDocumentIdentityOverrides())
     || uuidV5(normalized, overrides.namespace);
 }
 
+function buildDocumentIdentityRows(documents, overrides = loadDocumentIdentityOverrides()) {
+  const registry = documents.map((document) => ({
+    document_uuid: document.document_uuid,
+    current_doc_id: document.doc_id,
+  }));
+  const aliases = [
+    ...documents.map((document) => [document.doc_id, document.document_uuid, true]),
+    ...Object.entries(overrides.aliases).map(([docId, documentUuid]) => [docId, documentUuid, false]),
+  ].map(([docId, documentUuid, isCurrent]) => ({
+    doc_id: docId,
+    document_uuid: documentUuid,
+    is_current: isCurrent,
+  }));
+  return {registry, aliases};
+}
+
 module.exports = {
+  buildDocumentIdentityRows,
   DOCUMENT_NAMESPACE,
   OVERRIDES_PATH,
   loadDocumentIdentityOverrides,

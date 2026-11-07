@@ -37,7 +37,8 @@
     "review:format": "node scripts/review-format.js",
     "api:generate": "node scripts/generate-api-data.js",
     "api:validate": "node scripts/generate-api-data.js --validate",
-    "catalog:sync": "node scripts/sync-document-catalog.js"
+    "catalog:sync": "node scripts/sync-document-catalog.js",
+    "catalog:export": "node scripts/export-document-catalog-sql.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",

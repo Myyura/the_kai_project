@@ -138,7 +138,9 @@ npx supabase functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF
 
 `kai-api` 和 `agent-context` 共用 `supabase/functions/_shared/published-content.ts` 中的静态正文加载器；Supabase CLI 和 GitHub Actions 会自动把共享模块打包，无需手工复制，也无需你在 Dashboard 中逐个更新函数。
 
-3. 文档正文不会镜像到数据库，而是由构建流程按稳定 UUID 发布到 `/api-content/v1/documents/`。GitHub Actions 不保存 `SUPABASE_SERVICE_ROLE_KEY`；部署成功后，由维护者在受信任的本地终端临时设置该密钥，只同步文档身份和轻量目录：
+3. 文档正文不会镜像到数据库，而是由构建流程按稳定 UUID 发布到 `/api-content/v1/documents/`。每次推送到 `main`，GitHub Actions 会从同一次网站构建生成目录 SQL，复用 `SUPABASE_ACCESS_TOKEN`、`SUPABASE_PROJECT_REF` 和 `SUPABASE_DB_PASSWORD` 自动同步文档身份、路径、标题、标签及内容哈希，不需要保存 `SUPABASE_SERVICE_ROLE_KEY`。同步和完整性校验在同一个事务中完成；失败会阻止 Pages 发布。自动同步保留历史别名和旧目录，不改动用户题集、笔记或进度。
+
+如需在本地手动同步并清理已下架的目录记录，可在受信任的终端临时设置 service-role 密钥：
 
 ```bash
 printf 'Supabase service-role key: '
@@ -149,10 +151,12 @@ SUPABASE_URL="https://your-project.supabase.co" yarn catalog:sync
 unset SUPABASE_SERVICE_ROLE_KEY
 ```
 
-该命令只 upsert UUID、路径、标题、链接、标签、分类和内容哈希，并清理已经不存在的 `document_catalog` 目录行；不会上传 Markdown，也不会修改笔记、进度、题集或其他用户表。JSON API 和 Agent 需要正文时，会按 UUID 读取随网站一起发布的静态 JSON。
+这个手动命令只 upsert UUID、路径、标题、链接、标签、分类和内容哈希，并清理已经不存在的 `document_catalog` 目录行；不会上传 Markdown，也不会修改笔记、进度、题集或其他用户表。JSON API 和 Agent 需要正文时，会按 UUID 读取随网站一起发布的静态 JSON。
 该输入方式不会把密钥写入终端历史；不要把它写入仓库、GitHub Secrets 或构建日志。
 
-文档移动后运行 `yarn catalog:sync` 更新当前路径和 alias。用户学习记录通过稳定的 UUID 关联文档，无需执行额外的历史归一化脚本。
+文档移动时使用 `yarn documents:move -- <old-doc-id> <new-doc-id>` 保留 UUID；当前路径和 alias 会在下一次 `main` 发布时自动同步。用户学习记录通过稳定的 UUID 关联文档，无需执行额外的历史归一化脚本。
+
+如果需要通过 Supabase 网页手动恢复，可在本地运行 `yarn catalog:export`，然后将生成的 `.local-work/outputs/problem-set-repair/document-catalog-sync.sql` 全文粘贴到 SQL Editor 执行。该脚本与自动发布使用相同的目录事务；遇到路径与 UUID 冲突时会中止。题目能打开但收藏返回 `invalid_doc_id` 时，应检查该题是否已同步到 `document_aliases` 和 `document_catalog`；仅在 SQL Editor 执行题集分享迁移不会补齐这些数据。
 
 4. 按 [supabase/config.toml](supabase/config.toml) 保持上述五个函数的 `verify_jwt = false`；每个函数会自行完成 API Key、登录 token、回调 secret 或 JWK 校验。为 `kai-api` 配置 `API_LOG_SALT`；站内投稿与 Agent bridge 在启用前还需分别配置 GitHub、CLA、回调或 Agent/JWK secrets。
 5. 通过 Supabase Dashboard 审核 `api_access_requests` 表中的申请：将 `status` 改为 `approved` 即可允许用户创建 API Key；可用 `rejected` 或 `revoked` 拒绝或暂停访问。

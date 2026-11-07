@@ -5,7 +5,7 @@ const path = require('node:path');
 const matter = require('gray-matter');
 const {buildCatalog} = require('../plugins/experience-blog/catalog.cjs');
 const {readExternalExperiences} = require('../src/data/experiences/external.cjs');
-const {readFilters, filterSearch, filterEntries} = require('../src/components/ExperienceCatalog/model.cjs');
+const {readFilters, filterSearch, indexCatalog, filterEntries} = require('../src/components/ExperienceCatalog/model.cjs');
 const {catalogScopes, examUniversities} = require('../src/data/universityCatalog.cjs');
 
 const universities = [
@@ -56,6 +56,27 @@ test('program and year must match the same placement, and multi-program stories 
   assert.equal(filterEntries(catalog, {program: 'tokyo/frontier/cbms', year: '2025'}).length, 1);
   assert.equal(filterEntries(catalog, {school: 'kyoto', year: '2025'}).length, 1);
   assert.equal(filterEntries(catalog, {kind: 'internal'}).length, 1);
+});
+
+test('scope counts count each story once across years, programs and schools', () => {
+  const catalog = build({external: [{...external[0], placements: [
+    ...external[0].placements,
+    {scope: 'tokyo/ist/cs', admissionYear: 2026},
+    {scope: 'kyoto/informatics/cce', admissionYear: 2026},
+  ]}]});
+  const index = indexCatalog(catalog);
+  assert.equal(index.schoolCounts.get('tokyo'), 1);
+  assert.equal(index.schoolCounts.get('kyoto'), 2);
+  assert.equal(index.programCounts.get('tokyo/ist/cs'), 1);
+  for (const school of catalog.schools) {
+    assert.equal(index.schoolCounts.get(school.id) || 0, filterEntries(catalog, {school: school.id}).length);
+  }
+  for (const program of catalog.programs) {
+    assert.equal(index.programCounts.get(program.id) || 0, filterEntries(catalog, {program: program.id}).length);
+  }
+  for (const filters of [{}, {q: '东大'}, {program: 'tokyo/ist/cs', year: '2026'}, {kind: 'internal'}]) {
+    assert.deepEqual(filterEntries(catalog, filters, index), filterEntries(catalog, filters));
+  }
 });
 
 test('title, author, school aliases and program aliases filter without indexing bodies', () => {

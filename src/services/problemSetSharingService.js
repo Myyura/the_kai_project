@@ -25,10 +25,21 @@ const rpc = async (name, params) => {
   return data;
 };
 
-// Only relative document routes may become clickable links. Public snapshots
-// deliberately never expose account IDs, emails, or another user's progress.
-const safePermalink = (value) => typeof value === 'string'
-  && /^\/docs\//.test(value) && !/[\\\u0000-\u0020]/.test(value) ? value : null;
+// Catalog URLs use the production origin; normalize them to document routes so
+// previews stay on the current site. Only this boundary accepts snapshot URLs.
+const DOCUMENT_ORIGIN = 'https://runjp.com';
+const safePermalink = (value) => {
+  if (typeof value !== 'string' || !/^(?:\/docs\/|https:\/\/)/i.test(value)
+    || /[\\\u0000-\u0020\u007f]/.test(value)) return null;
+  try {
+    const url = new URL(value, DOCUMENT_ORIGIN);
+    if (url.origin !== DOCUMENT_ORIGIN || url.username || url.password
+      || !url.pathname.startsWith('/docs/')) return null;
+    return `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return null;
+  }
+};
 
 export const normalizeSharedProblemSet = (data) => {
   const value = Array.isArray(data) ? data[0] : data;
@@ -91,11 +102,6 @@ export async function importSharedProblemSet({code, title, expectedVersion = nul
 export function createProblemSetShareUrl(code) {
   const path = `/shared-set?code=${encodeURIComponent(requireCode(code))}`;
   return typeof window !== 'undefined' ? `${window.location.origin}${path}` : path;
-}
-
-export function buildProblemSetShareText(share, {intro = '', instructions = ''} = {}) {
-  return [intro, share.title, share.description, share.author?.displayName, share.code,
-    createProblemSetShareUrl(share.code), instructions].filter(Boolean).join('\n');
 }
 
 export function getProblemSetShareErrorCode(error) {

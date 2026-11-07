@@ -1,10 +1,24 @@
 import {addStudyEventListener, NOTES_UPDATED_EVENT, emitStudyEvent} from '../services/studyEvents';
-import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {useCallback, useEffect, useRef, useState} from 'react';
 import {useAuth} from './useAuth';
 
 const noteCache = new Map();
 const saveChains = new Map();
 const pendingContents = new Map();
+const pendingReads = new Map();
+
+// The annotation provider and note editor read the same document on mount.
+// Share only concurrent reads; later visits and explicit retries still reload.
+const readNote = (cacheKey, docId) => {
+  if (pendingReads.has(cacheKey)) return pendingReads.get(cacheKey);
+  const request = import('../services/studyDataService')
+    .then(({fetchDocNote}) => fetchDocNote(docId))
+    .finally(() => {
+      if (pendingReads.get(cacheKey) === request) pendingReads.delete(cacheKey);
+    });
+  pendingReads.set(cacheKey, request);
+  return request;
+};
 
 const enqueueSave = (cacheKey, userId, docId, content) => {
   const previous = saveChains.get(cacheKey) || Promise.resolve();
@@ -49,8 +63,7 @@ export function useDocNotes(docId) {
     }
     setLoading(true);
     try {
-      const {fetchDocNote} = await import('../services/studyDataService');
-      const value = await fetchDocNote(docId);
+      const value = await readNote(cacheKey, docId);
       if (requestRef.current !== requestId) return value;
       const pendingContent = pendingContents.get(cacheKey);
       if (pendingContent !== undefined && (value?.content || '') !== pendingContent) {
@@ -76,6 +89,8 @@ export function useDocNotes(docId) {
     const removeListener = addStudyEventListener(NOTES_UPDATED_EVENT, (event) => {
       if (event.detail?.userId && event.detail.userId !== userId) return;
       if (event.detail?.docId !== docId) return;
+      // A read started before this write cannot be reused by a newly mounted editor.
+      pendingReads.delete(cacheKey);
       const value = event.detail.value || null;
       const pendingContent = pendingContents.get(cacheKey);
       if (!event.detail?.optimistic && pendingContent !== undefined && (value?.content || '') !== pendingContent) {
@@ -198,6 +213,5 @@ export function useAllNotes() {
     return () => {requestRef.current += 1; removeListener();};
   }, [refresh, user?.id]);
 
-  const data = useMemo(() => Object.fromEntries(entries.map((item) => [item.id, item])), [entries]);
-  return {data, entries, loading, error, refresh};
+  return {entries, loading, error, refresh};
 }

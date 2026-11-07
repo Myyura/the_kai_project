@@ -5,6 +5,7 @@ import {useProblemSets} from '@site/src/hooks/useProblemSets';
 import {useProblemSetsFeature} from '@site/src/hooks/useProblemSetsFeature';
 import {useUiText} from '@site/src/i18n/useUiText';
 import {PROBLEM_SET_KIND} from '@site/src/services/problemSetTypes';
+import {getProblemSetMembershipErrorCode} from '@site/src/services/problemSetErrors';
 import {consumeAuthReturnIntent, saveAuthReturnIntent} from '@site/src/services/authReturn';
 import styles from './styles.module.css';
 
@@ -16,20 +17,46 @@ const setName = (problemSet, t) => {
 
 export default function AddToProblemSet({docId}) {
   const featureEnabled = useProblemSetsFeature();
-  const {isLoggedIn, authReady} = useAuth();
+  const {isLoggedIn, authReady, user} = useAuth();
   const t = useUiText('problemSets');
-  const {sets, loading, error, refresh} = useProblemSets(docId, {enabled: featureEnabled && isLoggedIn});
+  const {sets, loading, error} = useProblemSets(docId, {enabled: featureEnabled && isLoggedIn});
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState([]);
   const [newTitle, setNewTitle] = React.useState('');
   const [saving, setSaving] = React.useState(false);
   const [message, setMessage] = React.useState('');
+  const [messageIsError, setMessageIsError] = React.useState(false);
   const triggerRef = React.useRef(null);
   const dialogRef = React.useRef(null);
   const pendingCreatedSetIdsRef = React.useRef(new Set());
+  const savingRef = React.useRef(false);
+  const mountedRef = React.useRef(false);
+  const closeTimerRef = React.useRef(null);
+  const scope = `${user?.id || ''}:${docId}`;
+  const scopeRef = React.useRef(scope);
+  scopeRef.current = scope;
 
   const activeSets = sets.filter((item) => !item.archivedAt);
   const containsAny = activeSets.some((item) => item.containsDoc);
+  const busy = saving || loading;
+
+  React.useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      window.clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    savingRef.current = false;
+    setSaving(false);
+    setOpen(false);
+    setMessage('');
+    setNewTitle('');
+    pendingCreatedSetIdsRef.current.clear();
+    window.clearTimeout(closeTimerRef.current);
+  }, [scope]);
 
   React.useEffect(() => {
     setSelected(activeSets
@@ -83,6 +110,8 @@ export default function AddToProblemSet({docId}) {
       return;
     }
     setMessage('');
+    setMessageIsError(false);
+    window.clearTimeout(closeTimerRef.current);
     setOpen(true);
   };
 
@@ -93,37 +122,54 @@ export default function AddToProblemSet({docId}) {
   };
 
   const createSet = async () => {
-    if (!newTitle.trim()) return;
+    if (savingRef.current || loading || !newTitle.trim()) return;
+    savingRef.current = true;
+    const requestScope = scope;
     setSaving(true);
     setMessage('');
+    setMessageIsError(false);
     try {
       const {createMyProblemSet} = await import('@site/src/services/problemSetService');
       const id = await createMyProblemSet({title: newTitle.trim()});
+      if (!mountedRef.current || scopeRef.current !== requestScope) return;
       pendingCreatedSetIdsRef.current.add(id);
       setSelected((current) => [...current, id]);
       setNewTitle('');
-      await refresh();
     } catch (createError) {
+      if (!mountedRef.current || scopeRef.current !== requestScope) return;
       setMessage(t.saveFailed);
+      setMessageIsError(true);
     } finally {
-      setSaving(false);
+      if (mountedRef.current && scopeRef.current === requestScope) {
+        savingRef.current = false;
+        setSaving(false);
+      }
     }
   };
 
   const save = async () => {
+    if (savingRef.current || loading) return;
+    savingRef.current = true;
+    const requestScope = scope;
     setSaving(true);
     setMessage('');
+    setMessageIsError(false);
     try {
       const {setDocProblemSetMemberships} = await import('@site/src/services/problemSetService');
       await setDocProblemSetMemberships(docId, selected);
+      if (!mountedRef.current || scopeRef.current !== requestScope) return;
       pendingCreatedSetIdsRef.current.clear();
-      await refresh();
       setMessage(t.saved);
-      window.setTimeout(() => setOpen(false), 350);
+      closeTimerRef.current = window.setTimeout(() => setOpen(false), 350);
     } catch (saveError) {
-      setMessage(t.saveFailed);
+      if (!mountedRef.current || scopeRef.current !== requestScope) return;
+      setMessage(t.membershipErrors[getProblemSetMembershipErrorCode(saveError)]);
+      setMessageIsError(true);
     } finally {
-      setSaving(false);
+      if (mountedRef.current && scopeRef.current === requestScope) {
+        savingRef.current = false;
+        setSaving(false);
+      }
     }
   };
 
@@ -170,6 +216,7 @@ export default function AddToProblemSet({docId}) {
                     <input
                       type="checkbox"
                       checked={selected.includes(problemSet.id)}
+                      disabled={busy}
                       onChange={() => toggleSet(problemSet.id)}
                     />
                     <span>
@@ -185,6 +232,7 @@ export default function AddToProblemSet({docId}) {
             <div className={styles.createRow}>
               <input
                 value={newTitle}
+                disabled={busy}
                 maxLength={80}
                 onChange={(event) => setNewTitle(event.target.value)}
                 placeholder={t.quickCreatePlaceholder}
@@ -195,13 +243,14 @@ export default function AddToProblemSet({docId}) {
                   }
                 }}
               />
-              <button type="button" className={styles.saveButton} disabled={saving || !newTitle.trim()} onClick={createSet}><FaPlus /> {t.create}</button>
+              <button type="button" className={styles.saveButton} disabled={busy || !newTitle.trim()} onClick={createSet}><FaPlus /> {t.create}</button>
             </div>
 
-            {(message || error) && <p className={styles.message} aria-live="polite">{message || t.loadFailed}</p>}
+            {(message || error) && <p className={`${styles.message} ${messageIsError || error ? styles.errorMessage : ''}`}
+              role={messageIsError || error ? 'alert' : 'status'}>{message || t.loadFailed}</p>}
             <footer>
               <button type="button" className={styles.cancelButton} onClick={() => setOpen(false)}>{t.cancel}</button>
-              <button type="button" className={styles.saveButton} disabled={saving || loading} onClick={save}>
+              <button type="button" className={styles.saveButton} disabled={busy} onClick={save}>
                 <FaSave /> {saving ? t.saving : t.saveMemberships}
               </button>
             </footer>

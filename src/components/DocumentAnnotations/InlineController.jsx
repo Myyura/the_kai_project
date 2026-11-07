@@ -45,19 +45,17 @@ const hashText = (value) => {
   return `v1-${(hash >>> 0).toString(36)}`;
 };
 
-const computeDocumentHash = (container) => {
-  const blocks = Array.from(container.querySelectorAll(BLOCK_SELECTOR));
+const computeDocumentHash = (blocks) => {
   const source = blocks
-    .map((block) => (
-      `${getLine(block)}:${canonicalizeAnnotationText(getRenderableTextModel(block).fullText)}`
+    .map(({line, fullText}) => (
+      `${line}:${canonicalizeAnnotationText(fullText)}`
     ))
     .join('\n');
   return hashText(source);
 };
 
-const findTextRange = (block, exact) => {
-  if (!block || !exact) return null;
-  const {fullText, textNodes} = getRenderableTextModel(block);
+const findTextRange = ({fullText, textNodes}, exact) => {
+  if (!exact) return null;
   const offsets = findAnnotationTextOffsets(fullText, exact);
   const ranges = offsets.map(({start, end}) => {
     const startNode = textNodes.find((item) => start >= item.start && start < item.end);
@@ -93,25 +91,41 @@ const getRenderableSelectionText = (block, range) => {
   return canonicalizeAnnotationText(selected);
 };
 
-const resolveAnnotation = (container, annotation) => {
-  const blocks = Array.from(container.querySelectorAll(BLOCK_SELECTOR));
+const resolveAnnotation = (blocks, annotation) => {
   const candidates = blocks
-    .map((block) => ({block, range: findTextRange(block, annotation.exact)}))
+    .map((model) => ({model, range: findTextRange(model, annotation.exact)}))
     .filter((candidate) => candidate.range)
     .sort((a, b) => {
-      const lineDistance = Math.abs(getLine(a.block) - annotation.line) - Math.abs(getLine(b.block) - annotation.line);
+      const lineDistance = Math.abs(a.model.line - annotation.line) - Math.abs(b.model.line - annotation.line);
       if (lineDistance !== 0) return lineDistance;
-      return getRenderableTextModel(a.block).fullText.length - getRenderableTextModel(b.block).fullText.length;
+      return a.model.fullText.length - b.model.fullText.length;
     });
-  const block = candidates[0]?.block || null;
+  const block = candidates[0]?.model.block || null;
   const range = candidates[0]?.range || null;
-  const currentLine = block ? getLine(block) : null;
+  const currentLine = candidates[0]?.model.line ?? null;
   return {
     found: Boolean(block),
     block,
     range,
     currentLine,
     moved: Boolean(block && currentLine !== annotation.line),
+  };
+};
+
+const resolveDocumentAnnotations = (container, annotations) => {
+  if (!container) return {resolved: {}, documentHash: ''};
+  // Reuse one text snapshot for matching, ordering, and hashing in this pass.
+  const blocks = Array.from(container.querySelectorAll(BLOCK_SELECTOR), (block) => ({
+    block,
+    line: getLine(block),
+    ...getRenderableTextModel(block),
+  }));
+  return {
+    documentHash: computeDocumentHash(blocks),
+    resolved: Object.fromEntries(annotations.map((annotation) => [
+      annotation.id,
+      resolveAnnotation(blocks, annotation),
+    ])),
   };
 };
 
@@ -136,13 +150,10 @@ export default function InlineAnnotationController() {
     setContainer(next || null);
   }, []);
 
-  const resolved = useMemo(() => {
-    if (!container) return {};
-    return Object.fromEntries(annotations.map((annotation) => [
-      annotation.id,
-      resolveAnnotation(container, annotation),
-    ]));
-  }, [annotations, container]);
+  const {resolved, documentHash} = useMemo(
+    () => resolveDocumentAnnotations(container, annotations),
+    [annotations, container],
+  );
 
   const updateMarkerPositions = useCallback(() => {
     if (!container) return;
@@ -172,7 +183,7 @@ export default function InlineAnnotationController() {
 
   useEffect(() => {
     if (!container) return undefined;
-    setDocumentHash(computeDocumentHash(container));
+    setDocumentHash(documentHash);
     setResolutions(Object.fromEntries(Object.entries(resolved).map(([id, value]) => [id, {
       found: value.found,
       currentLine: value.currentLine,
@@ -194,7 +205,7 @@ export default function InlineAnnotationController() {
       window.removeEventListener('resize', updateMarkerPositions);
       container.style.position = previousPosition;
     };
-  }, [container, resolved, setDocumentHash, setResolutions, updateMarkerPositions]);
+  }, [container, documentHash, resolved, setDocumentHash, setResolutions, updateMarkerPositions]);
 
   useEffect(() => {
     if (!container || !enabled) return undefined;

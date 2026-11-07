@@ -221,6 +221,5 @@ export function useAllProgress() {
     if (requestRef.current === requestId) setEntries([]);
   }, [user?.id]);
 
-  const data = useMemo(() => Object.fromEntries(entries.map((item) => [item.id, item])), [entries]);
-  return {data, entries, stats, clearAll, loading, error, refresh};
+  return {entries, stats, clearAll, loading, error, refresh};
 }

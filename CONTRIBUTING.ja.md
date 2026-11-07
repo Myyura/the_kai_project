@@ -136,7 +136,9 @@ npx supabase functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF
 
 `kai-api` と `agent-context` は `supabase/functions/_shared/published-content.ts` の静的本文ローダーを共有します。Supabase CLI と GitHub Actions が自動的にバンドルするため、ファイルの手動コピーや Dashboard での個別更新は不要です。
 
-3. Markdown 本文は PostgreSQL に複製せず、ビルド時に安定 UUID ごとの静的 JSON として `/api-content/v1/documents/` に公開します。GitHub Actions には `SUPABASE_SERVICE_ROLE_KEY` を保存しません。デプロイ成功後、メンテナーが信頼できるローカル端末で一時的にキーを設定し、文書 ID と軽量カタログだけを同期します。
+3. Markdown 本文は PostgreSQL に複製せず、ビルド時に安定 UUID ごとの静的 JSON として `/api-content/v1/documents/` に公開します。`main` への push ごとに、同じサイトビルドからカタログ SQL を生成し、既存の `SUPABASE_ACCESS_TOKEN`、`SUPABASE_PROJECT_REF`、`SUPABASE_DB_PASSWORD` で文書 ID、パス、タイトル、タグ、コンテンツハッシュを自動同期します。GitHub Actions に `SUPABASE_SERVICE_ROLE_KEY` を保存する必要はありません。同期と整合性検証は単一トランザクションで行い、失敗時は Pages の公開を停止します。自動同期では過去の alias とカタログを保持し、ユーザーの問題セット、ノート、進捗を変更しません。
+
+公開を終了したカタログ行の削除も含めてローカルで手動同期する場合は、信頼できる端末で service-role キーを一時的に設定します。
 
 ```bash
 printf 'Supabase service-role key: '
@@ -147,10 +149,10 @@ SUPABASE_URL="https://your-project.supabase.co" yarn catalog:sync
 unset SUPABASE_SERVICE_ROLE_KEY
 ```
 
-このコマンドは UUID、パス、タイトル、リンク、タグ、分類、コンテンツハッシュだけを upsert し、不要になった `document_catalog` 行を削除します。Markdown、ノート、進捗、問題セットなどのユーザーデータは変更しません。JSON API と Agent は、Web サイトと一緒に公開された静的 JSON から本文を取得します。
+この手動コマンドは UUID、パス、タイトル、リンク、タグ、分類、コンテンツハッシュだけを upsert し、不要になった `document_catalog` 行を削除します。Markdown、ノート、進捗、問題セットなどのユーザーデータは変更しません。JSON API と Agent は、Web サイトと一緒に公開された静的 JSON から本文を取得します。
 この入力方法ではキーがシェル履歴に残りません。リポジトリや GitHub Actions には保存しないでください。
 
-文書パスの移動後は `yarn catalog:sync` で現在のパスと alias を更新します。学習記録は固定 UUID で文書に関連付けられるため、過去の正規化 SQL は不要です。
+文書を移動する際は `yarn documents:move -- <old-doc-id> <new-doc-id>` で UUID を維持してください。次の `main` デプロイで現在のパスと alias が自動同期されます。学習記録は固定 UUID で文書に関連付けられるため、過去の正規化 SQL は不要です。SQL Editor から手動復旧する場合は、`yarn catalog:export` が同じトランザクションを `.local-work/outputs/problem-set-repair/document-catalog-sync.sql` に出力します。生成に認証情報は不要です。
 
 4. [supabase/config.toml](supabase/config.toml) の設定どおり、5 つの Edge Function すべてで `verify_jwt = false` を維持します。各関数は API キー、ログイントークン、コールバックシークレット、または JWK を独自に検証します。`kai-api` には `API_LOG_SALT` を設定し、サイト内投稿と Agent ブリッジ には、有効化前にそれぞれ GitHub、CLA、コールバック、または Agent/JWK 用のシークレット を設定してください。
 5. Supabase Dashboard で `api_access_requests` テーブルの申請を確認します。`status` を `approved` に変更すると API キーの作成を許可できます。拒否または停止する場合は `rejected` / `revoked` を使います。

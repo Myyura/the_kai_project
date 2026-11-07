@@ -87,7 +87,6 @@ function ProblemSetList() {
       setTitle('');
       setDescription('');
       setMessage(t.created);
-      await refresh();
     } catch (createError) {
       setMessage(t.saveFailed);
     } finally {
@@ -99,7 +98,6 @@ function ProblemSetList() {
     setMessage('');
     try {
       await archiveMyProblemSet(problemSet.id, !problemSet.archivedAt);
-      await refresh();
     } catch (archiveError) {
       setMessage(t.saveFailed);
     }
@@ -218,6 +216,9 @@ function ProblemSetDetail({setId}) {
   const [annotationDrafts, setAnnotationDrafts] = React.useState({});
   const [message, setMessage] = React.useState('');
   const [sharing, setSharing] = React.useState(false);
+  const [mutating, setMutating] = React.useState(false);
+  const actionRef = React.useRef(false);
+  const busy = mutating || loading;
 
   React.useEffect(() => {
     setTitle(problemSet?.title || '');
@@ -232,6 +233,7 @@ function ProblemSetDetail({setId}) {
   if (!problemSet) return null;
 
   const isCustom = problemSet.kind === PROBLEM_SET_KIND.CUSTOM;
+  const isArchived = Boolean(problemSet.archivedAt);
   const items = (problemSet.items || []).map((item) => ({
     ...item,
     title: getDocumentTitle(item.docId, item.title),
@@ -242,19 +244,25 @@ function ProblemSetDetail({setId}) {
       || item.docId.toLowerCase().includes(query.trim().toLowerCase());
     return matchesText && (status === 'all' || item.progressStatus === status);
   });
-  const nextItem = items.find((item) => item.contentAvailable && item.progressStatus !== 'completed')
-    || items.find((item) => item.contentAvailable);
+  const unfinishedItem = items.find((item) => item.contentAvailable && item.progressStatus !== 'completed');
+  const nextItem = unfinishedItem || items.find((item) => item.contentAvailable);
+  const unavailableItems = items.filter((item) => !item.contentAvailable);
   const targets = sets.filter((item) => item.id !== setId && !item.archivedAt);
 
   const runAction = async (action, successText = t.saved) => {
+    if (actionRef.current) return;
+    actionRef.current = true;
+    setMutating(true);
     setMessage('');
     try {
       await action();
       setSelected([]);
       setMessage(successText);
-      await refresh();
     } catch (actionError) {
       setMessage(t.saveFailed);
+    } finally {
+      actionRef.current = false;
+      setMutating(false);
     }
   };
 
@@ -305,7 +313,9 @@ function ProblemSetDetail({setId}) {
           </div>
         </div>
         <div className={styles.detailActions}>
-          {nextItem && <Link to={withSetContext(nextItem.permalink, setId)}>{t.continue} <FaArrowRight /></Link>}
+          {nextItem && <Link to={withSetContext(nextItem.permalink, setId)} title={unfinishedItem ? t.continueHint : t.reviewFromStartHint}>
+            {unfinishedItem ? t.continue : t.reviewFromStart} <FaArrowRight />
+          </Link>}
           {isCustom && <button type="button" aria-expanded={sharing} onClick={() => setSharing((value) => !value)}><FaShareAlt /> {t.shareSet}</button>}
           {isCustom && <button type="button" onClick={() => setEditingSet((value) => !value)}><FaEdit /> {t.edit}</button>}
         </div>
@@ -318,11 +328,11 @@ function ProblemSetDetail({setId}) {
           <input value={title} maxLength={80} onChange={(event) => setTitle(event.target.value)} />
           <textarea value={description} maxLength={2000} rows={3} onChange={(event) => setDescription(event.target.value)} />
           <div>
-            <button type="button" onClick={saveSet}><FaSave /> {t.save}</button>
-            <button type="button" onClick={() => runAction(() => archiveMyProblemSet(setId, true), t.archivedOk)}>
+            <button type="button" disabled={busy} onClick={saveSet}><FaSave /> {t.save}</button>
+            <button type="button" disabled={busy} onClick={() => runAction(() => archiveMyProblemSet(setId, true), t.archivedOk)}>
               <FaArchive /> {t.archive}
             </button>
-            <button type="button" className={styles.dangerButton} onClick={() => {
+            <button type="button" className={styles.dangerButton} disabled={busy} onClick={() => {
               if (window.confirm(t.deleteConfirm)) {
                 void runAction(async () => {
                   await deleteMyProblemSet(setId);
@@ -334,7 +344,23 @@ function ProblemSetDetail({setId}) {
         </div>
       )}
 
-      {message && <p className={styles.message}>{message}</p>}
+      {message && <p className={styles.message} role="status">{message}</p>}
+
+      {isArchived && <div className={styles.archivedNotice}>
+        <p>{t.restoreBeforeEditing}</p>
+        <button type="button" className={styles.importButton} disabled={busy}
+          onClick={() => runAction(() => archiveMyProblemSet(setId, false))}><FaArchive aria-hidden="true" /> {t.restore}</button>
+      </div>}
+
+      {unavailableItems.length > 0 && <div className={styles.unavailableNotice}>
+        <div><strong><FaExclamationTriangle aria-hidden="true" /> {t.unavailableCount(unavailableItems.length)}</strong>
+          <p>{t.cleanupHint}</p></div>
+        <button type="button" className={styles.removeButton} disabled={busy || isArchived} onClick={() => {
+          if (window.confirm(t.clearUnavailableConfirm(unavailableItems.length))) {
+            void runAction(() => removeProblemSetItems(setId, unavailableItems.map((item) => item.id)), t.unavailableRemoved(unavailableItems.length));
+          }
+        }}><FaTrashAlt aria-hidden="true" /> {t.clearUnavailable}</button>
+      </div>}
 
       <div className={styles.toolbar}>
         <label className={styles.searchBox}>
@@ -356,9 +382,9 @@ function ProblemSetDetail({setId}) {
             <option value="">{t.chooseTarget}</option>
             {targets.map((item) => <option key={item.id} value={item.id}>{setName(item, t)}</option>)}
           </select>
-          <button type="button" disabled={!targetSetId} onClick={() => transfer(false)}>{t.move}</button>
-          <button type="button" disabled={!targetSetId} onClick={() => transfer(true)}><FaClone /> {t.copy}</button>
-          <button type="button" className={styles.dangerButton} onClick={() => runAction(() => removeProblemSetItems(setId, selected), t.removed)}>
+          <button type="button" disabled={busy || !targetSetId} onClick={() => transfer(false)}>{t.move}</button>
+          <button type="button" disabled={busy || !targetSetId} onClick={() => transfer(true)}><FaClone /> {t.copy}</button>
+          <button type="button" className={styles.dangerButton} disabled={busy || isArchived} onClick={() => runAction(() => removeProblemSetItems(setId, selected), t.removed)}>
             <FaTrashAlt /> {t.remove}
           </button>
         </div>
@@ -386,17 +412,22 @@ function ProblemSetDetail({setId}) {
                     placeholder={t.annotationPlaceholder}
                     onChange={(event) => setAnnotationDrafts((current) => ({...current, [item.id]: event.target.value}))}
                   />
-                  <button type="button" onClick={() => runAction(
+                  <button type="button" disabled={busy} onClick={() => runAction(
                     () => updateProblemSetItemAnnotation(setId, item.id, annotationDrafts[item.id] || ''),
                   )}><FaSave /> {t.saveAnnotation}</button>
                 </div>
               </div>
-              {isCustom && (
-                <div className={styles.orderButtons}>
-                  <button type="button" onClick={() => moveItem(item.id, -1)} title={t.moveUp}><FaArrowUp /></button>
-                  <button type="button" onClick={() => moveItem(item.id, 1)} title={t.moveDown}><FaArrowDown /></button>
-                </div>
-              )}
+              <div className={styles.itemActions}>
+                {isCustom && <div className={styles.orderButtons}>
+                  <button type="button" disabled={busy || item.id === items[0]?.id} onClick={() => moveItem(item.id, -1)} title={t.moveUp} aria-label={t.moveUp}><FaArrowUp /></button>
+                  <button type="button" disabled={busy || item.id === items[items.length - 1]?.id} onClick={() => moveItem(item.id, 1)} title={t.moveDown} aria-label={t.moveDown}><FaArrowDown /></button>
+                </div>}
+                <button type="button" className={styles.removeButton} disabled={busy || isArchived}
+                  aria-label={t.removeItem(item.title)}
+                  onClick={() => runAction(() => removeProblemSetItems(setId, [item.id]), t.removed)}>
+                  <FaTrashAlt aria-hidden="true" /> {t.remove}
+                </button>
+              </div>
             </article>
           ))}
         </div>

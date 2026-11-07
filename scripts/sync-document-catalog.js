@@ -2,7 +2,7 @@
 
 const {createClient} = require('@supabase/supabase-js');
 const {buildApiData, toDocumentCatalogRow} = require('./api-data');
-const {loadDocumentIdentityOverrides} = require('./document-identities');
+const {buildDocumentIdentityRows} = require('./document-identities');
 
 const BATCH_SIZE = 100;
 const SELECT_PAGE_SIZE = 1000;
@@ -20,22 +20,6 @@ async function upsertRowsInBatches(supabase, table, rows, onConflict) {
     if (error) throw error;
     console.log(`  ${table}: ${Math.min(start + BATCH_SIZE, rows.length)}/${rows.length}`);
   }
-}
-
-function buildDocumentIdentityRows(documents, overrides = loadDocumentIdentityOverrides()) {
-  const registry = documents.map((document) => ({
-    document_uuid: document.document_uuid,
-    current_doc_id: document.doc_id,
-  }));
-  const aliases = [
-    ...documents.map((document) => [document.doc_id, document.document_uuid, true]),
-    ...Object.entries(overrides.aliases).map(([docId, documentUuid]) => [docId, documentUuid, false]),
-  ].map(([docId, documentUuid, isCurrent]) => ({
-    doc_id: docId,
-    document_uuid: documentUuid,
-    is_current: isCurrent,
-  }));
-  return {registry, aliases};
 }
 
 async function syncDocumentIdentities(supabase, documents) {
@@ -117,5 +101,3 @@ if (require.main === module) {
     process.exit(1);
   });
 }
-
-module.exports = {buildDocumentIdentityRows};

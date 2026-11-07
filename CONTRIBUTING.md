@@ -150,7 +150,9 @@ Published body schema v2 stores `fullMarkdown` once and represents sections as U
 
 `yarn math:styles` regenerates the shared KaTeX layout classes from the current Markdown; the development and production build commands run it automatically. SSR and client rendering use the same generated dictionary, while styles not in that dictionary remain inline. Local and school-sharded builds emit one content-addressed stylesheet and one shared early chunk-recovery script. The recovery script uses a stable file path with a version query so cached pages can still load it after an update. Keep it blocking and before application bundles.
 
-3. Markdown bodies are not mirrored into PostgreSQL; the build publishes them by stable UUID under `/api-content/v1/documents/`. GitHub Actions does not store `SUPABASE_SERVICE_ROLE_KEY`. After deployment, a maintainer temporarily supplies the key in a trusted local terminal and syncs identities plus the lightweight catalog only:
+3. Markdown bodies are not mirrored into PostgreSQL; the build publishes them by stable UUID under `/api-content/v1/documents/`. Every push to `main` exports catalog SQL from the same website build, then automatically syncs document identities, paths, titles, tags, and content hashes using the existing `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF`, and `SUPABASE_DB_PASSWORD`. GitHub Actions does not need `SUPABASE_SERVICE_ROLE_KEY`. Sync and completeness checks run in one transaction; failure blocks Pages deployment. Automatic sync retains historical aliases and old catalog rows without changing user sets, notes, or progress.
+
+For a manual local sync that also prunes unpublished catalog rows, temporarily supply the service-role key in a trusted terminal:
 
 ```bash
 printf 'Supabase service-role key: '
@@ -161,11 +163,11 @@ SUPABASE_URL="https://your-project.supabase.co" yarn catalog:sync
 unset SUPABASE_SERVICE_ROLE_KEY
 ```
 
-This command upserts UUIDs, paths, titles, links, tags, taxonomy, and content hashes, then prunes stale `document_catalog` rows. It never uploads Markdown or modifies notes, progress, problem sets, or any other user table. The JSON API and Agent fetch bodies from the static JSON published with the website.
+This manual command upserts UUIDs, paths, titles, links, tags, taxonomy, and content hashes, then prunes stale `document_catalog` rows. It never uploads Markdown or modifies notes, progress, problem sets, or any other user table. The JSON API and Agent fetch bodies from the static JSON published with the website.
 
 This input method keeps the key out of shell history; never commit it or store it in GitHub Actions for this workflow.
 
-After moving document paths, run `yarn catalog:sync` to update current paths and aliases. Study records resolve documents through stable UUIDs; no historical canonicalization script is required.
+Use `yarn documents:move -- <old-doc-id> <new-doc-id>` to preserve UUIDs when moving documents; the next `main` deployment syncs current paths and aliases automatically. Study records resolve documents through stable UUIDs; no historical canonicalization script is required. For SQL Editor recovery, `yarn catalog:export` writes the same transaction to `.local-work/outputs/problem-set-repair/document-catalog-sync.sql` without requiring credentials.
 
 4. Keep `verify_jwt = false` for all five functions as configured in [supabase/config.toml](supabase/config.toml); each function performs its own API-key, login-token, callback-secret, or JWK verification. Configure `API_LOG_SALT` for `kai-api`. Website submissions additionally require the GitHub, CLA-attestation, and callback secrets used by `content-submissions`; the Agent bridge requires its service URL and JWK secrets before it is enabled.
 5. Review requests in the `api_access_requests` table from the Supabase Dashboard: set `status` to `approved` to allow key creation, or use `rejected` / `revoked` to deny or pause access.

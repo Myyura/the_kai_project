@@ -89,6 +89,16 @@ jobs:
           test ! -d build/ja
           test ! -d build/en
           test ! -f build/progress.html
+      - name: 生成同版本题目目录
+        run: yarn catalog:export "$RUNNER_TEMP/document-catalog-sync.sql"
+      - name: 上传题目目录制品
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v7
+        with:
+          name: document-catalog
+          path: ${{ runner.temp }}/document-catalog-sync.sql
+          if-no-files-found: error
+          retention-days: 3
       - name: 上传构建制品
         if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v5
@@ -97,7 +107,7 @@ jobs:
 
   deploy:
     name: 部署到 GitHub Pages
-    # Deploy the API readers before publishing the corresponding body artifacts.
+    # Publish only after the matching catalog is synced and API readers are ready.
     needs: [build, backend]
     if: github.event_name == 'push'
 
@@ -118,7 +128,7 @@ jobs:
         uses: actions/deploy-pages@v5
 
   backend:
-    name: 迁移 Supabase 并部署 Edge Functions
+    name: 迁移 Supabase、同步题目目录并部署接口
     needs: build
     if: github.event_name == 'push'
     runs-on: ubuntu-22.04
@@ -127,26 +137,58 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7
+      - name: 下载同版本题目目录
+        uses: actions/download-artifact@v8
+        with:
+          name: document-catalog
+          path: ${{ runner.temp }}/document-catalog
       - uses: supabase/setup-cli@ab058987d8d6c725971f6cf9d0b5c98467e30bd1 # v1
         with:
           version: 2.109.1
-      - name: 迁移数据库并部署函数
+      - name: 准备数据库同步客户端
         run: |
-          if [ -z "$SUPABASE_ACCESS_TOKEN" ] || [ -z "$SUPABASE_PROJECT_REF" ]; then
-            echo "::error::SUPABASE_ACCESS_TOKEN and SUPABASE_PROJECT_REF are required for a production deployment."
+          set -euo pipefail
+          if ! command -v psql >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes postgresql-client
+          fi
+      - name: 迁移数据库
+        run: |
+          set -euo pipefail
+          if [ -z "$SUPABASE_ACCESS_TOKEN" ] || [ -z "$SUPABASE_PROJECT_REF" ] || [ -z "$SUPABASE_DB_PASSWORD" ]; then
+            echo "::error::SUPABASE_ACCESS_TOKEN, SUPABASE_PROJECT_REF and SUPABASE_DB_PASSWORD are required for migrations and catalog sync."
             exit 1
           fi
+          supabase link --project-ref "$SUPABASE_PROJECT_REF"
           if compgen -G 'supabase/migrations/*.sql' > /dev/null; then
-            if [ -z "$SUPABASE_DB_PASSWORD" ]; then
-              echo "::error::SUPABASE_DB_PASSWORD is required when pending database migrations exist."
-              exit 1
-            fi
-            supabase link --project-ref "$SUPABASE_PROJECT_REF"
             supabase db push --linked --include-all --dry-run
             supabase db push --linked --include-all
           else
             echo "No pending database migrations; using the consolidated production baseline."
           fi
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      - name: 同步并校验题目目录
+        run: |
+          set -euo pipefail
+          test -s "$RUNNER_TEMP/document-catalog/document-catalog-sync.sql"
+          # CLI 2.109.1 link writes a password-free session-pooler URI here.
+          # psql runs the complete transaction; db query --linked uses the HTTP
+          # query API, which does not support this multi-statement SQL file.
+          test -s supabase/.temp/pooler-url
+          catalog_db_url="$(cat supabase/.temp/pooler-url)"
+          psql --dbname="$catalog_db_url" --no-psqlrc --no-password \
+            --set=ON_ERROR_STOP=1 --quiet \
+            --file="$RUNNER_TEMP/document-catalog/document-catalog-sync.sql"
+        env:
+          PGPASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+          PGSSLMODE: require
+          PGCONNECT_TIMEOUT: '30'
+      - name: 部署 Edge Functions
+        run: |
+          set -euo pipefail
           # Bundle on Supabase to avoid registry rate limits when pulling the
           # local edge-runtime Docker image on shared GitHub-hosted runners.
           supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF" --use-api
@@ -157,8 +199,3 @@ jobs:
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
           SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
-          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
-
-      # `yarn catalog:sync` is intentionally run by a maintainer from a trusted
-      # workstation after deployment. It syncs identities and discovery
-      # metadata only; Markdown bodies ship with the Pages artifact.

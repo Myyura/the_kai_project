@@ -29,7 +29,7 @@ test('server line changes reconstruct replacements, insertions, and deletions', 
   ];
 
   for (const [original, proposed] of cases) {
-    const changes = serverDiff.buildLineChanges(original, proposed);
+    const {changes} = serverDiff.buildCorrectionDiff(original, proposed, 'docs/sample.md');
     assert.ok(changes.length > 0);
     assert.equal(applyLineChanges(original, changes), proposed);
   }
@@ -39,7 +39,7 @@ test('server unified diff and client preview report the same changed-line totals
   const original = 'alpha\nbeta\ngamma\n';
   const proposed = 'alpha\nBETA\ngamma\ndelta\n';
   const preview = clientDiff.buildDiffPreview(original, proposed);
-  const unified = serverDiff.formatUnifiedDiff(original, proposed, 'docs/sample.md');
+  const {correctionDiff: unified} = serverDiff.buildCorrectionDiff(original, proposed, 'docs/sample.md');
 
   assert.equal(preview.additions, 2);
   assert.equal(preview.deletions, 1);
@@ -52,7 +52,7 @@ test('server unified diff and client preview report the same changed-line totals
 
 test('no-op edits produce no patch or preview hunks', () => {
   const markdown = 'unchanged\n';
-  assert.deepEqual(serverDiff.buildLineChanges(markdown, markdown), []);
+  assert.deepEqual(serverDiff.buildCorrectionDiff(markdown, markdown, 'docs/sample.md'), {changes: [], correctionDiff: ''});
   assert.deepEqual(clientDiff.buildDiffPreview(markdown, markdown), {
     additions: 0,
     deletions: 0,

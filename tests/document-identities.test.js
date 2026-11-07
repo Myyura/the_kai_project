@@ -6,12 +6,12 @@ const {buildApiData} = require('../scripts/api-data');
 const {
   DOCUMENT_NAMESPACE,
   OVERRIDES_PATH,
+  buildDocumentIdentityRows,
   loadDocumentIdentityOverrides,
   resolveDocumentUuid,
   uuidV5,
 } = require('../scripts/document-identities');
 const {moveDocumentIdentity, validateOverrides} = require('../scripts/generate-document-identities');
-const {buildDocumentIdentityRows} = require('../scripts/sync-document-catalog');
 
 test('UUIDv5 document identities retain their persisted output', () => {
   assert.equal(uuidV5('test'), '06fc238b-b9d4-51c3-8cdc-98a048822522');

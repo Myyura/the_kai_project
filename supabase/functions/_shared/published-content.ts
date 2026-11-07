@@ -46,6 +46,7 @@ const SHA256_PATTERN = /^[0-9a-f]{64}$/i;
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const CACHE_LIMIT = 100;
 const contentCache = new Map<string, { expiresAt: number; document: PublishedDocument }>();
+const pendingDocuments = new Map<string, Promise<PublishedDocument>>();
 
 function cacheDocument(key: string, document: PublishedDocument) {
   if (contentCache.size >= CACHE_LIMIT) {
@@ -114,25 +115,34 @@ export async function fetchPublishedDocument(
 
   const contentHash = typeof pointer.content_hash === 'string' ? pointer.content_hash.toLowerCase() : '';
   if (!SHA256_PATTERN.test(contentHash)) throw new Error('Catalog content hash is invalid.');
-  const cacheKey = `${documentUuid}:${contentHash}`;
+  const baseUrl = new URL(siteUrl);
+  if (baseUrl.protocol !== 'https:') throw new Error('Published content origin must use HTTPS.');
+  const cacheKey = `${baseUrl.origin}:${documentUuid}:${contentHash}`;
   const cached = contentCache.get(cacheKey);
   if (cached && cached.expiresAt > Date.now()) return cached.document;
   if (cached) contentCache.delete(cacheKey);
 
-  const baseUrl = new URL(siteUrl.endsWith('/') ? siteUrl : `${siteUrl}/`);
-  if (baseUrl.protocol !== 'https:') throw new Error('Published content origin must use HTTPS.');
+  const pending = pendingDocuments.get(cacheKey);
+  if (pending) return pending;
   const contentUrl = new URL(expectedPath, baseUrl);
-  if (contentUrl.origin !== baseUrl.origin) throw new Error('Published content origin is invalid.');
   contentUrl.searchParams.set('v', contentHash);
 
-  const response = await fetch(contentUrl, {
-    headers: { Accept: 'application/json' },
-    signal: AbortSignal.timeout(10_000),
-  });
-  if (!response.ok) {
-    throw new Error(`Published document request failed with HTTP ${response.status}.`);
+  const request = (async () => {
+    const response = await fetch(contentUrl, {
+      headers: { Accept: 'application/json' },
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!response.ok) {
+      throw new Error(`Published document request failed with HTTP ${response.status}.`);
+    }
+    const document = validatePublishedDocument(await response.json(), documentUuid, contentHash);
+    cacheDocument(cacheKey, document);
+    return document;
+  })();
+  pendingDocuments.set(cacheKey, request);
+  try {
+    return await request;
+  } finally {
+    pendingDocuments.delete(cacheKey);
   }
-  const document = validatePublishedDocument(await response.json(), documentUuid, contentHash);
-  cacheDocument(cacheKey, document);
-  return document;
 }

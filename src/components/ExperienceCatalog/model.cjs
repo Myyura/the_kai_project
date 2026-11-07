@@ -27,6 +27,25 @@ function normalize(value) {
   return value.normalize('NFKC').toLocaleLowerCase();
 }
 
+function indexCatalog(catalog) {
+  const programs = new Map(catalog.programs.map((program) => [program.id, program]));
+  const schools = new Map(catalog.schools.map((school) => [school.id, school]));
+  const schoolCounts = new Map();
+  const programCounts = new Map();
+  for (const entry of catalog.entries) {
+    const entryPrograms = new Set(entry.placements.map((placement) => placement.scope));
+    const entrySchools = new Set();
+    for (const program of entryPrograms) {
+      programCounts.set(program, (programCounts.get(program) || 0) + 1);
+      entrySchools.add(programs.get(program).school);
+    }
+    for (const school of entrySchools) {
+      schoolCounts.set(school, (schoolCounts.get(school) || 0) + 1);
+    }
+  }
+  return {programs, schools, schoolCounts, programCounts};
+}
+
 function matchingPlacements(entry, filters, programs) {
   return entry.placements.filter((placement) => (
     (!filters.school || programs.get(placement.scope).school === filters.school)
@@ -35,13 +54,12 @@ function matchingPlacements(entry, filters, programs) {
   ));
 }
 
-function filterEntries(catalog, filters) {
-  const programs = new Map(catalog.programs.map((program) => [program.id, program]));
-  const schools = new Map(catalog.schools.map((school) => [school.id, school]));
+function filterEntries(catalog, filters, {programs, schools} = indexCatalog(catalog)) {
   const tokens = normalize(filters.q || '').trim().split(/\s+/).filter(Boolean);
   return catalog.entries.map((entry) => ({entry, placements: matchingPlacements(entry, filters, programs)}))
     .filter(({entry, placements}) => {
       if (!placements.length || (filters.kind && entry.kind !== filters.kind)) return false;
+      if (!tokens.length) return true;
       const searchText = normalize([
         entry.title, entry.source, ...(entry.authors || []),
         ...placements.flatMap((placement) => {
@@ -59,4 +77,4 @@ function filterEntries(catalog, filters) {
     ));
 }
 
-module.exports = {PAGE_SIZE, readFilters, filterSearch, filterEntries};
+module.exports = {PAGE_SIZE, readFilters, filterSearch, indexCatalog, filterEntries};

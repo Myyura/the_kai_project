@@ -11,8 +11,7 @@ import {
 } from './http.ts';
 import { hmacSha256Hex, sha256Hex } from '../_shared/crypto.ts';
 import {
-  buildLineChanges,
-  formatUnifiedDiff,
+  buildCorrectionDiff,
   normalizeMarkdown,
   type CorrectionChange,
 } from './diff.ts';
@@ -499,12 +498,11 @@ async function prepareCorrection(
       fetchGitHubBlob(baseBlobSha),
       fetchGitHubDocument(target.sourcePath),
     ]);
-    const changes = buildLineChanges(baseMarkdown, proposedResult.markdown);
+    const {changes, correctionDiff} = buildCorrectionDiff(baseMarkdown, proposedResult.markdown, target.sourcePath);
     if (changes.length === 0) {
       return { error: errorResponse(400, 'no_correction_changes', 'The proposed document does not contain any changes.') };
     }
 
-    const correctionDiff = formatUnifiedDiff(baseMarkdown, proposedResult.markdown, target.sourcePath);
     payload.document.targetDocId = target.targetDocId;
     payload.correction = {
       sourcePath: target.sourcePath,

@@ -7,7 +7,7 @@ import {FiArrowRight, FiExternalLink, FiBookOpen} from 'react-icons/fi';
 import BrowseSearchField from '@site/src/components/BrowseSearchField';
 import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
 import {useUiText} from '@site/src/i18n/useUiText';
-import {PAGE_SIZE, readFilters, filterSearch, filterEntries} from './model.cjs';
+import {PAGE_SIZE, readFilters, filterSearch, indexCatalog, filterEntries} from './model.cjs';
 import styles from './styles.module.css';
 import {experienceContributionHref} from '@site/src/utils/contributionRoutes';
 
@@ -19,15 +19,14 @@ export default function ExperienceCatalog({catalog}) {
   const isBrowser = useIsBrowser();
   const search = isBrowser ? location.search : '';
   const filters = readFilters(search, catalog);
-  const results = useMemo(() => filterEntries(catalog, filters), [catalog, search]);
-  const schools = new Map(catalog.schools.map((school) => [school.id, school]));
-  const programs = new Map(catalog.programs.map((program) => [program.id, program]));
+  const index = useMemo(() => indexCatalog(catalog), [catalog]);
+  const results = useMemo(() => filterEntries(catalog, filters, index), [catalog, search, index]);
+  const {schools, programs, schoolCounts, programCounts} = index;
   const scopeName = (scope) => scope.level === 'school' ? t.unspecifiedDepartment : scope.level === 'department' ? t.unspecifiedProgram : scope.name;
   const selectedSchool = schools.get(filters.school);
   const selectedProgram = programs.get(filters.program);
   const schoolPrograms = catalog.programs.filter((program) => program.school === filters.school);
   const departments = [...new Set(schoolPrograms.map((program) => program.department))];
-  const count = (query) => filterEntries(catalog, {q: '', ...query}).length;
   const years = [...new Set(catalog.entries.flatMap((entry) => entry.placements
     .filter((placement) => (!filters.school || programs.get(placement.scope).school === filters.school)
       && (!filters.program || placement.scope === filters.program))
@@ -74,7 +73,7 @@ export default function ExperienceCatalog({catalog}) {
                   </Link>
                   {catalog.schools.map((school) => (
                     <Link key={school.id} to={location.pathname + schoolLink(school.id)} className={`${styles.school} ${filters.school === school.id ? styles.active : ''}`} aria-current={filters.school === school.id ? 'true' : undefined}>
-                      <span>{school.name}</span><span className={styles.schoolCount}>{count({school: school.id})}</span>
+                      <span>{school.name}</span><span className={styles.schoolCount}>{schoolCounts.get(school.id) || 0}</span>
                     </Link>
                   ))}
                 </nav>
@@ -103,7 +102,7 @@ export default function ExperienceCatalog({catalog}) {
                       {departments.map((department) => (
                         <optgroup key={department} label={department || t.unspecifiedDepartment}>
                           {schoolPrograms.filter((program) => program.department === department).map((program) => (
-                            <option key={program.id} value={program.id}>{scopeName(program)} · {t.postsUnit(count({program: program.id}))}</option>
+                            <option key={program.id} value={program.id}>{scopeName(program)} · {t.postsUnit(programCounts.get(program.id) || 0)}</option>
                           ))}
                         </optgroup>
                       ))}

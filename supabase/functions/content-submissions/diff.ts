@@ -57,8 +57,7 @@ function createLineDiff(originalValue: string, proposedValue: string) {
   return entries;
 }
 
-export function buildLineChanges(originalValue: string, proposedValue: string) {
-  const entries = createLineDiff(originalValue, proposedValue);
+function buildLineChanges(entries: DiffEntry[]) {
   const changes: CorrectionChange[] = [];
   let oldCursor = 0;
   let pending: CorrectionChange | null = null;
@@ -89,13 +88,11 @@ export function buildLineChanges(originalValue: string, proposedValue: string) {
   return changes;
 }
 
-export function formatUnifiedDiff(
-  originalValue: string,
-  proposedValue: string,
+function formatUnifiedDiff(
+  entries: DiffEntry[],
   sourcePath: string,
   contextLines = 3,
 ) {
-  const entries = createLineDiff(originalValue, proposedValue);
   const changedIndexes = entries
     .map((entry, index) => (entry.type === 'context' ? -1 : index))
     .filter((index) => index >= 0);
@@ -130,4 +127,12 @@ export function formatUnifiedDiff(
     }
   }
   return output.join('\n');
+}
+
+export function buildCorrectionDiff(originalValue: string, proposedValue: string, sourcePath: string) {
+  const entries = createLineDiff(originalValue, proposedValue);
+  return {
+    changes: buildLineChanges(entries),
+    correctionDiff: formatUnifiedDiff(entries, sourcePath),
+  };
 }

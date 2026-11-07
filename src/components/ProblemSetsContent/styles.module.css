@@ -105,6 +105,9 @@ button:disabled { opacity: .55; cursor: not-allowed; }
 .backLink { display: inline-flex; align-items: center; gap: .4rem; width: fit-content; }
 .detailTitleRow { display: flex; align-items: center; gap: .6rem; }
 .detailActions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.detailActions a:any-link,
+.detailActions a:hover,
+.detailActions a:focus-visible { color: white; text-decoration: none; }
 .headerActions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
 .importButton { display: inline-flex; align-items: center; gap: .4rem; border: 0; border-radius: var(--custom-border-radius-xs); padding: .65rem .85rem; background: var(--kai-action); color: white; cursor: pointer; }
 .detailHeader > div:first-child { min-width: 0; }
@@ -119,6 +122,14 @@ button.dangerButton { background: var(--kai-danger); }
 .toolbar select { width: auto; }
 .bulkBar { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; padding: .7rem; border-radius: var(--custom-border-radius-xs); background: rgba(var(--kai-blue-rgb), .08); }
 .bulkBar select { width: auto; min-width: 10rem; }
+.unavailableNotice { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; border: 1px solid var(--kai-danger-border); border-radius: var(--custom-border-radius-sm); background: var(--kai-danger-bg); }
+.unavailableNotice strong { display: flex; align-items: center; gap: .4rem; }
+.unavailableNotice p { margin: .3rem 0 0; color: var(--ifm-color-emphasis-700); font-size: .82rem; }
+.archivedNotice { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; border: 1px dashed var(--ifm-color-emphasis-300); border-radius: var(--custom-border-radius-sm); }
+.archivedNotice p { margin: 0; }
+.itemActions { display: grid; gap: .5rem; flex-shrink: 0; }
+.removeButton { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; flex-shrink: 0; padding: .5rem .65rem; border: 1px solid var(--kai-danger-border); border-radius: var(--custom-border-radius-xs); color: var(--kai-danger-strong); background: transparent; cursor: pointer; }
+.removeButton:hover:not(:disabled) { background: var(--kai-danger-bg); }
 
 .itemList { display: grid; gap: .65rem; }
 .itemRow { display: flex; align-items: flex-start; gap: .75rem; padding: .85rem; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); background: var(--custom-card-bg); }
@@ -150,4 +161,8 @@ button.dangerButton { background: var(--kai-danger); }
   .annotationEditor { grid-template-columns: 1fr; }
   .detailActions { width: 100%; }
   .detailActions > * { flex: 1; }
+  .unavailableNotice { align-items: flex-start; flex-direction: column; }
+  .itemRow { flex-wrap: wrap; }
+  .itemActions { width: 100%; display: flex; justify-content: flex-end; }
+  .orderButtons { display: flex; }
 }

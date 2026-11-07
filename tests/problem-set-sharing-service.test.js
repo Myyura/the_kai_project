@@ -51,3 +51,17 @@ test('publishing never opts into private annotations implicitly', async () => {
   assert.equal(calls[0].params.p_include_annotations, false);
   assert.equal(calls[1].params.p_include_annotations, true);
 });
+
+test('shared document links accept catalog URLs and reject external or non-document routes', () => {
+  const {normalizeSharedProblemSet} = load();
+  const link = permalink => normalizeSharedProblemSet({items: [{permalink}]}).items[0].permalink;
+  assert.equal(link('https://runjp.com/docs/school/exam'), '/docs/school/exam');
+  assert.equal(link('/docs/school/exam?lang=ja#answer'), '/docs/school/exam?lang=ja#answer');
+  for (const value of [null, {}, '/login', '//runjp.com/docs/exam', 'javascript:alert(1)',
+    'http://runjp.com/docs/exam', 'https://other.example/docs/exam', 'https://runjp.com.evil.example/docs/exam',
+    'https://runjp.com@evil.example/docs/exam', 'https://user:pass@runjp.com/docs/exam',
+    'https://runjp.com:444/docs/exam', 'https://runjp.com/login',
+    '/docs/../login', '/docs/%2e%2e/login', '/docs/exam\\path', '/docs/exam\npath', '/docs/exam\u007f']) {
+    assert.equal(link(value), null, `unsafe link: ${JSON.stringify(value)}`);
+  }
+});

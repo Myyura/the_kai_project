@@ -101,3 +101,48 @@ test('shared ES256 JWT implementation signs, verifies, and rejects invalid crede
   assert.throws(() => parsePrivateJwk(''), /not configured/);
   assert.throws(() => parsePublicJwk('invalid'), /JSON Web Key/);
 });
+
+test('JWT keys are reused across requests while rotation and failed imports take effect immediately', async () => {
+  const generate = async () => {
+    const pair = await crypto.subtle.generateKey({name: 'ECDSA', namedCurve: 'P-256'}, true, ['sign', 'verify']);
+    return {
+      private: await crypto.subtle.exportKey('jwk', pair.privateKey),
+      public: await crypto.subtle.exportKey('jwk', pair.publicKey),
+    };
+  };
+  const first = await generate();
+  const second = await generate();
+  let imports = 0;
+  let failNext = false;
+  const instrumentedCrypto = {subtle: {
+    importKey: (...args) => {
+      imports++;
+      if (failNext) {failNext = false; return Promise.reject(new Error('temporary import failure'));}
+      return crypto.subtle.importKey(...args);
+    },
+    sign: crypto.subtle.sign.bind(crypto.subtle),
+    verify: crypto.subtle.verify.bind(crypto.subtle),
+  }};
+  const {signJwt, verifyJwt} = createSourceLoader({crypto: instrumentedCrypto})('supabase/functions/_shared/jwt.ts');
+  const payload = {sub: 'user', exp: Math.floor(Date.now() / 1000) + 60};
+  const tokens = await Promise.all(Array.from({length: 20}, () => signJwt(payload, first.private)));
+  assert.equal(imports, 1);
+  await Promise.all(tokens.map(token => verifyJwt(token, {...first.public})));
+  assert.equal(imports, 2);
+
+  // A configuration object can be replaced or updated; neither may reuse the old key.
+  Object.assign(first.private, second.private);
+  Object.assign(first.public, second.public);
+  failNext = true;
+  await assert.rejects(signJwt(payload, first.private), /temporary import/);
+  const rotatedToken = await signJwt(payload, first.private);
+  assert.deepEqual(await verifyJwt(rotatedToken, first.public), payload);
+  await assert.rejects(verifyJwt(tokens[0], first.public), /signature/);
+  assert.equal(imports, 5);
+
+  // A stream of distinct configurations must not grow the cache indefinitely.
+  for (let n = 0; n < 17; n++) await signJwt(payload, {...second.private, kid: `key-${n}`});
+  const before = imports;
+  await signJwt(payload, first.private);
+  assert.equal(imports, before + 1, 'the oldest key is evicted after the bounded cache fills');
+});

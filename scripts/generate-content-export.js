@@ -5,13 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
 const {execFileSync} = require('child_process');
-const matter = require('gray-matter');
 const {MIME_TYPES, collectImageAssets} = require('./content-export-asset-bundle');
 const {createImageDownloader} = require('./content-export-download');
-const {
-  buildApiData,
-  buildExamDocument,
-} = require('./api-data');
+const {buildApiData} = require('./api-data');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(REPO_ROOT, 'docs');
@@ -42,10 +38,6 @@ function listEntriesRecursively(directory, predicate) {
     }
   }
   return result.sort((left, right) => normalizePath(left).localeCompare(normalizePath(right)));
-}
-
-function listDocumentFiles() {
-  return listEntriesRecursively(DOCS_DIR, (name) => /\.mdx?$/.test(name));
 }
 
 function listAssetFiles() {
@@ -125,9 +117,7 @@ function getDirectoryPath(docId) {
   return directory === '.' ? null : directory;
 }
 
-function toExportDocument(document, filePath) {
-  const raw = fs.readFileSync(filePath, 'utf8');
-  const parsed = matter(raw);
+function toExportDocument(document) {
   const docIdSegments = document.doc_id.split('/');
   const hasUniversityHierarchy = docIdSegments.length >= 2;
 
@@ -139,7 +129,7 @@ function toExportDocument(document, filePath) {
     type: document.type,
     title: document.title,
     sidebarLabel: document.sidebar_label,
-    frontmatter: toJsonSafe(parsed.data),
+    frontmatter: toJsonSafe(document.frontmatter),
     metadata: {
       universityId: hasUniversityHierarchy ? document.university_id : null,
       universityName: hasUniversityHierarchy ? document.university_name : null,
@@ -160,7 +150,7 @@ function toExportDocument(document, filePath) {
       topics: document.topic_ids,
     },
     contentHash: document.content_hash,
-    markdown: String(parsed.content || '').trim(),
+    markdown: document.full_markdown,
     sections: {
       authorMarkdown: document.author_markdown,
       descriptionMarkdown: document.description_markdown,
@@ -286,20 +276,14 @@ async function buildContentExport({
   downloadImage,
   onProgress,
 } = {}) {
-  const apiData = buildApiData();
+  const apiData = buildApiData({includeIntro: true, includeFrontmatter: true});
   const apiErrors = apiData.issues.filter((issue) => issue.severity === 'error');
   if (apiErrors.length > 0) {
     throw new Error(`Refusing to export content with ${apiErrors.length} document validation errors.`);
   }
 
-  const apiDocumentsByPath = new Map(
-    apiData.documents.map((document) => [document.source_path, document]),
-  );
-  const documents = listDocumentFiles().map((filePath) => {
-    const sourcePath = normalizePath(path.relative(REPO_ROOT, filePath));
-    const document = apiDocumentsByPath.get(sourcePath) || buildExamDocument(filePath);
-    return toExportDocument(document, filePath);
-  }).sort((left, right) => left.docId.localeCompare(right.docId));
+  const documents = apiData.documents.map(toExportDocument)
+    .sort((left, right) => left.docId.localeCompare(right.docId));
   const directories = buildDirectories();
   const loadImage = downloadImage || createImageDownloader({cacheDir});
   let assets;
@@ -394,11 +378,8 @@ if (require.main === module) {
 }
 
 module.exports = {
-  DEFAULT_OUTPUT_PATH,
   FORMAT,
   SCHEMA_VERSION,
   buildContentExport,
-  buildAssets,
-  buildDirectories,
   validateContentExport,
 };

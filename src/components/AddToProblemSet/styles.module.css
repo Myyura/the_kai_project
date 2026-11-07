@@ -77,6 +77,7 @@
 .cancelButton { gap: .35rem; padding: .6rem .8rem; }
 .dialog > footer { display: flex; justify-content: flex-end; gap: .5rem; margin-top: 1rem; }
 .message { margin: .7rem 0 0; color: var(--ifm-color-primary-darkest); }
+.errorMessage { color: var(--kai-danger-strong); }
 .stateText { padding: 2rem; text-align: center; color: var(--ifm-color-emphasis-600); }
 
 @media (max-width: 520px) {

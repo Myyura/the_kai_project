@@ -37,13 +37,13 @@ function readCategory(dirPath) {
   return value;
 }
 
-function listMarkdownFiles(dirPath) {
+function listMarkdownFiles(dirPath, includeIntro) {
   const files = [];
   for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
     const fullPath = path.join(dirPath, entry.name);
     if (entry.isDirectory()) {
-      files.push(...listMarkdownFiles(fullPath));
-    } else if (entry.isFile() && /\.mdx?$/.test(entry.name) && entry.name !== 'intro.mdx') {
+      files.push(...listMarkdownFiles(fullPath, includeIntro));
+    } else if (entry.isFile() && /\.mdx?$/.test(entry.name) && (includeIntro || entry.name !== 'intro.mdx')) {
       files.push(fullPath);
     }
   }
@@ -221,7 +221,7 @@ function parseTags(tags) {
   return [];
 }
 
-function buildExamDocument(filePath) {
+function buildExamDocument(filePath, {includeFrontmatter = false} = {}) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   const parsed = matter(raw);
   const relativePath = normalizePath(path.relative(DOCS_DIR, filePath));
@@ -237,6 +237,7 @@ function buildExamDocument(filePath) {
   });
 
   return {
+    ...(includeFrontmatter ? {frontmatter: parsed.data} : {}),
     document_uuid: resolveDocumentUuid(pathMeta.docId, DOCUMENT_IDENTITY_OVERRIDES),
     doc_id: pathMeta.docId,
     type: pathMeta.type,
@@ -267,9 +268,9 @@ function buildExamDocument(filePath) {
   };
 }
 
-function buildApiData() {
-  const files = listMarkdownFiles(DOCS_DIR);
-  const documents = files.map(buildExamDocument);
+function buildApiData({includeIntro = false, includeFrontmatter = false} = {}) {
+  const files = listMarkdownFiles(DOCS_DIR, includeIntro);
+  const documents = files.map(filePath => buildExamDocument(filePath, {includeFrontmatter}));
   const issues = validateApiData(documents);
 
   return {
@@ -367,9 +368,7 @@ function validateApiData(documents) {
 
 module.exports = {
   PUBLISHED_CONTENT_SCHEMA_VERSION,
-  PUBLISHED_CONTENT_PREFIX,
   buildApiData,
-  buildExamDocument,
   getPublishedContentPath,
   stripMarkdownDecorations,
   toDocumentCatalogRow,

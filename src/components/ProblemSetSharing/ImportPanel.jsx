@@ -16,11 +16,6 @@ import styles from './import.module.css';
 const NAME_DRAFT_KEY = 'kai_problem_set_import_name';
 const NAME_DRAFT_MAX_AGE = 15 * 60 * 1000;
 
-// Only relative same-site routes are permitted in a shared snapshot.
-const safePermalink = (value) => typeof value === 'string'
-  && value.startsWith('/') && !value.startsWith('//')
-  && !/[\\\u0000-\u0020\u007f]/.test(value) ? value : null;
-
 const readNameDraft = (code) => {
   if (typeof window === 'undefined') return null;
   try {
@@ -255,7 +250,7 @@ export default function ImportPanel({initialCode = '', onImported, onClose, stan
 
         <ol className={styles.list}>
           {items.map((item, index) => {
-            const permalink = item.contentAvailable ? safePermalink(item.permalink) : null;
+            const permalink = item.contentAvailable ? item.permalink : null;
             return <li key={item.documentUuid || `${item.docId}-${index}`}>
               <span className={styles.number} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
               <div className={styles.itemContent}>

@@ -1,5 +1,7 @@
 const textEncoder = new TextEncoder();
 const textDecoder = new TextDecoder();
+const KEY_CACHE_LIMIT = 16;
+const keyCache = new Map<string, Promise<CryptoKey>>();
 
 type JwtPayload = Record<string, unknown> & {
   iss?: string;
@@ -48,14 +50,25 @@ export function publicJwkFromPrivate(jwk: JsonWebKey) {
   return { kty, crv, x, y, alg, kid, ext } as JsonWebKey;
 }
 
-async function importPublicKey(jwk: JsonWebKey) {
-  return await crypto.subtle.importKey(
+function importJwtKey(jwk: JsonWebKey, usage: 'sign' | 'verify') {
+  // Key material, rather than object identity, makes rotation take effect even
+  // when a caller updates an existing JWK object. Failures remain retryable.
+  const cacheKey = `${usage}:${JSON.stringify(jwk)}`;
+  const cached = keyCache.get(cacheKey);
+  if (cached) return cached;
+  if (keyCache.size >= KEY_CACHE_LIMIT) keyCache.delete(keyCache.keys().next().value!);
+  const pending = crypto.subtle.importKey(
     'jwk',
     jwk,
     { name: 'ECDSA', namedCurve: 'P-256' },
     false,
-    ['verify'],
-  );
+    [usage],
+  ).catch((error) => {
+    if (keyCache.get(cacheKey) === pending) keyCache.delete(cacheKey);
+    throw error;
+  });
+  keyCache.set(cacheKey, pending);
+  return pending;
 }
 
 export async function verifyJwt(token: string, publicJwk: JsonWebKey, options: VerifyOptions = {}) {
@@ -66,7 +79,7 @@ export async function verifyJwt(token: string, publicJwk: JsonWebKey, options: V
   const header = JSON.parse(textDecoder.decode(base64UrlDecode(encodedHeader))) as Record<string, unknown>;
   if (header.alg !== 'ES256') throw new Error('Unsupported JWT algorithm.');
 
-  const key = await importPublicKey(publicJwk);
+  const key = await importJwtKey(publicJwk, 'verify');
   const valid = await crypto.subtle.verify(
     { name: 'ECDSA', hash: 'SHA-256' },
     key,
@@ -93,16 +106,6 @@ function base64UrlEncode(input: Uint8Array | string) {
     .replace(/=+$/g, '');
 }
 
-async function importPrivateKey(jwk: JsonWebKey) {
-  return await crypto.subtle.importKey(
-    'jwk',
-    jwk,
-    { name: 'ECDSA', namedCurve: 'P-256' },
-    false,
-    ['sign'],
-  );
-}
-
 export async function signJwt(payload: JwtPayload, privateJwk: JsonWebKey) {
   const header = {
     alg: 'ES256',
@@ -112,7 +115,7 @@ export async function signJwt(payload: JwtPayload, privateJwk: JsonWebKey) {
   const encodedHeader = base64UrlEncode(JSON.stringify(header));
   const encodedPayload = base64UrlEncode(JSON.stringify(payload));
   const signingInput = `${encodedHeader}.${encodedPayload}`;
-  const key = await importPrivateKey(privateJwk);
+  const key = await importJwtKey(privateJwk, 'sign');
   const signature = await crypto.subtle.sign(
     { name: 'ECDSA', hash: 'SHA-256' },
     key,
