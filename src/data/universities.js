@@ -466,6 +466,7 @@ const universities = [
         "id": "engineering",
         "name": "工学研究科",
         "aliases": [],
+        "archiveUrl": "/docs/category/kyoto-university-engineering",
         "programs": [
           {
             "id": "advanced-chemistry",
@@ -504,7 +505,8 @@ const universities = [
               "EE"
             ]
           }
-        ]
+        ],
+        "websiteUrl": "https://www.t.kyoto-u.ac.jp/ja/admissions/graduate/exam1"
       }
     ]
   },
@@ -835,7 +837,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/osaka-university-economics-management"
           }
-        ]
+        ],
+        "websiteUrl": "https://www.econ.osaka-u.ac.jp/admission/g-notice/"
       }
     ]
   },
@@ -958,7 +961,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/nagoya-university-humanities-transdisciplinary_humanities-japanese_culture"
           }
-        ]
+        ],
+        "websiteUrl": "https://cms.hum.nagoya-u.ac.jp/examination/examination-sub4/index.html"
       },
       {
         "id": "mathematics",
@@ -1247,7 +1251,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/hokkaido-university-engineering-mech"
           }
-        ]
+        ],
+        "websiteUrl": "https://www.eng.hokudai.ac.jp/graduate/examinfo/"
       },
       {
         "id": "public_policy",
@@ -1268,7 +1273,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/hokkaido-university-imcts-international_media_communication"
           }
-        ]
+        ],
+        "websiteUrl": "https://www.imc.hokudai.ac.jp/admissions/"
       },
       {
         "id": "science",
@@ -1458,7 +1464,8 @@ const universities = [
               "综合理工"
             ]
           }
-        ]
+        ],
+        "websiteUrl": "https://www.tj.kyushu-u.ac.jp/exam/master/"
       }
     ]
   },
@@ -1599,7 +1606,8 @@ const universities = [
               "IPS"
             ]
           }
-        ]
+        ],
+        "websiteUrl": "https://www.waseda.jp/fsci/gips/applicants/admission/"
       }
     ]
   },
@@ -1629,7 +1637,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/keio-university-commerce-management"
           }
-        ]
+        ],
+        "websiteUrl": "https://www.keio.ac.jp/ja/gsbc/admission/about-master/"
       }
     ]
   },
@@ -2072,6 +2081,7 @@ const universities = [
         "id": "science_and_technology",
         "name": "工芸科学研究科",
         "aliases": [],
+        "archiveUrl": "/docs/category/kyoto-institute-of-technology-science_and_technology",
         "programs": [
           {
             "id": "information_science",
@@ -2081,7 +2091,8 @@ const universities = [
               "信息工学"
             ]
           }
-        ]
+        ],
+        "websiteUrl": "https://ac.web.kit.ac.jp/02/gs_news.php"
       }
     ]
   },
@@ -2217,7 +2228,8 @@ const universities = [
         "id": "economics",
         "name": "経済学研究科",
         "aliases": [],
-        "archiveUrl": "/docs/category/osaka-metropolitan-university-economics"
+        "archiveUrl": "/docs/category/osaka-metropolitan-university-economics",
+        "websiteUrl": "https://www.omu.ac.jp/econ/admissions/graduate/"
       }
     ]
   },
@@ -2353,6 +2365,7 @@ const universities = [
         "id": "multidisciplinary_sciences",
         "name": "複合科学研究科",
         "aliases": [],
+        "archiveUrl": "/docs/category/graduate-university-for-advanced-studies-multidisciplinary_sciences",
         "programs": [
           {
             "id": "statistical_science",
@@ -2362,7 +2375,8 @@ const universities = [
               "统计科学"
             ]
           }
-        ]
+        ],
+        "websiteUrl": "https://www.soken.ac.jp/admission/application_info/stat/"
       }
     ]
   },
@@ -2381,6 +2395,7 @@ const universities = [
         "id": "international_social_sciences",
         "name": "国際社会科学府",
         "aliases": [],
+        "archiveUrl": "/docs/category/yokohama-national-university-international_social_sciences",
         "programs": [
           {
             "id": "economics",
@@ -2389,7 +2404,8 @@ const universities = [
               "经济学"
             ]
           }
-        ]
+        ],
+        "websiteUrl": "https://www.gsiss.ynu.ac.jp/admission/"
       }
     ]
   },
@@ -2407,6 +2423,7 @@ const universities = [
         "id": "science_and_technology",
         "name": "自然科学教育部",
         "aliases": [],
+        "archiveUrl": "/docs/category/kumamoto-university-science_and_technology",
         "programs": [
           {
             "id": "materials_and_applied_chemistry/materials_science",
@@ -2415,7 +2432,8 @@ const universities = [
               "物质材料工程"
             ]
           }
-        ]
+        ],
+        "websiteUrl": "https://www.fast.kumamoto-u.ac.jp/gsst/admission/"
       }
     ]
   },
@@ -2433,6 +2451,7 @@ const universities = [
         "id": "natural_science",
         "name": "自然科学研究科",
         "aliases": [],
+        "archiveUrl": "/docs/category/okayama-university-natural_science",
         "programs": [
           {
             "id": "mechanical_systems/mechanical_engineering",
@@ -2464,7 +2483,8 @@ const universities = [
             "name": "応用化学専攻",
             "aliases": []
           }
-        ]
+        ],
+        "websiteUrl": "https://www.elst.okayama-u.ac.jp/admission/"
       }
     ]
   },
@@ -2482,6 +2502,7 @@ const universities = [
         "id": "engineering",
         "name": "工学研究科",
         "aliases": [],
+        "archiveUrl": "/docs/category/nagasaki-university-engineering",
         "programs": [
           {
             "id": "integrated_engineering/information",
@@ -2493,7 +2514,8 @@ const universities = [
             "name": "機械工学コース・海洋未来科学コース",
             "aliases": []
           }
-        ]
+        ],
+        "websiteUrl": "https://www.ist.nagasaki-u.ac.jp/graduate/apply"
       }
     ]
   },
@@ -2543,7 +2565,8 @@ const universities = [
               "Information Science"
             ]
           }
-        ]
+        ],
+        "websiteUrl": "https://www.naist.jp/admission/"
       }
     ]
   },
@@ -2566,7 +2589,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/shizuoka-university-integrated_science_technology-informatics_cs"
           }
-        ]
+        ],
+        "websiteUrl": "https://www.shizuoka.ac.jp/admission/graduate/"
       }
     ]
   },
@@ -2589,7 +2613,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/tokyo-metropolitan-university-business_administration-mba"
           }
-        ]
+        ],
+        "websiteUrl": "https://www.biz.tmu.ac.jp/examinee/entrance/"
       },
       {
         "id": "science",
@@ -2609,7 +2634,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/tokyo-metropolitan-university-science-mathematics"
           }
-        ]
+        ],
+        "websiteUrl": "https://www.se.tmu.ac.jp/entrance_exam.html"
       }
     ]
   },
@@ -2638,7 +2664,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/utsunomiya-university-regional_development-civil_engineering"
           }
-        ]
+        ],
+        "websiteUrl": "https://admission.utsunomiya-u.ac.jp/entrance-exam-info/graduate-entrance-exam/masters-course/"
       }
     ]
   },
@@ -2667,7 +2694,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/yamagata-university-science_and_engineering-mechanical_systems"
           }
-        ]
+        ],
+        "websiteUrl": "https://www.yz.yamagata-u.ac.jp/admission/graduateschool/guidelines/"
       }
     ]
   },
@@ -2690,7 +2718,8 @@ const universities = [
             "aliases": [],
             "archiveUrl": "/docs/category/yamanashi-university-medicine_engineering_agriculture-mechanical_engineering"
           }
-        ]
+        ],
+        "websiteUrl": "https://www.yamanashi.ac.jp/admission/45"
       }
     ]
   }

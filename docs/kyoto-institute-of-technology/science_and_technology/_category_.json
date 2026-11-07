@@ -1,4 +1,8 @@
 {
   "label": "工芸科学研究科",
-  "position": 1
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/kyoto-institute-of-technology-science_and_technology"
+  }
 }

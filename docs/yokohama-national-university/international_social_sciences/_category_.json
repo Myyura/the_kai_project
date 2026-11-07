@@ -1,4 +1,8 @@
 {
   "label": "国際社会科学府",
-  "position": 1
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/yokohama-national-university-international_social_sciences"
+  }
 }

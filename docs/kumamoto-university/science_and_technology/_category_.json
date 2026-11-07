@@ -1,4 +1,8 @@
 {
   "label": "自然科学教育部",
-  "position": 1
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/kumamoto-university-science_and_technology"
+  }
 }

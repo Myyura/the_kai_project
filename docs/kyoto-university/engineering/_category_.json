@@ -2,5 +2,9 @@
   "label": "工学研究科",
   "customProps": {
     "aliases": []
+  },
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/kyoto-university-engineering"
   }
 }

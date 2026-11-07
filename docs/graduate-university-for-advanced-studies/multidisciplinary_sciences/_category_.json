@@ -1,4 +1,8 @@
 {
   "label": "複合科学研究科",
-  "position": 1
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/graduate-university-for-advanced-studies-multidisciplinary_sciences"
+  }
 }

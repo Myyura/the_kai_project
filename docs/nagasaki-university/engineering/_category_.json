@@ -1,4 +1,8 @@
 {
   "label": "工学研究科",
-  "position": 1
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/nagasaki-university-engineering"
+  }
 }

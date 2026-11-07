@@ -1,4 +1,8 @@
 {
   "label": "自然科学研究科",
-  "position": 1
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/okayama-university-natural_science"
+  }
 }
