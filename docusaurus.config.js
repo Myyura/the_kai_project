@@ -277,6 +277,7 @@ const config = {
             '/auth/callback',
             '/login',
             '/me',
+            '/shared-set',
             '/reset-password',
           ],
         },

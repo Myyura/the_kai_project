@@ -104,7 +104,11 @@ button:disabled { opacity: .55; cursor: not-allowed; }
 
 .backLink { display: inline-flex; align-items: center; gap: .4rem; width: fit-content; }
 .detailTitleRow { display: flex; align-items: center; gap: .6rem; }
-.detailActions { display: flex; gap: .5rem; }
+.detailActions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.headerActions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.importButton { display: inline-flex; align-items: center; gap: .4rem; border: 0; border-radius: var(--custom-border-radius-xs); padding: .65rem .85rem; background: var(--kai-action); color: white; cursor: pointer; }
+.detailHeader > div:first-child { min-width: 0; }
+.detailHeader p { white-space: pre-wrap; overflow-wrap: anywhere; }
 .editSetPanel { display: grid; gap: .6rem; padding: 1rem; border-radius: var(--custom-border-radius-sm); background: var(--custom-card-bg); }
 .editSetPanel > div { display: flex; flex-wrap: wrap; gap: .5rem; }
 button.dangerButton { background: var(--kai-danger); }

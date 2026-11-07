@@ -1,0 +1,61 @@
+.panel { padding: 1.2rem; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius); background: var(--custom-card-bg); }
+.header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1.2rem; }
+.header h3 { margin: 0; font-size: 1.15rem; }
+.header p { margin: .35rem 0 0; }
+.layout { display: grid; grid-template-columns: minmax(15rem, .8fr) minmax(0, 1.2fr); align-items: start; gap: 1.2rem; }
+.stack { display: grid; gap: 1rem; }
+.settings { display: grid; gap: 1rem; padding: 1rem; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); background: var(--ifm-background-color); }
+.sectionTitle { margin: 0; font-size: .95rem; font-weight: 700; }
+.muted { color: var(--ifm-color-emphasis-700); font-size: .82rem; margin: 0; }
+.label { display: block; font-size: .82rem; font-weight: 700; margin: 0 0 .35rem; }
+.input { width: 100%; min-width: 0; border: 1px solid var(--ifm-color-emphasis-300); background: var(--ifm-background-color); color: var(--ifm-font-color-base); border-radius: var(--custom-border-radius-xs); padding: .65rem .75rem; font: inherit; }
+.check { display: flex; gap: .6rem; align-items: flex-start; font-size: .9rem; }
+.check input { margin-top: .25rem; flex: none; accent-color: var(--kai-action); }
+.check small { display: block; margin-top: .35rem; color: var(--ifm-color-emphasis-700); font-weight: 400; line-height: 1.6; }
+.actions { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.primaryButton { composes: btnPrimary from "../../styles/kai-ui.module.css"; white-space: normal; }
+.secondaryButton { composes: btnSecondary from "../../styles/kai-ui.module.css"; white-space: normal; }
+.dangerButton { composes: btnDanger from "../../styles/kai-ui.module.css"; white-space: normal; }
+.iconButton { composes: btnSecondary from "../../styles/kai-ui.module.css"; min-width: 38px; flex: none; }
+.wideButton { width: 100%; }
+.status { padding: .65rem .8rem; margin: 0; border-radius: var(--custom-border-radius-xs); background: rgba(var(--kai-blue-rgb), .08); color: var(--ifm-color-primary-darkest); font-size: .85rem; }
+.error { padding: .65rem .8rem; margin: 0; border: 1px solid var(--kai-danger-border); border-radius: var(--custom-border-radius-xs); color: var(--kai-danger-strong); background: var(--kai-danger-bg); font-size: .85rem; }
+.notice { padding: .65rem .8rem; margin: 0; border-left: 3px solid var(--kai-warning); background: rgba(var(--kai-warning-rgb), .08); color: var(--ifm-font-color-base); font-size: .82rem; }
+.codeBox { padding: .85rem; border-radius: var(--custom-border-radius-xs); background: rgba(var(--kai-blue-rgb), .08); }
+.codeHeader { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .4rem; font-size: .75rem; color: var(--ifm-color-emphasis-700); }
+.shareCode { font-family: var(--ifm-font-family-monospace); font-size: 1.02rem; font-weight: 700; padding: .3rem 0; margin-top: .3rem; color: var(--ifm-color-primary); border: 0; background: transparent; width: 100%; min-width: 0; }
+.active { color: var(--kai-success-strong); }
+.previewHeading { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; margin-bottom: .65rem; flex-wrap: wrap; }
+.previewWrap { border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); padding: 1rem; background: rgba(var(--kai-blue-rgb), .04); }
+.preview { background: var(--ifm-background-color); border: 1px solid var(--custom-card-border); border-radius: .3rem; padding: 1.35rem; overflow-wrap: anywhere; }
+.brand { display: flex; gap: .65rem; align-items: center; }
+.brand img { width: 35px; height: 35px; flex: none; }
+.brand strong { font-size: .9rem; display: block; }
+.brand small { color: var(--ifm-color-emphasis-700); font-size: .7rem; }
+.title { margin: 1.3rem 0 0; font-size: 1.4rem; line-height: 1.4; }
+.description { padding: .85rem 1rem; margin: 1rem 0; border-left: 3px solid var(--kai-action); background: rgba(var(--kai-blue-rgb), .06); }
+.description strong { display: block; color: var(--ifm-color-primary); font-size: .75rem; margin-bottom: .4rem; }
+.description p { margin: 0; white-space: pre-wrap; font-size: .95rem; line-height: 1.8; }
+.author { display: flex; gap: .65rem; align-items: center; margin: .85rem 0; }
+.avatar { display: grid; place-items: center; width: 38px; height: 38px; flex: none; border-radius: 50%; color: var(--ifm-color-primary); background: rgba(var(--kai-blue-rgb), .1); font-weight: 700; }
+.author strong { display: block; font-size: .85rem; }
+.author small { display: block; color: var(--ifm-color-emphasis-700); font-size: .7rem; overflow-wrap: anywhere; }
+.listHeading { font-size: .78rem; color: var(--ifm-color-emphasis-700); padding-top: .9rem; margin: 0; }
+.checklist { padding: 0; margin: .4rem 0 0; list-style: none; }
+.checklist li { display: flex; gap: .65rem; border-top: 1px solid var(--ifm-color-emphasis-200); padding: .85rem 0; align-items: flex-start; }
+.number { font-family: var(--ifm-font-family-monospace); color: var(--ifm-color-primary); font-size: .75rem; flex: none; min-width: 1.3rem; }
+.item { min-width: 0; }
+.item strong { display: block; font-size: .85rem; font-weight: 600; }
+.item small { display: block; color: var(--ifm-color-emphasis-700); font-size: .7rem; overflow-wrap: anywhere; margin-top: .15rem; }
+.item p { margin: .35rem 0 0; font-size: .8rem; white-space: pre-wrap; line-height: 1.6; }
+.unavailable { color: var(--kai-danger-strong) !important; }
+.previewFooter { border-top: 2px solid var(--kai-action); margin-top: .7rem; padding-top: .9rem; }
+.previewFooter code { display: block; width: fit-content; max-width: 100%; font-size: .95rem; font-weight: 700; margin: .35rem 0; overflow-wrap: anywhere; }
+.fallback textarea { min-height: 8rem; font-size: .82rem; }
+.imagePanel { display: grid; gap: .75rem; margin-top: 1rem; }
+.imagePanel img { display: block; width: 100%; height: auto; border: 1px solid var(--ifm-color-emphasis-200); border-radius: .3rem; }
+.pageControls { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.pageControls select { width: auto; flex: 1; }
+.spin { composes: spinner from "../../styles/kai-ui.module.css"; }
+@media (max-width: 960px) { .layout { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .panel { padding: .8rem; } .previewWrap { padding: .55rem; } .preview { padding: 1rem; } .title { font-size: 1.25rem; } .description { padding: .7rem .8rem; } .actions > button { flex: 1; } .input { font-size: 16px; } }

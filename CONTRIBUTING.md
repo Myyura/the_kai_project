@@ -87,7 +87,7 @@ export PROBLEM_SETS_ENABLED="true"
 To enable account features end-to-end:
 
 1. Create a Supabase project. For a blank project, apply `src/services/schema.sql` once as the baseline; do not reapply it to an existing database.
-2. The current baseline has no pending historical migrations. Future schema changes will be added under `supabase/migrations/` and applied by the deployment workflow.
+2. Existing databases must apply pending files in `supabase/migrations/` before publishing the frontend. Problem-set sharing requires `202611070001_problem_set_sharing.sql`; the fresh-install baseline also includes these objects.
 3. Configure authentication rate limits, password policy and hCaptcha or another bot protection provider in Supabase Authentication.
 4. Add the site callback URLs in Supabase Authentication → URL Configuration, including `https://your-domain/auth/callback` and `https://your-domain/reset-password`.
 5. To enable website submissions, deploy `supabase/functions/content-submissions` and configure `CONTENT_BOT_TOKEN`, `CLA_ATTESTATION_SECRET`, and `CONTENT_SUBMISSION_CALLBACK_SECRET`. Forks should also set `GITHUB_REPOSITORY` to their own `owner/repo` so review Issues are created in their repository; contribution authors are resolved from confirmed public profiles rather than request data.

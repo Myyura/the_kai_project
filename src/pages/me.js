@@ -802,7 +802,7 @@ function MePageInner() {
       return (
         <div className={styles.page}>
           <PersonalCenterHeader activeTab="sets" />
-          <ProblemSetsContent />
+          <ProblemSetsContent key={user?.id} />
         </div>
       );
     }

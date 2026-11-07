@@ -1,0 +1,2 @@
+.page { width: min(100% - 2rem, 60rem); margin: 2rem auto 4rem; }
+.page h1 { margin-bottom: 1.25rem; font-size: clamp(1.5rem, 4vw, 2rem); }

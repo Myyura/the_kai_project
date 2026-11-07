@@ -80,7 +80,7 @@ export PROBLEM_SETS_ENABLED="true"
 
 アカウント機能を有効にする場合：
 1. Supabase プロジェクトを作成します。空の新規データベースでは、最初に `src/services/schema.sql` を一度だけベースラインとして適用します。既存データベースには再適用しないでください。
-2. 現在のベースラインに未適用の履歴マイグレーションはありません。今後の構造変更だけを `supabase/migrations/` に追加し、デプロイ処理で適用します。
+2. 既存データベースには、フロントエンドの公開前に `supabase/migrations/` の未適用ファイルを適用します。問題集の共有には `202611070001_problem_set_sharing.sql` が必要です。新規作成用のベースラインにも同じ構造が含まれています。
 3. Supabase Authentication で認証レート制限、パスワードポリシー、hCaptcha などのボット対策を設定します。
 4. Supabase Authentication → URL Configuration に、`https://your-domain/auth/callback` と `https://your-domain/reset-password` を含むサイトのコールバック URL を追加します。
 5. サイト内投稿を有効にする場合は、`supabase/functions/content-submissions` をデプロイし、`CONTENT_BOT_TOKEN`、`CLA_ATTESTATION_SECRET`、`CONTENT_SUBMISSION_CALLBACK_SECRET` を設定します。fork では `GITHUB_REPOSITORY` も自分の `owner/repo` に設定し、審査 Issue の作成先を指定してください。投稿者名はリクエスト値ではなく、確認済みの公開ニックネームから取得されます。

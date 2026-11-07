@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import {useHistory, useLocation} from '@docusaurus/router';
 import {
   FaArchive,
   FaArrowDown,
@@ -16,7 +17,11 @@ import {
   FaSave,
   FaSearch,
   FaTrashAlt,
+  FaShareAlt,
+  FaFileImport,
 } from 'react-icons/fa';
+import SharePanel from '@site/src/components/ProblemSetSharing/SharePanel';
+import ImportPanel from '@site/src/components/ProblemSetSharing/ImportPanel';
 import {useProblemSet, useProblemSets} from '@site/src/hooks/useProblemSets';
 import {useUiText} from '@site/src/i18n/useUiText';
 import {
@@ -32,11 +37,6 @@ import {
 import {PROBLEM_SET_KIND} from '@site/src/services/problemSetTypes';
 import {getDocumentTitle} from '@site/src/services/documentMetadata';
 import styles from './styles.module.css';
-
-const getSetId = () => {
-  if (typeof window === 'undefined') return '';
-  return new URLSearchParams(window.location.search).get('setId') || '';
-};
 
 const setName = (problemSet, t) => {
   if (problemSet.kind === PROBLEM_SET_KIND.LATER) return t.later;
@@ -67,6 +67,10 @@ function EmptyState({t}) {
 
 function ProblemSetList() {
   const t = useUiText('problemSets');
+  const history = useHistory();
+  const {search} = useLocation();
+  const initialCode = new URLSearchParams(search).get('import') || '';
+  const [importing, setImporting] = React.useState(Boolean(initialCode));
   const {sets, loading, error, refresh} = useProblemSets();
   const [title, setTitle] = React.useState('');
   const [description, setDescription] = React.useState('');
@@ -111,10 +115,15 @@ function ProblemSetList() {
           <h2><FaLayerGroup /> {t.title}</h2>
           <p>{t.subtitle}</p>
         </div>
-        <button type="button" className={styles.iconButton} onClick={refresh} disabled={loading} title={t.refresh}>
-          <FaRedo className={loading ? styles.spin : ''} />
-        </button>
+        <div className={styles.headerActions}>
+          <button type="button" className={styles.importButton} aria-expanded={importing} onClick={() => setImporting((value) => !value)}><FaFileImport /> {t.importSet}</button>
+          <button type="button" className={styles.iconButton} onClick={refresh} disabled={loading} title={t.refresh} aria-label={t.refresh}>
+            <FaRedo className={loading ? styles.spin : ''} />
+          </button>
+        </div>
       </header>
+
+      {importing && <ImportPanel initialCode={initialCode} onClose={() => setImporting(false)} onImported={(id) => history.push(`/me?tab=sets&setId=${encodeURIComponent(id)}`)} />}
 
       <form className={styles.createPanel} onSubmit={createSet}>
         <div>
@@ -208,6 +217,7 @@ function ProblemSetDetail({setId}) {
   const [description, setDescription] = React.useState('');
   const [annotationDrafts, setAnnotationDrafts] = React.useState({});
   const [message, setMessage] = React.useState('');
+  const [sharing, setSharing] = React.useState(false);
 
   React.useEffect(() => {
     setTitle(problemSet?.title || '');
@@ -296,9 +306,12 @@ function ProblemSetDetail({setId}) {
         </div>
         <div className={styles.detailActions}>
           {nextItem && <Link to={withSetContext(nextItem.permalink, setId)}>{t.continue} <FaArrowRight /></Link>}
+          {isCustom && <button type="button" aria-expanded={sharing} onClick={() => setSharing((value) => !value)}><FaShareAlt /> {t.shareSet}</button>}
           {isCustom && <button type="button" onClick={() => setEditingSet((value) => !value)}><FaEdit /> {t.edit}</button>}
         </div>
       </header>
+
+      {sharing && isCustom && <SharePanel key={setId} problemSet={{...problemSet, items}} onClose={() => setSharing(false)} />}
 
       {editingSet && isCustom && (
         <div className={styles.editSetPanel}>
@@ -393,6 +406,7 @@ function ProblemSetDetail({setId}) {
 }
 
 export default function ProblemSetsContent() {
-  const setId = getSetId();
-  return setId ? <ProblemSetDetail setId={setId} /> : <ProblemSetList />;
+  const {search} = useLocation();
+  const setId = new URLSearchParams(search).get('setId') || '';
+  return setId ? <ProblemSetDetail key={setId} setId={setId} /> : <ProblemSetList />;
 }

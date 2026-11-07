@@ -80,11 +80,13 @@ export PROBLEM_SETS_ENABLED="true"
 
 如果你要完整启用账号功能：
 1. 创建一个 Supabase 项目。全新空数据库先执行一次 `src/services/schema.sql` 作为基线；已有数据库不要重复执行该文件。
-2. 当前基线没有待执行的历史迁移；以后新增的结构变化才会放入 `supabase/migrations/` 并由部署流程自动应用。
+2. 已有数据库需应用 `supabase/migrations/` 中尚未执行的迁移；部署流程会先迁移数据库，再发布前端。题集分享需要 `202611070001_problem_set_sharing.sql`，完整新建基线也已包含该结构。
 3. 在 Supabase Authentication 中配置认证限流、密码策略及 hCaptcha 或其他人机验证。
 4. 在 Supabase Authentication → URL Configuration 中加入站点回调地址，包括 `https://your-domain/auth/callback` 和 `https://your-domain/reset-password`。
 5. 如需启用站内投稿，部署 `supabase/functions/content-submissions`，并配置 `CONTENT_BOT_TOKEN`、`CLA_ATTESTATION_SECRET` 和 `CONTENT_SUBMISSION_CALLBACK_SECRET`。fork 部署还应将 `GITHUB_REPOSITORY` 设为自己的 `owner/repo`，让审核 Issue 创建到自己的仓库；投稿署名来自用户已确认的公开昵称，而不是请求数据。
 6. 使用测试账号验证公开昵称和私人题集 RPC，再以 `PROBLEM_SETS_ENABLED=true` 重新构建。
+
+自定义题集详情中的「分享题集」会生成稳定的分享码，保存完整题目顺序、题集说明与公开署名。逐题批注默认不公开，勾选后才加入分享版本；修改题集后需点击「更新分享内容」。接收者可以从「我的题集 → 导入题集」输入分享码，或打开 `/shared-set?code=...` 预览，保存时可自定义名称（默认沿用原名称）。导入创建独立副本，保留接收者自己的学习进度。关闭分享或删除来源题集会停用公开读取，不删除已经导入的副本。
 
 ## 开发者 JSON API
 注册用户可以在个人中心申请 JSON API 访问权限。项目维护者审核通过后，用户可以创建 API Key 并读取题目与答案数据。API Key 明文只在创建时显示一次，请立即保存；数据库只保存 SHA-256 hash。

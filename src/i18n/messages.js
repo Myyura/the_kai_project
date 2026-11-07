@@ -1745,6 +1745,9 @@ export const UI_MESSAGES = {
   problemSets: {
     zh: {
       title: '我的题集',
+      shareSet: '分享题集',
+      importSet: '导入题集',
+      sharedPageTitle: '导入分享的习题集',
       subtitle: '把题目整理成适合自己的练习清单，并直接保存到账号数据库。',
       later: '稍后再做',
       mistakes: '错题本',
@@ -1817,6 +1820,9 @@ export const UI_MESSAGES = {
     },
     ja: {
       title: '問題セット',
+      shareSet: 'セットを共有',
+      importSet: 'セットを取り込む',
+      sharedPageTitle: '共有された問題セットを取り込む',
       subtitle: '自分用の演習リストを作り、アカウントに保存できます。',
       later: 'あとで解く',
       mistakes: '間違いノート',
@@ -1889,6 +1895,9 @@ export const UI_MESSAGES = {
     },
     en: {
       title: 'My Problem Sets',
+      shareSet: 'Share set',
+      importSet: 'Import set',
+      sharedPageTitle: 'Import a shared problem set',
       subtitle: 'Organize problems into personal practice lists stored directly in your account database.',
       later: 'Do Later',
       mistakes: 'Mistake Book',
