@@ -12,7 +12,7 @@ After editing, run `yarn tags:generate`, `yarn content:validate`, and `yarn test
 
 Search the full taxonomy before adding a topic, including topics under other subjects. Use one canonical ID for the same concept; different wording or a different exam program does not justify a duplicate. Keep distinct concepts separate even when their names match, such as the Bernoulli equations in fluid mechanics and differential equations.
 
-When consolidating topics, update every document reference, remove the superseded definitions, and regenerate `docs/tags.yml`. Do not add compatibility aliases for retired canonical IDs. Remove duplicate tags and a parent subsubject when a document already has a concrete topic under that parent. Confirm the choice against the actual question, and preserve the document body.
+When consolidating topics, update every document reference, remove the superseded definitions, and regenerate `docs/tags.yml`. Do not add compatibility aliases for retired canonical IDs or preserve the superseded names as search aliases. Remove duplicate tags and a parent subsubject when a document already has a concrete topic under that parent. Confirm the choice against the actual question, and preserve the document body.
 
 Name a topic after a reusable concept, model, theorem, or method. Do not create a new topic for each parameter choice, application setting, requested calculation, or combination of existing concepts. For example, a parameterized diagonalizability problem uses matrix diagonalization; a distribution-specific estimation problem can use the distribution and estimation method separately. Preserve meaningful distinctions in assumptions or methods rather than merging solely because labels are similar or a topic has few documents.
 

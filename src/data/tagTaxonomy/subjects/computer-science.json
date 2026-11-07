@@ -602,21 +602,7 @@
       "subsubject": "Computer-Science.Computer-Architecture",
       "labelZh": "缓存命中率",
       "labelJa": "キャッシュヒット率",
-      "labelEn": "Cache Hit Rate",
-      "searchAliases": {
-        "zh": [
-          "顺序访问的缓存命中率",
-          "直接映射缓存的冲突与命中率"
-        ],
-        "ja": [
-          "順次アクセス時のキャッシュヒット率",
-          "ダイレクトマップキャッシュの競合とヒット率"
-        ],
-        "en": [
-          "Cache Hit Rate for Sequential Access",
-          "Conflicts and Hit Rate in Direct-Mapped Caches"
-        ]
-      }
+      "labelEn": "Cache Hit Rate"
     },
     "Computer-Science.Computer-Architecture.Hardware-Prefetching": {
       "subsubject": "Computer-Science.Computer-Architecture",
@@ -665,23 +651,6 @@
         ],
         "en": [
           "Two-Way Set-Associative Cache Datapath"
-        ]
-      }
-    },
-    "Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "labelZh": "缓存命中率优化",
-      "labelJa": "キャッシュヒット率の最適化",
-      "labelEn": "Cache Hit Rate Optimization",
-      "searchAliases": {
-        "zh": [
-          "面向缓存的循环优化与寄存器复用"
-        ],
-        "ja": [
-          "キャッシュを考慮したループ最適化とレジスタ再利用"
-        ],
-        "en": [
-          "Cache-Aware Loop Optimization and Register Reuse"
         ]
       }
     },
@@ -1252,17 +1221,14 @@
       "labelJa": "動的計画法の原理",
       "labelEn": "Dynamic Programming Principle"
     },
-    "Computer-Science.Dynamic-Programming.Unbounded-Minimum-Coin-Change": {
+    "Computer-Science.Dynamic-Programming.Unbounded-Coin-Change": {
       "subsubject": "Computer-Science.Dynamic-Programming",
-      "labelZh": "无限硬币的最少找零枚数",
-      "labelJa": "枚数制限のない最小硬貨数問題",
-      "labelEn": "Unbounded Minimum Coin Change"
-    },
-    "Computer-Science.Dynamic-Programming.Unbounded-Coin-Change-Counting": {
-      "subsubject": "Computer-Science.Dynamic-Programming",
-      "labelZh": "无限硬币的找零方案计数",
-      "labelJa": "枚数制限のない硬貨の組合せの数え上げ",
-      "labelEn": "Unbounded Coin Change Counting"
+      "labelZh": "硬币找零",
+      "labelJa": "両替問題",
+      "labelEn": "Coin Change",
+      "descriptionZh": "每种面值的硬币数量不限，包括最少硬币数与找零方案计数。",
+      "descriptionJa": "各額面の硬貨を何枚でも使える両替問題。最小硬貨数と組合せ数を含む。",
+      "descriptionEn": "Coin change with an unlimited supply of each denomination, including minimum coin count and combination counting."
     },
     "Computer-Science.Formal-Languages.Nondeterministic-Polynomial-Time-Completeness": {
       "subsubject": "Computer-Science.Formal-Languages",

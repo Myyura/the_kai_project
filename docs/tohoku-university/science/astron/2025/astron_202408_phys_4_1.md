@@ -2,7 +2,7 @@
 sidebar_label: "2024年8月実施 物理（4）"
 tags:
   - Tohoku-University
-  - Physics.Quantum-Mechanics.Harmonic-Oscillator-Ground-State
+  - Physics.Quantum-Mechanics.Quantum-Harmonic-Oscillator
   - Physics.Electromagnetism.Cyclotron-Motion
   - Physics.Quantum-Mechanics.Landau-Levels-in-Uniform-Magnetic-Field
   - Physics.Electromagnetism.Gauge-Transformation-and-Gauge-Invariance

@@ -1124,10 +1124,6 @@
   label: "Computer-Science.Computer-Architecture.Cache-Address-Mapping"
   permalink: "/topic/computer-science/computer-architecture/cache-address-mapping"
   description: "Computer-Science / Computer-Architecture / Cache-Address-Mapping"
-"Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization":
-  label: "Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization"
-  permalink: "/topic/computer-science/computer-architecture/cache-hit-rate-optimization"
-  description: "Computer-Science / Computer-Architecture / Cache-Hit-Rate-Optimization"
 "Computer-Science.Computer-Architecture.Cache-Miss-Types":
   label: "Computer-Science.Computer-Architecture.Cache-Miss-Types"
   permalink: "/topic/computer-science/computer-architecture/cache-miss-types"
@@ -1476,14 +1472,10 @@
   label: "Computer-Science.Dynamic-Programming.Tree-Dynamic-Programming"
   permalink: "/topic/computer-science/dynamic-programming/tree-dynamic-programming"
   description: "Computer-Science / Dynamic-Programming / Tree-Dynamic-Programming"
-"Computer-Science.Dynamic-Programming.Unbounded-Coin-Change-Counting":
-  label: "Computer-Science.Dynamic-Programming.Unbounded-Coin-Change-Counting"
-  permalink: "/topic/computer-science/dynamic-programming/unbounded-coin-change-counting"
-  description: "Computer-Science / Dynamic-Programming / Unbounded-Coin-Change-Counting"
-"Computer-Science.Dynamic-Programming.Unbounded-Minimum-Coin-Change":
-  label: "Computer-Science.Dynamic-Programming.Unbounded-Minimum-Coin-Change"
-  permalink: "/topic/computer-science/dynamic-programming/unbounded-minimum-coin-change"
-  description: "Computer-Science / Dynamic-Programming / Unbounded-Minimum-Coin-Change"
+"Computer-Science.Dynamic-Programming.Unbounded-Coin-Change":
+  label: "Computer-Science.Dynamic-Programming.Unbounded-Coin-Change"
+  permalink: "/topic/computer-science/dynamic-programming/unbounded-coin-change"
+  description: "Computer-Science / Dynamic-Programming / Unbounded-Coin-Change"
 "Computer-Science.Formal-Languages.Automata-State-Complexity":
   label: "Computer-Science.Formal-Languages.Automata-State-Complexity"
   permalink: "/topic/computer-science/formal-languages/automata-state-complexity"
@@ -5548,14 +5540,6 @@
   label: "Physics.Quantum-Mechanics.Fock-Darwin-States"
   permalink: "/topic/physics/quantum-mechanics/fock-darwin-states"
   description: "Physics / Quantum-Mechanics / Fock-Darwin-States"
-"Physics.Quantum-Mechanics.Harmonic-Oscillator-First-Excited-State":
-  label: "Physics.Quantum-Mechanics.Harmonic-Oscillator-First-Excited-State"
-  permalink: "/topic/physics/quantum-mechanics/harmonic-oscillator-first-excited-state"
-  description: "Physics / Quantum-Mechanics / Harmonic-Oscillator-First-Excited-State"
-"Physics.Quantum-Mechanics.Harmonic-Oscillator-Ground-State":
-  label: "Physics.Quantum-Mechanics.Harmonic-Oscillator-Ground-State"
-  permalink: "/topic/physics/quantum-mechanics/harmonic-oscillator-ground-state"
-  description: "Physics / Quantum-Mechanics / Harmonic-Oscillator-Ground-State"
 "Physics.Quantum-Mechanics.Heisenberg-Picture":
   label: "Physics.Quantum-Mechanics.Heisenberg-Picture"
   permalink: "/topic/physics/quantum-mechanics/heisenberg-picture"
@@ -5608,6 +5592,10 @@
   label: "Physics.Quantum-Mechanics.Photoelectric-Effect"
   permalink: "/topic/physics/quantum-mechanics/photoelectric-effect"
   description: "Physics / Quantum-Mechanics / Photoelectric-Effect"
+"Physics.Quantum-Mechanics.Quantum-Harmonic-Oscillator":
+  label: "Physics.Quantum-Mechanics.Quantum-Harmonic-Oscillator"
+  permalink: "/topic/physics/quantum-mechanics/quantum-harmonic-oscillator"
+  description: "Physics / Quantum-Mechanics / Quantum-Harmonic-Oscillator"
 "Physics.Quantum-Mechanics.Quantum-Measurement":
   label: "Physics.Quantum-Mechanics.Quantum-Measurement"
   permalink: "/topic/physics/quantum-mechanics/quantum-measurement"
@@ -6104,10 +6092,6 @@
   label: "Probability-Statistics.Probability-Basics.Covariance-Matrix"
   permalink: "/topic/probability-statistics/probability-basics/covariance-matrix"
   description: "Probability-Statistics / Probability-Basics / Covariance-Matrix"
-"Probability-Statistics.Probability-Basics.Covariance-under-Affine-Transformation":
-  label: "Probability-Statistics.Probability-Basics.Covariance-under-Affine-Transformation"
-  permalink: "/topic/probability-statistics/probability-basics/covariance-under-affine-transformation"
-  description: "Probability-Statistics / Probability-Basics / Covariance-under-Affine-Transformation"
 "Probability-Statistics.Probability-Basics.Expectation-and-Variance":
   label: "Probability-Statistics.Probability-Basics.Expectation-and-Variance"
   permalink: "/topic/probability-statistics/probability-basics/expectation-and-variance"
@@ -6432,10 +6416,6 @@
   label: "Probability-Statistics.Stochastic-Processes.First-Return-Time-of-One-Dimensional-Random-Walk"
   permalink: "/topic/probability-statistics/stochastic-processes/first-return-time-of-one-dimensional-random-walk"
   description: "Probability-Statistics / Stochastic-Processes / First-Return-Time-of-One-Dimensional-Random-Walk"
-"Probability-Statistics.Stochastic-Processes.Gamblers-Ruin-and-Hitting-Probability":
-  label: "Probability-Statistics.Stochastic-Processes.Gamblers-Ruin-and-Hitting-Probability"
-  permalink: "/topic/probability-statistics/stochastic-processes/gamblers-ruin-and-hitting-probability"
-  description: "Probability-Statistics / Stochastic-Processes / Gamblers-Ruin-and-Hitting-Probability"
 "Probability-Statistics.Stochastic-Processes.Markov-Chain":
   label: "Probability-Statistics.Stochastic-Processes.Markov-Chain"
   permalink: "/topic/probability-statistics/stochastic-processes/markov-chain"
@@ -6504,10 +6484,6 @@
   label: "Psychology.Ethics.Multiple-Relationships"
   permalink: "/topic/psychology/ethics/multiple-relationships"
   description: "Psychology / Ethics / Multiple-Relationships"
-"Psychology.Research-Methods-and-Statistics.Measurement-Error":
-  label: "Psychology.Research-Methods-and-Statistics.Measurement-Error"
-  permalink: "/topic/psychology/research-methods-and-statistics/measurement-error"
-  description: "Psychology / Research-Methods-and-Statistics / Measurement-Error"
 "Psychology.Research-Methods-and-Statistics.Multiple-Comparisons":
   label: "Psychology.Research-Methods-and-Statistics.Multiple-Comparisons"
   permalink: "/topic/psychology/research-methods-and-statistics/multiple-comparisons"

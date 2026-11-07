@@ -5,7 +5,7 @@ tags:
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Fisher-Exact-Test
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Probability-Basics.Covariance-under-Affine-Transformation
+  - Probability-Statistics.Probability-Basics.Covariance
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2023年8月実施 専門科目 S-2
 

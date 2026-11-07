@@ -42,6 +42,7 @@ module.exports = function createHookRuntime(dependencies = {}, globals = {}) {
       if (!slots[index]) slots[index] = {current: initial};
       return slots[index];
     },
+    useId() { return react.useMemo(() => `test-id-${cursor}`, []); },
     useMemo(compute, deps) {
       const index = cursor++;
       if (!slots[index] || changed(slots[index].deps, deps)) slots[index] = {value: compute(), deps};

@@ -42,13 +42,12 @@ function createPage(share, labels, logoUrl, pageNumber, pageCount) {
   return {root, list, logo};
 }
 
-function createRow(item, index, labels) {
+function createRow(item, index, labels, includeAnnotations) {
   const row = element('div', undefined, 'display:flex;align-items:flex-start;gap:14px;border-top:1px solid #dce4ee;padding:18px 0;');
   row.append(element('span', String(index + 1).padStart(2, '0'), 'color:#245bb0;min-width:32px;flex:none;font:16px/1.7 ui-monospace,monospace;'));
   const content = element('div', undefined, 'min-width:0;flex:1;');
   content.append(element('strong', item.title || item.docId, 'display:block;font-size:19px;line-height:1.6;'));
-  content.append(element('small', item.docId, 'display:block;font-size:13px;color:#5e6e80;margin-top:3px;'));
-  if (item.annotation) content.append(element('div', item.annotation, 'white-space:pre-wrap;font-size:16px;line-height:1.7;margin-top:7px;'));
+  if (includeAnnotations !== false) content.append(element('div', item.annotation?.trim() ? item.annotation : labels.noAnnotation, 'white-space:pre-wrap;font-size:16px;line-height:1.7;margin-top:7px;color:#5e6e80;'));
   if (item.contentAvailable === false) content.append(element('small', labels.unavailableItem, 'display:block;color:#9b3040;font-size:13px;margin-top:5px;'));
   row.append(content);
   return row;
@@ -65,7 +64,7 @@ export async function prepareProblemSetShareImages({share, labels, logoUrl, sign
     await Promise.all([waitForImage(measuring.logo, signal), waitForFonts(measuring.root, signal)]);
     for (let index = 0; index < share.items.length; index++) {
       checkAborted(signal);
-      const row = createRow(share.items[index], index, labels);
+      const row = createRow(share.items[index], index, labels, share.includeAnnotations);
       measuring.list.appendChild(row);
       if (current.length && (measuring.root.scrollHeight > PAGE_HEIGHT || current.length >= ITEMS_PER_PAGE)) {
         pages.push(current);
@@ -97,7 +96,7 @@ export async function prepareProblemSetShareImages({share, labels, logoUrl, sign
       const page = createPage(share, labels, logoUrl, index + 1, pages.length);
       let canvas;
       try {
-        for (const itemIndex of pages[index]) page.list.appendChild(createRow(share.items[itemIndex], itemIndex, labels));
+        for (const itemIndex of pages[index]) page.list.appendChild(createRow(share.items[itemIndex], itemIndex, labels, share.includeAnnotations));
         document.body.appendChild(page.root);
         mounted = page.root;
         await Promise.all([waitForImage(page.logo, renderSignal), waitForFonts(page.root, renderSignal)]);

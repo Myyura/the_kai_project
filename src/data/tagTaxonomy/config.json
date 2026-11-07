@@ -1,5 +1,5 @@
 {
-  "version": 10,
+  "version": 11,
   "policy": {
     "unknownTags": "warning",
     "schoolTags": "derived-from-path-preferred",

@@ -2,7 +2,7 @@
 sidebar_label: "2025年10月実施 第1回 心理学"
 tags:
   - Yamaguchi-University
-  - Psychology.Research-Methods-and-Statistics.Measurement-Error
+  - Probability-Statistics.Descriptive-Statistics-and-Sampling.Measurement-Error
   - Psychology.Research-Methods-and-Statistics.Multiple-Comparisons
   - Psychology.Cognitive-Psychology.Stroop-Effect
   - Psychology.Social-Psychology.Ingroup-Bias-and-Social-Identity

@@ -25,7 +25,8 @@
 .codeHeader { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .4rem; font-size: .75rem; color: var(--ifm-color-emphasis-700); }
 .shareCode { font-family: var(--ifm-font-family-monospace); font-size: 1.02rem; font-weight: 700; padding: .3rem 0; margin-top: .3rem; color: var(--ifm-color-primary); border: 0; background: transparent; width: 100%; min-width: 0; }
 .active { color: var(--kai-success-strong); }
-.previewHeading { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; margin-bottom: .65rem; flex-wrap: wrap; }
+.previewHeading { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .65rem; flex-wrap: wrap; }
+.imageHint { color: var(--ifm-color-emphasis-700); font-size: .82rem; margin: 0 0 .75rem; }
 .previewWrap { border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); padding: 1rem; background: rgba(var(--kai-blue-rgb), .04); }
 .preview { background: var(--ifm-background-color); border: 1px solid var(--custom-card-border); border-radius: .3rem; padding: 1.35rem; overflow-wrap: anywhere; }
 .brand { display: flex; gap: .65rem; align-items: center; }

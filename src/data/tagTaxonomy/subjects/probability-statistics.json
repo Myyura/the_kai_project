@@ -538,20 +538,14 @@
       "labelJa": "二項分布のポアソン近似",
       "labelEn": "Poisson Approximation to Binomial"
     },
-    "Probability-Statistics.Probability-Basics.Covariance-under-Affine-Transformation": {
-      "subsubject": "Probability-Statistics.Probability-Basics",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "仿射变换下的协方差",
-      "labelJa": "アフィン変換による共分散の変換",
-      "labelEn": "Covariance under Affine Transformation"
-    },
     "Probability-Statistics.Probability-Basics.Covariance": {
       "subsubject": "Probability-Statistics.Probability-Basics",
       "labelZh": "协方差",
       "labelJa": "共分散",
-      "labelEn": "Covariance"
+      "labelEn": "Covariance",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
     },
     "Probability-Statistics.Probability-Basics.Proportion-and-Base-Rate": {
       "subsubject": "Probability-Statistics.Probability-Basics",
@@ -1271,20 +1265,12 @@
     "Probability-Statistics.Stochastic-Processes.Absorbing-Random-Walk": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
       "relatedSubjects": [
-        "Discrete-Mathematics"
+        "Discrete-Mathematics",
+        "Operations-Research"
       ],
       "labelZh": "吸收随机游走",
       "labelJa": "吸収壁のあるランダムウォーク",
       "labelEn": "Absorbing Random Walk"
-    },
-    "Probability-Statistics.Stochastic-Processes.Gamblers-Ruin-and-Hitting-Probability": {
-      "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "relatedSubjects": [
-        "Operations-Research"
-      ],
-      "labelZh": "赌徒破产与到达概率",
-      "labelJa": "ギャンブラーの破産と到達確率",
-      "labelEn": "Gambler’s Ruin and Hitting Probability"
     },
     "Probability-Statistics.Stochastic-Processes.Pattern-Occurrence-in-Independent-Identically-Distributed-Sequence": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
@@ -1548,6 +1534,9 @@
     },
     "Probability-Statistics.Descriptive-Statistics-and-Sampling.Measurement-Error": {
       "subsubject": "Probability-Statistics.Descriptive-Statistics-and-Sampling",
+      "relatedSubjects": [
+        "Psychology"
+      ],
       "labelZh": "测量误差",
       "labelJa": "測定誤差",
       "labelEn": "Measurement Error"

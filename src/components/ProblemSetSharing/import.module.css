@@ -51,10 +51,8 @@
 .itemTitle { display: flex; flex-wrap: wrap; gap: .45rem .7rem; align-items: center; }
 .itemTitle > a, .itemTitle > strong { font-size: .92rem; font-weight: 600; overflow-wrap: anywhere; }
 .completedBadge { display: inline-flex; gap: .3rem; align-items: center; font-size: .7rem; }
-.docId { display: block; color: var(--ifm-color-emphasis-600); font-size: .71rem; overflow-wrap: anywhere; margin-top: .2rem; }
 .unavailable { display: inline-block; font-size: .72rem; color: var(--kai-warning); margin-top: .25rem; }
 .annotation { font-size: .82rem; color: var(--ifm-color-emphasis-700); white-space: pre-wrap; overflow-wrap: anywhere; margin: .4rem 0 0; }
-.annotation span { color: var(--ifm-color-emphasis-600); }
 .emptySet { color: var(--ifm-color-emphasis-700); font-size: .85rem; }
 .saveForm { border-top: 1px solid var(--ifm-color-emphasis-200); padding-top: 1.2rem; margin-top: .5rem; }
 .saveRow { display: flex; justify-content: space-between; gap: 1rem; align-items: center; flex-wrap: wrap; margin-top: 1rem; }

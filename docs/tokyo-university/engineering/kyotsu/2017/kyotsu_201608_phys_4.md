@@ -3,8 +3,7 @@ sidebar_label: '2016年8月実施 物理学 第4問'
 tags:
   - Tokyo-University
   - Physics.Mechanics.Monatomic-and-Diatomic-Lattice-Vibrations
-  - Physics.Quantum-Mechanics.Harmonic-Oscillator-Ground-State
-  - Physics.Quantum-Mechanics.Harmonic-Oscillator-First-Excited-State
+  - Physics.Quantum-Mechanics.Quantum-Harmonic-Oscillator
 ---
 
 # 東京大学 工学系研究科 2016年8月実施 物理学 第4問

@@ -5,7 +5,7 @@ tags:
   - Computer-Science.Algorithm-Design.Matrix-Multiplication-Algorithms
   - Computer-Science.Programming.File-Input-and-Output
   - Computer-Science.Programming.String-Parsing
-  - Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization
+  - Computer-Science.Computer-Architecture.Direct-Mapped-Cache-Conflict-and-Hit-Rate
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2017年8月実施 プログラミング
 

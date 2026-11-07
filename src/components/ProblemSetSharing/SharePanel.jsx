@@ -41,8 +41,7 @@ export function ShareChecklist({share, showCode = true}) {
             <span className={styles.number} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
             <div className={styles.item}>
               <strong>{item.title || item.docId}</strong>
-              <small>{item.docId}</small>
-              {item.annotation && <p>{item.annotation}</p>}
+              {share.includeAnnotations !== false && <p className={!item.annotation?.trim() ? styles.muted : undefined}>{item.annotation?.trim() ? item.annotation : t.noAnnotation}</p>}
               {item.contentAvailable === false && <small className={styles.unavailable}>{t.unavailableItem}</small>}
             </div>
           </li>
@@ -63,7 +62,7 @@ export default function SharePanel({problemSet, onClose}) {
   const [loadedId, setLoadedId] = React.useState('');
   const [loadAttempt, setLoadAttempt] = React.useState(0);
   const [loadFailed, setLoadFailed] = React.useState(false);
-  const [includeAnnotations, setIncludeAnnotations] = React.useState(false);
+  const [includeAnnotations, setIncludeAnnotations] = React.useState(true);
   const [pending, setPending] = React.useState('');
   const [error, setError] = React.useState('');
   const [message, setMessage] = React.useState('');
@@ -79,10 +78,14 @@ export default function SharePanel({problemSet, onClose}) {
   const copyFieldRef = React.useRef(null);
   const share = shareState.setId === setId ? shareState.value : null;
   const loaded = loadedId === setId;
-  const changed = share && signature(problemSet, includeAnnotations) !== signature(share, share.includeAnnotations);
+  const currentSignature = signature(problemSet, includeAnnotations);
+  const signatureRef = React.useRef(currentSignature);
+  signatureRef.current = currentSignature;
+  const changed = share && currentSignature !== signature(share, share.includeAnnotations);
 
   const disposeImages = React.useCallback(() => {
     imageAbortRef.current?.abort();
+    imageAbortRef.current = null;
     imagePlanRef.current?.dispose();
     imagePlanRef.current = null;
     if (imageUrlRef.current) URL.revokeObjectURL(imageUrlRef.current);
@@ -99,7 +102,7 @@ export default function SharePanel({problemSet, onClose}) {
     setLoadedId('');
     setShareState({setId, value: null});
     setLoadFailed(false);
-    setIncludeAnnotations(false);
+    setIncludeAnnotations(true);
     setCopyContent('');
     setPending('');
     setError('');
@@ -107,7 +110,7 @@ export default function SharePanel({problemSet, onClose}) {
     fetchMyProblemSetShare(setId).then(value => {
       if (scope !== scopeRef.current) return;
       setShareState({setId, value});
-      setIncludeAnnotations(Boolean(value?.includeAnnotations));
+      setIncludeAnnotations(value?.includeAnnotations !== false);
       setLoadedId(setId);
     }).catch(nextError => {
       if (scope !== scopeRef.current) return;
@@ -116,6 +119,13 @@ export default function SharePanel({problemSet, onClose}) {
     });
     return () => { scopeRef.current++; disposeImages(); };
   }, [setId, loadAttempt, disposeImages]);
+
+  React.useEffect(() => {
+    disposeImages();
+    setImage(null);
+    setPageCount(0);
+    setImagePage(0);
+  }, [currentSignature, disposeImages]);
 
   React.useEffect(() => {
     if (copyContent && copyFieldRef.current) {
@@ -131,7 +141,7 @@ export default function SharePanel({problemSet, onClose}) {
     setImagePage(0);
     setCopyContent('');
     setShareState({setId, value});
-    setIncludeAnnotations(Boolean(value?.includeAnnotations));
+    setIncludeAnnotations(value?.includeAnnotations !== false);
   };
 
   const mutate = async (action, successMessage) => {
@@ -172,43 +182,79 @@ export default function SharePanel({problemSet, onClose}) {
     }
   };
 
-  const renderImage = async (page, prepare = false) => {
-    if (busyRef.current || !share?.isActive) return;
+  const renderImage = async (page, exportCurrent = false) => {
+    if (busyRef.current || !loaded || (!exportCurrent && !imagePlanRef.current)) return;
     busyRef.current = true;
     const scope = scopeRef.current;
-    const abort = new AbortController();
-    imageAbortRef.current?.abort();
-    imageAbortRef.current = abort;
-    setPending('image');
+    const requestedSignature = currentSignature;
+    let abort;
+    const isCurrent = () => scope === scopeRef.current
+      && requestedSignature === signatureRef.current && !abort?.signal.aborted;
+    let saving = exportCurrent && (!share || changed || !share.isActive);
+    if (exportCurrent) {
+      disposeImages();
+      setImage(null);
+      setPageCount(0);
+      setImagePage(0);
+    }
+    setPending(saving ? 'saving' : 'image');
     setError('');
     setMessage('');
     try {
-      if (prepare || !imagePlanRef.current) {
-        imagePlanRef.current?.dispose();
+      let snapshot = share;
+      if (saving) {
+        snapshot = !share || changed
+          ? await publishProblemSet(setId, {includeAnnotations})
+          : await setProblemSetShareActive(setId, true);
+        if (!isCurrent()) return;
+        applyShare(snapshot);
+        saving = false;
+        setPending('image');
+      }
+      abort = new AbortController();
+      imageAbortRef.current?.abort();
+      imageAbortRef.current = abort;
+      if (exportCurrent) {
         const {prepareProblemSetShareImages} = await import('./exportImage');
-        const plan = await prepareProblemSetShareImages({share, labels: t, logoUrl, signal: abort.signal});
-        if (scope !== scopeRef.current || abort.signal.aborted) { plan.dispose(); return; }
+        if (!isCurrent()) return;
+        const plan = await prepareProblemSetShareImages({share: snapshot, labels: t, logoUrl, signal: abort.signal});
+        if (!isCurrent()) { plan.dispose(); return; }
         imagePlanRef.current = plan;
         setPageCount(plan.pageCount);
       }
       const result = await imagePlanRef.current.renderPage(page, abort.signal);
-      if (scope !== scopeRef.current || abort.signal.aborted) return;
+      if (!isCurrent()) return;
       const url = URL.createObjectURL(result.blob);
       if (imageUrlRef.current) URL.revokeObjectURL(imageUrlRef.current);
       imageUrlRef.current = url;
       setImage({url, filename: result.filename});
       setImagePage(page);
-      setMessage(t.imageReady);
+      setMessage(exportCurrent ? t.exportReady : t.imageReady);
+      if (exportCurrent) {
+        // Keep the URL and preview available if the browser blocks this download.
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = result.filename;
+        document.body.appendChild(link);
+        try { link.click(); } catch { /* The visible save link remains available. */ }
+        finally { link.remove(); }
+      }
     } catch (nextError) {
-      if (scope === scopeRef.current && nextError?.name !== 'AbortError') setError('image');
+      if (isCurrent() && nextError?.name !== 'AbortError') {
+        setError(saving ? getProblemSetShareErrorCode(nextError) : 'image');
+      }
     } finally {
       if (scope === scopeRef.current) { busyRef.current = false; setPending(''); }
     }
   };
 
-  const preview = share || {
+  const isDraft = !share || changed;
+  const preview = {
     ...problemSet,
-    author: {displayName: profile?.displayName || t.author, publicId: profile?.publicId || ''},
+    code: isDraft ? '' : share.code,
+    version: isDraft ? 0 : share.version,
+    includeAnnotations,
+    author: share?.author || {displayName: profile?.displayName || t.author, publicId: profile?.publicId || ''},
     items: (problemSet.items || []).map(item => ({...item, annotation: includeAnnotations ? item.annotation : ''})),
   };
   const disabled = !loaded || Boolean(pending);
@@ -231,14 +277,13 @@ export default function SharePanel({problemSet, onClose}) {
             <button type="button" className={`${styles.primaryButton} ${styles.wideButton}`} disabled={disabled || !problemSet.items?.length || (share?.isActive && !changed)} onClick={publish}>{pending === 'saving' ? <><FaRedo className={styles.spin} /> {t.working}</> : <><FaLink /> {publishLabel}</>}</button>
             {share?.isActive && <><div className={styles.actions}><button type="button" className={styles.secondaryButton} disabled={Boolean(pending)} onClick={() => copy(share.code)}><FaCopy /> {t.copyCode}</button><button type="button" className={styles.secondaryButton} disabled={Boolean(pending)} onClick={() => copy(createProblemSetShareUrl(share.code))}><FaLink /> {t.copyLink}</button><button type="button" className={styles.secondaryButton} disabled={Boolean(pending)} onClick={() => copy(shareText)}><FaCopy /> {t.copyText}</button></div><button type="button" className={styles.dangerButton} disabled={Boolean(pending)} onClick={() => mutate(() => setProblemSetShareActive(setId, false), t.stoppedNotice)}>{t.stop}</button></>}
           </div>
-          {share?.isActive && <div className={styles.settings}><h4 className={styles.sectionTitle}>{t.image}</h4><p className={styles.muted}>{t.imageHint}</p><button type="button" className={styles.secondaryButton} disabled={Boolean(pending)} onClick={() => renderImage(0, true)}>{pending === 'image' ? <><FaRedo className={styles.spin} /> {t.preparing}</> : <><FaDownload /> {t.image}</>}</button>
-            {image && <div className={styles.imagePanel}><div className={styles.pageControls}><button type="button" className={styles.secondaryButton} disabled={Boolean(pending) || imagePage === 0} onClick={() => renderImage(imagePage - 1)}>{t.previous}</button><select className={styles.input} aria-label={t.choosePage} value={imagePage} disabled={Boolean(pending)} onChange={event => renderImage(Number(event.target.value))}>{Array.from({length: pageCount}, (_, index) => <option key={index} value={index}>{t.page(index + 1, pageCount)}</option>)}</select><button type="button" className={styles.secondaryButton} disabled={Boolean(pending) || imagePage + 1 >= pageCount} onClick={() => renderImage(imagePage + 1)}>{t.next}</button></div><a className={styles.primaryButton} href={image.url} download={image.filename}><FaDownload /> {t.download}</a><img src={image.url} alt={`${t.imageAlt} · ${t.page(imagePage + 1, pageCount)}`} /></div>}
-          </div>}
           {error && <p className={styles.error} role="alert">{error === 'image' ? t.imageFailed : t.errors[error] || t.errors.failed}</p>}
           {message && <p className={styles.status} role="status"><FaCheck /> {message}</p>}
           {copyContent && <div className={styles.fallback}><label className={styles.label} htmlFor={`share-copy-${setId}`}>{t.copyContent}</label><textarea ref={copyFieldRef} id={`share-copy-${setId}`} className={styles.input} value={copyContent} readOnly /></div>}
         </div>
-        <div><div className={styles.previewHeading}><h4 className={styles.sectionTitle}>{t.preview}</h4><small className={styles.muted}>{share ? t.published(share.version) : t.draft}</small></div><div className={styles.previewWrap}><ShareChecklist share={preview} showCode={!share || share.isActive} /></div></div>
+        <div><div className={styles.previewHeading}><div><h4 className={styles.sectionTitle}>{t.preview}</h4><small className={styles.muted}>{isDraft ? t.draft : share.isActive ? t.published(share.version) : t.stopped}</small></div><button type="button" className={styles.primaryButton} disabled={disabled || !problemSet.items?.length} onClick={() => renderImage(0, true)}>{pending ? <><FaRedo className={styles.spin} /> {pending === 'saving' ? t.working : t.preparing}</> : <><FaDownload /> {t.exportImage}</>}</button></div><p className={styles.imageHint}>{t.imageHint}</p><div className={styles.previewWrap}><ShareChecklist share={preview} showCode={isDraft || share.isActive} /></div>
+          {image && <div className={styles.imagePanel}><div className={styles.pageControls}><button type="button" className={styles.secondaryButton} disabled={Boolean(pending) || imagePage === 0} onClick={() => renderImage(imagePage - 1)}>{t.previous}</button><select className={styles.input} aria-label={t.choosePage} value={imagePage} disabled={Boolean(pending)} onChange={event => renderImage(Number(event.target.value))}>{Array.from({length: pageCount}, (_, index) => <option key={index} value={index}>{t.page(index + 1, pageCount)}</option>)}</select><button type="button" className={styles.secondaryButton} disabled={Boolean(pending) || imagePage + 1 >= pageCount} onClick={() => renderImage(imagePage + 1)}>{t.next}</button></div><a className={styles.primaryButton} href={image.url} download={image.filename}><FaDownload /> {t.download}</a><img src={image.url} alt={`${t.imageAlt} · ${t.page(imagePage + 1, pageCount)}`} /></div>}
+        </div>
       </div>
     </section>
   );

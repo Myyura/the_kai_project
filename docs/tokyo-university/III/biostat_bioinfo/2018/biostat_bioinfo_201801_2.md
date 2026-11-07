@@ -5,7 +5,7 @@ tags:
   - Probability-Statistics.Probability-Basics.Joint-Distribution
   - Probability-Statistics.Probability-Basics.Conditional-Density
   - Probability-Statistics.Probability-Basics.Marginal-Densities-and-Independence-Test
-  - Probability-Statistics.Probability-Basics.Covariance-under-Affine-Transformation
+  - Probability-Statistics.Probability-Basics.Covariance
 ---
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2018年1月実施 専門科目 第2問
 

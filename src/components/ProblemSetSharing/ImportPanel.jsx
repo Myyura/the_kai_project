@@ -257,9 +257,8 @@ export default function ImportPanel({initialCode = '', onImported, onClose, stan
                 <div className={styles.itemTitle}>{permalink ? <Link to={permalink}>{item.title || item.docId}</Link> : <strong>{item.title || item.docId}</strong>}
                   {isLoggedIn && item.progressStatus === 'completed' && <span className={styles.completedBadge}><FaCheckCircle aria-hidden="true" /> {t.completedItem}</span>}
                 </div>
-                <small className={styles.docId}>{item.docId}</small>
                 {!item.contentAvailable && <span className={styles.unavailable}>{t.unavailable}</span>}
-                {item.annotation && <p className={styles.annotation}><span>{t.annotation}：</span>{item.annotation}</p>}
+                {share.includeAnnotations !== false && <p className={styles.annotation}>{item.annotation?.trim() ? item.annotation : t.noAnnotation}</p>}
               </div>
             </li>;
           })}

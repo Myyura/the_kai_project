@@ -150,15 +150,6 @@
       "labelJa": "多重関係",
       "labelEn": "Multiple Relationships"
     },
-    "Psychology.Research-Methods-and-Statistics.Measurement-Error": {
-      "subsubject": "Psychology.Research-Methods-and-Statistics",
-      "relatedSubjects": [
-        "Probability-Statistics"
-      ],
-      "labelZh": "测量误差",
-      "labelJa": "測定誤差",
-      "labelEn": "Measurement Error"
-    },
     "Psychology.Research-Methods-and-Statistics.Multiple-Comparisons": {
       "subsubject": "Psychology.Research-Methods-and-Statistics",
       "relatedSubjects": [

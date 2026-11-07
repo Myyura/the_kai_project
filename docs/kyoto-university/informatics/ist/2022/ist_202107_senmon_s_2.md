@@ -7,7 +7,7 @@ tags:
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-Distribution
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Poisson-Approximation-to-Binomial
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.One-Sample-Proportion-Z-Test
-  - Probability-Statistics.Probability-Basics.Covariance-under-Affine-Transformation
+  - Probability-Statistics.Probability-Basics.Covariance
   - Probability-Statistics.Probability-Basics.Correlation-Coefficient
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2021年7月実施 専門科目 S-2
