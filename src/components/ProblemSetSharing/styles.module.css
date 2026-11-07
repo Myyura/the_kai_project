@@ -2,8 +2,6 @@
 .header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1.2rem; }
 .header h3 { margin: 0; font-size: 1.15rem; }
 .header p { margin: .35rem 0 0; }
-.layout { display: grid; grid-template-columns: minmax(15rem, .8fr) minmax(0, 1.2fr); align-items: start; gap: 1.2rem; }
-.stack { display: grid; gap: 1rem; }
 .settings { display: grid; gap: 1rem; padding: 1rem; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); background: var(--ifm-background-color); }
 .sectionTitle { margin: 0; font-size: .95rem; font-weight: 700; }
 .muted { color: var(--ifm-color-emphasis-700); font-size: .82rem; margin: 0; }
@@ -17,7 +15,6 @@
 .secondaryButton { composes: btnSecondary from "../../styles/kai-ui.module.css"; white-space: normal; }
 .dangerButton { composes: btnDanger from "../../styles/kai-ui.module.css"; white-space: normal; }
 .iconButton { composes: btnSecondary from "../../styles/kai-ui.module.css"; min-width: 38px; flex: none; }
-.wideButton { width: 100%; }
 .status { padding: .65rem .8rem; margin: 0; border-radius: var(--custom-border-radius-xs); background: rgba(var(--kai-blue-rgb), .08); color: var(--ifm-color-primary-darkest); font-size: .85rem; }
 .error { padding: .65rem .8rem; margin: 0; border: 1px solid var(--kai-danger-border); border-radius: var(--custom-border-radius-xs); color: var(--kai-danger-strong); background: var(--kai-danger-bg); font-size: .85rem; }
 .notice { padding: .65rem .8rem; margin: 0; border-left: 3px solid var(--kai-warning); background: rgba(var(--kai-warning-rgb), .08); color: var(--ifm-font-color-base); font-size: .82rem; }
@@ -25,9 +22,15 @@
 .codeHeader { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .4rem; font-size: .75rem; color: var(--ifm-color-emphasis-700); }
 .shareCode { font-family: var(--ifm-font-family-monospace); font-size: 1.02rem; font-weight: 700; padding: .3rem 0; margin-top: .3rem; color: var(--ifm-color-primary); border: 0; background: transparent; width: 100%; min-width: 0; }
 .active { color: var(--kai-success-strong); }
-.previewHeading { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .65rem; flex-wrap: wrap; }
-.imageHint { color: var(--ifm-color-emphasis-700); font-size: .82rem; margin: 0 0 .75rem; }
-.previewWrap { border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); padding: 1rem; background: rgba(var(--kai-blue-rgb), .04); }
+.checklistDisclosure { margin: 1rem 0 0; padding: 0; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); background: var(--ifm-background-color); overflow: hidden; box-shadow: none; }
+.previewHeading { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin: 0; padding: .9rem 1rem; list-style: none; cursor: pointer; }
+.previewHeading small { display: block; margin-top: .25rem; }
+.previewHeading::marker, .previewHeading::-webkit-details-marker { display: none; content: ''; }
+.previewHeading:focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: -3px; }
+.previewToggle { flex: none; color: var(--ifm-color-emphasis-700); font-size: .8rem; }
+.checklistDisclosure[open] .previewToggle { transform: rotate(180deg); }
+.imageHint { color: var(--ifm-color-emphasis-700); font-size: .82rem; margin: 0; }
+.previewWrap { border-top: 1px solid var(--custom-card-border); padding: 1rem; background: rgba(var(--kai-blue-rgb), .04); }
 .preview { background: var(--ifm-background-color); border: 1px solid var(--custom-card-border); border-radius: .3rem; padding: 1.35rem; overflow-wrap: anywhere; }
 .brand { display: flex; gap: .65rem; align-items: center; }
 .brand img { width: 35px; height: 35px; flex: none; }
@@ -53,10 +56,8 @@
 .previewFooter { border-top: 2px solid var(--kai-action); margin-top: .7rem; padding-top: .9rem; }
 .previewFooter code { display: block; width: fit-content; max-width: 100%; font-size: .95rem; font-weight: 700; margin: .35rem 0; overflow-wrap: anywhere; }
 .fallback textarea { min-height: 8rem; font-size: .82rem; }
-.imagePanel { display: grid; gap: .75rem; margin-top: 1rem; }
-.imagePanel img { display: block; width: 100%; height: auto; border: 1px solid var(--ifm-color-emphasis-200); border-radius: .3rem; }
 .pageControls { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
 .pageControls select { width: auto; flex: 1; }
+.pageControls > [role='status'] { flex-basis: 100%; }
 .spin { composes: spinner from "../../styles/kai-ui.module.css"; }
-@media (max-width: 960px) { .layout { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .panel { padding: .8rem; } .previewWrap { padding: .55rem; } .preview { padding: 1rem; } .title { font-size: 1.25rem; } .description { padding: .7rem .8rem; } .actions > button { flex: 1; } .input { font-size: 16px; } }

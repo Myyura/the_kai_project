@@ -1,5 +1,6 @@
 import {getCapturePixelRatio, waitForFonts, waitForImage, yieldToMain} from '../ShareAsImage/render';
 import {checkAborted} from '../ShareAsImage/pagination';
+import {appendShareWatermark, SHARE_WATERMARK} from '../ShareAsImage/watermark';
 
 const WIDTH = 800;
 const PAGE_HEIGHT = 3600;
@@ -21,9 +22,10 @@ function createPage(share, labels, logoUrl, pageNumber, pageCount) {
   logo.alt = 'The Kai Project';
   brand.append(logo, element('strong', 'The Kai Project', 'font-size:21px;'), element('span', labels.community, 'font-size:14px;color:#5e6e80;'));
   root.append(brand, element('h1', share.title, 'font-size:31px;line-height:1.4;margin:28px 0 18px;'));
+  const content = element('div', undefined, 'position:relative;display:flow-root;');
   const description = element('div', undefined, 'background:#f0f5fc;border-left:4px solid #245bb0;padding:18px 20px;margin-bottom:20px;');
   description.append(element('strong', labels.description, 'display:block;color:#245bb0;font-size:15px;margin-bottom:7px;'), element('div', share.description || labels.noDescription, 'white-space:pre-wrap;font-size:19px;line-height:1.8;'));
-  root.append(description);
+  content.append(description);
   const author = element('div', undefined, 'display:flex;align-items:center;gap:14px;margin:18px 0;');
   const name = share.author?.displayName || labels.author;
   author.append(element('div', Array.from(name)[0] || 'K', 'width:44px;height:44px;flex:none;display:flex;justify-content:center;align-items:center;border-radius:50%;background:#edf3fc;color:#245bb0;font-weight:700;'));
@@ -31,15 +33,17 @@ function createPage(share, labels, logoUrl, pageNumber, pageCount) {
   attribution.append(element('strong', `${labels.curatedBy} · ${name}`, 'display:block;font-size:17px;'));
   if (share.author?.publicId) attribution.append(element('small', `${labels.publicId} · ${share.author.publicId}`, 'display:block;font-size:13px;color:#5e6e80;'));
   author.append(attribution);
-  root.append(author, element('div', `${labels.allItems} · ${labels.count(share.items.length)}`, 'font-size:15px;color:#5e6e80;margin:20px 0 10px;'));
+  content.append(author, element('div', `${labels.allItems} · ${labels.count(share.items.length)}`, 'font-size:15px;color:#5e6e80;margin:20px 0 10px;'));
   const list = element('div');
   const footer = element('div', undefined, 'border-top:3px solid #245bb0;margin-top:22px;padding-top:18px;');
   footer.append(element('div', labels.shareCode, 'font-size:14px;color:#5e6e80;'), element('strong', share.code, 'display:block;font:700 26px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;color:#245bb0;margin:4px 0;'));
   const bottom = element('div', undefined, 'display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#5e6e80;');
   bottom.append(element('span', labels.published(share.version)), element('span', labels.page(pageNumber, pageCount)));
   footer.append(bottom);
-  root.append(list, footer);
-  return {root, list, logo};
+  footer.append(element('div', SHARE_WATERMARK, 'margin-top:18px;padding:16px 20px;background:#0b67c9;border-radius:10px;font-size:13px;font-weight:600;letter-spacing:.5px;color:#fff;'));
+  content.append(list);
+  root.append(content, footer);
+  return {root, content, list, logo};
 }
 
 function createRow(item, index, labels, includeAnnotations) {
@@ -103,6 +107,7 @@ export async function prepareProblemSetShareImages({share, labels, logoUrl, sign
         const {toCanvas} = await import('html-to-image');
         checkAborted(renderSignal);
         const height = page.root.scrollHeight;
+        appendShareWatermark(page.content);
         canvas = await toCanvas(page.root, {
           width: WIDTH,
           height,

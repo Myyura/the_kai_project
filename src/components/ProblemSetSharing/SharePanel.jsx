@@ -1,6 +1,7 @@
 import React from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import {FaCheck, FaCopy, FaDownload, FaLink, FaRedo, FaShareAlt, FaTimes} from 'react-icons/fa';
+import {FaCheck, FaChevronDown, FaCopy, FaImage, FaLink, FaRedo, FaShareAlt, FaTimes} from 'react-icons/fa';
+import PreviewModal from '../ShareAsImage/PreviewModal';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
 import {usePublicProfile} from '@site/src/hooks/usePublicProfile';
 import {getProblemSetSharingMessages} from '@site/src/i18n/problemSetSharingMessages';
@@ -73,8 +74,10 @@ export default function SharePanel({problemSet, onClose}) {
   const scopeRef = React.useRef(0);
   const busyRef = React.useRef(false);
   const imagePlanRef = React.useRef(null);
+  const imageRequestRef = React.useRef(0);
   const imageAbortRef = React.useRef(null);
   const imageUrlRef = React.useRef('');
+  const imageTriggerRef = React.useRef(null);
   const copyFieldRef = React.useRef(null);
   const share = shareState.setId === setId ? shareState.value : null;
   const loaded = loadedId === setId;
@@ -91,6 +94,17 @@ export default function SharePanel({problemSet, onClose}) {
     if (imageUrlRef.current) URL.revokeObjectURL(imageUrlRef.current);
     imageUrlRef.current = '';
   }, []);
+
+  const closeImagePreview = React.useCallback(() => {
+    imageRequestRef.current++;
+    disposeImages();
+    busyRef.current = false;
+    setPending('');
+    setImage(null);
+    setPageCount(0);
+    setImagePage(0);
+    setError(value => value === 'image' ? '' : value);
+  }, [disposeImages]);
 
   React.useEffect(() => {
     const scope = ++scopeRef.current;
@@ -185,10 +199,11 @@ export default function SharePanel({problemSet, onClose}) {
   const renderImage = async (page, exportCurrent = false) => {
     if (busyRef.current || !loaded || (!exportCurrent && !imagePlanRef.current)) return;
     busyRef.current = true;
+    const request = ++imageRequestRef.current;
     const scope = scopeRef.current;
     const requestedSignature = currentSignature;
     let abort;
-    const isCurrent = () => scope === scopeRef.current
+    const isCurrent = () => scope === scopeRef.current && request === imageRequestRef.current
       && requestedSignature === signatureRef.current && !abort?.signal.aborted;
     let saving = exportCurrent && (!share || changed || !share.isActive);
     if (exportCurrent) {
@@ -227,24 +242,14 @@ export default function SharePanel({problemSet, onClose}) {
       const url = URL.createObjectURL(result.blob);
       if (imageUrlRef.current) URL.revokeObjectURL(imageUrlRef.current);
       imageUrlRef.current = url;
-      setImage({url, filename: result.filename});
+      setImage({...result, url});
       setImagePage(page);
-      setMessage(exportCurrent ? t.exportReady : t.imageReady);
-      if (exportCurrent) {
-        // Keep the URL and preview available if the browser blocks this download.
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = result.filename;
-        document.body.appendChild(link);
-        try { link.click(); } catch { /* The visible save link remains available. */ }
-        finally { link.remove(); }
-      }
     } catch (nextError) {
       if (isCurrent() && nextError?.name !== 'AbortError') {
         setError(saving ? getProblemSetShareErrorCode(nextError) : 'image');
       }
     } finally {
-      if (scope === scopeRef.current) { busyRef.current = false; setPending(''); }
+      if (scope === scopeRef.current && request === imageRequestRef.current) { busyRef.current = false; setPending(''); }
     }
   };
 
@@ -258,33 +263,75 @@ export default function SharePanel({problemSet, onClose}) {
     items: (problemSet.items || []).map(item => ({...item, annotation: includeAnnotations ? item.annotation : ''})),
   };
   const disabled = !loaded || Boolean(pending);
-  const publishLabel = !share ? t.create : !share.isActive ? changed ? t.updateAndResume : t.resume : changed ? t.update : t.current;
+  const publishLabel = !share ? t.create : !share.isActive ? changed ? t.updateAndResume : t.resume : t.update;
   const shareText = share ? `${share.title}\n${share.description}\n\n${t.curatedBy}：${share.author?.displayName || t.author}\n${t.shareCode}：${share.code}\n${t.instructions}\n${createProblemSetShareUrl(share.code)}` : '';
   return (
     <section className={styles.panel} aria-label={t.share}>
       <header className={styles.header}><div><h3><FaShareAlt /> {t.heading}</h3><p className={styles.muted}>{t.subtitle}</p></div><button type="button" className={styles.iconButton} onClick={onClose} aria-label={t.close}><FaTimes /></button></header>
-      <div className={styles.layout}>
-        <div className={styles.stack}>
-          <div className={styles.settings}>
-            <h4 className={styles.sectionTitle}>{t.setup}</h4>
-            {!loaded && !loadFailed && <p className={styles.muted} role="status"><FaRedo className={styles.spin} /> {t.loading}</p>}
-            {loadFailed && <button type="button" className={styles.secondaryButton} onClick={() => setLoadAttempt(value => value + 1)}><FaRedo /> {t.retry}</button>}
-            <label className={styles.check}><input type="checkbox" checked={includeAnnotations} disabled={disabled} onChange={event => setIncludeAnnotations(event.target.checked)} /><span>{t.includeAnnotations}<small>{t.annotationNotice}</small></span></label>
-            <p className={styles.muted}>{t.accessNotice}</p>
-            {share && <div className={styles.codeBox}><div className={styles.codeHeader}><span>{t.shareCode}</span><span className={share.isActive ? styles.active : ''}>{share.isActive ? t.active : t.stopped} · V{share.version}</span></div><input className={styles.shareCode} aria-label={t.shareCode} value={share.code} readOnly onFocus={event => event.target.select()} /></div>}
-            {changed && <p className={styles.notice}>{t.changed}</p>}
-            {!problemSet.items?.length && <p className={styles.muted}>{t.empty}</p>}
-            <button type="button" className={`${styles.primaryButton} ${styles.wideButton}`} disabled={disabled || !problemSet.items?.length || (share?.isActive && !changed)} onClick={publish}>{pending === 'saving' ? <><FaRedo className={styles.spin} /> {t.working}</> : <><FaLink /> {publishLabel}</>}</button>
-            {share?.isActive && <><div className={styles.actions}><button type="button" className={styles.secondaryButton} disabled={Boolean(pending)} onClick={() => copy(share.code)}><FaCopy /> {t.copyCode}</button><button type="button" className={styles.secondaryButton} disabled={Boolean(pending)} onClick={() => copy(createProblemSetShareUrl(share.code))}><FaLink /> {t.copyLink}</button><button type="button" className={styles.secondaryButton} disabled={Boolean(pending)} onClick={() => copy(shareText)}><FaCopy /> {t.copyText}</button></div><button type="button" className={styles.dangerButton} disabled={Boolean(pending)} onClick={() => mutate(() => setProblemSetShareActive(setId, false), t.stoppedNotice)}>{t.stop}</button></>}
+      <div className={styles.settings}>
+        <h4 className={styles.sectionTitle}>{t.setup}</h4>
+        {!loaded && !loadFailed && <p className={styles.muted} role="status"><FaRedo className={styles.spin} /> {t.loading}</p>}
+        {loadFailed && <button type="button" className={styles.secondaryButton} onClick={() => setLoadAttempt(value => value + 1)}><FaRedo /> {t.retry}</button>}
+        <label className={styles.check}>
+          <input type="checkbox" checked={includeAnnotations} disabled={disabled} onChange={event => setIncludeAnnotations(event.target.checked)} />
+          <span>{t.includeAnnotations}<small>{t.annotationNotice}</small></span>
+        </label>
+        <p className={styles.muted}>{t.accessNotice}</p>
+        {share && (
+          <div className={styles.codeBox}>
+            <div className={styles.codeHeader}><span>{t.shareCode}</span><span className={share.isActive ? styles.active : ''}>{share.isActive ? t.active : t.stopped} · V{share.version}</span></div>
+            <input className={styles.shareCode} aria-label={t.shareCode} value={share.code} readOnly onFocus={event => event.target.select()} />
           </div>
-          {error && <p className={styles.error} role="alert">{error === 'image' ? t.imageFailed : t.errors[error] || t.errors.failed}</p>}
-          {message && <p className={styles.status} role="status"><FaCheck /> {message}</p>}
-          {copyContent && <div className={styles.fallback}><label className={styles.label} htmlFor={`share-copy-${setId}`}>{t.copyContent}</label><textarea ref={copyFieldRef} id={`share-copy-${setId}`} className={styles.input} value={copyContent} readOnly /></div>}
+        )}
+        {changed && <p className={styles.notice}>{t.changed}</p>}
+        {!problemSet.items?.length && <p className={styles.muted}>{t.empty}</p>}
+        <div className={styles.actions}>
+          {(!share?.isActive || changed) && <button type="button" className={styles.secondaryButton} disabled={disabled || !problemSet.items?.length} onClick={publish}>
+            {pending === 'saving' ? <><FaRedo className={styles.spin} /> {t.working}</> : <><FaLink /> {publishLabel}</>}
+          </button>}
+          <button ref={imageTriggerRef} type="button" className={styles.primaryButton} disabled={disabled || !problemSet.items?.length} onClick={() => renderImage(0, true)}>
+            {pending === 'image' ? <><FaRedo className={styles.spin} /> {t.preparing}</> : <><FaImage /> {t.exportImage}</>}
+          </button>
+          {share?.isActive && <>
+            <button type="button" className={styles.secondaryButton} disabled={Boolean(pending)} onClick={() => copy(share.code)}><FaCopy /> {t.copyCode}</button>
+            <button type="button" className={styles.secondaryButton} disabled={Boolean(pending)} onClick={() => copy(createProblemSetShareUrl(share.code))}><FaLink /> {t.copyLink}</button>
+            <button type="button" className={styles.secondaryButton} disabled={Boolean(pending)} onClick={() => copy(shareText)}><FaCopy /> {t.copyText}</button>
+            <button type="button" className={styles.dangerButton} disabled={Boolean(pending)} onClick={() => mutate(() => setProblemSetShareActive(setId, false), t.stoppedNotice)}>{t.stop}</button>
+          </>}
         </div>
-        <div><div className={styles.previewHeading}><div><h4 className={styles.sectionTitle}>{t.preview}</h4><small className={styles.muted}>{isDraft ? t.draft : share.isActive ? t.published(share.version) : t.stopped}</small></div><button type="button" className={styles.primaryButton} disabled={disabled || !problemSet.items?.length} onClick={() => renderImage(0, true)}>{pending ? <><FaRedo className={styles.spin} /> {pending === 'saving' ? t.working : t.preparing}</> : <><FaDownload /> {t.exportImage}</>}</button></div><p className={styles.imageHint}>{t.imageHint}</p><div className={styles.previewWrap}><ShareChecklist share={preview} showCode={isDraft || share.isActive} /></div>
-          {image && <div className={styles.imagePanel}><div className={styles.pageControls}><button type="button" className={styles.secondaryButton} disabled={Boolean(pending) || imagePage === 0} onClick={() => renderImage(imagePage - 1)}>{t.previous}</button><select className={styles.input} aria-label={t.choosePage} value={imagePage} disabled={Boolean(pending)} onChange={event => renderImage(Number(event.target.value))}>{Array.from({length: pageCount}, (_, index) => <option key={index} value={index}>{t.page(index + 1, pageCount)}</option>)}</select><button type="button" className={styles.secondaryButton} disabled={Boolean(pending) || imagePage + 1 >= pageCount} onClick={() => renderImage(imagePage + 1)}>{t.next}</button></div><a className={styles.primaryButton} href={image.url} download={image.filename}><FaDownload /> {t.download}</a><img src={image.url} alt={`${t.imageAlt} · ${t.page(imagePage + 1, pageCount)}`} /></div>}
-        </div>
+        <p className={styles.imageHint}>{t.imageHint}</p>
+        {error && !image && <p className={styles.error} role="alert">{error === 'image' ? t.imageFailed : t.errors[error] || t.errors.failed}</p>}
+        {message && <p className={styles.status} role="status"><FaCheck /> {message}</p>}
+        {copyContent && <div className={styles.fallback}><label className={styles.label} htmlFor={`share-copy-${setId}`}>{t.copyContent}</label><textarea ref={copyFieldRef} id={`share-copy-${setId}`} className={styles.input} value={copyContent} readOnly /></div>}
       </div>
+      <details key={setId} className={styles.checklistDisclosure}>
+        <summary className={styles.previewHeading}>
+          <span><strong className={styles.sectionTitle}>{t.preview}</strong><small className={styles.muted}>{t.count(preview.items.length)} · {isDraft ? t.draft : share.isActive ? t.published(share.version) : t.stopped}</small></span>
+          <FaChevronDown className={styles.previewToggle} aria-hidden="true" />
+        </summary>
+        <div className={styles.previewWrap}><ShareChecklist share={preview} showCode={isDraft || share.isActive} /></div>
+      </details>
+      {image && (
+        <PreviewModal
+          image={image}
+          title={share?.title || problemSet.title}
+          imageAlt={`${t.imageAlt} · ${t.page(imagePage + 1, pageCount)}`}
+          onClose={closeImagePreview}
+          returnFocusRef={imageTriggerRef}
+          busy={Boolean(pending)}
+          error={error === 'image' ? t.imageFailed : ''}>
+          {pageCount > 1 && (
+            <div className={styles.pageControls}>
+              <button type="button" className={styles.secondaryButton} disabled={Boolean(pending) || imagePage === 0} onClick={() => renderImage(imagePage - 1)}>{t.previous}</button>
+              <select className={styles.input} aria-label={t.choosePage} value={imagePage} disabled={Boolean(pending)} onChange={event => renderImage(Number(event.target.value))}>
+                {Array.from({length: pageCount}, (_, index) => <option key={index} value={index}>{t.page(index + 1, pageCount)}</option>)}
+              </select>
+              <button type="button" className={styles.secondaryButton} disabled={Boolean(pending) || imagePage + 1 >= pageCount} onClick={() => renderImage(imagePage + 1)}>{t.next}</button>
+              {pending && <span className={styles.muted} role="status">{t.preparing}</span>}
+            </div>
+          )}
+        </PreviewModal>
+      )}
     </section>
   );
 }

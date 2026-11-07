@@ -33,7 +33,7 @@ function fixture(options = {}) {
     publish: async (_, settings) => snapshot(set, {...settings, version: (options.share?.version || 0) + 1}),
     active: async () => ({...options.share, isActive: true}),
     prepare: async () => {
-      const plan = {pageCount: 3, disposed: false, dispose() {this.disposed = true;},
+      const plan = {pageCount: options.pageCount || 3, disposed: false, dispose() {this.disposed = true;},
         async renderPage(page, signal) {
           calls.render.push({page, signal});
           return actions.render(page, signal);
@@ -48,6 +48,7 @@ function fixture(options = {}) {
     '@site/src/context/LanguageContext': {useCurrentLanguage: () => 'zh'},
     '@site/src/hooks/usePublicProfile': {usePublicProfile: () => ({profile: {displayName: 'Me'}})},
     './styles.module.css': new Proxy({}, {get: (_, key) => key}),
+    '../ShareAsImage/PreviewModal': 'image-preview-modal',
     '@site/src/services/problemSetSharingService': {
       fetchMyProblemSetShare: id => actions.fetch(id),
       publishProblemSet: (...args) => {calls.publish.push(args); return actions.publish(...args);},
@@ -73,11 +74,12 @@ function fixture(options = {}) {
     checkbox: () => find(runtime.current, node => node.type === 'input' && node.props.type === 'checkbox'),
     button: label => find(runtime.current, node => node.type === 'button' && text(node).includes(label)),
     preview: () => find(runtime.current, node => node.type === ShareChecklist).props.share,
+    imagePreview: () => find(runtime.current, node => node.type === 'image-preview-modal'),
     checklist: () => ShareChecklist(find(runtime.current, node => node.type === ShareChecklist).props),
   };
 }
 
-test('draft exports publish current settings and render the returned snapshot before downloading', async () => {
+test('draft images publish current settings and open a modal with the returned snapshot without downloading', async () => {
   const f = fixture();
   await f.runtime.flush();
   assert.equal(f.checkbox().props.checked, true);
@@ -90,13 +92,17 @@ test('draft exports publish current settings and render the returned snapshot be
   await f.runtime.flush();
   assert.deepEqual(f.calls.publish, [['set-a', {includeAnnotations: true}]]);
   assert.equal(f.calls.prepare[0].share, saved, 'export uses the returned snapshot, not stale React state');
-  assert.deepEqual(f.calls.download, [{url: 'blob:1', filename: 'page-1.png'}]);
+  assert.deepEqual(f.calls.download, []);
+  assert.equal(f.imagePreview().props.image.url, 'blob:1');
+  assert.equal(f.imagePreview().props.image.filename, 'page-1.png');
+  assert.ok(f.imagePreview().props.image.blob instanceof Blob);
+  assert.equal(find(f.runtime.current, node => node.type === 'img'), undefined, 'generated images are only shown inside the modal');
   const chooser = find(f.runtime.current, node => node.type === 'select');
   await chooser.props.onChange({target: {value: '2'}});
   await f.runtime.flush();
   assert.deepEqual(f.calls.render.map(call => call.page), [0, 2]);
-  assert.equal(f.calls.download.length, 1, 'page changes retain explicit manual download');
-  assert.equal(find(f.runtime.current, node => node.type === 'a' && node.props.download).props.download, 'page-3.png');
+  assert.equal(f.calls.download.length, 0, 'page changes must not download');
+  assert.equal(f.imagePreview().props.image.filename, 'page-3.png');
   assert.deepEqual(f.calls.revoked, ['blob:1']);
   f.runtime.unmount();
   assert.equal(f.calls.plans[0].disposed, true);
@@ -115,14 +121,14 @@ test('changed settings update the preview as a draft and export the new saved sn
   assert.equal(f.preview().version, 0);
   assert.equal(f.preview().code, '');
   assert.doesNotMatch(text(f.checklist()), /Practice boundary conditions/);
-  assert.equal(find(f.runtime.current, node => node.type === 'a' && node.props.download), undefined);
+  assert.equal(f.imagePreview(), undefined);
   assert.equal(f.calls.plans[0].disposed, true);
   await f.button(f.t.exportImage).props.onClick();
   await f.runtime.flush();
   assert.deepEqual(f.calls.publish, [['set-a', {includeAnnotations: false}]]);
   assert.equal(f.calls.prepare[1].share.includeAnnotations, false);
   assert.equal(f.calls.prepare[1].share.version, 2);
-  assert.equal(f.calls.download.length, 2);
+  assert.equal(f.calls.download.length, 0);
   f.runtime.unmount();
 });
 
@@ -140,7 +146,7 @@ test('an existing explicit exclusion stays off and a stopped share resumes witho
   f.runtime.unmount();
 });
 
-test('a failed update never downloads the old image and can be retried', async () => {
+test('a failed update never shows a stale image and can be retried', async () => {
   const set = problemSet();
   const f = fixture({set, share: snapshot(set)});
   await f.runtime.flush();
@@ -153,14 +159,14 @@ test('a failed update never downloads the old image and can be retried', async (
   await f.button(f.t.exportImage).props.onClick();
   await f.runtime.flush();
   assert.equal(f.calls.prepare.length, 1);
-  assert.equal(f.calls.download.length, 1);
-  assert.equal(find(f.runtime.current, node => node.type === 'a' && node.props.download), undefined);
+  assert.equal(f.calls.download.length, 0);
+  assert.equal(f.imagePreview(), undefined);
   assert.equal(text(find(f.runtime.current, node => node.props?.role === 'alert')), f.t.errors.failed);
   f.actions.publish = publish;
   await f.button(f.t.exportImage).props.onClick();
   await f.runtime.flush();
   assert.equal(f.calls.prepare[1].share.description, 'Updated description');
-  assert.equal(f.calls.download.length, 2);
+  assert.equal(f.calls.download.length, 0);
   f.runtime.unmount();
 });
 
@@ -179,7 +185,7 @@ test('image failure retries the saved share without publishing another version',
   await f.runtime.flush();
   assert.equal(f.calls.publish.length, 1);
   assert.equal(f.calls.plans[0].disposed, true);
-  assert.equal(f.calls.download.length, 1);
+  assert.equal(f.calls.download.length, 0);
   f.runtime.unmount();
 });
 
@@ -218,7 +224,7 @@ test('editing the current set during publication suppresses an outdated export a
   f.actions.publish = publish;
   await f.button(f.t.exportImage).props.onClick();
   assert.equal(f.calls.prepare[0].share.description, 'Edited during save');
-  assert.equal(f.calls.download.length, 1);
+  assert.equal(f.calls.download.length, 0);
   f.runtime.unmount();
 });
 
@@ -251,6 +257,92 @@ test('switching sets disposes a late image plan, and unmounting suppresses a lat
   assert.equal(g.calls.render[0].signal.aborted, true);
   assert.equal(g.calls.plans[0].disposed, true);
   assert.equal(g.calls.download.length, 0);
+});
+
+test('closing the modal releases images and reopening reuses the published share', async () => {
+  const f = fixture({pageCount: 1});
+  await f.runtime.flush();
+  assert.equal(find(f.runtime.current, node => node.type === 'details').props.open, undefined);
+  await f.button(f.t.exportImage).props.onClick();
+  await f.runtime.flush();
+  assert.equal(find(f.imagePreview(), node => node.type === 'select'), undefined);
+  f.imagePreview().props.onClose();
+  await f.runtime.flush();
+  assert.equal(f.imagePreview(), undefined);
+  assert.equal(f.calls.plans[0].disposed, true);
+  assert.deepEqual(f.calls.revoked, ['blob:1']);
+  await f.button(f.t.exportImage).props.onClick();
+  await f.runtime.flush();
+  assert.equal(f.calls.publish.length, 1);
+  assert.equal(f.imagePreview().props.image.url, 'blob:2');
+  assert.equal(f.calls.download.length, 0);
+  f.runtime.unmount();
+});
+
+test('closing during a page render aborts it and prevents a late modal from reopening', async () => {
+  const f = fixture({share: snapshot(problemSet())});
+  await f.runtime.flush();
+  await f.button(f.t.exportImage).props.onClick();
+  await f.runtime.flush();
+  const rendering = deferred();
+  f.actions.render = () => rendering.promise;
+  const nextPage = f.button(f.t.next).props.onClick();
+  await f.runtime.flush();
+  assert.equal(f.imagePreview().props.busy, true);
+  f.imagePreview().props.onClose();
+  await f.runtime.flush();
+  assert.equal(f.calls.render[1].signal.aborted, true);
+  assert.equal(f.button(f.t.exportImage).props.disabled, false, 'closing releases the trigger immediately');
+  rendering.resolve({blob: new Blob(['late page']), filename: 'late.png'});
+  await nextPage;
+  await f.runtime.flush();
+  assert.equal(f.imagePreview(), undefined);
+  assert.deepEqual(f.calls.revoked, ['blob:1']);
+  assert.equal(f.calls.download.length, 0);
+  assert.equal(f.button(f.t.exportImage).props.disabled, false);
+  f.runtime.unmount();
+});
+
+test('a cancelled render cannot release the lock of a newly opened preview', async () => {
+  const f = fixture({share: snapshot(problemSet())});
+  await f.runtime.flush();
+  await f.button(f.t.exportImage).props.onClick();
+  await f.runtime.flush();
+  const oldPage = deferred();
+  f.actions.render = () => oldPage.promise;
+  const oldRequest = f.button(f.t.next).props.onClick();
+  await f.runtime.flush();
+  f.imagePreview().props.onClose();
+  await f.runtime.flush();
+  const newPage = deferred();
+  f.actions.render = () => newPage.promise;
+  const newRequest = f.button(f.t.exportImage).props.onClick();
+  await f.runtime.flush();
+  oldPage.resolve({blob: new Blob(['old']), filename: 'old.png'});
+  await oldRequest;
+  await f.runtime.flush();
+  assert.equal(f.imagePreview(), undefined);
+  assert.equal(f.button(f.t.preparing).props.disabled, true);
+  newPage.resolve({blob: new Blob(['new']), filename: 'new.png'});
+  await newRequest;
+  await f.runtime.flush();
+  assert.equal(f.imagePreview().props.image.filename, 'new.png');
+  f.runtime.unmount();
+});
+
+test('a failed page render keeps the current image and exposes the error inside the modal', async () => {
+  const f = fixture({share: snapshot(problemSet())});
+  await f.runtime.flush();
+  await f.button(f.t.exportImage).props.onClick();
+  await f.runtime.flush();
+  f.actions.render = async () => {throw new Error('encoding failed');};
+  await f.button(f.t.next).props.onClick();
+  await f.runtime.flush();
+  assert.equal(f.imagePreview().props.image.filename, 'page-1.png');
+  assert.equal(f.imagePreview().props.error, f.t.imageFailed);
+  assert.equal(f.imagePreview().props.busy, false);
+  assert.equal(f.calls.download.length, 0);
+  f.runtime.unmount();
 });
 
 test('public import previews show selection notes and their fallback without paths, respecting exclusions', async () => {

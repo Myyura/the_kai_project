@@ -1,7 +1,9 @@
-import React, { useState, useRef, useCallback, useEffect, useId } from 'react';
-import { FaShareAlt, FaDownload, FaCheck, FaTimes, FaImage } from 'react-icons/fa';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
+import { FaCheck, FaImage } from 'react-icons/fa';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
+import PreviewModal from './PreviewModal';
+import {appendShareWatermark} from './watermark';
 import {checkAborted, paginateContent, ShareImageLimitError} from './pagination';
 import {captureLongImage, cloneArticleContent, fitDisplayMath, waitForFonts, waitForImage, yieldToMain} from './render';
 
@@ -162,30 +164,6 @@ function sanitizeFileNameLocal(raw) {
     .slice(0, 80) || 'share';
 }
 
-function computeWatermarkLayout({
-  height,
-  rowGap = 180,
-  colGap = 360,
-  offsetX = 180,
-  maxRows = 32,
-  maxCols = 3,
-}) {
-  const rows = Math.max(1, Math.min(Math.ceil(height / rowGap), maxRows));
-  const cols = Math.max(1, Math.min(maxCols, 10));
-  const positions = [];
-
-  for (let r = 0; r < rows; r += 1) {
-    for (let c = 0; c < cols; c += 1) {
-      positions.push({
-        top: r * rowGap,
-        left: c * colGap + (r % 2 === 0 ? 0 : offsetX),
-      });
-    }
-  }
-
-  return positions;
-}
-
 /** Get the document title from the article header */
 function getDocTitle() {
   const article = document.querySelector('article .theme-doc-markdown');
@@ -211,12 +189,8 @@ export default function ShareAsImage({ docId, title: docTitle }) {
   const previewUrl = preview?.url;
   const [toast, setToast] = useState(null);
   const [shareScope, setShareScope] = useState('all');
-  const previewTitleId = useId();
   const toastTimerRef = useRef(null);
   const triggerButtonRef = useRef(null);
-  const previewModalRef = useRef(null);
-  const closeButtonRef = useRef(null);
-  const previousFocusRef = useRef(null);
   const generationRef = useRef(null);
   const previewRef = useRef(null);
 
@@ -386,17 +360,7 @@ export default function ShareAsImage({ docId, title: docTitle }) {
       }
       for (const strip of strips) {
         const wrapper = strip.querySelector('.share-markdown').parentElement;
-        const watermarkOverlay = document.createElement('div');
-        watermarkOverlay.style.cssText = 'position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1;';
-        for (const pos of computeWatermarkLayout({height: wrapper.scrollHeight})) {
-          const span = document.createElement('span');
-          span.textContent = L.watermark;
-          span.style.cssText = `position: absolute; top: ${pos.top}px; left: ${pos.left}px;
-            font-size: 22px; font-weight: 700; color: rgba(var(--kai-blue-rgb), 0.08);
-            transform: rotate(-30deg); white-space: nowrap; letter-spacing: 2px;`;
-          watermarkOverlay.appendChild(span);
-        }
-        wrapper.appendChild(watermarkOverlay);
+        appendShareWatermark(wrapper, {text: L.watermark});
       }
       const blob = await captureLongImage(strips, toCanvas, signal,
         (current, total) => setProgress({current, total}));
@@ -420,105 +384,10 @@ export default function ShareAsImage({ docId, title: docTitle }) {
     }
   }, [docTitle, L, shareScope, showToast, releasePreview]);
 
-  const getSafeFileName = useCallback(() => (
-    sanitizeFileNameLocal(docTitle || docId || 'share')
-  ), [docId, docTitle]);
-
-  const downloadImage = useCallback(() => {
-    if (!previewUrl) return;
-    const link = document.createElement('a');
-    link.download = `${getSafeFileName()}.png`;
-    link.href = previewUrl;
-    link.click();
-    showToast(L.download + ' ✓', 'success');
-  }, [previewUrl, getSafeFileName, L, showToast]);
-
-  const shareImage = useCallback(async () => {
-    if (!previewUrl) return;
-
-    try {
-      const {blob} = preview;
-      const fileName = getSafeFileName();
-      const file = new File([blob], `${fileName}.png`, { type: 'image/png' });
-
-      if (navigator.share && navigator.canShare?.({ files: [file] })) {
-        await navigator.share({
-          title: docTitle || 'The Kai Project',
-          files: [file],
-        });
-        showToast(L.shareSuccess, 'success');
-      } else {
-        try {
-          await navigator.clipboard.write([
-            new ClipboardItem({ 'image/png': blob }),
-          ]);
-          showToast(L.copied, 'success');
-        } catch {
-          downloadImage();
-        }
-      }
-    } catch (err) {
-      if (err.name !== 'AbortError') {
-        showToast(L.shareFail, 'error');
-      }
-    }
-  }, [previewUrl, preview, getSafeFileName, docTitle, L, showToast, downloadImage]);
-
   const closePreview = useCallback(() => {
     setPreview(null);
     releasePreview();
   }, [releasePreview]);
-
-  const hasPreview = Boolean(previewUrl);
-  useEffect(() => {
-    if (!hasPreview) return undefined;
-
-    previousFocusRef.current = document.activeElement;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    window.requestAnimationFrame(() => closeButtonRef.current?.focus());
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        event.preventDefault();
-        closePreview();
-        return;
-      }
-
-      if (event.key !== 'Tab' || !previewModalRef.current) return;
-      const focusable = Array.from(
-        previewModalRef.current.querySelectorAll(
-          'button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])',
-        ),
-      );
-      if (focusable.length === 0) {
-        event.preventDefault();
-        return;
-      }
-
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = previousOverflow;
-      const focusTarget = previousFocusRef.current;
-      if (focusTarget instanceof HTMLElement) {
-        window.requestAnimationFrame(() => focusTarget.focus());
-      } else {
-        window.requestAnimationFrame(() => triggerButtonRef.current?.focus());
-      }
-    };
-  }, [closePreview, hasPreview]);
 
   return (
     <div className={styles.wrapper}>
@@ -564,46 +433,13 @@ export default function ShareAsImage({ docId, title: docTitle }) {
         )}
       </div>
 
-      {/* Preview modal */}
       {previewUrl && (
-        <div className={styles.previewOverlay} onClick={closePreview}>
-          <div
-            ref={previewModalRef}
-            className={styles.previewModal}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={previewTitleId}
-            onClick={e => e.stopPropagation()}>
-            <div className={styles.previewHeader}>
-              <span id={previewTitleId}>{L.preview}</span>
-              <button
-                ref={closeButtonRef}
-                type="button"
-                className={styles.closeBtn}
-                aria-label={L.close}
-                onClick={closePreview}>
-                <FaTimes aria-hidden="true" />
-              </button>
-            </div>
-            <div className={styles.previewBody}>
-              <img
-                src={previewUrl}
-                alt={L.previewAlt}
-                className={styles.previewImage}
-              />
-            </div>
-            <div className={styles.previewFooter}>
-              <button type="button" className={`${styles.actionBtn} ${styles.downloadBtn}`} onClick={downloadImage}>
-                <FaDownload />
-                {L.download}
-              </button>
-              <button type="button" className={`${styles.actionBtn} ${styles.shareBtn}`} onClick={shareImage}>
-                <FaShareAlt />
-                {L.share}
-              </button>
-            </div>
-          </div>
-        </div>
+        <PreviewModal
+          image={{...preview, filename: `${sanitizeFileNameLocal(docTitle || docId)}.png`}}
+          title={docTitle}
+          onClose={closePreview}
+          returnFocusRef={triggerButtonRef}
+        />
       )}
 
       {/* Toast */}

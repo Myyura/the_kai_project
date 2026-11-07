@@ -95,6 +95,11 @@
   transition: var(--custom-transition);
 }
 
+.actionBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .triggerBtn:focus-visible,
 .actionBtn:focus-visible,
 .closeBtn:focus-visible {
@@ -160,6 +165,7 @@
   border-radius: var(--custom-border-radius-sm);
   width: min(600px, 90vw);
   height: 85vh;
+  max-height: calc(100dvh - 40px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -217,6 +223,34 @@
   overflow-x: hidden;
   padding: 1rem;
   background: var(--custom-card-bg);
+}
+
+.previewControls {
+  flex-shrink: 0;
+  min-width: 0;
+  margin: 0;
+  padding: .75rem 1.25rem;
+  border: 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.previewStatus {
+  margin: 0 0 .75rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .82rem;
+}
+
+.previewFeedback {
+  flex-shrink: 0;
+  margin: 0;
+  padding: .65rem 1.25rem;
+  font-size: .82rem;
+  color: var(--ifm-color-emphasis-800);
+  overflow-wrap: anywhere;
+}
+
+.previewFeedback[role='alert'] {
+  color: var(--kai-danger-strong);
 }
 
 .previewImage {
@@ -318,5 +352,12 @@
   .previewFooter .actionBtn {
     justify-content: center;
     width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .previewOverlay,
+  .previewModal {
+    animation: none;
   }
 }
