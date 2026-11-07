@@ -1,10 +1,10 @@
 ---
-sidebar_label: "2021年8月実施 线性代数"
+sidebar_label: "2021年8月実施 線形代数（三次元空間の回転）"
 tags:
   - Meiji-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
-# 明治大学 先端数理科学研究科 現象数理学専攻 2021年8月実施 线性代数
+# 明治大学 先端数理科学研究科 現象数理学専攻 2021年8月実施 線形代数（三次元空間の回転）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

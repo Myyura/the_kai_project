@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年8月実施 微积分"
+sidebar_label: "2018年8月実施 微分積分"
 tags:
   - Meiji-University
   - Mathematics.Calculus.Multivariable-Differentiation
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Differentiation
   - Mathematics.Calculus.Integration
 ---
-# 明治大学 先端数理科学研究科 現象数理学専攻 2018年8月実施 微积分
+# 明治大学 先端数理科学研究科 現象数理学専攻 2018年8月実施 微分積分
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

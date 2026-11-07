@@ -1,10 +1,10 @@
 ---
-sidebar_label: "2013年8月実施 线性代数"
+sidebar_label: "2013年8月実施 線形代数（行列式と平行四辺形の面積）"
 tags:
   - Waseda-University
   - Mathematics.Linear-Algebra.Matrix-Determinant
 ---
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2013年8月実施 线性代数
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2013年8月実施 線形代数（行列式と平行四辺形の面積）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

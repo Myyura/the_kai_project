@@ -1,5 +1,5 @@
 ---
-sidebar_label: 2022年8月実施 選択問題 6 基礎数学
+sidebar_label: "2022年8月実施 選択問題6 基礎数学"
 tags:
   - University-of-Electro-Communications
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
@@ -10,7 +10,7 @@ tags:
   - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
   - Mathematics.Calculus.Local-Extrema
 ---
-# 電気通信大学 情報理工学研究科 基盤理工学専攻 2022年8月実施 選択問題 6 基礎数学
+# 電気通信大学 情報理工学研究科 基盤理工学専攻 2022年8月実施 選択問題6 基礎数学
 
 ## **Author**
 

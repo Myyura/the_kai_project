@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2021年8月実施 线性代数"
+sidebar_label: "2021年8月実施 線形代数（固有値と不変部分空間）"
 tags:
   - Hosei-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Basis-and-Dimension
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2021年8月実施 线性代数
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2021年8月実施 線形代数（固有値と不変部分空間）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

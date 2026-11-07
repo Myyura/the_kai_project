@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2025年8月実施 线性代数"
+sidebar_label: "2025年8月実施 線形代数"
 tags:
   - Hosei-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Matrix-Diagonalization
   - Mathematics.Linear-Algebra.Matrix-Inverse
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2025年8月実施 线性代数
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2025年8月実施 線形代数
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

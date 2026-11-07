@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2018年8月実施 線形代数"
+sidebar_label: "2018年8月実施 社会工学学位プログラム 数学 I（線形代数）"
 tags:
   - Tsukuba-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
   - Mathematics.Linear-Algebra.Matrix-Determinant
 ---
-# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム 2018年8月実施 線形代数
+# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム 2018年8月実施 数学 I（線形代数）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

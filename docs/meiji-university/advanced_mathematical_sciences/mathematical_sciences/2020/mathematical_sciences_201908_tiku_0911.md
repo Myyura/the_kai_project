@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年8月実施 微积分"
+sidebar_label: "2019年8月実施 微分積分（球対称関数とラプラス方程式）"
 tags:
   - Meiji-University
   - Mathematics.Calculus.Double-Integral
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Differentiation
   - Mathematics.Calculus.Integration
 ---
-# 明治大学 先端数理科学研究科 現象数理学専攻 2019年8月実施 微积分
+# 明治大学 先端数理科学研究科 現象数理学専攻 2019年8月実施 微分積分（球対称関数とラプラス方程式）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

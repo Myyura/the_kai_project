@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2023年8月実施 线性代数"
+sidebar_label: "2023年8月実施 線形代数（二次形式の最小値）"
 tags:
   - Hosei-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Linear-Algebra.Quadratic-Form
   - Mathematics.Linear-Algebra.Orthogonal-Matrix
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2023年8月実施 线性代数
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2023年8月実施 線形代数（二次形式の最小値）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

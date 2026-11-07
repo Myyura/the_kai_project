@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2015年8月実施 概率统计"
+sidebar_label: "2015年8月実施 確率統計（独立な正規変数の線形結合）"
 tags:
   - Waseda-University
   - Probability-Statistics.Probability-Basics.Independence-of-Random-Variables
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Distribution
 ---
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2015年8月実施 概率统计
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2015年8月実施 確率統計（独立な正規変数の線形結合）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

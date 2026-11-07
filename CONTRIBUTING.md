@@ -294,6 +294,10 @@ New files should follow the existing structure for the target university:
 2. Typical hierarchy: `university/graduate-school-or-department/[program-or-track/...]/academic-year/`. The program segment is optional and may contain multiple levels; follow nearby files and `_category_.json` labels.
 3. Use a stable, descriptive filename, typically including the exam date or year, subject or section, and question number.
 
+Year directories represent admission years. Start `sidebar_label` with the actual exam date, for example `2018年8月実施 数学 I（線形代数）`; prepend the university, graduate school, and program in the H1. Use Japanese subject names and retain the original question numbering. When programs share a directory, keep the program name after the date. If only the admission year is confirmed, use `2019年度入試`; label sample questions explicitly as `サンプル問題` and do not guess an exam month. Distinguish otherwise identical labels with short topic descriptions, never with invented official question numbers.
+
+Verify year corrections against the original exam or its schedule, then update directories, filenames, titles, and references together. Do not retain aliases or identity mappings for incorrect year paths. Filename-only normalization with correct dates still follows the UUID-preserving move workflow.
+
 ```text
 docs/
 ├── <university>/

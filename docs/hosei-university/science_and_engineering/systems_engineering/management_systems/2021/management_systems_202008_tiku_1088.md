@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2020年8月実施 线性代数"
+sidebar_label: "2020年8月実施 線形代数（行列累乗の極限）"
 tags:
   - Hosei-University
   - Mathematics.Calculus.Limit
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2020年8月実施 线性代数
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2020年8月実施 線形代数（行列累乗の極限）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

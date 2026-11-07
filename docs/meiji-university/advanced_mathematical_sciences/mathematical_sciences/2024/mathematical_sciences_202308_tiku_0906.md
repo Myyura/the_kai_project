@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年8月実施 线性代数"
+sidebar_label: "2023年8月実施 線形代数（行列の累乗の極限）"
 tags:
   - Meiji-University
   - Mathematics.Calculus.Limit
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Complex-Analysis.Cauchy-Riemann-Equations
 ---
-# 明治大学 先端数理科学研究科 現象数理学専攻 2023年8月実施 线性代数
+# 明治大学 先端数理科学研究科 現象数理学専攻 2023年8月実施 線形代数（行列の累乗の極限）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

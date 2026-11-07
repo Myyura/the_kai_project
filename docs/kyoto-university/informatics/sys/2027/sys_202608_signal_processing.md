@@ -1,5 +1,5 @@
 ---
-sidebar_label: "京都大学 情報学研究科 システム科学専攻 2026年8月実施 信号処理"
+sidebar_label: "2026年8月実施 信号処理"
 tags:
   - Kyoto-University
   - Mathematics.Fourier-Analysis.Fourier-Transform

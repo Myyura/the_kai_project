@@ -1,5 +1,5 @@
 ---
-sidebar_label: "社会工学学位プログラム 2022年8月実施 数学 I"
+sidebar_label: "2022年8月実施 社会工学学位プログラム 数学 I"
 tags:
   - Tsukuba-University
   - Mathematics.Calculus.Gamma-Function

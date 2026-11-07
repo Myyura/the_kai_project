@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年8月実施 概率统计"
+sidebar_label: "2023年8月実施 確率統計（指数分布の最小値と最大値）"
 tags:
   - Hosei-University
   - Probability-Statistics.Probability-Basics.Independence-of-Random-Variables
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Distribution
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2023年8月実施 概率统计
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2023年8月実施 確率統計（指数分布の最小値と最大値）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

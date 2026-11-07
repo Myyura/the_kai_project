@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2021年8月実施 概率统计"
+sidebar_label: "2021年8月実施 確率統計（相関係数と線形変換）"
 tags:
   - Hosei-University
   - Probability-Statistics.Probability-Basics.Covariance
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2021年8月実施 概率统计
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2021年8月実施 確率統計（相関係数と線形変換）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

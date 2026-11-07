@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年8月実施 线性代数"
+sidebar_label: "2020年8月実施 線形代数（基底と表現行列）"
 tags:
   - Hosei-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Basis-and-Dimension
   - Mathematics.Linear-Algebra.Linear-Transformation
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2020年8月実施 线性代数
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2020年8月実施 線形代数（基底と表現行列）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 情報理工学位プログラム 2016年8月実施 基礎科目 情報2
+sidebar_label: "2016年8月実施 情報理工学位プログラム 基礎科目 情報2"
 tags:
   - Tsukuba-University
   - Computer-Science.Data-Structures.Priority-Queue

@@ -264,6 +264,11 @@
     "saitama-university/science_and_engineering/mathematics_electronics_information/information_systems_engineering/2022/information_systems_engineering_202202_2": "e4af7e9f-4c5c-5e7b-b093-98dda719755c",
     "saitama-university/science_and_engineering/mathematics_electronics_information/information_systems_engineering/2022/information_systems_engineering_202202_3": "f04a6396-abd0-509c-a6cd-24f05236cfd5",
     "saitama-university/science_and_engineering/mathematics_electronics_information/information_systems_engineering/exam-year-guide": "52bdf0b6-1cb6-5f0d-aca4-7dbcdfb64ed9",
+    "tsukuba-university/science_and_technology/sie/2018/sie_pps_201802_math_I": "7b644388-67e7-59ae-a07b-f4fe355312aa",
+    "tsukuba-university/science_and_technology/sie/2018/sie_pps_201802_math_II": "efff838b-2b27-5c79-a646-51e232f73402",
+    "tsukuba-university/science_and_technology/sie/2019/sie_pps_201808_math_I": "12572807-d8b6-56da-ba77-60b9f219f192",
+    "tsukuba-university/science_and_technology/sie/2019/sie_pps_201901_math_I": "8ece66df-7fd0-5f3e-b918-563cfc1c928f",
+    "tsukuba-university/science_and_technology/sie/2019/sie_pps_201901_math_II": "21175705-718a-5977-9689-56ef6ae0e599",
     "tsukuba-university/science_and_technology/sie/2020/sie_pps_201908_math_I": "07d4b131-11d6-5edc-a72f-0123b637dc3f",
     "tsukuba-university/science_and_technology/sie/2020/sie_pps_201908_math_II": "217148cb-f930-5d91-a15c-589d2b05b524",
     "tsukuba-university/science_and_technology/sie/2020/sie_pps_202001_math_I": "7b8bb415-229e-5796-ada5-45811fd66cc4",
@@ -293,6 +298,11 @@
   "aliases": {
     "kyoto-university/informatics/amp/2013/2013-8": "9c71d92e-e753-527a-8702-ebe406fd7638",
     "kyoto-university/science/math/2023/math_202208_kiso_1_3": "57b4ece5-f570-52db-83bf-cb0e5c14b035",
-    "kyoto-university/science/math/2024/math_202308_kiso_1_4": "4e04d761-631a-587e-a93e-37c222f9fc00"
+    "kyoto-university/science/math/2024/math_202308_kiso_1_4": "4e04d761-631a-587e-a93e-37c222f9fc00",
+    "tsukuba-university/science_and_technology/sie/2018/pps_201802_tiku_0653": "7b644388-67e7-59ae-a07b-f4fe355312aa",
+    "tsukuba-university/science_and_technology/sie/2018/pps_201802_tiku_0654": "efff838b-2b27-5c79-a646-51e232f73402",
+    "tsukuba-university/science_and_technology/sie/2019/pps_201808_tiku_0649": "12572807-d8b6-56da-ba77-60b9f219f192",
+    "tsukuba-university/science_and_technology/sie/2019/pps_201901_tiku_0647": "8ece66df-7fd0-5f3e-b918-563cfc1c928f",
+    "tsukuba-university/science_and_technology/sie/2019/pps_201901_tiku_0648": "21175705-718a-5977-9689-56ef6ae0e599"
   }
 }

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 基礎科目 問題2"
+sidebar_label: "2023年度入試 基礎科目 問題2"
 tags:
   - Nagasaki-University
   - Mathematics.Linear-Algebra.Matrix-Determinant
   - Mathematics.Linear-Algebra.Matrix-Inverse
 ---
 
-# 長崎大学 工学研究科 総合工学専攻 情報工学コース・海洋未来科学コース 2023年度 基礎科目 問題2
+# 長崎大学 工学研究科 総合工学専攻 情報工学コース・海洋未来科学コース 2023年度入試 基礎科目 問題2
 
 ## **Author**
 

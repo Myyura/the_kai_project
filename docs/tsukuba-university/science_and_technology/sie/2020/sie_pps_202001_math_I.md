@@ -1,11 +1,11 @@
 ---
-sidebar_label: "社会工学学位プログラム 2020年1月実施 数学 I"
+sidebar_label: "2020年1月実施 社会工学学位プログラム 数学 I"
 tags:
   - Tsukuba-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Basis-and-Dimension
 ---
-# 筑波大学 システム情報工学研究群 社会工学学位プログラム・サービス工学学位プログラム 共通 2020年1月実施 数学 I
+# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム・サービス工学学位プログラム 共通 2020年1月実施 数学 I
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

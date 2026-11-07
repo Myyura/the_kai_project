@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2022年8月実施 线性代数"
+sidebar_label: "2022年8月実施 線形代数（部分空間と直交変換）"
 tags:
   - Meiji-University
   - Mathematics.Linear-Algebra.Orthogonal-Matrix
   - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
   - Mathematics.Linear-Algebra.Basis-and-Dimension
 ---
-# 明治大学 先端数理科学研究科 現象数理学専攻 2022年8月実施 线性代数
+# 明治大学 先端数理科学研究科 現象数理学専攻 2022年8月実施 線形代数（部分空間と直交変換）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

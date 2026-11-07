@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2021年度 サンプル問題 1"
+sidebar_label: "2021年度 サンプル問題1"
 tags:
   - Tokyo-University
   - Mathematics.Vector-Calculus.Tangent-Plane
@@ -8,7 +8,7 @@ tags:
   - Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation
 ---
 
-# 東京大学 新領域創成科学研究科 複雑理工学専攻 2021年度 サンプル問題 1
+# 東京大学 新領域創成科学研究科 複雑理工学専攻 2021年度 サンプル問題1
 
 ## **Author**
 

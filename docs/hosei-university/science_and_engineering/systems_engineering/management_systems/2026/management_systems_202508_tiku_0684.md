@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2025年8月実施 概率统计"
+sidebar_label: "2025年8月実施 確率統計（指示変数と条件付き確率）"
 tags:
   - Hosei-University
   - Probability-Statistics.Probability-Basics.Conditional-Probability
@@ -7,7 +7,7 @@ tags:
   - Probability-Statistics.Probability-Basics.Covariance
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2025年8月実施 概率统计
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2025年8月実施 確率統計（指示変数と条件付き確率）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2023年度 計量経済学 [1]"
+sidebar_label: "2023年度入試 計量経済学 [1]"
 tags:
   - Osaka-Metropolitan-University
   - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Method
 ---
 
-# 大阪公立大学 経済学研究科 2023年度 計量経済学 [1]
+# 大阪公立大学 経済学研究科 2023年度入試 計量経済学 [1]
 
 ## **Author**
 

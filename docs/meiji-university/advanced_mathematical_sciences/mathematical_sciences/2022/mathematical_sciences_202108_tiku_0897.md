@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2021年8月実施 微积分"
+sidebar_label: "2021年8月実施 微分積分（変数変換とヤコビアン）"
 tags:
   - Meiji-University
   - Mathematics.Calculus.Change-of-Variables-and-Jacobian
   - Mathematics.Calculus.Double-Integral
   - Mathematics.Calculus.Integration
 ---
-# 明治大学 先端数理科学研究科 現象数理学専攻 2021年8月実施 微积分
+# 明治大学 先端数理科学研究科 現象数理学専攻 2021年8月実施 微分積分（変数変換とヤコビアン）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

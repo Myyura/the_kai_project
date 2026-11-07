@@ -1,12 +1,12 @@
 ---
-sidebar_label: '機械工学第1部 2017年8月実施 問題 2 III'
+sidebar_label: "2017年8月実施 機械工学第1部 問題2 III"
 tags:
   - Tokyo-University
   - Engineering.Fluid-Mechanics.Cylindrical-Couette-Flow
   - Engineering.Fluid-Mechanics.Navier-Stokes-Equations
 ---
 
-# 東京大学 工学系研究科 機械工学専攻 機械工学第1部 2017年8月実施 問題 2 設問 III
+# 東京大学 工学系研究科 機械工学専攻 2017年8月実施 機械工学第1部 問題2 設問III
 
 ## **Author**
 祭音Myyura (Based on [SN's answer](https://bloodystream.hatenadiary.jp/entry/2021/05/01/080000) refined with GPT 6 Astra)

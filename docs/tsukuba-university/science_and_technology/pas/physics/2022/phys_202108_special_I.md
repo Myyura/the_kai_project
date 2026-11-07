@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2021年8月実施 専門科目I"
+sidebar_label: "2021年8月実施 専門科目 I"
 tags:
   - Tsukuba-University
   - Mathematics.Linear-Algebra.Matrix-Determinant
@@ -12,7 +12,7 @@ tags:
   - Mathematics.Calculus.Gaussian-Integral
 ---
 
-# 筑波大学 理工情報生命学術院 数理物質科学研究群 物理学学位プログラム 2021年8月実施 専門科目I
+# 筑波大学 理工情報生命学術院 数理物質科学研究群 物理学学位プログラム 2021年8月実施 専門科目 I
 
 ## **Author**
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年8月実施 微积分"
+sidebar_label: "2020年8月実施 微分積分（指数関数の極値）"
 tags:
   - Hosei-University
   - Mathematics.Calculus.Multivariable-Differentiation
   - Mathematics.Calculus.Local-Extrema
   - Mathematics.Calculus.Differentiation
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2020年8月実施 微积分
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2020年8月実施 微分積分（指数関数の極値）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

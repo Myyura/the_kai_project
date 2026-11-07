@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2022年8月実施 専門科目1 問1 (線形代数・ベクトル解析)"
+sidebar_label: "2022年8月実施 専門科目1 問1（線形代数・ベクトル解析）"
 tags:
   - Hokkaido-University
   - Mathematics.Linear-Algebra.Quadratic-Form
@@ -9,7 +9,7 @@ tags:
   - Mathematics.Vector-Calculus.Divergence-Theorem
   - Mathematics.Vector-Calculus.Surface-Integral
 ---
-# 北海道大学 情報科学院 情報科学専攻 生体情報工学コース 2022年8月実施 専門科目1 問1 (線形代数・ベクトル解析)
+# 北海道大学 情報科学院 情報科学専攻 生体情報工学コース 2022年8月実施 専門科目1 問1（線形代数・ベクトル解析）
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura

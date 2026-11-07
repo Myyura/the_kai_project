@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2025年8月実施 概率统计"
+sidebar_label: "2025年8月実施 確率統計（累積分布と条件付き確率）"
 tags:
   - Hosei-University
   - Probability-Statistics.Probability-Basics.Conditional-Probability
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2025年8月実施 概率统计
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2025年8月実施 確率統計（累積分布と条件付き確率）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

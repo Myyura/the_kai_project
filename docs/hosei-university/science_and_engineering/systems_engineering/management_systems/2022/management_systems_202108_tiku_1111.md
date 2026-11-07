@@ -1,10 +1,10 @@
 ---
-sidebar_label: "2021年8月実施 概率统计"
+sidebar_label: "2021年8月実施 確率統計（単回帰と不偏推定）"
 tags:
   - Hosei-University
   - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Simple-Linear-Regression
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2021年8月実施 概率统计
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2021年8月実施 確率統計（単回帰と不偏推定）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

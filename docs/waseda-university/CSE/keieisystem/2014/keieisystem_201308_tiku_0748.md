@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2013年8月実施 线性代数"
+sidebar_label: "2013年8月実施 線形代数（パラメータ行列の階数）"
 tags:
   - Waseda-University
   - Mathematics.Linear-Algebra.Matrix-Determinant
   - Mathematics.Linear-Algebra.Matrix-Rank
 ---
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2013年8月実施 线性代数
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2013年8月実施 線形代数（パラメータ行列の階数）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

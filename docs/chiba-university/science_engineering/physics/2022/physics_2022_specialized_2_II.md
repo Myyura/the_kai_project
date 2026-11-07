@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2022年度 専門科目（2）II"
+sidebar_label: "2022年度入試 専門科目（2）II"
 tags:
   - Chiba-University
   - Physics.Thermodynamics.Canonical-Partition-Function
   - Physics.Thermodynamics.Heat-Capacity-and-Degrees-of-Freedom
 ---
 
-# 千葉大学 融合理工学府 先進理化学専攻 物理学コース 2022年度 専門科目（2）II
+# 千葉大学 融合理工学府 先進理化学専攻 物理学コース 2022年度入試 専門科目（2）II
 
 ## **Author**
 

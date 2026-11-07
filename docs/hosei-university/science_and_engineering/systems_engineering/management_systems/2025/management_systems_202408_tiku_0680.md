@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2024年8月実施 概率统计"
+sidebar_label: "2024年8月実施 確率統計（最尤推定と不偏性）"
 tags:
   - Hosei-University
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2024年8月実施 概率统计
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2024年8月実施 確率統計（最尤推定と不偏性）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

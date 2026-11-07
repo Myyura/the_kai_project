@@ -1,5 +1,5 @@
 ---
-sidebar_label: "社会工学学位プログラム 2020年1月実施 数学 II"
+sidebar_label: "2020年1月実施 社会工学学位プログラム 数学 II"
 tags:
   - Tsukuba-University
   - Mathematics.Calculus.Improper-Integral
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Differentiation
   - Mathematics.Calculus.Integration
 ---
-# 筑波大学 システム情報工学研究群 社会工学学位プログラム・サービス工学学位プログラム 共通 2020年1月実施 数学 II
+# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム・サービス工学学位プログラム 共通 2020年1月実施 数学 II
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

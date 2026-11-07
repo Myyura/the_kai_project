@@ -1,5 +1,5 @@
 ---
-sidebar_label: "社会工学学位プログラム 2022年8月実施 数学 II"
+sidebar_label: "2022年8月実施 社会工学学位プログラム 数学 II"
 tags:
   - Tsukuba-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors

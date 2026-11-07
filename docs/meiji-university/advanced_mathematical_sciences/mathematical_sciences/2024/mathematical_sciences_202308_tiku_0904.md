@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2023年8月実施 线性代数"
+sidebar_label: "2023年8月実施 線形代数（ねじれの位置にある直線と外積）"
 tags:
   - Meiji-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
 ---
-# 明治大学 先端数理科学研究科 現象数理学専攻 2023年8月実施 线性代数
+# 明治大学 先端数理科学研究科 現象数理学専攻 2023年8月実施 線形代数（ねじれの位置にある直線と外積）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

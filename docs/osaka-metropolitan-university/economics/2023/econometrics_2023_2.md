@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 計量経済学 [2]"
+sidebar_label: "2023年度入試 計量経済学 [2]"
 tags:
   - Osaka-Metropolitan-University
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Mean-Squared-Error
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Chi-Square-Distribution
 ---
 
-# 大阪公立大学 経済学研究科 2023年度 計量経済学 [2]
+# 大阪公立大学 経済学研究科 2023年度入試 計量経済学 [2]
 
 ## **Author**
 

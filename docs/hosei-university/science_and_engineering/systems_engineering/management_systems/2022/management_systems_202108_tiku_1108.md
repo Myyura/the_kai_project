@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2021年8月実施 线性代数"
+sidebar_label: "2021年8月実施 線形代数（漸化式と収束条件）"
 tags:
   - Hosei-University
   - Mathematics.Calculus.Limit
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2021年8月実施 线性代数
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2021年8月実施 線形代数（漸化式と収束条件）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

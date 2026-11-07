@@ -1,5 +1,5 @@
 ---
-sidebar_label: 2022年8月実施 選択問題 8 応用数学
+sidebar_label: "2022年8月実施 選択問題8 応用数学"
 tags:
   - University-of-Electro-Communications
   - Mathematics.Complex-Analysis.Harmonic-Functions-and-Harmonic-Conjugates
@@ -9,7 +9,7 @@ tags:
   - Mathematics.Vector-Calculus.Line-Integral
   - Mathematics.Fourier-Analysis.Fourier-Transform
 ---
-# 電気通信大学 情報理工学研究科 機械知能システム学専攻 2022年8月実施 選択問題 8 応用数学
+# 電気通信大学 情報理工学研究科 機械知能システム学専攻 2022年8月実施 選択問題8 応用数学
 
 ## **Author**
 

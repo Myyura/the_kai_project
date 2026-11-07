@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 基礎科目 問題4"
+sidebar_label: "2023年度入試 基礎科目 問題4"
 tags:
   - Nagasaki-University
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
 ---
 
-# 長崎大学 工学研究科 総合工学専攻 情報工学コース・海洋未来科学コース 2023年度 基礎科目 問題4
+# 長崎大学 工学研究科 総合工学専攻 情報工学コース・海洋未来科学コース 2023年度入試 基礎科目 問題4
 
 ## **Author**
 

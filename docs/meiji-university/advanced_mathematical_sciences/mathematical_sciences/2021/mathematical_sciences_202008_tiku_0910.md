@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2020年8月実施 线性代数"
+sidebar_label: "2020年8月実施 線形代数（行列級数の収束）"
 tags:
   - Meiji-University
   - Mathematics.Calculus.Limit
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Matrix-Inverse
 ---
-# 明治大学 先端数理科学研究科 現象数理学専攻 2020年8月実施 线性代数
+# 明治大学 先端数理科学研究科 現象数理学専攻 2020年8月実施 線形代数（行列級数の収束）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "情報理工学位プログラム 問題例 解析学"
+sidebar_label: "問題例 情報理工学位プログラム 解析学"
 tags:
   - Tsukuba-University
   - Mathematics.Calculus.Taylor-Series

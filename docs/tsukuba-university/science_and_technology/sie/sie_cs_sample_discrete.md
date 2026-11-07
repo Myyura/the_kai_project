@@ -1,5 +1,5 @@
 ---
-sidebar_label: "情報理工学位プログラム 問題例 離散数学と論理"
+sidebar_label: "問題例 情報理工学位プログラム 離散数学と論理"
 tags:
   - Tsukuba-University
   - Discrete-Mathematics.Set-Theory.Equivalence-Relation

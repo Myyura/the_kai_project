@@ -1,5 +1,5 @@
 ---
-sidebar_label: "京都大学 情報学研究科 システム科学専攻 2026年8月実施 数学【II】"
+sidebar_label: "2026年8月実施 数学【II】"
 tags:
   - Kyoto-University
   - Mathematics.Calculus.Definite-Integral

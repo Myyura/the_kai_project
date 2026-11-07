@@ -1,10 +1,10 @@
 ---
-sidebar_label: "2013年8月実施 概率统计"
+sidebar_label: "2013年8月実施 確率統計（正規分布の分位点）"
 tags:
   - Waseda-University
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Distribution
 ---
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2013年8月実施 概率统计
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2013年8月実施 確率統計（正規分布の分位点）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

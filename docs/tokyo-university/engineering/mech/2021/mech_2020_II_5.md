@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2021年度 問題 5（材料力学）"
+sidebar_label: "2021年度入試 問題5（材料力学）"
 tags:
   - Tokyo-University
   - Engineering.Mechanics-of-Materials.Axial-Deformation
@@ -7,7 +7,7 @@ tags:
   - Engineering.Mechanics-of-Materials.Thermal-Deformation-Compatibility
 ---
 
-# 東京大学 工学系研究科 機械工学専攻 2021年度 機械工学（材料力学） 問題 5
+# 東京大学 工学系研究科 機械工学専攻 2021年度入試 機械工学（材料力学） 問題5
 
 ## **Author**
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年度 基礎科目 問題1"
+sidebar_label: "2023年度入試 基礎科目 問題1"
 tags:
   - Nagasaki-University
   - Mathematics.Calculus.Differentiation
   - Mathematics.Calculus.Taylor-Series
 ---
 
-# 長崎大学 工学研究科 総合工学専攻 情報工学コース・海洋未来科学コース 2023年度 基礎科目 問題1
+# 長崎大学 工学研究科 総合工学専攻 情報工学コース・海洋未来科学コース 2023年度入試 基礎科目 問題1
 
 ## **Author**
 

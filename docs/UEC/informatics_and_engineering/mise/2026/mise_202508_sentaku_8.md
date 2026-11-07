@@ -1,5 +1,5 @@
 ---
-sidebar_label: 2025年8月実施 選択問題 8 応用数学
+sidebar_label: "2025年8月実施 選択問題8 応用数学"
 tags:
   - University-of-Electro-Communications
   - Mathematics.Complex-Analysis.Cauchy-Riemann-Equations
@@ -8,7 +8,7 @@ tags:
   - Mathematics.Complex-Analysis.Residue-Theorem
   - Mathematics.Calculus.Definite-Integral
 ---
-# 電気通信大学 情報理工学研究科 機械知能システム学専攻 2025年8月実施 選択問題 8 応用数学
+# 電気通信大学 情報理工学研究科 機械知能システム学専攻 2025年8月実施 選択問題8 応用数学
 
 ## **Author**
 祭音Myyura (co-authored with GPT 5.6 SOL)

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2015年8月実施 微积分"
+sidebar_label: "2015年8月実施 微分積分（指数関数の部分積分）"
 tags:
   - Waseda-University
   - Mathematics.Calculus.Definite-Integral
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Integration-by-Parts
   - Mathematics.Calculus.Integration
 ---
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2015年8月実施 微积分
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2015年8月実施 微分積分（指数関数の部分積分）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

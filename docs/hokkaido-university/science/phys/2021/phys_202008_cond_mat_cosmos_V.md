@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2020年8月実施 問題 V"
+sidebar_label: "2020年8月実施 問題V"
 sidebar_position: 1
 tags:
   - Hokkaido-University

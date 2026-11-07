@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2023年8月実施 微积分"
+sidebar_label: "2023年8月実施 微分積分（積分順序交換）"
 tags:
   - Hosei-University
   - Mathematics.Calculus.Double-Integral
   - Mathematics.Calculus.Integration
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2023年8月実施 微积分
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2023年8月実施 微分積分（積分順序交換）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

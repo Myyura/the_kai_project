@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年2月実施 微分積分"
+sidebar_label: "2018年2月実施 社会工学学位プログラム 数学 II（微分積分）"
 tags:
   - Tsukuba-University
   - Mathematics.Calculus.Extrema
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Differentiation
   - Mathematics.Calculus.Integration
 ---
-# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム 2018年2月実施 微分積分
+# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム 2018年2月実施 数学 II（微分積分）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

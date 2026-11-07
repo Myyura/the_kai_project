@@ -1,5 +1,5 @@
 ---
-sidebar_label: "京都大学 情報学研究科 システム科学専攻 2026年8月実施 複素関数論"
+sidebar_label: "2026年8月実施 複素関数論"
 tags:
   - Kyoto-University
   - Mathematics.Complex-Analysis.Laurent-Series

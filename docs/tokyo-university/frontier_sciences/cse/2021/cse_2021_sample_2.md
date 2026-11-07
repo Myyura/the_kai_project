@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2021年度 サンプル問題 2"
+sidebar_label: "2021年度 サンプル問題2"
 tags:
   - Tokyo-University
   - Mathematics.Linear-Algebra.Least-Squares-and-Minimum-Norm-Solutions
@@ -8,7 +8,7 @@ tags:
   - Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation
 ---
 
-# 東京大学 新領域創成科学研究科 複雑理工学専攻 2021年度 サンプル問題 2
+# 東京大学 新領域創成科学研究科 複雑理工学専攻 2021年度 サンプル問題2
 
 ## **Author**
 

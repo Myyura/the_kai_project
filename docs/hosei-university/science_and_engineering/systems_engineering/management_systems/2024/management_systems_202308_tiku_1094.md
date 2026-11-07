@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2023年8月実施 线性代数"
+sidebar_label: "2023年8月実施 線形代数（不変部分空間と数列の極限）"
 tags:
   - Hosei-University
   - Mathematics.Calculus.Limit
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Matrix-Power
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2023年8月実施 线性代数
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2023年8月実施 線形代数（不変部分空間と数列の極限）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

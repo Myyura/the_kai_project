@@ -1,5 +1,5 @@
 ---
-sidebar_label: "情報理工学位プログラム 問題例 プログラミング基礎"
+sidebar_label: "問題例 情報理工学位プログラム プログラミング基礎"
 tags:
   - Tsukuba-University
   - Computer-Science.Algorithm-Design.Selection-Sort

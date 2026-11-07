@@ -1,5 +1,5 @@
 ---
-sidebar_label: "情報理工学位プログラム 問題例 線形代数"
+sidebar_label: "問題例 情報理工学位プログラム 線形代数"
 tags:
   - Tsukuba-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors

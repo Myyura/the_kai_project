@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2024年8月実施 概率统计"
+sidebar_label: "2024年8月実施 確率統計（不偏推定量の最適結合）"
 tags:
   - Hosei-University
   - Probability-Statistics.Probability-Basics.Independence-of-Random-Variables
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
 ---
-# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2024年8月実施 概率统计
+# 法政大学 理工学研究科 システム理工学専攻 経営システム系 2024年8月実施 確率統計（不偏推定量の最適結合）
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura
