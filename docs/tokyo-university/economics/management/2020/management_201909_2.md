@@ -12,23 +12,23 @@ tags:
 
 ## **Author**
 
-祭音Myyura (Based on user-provided solution notes refined with GPT 6 Astra)
+祭音Myyura (co-authored with GPT 6 Astra)
 
 ## **Description**
 
-**小問1**
+### 小問1
 
 A.D.Chandler. Jrが提唱した「組織は戦略に従う(Structure follows strategy)」という命題について、その意味を説明せよ。
 
-**小問2**
+### 小問2
 
 企業が自らの製品に使用する部品・材料を、市場取引で仕入れるのではなく、自社生産することがあるのはなぜか、説明せよ。ただし説明に際しては、「取引コスト(transaction cost)」という言葉を、その意味を説明したうえで、必ず一度は用いよ。
 
-**小問3**
+### 小問3
 
 外部環境(技術、競合他社、市場など)の変化が激しい業界に置かれた企業がその業界で生き残るためには、どのようなマネジメントを行うべきか。経営学の概念・理論・フレームワークを用いて、説明せよ。
 
-**小問4**
+### 小問4
 
 高い技術力を競争優位の源泉として、先進国市場で高いシェアを持っていた先進国企業が、新興国(先進国よりも経済発展段階で劣り、一人当たり国民所得も少ない国)の市場で現地の新興国企業に対して競争劣位におかれることがあるのはなぜか。経営学の概念・理論・フレームワークを用いて説明せよ。
 
@@ -103,8 +103,6 @@ $$
 
 ## **Reference**
 
-- 問題文：提供された「設問2・小問1～4」の題面画像。
-- 解答の構成：提供された小問1～4の解説メモ。
 - [東京大学経済学研究科・平成30年度第6回教育会議抄録（第2頁：2020年度入学試験の実施年月）](https://www.e.u-tokyo.ac.jp/kenkyuka/p/H30/s1017.pdf#page=2)
 - [Chandler, A. D., Jr. (1962), Strategy and Structure（MIT Press）](https://mitpress.mit.edu/9780262530095/strategy-and-structure/)
 - [Heracleous, L. (2003), Strategy and Organization, Chapter 1（著者公開版、pp. 4–5）](https://www.heracleous.org/uploads/1/1/2/9/11299865/chapter_1.pdf#page=2)
