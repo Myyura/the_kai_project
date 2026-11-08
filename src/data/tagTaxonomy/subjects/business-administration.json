@@ -83,6 +83,51 @@
     "Business-Administration.Management-Science"
   ],
   "topics": {
+    "Business-Administration.Organization.Structure-Follows-Strategy": {
+      "subsubject": "Business-Administration.Organization",
+      "labelZh": "组织追随战略",
+      "labelJa": "組織は戦略に従う",
+      "labelEn": "Structure Follows Strategy",
+      "searchAliases": {
+        "zh": ["钱德勒", "组织结构追随战略"],
+        "ja": ["チャンドラー"],
+        "en": ["Chandler", "Strategy and Structure"]
+      }
+    },
+    "Business-Administration.Organization.Transaction-Cost-Economics": {
+      "subsubject": "Business-Administration.Organization",
+      "relatedSubjects": ["Economics"],
+      "labelZh": "交易成本经济学",
+      "labelJa": "取引費用の経済学",
+      "labelEn": "Transaction Cost Economics",
+      "searchAliases": {
+        "zh": ["交易费用理论", "交易成本理论"],
+        "ja": ["取引コスト理論", "取引費用理論"],
+        "en": ["Coase", "Williamson", "TCE"]
+      }
+    },
+    "Business-Administration.Strategy.Local-Responsiveness": {
+      "subsubject": "Business-Administration.Strategy",
+      "labelZh": "本地适应",
+      "labelJa": "現地適応",
+      "labelEn": "Local Responsiveness",
+      "searchAliases": {
+        "zh": ["当地适应", "本土适应"],
+        "ja": ["ローカル適応", "現地適応化"],
+        "en": ["Local Adaptation"]
+      }
+    },
+    "Business-Administration.Human-Resource-Management.High-Commitment-HRM": {
+      "subsubject": "Business-Administration.Human-Resource-Management",
+      "labelZh": "高承诺人力资源管理",
+      "labelJa": "ハイ・コミットメント型人的資源管理",
+      "labelEn": "High-Commitment HRM",
+      "searchAliases": {
+        "zh": ["控制模式与承诺模式", "承诺型人力资源管理"],
+        "ja": ["コントロール・モデル", "コミットメント・モデル"],
+        "en": ["Walton", "Control and Commitment Models"]
+      }
+    },
     "Business-Administration.Strategy.Positioning-Approach": {
       "subsubject": "Business-Administration.Strategy",
       "labelZh": "战略定位理论",

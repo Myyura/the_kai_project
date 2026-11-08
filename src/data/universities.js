@@ -319,6 +319,21 @@ const universities = [
         "websiteUrl": "https://www.iii.u-tokyo.ac.jp/admissions"
       },
       {
+        "id": "economics",
+        "name": "経済学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/tokyo-university-economics",
+        "programs": [
+          {
+            "id": "management",
+            "name": "マネジメント専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/tokyo-university-economics-management"
+          }
+        ],
+        "websiteUrl": "https://www.student.e.u-tokyo.ac.jp/grad/m-nyushi.html"
+      },
+      {
         "id": "mathematical_sciences",
         "name": "数理科学研究科",
         "aliases": [],

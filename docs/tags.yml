@@ -676,6 +676,10 @@
   label: "Business-Administration.Human-Resource-Management.Goal-Setting-Theory"
   permalink: "/topic/business-administration/human-resource-management/goal-setting-theory"
   description: "Business-Administration / Human-Resource-Management / Goal-Setting-Theory"
+"Business-Administration.Human-Resource-Management.High-Commitment-HRM":
+  label: "Business-Administration.Human-Resource-Management.High-Commitment-HRM"
+  permalink: "/topic/business-administration/human-resource-management/high-commitment-hrm"
+  description: "Business-Administration / Human-Resource-Management / High-Commitment-HRM"
 "Business-Administration.Human-Resource-Management.Nursing-Workforce":
   label: "Business-Administration.Human-Resource-Management.Nursing-Workforce"
   permalink: "/topic/business-administration/human-resource-management/nursing-workforce"
@@ -704,10 +708,22 @@
   label: "Business-Administration.Organization.Lewin-Change-Model"
   permalink: "/topic/business-administration/organization/lewin-change-model"
   description: "Business-Administration / Organization / Lewin-Change-Model"
+"Business-Administration.Organization.Structure-Follows-Strategy":
+  label: "Business-Administration.Organization.Structure-Follows-Strategy"
+  permalink: "/topic/business-administration/organization/structure-follows-strategy"
+  description: "Business-Administration / Organization / Structure-Follows-Strategy"
+"Business-Administration.Organization.Transaction-Cost-Economics":
+  label: "Business-Administration.Organization.Transaction-Cost-Economics"
+  permalink: "/topic/business-administration/organization/transaction-cost-economics"
+  description: "Business-Administration / Organization / Transaction-Cost-Economics"
 "Business-Administration.Strategy.Dynamic-Capabilities":
   label: "Business-Administration.Strategy.Dynamic-Capabilities"
   permalink: "/topic/business-administration/strategy/dynamic-capabilities"
   description: "Business-Administration / Strategy / Dynamic-Capabilities"
+"Business-Administration.Strategy.Local-Responsiveness":
+  label: "Business-Administration.Strategy.Local-Responsiveness"
+  permalink: "/topic/business-administration/strategy/local-responsiveness"
+  description: "Business-Administration / Strategy / Local-Responsiveness"
 "Business-Administration.Strategy.Positioning-Approach":
   label: "Business-Administration.Strategy.Positioning-Approach"
   permalink: "/topic/business-administration/strategy/positioning-approach"
