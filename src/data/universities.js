@@ -2555,6 +2555,21 @@ const universities = [
           }
         ],
         "websiteUrl": "https://www.chuo-u.ac.jp/admission/gschool/exam/science/"
+      },
+      {
+        "id": "economics",
+        "name": "経済学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/chuo-university-economics",
+        "programs": [
+          {
+            "id": "economics",
+            "name": "経済学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/chuo-university-economics-economics"
+          }
+        ],
+        "websiteUrl": "https://www.chuo-u.ac.jp/admission/gschool/exam/literature/literature05/"
       }
     ]
   },
