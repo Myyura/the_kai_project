@@ -83,6 +83,39 @@
     "Business-Administration.Management-Science"
   ],
   "topics": {
+    "Business-Administration.Marketing.Pricing-Strategies": {
+      "subsubject": "Business-Administration.Marketing",
+      "labelZh": "定价策略",
+      "labelJa": "価格戦略",
+      "labelEn": "Pricing Strategies",
+      "searchAliases": {
+        "zh": ["定价方法", "成本加成定价", "价值定价", "竞争导向定价", "薄利多销"],
+        "ja": ["価格設定", "コストプラス法", "顧客価値ベースの価格設定", "競争ベースの価格設定", "薄利多売"],
+        "en": ["Pricing Methods", "Cost-Plus Pricing", "Value-Based Pricing", "Competition-Based Pricing", "Economy Pricing"]
+      }
+    },
+    "Business-Administration.Marketing.Brand-Equity": {
+      "subsubject": "Business-Administration.Marketing",
+      "labelZh": "品牌资产",
+      "labelJa": "ブランド・エクイティ",
+      "labelEn": "Brand Equity",
+      "searchAliases": {
+        "zh": ["品牌价值"],
+        "ja": ["ブランド価値", "ブランド資産"],
+        "en": ["Customer-Based Brand Equity"]
+      }
+    },
+    "Business-Administration.Marketing.Reference-Price": {
+      "subsubject": "Business-Administration.Marketing",
+      "labelZh": "参考价格",
+      "labelJa": "参照価格",
+      "labelEn": "Reference Price",
+      "searchAliases": {
+        "zh": ["参照价格", "内部参考价格"],
+        "ja": ["内的参照価格"],
+        "en": ["Internal Reference Price"]
+      }
+    },
     "Business-Administration.Organization.Structure-Follows-Strategy": {
       "subsubject": "Business-Administration.Organization",
       "labelZh": "组织追随战略",

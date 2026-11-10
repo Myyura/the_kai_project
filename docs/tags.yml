@@ -696,6 +696,18 @@
   label: "Business-Administration.Management-Science.Toyota-Production-System"
   permalink: "/topic/business-administration/management-science/toyota-production-system"
   description: "Business-Administration / Management-Science / Toyota-Production-System"
+"Business-Administration.Marketing.Brand-Equity":
+  label: "Business-Administration.Marketing.Brand-Equity"
+  permalink: "/topic/business-administration/marketing/brand-equity"
+  description: "Business-Administration / Marketing / Brand-Equity"
+"Business-Administration.Marketing.Pricing-Strategies":
+  label: "Business-Administration.Marketing.Pricing-Strategies"
+  permalink: "/topic/business-administration/marketing/pricing-strategies"
+  description: "Business-Administration / Marketing / Pricing-Strategies"
+"Business-Administration.Marketing.Reference-Price":
+  label: "Business-Administration.Marketing.Reference-Price"
+  permalink: "/topic/business-administration/marketing/reference-price"
+  description: "Business-Administration / Marketing / Reference-Price"
 "Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management":
   label: "Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management"
   permalink: "/topic/business-administration/marketing/tourism-marketing-and-destination-management"
