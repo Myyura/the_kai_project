@@ -78,15 +78,15 @@ test('source paths retain docs whose Docusaurus IDs lose a numeric prefix', () =
   const topic = 'Mathematics.Calculus.Taylor-Series';
   const loadedDocument = {
     ...doc('kyoto-university/management/2023/math_1', []),
-    source: '@site/docs/kyoto-university/management/2023/202208_math_1.md',
+    source: '@site/docs/kyoto-university/management/2023/202211_math_1.md',
   };
   const apiDocument = {
-    ...apiDoc('kyoto-university/management/2023/202208_math_1', {
+    ...apiDoc('kyoto-university/management/2023/202211_math_1', {
       subsubjects: [parent],
       topics: [topic],
       learningTags: [{kind: 'topic', id: topic}],
     }),
-    source_path: 'docs/kyoto-university/management/2023/202208_math_1.md',
+    source_path: 'docs/kyoto-university/management/2023/202211_math_1.md',
   };
 
   const [page] = buildVersionParentPages({
