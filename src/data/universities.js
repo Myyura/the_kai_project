@@ -1471,13 +1471,15 @@ const universities = [
         "id": "IGSES",
         "name": "総合理工学府",
         "aliases": [],
+        "archiveUrl": "/docs/category/kyushu-university-IGSES",
         "programs": [
           {
             "id": "iges",
             "name": "総合理工学専攻",
             "aliases": [
               "综合理工"
-            ]
+            ],
+            "archiveUrl": "/docs/category/kyushu-university-IGSES-iges"
           }
         ],
         "websiteUrl": "https://www.tj.kyushu-u.ac.jp/exam/master/"

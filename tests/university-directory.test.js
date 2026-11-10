@@ -33,7 +33,7 @@ test('every displayed university has graduate-school links without adding experi
   for (const university of examUniversities(universities)) {
     assert.ok(university.departments.length, `${university.id} has an empty card`);
   }
-  for (const scope of ['kyushu-university/IGSES', 'waseda-university/IPS', 'naist/science_and_technology']) {
+  for (const scope of ['waseda-university/IPS', 'naist/science_and_technology']) {
     const [schoolId, departmentId] = scope.split('/');
     assert.equal(universities.find(({id}) => id === schoolId).departments
       .find(({id}) => id === departmentId).archiveUrl, undefined);

@@ -2,5 +2,10 @@
   "label": "総合理工学府",
   "customProps": {
     "aliases": []
-  }
+  },
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/kyushu-university-IGSES"
+  },
+  "key": "kyushu-university-IGSES"
 }
