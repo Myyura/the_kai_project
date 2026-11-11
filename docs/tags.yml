@@ -2728,6 +2728,18 @@
   label: "Economics.Microeconomics.Gender-and-Labor-Economics"
   permalink: "/topic/economics/microeconomics/gender-and-labor-economics"
   description: "Economics / Microeconomics / Gender-and-Labor-Economics"
+"Economics.Microeconomics.Production-Function":
+  label: "Economics.Microeconomics.Production-Function"
+  permalink: "/topic/economics/microeconomics/production-function"
+  description: "Economics / Microeconomics / Production-Function"
+"Economics.Microeconomics.Profit-Maximization":
+  label: "Economics.Microeconomics.Profit-Maximization"
+  permalink: "/topic/economics/microeconomics/profit-maximization"
+  description: "Economics / Microeconomics / Profit-Maximization"
+"Economics.Microeconomics.Supply-Curve":
+  label: "Economics.Microeconomics.Supply-Curve"
+  permalink: "/topic/economics/microeconomics/supply-curve"
+  description: "Economics / Microeconomics / Supply-Curve"
 "Economics.Public-Finance.Health-Economics-and-Nursing-Services":
   label: "Economics.Public-Finance.Health-Economics-and-Nursing-Services"
   permalink: "/topic/economics/public-finance/health-economics-and-nursing-services"
@@ -4928,6 +4940,10 @@
   label: "Operations-Research.Convex-Optimization.Arithmetic-Mean-Geometric-Mean-Inequality-via-Optimization"
   permalink: "/topic/operations-research/convex-optimization/arithmetic-mean-geometric-mean-inequality-via-optimization"
   description: "Operations-Research / Convex-Optimization / Arithmetic-Mean-Geometric-Mean-Inequality-via-Optimization"
+"Operations-Research.Convex-Optimization.Convex-and-Concave-Functions":
+  label: "Operations-Research.Convex-Optimization.Convex-and-Concave-Functions"
+  permalink: "/topic/operations-research/convex-optimization/convex-and-concave-functions"
+  description: "Operations-Research / Convex-Optimization / Convex-and-Concave-Functions"
 "Operations-Research.Convex-Optimization.Convex-First-Order-Optimality":
   label: "Operations-Research.Convex-Optimization.Convex-First-Order-Optimality"
   permalink: "/topic/operations-research/convex-optimization/convex-first-order-optimality"

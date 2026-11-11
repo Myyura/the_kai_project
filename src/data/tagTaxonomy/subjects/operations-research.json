@@ -113,6 +113,12 @@
     "Operations-Research.Decision-Analysis"
   ],
   "topics": {
+    "Operations-Research.Convex-Optimization.Convex-and-Concave-Functions": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "labelZh": "凸函数与凹函数",
+      "labelJa": "凸関数・凹関数",
+      "labelEn": "Convex and Concave Functions"
+    },
     "Operations-Research.Decision-Analysis.Conditional-Value-at-Risk-and-Coherent-Risk-Measure": {
       "subsubject": "Operations-Research.Decision-Analysis",
       "relatedSubjects": [

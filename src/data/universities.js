@@ -1022,6 +1022,13 @@ const universities = [
           }
         ],
         "websiteUrl": "https://www.sci.nagoya-u.ac.jp/graduate/index.html"
+      },
+      {
+        "id": "economics",
+        "name": "経済学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/nagoya-university-economics",
+        "websiteUrl": "https://www.soec.nagoya-u.ac.jp/admissions/master/"
       }
     ]
   },

@@ -73,6 +73,24 @@
     "Economics.Economic-History"
   ],
   "topics": {
+    "Economics.Microeconomics.Production-Function": {
+      "subsubject": "Economics.Microeconomics",
+      "labelZh": "生产函数",
+      "labelJa": "生産関数",
+      "labelEn": "Production Function"
+    },
+    "Economics.Microeconomics.Profit-Maximization": {
+      "subsubject": "Economics.Microeconomics",
+      "labelZh": "利润最大化",
+      "labelJa": "利潤最大化",
+      "labelEn": "Profit Maximization"
+    },
+    "Economics.Microeconomics.Supply-Curve": {
+      "subsubject": "Economics.Microeconomics",
+      "labelZh": "供给曲线",
+      "labelJa": "供給曲線",
+      "labelEn": "Supply Curve"
+    },
     "Economics.Microeconomics.Adverse-Selection-and-Lemons-Market": {
       "subsubject": "Economics.Microeconomics",
       "labelZh": "逆向选择",
