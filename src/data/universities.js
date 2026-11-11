@@ -478,6 +478,13 @@ const universities = [
         "websiteUrl": "https://sci.kyoto-u.ac.jp/ja/admissions/ms"
       },
       {
+        "id": "human_environmental_studies",
+        "name": "人間・環境学研究科",
+        "aliases": [],
+        "archiveUrl": "/docs/category/kyoto-university-human-environmental-studies",
+        "websiteUrl": "https://www.h.kyoto-u.ac.jp/entrance_exam/gr/"
+      },
+      {
         "id": "engineering",
         "name": "工学研究科",
         "aliases": [],

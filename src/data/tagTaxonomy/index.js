@@ -1,5 +1,6 @@
 const config = require('./config.json');
 const schoolTags = require('./schoolTags.json');
+const anthropology = require('./subjects/anthropology.json');
 const bioinformatics = require('./subjects/bioinformatics.json');
 const businessAdministration = require('./subjects/business-administration.json');
 const chemistry = require('./subjects/chemistry.json');
@@ -22,6 +23,7 @@ const psychology = require('./subjects/psychology.json');
 const sociology = require('./subjects/sociology.json');
 
 const subjectFiles = [
+  anthropology,
   bioinformatics,
   businessAdministration,
   chemistry,

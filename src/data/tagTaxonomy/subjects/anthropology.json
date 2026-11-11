@@ -1,0 +1,41 @@
+{
+  "id": "Anthropology",
+  "subject": {
+    "labelZh": "人类学",
+    "labelJa": "人類学",
+    "labelEn": "Anthropology",
+    "descriptionZh": "研究人类的文化、社会关系、生活实践及其多样性与变迁。",
+    "descriptionJa": "人間の文化、社会関係、生活実践と、その多様性や変化を研究する分野。",
+    "descriptionEn": "The study of human cultures, social relations, everyday practices, and their diversity and change."
+  },
+  "subsubjects": {
+    "Anthropology.Cultural-Anthropology": {
+      "subject": "Anthropology",
+      "labelZh": "文化人类学",
+      "labelJa": "文化人類学",
+      "labelEn": "Cultural Anthropology",
+      "descriptionZh": "通过民族志与比较研究考察亲属、交换、宗教、权力及文化实践。",
+      "descriptionJa": "民族誌と比較研究を通じて、親族、交換、宗教、権力、文化実践を考察する。",
+      "descriptionEn": "Ethnographic and comparative approaches to kinship, exchange, religion, power, and cultural practices."
+    }
+  },
+  "subsubjectOrder": [
+    "Anthropology.Cultural-Anthropology"
+  ],
+  "topics": {
+    "Anthropology.Cultural-Anthropology.Polygamy": {
+      "subsubject": "Anthropology.Cultural-Anthropology",
+      "relatedSubjects": [
+        "Sociology"
+      ],
+      "labelZh": "多配偶制",
+      "labelJa": "複婚制",
+      "labelEn": "Polygamy",
+      "searchAliases": {
+        "zh": ["复婚家庭", "复婚制", "一夫多妻制", "一妻多夫制"],
+        "ja": ["複婚家族", "多配偶制", "一夫多妻制", "一妻多夫制"],
+        "en": ["Polygamous Family", "Polygyny", "Polyandry"]
+      }
+    }
+  }
+}

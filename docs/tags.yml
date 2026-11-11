@@ -568,6 +568,10 @@
   label: "Sociology.Culture-and-Media"
   permalink: "/subsubject/sociology/culture-and-media"
   description: "Sociology / Culture-and-Media"
+"Anthropology.Cultural-Anthropology":
+  label: "Anthropology.Cultural-Anthropology"
+  permalink: "/subsubject/anthropology/cultural-anthropology"
+  description: "Anthropology / Cultural-Anthropology"
 "Psychology.Basic-Psychology":
   label: "Psychology.Basic-Psychology"
   permalink: "/subsubject/psychology/basic-psychology"
@@ -624,6 +628,10 @@
   label: "Literature.Literary-Theory"
   permalink: "/subsubject/literature/literary-theory"
   description: "Literature / Literary-Theory"
+"Anthropology.Cultural-Anthropology.Polygamy":
+  label: "Anthropology.Cultural-Anthropology.Polygamy"
+  permalink: "/topic/anthropology/cultural-anthropology/polygamy"
+  description: "Anthropology / Cultural-Anthropology / Polygamy"
 "Bioinformatics.Bioinformatics.Molecular-Phylogenetics":
   label: "Bioinformatics.Bioinformatics.Molecular-Phylogenetics"
   permalink: "/topic/bioinformatics/bioinformatics/molecular-phylogenetics"
